@@ -1,0 +1,293 @@
+---
+title: "Ancona"
+author: "Simon Halliday"
+date: "2015-November -11"
+output: html_document
+---
+
+```{r requirements, messages = FALSE}
+library(tidyr)
+library(dplyr)
+library(readr)
+library(ggplot2)
+```
+
+```{r import Ancona}
+AnconaBase <- read.csv("/Users/shalliday/Google Drive/simondhalliday.github.io/bfh-textbook/indmarketdemand/ancona.csv")
+```
+
+
+```{r Check Ancona}
+head(AnconaBase)
+```
+
+```{r data wrangling}
+Ancona <- 
+  AnconaBase %>%
+  rename(date = dTransDataVendita, productid = iProdID, productdescription = vchClasseProdottoDescrizione, speciesname = vchSpecieDescrizione, quantity = nTransQuantita, unitprice = nTransPrezzoUnitario, saleprice = nTransPrezzoVendita, finalprice = nTransPrezzoFinale, producerid = iProduttoreID, qualityid = iQualitaID, qualitydescription = vchQualitaDescrizione, caseid = nNumCasse)
+```
+
+```{r}
+head(Ancona)
+```
+
+```{r averages by date}
+AnconaAve <- 
+  Ancona %>% 
+  group_by(date) %>%
+  summarise(meanprice = mean(unitprice), meanquantity = mean(quantity), sumquantity = sum(quantity))
+```
+
+```{r}
+head(AnconaAve)
+```
+
+
+```{r plot1}
+AnconaAve %>% 
+  ggplot(aes(x = meanquantity, y = meanprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price") +
+  xlab("Daily quantity (kilograms") +
+  theme_bw()
+```
+
+```{r Plot2}
+AnconaAve %>% 
+  ggplot(aes(x = sumquantity, y = meanprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+```{r}
+pdf(file = "bfh-textbook/indmarketdemand/ancona_plot.pdf", width = 5, height = 4)
+AnconaAve %>% 
+  ggplot(aes(x = sumquantity, y = meanprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw() 
+dev.off()
+```
+
+
+```{r}
+coef(lm(meanprice ~ sumquantity, data = AnconaAve))
+```
+I've rounded up the numbers from the above to 9.2 for the intercept and -0.0006 for the slope. 
+
+```{r}
+pdf(file = "bfh-textbook/indmarketdemand/ancona_plot2.pdf", width = 5, height = 4)
+AnconaAve %>% 
+  ggplot(aes(x = sumquantity, y = meanprice)) +
+  geom_point() +
+  geom_abline(intercept = 9.2, slope = -0.0006, col = "blue", cex = 0.9) +
+  ylab(expression(paste("Daily average price per kilogram (Euros), ", p[x]))) +
+  xlab("Daily quantity (kilograms) of fish, x") +
+  scale_x_continuous(limits = c(0,16000), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0,12), expand = c(0, 0)) +
+  annotate("text", x = 10000, y = 5.5, label = "Marginal Rate of") +
+  annotate("text", x = 10000, y = 5, label = "Substitution, or") +
+  annotate("text", x = 10000, y = 4.5, label = "Demand for x") +
+  annotate("text", x = 530, y = 9.4, label = "r[max]", parse = TRUE) +
+  annotate("text", x = 15300, y = 3, label = "x[max]", parse = TRUE) +
+  geom_segment(aes(x = 15300, y = 2.7, xend = 15300, yend = 0.2), 
+               size = 0.7, arrow = arrow(type = "closed", 
+                                         length = unit(0.25, "cm"), 
+                                         angle = 25)) +
+  theme_bw() 
+dev.off()
+```
+
+
+```{r}
+m1 <- lm(sumquantity ~ meanprice, data = AnconaAve)
+summary(m1)
+m2 <- lm(meanprice ~ sumquantity, data = AnconaAve)
+summary(m2)
+```
+
+
+```{r natural logs}
+AnconaAve2 <- 
+  AnconaAve %>%
+  mutate(lnprice = log(meanprice), lnquantity = log(sumquantity))
+AnconaAve2 %>% 
+  ggplot(aes(x = sumquantity, y = lnprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+AnconaAve2 %>% 
+  ggplot(aes(x = lnquantity, y = meanprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+Now using 'codiceacquirente' - I think that might be buyerid...
+
+
+```{r Buyer 78 v2}
+Ancona78v3 <- 
+  Ancona %>%
+  filter(CodiceAcquirente == 78)
+head(Ancona78v3)
+```
+
+```{r}
+Ancona78v3Aves <- 
+  Ancona78v3 %>%
+  group_by(date) %>%
+  summarise(dailyquantity = sum(quantity), dailyaveprice = mean(unitprice), meanquantity = mean(quantity))
+```
+
+```{r}
+Ancona78v3Aves %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+OK... Wait. Crucially, they say in the text (book, page 15) that the graph is only for those values of kilograms less than 200. 
+
+```{r}
+Ancona78v3Aves %>%
+  filter(dailyquantity < 200) %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+OK. Now export this as a pdf.
+
+
+
+```{r Buyer78 Graph}
+pdf(file = "bfh-textbook/indmarketdemand/ancona_buyer78.pdf", width = 5, height = 4)
+Ancona78v3Aves %>%
+  #filter(dailyquantity < 200) %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw() +
+  theme(panel.grid=element_blank(), panel.border=element_blank())
+dev.off()
+```
+
+
+
+
+
+```{r}
+Ancona78v3Aves %>%
+  filter(dailyquantity < 400) %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+
+
+
+
+
+
+```{r Buyer 78}
+Ancona78 <- 
+  Ancona %>%
+  filter(producerid == 78)
+head(Ancona78)
+```
+
+```{r}
+Ancona78 %>%
+    ggplot(aes(x = quantity, y = unitprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw() + 
+  theme(panel.grid=element_blank(), panel.border=element_blank())
+```
+This doesn't match the graphic they have in the book for buyer 78. I may have filtered on the wrong variable. 
+
+OK. I checked the Gallegati et al paper and it looks like I needed it to be averages (we didn't have this mentioned in our draft). 
+
+```{r Buyer 78 Averages}
+Ancona78Aves <- 
+  Ancona78 %>%
+  group_by(date) %>%
+  summarise(dailyquantity = sum(quantity), dailyaveprice = mean(unitprice), meanquantity = mean(quantity))
+```
+
+```{r}
+Ancona78Aves %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+
+```{r Buyer 78 v2}
+Ancona78v2 <- 
+  Ancona %>%
+  filter(productid == 78)
+head(Ancona78v2)
+```
+
+```{r}
+Ancona78v2Aves <- 
+  Ancona78v2 %>%
+  group_by(date) %>%
+  summarise(dailyquantity = sum(quantity), dailyaveprice = mean(unitprice), meanquantity = mean(quantity))
+```
+
+```{r}
+Ancona78v2Aves %>%
+    ggplot(aes(x = dailyquantity, y = dailyaveprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+
+
+And now attempt a ggplot of this data: 
+```{r}
+Ancona78v2 %>%
+    ggplot(aes(x = quantity, y = unitprice)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
+  ylab("Daily average price per kilogram (Euros)") +
+  xlab("Daily quantity (kilograms)") +
+  theme_bw()
+```
+
+
+
+

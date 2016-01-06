@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "bfh-textbook/constrained_optimization/indiff_map.pdf", width = 8, height = 6)
+pdf(file = "constrained_optimization/indiff_map.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -38,7 +38,7 @@ ylims <- c(0, 10)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(3, 5, 7)
+a <- c(2, 4, 6)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -56,9 +56,9 @@ ticksy <- seq(from = 0, to = ylims[2], by = 1)
 ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksx <- seq(from = 0, to = xlims[2], by = 1)
 xlabels <- seq(from = 0, to = xlims[2], by = 1)
-# ticksy <- c(ylims[1], 5.25, 8, ylims[2])
+# ticksy <- c(ylims[1], 5, 8, ylims[2])
 # ylabels <- c(NA, expression(paste(y,"*")), expression(paste(bar(y))), NA)
-# ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
+# ticksx <- c(xlims[1], 5, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -100,10 +100,10 @@ mtext(expression(paste("Quantity of apples, ", x)), side = 1, line = 2.5, cex = 
 text(-0.8, 5, expression(paste("Quantity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotate max u point on feasibility frontier
-text(5.4, 5.4, expression(paste(i)), cex = labelsize)
-segments(0, 5.25, 5.25, 5.25, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(5.25, 0, 5.25, 5.25, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(5.25, 5.25, pch = 16, col = "black", cex = 1.5)
+text(5.2, 5.2, expression(paste(i)), cex = labelsize)
+segments(0, 5, 5, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(5, 0, 5, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(5, 5, pch = 16, col = "black", cex = 1.5)
 
 #Add mrs = mrt at i
 # text(5.25, 7.25, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
@@ -111,7 +111,7 @@ points(5.25, 5.25, pch = 16, col = "black", cex = 1.5)
 
 #Label the indifference curves
 text(9.5, 1.35, expression(u[1]^A), cex = labelsize)
-text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
-text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
+text(9.5, 3, expression(u[2]^A), cex = labelsize)
+text(9.5, 5.55, expression(u[3]^A), cex = labelsize)
 
 dev.off()

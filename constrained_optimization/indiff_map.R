@@ -99,19 +99,41 @@ contour(x, y,
 mtext(expression(paste("Quantity of apples, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-0.8, 5, expression(paste("Quantity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Annotate max u point on feasibility frontier
-text(5.2, 5.2, expression(paste(i)), cex = labelsize)
-segments(0, 5, 5, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(5, 0, 5, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(5, 5, pch = 16, col = "black", cex = 1.5)
+#Annotate points (4,4),(2,8),(8,2) on feasibility frontier
+text(4.2, 4.2, expression(paste(B)), cex = labelsize)
+segments(0, 4, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(4, 0, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(4, 4, pch = 16, col = "black", cex = 1.5)
+
+text(2.2, 8.2, expression(paste(A)), cex = labelsize)
+segments(0, 8, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(2, 8, pch = 16, col = "black", cex = 1.5)
+
+text(8.2, 2.2, expression(paste(C)), cex = labelsize)
+segments(0, 2, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(8, 0, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(8, 2, pch = 16, col = "black", cex = 1.5)
+
+#Annotate points between the indifference curves along x = 2
+text(2.2, 5.2, expression(paste(D)), cex = labelsize)
+segments(0, 5, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(2, 5, pch = 16, col = "black", cex = 1.5)
+
+text(2.2, 9.2, expression(paste(E)), cex = labelsize)
+segments(0, 9, 2, 9, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, 9, lty = 2, col = "gray", lwd = segmentlinewidth)
+points(2, 9, pch = 16, col = "black", cex = 1.5)
+
 
 #Add mrs = mrt at i
 # text(5.25, 7.25, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
 # Arrows(5.25, 7, 5.25, 5.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(9.5, 1.35, expression(u[1]^A), cex = labelsize)
-text(9.5, 3, expression(u[2]^A), cex = labelsize)
-text(9.5, 5.55, expression(u[3]^A), cex = labelsize)
+text(9.7, .8, expression(u[1]^A), cex = labelsize)
+text(9.7, 2, expression(u[2]^A), cex = labelsize)
+text(9.7, 4.1, expression(u[3]^A), cex = labelsize)
 
 dev.off()

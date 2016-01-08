@@ -102,31 +102,37 @@ mtext(expression(paste("Quantity of apples, ", x)), side = 1, line = 2.5, cex = 
 text(-0.8, 5, expression(paste("Quantity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier
-text(4.2, 4.2, expression(paste(B)), cex = labelsize)
-segments(0, 4, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(4, 0, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+text(4.2, 4.2, expression(paste(b)), cex = labelsize)
 points(4, 4, pch = 16, col = "black", cex = 1.5)
 
-text(2.2, 8.2, expression(paste(A)), cex = labelsize)
-segments(0, 8, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(2, 0, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+text(2.2, 8.2, expression(paste(a)), cex = labelsize)
 points(2, 8, pch = 16, col = "black", cex = 1.5)
 
-text(8.2, 2.2, expression(paste(C)), cex = labelsize)
-segments(0, 2, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(8, 0, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+text(8.2, 2.2, expression(paste(c)), cex = labelsize)
 points(8, 2, pch = 16, col = "black", cex = 1.5)
 
+segments(0, 4, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(4, 0, 4, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+
+segments(0, 8, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+
+segments(0, 2, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(8, 0, 8, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+
 #Annotate points between the indifference curves along x = 2
-text(2.2, 5.2, expression(paste(D)), cex = labelsize)
-segments(0, 5, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(2, 0, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+text(2.2, 5.2, expression(paste(d)), cex = labelsize)
 points(2, 5, pch = 16, col = "black", cex = 1.5)
 
-text(2.2, 9.2, expression(paste(E)), cex = labelsize)
+text(2.2, 9.2, expression(paste(e)), cex = labelsize)
+points(2, 9, pch = 16, col = "black", cex = 1.5)
+
+
+segments(0, 5, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
+
 segments(0, 9, 2, 9, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(2, 0, 2, 9, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(2, 9, pch = 16, col = "black", cex = 1.5)
 
 
 #Add mrs = mrt at i

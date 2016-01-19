@@ -43,7 +43,7 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 
-a <- c(27, 29.045, 31.616) #alpha = 0.4
+a <- c(27, 29.16, 31.616) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -113,15 +113,15 @@ text(19, 40.5, expression(u[2]), cex = labelsize)
 text(19, 46.5, expression(u[3]), cex = labelsize)
 
 #Annotate max u point on feasibility with r&D frontier
-text(9.5, ppf_rd(8.66)+1, expression(paste("e*"[RD])), cex = labelsize)
+text(9.4, ppf_rd(8.66)+1.5, expression(paste("e*"[RD])), cex = labelsize)
 segments(8.66, 0, 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf_rd(x = 8.66), 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(8.66, ppf_rd(x = 8.66), pch = 16, col = "black", cex = 1.5)
 
 #Annotate max u point on feasibility frontier
-text(7.6, ppf(7)+1, expression(paste("e*")), cex = labelsize)
-segments(7, 0, 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
-#segments(0, ppf(x = 7), 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(7, ppf(x = 7), pch = 16, col = "black", cex = 1.5)
+text(7.6, ppf(7.07)+1.5, expression(paste("e*")), cex = labelsize)
+segments(7.07, 0, 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
+#segments(0, ppf(x = 7.07), 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(7.07, ppf(x = 7.07), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

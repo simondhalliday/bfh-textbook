@@ -40,7 +40,7 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 
 #Set utility levels for all three indifference curves
-a <- c(27, 29.045, 31.626) #alpha = 0.4
+a <- c(27, 29.16, 31.626) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -92,19 +92,19 @@ mtext(expression(paste("Environmental Quality")), side = 1, line = 2.5, cex = ax
 text(-1.8, 0.5*ylims[2], expression(paste("Goods, Millions")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves generally
-text(7,120, expression("Policy-Maker's"), cex = labelsize)
-text(7,116, expression("Indifference Curves"), cex = labelsize)
+text(7.2,120, expression("Policy-Maker's"), cex = labelsize)
+text(7.2,116, expression("Indifference Curves"), cex = labelsize)
 
 #Label the indifference curves and place labels properly
 text(19, 36, expression(u[1]), cex = labelsize)
 text(19, 40.5, expression(u[2]), cex = labelsize)
-text(19, 45, expression(u[3]), cex = labelsize)
+text(19, 46.5, expression(u[3]), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
-text(7.48, ppf(7)+1, expression(paste("e*")), cex = labelsize)
-segments(7, 0, 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 7), 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(7, ppf(x = 7), pch = 16, col = "black", cex = 1.5)
+text(7.6, ppf(7.07)+1, expression(paste("e*")), cex = labelsize)
+segments(7.07, 0, 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ppf(x = 7.07), 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(7.07, ppf(x = 7.07), pch = 16, col = "black", cex = 1.5)
 
 
 

@@ -18,12 +18,6 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 4, 4))
 
-#Change this to make it log of l 
-
-# ppf <- function(l, k = 0.5) {
-#   k * (1/l)
-# }
-
 #Change to feasibility frontier equation
 
 ppf <- function(x, y) {
@@ -94,8 +88,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Environmental Quality, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Goods,Millions, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Environmental Quality")), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Goods, Millions")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves generally
 text(7,120, expression("Policy-Maker's"), cex = labelsize)

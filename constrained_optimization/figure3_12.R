@@ -124,4 +124,10 @@ segments(7.07, 0, 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinew
 #segments(0, ppf(x = 7.07), 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(7.07, ppf(x = 7.07), pch = 16, col = "black", cex = 1.5)
 
+#Added arrow for abatement costs and labeled the arrow as such
+arrows(.2, 75, .2, 100, length = 0.1, angle = 30, code = 3, col = par("fg"), lty = par("lty"),   lwd = par("lwd"))
+text(1.71, 88, expression(paste("Abatement")), cex = labelsize)
+text(1.05, 84, expression(paste("Costs")), cex = labelsize)
+
+
 dev.off()

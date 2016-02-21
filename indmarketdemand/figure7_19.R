@@ -4,7 +4,7 @@
 
 library(shape)
 require(shape)
-pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/figure7_18.pdf", width = 10, height = 8)
+pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/figure7_19.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -31,8 +31,8 @@ bc2 <- function(x, y) {
 
 #Utility functions 
 
-uFn <- function(x, y, alpha = 0.5){
-  (x^alpha)*(y^(1-alpha))
+uFn <- function(x, y, rmax, rmax = 20, xmax = 10) {
+  y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
 #Compensated budget constraint parallel to bc1
@@ -72,6 +72,7 @@ ylabels <- seq(from = 0, to = ylims[2], by = 10)
 axis(1,at = ticksx,  pos = 0, labels = FALSE)
 axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1)
 
+
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
@@ -88,9 +89,10 @@ contour(x, y,
         yaxs="i", 
         add = TRUE)
 
+
 #Axis labels
-mtext(expression(paste("Quantity of good x (Coffee)")), side = 1, line = 2.5, cex = axislabelsize)
-text(-5.5, 0.5*ylims[2], expression(paste("Money for other good y (Cookies)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of good x (fish)")), side = 1, line = 2.5, cex = axislabelsize)
+text(-5.5, 0.5*ylims[2], expression(paste("Money for other goods (y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bc1(xx1, y), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, bc2(xx1, y), col = COLA[5], lwd = graphlinewidth)
@@ -127,8 +129,8 @@ text(40.8, -.8, expression(paste(" = x"["e'"])),  xpd = TRUE,  cex = labelsize)
 text(56.9, -.8, expression(paste("x"[e])),  xpd = TRUE, cex = labelsize)
 
 text(-2, cbc1(39), expression(paste("y"[sub])), xpd = TRUE, cex = labelsize)
-text(-2, bc1(39)+.5, expression(paste("y"["e'"])),  xpd = TRUE,  cex = labelsize)
-text(-2, bc1(39)-1, expression(paste(" = y"[e])),  xpd = TRUE, cex = labelsize)
+text(-1.8, bc1(39)+.5, expression(paste("y"["e'"])),  xpd = TRUE,  cex = labelsize)
+text(-2.1, bc1(39)-1, expression(paste(" = y"[e])),  xpd = TRUE, cex = labelsize)
 
 
 dev.off()

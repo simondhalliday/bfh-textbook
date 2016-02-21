@@ -4,7 +4,7 @@
 
 library(shape)
 require(shape)
-pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/figure7_18.pdf", width = 10, height = 8)
+pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/indmarketdemand/figure7_20.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -29,16 +29,11 @@ bc2 <- function(x, y) {
   40 - .345*x
 }
 
-#Utility functions 
-
-uFn <- function(x, y, alpha = 0.5){
-  (x^alpha)*(y^(1-alpha))
-}
 
 #Compensated budget constraint parallel to bc1
 
 cbc1 <- function(x, y) {
-  46 - .5*x
+  48.8 - .5*x
 }
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -48,8 +43,6 @@ xlims <- c(0, 80)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-
-a <- c(28.25,34) #alpha = 0.6
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -78,19 +71,27 @@ xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
-contour(x, y, 
-        outer(x, y, uFn),
-        drawlabels = FALSE,
-        col = COLB[3],
-        lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE)
+#contour(x, y,
+ #       drawlabels = FALSE,
+  #      col = COLB[3],
+   #     lwd = graphlinewidth,
+    #    levels = a, 
+     #   xaxs="i", 
+      #  yaxs="i", 
+       # add = TRUE)
+
+#Utility functions 
+
+segments(56.8, bc2(56.8), 56.8, ylims[2], lty = 1, col = COLA[2] , lwd = graphlinewidth)
+segments(56.8, bc2(56.8), xlims[2], bc2(56.8), lty = 1, col = COLA[2] , lwd = graphlinewidth)
+
+segments(49, bc1(49), 49, ylims[2], lty = 1, col = COLA[2] , lwd = graphlinewidth)
+segments(49, bc1(49), xlims[2], bc1(49), lty = 1, col = COLA[2] , lwd = graphlinewidth)
+
 
 #Axis labels
-mtext(expression(paste("Quantity of good x (Coffee)")), side = 1, line = 2.5, cex = axislabelsize)
-text(-5.5, 0.5*ylims[2], expression(paste("Money for other good y (Cookies)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of knives (x)")), side = 1, line = 2.5, cex = axislabelsize)
+text(-5.5, 0.5*ylims[2], expression(paste("Money of forks (y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bc1(xx1, y), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, bc2(xx1, y), col = COLA[5], lwd = graphlinewidth)
@@ -99,36 +100,35 @@ lines(xx1, cbc1(xx1, y), col = COLA[6], lwd = graphlinewidth)
 
 #Label curves
 
-text(78, 9.2, expression("u"[1]), cex = labelsize)
-text(78, 15.8, expression("u"[2]), cex = labelsize)
-text(78, 2.2, expression("bc"[1]), cex = labelsize)
-text(78, 12, expression("bc"[2]), cex = labelsize)
-text(78, 5.7, expression("cbc"[1]), cex = labelsize)
+text(78, bc1(49)+1, expression("u"[1]), cex = labelsize)
+text(78, bc2(56.8)+1, expression("u"[2]), cex = labelsize)
+text(78, bc1(78)+1.3, expression("bc"[1]), cex = labelsize)
+text(78, bc2(78)+1.2, expression("bc"[2]), cex = labelsize)
+text(78, cbc1(78)+1.4, expression("cbc"[1]), cex = labelsize)
 
 #Label points e-sub, e, e'
 
-text(40.2, cbc1(39)+.9, expression(paste("e"[sub])), cex = labelsize)
-segments(39, 0, 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, cbc1(x = 39), 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(39, cbc1(x = 39), pch = 16, col = "black", cex = 1.5)
+text(60.8, bc2(56.8)+.7, expression(paste(" = e"[sub])), cex = labelsize)
 
 text(57.8, bc2(56.8)+.8, expression(paste("e")), cex = labelsize)
 segments(56.8, 0, 56.8, bc2(x = 56.8), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bc2(x = 56.8), 56, bc2(x = 56.8), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(56.8, bc2(x = 56.8), pch = 16, col = "black", cex = 1.5)
 
-text(40.3, bc1(39)+.8, expression(paste("e'")), cex = labelsize)
-points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
+text(50.2, bc1(49)+.8, expression(paste("e'")), cex = labelsize)
+segments(49, 0, 49, bc1(49), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bc1(49), 49, bc1(49), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(49, bc1(49), pch = 16, col = "black", cex = 1.5)
 
 #Label y-sub,x-sub,etc. on axes
 
-text(37.5, -.9, expression(paste("x"[sub])), xpd = TRUE, cex = labelsize)
-text(40.8, -.9, expression(paste(" = x"["e'"])),  xpd = TRUE,  cex = labelsize)
-text(56.9, -.9, expression(paste("x"[e])),  xpd = TRUE, cex = labelsize)
+text(59, -.9, expression(paste(" = x"[sub])), xpd = TRUE, cex = labelsize)
+text(49, -.9, expression(paste("x"["e'"])),  xpd = TRUE,  cex = labelsize)
+text(56, -.9, expression(paste("x"[e])),  xpd = TRUE, cex = labelsize)
 
-text(-2, cbc1(39), expression(paste("y"[sub])), xpd = TRUE, cex = labelsize)
-text(-2, bc1(39)+.5, expression(paste("y"["e'"])),  xpd = TRUE,  cex = labelsize)
+text(-2, bc1(39)+.5, expression(paste("y"[sub])), xpd = TRUE, cex = labelsize)
 text(-2, bc1(39)-1, expression(paste(" = y"[e])),  xpd = TRUE, cex = labelsize)
+text(-2, bc1(49)+.5, expression(paste("y"["e'"])),  xpd = TRUE,  cex = labelsize)
 
 
 dev.off()

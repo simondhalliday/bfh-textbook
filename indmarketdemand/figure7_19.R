@@ -124,9 +124,9 @@ points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
 
 #Label y-sub,x-sub,etc. on axes
 
-text(37.5, -.8, expression(paste("x"[sub])), xpd = TRUE, cex = labelsize)
-text(40.8, -.8, expression(paste(" = x"["e'"])),  xpd = TRUE,  cex = labelsize)
-text(56.9, -.8, expression(paste("x"[e])),  xpd = TRUE, cex = labelsize)
+text(37.5, -.9, expression(paste("x"[sub])), xpd = TRUE, cex = labelsize)
+text(40.8, -.9, expression(paste(" = x"["e'"])),  xpd = TRUE,  cex = labelsize)
+text(56.9, -.9, expression(paste("x"[e])),  xpd = TRUE, cex = labelsize)
 
 text(-2, cbc1(39), expression(paste("y"[sub])), xpd = TRUE, cex = labelsize)
 text(-1.8, bc1(39)+.5, expression(paste("y"["e'"])),  xpd = TRUE,  cex = labelsize)

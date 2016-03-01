@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/figure3_11.pdf", width = 8, height = 8)
+pdf(file = "/Users/rileyboeth/Library/Mobile Documents/com~apple~CloudDocs/bfh textbook - backup/constrained_optimization/figure3_11.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -17,6 +17,12 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 4, 4))
+
+#Change this to make it log of l 
+
+# ppf <- function(l, k = 0.5) {
+#   k * (1/l)
+# }
 
 #Change to feasibility frontier equation
 
@@ -39,8 +45,7 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 
-#Set utility levels for all three indifference curves
-a <- c(27, 29.16, 31.626) #alpha = 0.4
+a <- c(27, 29.045, 31) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -53,11 +58,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
 )
 
-#X and Y limits and ticks
+#changed x and y limits and ticks 
+ 
+# ticksy <- seq(from = 0, to = ylims[2], by = 1)
+# ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksx <- seq(from = 0, to = xlims[2], by = 1)
 xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- seq(from = 0, to = ylims[2], by = 10)
 ylabels <- seq(from = 0, to = ylims[2], by = 10)
+# ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
+# xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -68,8 +78,16 @@ xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
+#Draw the polygon for shading the feasible set
+#xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
+#ypoly1 <- ppf(xpoly1, k = 1.058868, maxx = 17)
+#polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+
 #Draw the graphs
 lines(xx1, ppf(xx1, y), col = COLA[5], lwd = graphlinewidth)
+#lines(xx2, fishProd(xx2, k = 2), col = COLB[3], lwd = graphlinewidth)
+#lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
+#lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
 text(15, 15, expression("Initial"), cex = labelsize)
@@ -88,27 +106,25 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Environmental Quality")), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Goods, Millions")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Environmental Quality, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Goods,Millions, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves generally
-text(7.2,120, expression("Policy-Maker's"), cex = labelsize)
-text(7.2,116, expression("Indifference Curves"), cex = labelsize)
+text(7,120, expression("Policy-Maker's"), cex = labelsize)
+text(7,116, expression("Indifference Curves"), cex = labelsize)
 
 #Label the indifference curves and place labels properly
 text(19, 36, expression(u[1]), cex = labelsize)
-text(19, 40.9, expression(u[2]), cex = labelsize)
-text(19, 46.5, expression(u[3]), cex = labelsize)
+text(19, 40.5, expression(u[2]), cex = labelsize)
+text(19, 45, expression(u[3]), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
-text(7.6, ppf(7.07)+1, expression(paste("e*")), cex = labelsize)
-segments(7.07, 0, 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 7.07), 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(7.07, ppf(x = 7.07), pch = 16, col = "black", cex = 1.5)
+text(7.48, ppf(7)+1, expression(paste("e*")), cex = labelsize)
+segments(7, 0, 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ppf(x = 7), 7, ppf(x = 7), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(7, ppf(x = 7), pch = 16, col = "black", cex = 1.5)
 
-#Added arrow for abatement costs and labeled the arrow as such
-arrows(.2, 75, .2, 100, length = 0.1, angle = 30, code = 3, col = par("fg"), lty = par("lty"),   lwd = par("lwd"))
-text(1.71, 88, expression(paste("Abatement")), cex = labelsize)
-text(1.05, 84, expression(paste("Costs")), cex = labelsize)
+
+
 
 dev.off()

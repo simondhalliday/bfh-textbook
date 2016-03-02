@@ -91,7 +91,7 @@ text(20, -.9, expression(paste("y = y"[ce])),  xpd = TRUE,  cex = labelsize)
 text(4, -.9, expression(paste("y - ",Delta,"y"[2])),  xpd = TRUE,  cex = labelsize)
 
 
-text(-3, 36, expression(paste("v(y + ",Delta,"y")), xpd = TRUE, cex = labelsize)
+text(-3, 36, expression(paste("v(y + ",Delta,"y)")), xpd = TRUE, cex = labelsize)
 text(-2, 21.7, expression(paste("v(ce) = ")),  xpd = TRUE, cex = labelsize)
 text(-2.8, 20, expression(paste("Pv(y- ",Delta,"y) + ")),  xpd = TRUE, cex = labelsize)
 text(-4.2, 18.3, expression(paste("(1 - P)(v)(y + ",Delta,"y)")),  xpd = TRUE, cex = labelsize)

@@ -49,17 +49,22 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
 )
 
-#x and y limits with plain axes without ticks/numbers to match previous graph
+#x and y limits with plain axes without ticks/numbers to match previous graph; y axes on both sides
 
-ticksx <- seq(from = 0, to = xlims[2]+1, by = 41)
+ticksx <- seq(from = 0, to = xlims[2], by = 40)
 xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- seq(from = 0, to = ylims[2]+1, by = 41)
 ylabels <- seq(from = 0, to = ylims[2], by = 10)
+ticksy2 <- seq(from = 0, to = ylims[2]+1, by = 41)
+ylabels2 <- seq(from = 0, to = ylims[2], by = 10)
+
 
 axis(1,at = ticksx,  pos = 0, labels = FALSE)
 axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1)
+axis(4, at = ticksy2, pos = xlims[2], labels = FALSE,las=1)
 
-npts <- 500 
+
+npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
@@ -74,7 +79,7 @@ lines(xx1, MUa(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label points on line
 
-text(20, 20+1, expression(paste("a")), cex = labelsize)
+text(20, 20+1.2, expression(paste("a")), cex = labelsize)
 segments(20, 0, 20, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, 20, 20, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(20, 20, pch = 16, col = "black", cex = 1.5)
@@ -84,7 +89,7 @@ segments(33, 33, 0, 33, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(33, 0, 33, 33, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(33, 33, pch = 16, col = "black", cex = 1.5)
 
-text(33, 7+1.2, expression(paste("c")), cex = labelsize)
+text(33, 7+1.1, expression(paste("c")), cex = labelsize)
 segments(33, 7, 0, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(33, 7, pch = 16, col = "black", cex = 1.5)
 
@@ -94,7 +99,7 @@ points(33, 7, pch = 16, col = "black", cex = 1.5)
 text(20, -.9, expression(paste("a*")), xpd = TRUE, cex = labelsize)
 text(33, -.9, expression(paste("a"[x])), xpd = TRUE, cex = labelsize)
 
-text(-3, 33, expression(paste("-MU(B)"+"(a)"[x])),  xpd = TRUE, cex = labelsize)
+text(-3.2, 33, expression(paste("-MU(B)"+"(a)"[x])),  xpd = TRUE, cex = labelsize)
 text(-3, 7, expression(paste("MU(A)"+"(a)"[x])),  xpd = TRUE, cex = labelsize)
 
 dev.off()

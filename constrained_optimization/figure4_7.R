@@ -131,7 +131,7 @@ text(16, indiffA(16)+15.5, expression(paste("v"[3])),  xpd = TRUE, cex = labelsi
 
 text(34, avgwealth(30)+1.5, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(omega, " = ",Delta," g")), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.5, expression(paste(omega, " = (",Delta,") g")), xpd = TRUE, cex = labelsize)
 
 text(25, 38, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 text(25, 36.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)

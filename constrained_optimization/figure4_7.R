@@ -20,7 +20,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(6, 10, 4, 4))
 
-#Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
+#Indifference curves of a risk-averse homo aequus (2nd graph out of the two for 4.7)
 
 indiffA <- function(x, ua=2) {
   ua + (1/12)*(x)^2

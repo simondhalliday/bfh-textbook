@@ -1,4 +1,3 @@
-require(ggplot2)
 require(shape)
 require(plotrix)
 pdf(file = "employment/employment_wage_macro_zpc.pdf", width = 9, height = 7)
@@ -23,7 +22,7 @@ ylims <- c(0, 40)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Total Hours of Employment, ", H)),
+     xlab = expression(paste("Total hours of employment as a proportion, ", H)),
      ylab = expression(paste("Wage, ", w)),
      xaxt = "n", 
      yaxt = "n",
@@ -48,36 +47,29 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 20,  40)
-ylabels <- c(0, expression(paste(b)), expression(paste(b+a)), expression(paste(w[0])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+a)), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(0.72, 35, expression(paste("Wage Curve ", w,"*",(H))))
+text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))))
 
-#Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
-
-#Arrow to Slope of BRF
-#Arrows(0.5, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-#text(0.35, 13, expression(paste("Slope = " - u[q], " = ", frac(delta, (1 - q)^2))))
-
 
 Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(0.92, 12.5, expression(paste("Employment Rent")))
 
-#Text to indicate delta = 5
-#text(0.2, 38, expression(paste("Wage Function")))
-#text(0.2, 36, expression(paste("set to ", delta, " = 5")))
-
-
 #Zero profit condition 
-segments(0, 20, 0.75, 20, lty = 1, lwd = 2, col = "darkgray")
-segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
+segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
+segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
+
+points(0.75, 20, pch = 16, col = "black", cex = 1.5)
+text(0.74, 21, expression(paste("n")))
+
 
 #Unemployment benefits & a
 segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
@@ -85,8 +77,8 @@ segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.97, 6, expression(paste(b + a)))
-text(0.97, 3.5, expression(paste(b, " (unemployment benefits)")))
+text(0.97, 6, expression(paste(B + a)))
+text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

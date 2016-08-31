@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 5, 4, 2))
 
 mrpL <- function(l, pmax = 20, s = 0.75) {
   pmax - s*l
@@ -43,9 +43,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 4, 7, ylims[2])
-ylabels <- c(NA, expression(paste(w[1])), expression(paste(w[2])), NA)
+ylabels <- c(NA, expression(paste(frac(w[1],e) == mu[1])), expression(paste( frac(w[2],e) == mu[2] )), NA)
 ticksx <- c(0, (10-7)/0.75, (10-4)/0.75, (15-4)/0.75, xlims[2])
-xlabels <- c(NA, expression(paste(L^N*(B^H))), expression(paste(L^{N1})), expression(paste(L^{N2})), NA)
+xlabels <- c(NA, expression(paste(l^{N3})), expression(paste(l^{N1})), expression(paste(l^{N2})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -58,8 +58,8 @@ lines(xx1, mrpL(xx1, pmax = 10), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, mrpL(xx1, pmax = 15), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Total labor used by the firm, ", L == eh)), side=1, line = 2.5, cex = axislabelsize)
-text(-2, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Total labor used by the employer, ", l == eh)), side = 1, line = 2.5, cex = axislabelsize)
+text(-2.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", frac(w,e) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -69,16 +69,16 @@ text(-2, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislab
 text(18.3, 7.4, expression(paste(mu[2], " (higher B)")), cex = labelsize)
 text(19, 5, expression(paste(mu[1] == frac(w^N,e^N))), cex = labelsize)
 text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
-text(16, 12, expression(paste("of effort")), cex = labelsize)
+text(16, 12, expression(paste("of labor")), cex = labelsize)
 Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(3.5, 10, expression(paste("Increase in ", frac(dy, dL))), cex = labelsize)
+text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
 
-text(9.3, 12, expression(paste(frac(dy, dL)==phantom())), cex = labelsize)
+text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize)
 text(11, 12.3, expression(paste("marginal")), cex = labelsize)
-text(11, 11.7, expression(paste("product")), cex = labelsize)
-Arrows(11, 11.4, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(11, 11.7, expression(paste("benefit")), cex = labelsize)
+Arrows(11, 11.3, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 segments(0, 7, xlims[2], 7, lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3], lwd = segmentlinewidth)
@@ -86,8 +86,11 @@ segments((15-4)/0.75, 0, 11/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewid
 segments((10-7)/0.75, 0, (10-7)/0.75, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments((10-4)/0.75, 0, (10-4)/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
 points((15-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
+text((15-4)/0.75 + 0.25, 4 + 0.6, expression(paste(n[2])), cex = labelsize)
 points((10-7)/0.75, 7, pch = 16, col = "black", cex = 1.5)
+text((10-7)/0.75 + 0.25, 7 + 0.6, expression(paste(n[3])), cex = labelsize)
 points((10-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
+text((10-4)/0.75 + 0.25, 4 + 0.6, expression(paste(n[1])), cex = labelsize)
 
 
 
@@ -101,7 +104,7 @@ points((10-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
 
 
 #Label Demand
-text(118, 3, expression(paste("Opportunity cost'")), cex = labelsize)
-text(118, 2, expression(paste("of capital")), cex = labelsize)
+text(13, 1, expression(paste(mb[1])), cex = labelsize)
+text(19.5, 1, expression(paste(mb[2])), cex = labelsize)
 
 dev.off()

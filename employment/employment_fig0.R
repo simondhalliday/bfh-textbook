@@ -1,6 +1,5 @@
-require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/employment/employment_fig0.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_fig0.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -38,14 +37,13 @@ tangentLine <- function(w){
   0.375 + (1/32)*w
 }
 
-COL <- c("#bae4b3", "#74c476", "#238b45")
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 40)
 ylims <- c(0, 1.1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Wage, ", w)),
+     xlab = expression(paste("Income, ", y)),
      ylab = expression(paste("Effort, ", e)),
      xaxt = "n", 
      yaxt = "n",
@@ -56,15 +54,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 npts <- 500 
-xx1 <- seq(u1 + delta1 + 0.1, xlims[2], length.out = npts)
-xx2 <- seq(u2 + delta2 + 0.1, xlims[2], length.out = npts)
-xx3 <- seq(u3 + delta3 + 0.1, xlims[2], length.out = npts)
+xx1 <- seq(u1 + delta1, xlims[2], length.out = npts)
+xx2 <- seq(u2 + delta2, xlims[2], length.out = npts)
+xx3 <- seq(u3 + delta3, xlims[2], length.out = npts)
 xx4 <- seq(7, 17, 0.01)
 
 #Draw the lines for the graphs
-lines(xx1, indiffFn1(xx1), col = COL[2], lwd = graphlinewidth)
-lines(xx2, indiffFn2(xx2), col = COL[2], lwd = graphlinewidth)
-lines(xx3, indiffFn3(xx3), col = COL[2], lwd = graphlinewidth)
+lines(xx1, indiffFn1(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx2, indiffFn2(xx2), col = COLB[4], lwd = graphlinewidth)
+lines(xx3, indiffFn3(xx3), col = COLB[4], lwd = graphlinewidth)
 lines(xx4, tangentLine(xx4), col = "darkgrey", lty = 2, lwd = 4)
 
 #Customize ticks and labels for the plot
@@ -90,7 +88,7 @@ points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 
 #Arrow to Slope of BRF
 Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
-text(5, 0.8, expression(paste("Slope = MRS = ", -frac(1, u[e]))))
-text(5.4, 0.73, expression(paste(" = ", frac(delta, (1-e)^2))))
+text(5, 0.8, expression(paste("Slope = -mrs(y,e) = ", -frac(1, u[e]))))
+text(5.4, 0.73, expression(paste(" = ", frac((1-e)^2, a))))
 dev.off()
 

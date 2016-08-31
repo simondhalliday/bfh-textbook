@@ -132,8 +132,7 @@ Arrows(0.5, 0.78, 0.6, 0.78, lty = 1, col = COLA[4] , arr.type = "triangle", arr
 #points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
 
 Arrows(0.02, 0.25, 0.02, 0.75, lty = 1, code = 3, col = "black" , arr.type = "triangle", arr.lwd = segmentlinewidth)
-text(0.07, 0.5, expression(paste(mu, ", cost of")), cex = labelsize)
+text(0.07, 0.5, expression(paste(Delta, ", cost of")), cex = labelsize)
 text(0.07, 0.45, expression(paste("job loss")), cex = labelsize)
-
 
 dev.off()

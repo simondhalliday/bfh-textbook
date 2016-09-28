@@ -27,7 +27,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n",
      cex.lab = axislabelsize, 
-     line = 2.5,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -47,7 +46,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 20, 25,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a)), expression(paste(w[0])), expression(paste(w[2])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t)), expression(paste(w[0])), expression(paste(w[2])), NA)
 ticksx <- c(0, 0.75, 0.8, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[0],"*")), expression(paste(H[2],"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -59,10 +58,10 @@ text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))))
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
-Arrows(0.85, 15, 0.85, 24, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.85, 15, 0.85, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.98, 14.5, expression(paste("Employment rent")))
-text(0.98, 12.5, expression(paste("increases with union")))
+#Arrows(0.85, 15, 0.85, 24, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#Arrows(0.85, 15, 0.85, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(0.98, 14.5, expression(paste("Employment rent")))
+#text(0.98, 12.5, expression(paste("increases with union")))
 
 #Original Zero profit condition 
 segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
@@ -87,13 +86,13 @@ text(1.02, 26, expression(paste(zpc[2], ", ", w == w[2])))
 
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
 segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 text(1.02, 21, expression(paste(zpc[0], ", ", w == w[0])))
-text(0.97, 6, expression(paste(B + a)))
-text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
+#text(0.97, 6, expression(paste(B + a)))
+#text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

@@ -47,7 +47,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 10, 20,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a[0])), expression(paste(B+a[1])), expression(paste(w[0])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t[0])), expression(paste(B+a/t[1])), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.5, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[1],"*")),expression(paste(H[0],"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -59,10 +59,10 @@ text(0.98, 35, expression(paste("Wage Curve, ", w[0]^N*(H))))
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
-Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.8, 15, 0.8, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.98, 16.5, expression(paste("Employment rent")))
-text(0.98, 15, expression(paste("decreases with union")))
+#Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#Arrows(0.8, 15, 0.8, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(0.98, 16.5, expression(paste("Employment rent")))
+#text(0.98, 15, expression(paste("decreases with union")))
 
 #Original Zero profit condition 
 segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
@@ -76,8 +76,8 @@ text(0.74, 21, expression(paste(n[0])))
 
 lines(xx1, WageFn(xx1, delta = 10), col = COL[1], lwd = 4)
 
-segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
-text(0.97, 11, expression(paste(B + a[1])))
+#segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
+#text(0.97, 11, expression(paste(B + a[1])))
 
 text(0.66, 35, expression(paste(w[1]^N*(H))))
 
@@ -92,13 +92,13 @@ text(0.49, 21, expression(paste(n[1])))
 
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
 segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 text(1.02, 21, expression(paste(zpc[0], ", ", w == w[0])))
-text(0.97, 6, expression(paste(B + a[0])))
-text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
+#text(0.97, 6, expression(paste(B + a[0])))
+#text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

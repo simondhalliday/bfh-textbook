@@ -47,7 +47,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 20,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a)), expression(paste(w[0])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t)), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -77,7 +77,7 @@ segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.97, 6, expression(paste(B + a)))
+text(0.97, 6, expression(paste(B + a/t)))
 text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))

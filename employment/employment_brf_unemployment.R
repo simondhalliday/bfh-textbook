@@ -83,8 +83,8 @@ xlabels <- c(0, expression(paste(w == B/s^{H})), expression(paste(w^{NH})), expr
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
-mtext(expression(paste("Employee's effort, ", e)), side=1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Wage, ", w)), side=1, line = 2.5, cex = axislabelsize)
+text(-4, 0.5*ylims[2], expression(paste("Employee's effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Specify the sequences of points for graphing. 

@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 4, 2))
 
 mrpL <- function(l, pmax = 20, s = 0.75) {
   pmax - s*l
@@ -45,7 +45,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 4, 7, ylims[2])
 ylabels <- c(NA, expression(paste(frac(w[1],e) == mu[1])), expression(paste( frac(w[2],e) == mu[2] )), NA)
 ticksx <- c(0, (10-7)/0.75, (10-4)/0.75, (15-4)/0.75, xlims[2])
-xlabels <- c(NA, expression(paste(l^{N3})), expression(paste(l^{N1})), expression(paste(l^{N2})), NA)
+xlabels <- c(NA, expression(paste(l^{n3})), expression(paste(l^{n1})), expression(paste(l^{n2})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -67,7 +67,7 @@ text(-2.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", frac(w,e)
 
 
 text(18.3, 7.4, expression(paste(mu[2], " (higher B)")), cex = labelsize)
-text(19, 5, expression(paste(mu[1] == frac(w^N,e^N))), cex = labelsize)
+text(19, 5, expression(paste(mu[1] == frac(w[1],e))), cex = labelsize)
 text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
 text(16, 12, expression(paste("of labor")), cex = labelsize)
 Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

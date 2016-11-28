@@ -76,8 +76,8 @@ polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 #Draw the graphs
 lines(xx1, PCFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.075), lty = 2, col = COLB[4], lwd = segmentlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.2), lty = 2, col = COLB[4], lwd = segmentlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.075), lty = 1, col = COLB[4], lwd = segmentlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.2), lty = 1, col = COLB[4], lwd = segmentlinewidth)
 #lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLB[5], lwd = graphlinewidth)
 #lines(xx1, ff(xx1, c = 9, s = 1.34), col = COL[3], lwd = graphlinewidth)
 

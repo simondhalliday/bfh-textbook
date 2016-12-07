@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_brf_pc.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_brf_rent.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -90,11 +90,11 @@ lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
+ticksy <- c(0, 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, expression(paste(e^1)), expression(paste(e^N)), 1)
-ticksx <- c(0, 10, 18.4, 20, 40)
-xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^1)), expression(paste(w^N)) , NA)
+ylabels <- c(0, expression(paste(e^N)), 1)
+ticksx <- c(0, 10, 20, 40)
+xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
@@ -102,20 +102,20 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
-#text(9.5, 0.05, expression(paste(v[1])))
+text(9.5, 0.05, expression(paste(v[0])))
 text(22, 0.05, expression(paste(v[1])))
 text(24.8, 0.05, expression(paste(v[2])))
-text(35, 0.66, expression(paste("Employee's ICC, or")))
+text(35, 0.66, expression(paste("Employee's")))
 text(35, 0.62, expression(paste("Best Response Function")))
-text(35, 0.58, expression(paste(e(Delta, a))))
-text(36, 0.94, expression(paste("Employee's PC")))
-text(36, 0.9, expression(paste(v == z)))
+#text(35, 0.58, expression(paste(e(Delta, a))))
+text(36, 0.94, expression(paste("Employee's")))
+text(36, 0.9, expression(paste("Iso-v curves")))
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
 segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = 2)
+segments(20, 0, 20, ylims[2], lty = 2, col = "darkgray", lwd = 2)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 2)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n))
@@ -123,16 +123,17 @@ text(24.5, 0.48, expression(paste("Incomplete Contract")))
 text(24.5, 0.43, expression(paste("Nash equilibrium")))
 
 #Arrows and rent label
-# Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-# Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-# text(14.8, 0.95, expression(paste("Rent at")))
-# text(14.8, 0.9, expression(paste("Incomplete Contract")))
-# text(14.8, 0.85, expression(paste("Nash Equilibrium")))
+Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(15, 0.8, 13.2, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(16.25, 0.98, expression(paste("Rent at")))
+text(16.25, 0.93, expression(paste("Incomplete")))
+text(16.25, 0.88, expression(paste("Contract")))
+text(16.25, 0.83, expression(paste("Nash Equilibrium")))
 
 #Arrows and slope of iso-v label
-Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(29.5, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = -mrs ")))
+text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")))
 text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 
 
@@ -140,9 +141,10 @@ text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
-points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
+segments(12.5, 0, 12.5, ylims[2], lty = 2, col = "darkgray", lwd = 2)
+#segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
+points(12.5, isovhigh1(w = 12.5), pch = 16, col = "black", cex = 1.5)
+text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(a))
 
 #Add a point for b & complete contract NE label
 #points(10, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -152,13 +154,13 @@ points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
 
 #Add a point for c
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
-points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
-text(20.8, 0.1839422, expression(c))
+#points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
+#text(20.8, 0.1839422, expression(c))
 
-points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
-points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
+#points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
+#text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
+#points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
+#text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

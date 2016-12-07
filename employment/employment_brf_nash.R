@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_brf_pc.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_brf_nash.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -45,6 +45,9 @@ tangencyLine <- function(w){
   (w*(0.05))
 }
 
+solowCondition <- function(w, delta = 5){
+  (w*(1/(8*delta)))
+}
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
@@ -77,44 +80,41 @@ xx5 <- seq( 18.43909, xlims[2], length.out = npts2)
 xx6 <- seq( 18.43909, 25, length.out = npts2)
 xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
+xx9 <- seq(xlims[1], xlims[2], length.out = npts2)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
-#lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
+lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
+#lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
+#lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
+#lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
+#lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
+ticksy <- c(0,  0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, expression(paste(e^1)), expression(paste(e^N)), 1)
-ticksx <- c(0, 10, 18.4, 20, 40)
-xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^1)), expression(paste(w^N)) , NA)
+ylabels <- c(0,  expression(paste(e^N)), 1)
+ticksx <- c(0, 10, 20, 40)
+xlabels <- c(0, expression(paste(w == B/s)),  expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-#text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
-#text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
-#text(3.9, 0.05, expression(paste(v[0],  " = z")))
-#text(9.5, 0.05, expression(paste(v[1])))
-text(22, 0.05, expression(paste(v[1])))
-text(24.8, 0.05, expression(paste(v[2])))
+text(5, 0.3, expression(paste("Iso-profit: ", frac(e, w) ," = ", frac(de, dw))))
+text(24.8, 0.05, expression(paste(v[N])))
 text(35, 0.66, expression(paste("Employee's ICC, or")))
 text(35, 0.62, expression(paste("Best Response Function")))
 text(35, 0.58, expression(paste(e(Delta, a))))
-text(36, 0.94, expression(paste("Employee's PC")))
-text(36, 0.9, expression(paste(v == z)))
+#text(36, 0.94, expression(paste("Employee's PC")))
+#text(36, 0.9, expression(paste(v == z)))
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
+#segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
 segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = 2)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 2)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
@@ -140,9 +140,9 @@ text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
-points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
+#segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = 2)
+#segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
+#points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
 
 #Add a point for b & complete contract NE label
 #points(10, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -152,8 +152,8 @@ points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
 
 #Add a point for c
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
-points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
-text(20.8, 0.1839422, expression(c))
+#points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
+#text(20.8, 0.1839422, expression(c))
 
 points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))

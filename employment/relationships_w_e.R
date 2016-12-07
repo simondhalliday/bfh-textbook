@@ -35,15 +35,6 @@ ticksy <- seq(from = 0, to = ylims[2], by = 2)
 ylabels <- seq(from = 0, to = ylims[2], by = 2)
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
-# ticksy <- c(0, 9, 12, 18, ylims[2])
-# ylabels <- c(NA, expression(paste(x^{B},"*")), expression(paste(x^{BN})), expression(paste((p[max] - c[1])/2*s)), NA)
-# ticksx <- c(0, 9, 12, 13.5, 18, xlims[2])
-# xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(x[Opp]^{A})), expression(paste( (p[max] - c[1])/2*s )), NA)
-
-# 
-# axis(1, at = ticksx, pos = 0, labels = xlabels)
-# axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-# 
 
 
 text(2, 14, expression(paste(bold("Unemployment"))))

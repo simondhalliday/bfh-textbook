@@ -27,7 +27,7 @@ uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
 }
 
 
-Supply <- function(x, c1 = 0, c2 = 0.05){
+Supply <- function(x, c1 = 1, c2 = 0.0433){
   c1 + 2*c2*x
 }
 
@@ -67,7 +67,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the polygon for producer surplus
 xpoly1 <- c(0, 75, 0, 0)
-ypoly1 <- c(0, 7.5, 7.5, 0)
+ypoly1 <- c(1, 7.5, 7.5, 1)
 polygon(x = xpoly1, y = ypoly1, col=COLB[1], density=NULL, border = NA)
 
 #Draw the polygon for consumer surplus

@@ -14,12 +14,13 @@ names(GDPdata) <- valid_column_names
 
 ColdWar <- 
   GDPdata %>%
-  #select(Date, USA, F._USSR_, S._Korea_, Brazil_) %>%
-  select(Date, USA, F._USSR_) %>% 
-  #rename(USSR = F._USSR_, date = Date, 
-  #       S.Korea = S._Korea_, Brazil = Brazil_) %>%
-  rename(USSR = F._USSR_, date = Date) %>%
-  filter(date > 1899) %>%
+  select(Date, USA, F._USSR_, S._Korea_, Brazil_) %>%#, Argentina_) %>%
+  #select(Date, USA, F._USSR_) %>% 
+  rename(USSR = F._USSR_, date = Date, 
+         S.Korea = S._Korea_, Brazil = Brazil_) %>% #, 
+         #Argentina = Argentina_) %>%
+  #rename(USSR = F._USSR_, date = Date) %>%
+  filter(date > 1912) %>%
   gather(country, pcgdp, -date)
 ColdWar <- 
   ColdWar %>%
@@ -55,22 +56,29 @@ CWPlot <-
                size = 0.7, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                          angle = 25)) +
-  annotate("text", x = 1945, y = 5800, label = "WWII Ends") +
-  geom_segment(aes(x = 1945, y = 5300, xend = 1945, yend = 2200), 
+  annotate("text", x = 1945, y = 14500, label = "WWII Ends") +
+  geom_segment(aes(x = 1945, y = 14000, xend = 1945, yend = 12000), 
                size = 0.7, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                          angle = 25)) +
-  annotate("text", x = 1959, y = 16000, label = "Kitchen Debates") +
+  annotate("text", x = 1959, y = 16000, label = "Kitchen Debate") +
   geom_segment(aes(x = 1959, y = 15500, xend = 1959, yend = 11500), 
                size = 0.7, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                          angle = 25)) +
-  annotate("text", x = 1991, y = 11000, label = "Communism Ends,") +
-  annotate("text", x = 1991, y = 10000, label = "Capitalism Begins") +
-  geom_segment(aes(x = 1991, y = 9400, xend = 1991, yend = 7000), 
+  annotate("text", x = 1991, y = 17000, label = "Central Planning") +
+  annotate("text", x = 1991, y = 16000, label = "Ends") +
+  geom_segment(aes(x = 1991, y = 15500, xend = 1991, yend = 7000), 
               size = 0.7, arrow = arrow(type = "closed", 
                                         length = unit(0.25, "cm"), 
                                         angle = 25)) +
+  #annotate("text", x = 2008, y = 16000, label = "Global") +
+  ##annotate("text", x = 2008, y = 16000, label = "Financial") +
+  #annotate("text", x = 2008, y = 16000, label = "Crisis") +
+  #geom_segment(aes(x = 2008, y = 15500, xend = 1991, yend = 7000), 
+  #             size = 0.7, arrow = arrow(type = "closed", 
+  #                                       length = unit(0.25, "cm"), 
+  #                                       angle = 25)) +
   theme_bw() 
 
 CWPlot + 

@@ -17,8 +17,16 @@ uA <- function(x, y, rmax = 2, xmax = 12) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
 }
 
+indiffA <- function(x, utility = 11, rmax = 2, xmax = 12) {
+  utility - rmax*x + (1/2)*(rmax/xmax)*x^2
+}
+
 uB <- function(x, y, rmax = 2, xmax = 12) {
   (10 - y) + rmax*(10 - x) - (1/2)*(rmax/xmax)*(10 - x)^2
+}
+
+indiffB <- function(x, utility = 11, rmax = 2, xmax = 10) {
+  utility - rmax*(10 - x) + (1/2)*(rmax/xmax)*(10 - x)^2
 }
 
 WalrasP <- function(x, intercept = 9) {
@@ -75,11 +83,12 @@ text(-0.8, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = ax
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 7, -0.8, 9, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.2, 9, -1.2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 7, -0.8, 9, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.2, -1.2, 9, -1.2, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
-lines(xx1, WalrasP(xx1, intercept = 11), col = "gray", lwd = segmentlinewidth)
-lines(xx1, WalrasP(xx1, intercept = 9.4), col = "gray", lwd = segmentlinewidth, lty = 2)
+xx2 <- seq(2, 10, length.out = npts)
+lines(xx2, WalrasP(xx2, intercept = 11), col = "purple", lwd = segmentlinewidth)
+lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
 
 contour(x, y, 
         outer(x, y, uB),
@@ -94,14 +103,17 @@ segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
 segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
+#segments(0, 4.4, 10, 4.4, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+
+
 #Label the PEC
 text(8, 5, expression("Pareto Efficient Curve"))
 Arrows(6.8, 5, 5.2, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the walrasian P
-text(4, 9.2, expression(slope == -p[Walras] ))
-Arrows(3.2, 9.2, 2, 9.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+Arrows(2.25, 5.2, 2.25, 6.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.25, 5, expression(slope == -p[n] ))
 
 #Label the iso-welfare functions for the HG, Aisha
 text(9.35, 0.8, expression(v[1]^A))
@@ -126,10 +138,30 @@ text(4.8, 5.9, expression(paste(g)))
 
 #Initial Allocations
 points(x = 8.48, y = 0.92, pch = 16, col = "black", cex = 1.5)
-text(8.3, 0.8, expression(paste(z)))
+text(8.3, 0.8, expression(paste(e)))
 
 # points(x = 8.5, y = 2.5, pch = 16, col = "black", cex = 1.5)
 # text(8.3, 2.3, expression(paste(z)))
+
+#Pareto-improving lens
+# xpoly1 <- seq(from = 1, to = 9, length.out = 500)
+# ypoly1 <- indiffA(xpoly1)
+# ypoly2 <- WalrasP(xpoly1, intercept = 10)
+# polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
+
+
+#Braces for labels
+brackets(x1 = 8.9, y1 = -0.3, x2 = 5, y2 = -0.3,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(7, -1, expression(paste("Quantity of the good, x")), xpd = TRUE)
+text(7, -1.4, expression(paste("A sells to B")), xpd = TRUE)
+
+brackets(x1 = 10.2, y1 = 5, x2 = 10.2, y2 = 1.1,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(11.2, 3, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270)
+text(10.9, 3, expression(paste("B pays A")), xpd = TRUE, srt = 270)
 
 
 
@@ -157,8 +189,8 @@ mtext("B's Good, x", side=3, line = 2.5, cex = axislabelsize)
 text(-0.8, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 7, -0.8, 9, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.2, 9, -1.2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 7, -0.8, 9, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.2, -1.2, 9, -1.2, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

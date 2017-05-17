@@ -4,7 +4,7 @@
 
 library(shape)
 require(shape)
-pdf(file = "risk/risks_inequality_selfish.pdf", width = 10, height = 8)
+pdf(file = "risk/risks_inequality_averse.pdf", width = 10, height = 8)
 
 
 #Set parameters for graphics
@@ -99,7 +99,7 @@ points(25, avgwealth(25), pch = 16, col = "black", cex = 1.5)
 text(23.63, avgwealth(23.63)+1.1, expression(paste("c")), cex = labelsize)
 points(23.63, avgwealth(23.63), pch = 16, col = "black", cex = 1.5)
 
-text(20, avgwealth(20)+1, expression(paste(omega[max])), cex = labelsize)
+text(20, avgwealth(20)+1, expression(paste(m)), cex = labelsize)
 segments(20, 0, 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(20, avgwealth(20), pch = 16, col = "black", cex = 1.5)
 
@@ -141,12 +141,12 @@ text(35.5, 39.2, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
-text(34, avgwealth(30)+1.5, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(omega, " = (",Delta,") g")), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)+1.5, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)-1.5, expression(paste(omega == g(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-text(17, 37, expression(paste("Risk Averse")), xpd = TRUE, cex = labelsize)
+text(17, 37, expression(paste("Inequality-averse")), xpd = TRUE, cex = labelsize)
 text(17, 35.5, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
 
 

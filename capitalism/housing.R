@@ -64,7 +64,7 @@ OECDplot <-
   inGDP %>%
   filter(country != "Australia") %>%
   ggplot(aes(x = avgini, y = avgdpgrowth)) +
-  geom_point(color = COLB[4]) +
+  geom_point(color = COLB[4], size = 3) +
   geom_text(aes(label = country, hjust = 0.5, vjust = 1.5)) + 
   theme_bw() + 
   ylab("Average GDP per capita growth, 1970-2012, %") + 

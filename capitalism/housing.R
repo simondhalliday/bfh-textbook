@@ -7,6 +7,8 @@ library(data.table)
 library(grid)
 library(ineq)
 library(forcats)
+library(ggrepel)
+
 
 Housing <- read_excel("capitalism/housing.xlsx")
 
@@ -62,10 +64,10 @@ inGDP <- read_excel("capitalism/ineq_growth.xlsx")
 
 OECDplot <- 
   inGDP %>%
-  filter(country != "Australia") %>%
+  #filter(country != "Australia") %>%
   ggplot(aes(x = avgini, y = avgdpgrowth)) +
   geom_point(color = COLB[4], size = 3) +
-  geom_text(aes(label = country, hjust = 0.5, vjust = 1.5)) + 
+  geom_text_repel(aes(label = country), size = 5) + 
   theme_bw() + 
   ylab("Average GDP per capita growth, 1970-2012, %") + 
   xlab("Long-term average inequality in disposable income") + 
@@ -84,11 +86,13 @@ Devplot <-
   inGDP2 %>%
   ggplot(aes(x = avgini, y = avgdpgrowth)) +
   geom_point(color = COLA[4], size = 3) +
-  geom_text(aes(label = country, hjust = 0.5, vjust = 1.5)) + 
+  geom_text_repel(aes(label = country), size = 5) + 
   theme_bw() + 
   ylab("Average GDP per capita growth, 1980-2012, %") + 
   xlab("Long-term average inequality in disposable income") + 
-  scale_x_continuous(expand = c(0, .015))
+  scale_x_continuous(expand = c(0, .05)) #+ 
+  #scale_y_continuous(expand = c(0, ))
+Devplot
 
 pdf(file = "capitalism/ineq_gdp_dev.pdf", width = 8, height = 5)
 Devplot

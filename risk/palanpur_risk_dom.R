@@ -104,8 +104,9 @@ text(8, 11, expression(paste("Plant Early")),  xpd = TRUE, cex = labelsize)
 arrows(28, -3.5, 35, -3.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Risk Dominant Strategy
-text(17, 35, expression(paste("Check risk-dominant")), xpd = TRUE, cex = labelsize)
-text(17, 33.5, expression(paste("strategy at ", p == 1/2)), xpd = TRUE, cex = labelsize)
+text(17, 36.5, expression(paste("Strategy with higher")), xpd = TRUE, cex = labelsize)
+text(17, 35, expression(paste("expected payoff at ", p == 1/2)), xpd = TRUE, cex = labelsize)
+text(17, 33.5, expression(paste("is risk-dominant")), xpd = TRUE, cex = labelsize)
 Arrows(20, 32.5, 20, expected_late(20) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Equal expected payoffs

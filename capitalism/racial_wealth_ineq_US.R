@@ -2,6 +2,7 @@
 #Source: Survey of Income and Program Participation, 2014 Panel
 #Project: Microeconomics: Coordination, Conflict and Competition
 #Collaorators: Samuel Bowles and Duncan Foley
+#License of graph: MIT License https://choosealicense.com/licenses/mit/
 
 library(tidyverse)
 

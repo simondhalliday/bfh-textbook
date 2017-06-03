@@ -49,7 +49,7 @@ WInN <-
                                  "$500,000 or over"
                                  )
                       )
-         ) 
+         )
 
 
 #WInN$Type
@@ -58,8 +58,8 @@ WIneqBand <-
   WInN %>%
   ggplot(aes(x = Race, y = Value, color = Type, fill = Type, order = Type)) + 
   geom_bar(stat = "identity", position = position_stack(reverse = TRUE)) + 
-  scale_fill_brewer(type = "div", palette = "RdYlBu") +
-  scale_color_brewer(type = "div", palette = "RdYlBu") + 
+  scale_fill_brewer(type = "div", palette = "RdYlBu", name = "Wealth Value") +
+  scale_color_brewer(type = "div", palette = "RdYlBu", name = "Wealth Value") + 
   ylab("Percentage") + 
   xlab("Race") + 
   theme_bw() + 

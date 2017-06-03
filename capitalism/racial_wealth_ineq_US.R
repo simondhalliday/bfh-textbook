@@ -16,13 +16,22 @@ RaceIneq <-
   RaceIneq %>%
   rename(Race = X__1, 
          NetWealth = X__2) %>% 
-  mutate(Race = factor(Race, label = c("White alone",
+  mutate(Race = factor(Race,
+                       levels = c("White alone", 
+                                  ".White alone, not Hispanic", 
+                                  "Black alone", "Asian alone", 
+                                  "Other (residual)", 
+                                  "Hispanic origin (any race)", 
+                                  "Not of Hispanic origin"),
+                       labels = c("White alone",
            "White, not Hispanic",
            "Black",
            "Asian",
            "Other",
            "Hispanic origin",
            "Not Hispanic")))
+
+#RaceIneq$Race
 
 WIneq <- 
   RaceIneq %>%

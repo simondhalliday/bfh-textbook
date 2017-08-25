@@ -55,13 +55,13 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12), 17, ylims[2])
-ylabels <- c(NA, expression(paste(ce[1])), expression(paste(ce[max] == ce[2])), expression(paste(ce[3])), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[max] == c[2])), expression(paste(c[3])), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[omega*max])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-mtext(expression(paste("Variation of income, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected wealth, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -89,9 +89,9 @@ text(14, 12.7, expression(paste(g(Delta))), cex = labelsize)
 
 
 #Label value functions
-text(2, 8.8, expression(v[1]), cex = labelsize)
-text(2, 13.5, expression(v[2]), cex = labelsize)
-text(2, 16.5, expression(v[3]), cex = labelsize)
+text(2, 8.8, expression(u[1]), cex = labelsize)
+text(2, 13.5, expression(u[2]), cex = labelsize)
+text(2, 16.5, expression(u[3]), cex = labelsize)
 
 
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)

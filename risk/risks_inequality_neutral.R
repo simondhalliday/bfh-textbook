@@ -146,9 +146,9 @@ text(25, avgwealth(25) + 1, expression(paste(W)), cex = labelsize)
 
 #label the three indifference curves
 
-text(38, 18.2, expression(paste("v"[1])), xpd = TRUE, cex = labelsize)
-text(38, 23.5, expression(paste("v"[2])),  xpd = TRUE, cex = labelsize)
-text(38, 28.8, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
+text(38, 18.2, expression(paste(u[1])), xpd = TRUE, cex = labelsize)
+text(38, 23.5, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
+text(38, 28.8, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 
 

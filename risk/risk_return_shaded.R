@@ -54,7 +54,7 @@ ticksx <- c(0,  12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[omega*max])), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-mtext(expression(paste("Variation of Income (Risk), ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected wealth, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

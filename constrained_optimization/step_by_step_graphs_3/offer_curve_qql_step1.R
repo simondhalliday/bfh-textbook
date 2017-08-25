@@ -1,6 +1,6 @@
 
 require(shape)
-pdf(file = "bfh-textbook/constrained_optimization/step_by_step_graphs_3/offer_curve_qql_step1.pdf", width = 9, height = 7)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/offer_curve_qql_step1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

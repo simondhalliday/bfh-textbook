@@ -3,7 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 require(shape)
-pdf(file = "constrained_optimization/step_by_step_graphs_3/offer_curve_qql_step1.pdf", width = 9, height = 7)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/offer_curve_qql_step3.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -76,21 +76,29 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, bcA(xx1, w = 10, p = 1), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, bcA(xx1, w = 10, p = 0.5), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.5), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
 mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5 * ylims[2], expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(11.8, 1.3, expression(u[1]))
 text(11.8, 5.1, expression(u[2]))
 text(11.8, 7.6, expression(u[3]))
 
+#Label the price lines
+text(8, 0.9, expression(paste(pl[1], ", ", p[x] == 0.25)))
+text(11.3, 3.75, expression(paste(pl[2], ", ", p[x] == 0.5)))
+text(11.3, 6.8, expression(paste(pl[3], ", ", p[x] == 1)))
 
+#Label the offer curve
+text(11, 9.7, expression("Offer Curve"))
+
+#Add the contour plot for the indifference curves
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
@@ -101,6 +109,26 @@ contour(x, y,
         yaxs="i", 
         add = TRUE)
 
+#Add the offer curve (superimposed on the indifference curves tangent to the price lines)
+xx2 <- seq(2, xlims[2], length.out = npts)
+lines(xx2, offerCurve(xx2, w = 10, rmax = 2, xmax = 12), col = COL[3], lwd = graphlinewidth)
+
+#Segments for points on Offer curve
+segments(0, 4, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, 0, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 5.5, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(9, 0, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 7.375, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
+#Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
+#Where mrs = 2 - (1/6)*x
+points(6, 4, pch = 16, col = "black", cex = 1.5)
+points(9, 5.5, pch = 16, col = "black", cex = 1.5)
+points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
+
+text(6, 4.4, expression(paste(a)))
+text(9, 5.9, expression(paste(b)))
+text(10.5, 7.775, expression(paste(c)))
 
 dev.off()
-

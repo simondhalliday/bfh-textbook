@@ -1,9 +1,9 @@
-#Graph Designer: Simon Halliday
+#Graph Designer: Simon Halliday & Madeleine Wettach '20
 #Authors: Bowles, Foley and Halliday
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/ff_indifference.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/ff_shaded_step2.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -13,7 +13,7 @@ segmentlinewidth <- 2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 4, 4))
@@ -32,7 +32,7 @@ uFn <- function(x, y, alpha = 0.3){
   (x^alpha)*(y^(1-alpha))
 }
 
-ylims <- c(0, 4.25)
+ylims <- c(0, 4)
 xlims <- c(0, 18)
 
 npts <- 501 
@@ -76,6 +76,10 @@ xx4 <- seq(-11, 0, length.out = npts)
 xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
 ypoly1 <- ppf(xpoly1, k = 1.058868, maxx = 17)
 polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+#polygon(x = c(xlims[2], xlims[2], rev(xpoly1), 0),
+#        y = c(ylims[2], 0, rev(ypoly1), ylims[2]), 
+#        col=COLB[1], density=NULL, border = NA)
+
 
 #Draw the graphs
 lines(xx1, ppf(xx1, k = 1.058868, maxx = 17), col = COLA[5], lwd = graphlinewidth)
@@ -84,48 +88,41 @@ lines(xx1, ppf(xx1, k = 1.058868, maxx = 17), col = COLA[5], lwd = graphlinewidt
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(10.5, 0.53, expression("Feasible Frontier"), cex = labelsize)
+text(9.3, 0.53, expression("Feasible Frontier (ff)"), cex = axislabelsize)
 Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-contour(x, y, 
-        outer(x, y, uFn),
-        drawlabels = FALSE,
-        col = COLB[3],
-        lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE)
+text(6, 1.5, expression("Feasible Set"), cex = axislabelsize)
+##text(14, 3, expression("Infeasible"), cex = axislabelsize)
 
 #Axis labels
 mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Grade point average, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
-text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+# Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(17, 1, expression(u[1]^A), cex = labelsize)
-text(17, 1.55, expression(u[2]^A), cex = labelsize)
-text(17, 2.25, expression(u[3]^A), cex = labelsize)
+# text(17, 1, expression(u[1]^A), cex = labelsize)
+# text(17, 1.55, expression(u[2]^A), cex = labelsize)
+# text(17, 2.25, expression(u[3]^A), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
-text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
-segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
-
-text(2.4, ppf(2) + 0.1, expression(paste(a)), cex = labelsize)
-segments(2, 0, 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 2), 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(2, ppf(x = 2), pch = 16, col = "black", cex = 1.5)
-
-
-text(14.15, ppf(13.75) + 0.1, expression(paste(b)), cex = labelsize)
-segments(13.75, 0, 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 13.75), 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(13.75, ppf(x = 13.75), pch = 16, col = "black", cex = 1.5)
+# text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
+# segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+# points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
+# 
+# text(2.4, ppf(2) + 0.1, expression(paste(a)), cex = labelsize)
+# segments(2, 0, 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 2), 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+# points(2, ppf(x = 2), pch = 16, col = "black", cex = 1.5)
+# 
+# 
+# text(14.15, ppf(13.75) + 0.1, expression(paste(b)), cex = labelsize)
+# segments(13.75, 0, 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 13.75), 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
+# points(13.75, ppf(x = 13.75), pch = 16, col = "black", cex = 1.5)
 
 
 

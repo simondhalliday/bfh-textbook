@@ -1,9 +1,9 @@
-#Graph Designer: Simon Halliday
+#Graph Designer: Simon Halliday & Madeleine Wettach '20
 #Authors: Bowles, Foley and Halliday
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/ff_indifference.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/ff_indifference_step1.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -87,45 +87,45 @@ lines(xx1, ppf(xx1, k = 1.058868, maxx = 17), col = COLA[5], lwd = graphlinewidt
 text(10.5, 0.53, expression("Feasible Frontier"), cex = labelsize)
 Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-contour(x, y, 
-        outer(x, y, uFn),
-        drawlabels = FALSE,
-        col = COLB[3],
-        lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE)
+#contour(x, y, 
+#        outer(x, y, uFn),
+#        drawlabels = FALSE,
+#        col = COLB[3],
+#        lwd = graphlinewidth,
+#        levels = a, 
+#        xaxs="i", 
+#        yaxs="i", 
+#        add = TRUE)
 
 #Axis labels
 mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Grade point average, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
-text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+##text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+##Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(17, 1, expression(u[1]^A), cex = labelsize)
-text(17, 1.55, expression(u[2]^A), cex = labelsize)
-text(17, 2.25, expression(u[3]^A), cex = labelsize)
+##text(17, 1, expression(u[1]^A), cex = labelsize)
+##text(17, 1.55, expression(u[2]^A), cex = labelsize)
+##text(17, 2.25, expression(u[3]^A), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
-text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
-segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
+##text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
+##segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+##segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+##points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
 
-text(2.4, ppf(2) + 0.1, expression(paste(a)), cex = labelsize)
-segments(2, 0, 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 2), 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(2, ppf(x = 2), pch = 16, col = "black", cex = 1.5)
+##text(2.4, ppf(2) + 0.1, expression(paste(a)), cex = labelsize)
+##segments(2, 0, 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+##segments(0, ppf(x = 2), 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+##points(2, ppf(x = 2), pch = 16, col = "black", cex = 1.5)
 
 
-text(14.15, ppf(13.75) + 0.1, expression(paste(b)), cex = labelsize)
-segments(13.75, 0, 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 13.75), 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(13.75, ppf(x = 13.75), pch = 16, col = "black", cex = 1.5)
+##text(14.15, ppf(13.75) + 0.1, expression(paste(b)), cex = labelsize)
+##segments(13.75, 0, 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
+##segments(0, ppf(x = 13.75), 13.75, ppf(x = 13.75), lty = 2, col = "gray", lwd = segmentlinewidth)
+##points(13.75, ppf(x = 13.75), pch = 16, col = "black", cex = 1.5)
 
 
 

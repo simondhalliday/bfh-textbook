@@ -1,9 +1,9 @@
-#Graph Designer: Simon Halliday
+#Graph Designer: Simon Halliday & Madeleine Wettach '20
 #Authors: Bowles, Foley and Halliday
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/ff_indifference.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/ff_indifference_step3.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -40,7 +40,7 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 #a <- c(3.5, 4.58, 5.5) #alpha = 0.5
 #a <- c(3, 3.9, 5) #alpha = 0.4
-a <- c(2.58, 3.38, 4.28) #alpha = 0.3
+a <- c(2.58, 4.28) #alpha = 0.3
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -96,25 +96,27 @@ contour(x, y,
         xaxs="i", 
         yaxs="i", 
         add = TRUE)
+#Step by Step comments
+text(7.75, 4, expression(paste("Not currently feasible")), xpd = TRUE, cex = 1.1)
 
 #Axis labels
 mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Grade point average, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
-text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+##text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+##Arrows(8, 2.75, 8, 2.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
 text(17, 1, expression(u[1]^A), cex = labelsize)
-text(17, 1.55, expression(u[2]^A), cex = labelsize)
+##text(17, 1.55, expression(u[2]^A), cex = labelsize)
 text(17, 2.25, expression(u[3]^A), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
-text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
-segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
+##text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
+##segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+##segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+##points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
 
 text(2.4, ppf(2) + 0.1, expression(paste(a)), cex = labelsize)
 segments(2, 0, 2, ppf(x = 2), lty = 2, col = "gray", lwd = segmentlinewidth)

@@ -1,9 +1,10 @@
-#Graph Designer: Simon Halliday
+
+#Graph Designer: Simon Halliday & Madeleine Wettach '20
 #Authors: Bowles, Foley and Halliday
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/ff_indifference.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/step_by_step_graphs_3/ff_indifference_step4.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -96,6 +97,8 @@ contour(x, y,
         xaxs="i", 
         yaxs="i", 
         add = TRUE)
+#Step by Step comments
+text(7.75, 3.0, expression(paste("Highest feasible utility")), xpd = TRUE, cex = 1.1)
 
 #Axis labels
 mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)

@@ -163,7 +163,14 @@ text(10, 22, expression(paste("investor's")), xpd = TRUE, cex = labelsize)
 text(10, 21.2, expression(paste("fallback")), xpd = TRUE, cex = labelsize) 
 text(10, 20.4, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 
+brackets(x1 = 5.19, y1 = 5, 
+         x2 = 10, y2 = 5,  
+         ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
+text(7.7, 2.5, expression(paste("Difference between accepted
+risk of a Risk-Neutral and 
+Risk-Averse Person")), xpd = TRUE, cex = 1.1)
 
 
 dev.off()

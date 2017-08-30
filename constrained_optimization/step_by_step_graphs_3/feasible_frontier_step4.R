@@ -98,7 +98,7 @@ contour(x, y,
         yaxs="i", 
         add = TRUE)
 #Step by Step comments
-text(7.75, 3.0, expression(paste("Highest feasible utility")), xpd = TRUE, cex = 1.1)
+text(11, 2.5, expression(paste("Highest feasible utility")), xpd = TRUE, cex = 1.1)
 
 #Axis labels
 mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)

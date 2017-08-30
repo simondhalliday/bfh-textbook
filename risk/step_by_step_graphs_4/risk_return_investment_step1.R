@@ -101,13 +101,13 @@ lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #####Risk neutral segment line
 #segments(0, riskreturn(retmax), xlims[2], riskreturn(g = retmax) , lty = 2, col = COLB[4], lwd = graphlinewidth)
 
-#segments(retmax, 0, retmax, riskreturn(g = retmax) , lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(retmax, 0, retmax, riskreturn(g = retmax) , lty = 2, col = "gray", lwd = segmentlinewidth)
 #points(retmax, riskreturn(g = retmax), pch = 16, col = "black", cex = 1.5)
 #text(retmax + 0.25, riskreturn(g = retmax) - 0.5, expression(m), cex = labelsize)
 #####cut
 
-# segments(0, insurance(g = 1.8), 10.5, insurance(g = 1.8), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(1.8, 0, 1.8, insurance(g = 1.8), lty = 2, col = "gray", lwd = segmentlinewidth)
+ #segments(0, insurance(g = 1.8), 10.5, insurance(g = 1.8), lty = 2, col = "gray", lwd = segmentlinewidth)
+ #segments(1.8, 0, 1.8, insurance(g = 1.8), lty = 2, col = "gray", lwd = segmentlinewidth)
 # points(1.8, insurance(g = 1.8) , pch = 16, col = "black", cex = 1.5)
 # text(1.8, insurance(g = 1.8) + 0.6, expression(paste(b^2)), cex = labelsize)
 # 
@@ -165,7 +165,10 @@ text(14, 12.6, expression(paste("schedule")), cex = labelsize)
 #text(10, 20.4, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 ####cut
 
-
+text(5, 5, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
+text(5,3, expression(paste("Increasing Returns")), xpd = TRUE, cex = 1.4)
+text(13, 5, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
+text(13, 3, expression(paste("Decreasing Returns")), xpd = TRUE, cex = 1.4)
 
 dev.off()
 

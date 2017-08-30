@@ -146,5 +146,10 @@ text(7.6, 17, expression(u[3]), cex = labelsize)
 #text(3, 15.5, expression(paste("exposure and ")), xpd = TRUE)
 #text(3, 14.9, expression(paste("maximizes utility ")), xpd = TRUE)
 
+text(12.5,5, expression(paste("Jeanine pays a price p
+per unit of insurance i
+resulting in a 
+total risk premium
+of p times i")), xpd = TRUE, cex = 1.1)
 
 dev.off()

@@ -148,6 +148,11 @@ text(9.9, 17, expression(u[1]), cex = labelsize)
 #text(3, 15.5, expression(paste("exposure and ")), xpd = TRUE)
 #text(3, 14.9, expression(paste("maximizes utility ")), xpd = TRUE)
 
-
+text(11, 8, expression(paste("Before buying insurance, Jeanine will obtain ",omega^n)),
+                       xpd = TRUE, cex = 1.1)
+text(11, 6.8, expression(paste("wealth and be exposed to ", Delta^n, " risk")),
+                       xpd = TRUE, cex = 1.1)
+     
+   
 dev.off()
 

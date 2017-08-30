@@ -147,6 +147,8 @@ text(7.6, 17, expression(u[3]), cex = labelsize)
 #text(3, 15.5, expression(paste("exposure and ")), xpd = TRUE)
 #text(3, 14.9, expression(paste("maximizes utility ")), xpd = TRUE)
 
+text(8.5, 4, expression(paste("We see Jeanine chooses indifference curve u[3]
+tangent to the insurance contract, resulting in risk exposure of ",Delta[i]^{c2})), xpd = TRUE, cex = 1.1)
 
 dev.off()
 

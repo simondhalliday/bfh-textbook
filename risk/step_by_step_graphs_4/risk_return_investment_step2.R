@@ -164,7 +164,12 @@ text(10, 22, expression(paste("investor's")), xpd = TRUE, cex = labelsize)
 text(10, 21.2, expression(paste("fallback")), xpd = TRUE, cex = labelsize) 
 text(10, 20.4, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 
-
+Arrows(9.4, 2, 2, 2, 
+       col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
+       arr.lwd = 0.5, code = 2)
+text(9.8, 4, expression(paste("Certainty Equivalent. A guaranteed amount
+from the risk-free T-bills is equally valued 
+as a larger amount from a non-risk-free investment")), xpd = TRUE, cex = 1.1)
 
 
 dev.off()

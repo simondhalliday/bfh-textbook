@@ -142,9 +142,9 @@ segments(retmax, 0, retmax, riskreturn(g = retmax) , lty = 2, col = "gray", lwd 
 # 
 # 
 # #Label risk return schedule
-text(14, 14.2, expression(paste(R(Delta))), cex = labelsize)
-text(14, 13.4, expression(paste("Risk-return")), cex = labelsize)
-text(14, 12.6, expression(paste("schedule")), cex = labelsize)
+text(14, 18.5, expression(paste(R(Delta))), cex = labelsize)
+text(14, 17.7, expression(paste("Risk-return")), cex = labelsize)
+text(14, 16.9, expression(paste("schedule")), cex = labelsize)
 #
 
 ####cut
@@ -165,10 +165,18 @@ text(14, 12.6, expression(paste("schedule")), cex = labelsize)
 #text(10, 20.4, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 ####cut
 
-text(5, 5, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
-text(5,3, expression(paste("Increasing Returns")), xpd = TRUE, cex = 1.4)
-text(13, 5, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
-text(13, 3, expression(paste("Decreasing Returns")), xpd = TRUE, cex = 1.4)
+text(6, 9.3, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
+text(6, 8.4, expression(paste("Increasing Returns")), xpd = TRUE, cex = 1.4)
+text(13, 9.3, expression(paste("Increasing Risk,")), xpd = TRUE, cex = 1.4)
+text(13, 8.4, expression(paste("Decreasing Returns")), xpd = TRUE, cex = 1.4)
+
+Arrows(3.5, 10, 9.8, 17, 
+        col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
+        arr.lwd = 0.5, code = 2)
+
+Arrows(10, 17, 14.5, 12,
+       col = "black", lty = 1, lwd = 2, arr.type = "triangle",
+       arr.lwd = 0.5, code = 2)
 
 dev.off()
 

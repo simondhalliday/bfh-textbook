@@ -4,7 +4,7 @@
 
 #require(ggplot2)
 require(shape)
-pdf(file = "property/step_by_step_graphs_5/property_tioli_step1.pdf", width = 9, height = 7)
+pdf(file = "property/step_by_step_graphs_5/property_tioli_step2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -101,9 +101,9 @@ lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
 ##lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 
-##lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
-##lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
-##lines(xx1, indiffcurveBneg3(xx1), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg3(xx1), col = COLB[2], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -154,24 +154,24 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 #Set up axes at sides 3 and 4 (top and right)
-##axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-##axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-##mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-##text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
+text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-##arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-##arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Label B's indifference curves
-##text(9.1, 1.6, expression(u[1]^B))
-##text(9.1, 3.4, expression(u[2]^B))
+text(9.1, 1.6, expression(u[1]^B))
+text(9.1, 3.4, expression(u[2]^B))
 #text(9.1, 4.6, expression(u[3]^B))
-##text(9.1, 8, expression(u[3]^B))
+text(9.1, 8, expression(u[3]^B))
 
 #Add a point for the initial endowment
-##points(2, 13, pch = 16, col = "black", cex = 1.5)
-##text(1.8, 12.5, expression(e))
+points(2, 13, pch = 16, col = "black", cex = 1.5)
+text(1.8, 12.5, expression(e))
 
 #Label a point on the middle of the curve
 ##points(5, 7.5, pch = 16, col = "black", cex = 1.5)
@@ -180,8 +180,8 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #(5^0.5)*(7.5^0.5) = 6.123724
 
 #Add point for comparison to participation constraint
-##points(6.2, 1.55, pch = 16, col = "black", cex = 1.5)
-##text(6.1, 1.2, expression(d))
+points(6.2, 1.55, pch = 16, col = "black", cex = 1.5)
+text(6.1, 1.2, expression(d))
 
 
 #Calculate TIOLI power allocation for B

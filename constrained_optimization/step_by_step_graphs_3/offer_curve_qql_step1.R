@@ -86,30 +86,30 @@ mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axis
 text(-1.2, 0.5 * ylims[2], expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
-text(11.8, 1.3, expression(u[1]))
-text(11.8, 5.1, expression(u[2]))
-text(11.8, 7.6, expression(u[3]))
+#text(11.8, 1.3, expression(u[1]))
+#text(11.8, 5.1, expression(u[2]))
+#text(11.8, 7.6, expression(u[3]))
 
 #Label the price lines
 text(8, 0.9, expression(paste(pl[1], ", ", p[x] == 0.25)))
 text(11.3, 3.75, expression(paste(pl[2], ", ", p[x] == 0.5)))
 text(11.3, 6.8, expression(paste(pl[3], ", ", p[x] == 1)))
 
-contour(x, y, 
-        outer(x, y, uA),
-        drawlabels = FALSE,
-        col = COLA[3],
-        lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE)
+#contour(x, y, 
+#        outer(x, y, uA),
+#        drawlabels = FALSE,
+#        col = COLA[3],
+#        lwd = graphlinewidth,
+#        levels = a, 
+#        xaxs="i", 
+#        yaxs="i", 
+#        add = TRUE)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x
-points(6, 4, pch = 16, col = "black", cex = 1.5)
-points(9, 5.5, pch = 16, col = "black", cex = 1.5)
-points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
+#points(6, 4, pch = 16, col = "black", cex = 1.5)
+#points(9, 5.5, pch = 16, col = "black", cex = 1.5)
+#points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
 
 dev.off()
 

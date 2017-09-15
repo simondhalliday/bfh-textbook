@@ -1,6 +1,6 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "property/property_psp1_offer.pdf", width = 9, height = 7)
+pdf(file = "bfh-textbook/property/property_psp1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -34,11 +34,6 @@ paretoEC <- function(x) {
 MonopolyPrice <- function(x) {
   21.82142 - 2.477677*x 
 }
-
-PriceLine <- function(x, intercept = 10, slope = 1) {
-  intercept - slope*x 
-}
-
 
 OfferCurveA <- function(x) {
   x/(x  - 4)
@@ -118,8 +113,8 @@ xx3 <- seq(xlims[1], 9, length.out = npts)
 
 #Draw the lines for the graphs
 #lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 #lines(xx2, OfferCurveA(xx2), col = COL[2], lwd = graphlinewidth)
@@ -127,14 +122,9 @@ xx3 <- seq(xlims[1], 9, length.out = npts)
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1, U = 6.4), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1, U = 7.5), col = COLB[2], lwd = graphlinewidth)
 
 lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1, intercept = 15, slope = 1.63), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1, intercept = 50, slope = 6), col = COL[8], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -160,42 +150,18 @@ text(9.6, 4.4, expression(u[2]^A))
 
 
 #Pareto efficiency curve
-# segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
-# text(4.7, 5, expression("Pareto Efficient Curve"))
-# Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
+text(4.7, 5, expression("Pareto Efficient Curve"))
+Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label B's offer curve
 text(1, 3, expression("B's Offer Curve"))
 Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Monopoly Price Line
-# text(7, 13.5, expression(paste("Monopoly Price Line")))
-# text(7, 13, expression(paste("Slope", phantom()==-p[m])))
-# Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-text(8, 13.5, expression(paste("Different price lines")))
-text(8, 13, expression(paste("going through the endowment")))
-text(8, 12.5, expression(paste("and tangent to B's ICs")))
-text(8, 12, expression(paste("form the offer curve")))
-# text(7, 13, expression(paste("Slope", phantom()==-p[m])))
-# Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Add a point for the initial endowment
-points(8, OfferCurveB(x = 8), pch = 16, col = "black", cex = 1.5)
-text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(e[1]))
-
-
-#Add a point for the initial endowment
-points(6.35, OfferCurveB(x = 6.35), pch = 16, col = "black", cex = 1.5)
-text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(e[2]))
-
-#Add a point for the initial endowment
-points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
-text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(e[3]))
-
-#Add a point for the initial endowment
-points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
-text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(e[4]))
+text(7, 13.5, expression(paste("Monopoly Price Line")))
+text(7, 13, expression(paste("Slope", phantom()==-p[m])))
+Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Set up second axes and labels
 
@@ -244,9 +210,6 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
   ((((U)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
-  ((((U)/A)*(1/x)^a)^(1/(1-a)))
-}
 
 
 
@@ -258,12 +221,12 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 #Label B's indifference curves
 text(9.1, 2.4, expression(u[1]^B))
 text(9.1, 4.1, expression(u[2]^B))
-text(9.1, 5, expression(u[3]^B))
-text(9.1, 6.7, expression(u[4]^B))
+#text(9.1, 4.6, expression(u[3]^B))
+#text(9.1, 8.2, expression(u[4]^B))
 
-
-
-
+#Add a point for the initial endowment
+points(2, 13, pch = 16, col = "black", cex = 1.5)
+text(1.8, 12.5, expression(e))
 
 
 
@@ -287,8 +250,8 @@ text(9.1, 6.7, expression(u[4]^B))
 # => y^A = 3/2(x^A) = 4.9 => y^B = 10.1
 
 #Add point g for B's TIOLI power
-# points(6.73, 10.1, pch = 16, col = "black", cex = 1.5)
-# text(6.73, 10.6, expression(g))
+points(6.73, 10.1, pch = 16, col = "black", cex = 1.5)
+text(6.73, 10.6, expression(g))
 
 #Calculate TIOLI power allocation for A
 #mrs(x,y) => pareto efficient curve is (3/2)x = y
@@ -298,16 +261,16 @@ text(9.1, 6.7, expression(u[4]^B))
 # => y^B = 3/2(x^B) = 6.23 => y^A = 8.77 
 #=> u^A = (5.84^0.5)*(8.77^0.5) = 7.156591
 #Add point f for A's TIOLI power
-# points(4.16, 6.23, pch = 16, col = "black", cex = 1.5)
-# text(4.16, 5.8, expression(f))
+points(4.16, 6.23, pch = 16, col = "black", cex = 1.5)
+text(4.16, 5.8, expression(f))
 
 
 #Annotating B's endowment
-# text(1.8, 12.5, expression(e))
+text(1.8, 12.5, expression(e))
 
 #Annotating a point that is a Pareto improvement over e.
-# points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)
-# text(3.5, 8.6, expression(m))
+points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)
+text(3.5, 8.6, expression(m))
 #(2.94^0.5)*(12.76^0.5)
 
 #Label Pareto Improving Lens

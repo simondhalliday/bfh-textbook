@@ -1,6 +1,6 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "property/property_psp1_offer.pdf", width = 9, height = 7)
+pdf(file = "property/property_psp1_offer_step4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -72,12 +72,6 @@ indiffcurveBneg2 <- function(x, U = 5.703502, A = 1, a = 0.5) {
   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
 }
 
-#Aisha happens to have found 8 apples and 2 oranges, 
-#and Betty happens to have found 2 apples and 13 oranges. 
-#Aisha's utility (8^0.5)*(2^0.5) = 4
-#Betty's utility (2^0.5)*(13^0.5) = 5.09
-
-
 
 par(mar =  c(6, 4, 4, 4))
 xlims <- c(0, 10)
@@ -105,32 +99,17 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 yy1 <- indiffcurveA2(xx1, U = 4, A = 1, a = 0.5)
 yy2 <- indiffcurveA2(xx1)
 
-#Polygon Attempt
-#polygon(x = c(1.34, 6, 8, 10 - 6.73), y = c(12, 9, 2, 15 - 10.1), col="powderblue", density=NULL, border = NA)
-
-#I need something like xx1 with npts for 
-#xpoly1 <- seq(from = 1.34, to = 8, length.out = 500)
-#ypoly1 <- indiffcurveA2(xpoly1, U = 4, A = 1, a = 0.5)
-#ypoly2 <- indiffcurveBneg(xpoly1, U = 5.09, A = 1, a = 0.5)
-#polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[3], density=NULL, border = NA)
 xx2 <- seq(4, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9, length.out = npts)
 
 #Draw the lines for the graphs
-#lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
-#lines(xx2, OfferCurveA(xx2), col = COL[2], lwd = graphlinewidth)
-
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1, U = 6.4), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1, U = 7.5), col = COLB[2], lwd = graphlinewidth)
 
-lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
+#lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
 lines(xx1, PriceLine(xx1), col = COL[8], lwd = graphlinewidth)
 lines(xx1, PriceLine(xx1, intercept = 15, slope = 1.63), col = COL[8], lwd = graphlinewidth)
@@ -163,20 +142,32 @@ text(9.6, 4.4, expression(u[2]^A))
 # segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
 # text(4.7, 5, expression("Pareto Efficient Curve"))
 # Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
 #Label B's offer curve
-text(1, 3, expression("B's Offer Curve"))
-Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(1, 3, expression("B's Offer Curve"))
+# Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Monopoly Price Line
-# text(7, 13.5, expression(paste("Monopoly Price Line")))
-# text(7, 13, expression(paste("Slope", phantom()==-p[m])))
+#First Price Line
+text(6.8, 13.5, expression(paste("Price Line")))
+text(6.8, 13, expression(paste("Slope", phantom()==-p[1])))
+
+#Second price line
+text(4.3, 13.5, expression(paste("Price Line")))
+text(4.3, 13, expression(paste("Slope", phantom()==-p[2])))
+
+#Third price line
+text(2, 13.5, expression(paste("Price Line")))
+text(2, 13, expression(paste("Slope", phantom()==-p[3])))
+
+#Fourth price line
+text(2, 9.3, expression(paste("Price Line")))
+text(2, 8.8, expression(paste("Slope", phantom()==-p[4])))
+
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8, 13.5, expression(paste("Different price lines")))
-text(8, 13, expression(paste("going through the endowment")))
-text(8, 12.5, expression(paste("and tangent to B's ICs")))
-text(8, 12, expression(paste("form the offer curve")))
+# text(8, 13.5, expression(paste("Different price lines")))
+# text(8, 13, expression(paste("going through the endowment")))
+# text(8, 12.5, expression(paste("and tangent to B's ICs")))
+# text(8, 12, expression(paste("form the offer curve")))
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -249,11 +240,6 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 }
 
 
-
-#lines(xx1, indiffcurveB1(xx1), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveB2(xx1), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveB3(xx1), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
 
 #Label B's indifference curves
 text(9.1, 2.4, expression(u[1]^B))

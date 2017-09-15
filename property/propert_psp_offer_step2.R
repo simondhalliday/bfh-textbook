@@ -1,6 +1,6 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "property/property_psp1_offer.pdf", width = 9, height = 7)
+pdf(file = "property/property_psp1_offer_step2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -117,23 +117,16 @@ xx2 <- seq(4, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9, length.out = npts)
 
 #Draw the lines for the graphs
-#lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
-#lines(xx2, OfferCurveA(xx2), col = COL[2], lwd = graphlinewidth)
-
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1, U = 6.4), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1, U = 7.5), col = COLB[2], lwd = graphlinewidth)
+#lines(xx1, indiffcurveBneg2(xx1, U = 6.4), col = COLB[2], lwd = graphlinewidth)
+#lines(xx1, indiffcurveBneg2(xx1, U = 7.5), col = COLB[2], lwd = graphlinewidth)
 
-lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
+#lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1, intercept = 15, slope = 1.63), col = COL[8], lwd = graphlinewidth)
+#lines(xx1, PriceLine(xx1), col = COL[8], lwd = graphlinewidth)
+#lines(xx1, PriceLine(xx1, intercept = 15, slope = 1.63), col = COL[8], lwd = graphlinewidth)
 lines(xx1, PriceLine(xx1, intercept = 50, slope = 6), col = COL[8], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
@@ -163,20 +156,24 @@ text(9.6, 4.4, expression(u[2]^A))
 # segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
 # text(4.7, 5, expression("Pareto Efficient Curve"))
 # Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
 #Label B's offer curve
-text(1, 3, expression("B's Offer Curve"))
-Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(1, 3, expression("B's Offer Curve"))
+# Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Monopoly Price Line
-# text(7, 13.5, expression(paste("Monopoly Price Line")))
-# text(7, 13, expression(paste("Slope", phantom()==-p[m])))
+#First Price Line
+text(6.8, 13.5, expression(paste("Price Line")))
+text(6.8, 13, expression(paste("Slope", phantom()==-p[1])))
+
+#Second price line
+text(4.3, 13.5, expression(paste("Price Line")))
+text(4.3, 13, expression(paste("Slope", phantom()==-p[2])))
+
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8, 13.5, expression(paste("Different price lines")))
-text(8, 13, expression(paste("going through the endowment")))
-text(8, 12.5, expression(paste("and tangent to B's ICs")))
-text(8, 12, expression(paste("form the offer curve")))
+# text(8, 13.5, expression(paste("Different price lines")))
+# text(8, 13, expression(paste("going through the endowment")))
+# text(8, 12.5, expression(paste("and tangent to B's ICs")))
+# text(8, 12, expression(paste("form the offer curve")))
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -190,12 +187,12 @@ points(6.35, OfferCurveB(x = 6.35), pch = 16, col = "black", cex = 1.5)
 text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(e[2]))
 
 #Add a point for the initial endowment
-points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
-text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(e[3]))
+# points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
+# text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(e[3]))
 
 #Add a point for the initial endowment
-points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
-text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(e[4]))
+# points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
+# text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(e[4]))
 
 #Set up second axes and labels
 
@@ -258,8 +255,8 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 #Label B's indifference curves
 text(9.1, 2.4, expression(u[1]^B))
 text(9.1, 4.1, expression(u[2]^B))
-text(9.1, 5, expression(u[3]^B))
-text(9.1, 6.7, expression(u[4]^B))
+# text(9.1, 5, expression(u[3]^B))
+# text(9.1, 6.7, expression(u[4]^B))
 
 
 

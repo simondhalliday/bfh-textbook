@@ -129,9 +129,9 @@ arrows(-1, avgwealth(8)-6, -1, avgwealth(8)-1, col = "black", code = 3, arr.type
 
 #label the three indifference curves
 
-text(20, indiffA(20)+3.355, expression(paste("v"[1])), xpd = TRUE, cex = labelsize)
-text(18, indiffA(18)+9.8, expression(paste("v"[2])),  xpd = TRUE, cex = labelsize)
-text(16, indiffA(16)+15.5, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
+text(20, indiffA(20)+3.355, expression(paste(u[1])), xpd = TRUE, cex = labelsize)
+text(18, indiffA(18)+9.8, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
+text(16, indiffA(16)+15.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 

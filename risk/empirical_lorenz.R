@@ -7,7 +7,7 @@ library(data.table)
 library(grid)
 library(ineq)
 
-Colors: 
+#Colors: 
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
@@ -39,8 +39,8 @@ Lorenz1 <-
   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative Population Proportion") + 
-  ylab("Cumulative Wealth") +
+  xlab("Cumulative population proportion") + 
+  ylab("Cumulative income") +
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +
   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
@@ -83,8 +83,8 @@ LorenzUS <-
   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative Population Proportion") + 
-  ylab("Cumulative Wealth") +
+  xlab("Cumulative population proportion") + 
+  ylab("Cumulative income") +
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "United States (2013)") +
   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
@@ -129,13 +129,13 @@ LorenzComp <-
                      labels = c("Netherlands", "United States"), 
                      values = c("solid", "dashed")) +
   geom_abline(intercept = 0, slope = 1, color = COLB[5]) +
-  xlab("Cumulative Population Proportion") + 
-  ylab("Cumulative Wealth") +
+  xlab("Cumulative population proportion") + 
+  ylab("Cumulative income") +
   theme_bw() +
   annotate("text", x = 0.2, y = 0.8, label = "NL Gini = 0.25") + 
   annotate("text", x = 0.2, y = 0.7, label = "US Gini = 0.38") +
   labs(title = "Lorenz curves and Gini coefficients of disposable income", 
-       subtitle = "United States (2013) & Netherland (2010)") +
+       subtitle = "United States (2013) & The Netherlands (2010)") +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 LorenzComp 

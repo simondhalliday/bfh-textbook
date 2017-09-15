@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "risk/figure4_3.pdf", width = 10, height = 8)
+pdf(file = "risk/risk_averse_u.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -25,7 +25,7 @@ ConcaveU <- function(x,y){
 }
 
 #Add limits on axes and levels of utility for each indifference curve
-ylims <- c(0, 40)
+ylims <- c(0, 42)
 xlims <- c(0, 40)
 
 npts <- 501 
@@ -39,16 +39,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs="i" 
+     #yaxs="i"
 )
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksy <- c(0, ConcaveU(2), ConcaveU(36))
-ylabels <- c(NA, NA)
-ticksx <- c(0, 2, 13, 23.18, 36)
-xlabels <- c(NA, expression(paste(y - Delta*y[2])), expression(paste(y[ce])), expression(paste(y)), expression(paste(y + Delta*y[1])))
+ticksy <- c(0, ConcaveU(2), ConcaveU(36), ylims[2])
+ylabels <- c(NA, NA, NA, ylims[2])
+ticksx <- c(0, 2, 13, 23.18, 36, xlims[2])
+xlabels <- c(NA, expression(paste(y + delta[2])), expression(paste(y[ce])), expression(paste(y)), expression(paste(y + delta[1])), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1)
@@ -61,7 +61,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Wealth, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-9, 0.5*ylims[2], expression(paste("The Value of Wealth, v(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-9.2, 0.5*ylims[2], expression(paste("The utility of wealth, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, ConcaveU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
@@ -105,13 +105,13 @@ points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 #text(23.18, -.9, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
 
 
-text(-2.7, ConcaveU(36), expression(paste("v(y + ",Delta,"y)")), xpd = TRUE, cex = labelsize)
-text(-1.95, ConcaveU(13)+1.7, expression(paste("v(ce) = ")),  xpd = TRUE, cex = labelsize)
-text(-3, ConcaveU(13), expression(paste(P*v(y- Delta*y[2]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.2, ConcaveU(13)-1.5, expression(paste((1 - P)*v*(y + Delta*y[1]))),  xpd = TRUE, cex = labelsize)
-text(-1.8, ConcaveU(13)-3, expression(paste(" = v(y)")),  xpd = TRUE, cex = labelsize)
-text(-2.7, ConcaveU(2), expression(paste(v(y - Delta*y[2]))),  xpd = TRUE,  cex = labelsize)
-text(-1.5, ConcaveU(23.18), expression(paste("u(y)")),  xpd = TRUE,  cex = labelsize)
+text(-2.7, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
+text(-1.95, ConcaveU(13)+1.7, expression(paste(u(y[ce]) == phantom() )),  xpd = TRUE, cex = labelsize)
+text(-3.1, ConcaveU(13), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
+text(-4.3, ConcaveU(13)-1.5, expression(paste((1 - p)%.%u(y + delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-1.8, ConcaveU(13)-3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
+text(-2.7, ConcaveU(2), expression(paste(u(y + delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-1.5, ConcaveU(23.18), expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 
 #Add risk premium distance arrow and label
 

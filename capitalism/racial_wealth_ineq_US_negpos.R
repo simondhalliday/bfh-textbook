@@ -5,6 +5,8 @@
 #License of graph: MIT License https://choosealicense.com/licenses/mit/
 
 library(tidyverse)
+library(readxl)
+library(forcats)
 
 download.file("https://www2.census.gov/programs-surveys/demo/tables/wealth/2013/wealth-asset-ownership/wealth-tables-2013.xlsx", 
               destfile = "wealth-tables-2013.xlsx",
@@ -56,6 +58,8 @@ WInN <-
   
 WIneqBand <- 
   WInN %>%
+  filter(Race %in% c("White alone", "White, not Hispanic", "Black", "Asian", "Hispanic origin", "Not Hispanic")) %>%
+  mutate(Race = fct_relevel(Race, "Asian", "White, not Hispanic", "White alone", "Not Hispanic", "Hispanic origin", "Black")) %>%
   ggplot(aes(x = Race, y = Value, color = Type, fill = Type, order = Type)) + 
   geom_bar(stat = "identity", position = position_stack(reverse = TRUE)) + 
   scale_fill_brewer(type = "div", palette = "RdYlBu", name = "Wealth Value") +

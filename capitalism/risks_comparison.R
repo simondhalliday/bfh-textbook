@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 6.3, 7.5, xlims[2])
-xlabels <- c(NA, expression(paste(r^A0)), expression(paste(r^A1)), NA)
+xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
 ticksy <- c(0, 3.7, 5.75, 7.8, ylims[2])
 ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), NA)
 
@@ -65,8 +65,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", r)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(g, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(omega, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -104,12 +104,12 @@ points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 
 
 #Label risk return schedule
-text(14, riskreturn(g = 14), expression(paste(g(r) - rho,"*",K) ), cex = labelsize)
+text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = labelsize)
 
-text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(r) - bar(rho)*K) ), cex = labelsize)
+text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
 
 Arrows(12, riskreturn(int1 = 15, g = 12) - 0.6, 12, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
-text(11.2, 13.5, expression(paste(bar(rho)*K - rho,"*",K)), cex = labelsize)
+text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize)
 # text(13.5, 9.7, expression(paste(m)), cex = labelsize)
 
 #Label value functions

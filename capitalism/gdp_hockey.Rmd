@@ -1,0 +1,56 @@
+---
+  title: "Hockey Stick"
+author: "Simon Halliday"
+date: "2015-November -27"
+output: html_document
+---
+  
+  
+```{r requirements, messages = FALSE}
+library(tidyr)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(ggthemes)
+```
+
+
+Import the data: 
+```{r}
+GDP <- read.csv("/Users/shalliday/Google Drive/github/bfh-textbook/preface/GDPData.csv")
+```
+
+It's reading the GDP data as factors because of the commas. We need to extract them as numeric. 
+
+```{r data wrangling}
+GDP2 <- 
+GDP %>%
+mutate(China = parse_number(China.GDP.per.capita), 
+       Britain = parse_number(Britain.GDP.per.capita), 
+       Italy = parse_number(Italy.GDP.per.capita), 
+       Japan = parse_number(Japan.GDP.per.capita), 
+       India = parse_number(India.GDP.per.capita)) 
+GDP3 <- 
+  GDP2 %>%
+  select(Year, China, Britain, Italy, Japan, India) %>% 
+  gather(country, gdp, China:India)
+```
+
+Plot the data: 
+```{r}
+plotGDP <- GDP3 %>% 
+  ggplot(aes(x = Year, y = gdp, color = country)) +
+  geom_line() + 
+  scale_color_brewer( type = "qual", palette = "Set1", name = "Country") +
+    ylab("PPP GDP per capita in 1990 USD") + 
+  theme_bw()
+plotGDP 
+```
+
+
+```{r}
+pdf(file = "/Users/shalliday/Google Drive/github/bfh-textbook/capitalism/gdp_hockey.pdf", width = 4, height = 3)
+plotGDP 
+dev.off()
+```
+

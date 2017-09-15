@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "risk/figure4_2.pdf", width = 10, height = 8)
+pdf(file = "risk/risk_neutral_u.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -40,8 +40,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs="i"#, 
+     #yaxs="i"
 )
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
@@ -62,7 +62,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Wealth, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-9, 0.5*ylims[2], expression(paste("The Value of Wealth, v(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-9, 0.5*ylims[2], expression(paste("The utility of wealth, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, LinearU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
@@ -85,17 +85,17 @@ points(36, 36, pch = 16, col = "black", cex = 1.5)
 
 #Label y-sub,x-sub,etc. on axes
 
-text(36, -.9, expression(paste("y + ", Delta*y)), xpd = TRUE, cex = labelsize)
-text(20, -.9, expression(paste("y = y"[ce])),  xpd = TRUE,  cex = labelsize)
-text(4, -.9, expression(paste("y - ",Delta*y)),  xpd = TRUE,  cex = labelsize)
+text(36, -.9, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
+text(20, -.9, expression(paste(y == y[ce])),  xpd = TRUE,  cex = labelsize)
+text(4, -.9, expression(paste(y + delta[2])),  xpd = TRUE,  cex = labelsize)
 
 
-text(-3, 36, expression(paste("v(y + ",Delta,"y)")), xpd = TRUE, cex = labelsize)
-text(-2, 21.7, expression(paste("v(ce) = ")),  xpd = TRUE, cex = labelsize)
-text(-2.8, 20, expression(paste("Pv(y- ",Delta,"y) + ")),  xpd = TRUE, cex = labelsize)
-text(-4.2, 18.3, expression(paste("(1 - P)(v)(y + ",Delta,"y)")),  xpd = TRUE, cex = labelsize)
-text(-1.8, 16.6, expression(paste(" = v(y)")),  xpd = TRUE, cex = labelsize)
-text(-3, 4, expression(paste("v(y - ",Delta,"y)")),  xpd = TRUE,  cex = labelsize)
+text(-3, 36, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
+text(-2, 21.7, expression(paste(u(y[ce]) == phantom())),  xpd = TRUE, cex = labelsize)
+text(-2.8, 20, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
+text(-4.2, 18.3, expression(paste((1 - p)%.%u(y + delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-1.8, 16.6, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
+text(-3, 4, expression(paste(u(y + delta[2]))),  xpd = TRUE,  cex = labelsize)
 
 
 dev.off()

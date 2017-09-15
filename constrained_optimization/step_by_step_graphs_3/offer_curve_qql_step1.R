@@ -111,5 +111,6 @@ text(11.3, 6.8, expression(paste(pl[3], ", ", p[x] == 1)))
 #points(9, 5.5, pch = 16, col = "black", cex = 1.5)
 #points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
 
+text(5, 10.7, expression(paste("Start with price lines showing the different possible market prices")), cex =1.1)
 dev.off()
 

@@ -111,5 +111,7 @@ points(6, 4, pch = 16, col = "black", cex = 1.5)
 points(9, 5.5, pch = 16, col = "black", cex = 1.5)
 points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
 
+text(4, 2.3, expression(paste("Add indifference curves to find points to 
+find the points at which Jeanine maximizes her utility")), cex = 1.1)
 dev.off()
 

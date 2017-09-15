@@ -131,4 +131,8 @@ text(6, 4.4, expression(paste(a)))
 text(9, 5.9, expression(paste(b)))
 text(10.5, 7.775, expression(paste(c)))
 
+text(3, 1.8, expression(paste("Connect all utility maximizing points 
+to form the offer curve,
+showing all price-quantity combinations 
+that maximize Jeanine's utility")), cex = 1.1)
 dev.off()

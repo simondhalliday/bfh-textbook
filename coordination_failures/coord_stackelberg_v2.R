@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/coordination_failures/coord_stackelberg.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_stackelberg.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -166,8 +166,8 @@ text(6.5, 1.2, expression(u[2]^A==u[ST]^{A}))
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty
-text(2, 23, expression(u[1]^B==u[ST]^{B}))
-text(8, 23, expression(u[2]^B==u[N]^{B}))
+text(2, 23, expression(u[2]^B==u[N]^{B}))
+text(8, 23, expression(u[1]^B==u[ST]^{B}))
 # text(6, 17, expression(u[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 

@@ -168,19 +168,19 @@ Arrows(5, -9, 4.2, -9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 # Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 
-#Label the iso-welfare functions for the HG, Aisha
-text(0.5, -9.6, expression(v[1]^A))
-text(0.5, -7.4, expression(v[2]^A))
-text(0.5, -5.1, expression(v[3]^A))
-text(0.5, -2.9, expression(v[4]^A))
-text(0.5, 0.8, expression(v[5]^A))
+#Label the indifference curves for A
+text(0.5, -9.6, expression(u[1]^A))
+text(0.5, -7.4, expression(u[2]^A))
+text(0.5, -5.1, expression(u[3]^A))
+text(0.5, -2.9, expression(u[4]^A))
+text(0.5, 0.8, expression(u[5]^A))
 
-#Label the indifference curves for the HG, Betty
-text(7.5, 9.6, expression(v[1]^B))
-text(7.5, 2.9, expression(v[2]^B))
-text(7.5, -0.9, expression(v[3]^B))
-text(7.5, -3.1, expression(v[4]^B))
-text(7.5, -5.2, expression(v[5]^B))
+#Label the indifference curves for B
+text(7.5, 9.6, expression(u[1]^B))
+text(7.5, 2.9, expression(u[2]^B))
+text(7.5, -0.9, expression(u[3]^B))
+text(7.5, -3.1, expression(u[4]^B))
+text(7.5, -5.2, expression(u[5]^B))
 
 
 #Point for seeing where the indifference curves intersect on the LHS
@@ -205,7 +205,7 @@ text(3.9, -1.5, expression(paste(f)))
 
 segments(0, -4.5, 4, -4.5, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 points(4, -4.5, pch = 16, col = "black", cex = 1.5)
-text(4.1, -5, expression(paste(c)))
+text(4.1, -5, expression(paste(n)))
 # 
 
 points(4, -6.75, pch = 16, col = "black", cex = 1.5)

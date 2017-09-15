@@ -58,37 +58,40 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 5.6, 7.5, xlims[2])
-xlabels <- c(NA, expression(paste(r[A])), expression(paste(r[B])), NA)
+xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(Delta[B])), NA)
 ticksy <- c(0, 4.4, 5.75, 7.1, riskreturn(5.6), riskreturn(7.5), ylims[2])
-ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(w,"*")), expression(paste(bar(w)[B])), expression(paste(g[A])), expression(paste(g[B])), NA)
+ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(w,"*")), expression(paste(bar(w)[B])), expression(paste(omega[A])), expression(paste(omega[B])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", r)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(g, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(omega, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA(xx1, intercept = 5.8), col = COLB[3], lwd = segmentlinewidth, lty = 2)
 #lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA2(xx1, intercept = 7.1), col = COLB[5], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 5.8), col = COLB[5], lwd = segmentlinewidth, lty = 2)
+
 #lines(xx1, indiffA2(xx1, intercept = 10), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
 #Add points a, b, c and c
 segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(A), cex = labelsize)
+text(5.6 + 0.25, riskreturn(g = 5.6) - 0.05, expression(a), cex = labelsize)
 
 
 segments(7.5, 0, 7.5, riskreturn(g = 7.5) , lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, riskreturn(g = 7.5) , 7.5, riskreturn(g = 7.5) , lty = 2, col = "gray", lwd = segmentlinewidth)
 points(7.5, riskreturn(g = 7.5) , pch = 16, col = "black", cex = 1.5)
-text(7.5 + 0.25, riskreturn(g = 8) - 1, expression(B), cex = labelsize)
+text(7.5 + 0.25, riskreturn(g = 7.5) - 0.2, expression(b), cex = labelsize)
 
 #Segment for next best wage offer
 segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -98,13 +101,13 @@ segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 #Label risk return schedule
-text(14, riskreturn(g = 14) - 1, expression(paste(g(r) - bar(rho)*K) ), cex = labelsize)
+text(14, riskreturn(g = 14) - 1, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
 
 #Label value functions
-text(12.2, 17, expression(u[1]^B), cex = labelsize)
-#text(10.1, 17, expression(u[2]^B), cex = labelsize)
-text(8.8, 17, expression(u[1]^A), cex = labelsize)
-#text(7.2, 17, expression(u[2]^A), cex = labelsize)
+text(13.2, 17, expression(u[1]^B), cex = labelsize)
+text(11.2, 17, expression(u[2]^B), cex = labelsize)
+text(9.6, 17, expression(u[1]^A), cex = labelsize)
+text(8.2, 17, expression(u[2]^A), cex = labelsize)
 
 
 dev.off()

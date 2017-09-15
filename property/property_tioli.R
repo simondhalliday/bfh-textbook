@@ -152,7 +152,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
+mtext("B's Apples, x", side = 3, line = 2.5, cex = axislabelsize)
 text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:

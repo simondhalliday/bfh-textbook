@@ -59,9 +59,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 ticksx <- c(0, 20, xlims[2])
-xlabels <- c(NA, expression(paste(r[C])), NA)
+xlabels <- c(NA, expression(paste(Delta[C])), NA)
 ticksy <- c(0, avgwealth(20), ylims[2])
-ylabels <- c(NA, expression(paste(g[C])), NA)
+ylabels <- c(NA, expression(paste(omega[C])), NA)
 
 
 
@@ -82,19 +82,14 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", r)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", g)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(29-1, avgwealth(29)-2, expression(paste(g == f(r))), xpd = TRUE, cex = labelsize)
+text(29-1.5, avgwealth(29)-2, expression(paste(omega == g(Delta))), xpd = TRUE, cex = labelsize)
 
 #Label various points on line
 
-# text(2, avgwealth(2)+1.2, expression(paste("a")), cex = labelsize)
-# text(5, avgwealth(5)+1.2, expression(paste("b")), cex = labelsize)
-# points(5, avgwealth(5), pch = 16, col = "black", cex = 1.5)
-# points(2, avgwealth(2), pch = 16, col = "black", cex = 1.5)
-# 
 segments(0, avgwealth(x = 20), xlims[2], avgwealth(x = 20), lty = 1, col = COLB[4], lwd = graphlinewidth)
 segments(0, avgwealth(x = 20) - 5, xlims[2], avgwealth(x = 20) - 5, lty = 1, col = COLB[4], lwd = graphlinewidth)
 segments(0, avgwealth(x = 20) + 5, xlims[2], avgwealth(x = 20) + 5, lty = 1, col = COLB[4], lwd = graphlinewidth)
@@ -108,17 +103,6 @@ text(20, avgwealth(20)+1.2, expression(paste(C)), cex = labelsize)
 segments(20, 0, 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(20, avgwealth(20), pch = 16, col = "black", cex = 1.5)
 # 
-# text(14.7, avgwealth(15)+1, expression(paste(e)), cex = labelsize)
-# segments(15, 0, 15, avgwealth(15), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(0, avgwealth(15), 15, avgwealth(15), lty = 2, col = "gray", lwd = segmentlinewidth)
-# points(15, avgwealth(15), pch = 16, col = "black", cex = 1.5)
-
-# segments(12, 0, 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
-# points(12, avgwealth(12), pch = 16, col = "black", cex = 1.5)
-
-#points(0, avgwealth(23)+12, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-#points(0, avgwealth(23), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-#points(0, avgwealth(23)-12, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 
 #label the three indifference curves
 text(29, avgwealth(20) +4, expression(paste(u[3])), xpd = TRUE, cex = labelsize)

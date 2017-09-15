@@ -56,11 +56,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 8, xlims[2])
-xlabels <- c(NA, expression(paste(r[A])), NA)
+xlabels <- c(NA, expression(paste(Delta[A])), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(8), ylims[2])
-ylabels <- c(NA, expression(paste(g[A])), NA)
+ylabels <- c(NA, expression(paste(omega[A])), NA)
 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
@@ -80,8 +80,8 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", r)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", g)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -106,15 +106,6 @@ points(8, avgwealth(8), pch = 16, col = "black", cex = 1.5)
 
 #Label relevant points on axes
 
-#Add arrow beside y axis and points on axis
-
-#arrows(-1, avgwealth(8)+6, -1, avgwealth(8)+1, col = "black", code =3, arr.type = "simple", xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-#arrows(-1, avgwealth(8)-6, -1, avgwealth(8)-1, col = "black", code = 3, arr.type = "simple", xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-
-#points(0, avgwealth(8)+7, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-#points(0, avgwealth(8), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-#points(0, avgwealth(8)-7, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-
 #label the three indifference curves
 
 text(20, indiffA(20)+0.355, expression(paste(u[1])), xpd = TRUE, cex = labelsize)
@@ -125,7 +116,7 @@ text(16, indiffA(16)+12.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize
 
 text(23.5, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
 text(23.5, avgwealth(30)+1, expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(23.5, avgwealth(30)-1, expression(paste(g == f(r))), xpd = TRUE, cex = labelsize)
+text(23.5, avgwealth(30)-1, expression(paste(omega == g(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(25, 35, expression(paste("Very")), xpd = TRUE, cex = labelsize)
 text(25, 33.5, expression(paste("High risk aversion")), xpd = TRUE, cex = labelsize)

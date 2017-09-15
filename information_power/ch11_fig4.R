@@ -1,9 +1,10 @@
 require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/information_power/ch11_fig4.pdf", width = 9, height = 7)
+pdf(file = "information_power/ch11_fig4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
+segmentlinewidth <- 2
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(p, delta = 5) {
@@ -75,7 +76,7 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 #Draw the lines for the graphs
 lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = 4)
 lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
-lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
+lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = 4)
 lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = 4)
 lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COL[5], lwd = 4)
@@ -104,10 +105,10 @@ text(36, 0.9, expression(paste("Iso-v curves")))
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 3)
-segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
+segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

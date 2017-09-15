@@ -1,4 +1,4 @@
-require(shape)
+erequire(shape)
 pdf(file = "what_can_markets_do/edgeworthbox_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

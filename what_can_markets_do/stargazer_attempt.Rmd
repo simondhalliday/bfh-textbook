@@ -1,0 +1,48 @@
+---
+title: "Stargazer Attempt"
+author: "Simon Halliday"
+date: "2017-March -10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("dplyr")
+library("nycflights13")
+library("AER") # Applied Econometrics with R
+library("stargazer")
+```
+
+```{r}
+daily <- flights %>%
+  filter(origin == "EWR") %>%
+  group_by(year, month, day) %>%
+  summarise(delay = mean(dep_delay, na.rm = TRUE))
+
+daily_weather <- weather %>%
+  filter(origin == "EWR") %>%
+  group_by(year, month, day) %>%
+  summarise(temp   = mean(temp, na.rm = TRUE),
+            wind   = mean(wind_speed, na.rm = TRUE),
+            precip = sum(precip, na.rm = TRUE))
+
+# Merge flights with weather data frames
+both <- inner_join(daily, daily_weather) %>% 
+  data.frame()  # Temporary fix
+
+# Create an indicator for quarter
+both$quarter <- cut(both$month, breaks = c(0, 3, 6, 9, 12), 
+                                labels = c("1", "2", "3", "4"))
+
+# Create a vector of class logical
+both$hot <- as.logical(both$temp > 85)
+
+head(both)
+```
+
+
+## R Markdown
+```{r echo = TRUE, warning = FALSE, message = FALSE, results = "asis"}
+stargazer(both, type = "html")
+```
+

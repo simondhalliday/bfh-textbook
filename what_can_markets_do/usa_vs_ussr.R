@@ -6,6 +6,9 @@ library(mosaic)
 library(haven)
 library(readxl)
 library(zoo)
+
+
+
 GDPdata <- read_excel("what_can_markets_do/mpd_2013-01.xlsx", col_names = TRUE)
 
 names(GDPdata) <- gsub(" ", "_", names(GDPdata))
@@ -14,10 +17,10 @@ names(GDPdata) <- valid_column_names
 
 ColdWar <- 
   GDPdata %>%
-  select(Date, USA, F._USSR_, S._Korea_, Brazil_) %>%#, Argentina_) %>%
+  select(Date, USA, F._USSR, S._Korea, Brazil) %>%#, Argentina_) %>%
   #select(Date, USA, F._USSR_) %>% 
-  rename(USSR = F._USSR_, date = Date, 
-         S.Korea = S._Korea_, Brazil = Brazil_) %>% #, 
+  rename(USSR = F._USSR, date = Date, 
+         S.Korea = S._Korea) %>% #, 
          #Argentina = Argentina_) %>%
   #rename(USSR = F._USSR_, date = Date) %>%
   filter(date > 1912) %>%
@@ -93,3 +96,38 @@ CWPlot +
 pdf(file = "what_can_markets_do/usa_vs_ussr.pdf", width = 8, height = 6)
 CWPlot
 dev.off()
+
+
+
+
+ColdWar2 <- 
+  GDPdata %>%
+  select(Date, USA, F._USSR, S._Korea, Chile, Brazil) %>%#, Argentina_) %>%
+  #select(Date, USA, F._USSR_) %>% 
+  rename(USSR = F._USSR, date = Date, 
+         S.Korea = S._Korea) %>% #, 
+  #Argentina = Argentina_) %>%
+  #rename(USSR = F._USSR_, date = Date) %>%
+  filter(date > 1912) %>%
+  gather(country, pcgdp, -date)
+ColdWar2 <- 
+  ColdWar2 %>%
+  mutate(pcgdp = na.approx(ColdWar$pcgdp)) %>%
+  mutate(period = ifelse(date > 1928 & date < 1940, 1, 
+                         ifelse(date > 1939 & date < 1946, 2, NA)
+  )
+  )
+CWPlot2 <- 
+  ColdWar2 %>% 
+  ggplot(aes(x = date, y = pcgdp, group = country)) +
+  geom_line(aes(color = country)) +
+  scale_color_brewer( type = "qual", palette = "Set1", name = "Country") +
+  scale_x_continuous(breaks = round(seq(min(ColdWar$date), max(ColdWar$date), by = 20),1)) +
+  ylab("Per Capita GDP (1990 International $)") +
+  xlab("Year") +
+  theme_bw() 
+pdf(file = "capitalism/gdp_growth.pdf", width = 4, height = 3)
+CWPlot2
+dev.off()
+
+

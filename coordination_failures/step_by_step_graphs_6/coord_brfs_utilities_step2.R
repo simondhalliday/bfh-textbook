@@ -186,11 +186,11 @@ text(6, 17, expression(u[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label Nash Equilibrium 
-##segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-##segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-##points(9.6, 9.6, pch = 16, col = "black", cex = 1.5)
-##text(11.3, 10.1, expression(paste("Nash Equilibrium")))
-##text(9.3, 9.3, expression(paste("n")))
+segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(9.6, 9.6, pch = 16, col = "black", cex = 1.5)
+text(11.3, 10.1, expression(paste("Nash Equilibrium")))
+text(9.3, 9.3, expression(paste("n")))
 
 
 #Annotate Pareto Efficient Curve and relevant points

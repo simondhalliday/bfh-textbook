@@ -183,7 +183,7 @@ text(5.5, 1.5, expression(u[3]^A))
 text(7.6, 17, expression(u[1]^B))
 text(6.75, 17, expression(u[2]^B))
 text(6, 17, expression(u[3]^B))
-text(3.4, 6.9, expression(v[4]^B))
+#text(3.4, 6.9, expression(v[4]^B))
 
 #Label Nash Equilibrium 
 ##segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)

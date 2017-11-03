@@ -5,7 +5,7 @@
 #require(ggplot2)
 require(shape)
 pdf(file = "property/step_by_step_graphs_5/property_walras1_step1.pdf", width = 9, height = 7)
-
+png(file = "property/step_by_step_graphs_5/property_walras1_step1.png", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3

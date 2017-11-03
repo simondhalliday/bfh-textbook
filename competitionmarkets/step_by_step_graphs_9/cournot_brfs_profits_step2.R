@@ -1,3 +1,7 @@
+#Graph Designer: Simon Halliday & Madeleine Wettach '20
+#Authors: Bowles, Foley and Halliday
+#Title: Microeconomics: Competition, Conflict and Coordination
+
 require(shape)
 pdf(file = "competitionmarkets/step_by_step_graphs_9/cournot_brfs_profits_step2.pdf", width = 9, height = 7)
 

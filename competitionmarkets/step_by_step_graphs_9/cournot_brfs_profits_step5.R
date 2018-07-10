@@ -3,7 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 require(shape)
-pdf(file = "competitionmarkets/cournot_brfs_profits.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/step_by_step_graphs_9/cournot_brfs_profits_step5.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -37,7 +37,7 @@ isoA <- function(xa, s = 0.5, pmax = 20, c1 = 2, piA = 72){
 }
 
 isoB1 <- function(xa, s = 0.5, pmax = 20, c1 = 2, piB = 72){
-   (-sqrt((c1 - pmax + s*xa)^2 - 4*piB*s) - c1 + pmax -s*xa)/(2*s)
+  (-sqrt((c1 - pmax + s*xa)^2 - 4*piB*s) - c1 + pmax -s*xa)/(2*s)
 }
 
 isoB2 <- function(xa, s = 0.5, pmax = 20, c1 = 2, piB = 72){
@@ -91,8 +91,9 @@ ypoly1 <- isoA(xpoly1)
 ypoly2 <- isoB1(xpoly1)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
-
+#A's Best Response Curve
 lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+#B's Best Response Curve
 lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
 contour(y, x, 

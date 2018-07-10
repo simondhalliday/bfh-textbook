@@ -3,7 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 require(shape)
-pdf(file = "competitionmarkets/cournot_brfs_profits.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/step_by_step_graphs_9/cournot_brfs_profits_step4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -37,7 +37,7 @@ isoA <- function(xa, s = 0.5, pmax = 20, c1 = 2, piA = 72){
 }
 
 isoB1 <- function(xa, s = 0.5, pmax = 20, c1 = 2, piB = 72){
-   (-sqrt((c1 - pmax + s*xa)^2 - 4*piB*s) - c1 + pmax -s*xa)/(2*s)
+  (-sqrt((c1 - pmax + s*xa)^2 - 4*piB*s) - c1 + pmax -s*xa)/(2*s)
 }
 
 isoB2 <- function(xa, s = 0.5, pmax = 20, c1 = 2, piB = 72){
@@ -86,13 +86,14 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Pareto-improving lens
-xpoly1 <- seq(from = 5.95, to = 12, length.out = 500)
-ypoly1 <- isoA(xpoly1)
-ypoly2 <- isoB1(xpoly1)
-polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+##xpoly1 <- seq(from = 5.95, to = 12, length.out = 500)
+##ypoly1 <- isoA(xpoly1)
+##ypoly2 <- isoB1(xpoly1)
+##polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
-
+#A's Best Response Curve
 lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+#B's Best Response Curve
 lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
 contour(y, x, 
@@ -152,30 +153,30 @@ text(8.4, 18, expression(pi[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label Nash Equilibrium 
-segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(12, 12, pch = 16, col = "black", cex = 1.5)
+###segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+###segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+###points(12, 12, pch = 16, col = "black", cex = 1.5)
 #text(14, 12.4, expression(paste("Nash Equilibrium")))
-text(11.5, 11.5, expression(paste("n")))
+###text(11.5, 11.5, expression(paste("n")))
 
 #Checking points
 #points(5.95, 5.95, pch = 16, col = "black", cex = 1.5)
-segments(8, 10, 10, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
+##segments(8, 10, 10, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
 
 
-text(9, 9.6, expression(paste("i")))
-segments(0, 9, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(13.5, 0, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(9, 9, pch = 16, col = "black", cex = 1.5)
-points(13.5, 9, pch = 16, col = "black", cex = 1.5)
-text(13.45, 9.6, expression(paste("d")))
+##text(9, 9.6, expression(paste("i")))
+##segments(0, 9, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+##segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+##segments(13.5, 0, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+##points(9, 9, pch = 16, col = "black", cex = 1.5)
+##points(13.5, 9, pch = 16, col = "black", cex = 1.5)
+##text(13.45, 9.6, expression(paste("d")))
 
 
-points(10, 8, pch = 16, col = "black", cex = 1.5)
-text(10, 8.6, expression(paste("f")))
-points(8, 10, pch = 16, col = "black", cex = 1.5)
-text(8, 10.6, expression(paste("g")))
+###points(10, 8, pch = 16, col = "black", cex = 1.5)
+###text(10, 8.6, expression(paste("f")))
+###points(8, 10, pch = 16, col = "black", cex = 1.5)
+###text(8, 10.6, expression(paste("g")))
 
 
 # #Annotate Pareto Efficient Curve and relevant points

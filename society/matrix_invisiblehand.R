@@ -26,8 +26,8 @@ P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 P2Name <- c("Barbara")
 P2Strat <- c("Corn", "Tomatoes")
 P2Payoffs <- c("2.5", "4", "2", "1")
-P2BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
-P2BR2 <- c("SW") #Must be NE or SE - the BR prints accordingly. 
+P2BR1 <- c("NW") #Must be NW or NE - the BR prints accordingly. 
+P2BR2 <- c("SW") #Must be SW or SE - the BR prints accordingly. 
 P2bestsize <- 4 #Adjusts size of circle indicating best response of P2
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -141,7 +141,7 @@ if (P2BR1[1] == "NW"){
 }
 
 if (P2BR2[1] == "SW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+  points(5, 1, pch = 1, col = "black", cex = P2bestsize)
 } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
 }
 

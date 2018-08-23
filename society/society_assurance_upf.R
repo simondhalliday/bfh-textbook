@@ -8,6 +8,15 @@ par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 5)
 ylims <- c(0, 5)
 
+axislabelsize <- 1.5
+graphlinewidth <- 3
+segmentlinewidth <- 2
+
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+
+
 #Plot command 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Aram's Payoff, ", u^A)),
@@ -26,7 +35,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #Rent polygon
 xrent <- c(2, 4, 3.33, 2)
 yrent <- c(3.33, 4, 2, 2)
-polygon(xrent, yrent, col="yellow", density=NULL, border = NA)
+polygon(xrent, yrent, col=COL[4], density=NULL, border = NA)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -56,7 +65,7 @@ points(3.33, 2, pch = 16, col = "black", cex = 1.5)
 text(3.4, 1.9, expression(paste(f)))
 points(2, 3.33, pch = 16, col = "black", cex = 1.5)
 text(1.9, 3.45, expression(paste(e)))
-text(1.5, 1.8, expression(paste("Pareto Inferior")))
+text(1.5, 1.8, expression(paste("Pareto-inferior")))
 text(1.5, 1.6, expression(paste("Nash equilibrium")))
 
 #Label utility possibilities frontier

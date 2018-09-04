@@ -11,8 +11,8 @@ ylims <- c(-30, 115)
 #Plot command 
 plot(0, 0, xlim = xlims, ylim = ylims, 
      type = "n",
-     xlab = expression(paste("Player A's Payoff, ", u^A)),
-     ylab = expression(paste("Player B's Payoff, ", u^B)),
+     xlab = expression(paste("Player B's Payoff, ", u^B)),
+     ylab = expression(paste("Player A's Payoff, ", u^A)),
      axes = FALSE,
      cex.lab = axislabelsize, 
      bty = "n", 

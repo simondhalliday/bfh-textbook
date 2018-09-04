@@ -19,8 +19,8 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Plot command 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Aram's Payoff, ", u^A)),
-     ylab = expression(paste("Bina's Payoff, ", u^B)),
+     xlab = "",
+     ylab = "",
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
 
 
@@ -32,14 +32,19 @@ xlabels <- seq(0, 5, 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
+mtext(expression(paste("Aram's payoffs, ", u^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.6, 0.5*ylims[2], expression(paste("Bina's payoffs, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+
+
 #Rent polygon
 #xrent <- c(2, 4, 3.33, 2)
 #yrent <- c(3.33, 4, 2, 2)
 #polygon(xrent, yrent, col=COL[4], density=NULL, border = NA)
 
-xrent <- c(2, 4, 4, 2)
-yrent <- c(4, 4, 2, 2)
-polygon(xrent, yrent, col=COL[4], density=NULL, border = NA)
+# xrent <- c(2, 4, 4, 2)
+# yrent <- c(4, 4, 2, 2)
+# polygon(xrent, yrent, col=COL[4], density=NULL, border = NA)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -53,15 +58,16 @@ segments(2, 0, 2, 5, lty = 2, col = "darkgrey", lwd = 2)
 text(2.4, 4.8, expression(paste("A's fallback")))
 
 #Add points a, b, c and c
-points(1, 3, pch = 16, col = "black", cex = 1.5)
-text(1.1, 2.9, expression(paste(b)))
+points(0, 3, pch = 16, col = "black", cex = 1.5)
+text(0.1, 3.1, expression(paste(b)))
 points(4, 4, pch = 16, col = "black", cex = 1.5)
 text(4.1, 3.9, expression(paste(c)))
+
 text(4.4, 4.4, expression(paste("Pareto-efficient")))
 text(4.4, 4.2, expression(paste("Nash equilibrium")))
 
-points(3, 1, pch = 16, col = "black", cex = 1.5)
-text(3.1, 1, expression(paste(d)))
+points(3, 0, pch = 16, col = "black", cex = 1.5)
+text(3.1, 0.1, expression(paste(d)))
 points(2, 2, pch = 16, col = "black", cex = 1.5)
 text(2.1, 2.1, expression(paste(a)))
 
@@ -77,9 +83,9 @@ text(1.5, 1.6, expression(paste("Nash equilibrium")))
 #text(4.05, 2.4, expression(paste("Frontier (upf)")))
 
 #Arrows and economic rent label
-Arrows(3, 4.2, 3, 3.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(3, 4.5,  expression(paste("Economic")))
-text(3, 4.3,  expression(paste("Surplus")))
+# Arrows(3, 4.2, 3, 3.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(3, 4.5,  expression(paste("Economic")))
+# text(3, 4.3,  expression(paste("Surplus")))
 
 dev.off()
 

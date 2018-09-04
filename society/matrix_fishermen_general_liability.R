@@ -10,6 +10,8 @@ ylims <- c(0, 8)
 PlayerSize <- 3
 StratSize <- 1.8
 PayoffSize <- 1.7
+p1fadelevel <- 0.2
+p2fadelevel <- 0.2
 
 #Payoffs are listed as c("NW", "SW", "NE", "SE")
 
@@ -43,10 +45,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 #Color and label for Player 1 and their strategies
-polygon(c(0,0,2,2,0), c(0,4,4,0,0), col=rgb(0, 0, 1, 0.3), density=NULL, border = NA)
+polygon(c(0,0,2,2,0), c(0,4,4,0,0), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 text(1, 2, P1Name[1], srt = 90, cex = PlayerSize)
-
-polygon(c(0,0,2,2,0), c(0,4,4,0,0), col=rgb(0, 0, 1, 0.3), density=NULL, border = NA)
 text(2.75, 3, P1Strat[1], cex = StratSize, srt = 90)
 text(3.25, 3, P1Strat2[1], cex = StratSize, srt = 90)
 text(2.75, 1, P1Strat[2], cex = StratSize, srt = 90)
@@ -54,7 +54,7 @@ text(3.25, 1, P1Strat2[2], cex = StratSize, srt = 90)
 
 
 #Color and label for Player 2
-polygon(c(4,4,8,8,4), c(8,6,6,8,8), col=rgb(1, 0, 0, 0.5), density=NULL, border = NA)
+polygon(c(4,4,8,8,4), c(8,6,6,8,8), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 text(6, 7, P2Name[1], cex = PlayerSize)
 
 text(5, 5.25, P2Strat[1], cex = StratSize)
@@ -64,9 +64,9 @@ text(7, 4.75, P2Strat2[2], cex = StratSize)
 
 #NorthWest cell 
 #P1
-polygon(c(4,4,6,4), c(4,2,2,4), col=rgb(0, 0, 1, 0.5), density=NULL, border = NA)
+polygon(c(4,4,6,4), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 #P2
-polygon(c(4,6,6,4), c(4,4,2,4), col=rgb(1, 0, 0, 0.5), density=NULL, border = NA)
+polygon(c(4,6,6,4), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
 text(4.5, 2.5, P1Payoffs[1], cex = PayoffSize)
@@ -75,9 +75,9 @@ text(5.5, 3.5, P2Payoffs[1], cex = PayoffSize)
 
 #SouthWest cell  
 #P1
-polygon(c(4,4,6,4), c(2,0,0,2), col=rgb(0, 0, 1, 0.5), density=NULL, border = NA)
+polygon(c(4,4,6,4), c(2,0,0,2), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 #P2
-polygon(c(4,6,6,4), c(2,2,0,2), col=rgb(1, 0, 0, 0.5), density=NULL, border = NA)
+polygon(c(4,6,6,4), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
 text(4.7, 0.5, P1Payoffs[2], cex = PayoffSize)
@@ -87,9 +87,9 @@ text(5.5, 1.5, P2Payoffs[2], cex = PayoffSize)
 
 #NorthEast cell 
 #P1
-polygon(c(6,6,8,6), c(4,2,2,4), col=rgb(0, 0, 1, 0.5), density=NULL, border = NA)
+polygon(c(6,6,8,6), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 #P2
-polygon(c(6,8,8,6), c(4,4,2,4), col=rgb(1, 0, 0, 0.5), density=NULL, border = NA)
+polygon(c(6,8,8,6), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 #P1
 text(6.5, 2.5, P1Payoffs[3], cex = PayoffSize)
 #P2
@@ -97,9 +97,9 @@ text(7.3, 3.5, P2Payoffs[3], cex = PayoffSize)
 
 #SouthEast cell 
 #P1
-polygon(c(6,6,8,6), c(2,0,0,2), col=rgb(0, 0, 1, 0.5), density=NULL, border = NA)
+polygon(c(6,6,8,6), c(2,0,0,2), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 #P2
-polygon(c(6,8,8,6), c(2,2,0,2), col=rgb(1, 0, 0, 0.5), density=NULL, border = NA)
+polygon(c(6,8,8,6), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 #P1
 text(6.5, 0.5, P1Payoffs[4], cex = PayoffSize)
 #P2

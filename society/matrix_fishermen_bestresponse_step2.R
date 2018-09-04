@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "society/matrix_fishermen_labeled.pdf", width = 9, height = 7)
+pdf(file = "society/matrix_fishermen_bestresponse_step2.pdf", width = 9, height = 7)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -10,7 +10,6 @@ ylims <- c(0, 8)
 PlayerSize <- 3
 StratSize <- 2.3
 PayoffSize <- 3
-LabelSize <- 2
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 
@@ -137,25 +136,19 @@ if (P1BR2[1] == "NE"){
 
 
 #P2
-if (P2BR1[1] == "NW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
-}
+# if (P2BR1[1] == "NW"){
+#   points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
+# }
+# 
+# if (P2BR2[1] == "SW"){
+#   points(5, 1, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
+# }
 
-if (P2BR2[1] == "SW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
-}
 
-#label point for UPF in NW
-text(5.5, 2.5, expression(c), cex = LabelSize)
-#label point for UPF in SW
-text(5.5, 0.5, expression(b), cex = LabelSize)
-#label point for UPF in NE
-text(7.5, 2.5, expression(d), cex = LabelSize)
-#label point for UPF in SE
-text(7.5, 0.5, expression(a), cex = LabelSize)
-
+#Step 1 Polygon:
+polygon(c(4,6,6,4,4), c(0,0,6,6,0), col= "gray", density=NULL, border = NA)
 
 dev.off()
 

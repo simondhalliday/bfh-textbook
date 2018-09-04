@@ -23,9 +23,9 @@ riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
   int1 - (int2 - (coeff)*g)^2
 }
 
-uA <- function(omega, g, slope = 0.5){
-  omega + omega*g  - slope*g^2
-}
+# uA <- function(omega, g, slope = 0.5){
+#   omega + omega*g  - slope*g^2
+# }
 
 indiffA <- function(g, intercept = 3, slope = 0.125){
   intercept  + slope*g^2

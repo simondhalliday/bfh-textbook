@@ -1,5 +1,4 @@
-#Graph Designer: Simon Halliday & Riley Boeth '17
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)

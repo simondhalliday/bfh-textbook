@@ -6,6 +6,7 @@ axislabelsize <- 1.5
 labelsize <- 1.2
 graphlinewidth <- 3
 segmentlinewidth <- 2
+arrwidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -47,16 +48,12 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Infeasible area
 xpoly <- c(0, 4.5, 4.5, 7.5, xlims[2], xlims[2], 0, 0)
 ypoly <- c(ylims[2], ylims[2], 7.5, 4.5, 4.5, 0, 0, ylims[2])
-polygon(x = xpoly, y = ypoly, col = COLB[1], density=NULL, border = NA)
+polygon(x = xpoly, y = ypoly, col = COLB[1], density = NULL, border = NA)
 
 #Feasible area
 xpoly1 <- c(xlims[2], 7.5, 4.5, 4.5,  xlims[2], xlims[2])
 ypoly1 <- c(4.5, 4.5, 7.5, ylims[2], ylims[2], 4.5)
-#ypoly1 <- c(ylims[2], ylims[2], 7.5, 4.5, ylims[2])
-polygon(x = xpoly1, y = ypoly1, col = COLA[1], density=NULL, border = NA)
-
-#lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
-#lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
+polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
 
 #Production set
 segments(7.5, 4.5, xlims[2], 4.5, lty = 1, col = COLA[3], lwd = graphlinewidth)
@@ -74,17 +71,15 @@ segments(0, 4.5, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(7.5, 0, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.1, 0.5*ylims[2], expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#For good production technique i
-#points(4, 6, pch = 16, col = "black", cex = 1.5)
-#text(4.25, 6.25, expression(i))
-
-
-#Rays from Origin
-segments(0, 0, 7.5, 4.5, lty = 3, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0, 4.5, 7.5, lty = 3, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0, 6, 6, lty = 3, col = "darkgray", lwd = segmentlinewidth)
+#Reminder: slope of the ray (to calculate useful points)
+#4.5/7.5
+#Rays from Origin as arrows
+Arrows(0, 0, 7.2, 4.32, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0, 0, 4.32, 7.2, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
+#segments(0, 0, 7.5, 4.5, lty = 3, col = "darkgray", lwd = segmentlinewidth)
+#segments(0, 0, 4.5, 7.5, lty = 3, col = "darkgray", lwd = segmentlinewidth)
 
 #For production technique a
 points(4.5, 7.5, pch = 16, col = "black", cex = 1.5)
@@ -101,34 +96,34 @@ text(6, 5.7, expression(c))
 
 
 #Label 
-text(8, 8, expression(paste("Choice among")), cex = labelsize)
-text(8, 7.5, expression(paste("production")), cex = labelsize)
-text(8, 7, expression(paste("techniques")), cex = labelsize)
+text(8, 8, expression(paste("c combines")), cex = labelsize)
+text(8, 7.5, expression(paste("techniques")), cex = labelsize)
+text(8, 7.1, expression(paste("a and b")), cex = labelsize)
 
-Arrows(7.5, 6.75, 7.5, 4.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(7, 7.5, 4.9, 7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(7, 7, 6.25, 6.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(7.5, 6.75, 7.5, 4.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(7, 7.5, 4.9, 7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(7.25, 7.25, 6.25, 6.25, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
-text(10, 11, expression(paste("Feasible")), cex = labelsize)
-text(10, 10.5, expression(paste("production")), cex = labelsize)
-text(10, 10, expression(paste("techniques")), cex = labelsize)
+#text(10, 11, expression(paste("Feasible")), cex = labelsize)
+#text(10, 10.5, expression(paste("production")), cex = labelsize)
+#text(10, 10, expression(paste("techniques")), cex = labelsize)
 
-text(10, 3, expression(paste("Infeasible")), cex = labelsize)
-text(10, 2.5, expression(paste("production")), cex = labelsize)
-text(10, 2, expression(paste("techniques")), cex = labelsize)
-
-
-text(1.6, 7, expression(paste("Steeper ray:")), cex = labelsize)
-text(1.6, 6.5, expression(paste("more k-intensive")), cex = labelsize)
-text(1.6, 6, expression(paste("less l-intensive")), cex = labelsize)
-Arrows(2.8, 7, 3.95, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(10, 3, expression(paste("Infeasible")), cex = labelsize)
+#text(10, 2.5, expression(paste("production")), cex = labelsize)
+#text(10, 2, expression(paste("techniques")), cex = labelsize)
 
 
-text(6, 2.5, expression(paste("Flatter ray:")), cex = labelsize)
-text(6, 2, expression(paste("more l-intensive")), cex = labelsize)
-text(6, 1.5, expression(paste("less k-intensive")), cex = labelsize)
-Arrows(6, 2.7, 6, 3.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.9, 7, expression(paste("Steeper ray:")), cex = labelsize)
+text(1.9, 6.5, expression(paste("more k-intensive")), cex = labelsize)
+text(1.9, 6, expression(paste("less l-intensive")), cex = labelsize)
+#Arrows(2.8, 6.9, 3.85, 6.9, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
-text(10, 4.75, expression(paste(bar(x) == 1,", unit output")), cex = labelsize)
+
+text(6, 2.7, expression(paste("Flatter ray:")), cex = labelsize)
+text(6, 2.2, expression(paste("more l-intensive")), cex = labelsize)
+text(6, 1.7, expression(paste("less k-intensive")), cex = labelsize)
+#Arrows(6, 2.7, 6, 3.3, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
+
+text(11.2, 4.75, expression(paste(bar(x) == 100)), cex = labelsize)
 
 dev.off()

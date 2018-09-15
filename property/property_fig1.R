@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/property/property_fig1a.pdf", width = 9, height = 7)
+pdf(file = "property/property_fig1a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -20,8 +20,8 @@ indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-#Aisha happens to have found 8 apples and 2 oranges, 
-#and Betty happens to have found 2 apples and 13 oranges. 
+#Aisha happens to have found 8 coffee and 2 data, 
+#and Betty happens to have found 2 coffee and 13 data. 
 #Aisha's utility (8^0.5)*(2^0.5) = 4
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
@@ -35,8 +35,8 @@ ylims <- c(0, 15)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)),
+     xlab = expression(paste("A's coffee (100 grams), ", x)),
+     ylab = expression(paste("A's data (gigabytes), ", y)),
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
 
 npts <- 500 
@@ -63,9 +63,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(45, 1.3, expression(u[1]))
-text(45, 3.2, expression(u[2]))
-text(45, 6, expression(u[3]))
+text(45, 1.3, expression(u[1])^A)
+text(45, 3.2, expression(u[2])^A)
+text(45, 6, expression(u[3])^A)
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment
@@ -76,7 +76,7 @@ segments(8, 0, 8, 2, lty = 2, col = "darkgray", lwd = 2)
 points(8, 2, pch = 16, col = "black", cex = 1.5)
 
 #Annotating line of 100% quality
-text(8.5, 2.6, expression(a == (list(x[e]^A, y[e]^A))))
+text(8.5, 2.6, expression(a == (list(bar(x)^A, bar(y)^A))))
 
 
 #Arrow to Slope of BRF

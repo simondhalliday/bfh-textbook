@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/property/property_fig1b.pdf", width = 9, height = 7)
+pdf(file = "property/property_fig1b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -22,8 +22,8 @@ indiffcurveB3 <- function(x, U = 5.09, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-#Aisha happens to have found 8 apples and 2 oranges, 
-#and Betty happens to have found 2 apples and 13 oranges. 
+#Aisha happens to have found 8 coffee and 2 data, 
+#and Betty happens to have found 2 coffee and 13 data. 
 #Aisha's utility (8^0.5)*(2^0.5) = 4
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
@@ -37,8 +37,8 @@ ylims <- c(0, 15)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("B's Apples, ", x)),
-     ylab = expression(paste("B's Oranges, ", y)),
+     xlab = expression(paste("B's coffee (100 grams), ", x)),
+     ylab = expression(paste("B's data (gigabytes), ", y)),
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
 
 npts <- 500 
@@ -65,9 +65,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(9, 1.3, expression(u[1]))
-text(9, 3.2, expression(u[2]))
-text(9, 6, expression(u[3]))
+text(9, 1.3, expression(u[1])^B)
+text(9, 3.2, expression(u[2])^B)
+text(9, 6, expression(u[3])^B)
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment

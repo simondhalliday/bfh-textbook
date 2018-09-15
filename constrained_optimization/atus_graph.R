@@ -1,0 +1,20 @@
+library(tidyverse)
+library(readxl)
+ATUS <- read_excel("constrained_optimization/atus.xlsx")
+
+ATUS2 <- 
+  ATUS %>% 
+  gather(Gender, hours, -Category)
+
+ATUS2 %>% 
+  filter(!Category %in% c("Communication","Other", "Education")) %>%
+  ggplot(aes(x = reorder(Category, hours), y = hours, group = Gender, color = Gender, fill = Gender)) + 
+  geom_bar(stat = "identity", position = "dodge") + 
+  xlab("Category") + 
+  ylab("Hours") +
+  theme_bw() +
+  scale_fill_brewer(type = "qual", palette = "Accent") + 
+  scale_color_brewer(type = "qual", palette = "Accent") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        text = element_text(size = 12))
+ggsave(file = "constrained_optimization/atus.pdf", device = "pdf", width = 6, height = 4)

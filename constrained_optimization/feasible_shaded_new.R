@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "bfh-textbook/constrained_optimization/ff_shaded.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/feasible_shaded_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -37,7 +37,7 @@ uFn <- function(x, y, alpha = 0.3){
   (x^alpha)*(y^(1-alpha))
 }
 
-ylims <- c(0, 4)
+ylims <- c(0, 5)
 xlims <- c(0, 18)
 
 npts <- 501 
@@ -79,7 +79,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
 xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
-ypoly1 <- ppf(xpoly1, k = 1.058868, maxx = 17)
+ypoly1 <- ppf2(xpoly1)
 polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 polygon(x = c(xlims[2], xlims[2], rev(xpoly1), 0),
         y = c(ylims[2], 0, rev(ypoly1), ylims[2]), 
@@ -87,21 +87,22 @@ polygon(x = c(xlims[2], xlims[2], rev(xpoly1), 0),
 
 
 #Draw the graphs
-lines(xx1, ppf(xx1, k = 1.058868, maxx = 17), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, ppf2(xx1), col = COLA[5], lwd = graphlinewidth)
 #lines(xx2, fishProd(xx2, k = 2), col = COLB[3], lwd = graphlinewidth)
 #lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(9.3, 0.53, expression("Feasible Frontier (ff)"), cex = axislabelsize)
-Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(9.3, 0.53, expression("Feasible Frontier"), cex = axislabelsize)
+text(9.3, 0.3, expression(paste((ff[1]) )), cex = axislabelsize)
+Arrows(12.5, 0.53, 14.5, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(6, 1.5, expression("Feasible Set"), cex = axislabelsize)
 text(14, 3, expression("Infeasible"), cex = axislabelsize)
 
 #Axis labels
-mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Grade point average, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Living (hours), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 # text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

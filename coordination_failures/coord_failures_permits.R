@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_brfs_utilities.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_failures_permits.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -28,8 +28,16 @@ brfA <- function(ea, alpha = 16, beta = 1/24) {
   (alpha - ea)/(alpha * beta)
 }
 
-brfPE <- function(ea, alpha = 16, beta = 1/12) {
+brfPE <- function(ea, alpha = 16, beta = 1/8) {
   alpha*(1 - beta*ea)
+}
+
+hANE <- function(alpha, beta = 1/24){
+  alpha/(1 + alpha*beta)
+}
+
+hApEff <- function(alpha, beta = 1/24){
+  alpha/(1 + 2*alpha*beta)
 }
 
 indiffeA <- function(ea, alpha = 16, beta = 1/24, uA = 46.08) {
@@ -69,16 +77,8 @@ ylims <- c(0, 18)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(46.08, 55, 64)
-b <- c(46.08, 55, 64)
-
-
-#B's value when at A's bliss point
-#0.35*log(5.88) + 0.35*log(8.88) + 0.5*log(10 - 5.88) + 0.5*log(15 - 8.88) 
-
-#B's bliss point x = 4.11765; y = 6.17647
-#A's value when at A's bliss point
-#0.5*log(4.11765) + 0.5*log(6.17647) + 0.35*log(10 - 4.11765) + 0.35*log(15 - 6.17647) 
+a <- c(20, 46.08, 55, 64)
+b <- c(46.08, 55, 64, 96, 124)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -95,9 +95,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 7, 9.6, 16, 18)
+ticksy <- c(0, 6.857143, 9.6, 16, ylims[2])
 ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BN})), expression(paste(alpha)), NA)
-ticksx <- c(0, 7, 9.6, 16, 18)
+ticksx <- c(0, 6.857143, 9.6, 16, xlims[2])
 xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(alpha)), NA)
 
 
@@ -116,8 +116,8 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], dens
 
 
 
-lines(xx1, brfA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
+#lines(xx1, brfA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
+#lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, indiffA(xx1, alpha = 16, beta = 1/24, uA = 46.08), col = COL[2], lwd = graphlinewidth)
 #lines(xx1, indiffB(xx1, alpha = 16, beta = 1/24, uB = 42), col = COL[2], lwd = graphlinewidth)
 #lines(xx1, indiffB2(xx1, alpha = 16, beta = 1/24, uB = 46.08), col = COL[2], lwd = graphlinewidth)
@@ -129,12 +129,8 @@ lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewid
 #persp(x, y, outer(x, y, u), ticktype="detailed") 
 contour(y, x, 
         outer(x, y, uA),
-        #labels = c("v1", "v2", "v3"),
         drawlabels = FALSE,
         col = COLA[3],
-        #xlab = expression(paste("A's Apples, ", x)),
-        #ylab = expression(paste("A's Oranges, ", y)),
-        #cex.lab = axislabelsize,
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -165,32 +161,34 @@ contour(x, y,
 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(7.3, 3, expression("Pareto Efficient"))
-text(7.3, 2.4, expression("Curve"))
-Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(7.5, 3, expression("Pareto-efficient"))
+text(7.5, 2.4, expression("Curve"))
+Arrows(7.5, 3.5, 7.5, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label the iso-welfare functions for the HG, Aisha
-text(3.8, 1.5, expression(u[1]^A))
-text(4.6, 1.5, expression(u[2]^A))
-text(5.5, 1.5, expression(u[3]^A))
-#text(6.6, 8.3, expression(u[4]^A))
+#Label the iso-welfare functions for A
+text(2.1, 0.8, expression(u[1]^A == u[z]^A))
+text(3.6, 0.8, expression(u[2]^A))
+text(4.4, 0.8, expression(u[3]^A))
+text(5.2, 0.8, expression(u[4]^A))
+#text(9.2, 0.8, expression(u[5]^A))
 
-#Label the indifference curves for the HG, Betty
+#Label the indifference curves B
+#text(10.4, 17, expression(u[1]^B == u[z]^B))
 text(7.6, 17, expression(u[1]^B))
 text(6.75, 17, expression(u[2]^B))
 text(6, 17, expression(u[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
+text(3.2, 17, expression(u[4]^B))
 
 #Label Nash Equilibrium 
-segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9.6, 9.6, pch = 16, col = "black", cex = 1.5)
-text(11.3, 10.1, expression(paste("Nash Equilibrium")))
+#text(11.3, 10.1, expression(paste("Nash Equilibrium")))
 text(9.3, 9.3, expression(paste("n")))
 
 
 #Annotate Pareto Efficient Curve and relevant points
-segments(8, 6, 6, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
+segments(8, 6, 2.8, 11.2, lty = 1, col = COL[2] , lwd = graphlinewidth)
 points(6, 8, pch = 16, col = "black", cex = 1.5)
 text(6, 8.5, expression(paste("g")))
 
@@ -203,14 +201,21 @@ text(8, 6.5, expression(paste("f")))
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #A's brf
-text(2, 17.5, expression(paste("B's best response")))
-text(2, 17, expression(paste("function")))
-Arrows(2, 16.5, 2, 15.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(2, 17.5, expression(paste("B's best response")))
+# text(2, 17, expression(paste("function")))
+# Arrows(2, 16.5, 2, 15.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #B's brf
-text(15.5, 4, expression(paste("A's best response")))
-text(15.5, 3.5, expression(paste("function")))
-Arrows(15.5, 3, 15.5, 1.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(15.5, 4, expression(paste("A's best response")))
+# text(15.5, 3.5, expression(paste("function")))
+# Arrows(15.5, 3, 15.5, 1.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+
+points(2.8, 11.2, pch = 16, col = "black", cex = 1.5)
+text(2.5, 11.8, expression(paste("k")))
+
+#If A has private property and sells permit to B
+#points(11.2, 2.8, pch = 16, col = "black", cex = 1.5)
+#text(15.5, 4, expression(paste("A's best response")))
 
 dev.off()

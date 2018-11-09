@@ -72,9 +72,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, brfA(ea = 12.35), 9.6, brfA(ea = 6.3), 18)
-ylabels <- c(NA, expression(paste(e[Low]^B)), expression(paste(e^{BN})), expression(paste(e[High]^B)), NA)
+ylabels <- c(NA, expression(paste(h[Low]^B)), expression(paste(h^{BN})), expression(paste(h[High]^B)), NA)
 ticksx <- c(0, 9.6, 16, 18)
-xlabels <- c(NA, expression(paste(e^{AN})), expression(paste(alpha)), NA)
+xlabels <- c(NA, expression(paste(h^{AN})), expression(paste(alpha)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -95,10 +95,10 @@ contour(y, x,
         yaxs="i", 
         add = TRUE) 
 
-mtext(expression(paste("A's effort,", e^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.5, 9, expression(paste("B's effort,", e^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("A's hours,", h^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.5, 9, expression(paste("B's hours,", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Label the iso-welfare functions for the HG, Aisha
+#Label the iso-welfare functions for the A
 text(1.8, 1.5, expression(u[1]^A))
 text(3.8, 1.5, expression(u[2]^A))
 text(6.9, 1.5, expression(u[3]^A))
@@ -123,12 +123,12 @@ points(6.3, brfA(ea = 6.3), pch = 16, col = "black", cex = 1.5)
 text(6.3 - 0.3, brfA(ea = 6.3) - 0.4, expression(paste("k")))
 
 text(12.1, 2, expression(paste("A's best-response function")))
-text(12.1, 1, expression(paste(e^A*(e^B) == alpha(1 - beta*e^B) )))
+text(12.1, 1, expression(paste(h^A*(h^B) == alpha(1 - beta*h^B) )))
 Arrows(13.9, 1, 15, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(10.2, 17, expression(paste(mrs^{A}*(list(e^A, e^B)) == frac(u[e^A], u[e^B]), phantom() == -frac(alpha*(1 - beta*e^B) - e^A, alpha*beta*e^A), phantom() == 0, " at maximum of ", u[1]^A)))
-Arrows(6.3, 16.5, 6.3, 15.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(10.2, 17, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A], u[h^B]), phantom() == -frac(alpha*(1 - beta*e^B) - e^A, alpha*beta*e^A), phantom() == 0, " at maximum of ", u[1]^A)))
+# Arrows(6.3, 16.5, 6.3, 15.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

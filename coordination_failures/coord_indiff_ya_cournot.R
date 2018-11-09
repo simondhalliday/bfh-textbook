@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_indiff_ya.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_indiff_ya_cournot.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -115,15 +115,15 @@ text(4.8, 60, expression(u[3]^A))
 lowint <- c(8, 26, 44)
 
 slopex1 <- seq(1,3,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
 
 highint <- c(-8, 10, 28)
 slopex2 <- seq(5,7,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 6)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
 
 
 firstpointsx <- c(2, 2, 2)

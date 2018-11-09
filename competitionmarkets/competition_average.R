@@ -3,8 +3,8 @@ pdf(file = "competitionmarkets/competition_average.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -24,6 +24,9 @@ Equal45 <- function(xbar, slope = 1){
   slope*xbar
 }
 
+xANEcomp <- function(pbar, c1 = 2, n = 8, beta = 0.5){
+  (1/(n+1))*(pbar - c1)/beta
+}
 
 
 xlims <- c(0, 19)

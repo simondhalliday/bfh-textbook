@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 1, 3, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(r[max])), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste( bar(p) )), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(NA, 1, NA)
 
@@ -94,9 +94,9 @@ text(-0.2, 0.5*ylims[2], expression(paste("Price per unit of x, ", p[X])), xpd =
 # text(52, 10.5, expression(M))
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(1.26, 0.65, expression("Single"), cex = labelsize)
+text(1.26, 0.68, expression("Single"), cex = labelsize)
 text(1.26, 0.5, expression("Buyer's Demand"), cex = labelsize)
-text(1.21, 3.65, expression("Single"), cex = labelsize)
+text(1.21, 3.68, expression("Single"), cex = labelsize)
 text(1.21, 3.5, expression("Seller's Supply"), cex = labelsize)
 
 text(0.27, 2.1, expression("Equilibrium price"), cex = labelsize)

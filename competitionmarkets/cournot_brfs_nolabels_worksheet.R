@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "competitionmarkets/cournot_brfs.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/cournot_brfs_nolabels_worksheet.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -22,7 +22,7 @@ piB <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
 }
 
 brfB <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
- (pmax - c1)/(2*s) - (1/2)*xa
+  (pmax - c1)/(2*s) - (1/2)*xa
 }
 
 brfA <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
@@ -103,9 +103,9 @@ xlabels <- c(NA, expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
 
-text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
+#text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
 
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(2, at = ticksy, pos = 0, labels = FALSE, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -113,8 +113,8 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
-segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*(xlims[2]), -6, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
@@ -138,9 +138,9 @@ text(-5.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label point i. 
-points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(16.5, 12.5, expression(paste("Nash Equilibrium")))
-text(11.3, 11.3, expression(paste("n")))
+# points(12, 12, pch = 16, col = "black", cex = 1.5)
+# text(16.5, 12.5, expression(paste("Nash Equilibrium")))
+# text(11.3, 11.3, expression(paste("n")))
 
 #Annotate Pareto Efficient Curve and relevant points
 # segments(8, 6, 6, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
@@ -155,56 +155,17 @@ text(11.3, 11.3, expression(paste("n")))
 
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
-#B's brf
-text(34, 7.25, expression(paste("B's best response")))
-text(34, 6, expression(paste("function")))
-Arrows(29.5, 6.75, 24, 6.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#A's brf
-text(6, 34, expression(paste("A's best response")))
-text(6, 32.75, expression(paste("function")))
-Arrows(6, 32, 6, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-
-
-# par(new = TRUE)
+# #B's brf
+# text(34, 7.25, expression(paste("B's best response")))
+# text(34, 6, expression(paste("function")))
+# Arrows(29.5, 6.75, 24, 6.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
-# #Use the same x and ylims as previously, but with locations switched
-# xlims2 <- c(18, 0)
-# ylims2 <- c(18, 0)
-
-#Leave the ylab and xlab blank to ensure no axes titles
-# plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
-#      xlab = expression(paste("")),
-#      ylab = expression(paste("")),
-#      xaxt = "n", 
-#      yaxt = "n", 
-#      cex.lab = 1.3, 
-#      bty = "n",
-#      xaxs="i", 
-#      yaxs="i")
-# 
-# 
-# lines(xx1, indiffAlow(xx1, uA = 46.08, alpha = 16, beta = 1/24), col = COL[2], lwd = graphlinewidth)
+# #A's brf
+# text(6, 34, expression(paste("A's best response")))
+# text(6, 32.75, expression(paste("function")))
+# Arrows(6, 32, 6, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-#Set up axes at sides 3 and 4 (top and right)
-# axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-# axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-# mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-# text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
-# 
-# #Add arrows:
-# arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-# arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
-# 
 
-#Customize ticks and labels for the plot
-#ticksy <- seq(from = 0, to = 15, by = 1)
-#ylabels <- seq(from = 0, to = 15, by = 1)
-#ticksx <- seq(from = 0, to = 10, by = 1)
-#xlabels <- seq(from = 0, to = 10, by = 1)
-#axis(1, at = ticksx, pos = 0, labels = xlabels)
-#axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 dev.off()

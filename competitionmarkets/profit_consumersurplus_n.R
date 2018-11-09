@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "competitionmarkets/cournot_brfs.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/profit_consumersurplus_n.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -13,16 +13,21 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 par(mar =  c(6, 6, 4, 4))
 
-piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
-  (pmax - s*xb)*xa - s*(xa)^2 - c1*xa
+marketProfit <- function(n, s = 0.5, pmax = 20, c1 = 2) {
+  n*(1/(n+1)^2)*(pmax - c1)^2/(s)
 }
+
+consumerSurplus <- function(n, s = 0.5, pmax = 20, c1 = 2) {
+  (1/2)*(pmax - (c1 + ((1/(n+1))*(pmax -c1)  )) )*(n/(n+1))*( (pmax - c1)/(s))
+}
+
 
 piB <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xa)*xb - s*(xb)^2 - c1*xb
 }
 
 brfB <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
- (pmax - c1)/(2*s) - (1/2)*xa
+  (pmax - c1)/(2*s) - (1/2)*xa
 }
 
 brfA <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
@@ -64,8 +69,8 @@ brfA <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
 #   (-2*alpha*ea +2*uA + ea^2 )/ ( 2 * alpha * beta * ea)
 # }
 
-xlims <- c(0, 42)
-ylims <- c(0, 42)
+xlims <- c(0, 16)
+ylims <- c(0, 300)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -92,33 +97,34 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
+# ticksy <- seq(from = 0, to = ylims[2], by = 20)
+# ylabels <- seq(from = 0, to = ylims[2], by = 20)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 12, 18, 36, ylims[2])
-ylabels <- c(NA, expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
-ticksx <- c(0, 12, 18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+ticksy <- c(0, ylims[2])
+ylabels <- c(NA, NA)
+ticksx <- c(0, xlims[2])
+xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = FALSE)
+axis(1, at = ticksx, pos = 0, labels = xlabels)
 
-text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
+#text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
 
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(1, xlims[2], length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
+lines(xx2, consumerSurplus(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, marketProfit(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
-segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*(xlims[2]), -6, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-5.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -35, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
+text(-1.8, 0.5*ylims[2], expression(paste("Market profits and consumer surplus, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -138,9 +144,9 @@ text(-5.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label point i. 
-points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(16.5, 12.5, expression(paste("Nash Equilibrium")))
-text(11.3, 11.3, expression(paste("n")))
+# points(12, 12, pch = 16, col = "black", cex = 1.5)
+# text(16.5, 12.5, expression(paste("Nash Equilibrium")))
+# text(11.3, 11.3, expression(paste("n")))
 
 #Annotate Pareto Efficient Curve and relevant points
 # segments(8, 6, 6, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
@@ -156,14 +162,14 @@ text(11.3, 11.3, expression(paste("n")))
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #B's brf
-text(34, 7.25, expression(paste("B's best response")))
-text(34, 6, expression(paste("function")))
-Arrows(29.5, 6.75, 24, 6.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(14, 270, expression(paste("Consumer surplus")), cex = labelsize)
+#text(14, 6, expression(paste("function")))
+#Arrows(29.5, 6.75, 24, 6.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(6, 34, expression(paste("A's best response")))
-text(6, 32.75, expression(paste("function")))
-Arrows(6, 32, 6, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(14, 50, expression(paste("Market profits")), cex = labelsize)
+#text(6, 32.75, expression(paste("function")))
+#Arrows(6, 32, 6, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

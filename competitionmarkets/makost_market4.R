@@ -34,7 +34,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 3, 5, ylims[2])
-ylabels <- c(NA,  expression(paste(p,"*")),  expression(paste(p[max])), NA)
+ylabels <- c(NA,  expression(paste(p,"*")),  expression(paste(bar(p) )), NA)
 ticksx <- c(0, 1, 2, 3, 4, 5, xlims[2])
 xlabels <- c(NA, 1, 2, expression(paste(x,"*" == 3)), 4, 5, NA)
 

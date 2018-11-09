@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5.2, 2, 2))
+par(mar =  c(5, 5.4, 2, 2))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 1, 2, 3, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(r[max]^B)), expression(paste(p == r[max]^{list(A, C)})), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(p)^B)), expression(paste(p == bar(p)^{list(A, C)})), NA)
 ticksx <- c(0, 1, 2, 3, xlims[2])
 xlabels <- c(NA, 1, 2, 3, NA)
 

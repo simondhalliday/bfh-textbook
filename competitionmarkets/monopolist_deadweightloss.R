@@ -54,9 +54,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(p,"*", phantom()== c[1])), expression(paste(p^{mon})), expression(paste(p[max])))
+ylabels <- c(NA, expression(paste(p,"*", phantom()== c[1])), expression(paste(p^{m})), expression(paste(bar(p) )))
 ticksx <- c(0, 4, 8, xlims[2])
-xlabels <- c(NA, expression(paste(x^{mon})), expression(paste(x^{many})), NA)
+xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^{c})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -96,9 +96,9 @@ mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = ax
 text(-2.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
-text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
-text(6, 3, expression(paste(mr(x) == p[max] - 2*s*x)), cex = labelsize)
+text(10.7, 4.3, expression(paste(ac(x) == mc(x))), cex = labelsize)
+text(10.7, 2.6, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
+text(6, 2.6, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
@@ -125,12 +125,12 @@ text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
 # Arrow to Consumer surplus
 text(6, 11.75, expression(paste("Consumer Surplus")), cex = labelsize)
-text(6, 11, expression(paste(cs(x) == frac(1,2)*(p[max] - p^{mon})*x^{mon} )), cex = labelsize)
+text(6, 11, expression(paste(cs(x) == frac(1,2)*(bar(p) - p^{m})*x^{m} )), cex = labelsize)
 Arrows(4.4, 10.5, 2.4, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrow to Deadweight loss
 text(9, 7.75, expression(paste("Deadweight Loss")), cex = labelsize)
-text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{mon} - c[1])*(x^{many} - x^{mon}))), cex = labelsize)
+text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c[1])*(x^{c} - x^{m}))), cex = labelsize)
 Arrows(7.4, 6.5, 5.4, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

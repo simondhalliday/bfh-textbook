@@ -4,15 +4,15 @@ pdf(file = "competitionmarkets/demand_supply_excess_S.pdf", width = 9, height = 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(5, 5, 4, 4))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -22,7 +22,7 @@ mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
+uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
@@ -55,9 +55,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, Supply(x = 54), 7.5, 11, 20, ylims[2])
-ylabels <- c(NA,  expression(paste(mc(X^{DH}))), expression(paste(p,"*")), expression(paste(p^H)), expression(paste(p[max])), NA)
+ylabels <- c(NA,  expression(paste(mc(X^{DH}))), expression(paste(p,"*")), expression(paste(p^H)), expression(paste(bar(p) )), NA)
 ticksx <- c(0, 54, 75, 110, 120, xlims[2])
-xlabels <- c(NA, expression(paste(X^{DH})), expression(paste(X,"*")), expression(paste(X^{SH})), expression(paste(X[max])), NA)
+xlabels <- c(NA, expression(paste(X^{DH})), expression(paste(X,"*")), expression(paste(X^{SH})), expression(paste(bar(p)/beta )), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -101,7 +101,7 @@ text(110 + 2, Supply(x = 110) - 0.5, expression(b), cex = labelsize)
 
 #Label axes
 mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(-22, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-12, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)
 # text(52, 10.5, expression(M))

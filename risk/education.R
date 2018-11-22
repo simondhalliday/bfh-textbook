@@ -106,7 +106,7 @@ points(deltaRprime, yRprime, pch = 16, col = COLB[4], cex = 1.5)
 #Label 5 points on line
 
 text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)
-text(deltaR-0.2, yRprime-0.5, expression(paste("R'")), cex = labelsize)
+text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
 arrows(deltaR + 0.5, yR, deltaR + 0.5, yRprime, code = 3, length = 0.1, col = COLB[2], lty = 2)
 text(deltaR + 0.8, (yR + yRprime)/2, expression(paste("Cost")), cex = labelsize)
 
@@ -146,7 +146,7 @@ segments(0,0, deltaR, yRprime, lty = 2, col = COLB[2], lwd = segmentlinewidth)
 #Label 5 points on line
 
 text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)
-text(deltaR-0.2, yRprime-0.5, expression(paste("R'")), cex = labelsize)
+text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
 arrows(deltaR + 0.5, yR, deltaR + 0.5, yRprime, code = 3, length = 0.1, col = COLB[2], lty = 2)
 text(deltaR + 0.8, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
 text(deltaT, yT - 0.5, expression(R^T), cex = labelsize)

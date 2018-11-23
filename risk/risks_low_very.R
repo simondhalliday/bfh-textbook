@@ -1,7 +1,7 @@
 require(ggplot2)
 require(shape)
 #library(RColorBrewer)
-pdf(file = "risk/risks_low_very.pdf", width = 9, height = 7)
+#pdf(file = "risk/risks_low_very.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -17,19 +17,19 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 par(mar =  c(5, 5, 4, 2))
-xlims <- c(0, 13)
-ylims <- c(0, 18)
+xlims <- c(0, 10)
+ylims <- c(0, 20)
 
-riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
-  int1 - (int2 - (coeff)*g)^2
+## u <- function(delta, y, b = 0.1, a = 1.5, c = 15){
+##   y - b * delta^(c/y + a)
+## }
+
+u <- function(y, delta, a = 1.5, b = 0.1, c = 2){
+  y^a - b * delta^c
 }
 
-uA <- function(omega, g, slope = 0.5){
-  omega + omega*g  - slope*g^2
-}
-
-indiffA <- function(g, intercept = 3.7, slope1 = 0.25, slope2 = 0.08){
-  intercept  + slope1*g + slope2*g^2
+indiff <- function(u, delta, a = 1.5, b = 0.1, c = 2){
+  (u + b * delta^c )^(1/a)
 }
 
 slopeA <- function(g, slope1 = 0.25, slope2 = 0.08){
@@ -89,12 +89,25 @@ text(-1, 0.5*ylims[2], expression(paste("Expected wealth, ", omega)), xpd = TRUE
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx2 <- seq(1.5, 4.5, length.out = npts)
-xx3 <- seq(7.5, 10.5, length.out = npts)
-xx4 <- seq(6.7594 - 1.75, 6.7594 + 1.75, length.out = npts)
+xx2 <- seq(ylims[1], ylims[2], length.out = npts)
+#xx3 <- seq(7.5, 10.5, length.out = npts)
+#xx4 <- seq(6.7594 - 1.75, 6.7594 + 1.75, length.out = npts)
 
 #lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 3.7, slope2 = 0.08), col = COLB[4], lwd = graphlinewidth, lty = 1)
+for (u in c(1,20,50) ){
+ lines(xx1, indiff(u, xx1, c = 2.7), col = COLB[4], lwd = graphlinewidth, lty = 1)  
+}
+
+## contour(xx1, xx2,
+##         outer(xx1,xx2, FUN = u),
+##         drawlabels = FALSE,
+##         col = COLB[3],
+##         lwd = graphlinewidth,
+##         levels = c(5,10,15),
+##         xaxs="i",
+##         yaxs="i",
+##         add = TRUE)
+
 lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA2(xx1, intercept = 14, slope2 = 0.01), col = COLB[4], lwd = graphlinewidth, lty = 1)
 

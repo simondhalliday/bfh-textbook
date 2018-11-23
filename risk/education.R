@@ -5,7 +5,7 @@
 library(shape)
 require(shape)
 
-pdf(file = "risk/education.pdf", width = 20, height = 10)
+
 
 # The utility function and indifference curve
 
@@ -46,9 +46,6 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-                                        #Edited the margins to cater for the larger LHS labels
-par(mfrow = c(1,2))
-par(mar =  c(6, 8, 4, 2))
                                         #Add limits on axes and levels of utility for each indifference curve
 xlims <- c(0, deltaR + 2)
 ylims <- c(0, yRprime + 1)
@@ -71,7 +68,9 @@ y <- seq(ylims[1], ylims[2], length.out = npts)
 npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # the first plot
-
+pdf(file = "risk/education1.pdf", width = 10, height = 10)
+#Edited the margins to cater for the larger LHS labels
+par(mar =  c(6, 8, 4, 2))
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Risk, ",Delta)),
      ylab = expression(paste("Expected Income, ", y)),
@@ -109,9 +108,12 @@ text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)
 text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
 arrows(deltaR + 0.5, yR, deltaR + 0.5, yRprime, code = 3, length = 0.1, col = COLB[2], lty = 2)
 text(deltaR + 0.8, (yR + yRprime)/2, expression(paste("Cost")), cex = labelsize)
-
+dev.off()
 
 # the second plot
+pdf(file = "risk/education2.pdf", width = 10, height = 10)
+                #Edited the margins to cater for the larger LHS labels
+par(mar =  c(6, 8, 4, 2))
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Risk, ",Delta)),
      ylab = expression(paste("Expected Income, ", y)),
@@ -138,11 +140,12 @@ points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
 segments(deltaR, 0, deltaR, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
 segments(0, yR, deltaR + 1, yR, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
 segments(0, yRprime, deltaR + 1, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
+segments(0,0, deltaR, yRprime, lty = 2, col = COLB[2], lwd = segmentlinewidth)
 points(deltaR, yR, pch = 16, col = COLB[4], cex = 1.5)
 points(deltaRprime, yRprime, pch = 16, col = COLB[4], cex = 1.5)
-# the point (yT, deltaT) and the segment
+# the point (yT, deltaT)
 points(deltaT, yT, pch = 16, col = COLB[4], cex = 1.5)
-segments(0,0, deltaR, yRprime, lty = 2, col = COLB[2], lwd = segmentlinewidth)
+
 #Label 5 points on line
 
 text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)

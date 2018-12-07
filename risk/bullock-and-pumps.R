@@ -46,7 +46,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #par(mfrow = c(1,2))
 par(mar =  c(6, 8, 4, 2))
                                         #Add limits on axes and levels of utility for each indifference curve
-xlims <- c(0, deltaB + 1)
+xlims <- c(0, deltaB + 2)
 ylims <- c(0, yBprime + 2)
 
 
@@ -65,7 +65,7 @@ ylims <- c(0, yBprime + 2)
 ##     points(i,i+2, col = COLB[i], pch  )
 ## }
 npts <- 500
-xx1 <- seq(xlims[1], xlims[2]-0.1, length.out = npts)
+xx1 <- seq(xlims[1], xlims[2]-1, length.out = npts)
 # the first plot
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -79,7 +79,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
      )
 
-ticksx <- c(0,1,5,6) #seq(from = 0, to = xlims[2],by = 1)
+ticksx <- c(0,1,5,6.6) #seq(from = 0, to = xlims[2],by = 1)
 xlabels <- c(NA, expression(paste(Delta[B])), expression(paste(Delta[I])), NA)
 ticksy <- c(0, 2.8, 12.9, ylims[2]) #seq(from = 0, to = ylims[2], by = 3)
 ylabels <- c(0, expression(paste(c[1])), expression(paste(c[2])), NA)
@@ -103,7 +103,7 @@ segments(0, yB, deltaB, yB, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, yBprime, deltaB, yBprime, lty = 2, col = "gray" , lwd = segmentlinewidth)
 braces(deltaA, deltaA + 0.2, yA, yAprime, 1/4, mid = 0.5 * (yA+yBprime) / (yA + yAprime))
 braces(deltaB, deltaB - 0.2, yB, yBprime, 1/4, mid = 0.5 * (yA+yBprime) / (yB + yBprime))
-braces(deltaB, deltaB - 0.2, yA, yB, 0.5)
+braces(deltaB, deltaB + 0.2, yA, yB, 0.5)
 Arrows(2.3, (yA + yBprime) / 2, 1.4, (yA + yBprime) / 2 ,
        col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(3.7, (yA + yBprime) / 2, 4.6, (yA + yBprime) / 2 ,
@@ -118,14 +118,14 @@ points(deltaA, yAprime, pch = 16, col = COLB[4], cex = 1.5)
 #Label 4 points
 text(deltaA-0.2, yA-0.5, expression(paste("a")), cex = labelsize)
 text(deltaA-0.2, yAprime-0.5, expression(paste("a'")), cex = labelsize)
-text(deltaB+0.2, yB-0.5, expression(paste("b")), cex = labelsize)
-text(deltaB+0.2, yBprime+0.5, expression(paste("b'")), cex = labelsize)
+text(deltaB-0.1, yB-0.3, expression(paste("b")), cex = labelsize)
+text(deltaB-0.1, yBprime+0.3, expression(paste("b'")), cex = labelsize)
 text((deltaA + deltaB)/2, (yA + yBprime)/2, 'Non Farm Income', cex = labelsize)
-text(deltaB-0.9, (yA + yB) / 2, 'Increased Expected \n Income from Pumps', cex = labelsize)
+text(deltaB+1, (yA + yB) / 2, 'Increased Expected \nIncome from Pumps', cex = labelsize)
 
+text(5.6, 6.5, expression(paste(u[1])), cex = labelsize)
+text(5.6, 7.8, expression(paste(u[2])), cex = labelsize)
+text(5.6, 15.3, expression(paste(u[3])), cex = labelsize)
+text(5.6, 16.8, expression(paste(u[4])), cex = labelsize)
 
-text(5.5, 7.8, expression(paste(u[1])), cex = labelsize)
-text(5.5, 15.2, expression(paste(u[2])), cex = labelsize)
-text(5.5, 17.2, expression(paste(u[4])), cex = labelsize)
-text(5.5, 6.2, expression(paste(u[3])), cex = labelsize)
 dev.off()

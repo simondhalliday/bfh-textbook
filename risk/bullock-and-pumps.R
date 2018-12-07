@@ -65,7 +65,7 @@ ylims <- c(0, yBprime + 2)
 ##     points(i,i+2, col = COLB[i], pch  )
 ## }
 npts <- 500
-xx1 <- seq(xlims[1], xlims[2]-0.5, length.out = npts)
+xx1 <- seq(xlims[1], xlims[2]-0.1, length.out = npts)
 # the first plot
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -79,10 +79,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
      )
 
-ticksx <- seq(from = 0, to = xlims[2],by = 1)
-xlabels <- seq(from = 0, to = xlims[2],by = 1)
-ticksy <- seq(from = 0, to = ylims[2], by = 3)
-ylabels <- seq(from = 0, to = ylims[2], by = 3)
+ticksx <- c(0,1,5,6) #seq(from = 0, to = xlims[2],by = 1)
+xlabels <- c(NA, expression(paste(Delta[B])), expression(paste(Delta[I])), NA)
+ticksy <- c(0, 2.8, 12.9, ylims[2]) #seq(from = 0, to = ylims[2], by = 3)
+ylabels <- c(0, expression(paste(c[1])), expression(paste(c[2])), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -120,4 +120,9 @@ text(deltaB+0.2, yB-0.5, expression(paste("b")), cex = labelsize)
 text(deltaB+0.2, yBprime+0.5, expression(paste("b'")), cex = labelsize)
 text((deltaA + deltaB)/2, (yA + yBprime)/2, 'Non Farm Income', cex = labelsize)
 text(deltaB-0.9, (yA + yB) / 2, 'Increased Expected \n Income from Pumps', cex = labelsize)
+
+
+text(5.5, 7, expression(paste(u[1])), cex = labelsize)
+text(5.5, 15.2, expression(paste(u[2])), cex = labelsize)
+
 dev.off()

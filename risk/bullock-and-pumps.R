@@ -127,5 +127,5 @@ text(deltaB-0.9, (yA + yB) / 2, 'Increased Expected \n Income from Pumps', cex =
 text(5.5, 7.8, expression(paste(u[1])), cex = labelsize)
 text(5.5, 15.2, expression(paste(u[2])), cex = labelsize)
 text(5.5, 17.2, expression(paste(u[4])), cex = labelsize)
-text(5.5, 6.2, expression(paste(u[4])), cex = labelsize)
+text(5.5, 6.2, expression(paste(u[3])), cex = labelsize)
 dev.off()

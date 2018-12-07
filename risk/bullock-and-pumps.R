@@ -88,8 +88,10 @@ axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 
 # draw the indifference curves
-lines(xx1, indiff(xx1, u = U(yA,deltaA)), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiff(xx1, u = U(yAprime,deltaA)), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(yA,deltaA)), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(yAprime,deltaA)), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(yB,deltaB)), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(yBprime,deltaB)), col = COLA[4], lwd = graphlinewidth)
 
 
                                         # add segments
@@ -122,7 +124,8 @@ text((deltaA + deltaB)/2, (yA + yBprime)/2, 'Non Farm Income', cex = labelsize)
 text(deltaB-0.9, (yA + yB) / 2, 'Increased Expected \n Income from Pumps', cex = labelsize)
 
 
-text(5.5, 7, expression(paste(u[1])), cex = labelsize)
+text(5.5, 7.8, expression(paste(u[1])), cex = labelsize)
 text(5.5, 15.2, expression(paste(u[2])), cex = labelsize)
-
+text(5.5, 17.2, expression(paste(u[4])), cex = labelsize)
+text(5.5, 6.2, expression(paste(u[4])), cex = labelsize)
 dev.off()

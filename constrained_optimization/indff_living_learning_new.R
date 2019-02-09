@@ -3,7 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/feasible_frontier_indifference_new.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/indiff_living_learning_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -69,16 +69,16 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
-xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
-ypoly1 <- ppf(xpoly1)
-polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+# xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
+# ypoly1 <- ppf(xpoly1)
+# polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
 #Draw the graphs
-lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
+# lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(10.5, 0.53, expression("Feasible Frontier"), cex = labelsize)
-Arrows(12.5, 0.53, 14.5, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(10.5, 0.53, expression("Feasible Frontier"), cex = labelsize)
+# Arrows(12.5, 0.53, 14.5, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 contour(x, y, 
         outer(x, y, uFn),
@@ -95,11 +95,11 @@ mtext(expression(paste("Living (hours), ", x)), side = 1, line = 2.5, cex = axis
 text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
-text(8.6, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(8, 3.5, 8, 3.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(8.6, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+#Arrows(8, 3.5, 8, 3.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(17, 1, expression(u[1]^A), cex = labelsize)
+text(17, 0.8, expression(u[1]^A), cex = labelsize)
 text(17, 1.65, expression(u[2]^A), cex = labelsize)
 text(17, 2.7, expression(u[3]^A), cex = labelsize)
 
@@ -108,7 +108,6 @@ text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
 segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
-
 
 text(11.118 + 0.2, indiffA(x = 11.118, ubar = uFn(8, 3)+ 1.4) + 0.1, expression(paste(d)), cex = labelsize)
 segments(0, indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), 11.118, indiffA(x = 11.118, ubar = uFn(8, 3)+1.4), lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -134,8 +133,6 @@ text(5.605 + 0.2, indiffA(x = 5.605, ubar = uFn(8, 3)) + 0.1, expression(paste(c
 #segments(0, indiffA(x = 5.605, ubar = uFn(8, 3)), 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(5.605, 0, 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(5.605,  indiffA(x = 5.605, ubar = uFn(8, 3)), pch = 16, col = "black", cex = 1.5)
-
-
 
 
 

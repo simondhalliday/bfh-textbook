@@ -20,11 +20,11 @@ par(mar =  c(6, 8, 4, 4))
 #proportion of wealth functions
 
 MUb <- function(x, y){
-  x
+  10 + 0.75*x
 }
 
 MUa <- function(x, y){
-  40 - x
+  40 - (0.75)*x
 }
 
 
@@ -77,19 +77,19 @@ lines(xx1, MUa(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label points on line
 
-text(20, 20+1.2, expression(paste("f")), cex = labelsize)
-segments(20, 0, 20, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 20, 20, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(20, 20, pch = 16, col = "black", cex = 1.5)
+text(20, MUb(20)+1.2, expression(paste("f")), cex = labelsize)
+segments(20, 0, 20, MUb(20), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, MUb(20), 20, MUb(20), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(20, MUb(20), pch = 16, col = "black", cex = 1.5)
 
-text(33 + 0.7, 33 - 0.7, expression(paste("g")), cex = labelsize)
-segments(33, 33, 0, 33, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(33, 0, 33, 33, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(33, 33, pch = 16, col = "black", cex = 1.5)
+text(33 + 0.7, MUb(33) - 0.7, expression(paste("g")), cex = labelsize)
+segments(33, MUb(33), 0, MUb(33), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(33, 0, 33, MUb(33), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(33, MUb(33), pch = 16, col = "black", cex = 1.5)
 
-text(33 + 0.7, 7 + 0.7, expression(paste("h")), cex = labelsize)
-segments(33, 7, 0, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
-points(33, 7, pch = 16, col = "black", cex = 1.5)
+text(33 + 0.7, MUa(33) + 0.7, expression(paste("h")), cex = labelsize)
+segments(33, MUa(33), 0, MUa(33), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(33, MUa(33), pch = 16, col = "black", cex = 1.5)
 
 
 #Label relevant points on axes
@@ -97,11 +97,11 @@ points(33, 7, pch = 16, col = "black", cex = 1.5)
 text(20, -.9, expression(paste("a*")), xpd = TRUE, cex = labelsize)
 text(33, -.9, expression(paste("a"[x])), xpd = TRUE, cex = labelsize)
 
-text(-3.2, 33, expression(paste(u[a]^B*(a[x]) )),  xpd = TRUE, cex = labelsize)
-text(-3, 7, expression(paste(u[a]^A*(a[x]) )),  xpd = TRUE, cex = labelsize)
+text(-2, MUb(33), expression(paste(-u[a]^B*(a[x]) )),  xpd = TRUE, cex = labelsize)
+text(-2, MUa(33), expression(paste(u[a]^A*(a[x]) )),  xpd = TRUE, cex = labelsize)
 
 text(8, 38, expression(paste(u[a]^A, ",A's marginal utility")), xpd = TRUE, cex = labelsize)
-text(32, 38, expression(paste("B's marginal utility, ", -u[a]^B)),  xpd = TRUE, cex = labelsize)
+text(31, 38, expression(paste("B's marginal utility, ", -u[a]^B)),  xpd = TRUE, cex = labelsize)
 
 #Axis arrow
 arrows(27, -3.1, 35, -3.1, xpd = TRUE, length=0.1,angle=40,lwd=3)

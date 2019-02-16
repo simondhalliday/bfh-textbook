@@ -38,6 +38,7 @@ nstar <- function(b, pbar = 60, c = 10){
 (pbar*(1 - b) - c) / (b*c)
 }
 
+#Levels for the barriers to entry specified here
 barriers <- c(0.2, 0.5, 0.71)
 
 xlims <- c(0, 40)
@@ -82,7 +83,6 @@ lines(xx1, cournotPrice(xx1, c = 10), col = COLA[4], lwd = graphlinewidth) # No 
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
 text(-2, 0.5*ylims[2], expression(paste("Cost and Profit, ", list(rho, pi) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-
 #Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)
 
@@ -103,6 +103,7 @@ segments(0, 10, xlims[2], 10, lty = 1, col = COLB[4] , lwd = segmentlinewidth)
 # segments(0, 6.8, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
 # 
 
+#This should probably have a loop, but I haven't worked it out. 
 points(nstar(b = barriers[1]), bte(n = nstar(b = barriers[1]), b = barriers[1]), pch = 16, col = "black", cex = 1.5)
 points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]), pch = 16, col = "black", cex = 1.5)
 points(nstar(b = barriers[3]), bte(n = nstar(b = barriers[3]), b = barriers[3]), pch = 16, col = "black", cex = 1.5)

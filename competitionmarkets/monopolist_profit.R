@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(p^{m})), expression(paste(bar(p))))
+ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p))))
 ticksx <- c(0, 4, 6, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))))
 
@@ -86,13 +86,14 @@ text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = a
 text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c[1])), cex = labelsize)
+text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize)
 text(10.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
 text(5.8, 2.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
-text(2, 6, expression("Profit"), cex = labelsize)
+text(2, 6, expression("Economic"), cex = labelsize)
+text(2, 5.5, expression("Profit"), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)

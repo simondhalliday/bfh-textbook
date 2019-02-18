@@ -104,9 +104,9 @@ segments(nstar(b = barriers[1]), 0, nstar(b = barriers[1]), bte(n = nstar(b = ba
          lty = 2, col = "gray", lwd = segmentlinewidth
          )
 
-segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), cournotPrice(n = nstar(b = barriers[4]), 7), 
+segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), cournotPrice(n = nstar(b = barriers[3])), 
          lty = 2, col = "gray", lwd = segmentlinewidth
-)
+         )
 
 # segments(4.5, 0, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
 # segments(0, 6.8, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)

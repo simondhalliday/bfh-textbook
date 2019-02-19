@@ -78,7 +78,7 @@ xx3 <- seq(2, 6, length.out = npts)
 # Draw the polygon for profit
 xpoly1 <- c(0, 0, 4, 4, 0)
 ypoly1 <- c(0, min(AvgCost(xx1)), min(AvgCost(xx1)), 0, 0)
-polygon(x = xpoly1, y = ypoly1, col=COLA[1],density=NULL, border = NA)
+polygon(x = xpoly1, y = ypoly1, col=COLC[2],density=NULL, border = NA)
 
 #Draw the polygon for costs
 
@@ -90,7 +90,7 @@ polygon(x = xpoly1, y = ypoly1, col=COLA[1],density=NULL, border = NA)
 # lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 # lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, AvgCost(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, MCost(xx1), col = COLA[4], lwd = graphlinewidth)
 
 # Label the axes
 
@@ -119,6 +119,9 @@ segments(0, 6, 4, 6,
          )
 segments(4, 0, 4, 6,
          lty = 2, col = "gray" , lwd = segmentlinewidth
+)
+segments(0, 6, xlims[2], 6,
+         lty = 1, col = COLB[2] , lwd = graphlinewidth
 )
 
 # Label Points for comparison

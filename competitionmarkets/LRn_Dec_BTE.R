@@ -143,7 +143,7 @@ points(x = nstar(b = barriers[1]),
 
 text(x = nstar(b = barriers[1]) - 0.5, 
      y = bte(n = nstar(b = barriers[1]), b = barriers[1]) - 0.5, 
-     expression(paste(b)), cex = labelsize) 
+     expression(paste(h)), cex = labelsize) 
 
 #Two points for the high barriers
 points(x = nstar(b = barriers[2]),
@@ -160,7 +160,7 @@ points(x = nstar(b = barriers[2]),
 
 text(x = nstar(b = barriers[2]) - 0.5, 
      y = bte(n = nstar(b = barriers[2]), b = barriers[2]) - 0.5, 
-     expression(paste(a)), cex = labelsize) 
+     expression(paste(g)), cex = labelsize) 
 
 # points(x = nstar(b = barriers[3]),
 #        y = bte(n = nstar(b = barriers[3]), b = barriers[3]),

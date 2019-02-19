@@ -79,6 +79,9 @@ xpoly1 <- c(0, 0, 4, 4, 0)
 ypoly1 <- c(0, min(AvgCost(xx1)), min(AvgCost(xx1)), 0, 0)
 polygon(x = xpoly1, y = ypoly1, col=COLB[1],density=NULL, border = NA)
 
+#Label the costs
+text(2, 0.4*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
+
 #Draw the polygon for costs
 
 #xpoly2 <- c(0, 4, 4, 0, 0)
@@ -129,9 +132,9 @@ points(4, 6, pch = 16, col = "black", cex = 1.5)
 
 # Arrows (Labels to be added)
 
-# text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)
-# text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)
-shape::Arrows(5.5, 10, 4.2, 6.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 11, expression(paste("Profit maximum at")), cex = labelsize)
+text(4, 10.5, expression(paste(mr == mc)), cex = labelsize)
+shape::Arrows(4, 10, 4, 6.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

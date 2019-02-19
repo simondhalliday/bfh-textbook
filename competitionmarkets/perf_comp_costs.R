@@ -99,20 +99,15 @@ text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, 
 
 #Label curves
 
-#text(ylims[2], xlims[2] / 2, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize)
-# text(10.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
-# text(5.8, 2.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
+text(10, 5.5, expression(paste("ar(x) = mr(x) = p")), cex = labelsize)
+text(11, 9, expression(paste("ac(x)")), cex = labelsize)
+text(8.75, 11.5, expression(paste("mc(x)")), cex = labelsize)
 
-#Labels cost and profit areas
+#Labels cost and profit areas (To be added)
 
-# text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
-# text(2, 6, expression("Economic"), cex = labelsize)
-# text(2, 5.5, expression("Profit"), cex = labelsize)
 
 #Draw segments for total costs
-# segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(0, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
+
 segments(0, 6, 4, 6,
          lty = 2, col = "gray" , lwd = segmentlinewidth
          )
@@ -124,6 +119,7 @@ segments(0, 6, xlims[2], 6,
 )
 
 # Label Points for comparison
+
 points(4, 6, pch = 16, col = "black", cex = 1.5)
 # text(3.8, MRevenue(x = 4) - 0.4, expression(i), cex = labelsize)
 
@@ -131,11 +127,11 @@ points(4, 6, pch = 16, col = "black", cex = 1.5)
 # points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
 # text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
-# Arrow to mr = mc
+# Arrows (Labels to be added)
 
 # text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)
 # text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)
-# Arrows(6.1, 9.2, 4.2, 4.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+shape::Arrows(5.5, 10, 4.2, 6.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

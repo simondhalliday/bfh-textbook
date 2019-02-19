@@ -83,7 +83,7 @@ lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[2]), col = COLA[3], 
 
 #Label axes
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5.5, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)

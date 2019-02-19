@@ -39,7 +39,7 @@ nstar <- function(b, pbar = 60, c = 10){
 }
 
 #Levels for the barriers to entry specified here
-barriers <- c(0.2, 0.5, 0.71, 0)
+barriers <- c(0.2, 0.45, 0.71, 0.73)
 
 xlims <- c(0, 40)
 ylims <- c(0, 20)
@@ -58,10 +58,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 10, ylims[2])
-ylabels <- c(NA, expression(c), NA)
-ticksx <- c(0, nstar(b = barriers[1]), xlims[2])
-xlabels <- c(NA, expression(paste(n,"*")), NA)
+ticksy <- c(0, 10, cournotPrice(n = nstar(b = barriers[1])), cournotPrice(n = nstar(b = barriers[2])), ylims[2])
+ylabels <- c(NA, expression(c), expression(paste(p[L])), expression(paste(p[H])), NA)
+ticksx <- c(0, nstar(b = barriers[2]), nstar(b = barriers[1]), xlims[2])
+xlabels <- c(NA, expression(paste(n[H])), expression(paste(n[L])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -91,8 +91,8 @@ text(-4, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", li
 
 # Eq labels
 text(34, 12, expression(paste(p(n))), cex = labelsize)
-text(34, 8, expression(paste(hat(p)*("n, b") == (1-b)*p(n) )), cex = labelsize)
-text(34, 4.8, expression(paste(hat(p)*("n, b+") == (1-b)*p(n) )), cex = labelsize)
+text(34, 8, expression(paste(hat(p)*(list(n, b[L])) == (1-b)*p(n) )), cex = labelsize)
+text(34, 4.8, expression(paste(hat(p)*(list(n, b[H])) == (1-b)*p(n) )), cex = labelsize)
 
 
 # line for the marginal cost
@@ -100,21 +100,73 @@ segments(0, 10, xlims[2], 10,
          lty = 1, col = COLB[4] , lwd = graphlinewidth
          )
 
-segments(nstar(b = barriers[1]), 0, nstar(b = barriers[1]), bte(n = nstar(b = barriers[1]), b = barriers[1]), 
+#For the low price with low barriers to entry
+segments(nstar(b = barriers[1]), 0, 
+         nstar(b = barriers[1]), 
+         cournotPrice(n = nstar(b = barriers[1])), 
          lty = 2, col = "gray", lwd = segmentlinewidth
          )
 
-segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), cournotPrice(n = nstar(b = barriers[3])), 
+segments(0, cournotPrice(n = nstar(b = barriers[1])), 
+         nstar(b = barriers[1]), 
+         cournotPrice(n = nstar(b = barriers[1])), 
+         lty = 2, col = "gray", lwd = segmentlinewidth
+)
+
+#For the high price with high barriers to entry
+segments(nstar(b = barriers[2]), 0, 
+         nstar(b = barriers[2]), 
+         cournotPrice(n = nstar(b = barriers[2])), 
          lty = 2, col = "gray", lwd = segmentlinewidth
          )
 
-# segments(4.5, 0, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
-# segments(0, 6.8, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
-# 
+segments(0, cournotPrice(n = nstar(b = barriers[2])), 
+         nstar(b = barriers[2]), 
+         cournotPrice(n = nstar(b = barriers[2])), 
+         lty = 2, col = "gray", lwd = segmentlinewidth
+)
 
 #This should probably have a loop, but I haven't worked it out. 
-points(nstar(b = barriers[4]), bte(n = nstar(b = barriers[4]), b = barriers[4]), pch = 16, col = "black", cex = 1.5)
-# points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]), pch = 16, col = "black", cex = 1.5)
-# points(nstar(b = barriers[3]), bte(n = nstar(b = barriers[3]), b = barriers[3]), pch = 16, col = "black", cex = 1.5)
+#Two points for the low barriers
+points(x = nstar(b = barriers[1]), 
+       y = cournotPrice(n = nstar(b = barriers[1])), 
+       pch = 16, col = "black", cex = 1.5)
+
+text(x = nstar(b = barriers[1]) + 0.5, 
+     y = cournotPrice(n = nstar(b = barriers[1])) + 0.5,
+     expression(paste(e)), cex = labelsize) 
+
+
+points(x = nstar(b = barriers[1]), 
+       y = bte(n = nstar(b = barriers[1]), b = barriers[1]), 
+       pch = 16, col = "black", cex = 1.5)
+
+text(x = nstar(b = barriers[1]) - 0.5, 
+     y = bte(n = nstar(b = barriers[1]), b = barriers[1]) - 0.5, 
+     expression(paste(b)), cex = labelsize) 
+
+#Two points for the high barriers
+points(x = nstar(b = barriers[2]),
+       y = cournotPrice(n = nstar(b = barriers[2])),
+       pch = 16, col = "black", cex = 1.5)
+
+text(x = nstar(b = barriers[2]) + 0.5, 
+     y = cournotPrice(n = nstar(b = barriers[2])) + 0.5,
+     expression(paste(f)), cex = labelsize) 
+
+points(x = nstar(b = barriers[2]),
+       y = bte(n = nstar(b = barriers[2]), b = barriers[2]),
+       pch = 16, col = "black", cex = 1.5)
+
+text(x = nstar(b = barriers[2]) - 0.5, 
+     y = bte(n = nstar(b = barriers[2]), b = barriers[2]) - 0.5, 
+     expression(paste(a)), cex = labelsize) 
+
+# points(x = nstar(b = barriers[3]),
+#        y = bte(n = nstar(b = barriers[3]), b = barriers[3]),
+#        pch = 16, col = "black", cex = 1.5)
+# points(x = nstar(b = barriers[4]), 
+#        y = bte(n = nstar(b = barriers[4]),b = barriers[4]), 
+#        pch = 16, col = "black", cex = 1.5)
 
 dev.off()

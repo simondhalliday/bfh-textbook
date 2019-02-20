@@ -1,3 +1,8 @@
+# TO DO
+# Troubleshoot points not showing up ---> Have infinite value nested
+# Troubleshoot points label ---> equal infinity
+# For labeling, reference LRn_Dec_BTE.R
+
 require(shape)
 pdf(file = "competitionmarkets/LRn_Dec_Costs.pdf", width = 9, height = 7)
 
@@ -19,6 +24,8 @@ barriers <- c(0.2, 0.5, 0.71)
 # Cost Levels
 costs <- c(5, 10)
 
+# ----
+# Functions
 Profit <- function(n, pbar = 60, c = costs[2], beta = 0.5) {
   (pbar - c)^2 / (((n + 1)^2)*beta)
 }
@@ -41,12 +48,11 @@ bte_unnested <- function(n, pbar = 60, c, b = 0){
   (c + (1/(n+1))*(pbar - c))*(1 - b)
 }
 
-
-
 nstar <- function(b, pbar = 60, c = costs[2]){
   (pbar*(1 - b) - c) / (b*c)
 }
 
+# ---- 
 xlims <- c(0, 40) 
 ylims <- c(0, 20)
 
@@ -60,11 +66,35 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, costs[1], bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), costs[2], ylims[2])
-# Asterik needs to be fixed
-ylabels <- c(NA, expression(paste(c,"*")), expression(paste(P(n**b, "*"))), expression(c), NA) 
-ticksx <- c(0, nstar(b = barriers[2]), nstar(b = barriers[2], c = costs[1]), xlims[2])
-xlabels <- c(NA, expression(paste(n)), expression(paste(n**b)), NA)
+ticksy <- c(0, 
+            costs[1], 
+            bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), 
+            NA, # costs[2],
+            bte_unnested(n = nstar(b = barriers[2], c = costs[2]), b = barriers[2], c = costs[2]),
+            ylims[2]
+            )
+# Asteriks need to be fixed
+ylabels <- c(NA, 
+             expression(paste(c[L])), 
+             expression(paste(P(n**b, "*"))), 
+             expression(paste(c[H])), 
+             expression(paste(P(n[2]**b, "*"))),
+             NA) 
+
+ticksx <- c(0, 
+            nstar(b = barriers[2]), 
+            nstar(b = barriers[2], c = costs[1]), 
+            nstar(b = 0), # = Inf 
+            nstar(b = 0, c = costs[1]), # = Inf
+            xlims[2]
+            )
+
+xlabels <- c(NA, 
+             expression(paste(n)), 
+             expression(paste(n**b)),
+             NA,
+             NA,
+             NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -76,31 +106,43 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, bte(n = xx1, b = barriers[3]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
 #lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
 
-# P(n^b)
-lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = graphlinewidth) 
-# P(n^{br})
-lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[2]), col = COLA[3], lty = 1, lwd = graphlinewidth) 
+# ----
+
+# BTE --- Cost 1, Barrier = 0
+lines(xx1, bte_unnested(n = xx1, c = costs[1], b = 0), col = COLA[4], lty = 1, lwd = graphlinewidth) 
+# BTE --- Cost 2, Barrier = 0
+lines(xx1, bte(n = xx1, b = 0), col = COLA[4], lty = 2, lwd = graphlinewidth) 
+# BTE --- Cost 1, Barrier[2]
+lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[2]), col = COLB[5], lty = 1, lwd = graphlinewidth) 
+# BTE --- Cost 2, Barrier[2]
+lines(xx1, bte(n = xx1, b = barriers[2]), col = COLB[5], lty = 2, lwd = graphlinewidth) 
+
+# ----
 
 #Label axes
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
 text(-5.5, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)
 
-
-#text(5, 11, expression(paste(c)), cex = labelsize)
-# text(19, 4.4, expression(paste(rho[1])), cex = labelsize)
-
-#Arrows(4, 9, 7.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(5.7, 10, expression(paste("Decrease in ", c)), cex = labelsize)
-
-#text(34, 12, expression(paste(p(n))), cex = labelsize)
-text(34, 7, expression(paste(hat(p)*(n) == (1-b)*p(n) )), cex = labelsize)
-
-#line for the marginal cost
+# Label Expressions
+# ---- 
+# C[H] b = 0, p(n)
+text(35, 12, expression(paste(p(n, c[H]))), cex = labelsize)
+# C[H] b = 0, \hat{p(n)}
+text(34, 7.5, expression(paste(hat(p)(n, c[H]) == (1-b)*p(n) )), cex = labelsize)
+# C[L] b = 0, p(n)
+text(35, 2.5, expression(paste(p(n, c[L]))), cex = labelsize)
+# C[L] b \neq 0, \hat{p(n)}
+text(34, 4.7, expression(paste(hat(p)(n, c[L]) == (1-b)*p(n) )), cex = labelsize)
+# ---- 
+# line for the marginal cost
+# C_H
 segments(0, 10, xlims[2], 10, 
-         lty = 2, col = COLB[4], lwd = graphlinewidth
+         lty = 1, col = COLB[2], lwd = graphlinewidth
+         )
+# C_L
+segments(0, 5, 28, 5, # Cut x_1 segment so it didn't overlap eq. 
+         lty = 2, col = COLB[2] , lwd = graphlinewidth
          )
 
 segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
@@ -115,17 +157,27 @@ segments(0, bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), nsta
          lty = 2, col = "grey", lwd = segmentlinewidth
          )
 
-segments(0, 5, xlims[2], 5, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
+# ---- 
 
-#This should probably have a loop, but I haven't worked it out. 
-points(nstar(b = barriers[2], c = costs[2]), bte(n = nstar(b = barriers[2], c = costs[2]), b = barriers[2]),
+# Label Points
+# This should probably have a loop, but I haven't worked it out. 
+
+# This point does not show up
+points(nstar(b = 0, c = costs[1]), bte_unnested(n = nstar(b = 0, c = costs[1]), c = costs[2], b = 0),
        pch = 16, col = "black", cex = 1.5
        )
-
 points(nstar(b = barriers[2], c = costs[1]), bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), 
        pch = 16, col = "black", cex = 1.5
        )
+# And this point below does not show up
+points(nstar(b = 0), bte_unnested(n = nstar(b = 0), c = costs[2], b = 0),
+       pch = 16, col = "black", cex = 1.5
+       )
+points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
+       pch = 16, col = "black", cex = 1.5
+       )
+
 # points(nstar(b = barriers[3]), bte(n = nstar(b = barriers[3]), b = barriers[3]), pch = 16, col = "black", cex = 1.5)
 
 

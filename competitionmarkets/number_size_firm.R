@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "/Users/saimadhurika/Dropbox/Fig 1/fig1", width = 9, height = 7)
+pdf(file = "competitionmarkets/number_size_firm.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -31,9 +31,6 @@ ylims <- c(-8, 20)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-#a <- c(2, 18, 32.5)
-#b <- c(60, 72, 81)
-
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -51,10 +48,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
  xlabels <- seq(from = 0, to = xlims[2], by = 2)
  
  
- ticksy <- c(-8, 8, 15, ylims[2])
- ylabels <- c(NA, NA, NA, NA)
- ticksx <- c(-1, 6.66, 10, xlims[2])
- xlabels <- c(NA, expression(paste(bar(s),"*")),expression(paste(bar(s)^"+")),NA)
+ticksy <- c(-8, 8, 15, ylims[2])
+ylabels <- c(NA, NA, NA, NA)
+ticksx <- c(-1, 6.66, 10, xlims[2])
+xlabels <- c(NA, expression(paste(bar(s),"*")),expression(paste(bar(s)^"+")),NA)
  
  
 
@@ -77,11 +74,15 @@ mtext(expression(paste("Increase or decrease in average firm size")), side=2, li
 
 segments(0, 8, 6.66, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6.66, 0, 6.66, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(6.66, 8, pch = 16, col = "black", cex = 1.5)
+
 segments(0, 15, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(10, 0, 10, 15, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(0, -6, pch = 1, col = "black", cex = 0)
+
+points(10, 15, pch = 16, col = "black", cex = 1.5)
 text(-0.65, -6, expression(-delta*underline(s)) )
 
+#Label the figures
 text(10, A(x=11.4), expression(delta(bar(s) - underline(s))))
 text(15, B(x=12.4), expression(bar(s)(1 - delta)*b))
 text(13.5, C(x=12), expression(paste(bar(s)(1 - delta)*b^"+")))

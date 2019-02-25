@@ -4,7 +4,7 @@
 # For labeling, reference LRn_Dec_BTE.R
 
 require(shape)
-pdf(file = "competitionmarkets/LRn_Dec_Costs.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/LRn_Dec_Costs_H.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -54,7 +54,7 @@ nstar <- function(b, pbar = 60, c = costs[2]){
 
 # ---- 
 xlims <- c(0, 40) 
-ylims <- c(0, 20)
+ylims <- c(0, 25)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -67,8 +67,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, 
-            costs[1], 
-            bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), 
+            NA,#costs[1], 
+            bte(n = nstar(b = barriers[2]), b = 0),#bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), 
             NA, # costs[2],
             bte_unnested(n = nstar(b = barriers[2], c = costs[2]), b = barriers[2], c = costs[2]),
             ylims[2]
@@ -77,20 +77,20 @@ ticksy <- c(0,
 ylabels <- c(NA, 
              expression(paste(c[L])), 
              expression(paste(P(n**b, "*"))), 
-             expression(paste(c[H])), 
-             expression(paste(P(n[2]**b, "*"))),
+             NA, 
+             expression(paste(c[H])),#expression(paste(P(n[2]**b, "*"))),
              NA) 
 
 ticksx <- c(0, 
-            nstar(b = barriers[2]), 
-            nstar(b = barriers[2], c = costs[1]), 
-            nstar(b = 0), # = Inf 
-            nstar(b = 0, c = costs[1]), # = Inf
+            NA, 
+            nstar(b = barriers[2], c = costs[2]), 
+            NA, # = Inf 
+            nstar(b = barriers[1], c = costs[1]), # = Inf
             xlims[2]
             )
 
 xlabels <- c(NA, 
-             expression(paste(n)), 
+             NA, 
              expression(paste(n**b)),
              NA,
              NA,
@@ -109,13 +109,16 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # ----
 
 # BTE --- Cost 1, Barrier = 0
-lines(xx1, bte_unnested(n = xx1, c = costs[1], b = 0), col = COLA[4], lty = 1, lwd = graphlinewidth) 
+# lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[1]), col = COLA[4], lty = 1, lwd = graphlinewidth) 
+
 # BTE --- Cost 2, Barrier = 0
-lines(xx1, bte(n = xx1, b = 0), col = COLA[4], lty = 2, lwd = graphlinewidth) 
+lines(xx1, bte(n = xx1, b = 0), col = COLA[4], lty = 1, lwd = graphlinewidth) 
+
 # BTE --- Cost 1, Barrier[2]
-lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[2]), col = COLB[5], lty = 1, lwd = graphlinewidth) 
+# lines(xx1, bte_unnested(n = xx1, c = costs[1], b = barriers[2]), col = COLB[5], lty = 1, lwd = graphlinewidth) 
+
 # BTE --- Cost 2, Barrier[2]
-lines(xx1, bte(n = xx1, b = barriers[2]), col = COLB[5], lty = 2, lwd = graphlinewidth) 
+lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = graphlinewidth) 
 
 # ----
 
@@ -127,33 +130,35 @@ text(-5.5, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", 
 # Label Expressions
 # ---- 
 # C[H] b = 0, p(n)
-text(35, 12, expression(paste(p(n, c[H]))), cex = labelsize)
+text(35, 12.2, expression(paste(p(n, c[H]))), cex = labelsize)
 # C[H] b = 0, \hat{p(n)}
-text(34, 7.5, expression(paste(hat(p)(n, c[H]) == (1-b)*p(n) )), cex = labelsize)
+text(34, 5.0, expression(paste(hat(p)(n, c[H]) == (1-b)*p(n) )), cex = labelsize)
 # C[L] b = 0, p(n)
-text(35, 2.5, expression(paste(p(n, c[L]))), cex = labelsize)
+#text(35, 2.5, expression(paste(p(n, c[L]))), cex = labelsize)
 # C[L] b \neq 0, \hat{p(n)}
-text(34, 4.7, expression(paste(hat(p)(n, c[L]) == (1-b)*p(n) )), cex = labelsize)
+#text(34, 4.7, expression(paste(hat(p)(n, c[L]) == (1-b)*p(n) )), cex = labelsize)
 # ---- 
 # line for the marginal cost
 # C_H
+<<<<<<< HEAD:competitionmarkets/LRn_Dec_Costs.R
 segments(0, 10, xlims[2], 10, 
          lty = 1, col = COLB[2], lwd = graphlinewidth
          )
 # C_L
 segments(0, costs[1], 28, costs[1], # Cut x_1 segment so it didn't overlap eq. 
          lty = 2, col = COLB[2] , lwd = graphlinewidth
+=======
+segments(0, costs[2], xlims[2], costs[2], 
+         lty = 1, col = COLB[5], lwd = graphlinewidth
+>>>>>>> 1846640307fa6ae530cdb435b089c165b772739e:competitionmarkets/LRn_Dec_Costs_H.R
          )
 
-segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
+segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = 0),
          lty = 2, col = "gray", lwd = segmentlinewidth
          )
 
-segments(nstar(b = barriers[2], c = costs[1]), 0, nstar(b = barriers[2], c = costs[1]), bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]),
-         lty = 2, col = "gray", lwd = segmentlinewidth
-         )
 
-segments(0, bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), nstar(b = barriers[2], c = costs[1]), bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]),
+segments(0, bte(n = nstar(b = barriers[2]), b = 0), nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = 0),
          lty = 2, col = "grey", lwd = segmentlinewidth
          )
 
@@ -163,22 +168,15 @@ segments(0, bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), nsta
 # Label Points
 # This should probably have a loop, but I haven't worked it out. 
 
-# This point does not show up
-points(nstar(b = 0, c = costs[1]), bte_unnested(n = nstar(b = 0, c = costs[1]), c = costs[2], b = 0),
+
+points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = 0), 
        pch = 16, col = "black", cex = 1.5
-       )
-points(nstar(b = barriers[2], c = costs[1]), bte(n = nstar(b = barriers[2], c = costs[1]), b = barriers[2]), 
-       pch = 16, col = "black", cex = 1.5
-       )
-# And this point below does not show up
-points(nstar(b = 0), bte_unnested(n = nstar(b = 0), c = costs[2], b = 0),
-       pch = 16, col = "black", cex = 1.5
-       )
+)
+
 points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
        pch = 16, col = "black", cex = 1.5
        )
 
-# points(nstar(b = barriers[3]), bte(n = nstar(b = barriers[3]), b = barriers[3]), pch = 16, col = "black", cex = 1.5)
 
 
 dev.off()

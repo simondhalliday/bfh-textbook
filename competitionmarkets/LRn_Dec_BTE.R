@@ -76,7 +76,7 @@ lines(xx1, bte(n = xx1, b = barriers[1]), col = COLA[3], lty = 2, lwd = graphlin
 lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = graphlinewidth)
 
 #Price with no barriers
-# No Barrier --- Green
+# No Barrier --- Greenbte(n = nstar(b = 0), b = 0)
 lines(xx1, cournotPrice(xx1, c = 10), col = COLA[4], lwd = graphlinewidth) 
 
 # lines(xx1, Profit(xx1, c = 0.25), col = COLA[4], lty = 2, lwd = segmentlinewidth)

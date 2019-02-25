@@ -22,7 +22,7 @@ par(mar =  c(6, 6, 4, 4))
 # Levels for the barriers to entry specified here
 barriers <- c(0.2, 0.5, 0.71)
 # Cost Levels
-costs <- c(5, 10)
+costs <- c(6, 10)
 
 # ----
 # Functions
@@ -73,7 +73,7 @@ ticksy <- c(0,
             bte_unnested(n = nstar(b = barriers[2], c = costs[2]), b = barriers[2], c = costs[2]),
             ylims[2]
             )
-# Asteriks need to be fixed
+# Asterisk need to be fixed
 ylabels <- c(NA, 
              expression(paste(c[L])), 
              expression(paste(P(n**b, "*"))), 
@@ -141,7 +141,7 @@ segments(0, 10, xlims[2], 10,
          lty = 1, col = COLB[2], lwd = graphlinewidth
          )
 # C_L
-segments(0, 5, 28, 5, # Cut x_1 segment so it didn't overlap eq. 
+segments(0, costs[1], 28, costs[1], # Cut x_1 segment so it didn't overlap eq. 
          lty = 2, col = COLB[2] , lwd = graphlinewidth
          )
 

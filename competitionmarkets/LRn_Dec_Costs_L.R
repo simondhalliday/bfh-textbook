@@ -75,7 +75,7 @@ ticksy <- c(0,
 # Asteriks need to be fixed
 ylabels <- c(NA, 
              expression(paste(c[L])), 
-             expression(paste(P(n**b, "*"))), 
+             expression(paste(P(n**L))), 
              NA, 
              NA
              ) 
@@ -90,7 +90,7 @@ ticksx <- c(0,
 
 xlabels <- c(NA, 
              NA, 
-             expression(paste(n**b)),
+             expression(paste(n**L)),
              NA,
              NA,
              NA
@@ -141,13 +141,27 @@ segments(0, bte(n = nstar(b = barriers[2]), b = barriers[2]), nstar(b = barriers
 # ---- 
 
 # Label Points
-# This should probably have a loop, but I haven't worked it out. 
-points(nstar(b = barriers[2], c = costs[1]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
+
+x <- c(nstar(b = barriers[2], c = costs[1]), 
+       nstar(b = barriers[2], c = costs[1])
+)
+y <- c(bte(n = nstar(b = barriers[2]), b = barriers[2]),
+       bte_unnested(n = nstar(b = barriers[2], c = costs[1]), c = costs[1], b = barriers[2])
+)
+
+
+#Apply vector to points function
+points(x,  y,
        pch = 16, col = "black", cex = 1.5
 )
-points(nstar(b = barriers[2], c = costs[1]), bte_unnested(n = nstar(b = barriers[2], c = costs[1]), c = costs[1], b = barriers[2]), 
-       pch = 16, col = "black", cex = 1.5
-)
+
+xylab <- c("C", "D")
+
+#Apply labels to points
+text(x = x + 1,
+     y = y + 1,
+     xylab, 
+     cex = labelsize)
 
 
 dev.off()

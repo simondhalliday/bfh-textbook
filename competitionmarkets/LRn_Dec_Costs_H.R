@@ -76,7 +76,7 @@ ticksy <- c(0,
 # Asterisk need to be fixed
 ylabels <- c(NA, 
              expression(paste(c[L])), 
-             expression(paste(P(n**b, "*"))), 
+             expression(paste(P(n**H))), 
              NA, 
              expression(paste(c[H])),#expression(paste(P(n[2]**b, "*"))),
              NA) 
@@ -84,14 +84,14 @@ ylabels <- c(NA,
 ticksx <- c(0, 
             NA, 
             nstar(b = barriers[2], c = costs[2]), 
-            NA, # = Inf 
-            nstar(b = barriers[1], c = costs[1]), # = Inf
+            NA, 
+            NA,
             xlims[2]
             )
 
 xlabels <- c(NA, 
              NA, 
-             expression(paste(n**b)),
+             expression(paste(n**H)),
              NA,
              NA,
              NA)
@@ -140,17 +140,16 @@ text(34, 5.0, expression(paste(hat(p)(n, c[H]) == (1-b)*p(n) )), cex = labelsize
 # ---- 
 # line for the marginal cost
 # C_H
-<<<<<<< HEAD:competitionmarkets/LRn_Dec_Costs.R
+
 segments(0, 10, xlims[2], 10, 
          lty = 1, col = COLB[2], lwd = graphlinewidth
          )
 # C_L
-segments(0, costs[1], 28, costs[1], # Cut x_1 segment so it didn't overlap eq. 
-         lty = 2, col = COLB[2] , lwd = graphlinewidth
-=======
+#segments(0, costs[1], 28, costs[1], # Cut x_1 segment so it didn't overlap eq. 
+#         lty = 2, col = COLB[2] , lwd = graphlinewidth
+#         )
 segments(0, costs[2], xlims[2], costs[2], 
          lty = 1, col = COLB[5], lwd = graphlinewidth
->>>>>>> 1846640307fa6ae530cdb435b089c165b772739e:competitionmarkets/LRn_Dec_Costs_H.R
          )
 
 segments(nstar(b = barriers[2]), 0, nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = 0),
@@ -168,14 +167,26 @@ segments(0, bte(n = nstar(b = barriers[2]), b = 0), nstar(b = barriers[2]), bte(
 # Label Points
 # This should probably have a loop, but I haven't worked it out. 
 
+x <- c(nstar(b = barriers[2]), 
+       nstar(b = barriers[2])
+       )
+y <- c(bte(n = nstar(b = barriers[2]), b = 0),
+       bte(n = nstar(b = barriers[2]), b = barriers[2])
+       )
 
-points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = 0), 
+
+#Apply vector to points function
+points(x,  y,
        pch = 16, col = "black", cex = 1.5
 )
 
-points(nstar(b = barriers[2]), bte(n = nstar(b = barriers[2]), b = barriers[2]),
-       pch = 16, col = "black", cex = 1.5
-       )
+xylab <- c("A", "B")
+
+#Apply labels to points
+text(x = x + 1,
+     y = y + 1,
+     xylab, 
+     cex = labelsize)
 
 
 

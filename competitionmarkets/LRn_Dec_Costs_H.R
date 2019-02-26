@@ -180,7 +180,7 @@ points(x,  y,
        pch = 16, col = "black", cex = 1.5
 )
 
-xylab <- c("A", "B")
+xylab <- c("a", "b")
 
 #Apply labels to points
 text(x = x + 1,

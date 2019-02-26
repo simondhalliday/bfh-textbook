@@ -155,7 +155,7 @@ points(x,  y,
        pch = 16, col = "black", cex = 1.5
 )
 
-xylab <- c("C", "D")
+xylab <- c("c", "d")
 
 #Apply labels to points
 text(x = x + 1,

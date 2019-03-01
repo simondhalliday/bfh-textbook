@@ -72,14 +72,17 @@ LBdf <-
 # ----
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x=year, y=markup, color = COLB[4])) +
-  geom_line(aes(x=year, y=b_share, color = COLA[4])) +
-  theme_classic() 
-  
+  geom_line(aes(x=year, y=markup), color = COLB[4]) +
+  geom_line(aes(x=year, y=b_share), color = COLA[4]) +
+  theme_classic() +
+  ylab("Year") + 
+  xlab("Value") 
 
-# Save plot to PDF
-#ggsave(filename = loecker_barkai, plot = p, device = "pdf", path = "competitionmarkets/loecker_barkai.pdf",
-#       width = 7, height = 7, units = "in")
+
+#Save plot to PDF
+ggsave(p, filename = "loecker_barkai.pdf", 
+       path = "competitionmarkets",
+       width = 7, height = 7, units = "in")
 
 # ----
 

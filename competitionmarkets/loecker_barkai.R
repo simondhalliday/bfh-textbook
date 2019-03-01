@@ -13,6 +13,18 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+# functions
+# ----
+sub_1 <- function(x){
+  x - 1
+}
+
+date_max <- function(x, y){
+  max(x, y)
+}
+# ----
+
+
 #----
 # pull in data
 # ----
@@ -39,29 +51,31 @@ barkai_2018$year <- floor(barkai_2018$year_b)
 # merge data
 loecker_barkai <- full_join(loecker_2018, barkai_2018, by = "year")
 
-loecker_barkai$year_l <- NULL
-loecker_barkai$year_b <- NULL
+#The ggplot had issues with read l_markup.y
+#So I re-did it and just mutated it
+#as  you'd coded it it was trying 
+#to read l_markup as a df itself
 
-loecker_barkai <- loecker_barkai[, c(2, 1, 3)]
+LBdf <- 
+  loecker_barkai %>%
+  mutate(markup = l_markup$y) %>% 
+  select(year, markup, b_share)
+
+#loecker_barkai$year_l <- NULL
+#loecker_barkai$year_b <- NULL
+
+#loecker_barkai <- loecker_barkai[, c(2, 1, 3)]
 # ----
 
-# functions
-# ----
-sub_1 <- function(x){
-  x - 1
-}
-
-date_max <- function(x, y){
-  max(x, y)
-}
-# ----
 
 # graph
 # ----
-p <- ggplot(data=loecker_barkai) +
-  geom_line(aes(x=year, y=loecker_barkai$l_markup, color = COLB[4])) +
+
+p <-  ggplot(data = LBdf) +
+  geom_line(aes(x=year, y=markup, color = COLB[4])) +
   geom_line(aes(x=year, y=b_share, color = COLA[4])) +
-  theme_classic()
+  theme_classic() 
+  
 
 # Save plot to PDF
 #ggsave(filename = loecker_barkai, plot = p, device = "pdf", path = "competitionmarkets/loecker_barkai.pdf",

@@ -51,25 +51,31 @@ barkai_2018$year <- floor(barkai_2018$year_b)
 # merge data
 loecker_barkai <- full_join(loecker_2018, barkai_2018, by = "year")
 
+loecker_barkai <- 
+  loecker_barkai %>%
+  mutate(year_l = coalesce(year_l, 0),
+         year_b = coalesce(year_b, 0)
+         )
+
+loecker_barkai$year <- 
+  pmax(loecker_barkai$year_l, loecker_barkai$year_b,
+       na.rm = FALSE
+       )
 #The ggplot had issues with read l_markup.y
 #So I re-did it and just mutated it
 #as  you'd coded it it was trying 
 #to read l_markup as a df itself
-
 LBdf <- 
   loecker_barkai %>%
   mutate(markup = l_markup$y) %>% 
   select(year, markup, b_share)
 
-#loecker_barkai$year_l <- NULL
-#loecker_barkai$year_b <- NULL
-
-#loecker_barkai <- loecker_barkai[, c(2, 1, 3)]
 # ----
 
 
 # graph
 # ----
+
 
 p <-  ggplot(data = LBdf) +
   geom_line(aes(x=year, y=markup), color = COLB[4]) +
@@ -78,14 +84,11 @@ p <-  ggplot(data = LBdf) +
   ylab("Year") + 
   xlab("Value") 
 
-
 #Save plot to PDF
 ggsave(p, filename = "loecker_barkai.pdf", 
        path = "competitionmarkets",
        width = 7, height = 7, units = "in")
 
 # ----
-
-
 
 dev.off()

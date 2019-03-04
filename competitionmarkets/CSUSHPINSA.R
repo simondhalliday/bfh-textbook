@@ -29,15 +29,17 @@ p <-  ggplot(data = CSUSH ) +
   #scale_x_date(breaks='6 months') +
   geom_vline(xintercept = as.numeric(CSUSH$observation_date[236]), linetype="dashed", 
                color = COLA[4], size=0.5) +
-  annotate("text", label = "Peak of Housing Crisis", x = CSUSH$observation_date[227], y = 100, 
-           color = COL[1], angle = 90) +
+  annotate("text", label = "Peak of Housing Prices", x = CSUSH$observation_date[227], y = 100, 
+           color = COL[1], angle = 90, size = 6) +
   geom_vline(xintercept = as.numeric(CSUSH$observation_date[261]), linetype="dashed", 
              color = COLA[4], size=0.5) +
   annotate("text", label = "Start of Banking Crisis", x = CSUSH$observation_date[269], y = 100, 
-           color = COL[1], angle = 90) +
+           color = COL[1], angle = 90, size = 6) +
   theme_classic() +
   xlab("Month") + 
-  ylab("S&P/Case-Shiller U.S. National Home Price Index") 
+  ylab("S&P/Case-Shiller U.S. National Home Price Index") + 
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14,face="bold"))
 
 #Save plot to PDF
 ggsave(p, filename = "CSUSHPINSA.pdf", 

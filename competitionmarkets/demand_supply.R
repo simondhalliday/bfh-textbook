@@ -4,15 +4,15 @@ pdf(file = "competitionmarkets/demand_supply.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -27,7 +27,7 @@ uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
 }
 
 
-Supply <- function(x, c1 = 0, c2 = 0.05){
+Supply <- function(x, c1 = 0.5, c2 = 0.0465){
   c1 + 2*c2*x
 }
 
@@ -55,9 +55,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 7.5, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p,"*")), expression(paste(p[max])), NA)
+ylabels <- c(NA, expression(paste(p,"*")), expression(paste(bar(p))), NA)
 ticksx <- c(0, 75, 120, xlims[2])
-xlabels <- c(NA, expression(paste(X,"*")), expression(paste(X[max])), NA)
+xlabels <- c(NA, expression(paste(X,"*")), expression(paste(bar(X) )), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -67,14 +67,18 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the polygon for producer surplus
 xpoly1 <- c(0, 75, 0, 0)
-ypoly1 <- c(0, 7.5, 7.5, 0)
+ypoly1 <- c(0.5, 7.5, 7.5, 0.5)
 polygon(x = xpoly1, y = ypoly1, col=COLB[1], density=NULL, border = NA)
 
 #Draw the polygon for consumer surplus
 xpoly2 <- c(0, 75, 0, 0)
 ypoly2 <- c(7.5, 7.5, 20, 7.5)
 polygon(x = xpoly2, y = ypoly2, col=COLA[1], density=NULL, border = NA)
-text(25, 6, expression(paste("Producer Surplus")), xpd = TRUE, cex = labelsize) 
+
+
+text(25, 6, expression(paste("Producer Surplus")), xpd = TRUE, cex = labelsize)
+text(25, 5, expression(paste("(Economic Profit)")), xpd = TRUE, cex = labelsize) 
+
 text(25, 11.5, expression(paste("Consumer Surplus")), xpd = TRUE, cex = labelsize) 
 
 #Lines for mrs graph
@@ -89,8 +93,8 @@ points(75, 7.5, pch = 16, col = "black", cex = 1.5)
 
 
 #Label axes
-mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(-15, 0.5*ylims[2], expression(paste("Price per unit of x, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Market output of the good, ", X)), side=1, line = 2.5, cex = axislabelsize)
+text(-10, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)
 # text(52, 10.5, expression(M))

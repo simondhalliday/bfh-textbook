@@ -112,7 +112,6 @@ points(9.6, 7, pch = 16, col = "black", cex = 1.5)
 segments(13, 0, 13, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(13, 4, pch = 16, col = "black", cex = 1.5)
 
-
 #Label Demand
 text(118, 3, expression(paste("Opportunity cost'")), cex = labelsize)
 text(118, 2, expression(paste("of capital")), cex = labelsize)

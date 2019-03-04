@@ -8,8 +8,8 @@ pdf(file = "competitionmarkets/monopolist_deadweightloss.pdf", width = 9, height
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -17,7 +17,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(4, 5, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -54,7 +54,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(p,"*", phantom()== c[1])), expression(paste(p^{m})), expression(paste(bar(p) )))
+ylabels <- c(NA, expression(paste(p,"*", phantom()== c)), expression(paste(p^{m})), expression(paste(bar(p) )))
 ticksx <- c(0, 4, 8, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^{c})), NA)
 
@@ -93,7 +93,7 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.3, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.7, 4.3, expression(paste(ac(x) == mc(x))), cex = labelsize)
@@ -102,7 +102,8 @@ text(6, 2.6, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
-text(2, 6, expression("Profit"), cex = labelsize)
+text(2, 6, expression("Economic"), cex = labelsize)
+text(2, 5.5, expression("Profit"), cex = labelsize)
 # text(5.25, 5.5, expression("Deadweight"), cex = labelsize)
 # text(5.25, 5, expression("Loss"), cex = labelsize)
 
@@ -130,7 +131,7 @@ Arrows(4.4, 10.5, 2.4, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle"
 
 # Arrow to Deadweight loss
 text(9, 7.75, expression(paste("Deadweight Loss")), cex = labelsize)
-text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c[1])*(x^{c} - x^{m}))), cex = labelsize)
+text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c)*(x^{c} - x^{m}))), cex = labelsize)
 Arrows(7.4, 6.5, 5.4, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

@@ -27,13 +27,14 @@ uA <- function(x, y, rmax = 20, xmax = 10) {
 }
 
 
-Supply <- function(x, c1 = 0, c2 = 0.05){
-  c1 + 2*c2*x
-}
+#Supply <- function(x, c1 = 0, c2 = 0.05){
+#  c1 + 2*c2*x
+#}
 
-# Supply <- function(x, c1 = 0.5, c2 = 0.0465){
-#   c1 + 2*c2*x
-# }
+# new supply curve
+Supply <- function(x, c1 = 0.5, c2 = 0.0465){
+   c1 + 2*c2*x
+}
 
 xlims <- c(0, 130)
 ylims <- c(0, 22)

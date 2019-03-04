@@ -22,18 +22,19 @@ mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
+uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
 
-Supply <- function(x, c1 = 0, c2 = 0.05){
+#Supply <- function(x, c1 = 0, c2 = 0.05){
+#  c1 + 2*c2*x
+#}
+
+# New Supply
+Supply <- function(x, c1 = 0.5, c2 = 0.0465){
   c1 + 2*c2*x
 }
-
-# Supply <- function(x, c1 = 0.5, c2 = 0.0465){
-#   c1 + 2*c2*x
-# }
 
 xlims <- c(0, 130)
 ylims <- c(0, 22)

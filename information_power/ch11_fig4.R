@@ -99,7 +99,7 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(delta)), expression(paste(p[0] == 2*delta)), expression(paste(p == 4*delta)) , 40)
+xlabels <- c(0, expression(paste(underline("u"))), expression(paste(p[0] == 2*underline("u"))), expression(paste(p == 4*underline("u"))) , 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 

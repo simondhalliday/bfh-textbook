@@ -37,6 +37,9 @@ tangentLine <- function(p){
 }
 
 COL <- c("#bae4b3", "#74c476", "#238b45")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 40)
 ylims <- c(0, 1.1)
@@ -91,6 +94,6 @@ points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 #Arrow to Slope of BRF
 Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
 text(5, 0.8, expression(paste("Slope = MRS = ", -frac(1, u[q]))))
-text(5.4, 0.73, expression(paste(" = ", frac(delta, (1-q)^2))))
+text(5.4, 0.73, expression(paste(" = ", frac(underline("u"), (1-q)^2))))
 dev.off()
 

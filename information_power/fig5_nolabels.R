@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "information_power/ch11_fig5.pdf", width = 9, height = 7)
+pdf(file = "information_power/fig5_nolabels.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -52,9 +52,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(33, 0.98, expression(paste("Iso-profit: ", q," = ", frac(p, 8*delta))))
-text(35, 0.64, expression(paste("Best Response")))
-text(35, 0.57, expression(paste("Function = q = ", 1 - frac(2*delta, p))))
+# text(33, 0.98, expression(paste("Iso-profit: ", q," = ", frac(p, 8*delta))))
+text(35, 0.64, expression(paste("Best-response")))
+text(35, 0.57, expression(paste("Function: ", q == 1 - frac(2*delta, p))))
 text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Lines for the coordinates of the Nash equilbrium
@@ -62,11 +62,11 @@ segments(20, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Iso-profit slope annotation
-text(25, 0.81, expression(paste("Slope = ", frac(1, 8*delta))))
+text(25, 0.81, expression(paste("Slope = ", frac(p, q))))
 Arrows(25, 0.79, 25, 0.66, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #BRF Slope annotation
-text(25, 0.41, expression(paste("Slope = ", frac(2*delta, p^2))))
+text(25, 0.41, expression(paste("Slope = ?")))
 Arrows(25, 0.43, 25, 0.56, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Add a point for the NE

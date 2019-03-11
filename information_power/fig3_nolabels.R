@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "information_power/ch11_fig3.pdf", width = 9, height = 7)
+pdf(file = "information_power/fig3_nolabels.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -76,9 +76,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three indifference curves
-text(7, 0.05, expression(paste(u[1])))
-text(13, 0.05, expression(paste(u[2])))
-text(19, 0.05, expression(paste(u[3])))
+# text(7, 0.05, expression(paste(u[1])))
+# text(13, 0.05, expression(paste(u[2])))
+# text(19, 0.05, expression(paste(u[3])))
 
 #Line for the max quality, q = 1 
 segments(0, 1, 40, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
@@ -90,7 +90,7 @@ points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 
 #Arrow to Slope of BRF
 Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
-text(5, 0.8, expression(paste("Slope = MRS = ", -frac(1, u[q]))))
-text(5.4, 0.73, expression(paste(" = ", frac(delta, (1-q)^2))))
+text(5, 0.8, expression(paste("Slope = MRS = ", -frac(u[p], u[q]))))
+text(5.4, 0.73, expression(paste(" = ")))
 dev.off()
 

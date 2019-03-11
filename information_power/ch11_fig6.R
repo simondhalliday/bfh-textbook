@@ -1,9 +1,17 @@
 require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/information_power/ch11_fig6.pdf", width = 9, height = 7)
+pdf(file = "information_power/ch11_fig6.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
+segmentlinewidth <- 1.5
+graphlinewidth <- 2
+
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+
 
 brfFn <- function(p, delta = 5) {
   1 - (2 * delta) /p
@@ -40,9 +48,13 @@ ylims <- c(0, 1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Price, ", p)),
-     ylab = expression(paste("Quality, ", q)),
+     xlab = "",
+     ylab = "",
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
+
+mtext(expression(paste("Price, ", p)), side=1, line = 2.5, cex = axislabelsize)
+text(-4, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Quality, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 
 npts <- 500 
 npts2 <- 501
@@ -65,15 +77,15 @@ yy1 <- isovhigh(xx3, delta = 5, v = 20)
 #3p^2 - 160p + 2000 = 0
 #p = 20 or p = 100/3 = 33.3 
 # => q = (1/40)*33.3 = 0.8325
-polygon(c(xx3, xx3[416]), c(yy1, yy1[416]), col="powderblue", density=NULL, border = NA)
+polygon(c(xx3, xx3[416]), c(yy1, yy1[416]), col=COL[4], density=NULL, border = NA)
 
 #Draw the lines for the graphs
-lines(xx1, brfFn(xx1), col = COL[2], lwd = 4)
-lines(xx3, isovhigh(xx3, v = 20, delta = 5), col = COL[1], lwd = 4)
-lines(xx4, isovlow(xx4, v = 20, delta = 5), col = COL[1], lwd = 4)
-lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
-lines(xx5, isovhigh1(xx5, v = 30, delta = 5), col = COL[1], lwd = 2, lty = 2)
-lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[1], lwd = 2, lty = 2)
+lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx3, isovhigh(xx3, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
+lines(xx4, isovlow(xx4, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
+lines(xx2, solowCondition(xx2, delta = 5), col = COLB[4], lwd = graphlinewidth)
+lines(xx5, isovhigh1(xx5, v = 30, delta = 5), col = COL[1], lwd = graphlinewidth, lty = 2)
+lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[1], lwd = graphlinewidth, lty = 2)
 
 
 #Customize ticks and labels for the plot

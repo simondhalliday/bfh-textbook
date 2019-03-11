@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "information_power/ch11_fig4.pdf", width = 9, height = 7)
+pdf(file = "information_power/fig4_nolabels_brf.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -87,7 +87,7 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 #Draw the lines for the graphs
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
+#lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
@@ -106,47 +106,47 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
-text(3.9, 0.05, expression(paste(v[0],  " = z")))
-text(9.5, 0.05, expression(paste(v[1])))
-text(14, 0.05, expression(paste(v[2])))
-text(23.5, 0.05, expression(paste(v[3])))
-text(21, 0.48, expression(paste("a")))
+# text(3.9, 0.05, expression(paste(v[0],  " = z")))
+# text(9.5, 0.05, expression(paste(v[1])))
+# text(14, 0.05, expression(paste(v[2])))
+# text(23.5, 0.05, expression(paste(v[3])))
+#text(21, 0.48, expression(paste("a")))
 text(35, 0.62, expression(paste("Best Response Function")))
 text(36, 0.9, expression(paste("Iso-v curves")))
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Arrows and rent label
-Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(14.8, 0.9, expression(paste("Rent at")))
-text(15, 0.85, expression(paste("point a.")))
+# Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(14.8, 0.9, expression(paste("Rent at")))
+# text(15, 0.85, expression(paste("point a.")))
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = MRS ")))
+text(32.3, 0.15, expression(paste(" = -mrs(p,q) ")))
 text(32, 0.08, expression(paste(" = " -frac(v[p], v[q]))))
 
 
 
 #Add a point for the NE
-points(20, 0.5, pch = 16, col = "black", cex = 1.5)
+# points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 
 #Add a point for b
-points(10, 0.5, pch = 16, col = "black", cex = 1.5)
-text(9.5, 0.53, expression(paste("b")))
+# points(10, 0.5, pch = 16, col = "black", cex = 1.5)
+# text(9.5, 0.53, expression(paste("b")))
 
 #Add a point for c
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
-points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
-text(15, 0.2928934, expression(paste("c")))
+# points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
+# text(15, 0.2928934, expression(paste("c")))
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

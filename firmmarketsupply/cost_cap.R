@@ -3,6 +3,7 @@
 
 # ----
 library(readxl)
+library(tidyverse)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
@@ -19,19 +20,24 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 # ----
 
 cost_cap <- read_excel("firmmarketsupply/cost_cap.xlsx")
+ccDF <- 
+  cost_cap %>% 
+  filter(!CapGal %in% c(180, 260, 550, 500, 1200, 2000, 3000, 5000, 8000, 10000, 17500))
 
 # ----
 # graph
 # ----
-p <-  ggplot(data = cost_cap) +
+p <-  ggplot(data = ccDF, aes(x = CapGal, y = M)) +
   #geom_jitter(aes(x=CapGal, y=PC), color = COLB[4]) + # Purchased Cost
   #geom_jitter(aes(x=CapGal, y=MC), color = COLA[4]) + # MC
-  geom_jitter(aes(x=CapGal, y=M), color = COLB[2]) + # Rise/Run
+  geom_line(color = COLB[4]) + # Rise/Run
+  #geom_point(color = COLB[2]) + # Rise/Run
   theme_classic() +
+  xlim(0, 20000) +
   xlab("Capacity, gal") + 
   ylab("Purchased Cost, dollars") + 
-  theme(axis.text=element_text(size=12),
-        axis.title=element_text(size=14,face="bold"))
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))
 
 #Save plot to PDF
 ggsave(p, filename = "cost_cap.pdf", 

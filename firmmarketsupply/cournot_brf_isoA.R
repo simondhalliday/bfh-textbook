@@ -3,8 +3,8 @@ pdf(file = "competitionmarkets/cournot_brf_isoA.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -137,7 +137,7 @@ points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
 text(14.25, 22, expression(paste("Iso-profit horizontal")))
 text(14.25, 20.8, expression(paste("at intersection with")))
-text(14.25, 19.6, expression(paste("best response function")))
+text(14.25, 19.6, expression(paste("best-response function")))
 Arrows(14.25, 19, 14.25, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -181,7 +181,7 @@ text(30, 6.7, expression(paste(pi[3]^A > pi[2]^A, phantom() > pi[1]^A)))
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #B's brf
-text(7, 30, expression(paste("A's best response")))
+text(7, 30, expression(paste("A's best-response")))
 text(7, 29, expression(paste("function")))
 Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

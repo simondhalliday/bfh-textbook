@@ -52,7 +52,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #Annotation of the three graphs and the NE
 
 text(35, 0.87, expression(paste("Best-response")))
-text(35, 0.8, expression(paste("Function = q = ", 1 - frac(2*delta, p))))
+text(35, 0.8, expression(paste("Function = q = ", 1 - frac(2*underline("u"), p))))
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Lines for the coordinates of the Nash equilbrium
@@ -67,7 +67,7 @@ segments(0, 2/3, 30, 2/3, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 
 #BRF Slope annotation
-text(25, 0.81, expression(paste("Slope = ", frac(2*delta, p^2))))
+text(25, 0.81, expression(paste("Slope = ", frac(2*underline("u"), p^2))))
 Arrows(25, 0.79, 25, 0.63, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Add a point for the NE

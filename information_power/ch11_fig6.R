@@ -92,14 +92,14 @@ lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[1], lwd = graphlinewidth,
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 10, 20, 40)
-xlabels <- c(0, expression(paste(2*delta)), expression(paste(4*delta)), 40)
+xlabels <- c(0, expression(paste(2*underline("u"))), expression(paste(4*underline("u"))), 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(33, 0.98, expression(paste("Iso-profit: ", q ," = ", frac(p, 8*delta))))
+text(33, 0.98, expression(paste("Iso-profit: ", q ," = ", frac(p, 8*underline("u")))))
 text(35, 0.62, expression(paste("Best Response Function")))
-text(35, 0.55, expression(paste("q = ", 1 - frac(2*delta, p))))
+text(35, 0.55, expression(paste("q = ", 1 - frac(2*underline("u"), p))))
 text(26.5, 0.1, expression(paste("Iso-v curve")))
 text(26.5, 0.05, expression(paste("v = ", v,"*")))
 text(36, 0.1, expression(paste("Iso-v curve")))

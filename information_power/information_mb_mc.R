@@ -65,7 +65,7 @@ lines(xx1, mc(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 5, 11.25, 20, 45, ylims[2])
-ylabels <- c(0, expression(paste(delta == 5)), expression(paste(mb == 11.25)), expression(paste(mb == 20)), expression(paste(mb == 45)), NA)
+ylabels <- c(0, expression(paste(underline("u") == 5)), expression(paste(mb == 11.25)), expression(paste(mb == 20)), expression(paste(mb == 45)), NA)
 ticksx <- c(0, 1/3, 0.5, 2/3, 1, xlims[2])
 xlabels <- c(0, expression(paste(1/3)), expression(paste(1/2)), expression(paste(2/3)), 1, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -79,11 +79,11 @@ text(- 0.18, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Marginal be
 
 #Annotation of the three indifference curves
 text(0.15, 5, expression(paste("Marginal Cost")))
-text(0.15, 2.5, expression(paste(mc == u[q], phantom() == frac(delta,(1-q)^2))))
+text(0.15, 2.5, expression(paste(mc == u[q], phantom() == frac(underline("u"),(1-q)^2))))
 
 
 text(0.2, 41, expression(paste("Marginal Benefit")))
-text(0.2, 38, expression(paste(mb == t[q]*v, phantom() == bgroup( "(",p - frac(delta,(1-q)),")" )*bgroup( "(", frac(1,1-q), ")") )))
+text(0.2, 38, expression(paste(mb == t[q]*v, phantom() == bgroup( "(",p - frac(underline("u"),(1-q)),")" )*bgroup( "(", frac(1,1-q), ")") )))
 
 text(0.58, 12, expression(paste(mb[1])))
 text(0.58, 10, expression(paste("at ", p == 15)))
@@ -123,6 +123,6 @@ points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 #Arrow to Slope of BRF
 Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
 text(5, 0.8, expression(paste("Slope = MRS = ", -frac(1, u[q]))))
-text(5.4, 0.73, expression(paste(" = ", frac(delta, (1-q)^2))))
+text(5.4, 0.73, expression(paste(" = ", frac(underline("u"), (1-q)^2))))
 dev.off()
 

@@ -50,15 +50,15 @@ lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 3)
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(q^N == q^C, phantom() == frac(1,2))), 1)
 ticksx <- c(0, 10, 20, 40)
-xlabels <- c(0, expression(paste(p^C == 2*delta)), expression(p^N == paste(4*delta)), 40)
+xlabels <- c(0, expression(paste(p^C == 2*underline("u"))), expression(p^N == paste(4*underline("u"))), 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
 text(31, 0.98, expression(paste("Incomplete Contract")))
-text(31, 0.92, expression(paste("Iso-profit: ", q," = ", frac(p, 8*delta))))
+text(31, 0.92, expression(paste("Iso-profit: ", q," = ", frac(p, 8*underline("u")))))
 text(25, 0.34, expression(paste("Best Response")))
-text(25, 0.29, expression(paste("Function = q = ", 1 - frac(2*delta, p))))
+text(25, 0.29, expression(paste("Function = q = ", 1 - frac(2*underline("u"), p))))
 Arrows(25, 0.38, 25, 0.57, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
@@ -67,9 +67,9 @@ text(20.6, 0.48, expression(paste("n")))
 
 
 text(13, 0.98, expression(paste("Complete Contract")))
-text(13, 0.92, expression(paste("Iso-profit: ", q," = ", frac(p, 4*delta))))
+text(13, 0.92, expression(paste("Iso-profit: ", q," = ", frac(p, 4*underline("u")))))
 text(35, 0.55, expression(paste("Participation")))
-text(35, 0.5, expression(paste("Constraint = ", q == 1 - frac(delta, p))))
+text(35, 0.5, expression(paste("Constraint = ", q == 1 - frac(underline("u"), p))))
 Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 

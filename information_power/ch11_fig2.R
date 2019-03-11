@@ -44,18 +44,18 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(0.7, 35, expression(paste("Distutility = ", frac(delta, (1 - q)))))
+text(0.7, 35, expression(paste("Distutility = ", frac(underline("u"), (1 - q)))))
 
 #Line for the absolute maximum quality
 segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 
 #Arrow to Slope of BRF
 Arrows(0.5, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.35, 13, expression(paste("Slope = " - u[q], " = ", frac(delta, (1 - q)^2))))
+text(0.35, 13, expression(paste("Slope = " - u[q], " = ", frac(underline("u"), (1 - q)^2))))
 
 #Text to indicate delta = 5
 text(0.2, 38, expression(paste("Disutility of effort")))
-text(0.2, 36, expression(paste("set to ", delta, " = 5")))
+text(0.2, 36, expression(paste("set to ", underline("u"), " = 5")))
 
 #Text for max quality
 text(1.08, 38, expression(paste("Maximum")))

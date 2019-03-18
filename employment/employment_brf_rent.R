@@ -4,8 +4,8 @@ pdf(file = "employment/employment_brf_rent.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 2.5
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
@@ -80,14 +80,14 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
+lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 0.5, 1)

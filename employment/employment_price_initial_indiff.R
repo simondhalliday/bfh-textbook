@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_price_ed.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_price_initial_indiff.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -59,10 +59,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-xpoly1 <- seq(from = xlims[1] + 0.2, to = 8, length.out = 500)
-ypoly1 <- PCFn(xpoly1, mu = 8)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
-
+# xpoly1 <- seq(from = xlims[1] + 0.2, to = 8, length.out = 500)
+# ypoly1 <- PCFn(xpoly1, mu = 8)
+# polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+# 
 
 npts <- 500 
 xx1 <- seq(u1 + a1 + 0.1, xlims[2], length.out = npts)
@@ -74,17 +74,17 @@ xx6 <- seq(xlims[1], 20, length.out = npts)
 
 
 #Draw the lines for the graphs
-lines(xx5, PCFn(xx5, mu = 8), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, indiffFn1(xx5, u = 0), col = COLB[4], lwd = graphlinewidth)
-lines(xx5, indiffFn1(xx5, u = -1.5), col = COLB[4], lwd = graphlinewidth)
-lines(xx3, indiffFn1(xx3, u = 1.5), col = COLB[4], lwd = graphlinewidth)
-lines(xx6, prodFn2(xx6), col = COLA[4], lwd = graphlinewidth)
+#lines(xx5, PCFn(xx5, mu = 8), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, indiffFn1(xx5, u = 0), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, indiffFn1(xx5, u = -1.5), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, indiffFn1(xx3, u = 1.5), col = COLA[4], lwd = graphlinewidth)
+
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)
-ylabels <- c(0, expression(paste(e^C)), expression(paste(bar(e) == 1) ), NA)
-ticksx <- c(0, 4, xlims[2])
-xlabels <- c(0, expression(paste(p^C)), NA)
+ticksy <- c(0,  1, ylims[2])
+ylabels <- c(0,  expression(paste(bar(e) == 1) ), NA)
+ticksx <- c(0, xlims[2])
+xlabels <- c(0,  NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
@@ -99,10 +99,10 @@ segments(0, 1, xlims[2], 1, lty = 2, col = "darkgray", lwd = 2)
 #text(1.4, 1.025, expression(paste("Maximum level of effort, ", bar(e))))
 
 #Add a point for the tangency
-segments(4, 0, 4, PCFn(delta = 4, mu = 8), lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, PCFn(delta = 4, mu = 8), 4, PCFn(delta = 4, mu = 8), lty = 2, col = "darkgray", lwd = segmentlinewidth)
-points(4, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = 1.5)
-text(4, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)))
+# segments(4, 0, 4, PCFn(delta = 4, mu = 8), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# segments(0, PCFn(delta = 4, mu = 8), 4, PCFn(delta = 4, mu = 8), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+# points(4, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = 1.5)
+# text(4, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)))
 
 
 #Arrow to Slope of production function
@@ -121,20 +121,20 @@ text(4, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)))
 
 
 #Label the feasible frontier
-text(2, 0.75, expression("Better for"), cex = labelsize)
-text(2, 0.7, expression("employer"), cex = labelsize)
+# text(2, 0.75, expression("Better for"), cex = labelsize)
+# text(2, 0.7, expression("employer"), cex = labelsize)
 # text(3.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8, 0.25, expression("Better for"), cex = labelsize)
-text(8, 0.2, expression("employee"), cex = labelsize)
+# text(8, 0.25, expression("Better for"), cex = labelsize)
+# text(8, 0.2, expression("employee"), cex = labelsize)
 
 
-text(4, 0.97, expression(paste("Slope of iso-profit")), cex = labelsize)
-text(4, 0.89, expression(paste(-mrt(p,e) == frac(de,dp),phantom()==frac(e, p))), cex = labelsize)
-Arrows(5.1, 0.89, 6.9, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(4, 0.97, expression(paste("Slope of iso-profit")), cex = labelsize)
+# text(4, 0.89, expression(paste(-mrt(p,e) == frac(de,dp),phantom()==frac(e, p))), cex = labelsize)
+# Arrows(5.1, 0.89, 6.9, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==frac(e, p),phantom() == mrt(p,e))), cex = labelsize)
+text(8, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]) )), cex = labelsize)
 Arrows(6.4, 0.5, 4.25, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

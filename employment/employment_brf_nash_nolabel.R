@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_brf_nash.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_brf_nash_nolabel.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -122,8 +122,8 @@ segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n))
-text(24.5, 0.48, expression(paste("Incomplete Contract")))
-text(24.5, 0.43, expression(paste("Nash equilibrium")))
+# text(24.5, 0.48, expression(paste("Incomplete Contract")))
+# text(24.5, 0.43, expression(paste("Nash equilibrium")))
 
 #Arrows and rent label
 # 

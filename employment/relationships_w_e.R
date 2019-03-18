@@ -43,7 +43,7 @@ Arrows(4, 13.65, 5.5, 12.6, col = "black", lty = 1, lwd = 2, arr.type = "triangl
 
 
 text(2, 11, expression(paste(bold("Expected duration"))))
-text(2, 10.3, expression(paste(bold("of employment, s"))))
+text(2, 10.3, expression(paste(bold("of unemployment, s"))))
 Arrows(4, 10.65, 5.5, 11.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -55,7 +55,7 @@ text(7.2, 8, expression(paste("wage, ", w)), col = "red")
 Arrows(8, 8, 10, 9.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(11, 10.5, expression(paste("cost of")))
-text(11, 9.8, expression(paste("job loss, ", Delta)))
+text(11, 9.8, expression(paste("job loss, ", hat(c))))
 Arrows(11.8, 10.2, 13.3, 9.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(13.5, 12.5, expression(paste("termination")), col = "red")

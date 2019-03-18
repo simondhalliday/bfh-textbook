@@ -1,14 +1,25 @@
 require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/employment/employment_fig1.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_fig1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
-isov <- function(w, delta = 5) {
-  (w - delta)/w
+# isov <- function(w, delta = 5) {
+#   1 - (delta)/(2*w)
+# }
+
+isovhigh0 <- function(w, delta = 5, v = 5){
+  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
+
+isovlow0 <- function(w, delta = 5, v = 5){
+  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+}
+
 
 isovhigh1 <- function(w, delta = 5, v = 5){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
@@ -57,7 +68,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     line = 2.5,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -66,7 +76,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx0 <- seq(5, xlims[2], length.out = npts)
+xx0 <- seq(0, xlims[2], length.out = npts)
 xx1 <- seq(10, xlims[2], length.out = npts)
 xx2 <- seq(5, 15, length.out = npts)
 xx3 <- seq(10, xlims[2], length.out = npts2)
@@ -78,44 +88,50 @@ xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
+# lines(xx0, isovhigh0(xx0, delta = 5), col = COLA[3], lwd = graphlinewidth)
+# lines(xx0, isovlow0(xx0, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
-#lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-#lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 0.5, 1)
+ticksy <- c(0, brfFn(18.5), 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, NA, 1)
-ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(delta)), expression(paste(2*delta)), expression(paste(4*delta)) , NA)
+ylabels <- c(0, expression(paste(e^g)), expression(paste(e^N)), 1)
+ticksx <- c(0, 10, 18.5, 20, 40)
+xlabels <- c(0,  expression(paste(B/s)),  expression(paste(w^g)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
-text(3.9, 0.05, expression(paste(v[0],  " = z")))
+text(8.8, 0.05, expression(paste(v[0],  " = z")))
 #text(9.5, 0.05, expression(paste(v[1])))
 text(20.8, 0.05, expression(paste(v[1])))
 text(23.5, 0.05, expression(paste(v[2])))
-text(21, 0.48, expression(a))
+text(19.5, 0.52, expression(n))
+text(24.5, 0.48, expression(paste("Incomplete contract")))
+text(24.5, 0.44, expression(paste("Nash equilibrium")))
 text(35, 0.66, expression(paste("Employee's")))
-text(35, 0.62, expression(paste("Best Response Function")))
+text(35, 0.62, expression(paste("Best-response function")))
+text(35, 0.58, expression(paste(e==f*(list(hat(c),a)) )))
 text(36, 0.94, expression(paste("Employee's")))
 text(36, 0.9, expression(paste("Iso-v curves")))
 
 
+#Lines for the coordinates of the non-Nash point
+segments(18.5, 0, 18.5, brfFn(18.5), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, brfFn(18.5), 18.5, brfFn(18.5), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+
 #Lines for the coordinates of the Nash equilbrium
-#segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-#segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 3)
+segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 
 #Arrows and rent label
@@ -127,7 +143,7 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 3)
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = MRS ")))
+text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")))
 text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 
 
@@ -144,6 +160,16 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
 points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
 text(20.8, 0.1839422, expression(c))
+
+#Add a point for f. referred to in the text
+points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
+text(22.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
+
+points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
+text(22.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
+
+points(18.5, brfFn(18.5), pch = 16, col = "black", cex = 1.5)
+text(18, brfFn(18.5) + 0.02, expression(g))
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

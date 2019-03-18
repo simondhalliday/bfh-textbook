@@ -1,9 +1,11 @@
 require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/employment/employment_fig4.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_fig4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
@@ -79,7 +81,7 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
 lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
+lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
@@ -105,16 +107,16 @@ text(3.9, 0.05, expression(paste(v[0],  " = z")))
 #text(20.8, 0.05, expression(paste(v[1])))
 text(23.5, 0.05, expression(paste(v[2])))
 text(35, 0.66, expression(paste("Employee's")))
-text(35, 0.62, expression(paste("Best Response Function")))
+text(35, 0.62, expression(paste("Best-response function")))
 text(36, 0.94, expression(paste("Employee's")))
 text(36, 0.9, expression(paste("Iso-v curves")))
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 3)
+segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n))
 text(24.5, 0.48, expression(paste("Incomplete Contract")))
@@ -130,7 +132,7 @@ text(14.8, 0.85, expression(paste("Nash Equilibrium")))
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = MRS ")))
+text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")))
 text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 
 

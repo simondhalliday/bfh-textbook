@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "employment/employment_fig3.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_fig3_nolabel.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -115,7 +115,7 @@ text(35, 0.55, expression(paste("e = ", 1 - frac(2*delta, w))))
 text(26.5, 0.05, expression(paste(v[1] == v^N)))
 #text(36, 0.1, expression(paste("Iso-v curve")))
 text(36, 0.05, expression(paste(v[2] == v^"+")))
-text(16, 0.52, expression(paste("Nash Equilibrium")))
+# text(16, 0.52, expression(paste("Nash Equilibrium")))
 text(20.5, 0.48, expression(n))
 text(36, 0.3, expression(paste(v[3])))
 

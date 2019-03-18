@@ -117,7 +117,7 @@ Arrows(0.5, 0.78, 0.6, 0.78, lty = 1, col = COLA[4] , arr.type = "triangle", arr
 brackets(x1 = 0.63, y1 = 0.79, x2 = 0.63, y2 = 0.21,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = FALSE)
 
-text(0.72, 0.53, expression(paste(Delta, ", cost of")), cex = labelsize)
+text(0.72, 0.53, expression(paste(hat(c), ", cost of")), cex = labelsize)
 text(0.72, 0.48, expression(paste("job loss")), cex = labelsize)
 
 

@@ -4,8 +4,8 @@ pdf(file = "employment/employment_brf_pc.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 2.5
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
@@ -92,9 +92,9 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, expression(paste(e^1)), expression(paste(e^N)), 1)
+ylabels <- c(0, expression(paste(e^g)), expression(paste(e^N)), 1)
 ticksx <- c(0, 10, 18.4, 20, 40)
-xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^1)), expression(paste(w^N)) , NA)
+xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^g)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
@@ -107,16 +107,16 @@ text(22, 0.05, expression(paste(v[1])))
 text(24.8, 0.05, expression(paste(v[2])))
 text(35, 0.66, expression(paste("Employee's ICC, or")))
 text(35, 0.62, expression(paste("Best Response Function")))
-text(35, 0.58, expression(paste(e(Delta, a))))
+text(35, 0.58, expression(paste(e(hat(c), a))))
 text(36, 0.94, expression(paste("Employee's PC")))
 text(36, 0.9, expression(paste(v == z)))
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 2)
+segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n))
 text(24.5, 0.48, expression(paste("Incomplete Contract")))
@@ -140,9 +140,12 @@ text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
+segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = segmentlinewidth)
 points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
+#points(18.5, brfFn(18.5), pch = 16, col = "black", cex = 1.5)
+text(18, brfFn(18.4) + 0.02, expression(g))
+
 
 #Add a point for b & complete contract NE label
 #points(10, 0.5, pch = 16, col = "black", cex = 1.5)

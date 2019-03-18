@@ -34,8 +34,8 @@ p <-  ggplot(data = ccDF, aes(x = CapGal, y = M)) +
   #geom_point(color = COLB[2]) + # Rise/Run
   theme_classic() +
   xlim(0, 20000) +
-  xlab("Capacity, gal") + 
-  ylab("Purchased Cost, dollars") + 
+  xlab("Capacity of steel piping, gallons") + 
+  ylab("Cost per gallon  (1990 US Dollars)") + 
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14,face = "bold"))
 

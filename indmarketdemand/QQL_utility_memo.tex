@@ -1,0 +1,98 @@
+\documentclass{tufte-handout}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{graphics,graphicx}
+\usepackage{color}
+\usepackage{fancybox}
+%\usepackage{subfigure}\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{cmbright}
+%\usepackage{arevtext,arevmath} %Change math to sans serif
+%\usepackage{lastpage}
+%\usepackage[margin=0.9in]{geometry}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+%\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{lastpage}
+% \usepackage{backref} 
+\title{QQL Utility}  
+\author{Simon Halliday}
+\date{\today}   
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+
+\NewDocumentCommand{\myrule}{O{1pt} O{3pt} O{black}}{%
+  \par\nobreak % don't break a page here
+  \kern\the\prevdepth % don't take into account the depth of the preceding line
+  \kern#2 % space before the rule
+  {\color{#3}\hrule height #1 width\hsize} % the rule
+  \kern#2 % space after the rule
+  \nointerlineskip % no additional space after the rule
+}
+
+
+\begin{document}
+\maketitle 
+
+
+Sam, 
+I'm struggling with the following. Duncan currently has the following QQL utility function in the chapter: 
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y - \frac{s}{2}(x - \xi)^2 \label{eq:qqlduncan}
+\end{eqnarray}
+He says that $\xi$ measures the level of satiation for x (or what I want to call, $\bar{x}$).The thing I'm struggling with is that with his equation above, it looks to me that any positive consumption of x results in a reduction in utility regardless of the satiation level.  The greater the distance, the greater the reduction in utility, to be sure, but it just seems weird to me that consuming $x$ leads to reductions in total utility (unless I've missed something). 
+
+\subsection{Perhaps it had the wrong sign?}
+Alternatively, as per our conversation, there should be a plus sign: 
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y + \frac{s}{2}(x - \xi)^2 \label{eq:qqld2}
+\end{eqnarray}
+But this multiplies out to: 
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y + \frac{s}{2}(x)^2  - s \xi x + \frac{s}{2}\xi^2 \label{eq:qqld3}
+\end{eqnarray}
+The indifference curves for this function look to me like they'd be a parabola perturbed to the right of the (0, 0) origin, so they'd start off upward-sloping, then be concave to the origin (I haven't tried to sketch them in R yet, but I think I'm right). 
+
+\subsection{Corrected again}
+It should be the other way around: 
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y - \frac{s}{2}(\bar{x} - x)^2 \label{eq:qqld4}
+\end{eqnarray}
+This multiplies out to
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y - \frac{s}{2}(\bar{x})^2  + s \bar{x} x - \frac{s}{2}x^2 \label{eq:qqld5}
+\end{eqnarray}
+
+The marginal rate of substitution for Equation \ref{eq:qqld5} is: 
+\begin{eqnarray}
+mrs(x,y) & = & s \bar{x} - s x = s(\bar{x} - x)
+\end{eqnarray}
+So the marginal rate of substitution is decreasing as $x$ approaches $\bar{x}$. The demand function is $p = s(\bar{x} - x)$. This reduces to the case we have below if $s = \frac{\bar{p}}{\bar{x}}$. But the utility function has a constant in it that we don't otherwise have. We also need to use something that isn't "$s$" for our symbol. 
+
+\subsection{Simon's Old Alternative}
+The alternative, which is a version of the old one we've used is: 
+\begin{eqnarray}
+u^{QQL}(x,y) & = & y + \bar{p}x - \frac{\bar{p}}{\bar{x}}\frac{1}{2} x^2 \label{eq:qqlsi}
+\end{eqnarray}
+Here, consuming $x$ results in increasing utility up to the point where $x = \bar{x}$. We can see this by looking at the marginal rate of substitution: 
+\begin{eqnarray}
+\frac{u_x}{u_y} = mrs(x,y) & = & \bar{p} -\frac{\bar{p}}{\bar{x}}x 
+\end{eqnarray}
+If the price of x is zero, then the consumer will consume until $mrs(x,y) = 0$. 
+
+
+\begin{eqnarray}
+ \bar{p} -\frac{\bar{p}}{\bar{x}}x &=& 0  \nonumber \\
+\Rightarrow  \frac{\bar{p}}{\bar{x}}x  &=& \bar{p}  \nonumber \\
+x &= & \bar{x} \nonumber
+\end{eqnarray}
+As far as I can tell, utility is increasing up to the point where $x = \bar{x}$ for Equation \ref{eq:qqlsi}. I don't know what to say about Duncan's function. 
+
+
+\end{document}
+
+

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/budget_basic.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/budget_basic.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -75,8 +75,8 @@ polygon(x = xpoly2, y = ypoly2, col = COLB[1], density=NULL, border = NA)
 
 lines(xx1, bcA(xx1, w = 12, p = 1), col = COLA[3], lwd = graphlinewidth)
 
-mtext(expression(paste("Quantity of apples, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 6.5, expression(paste("Quanity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(4, 4, expression("Feasible"))
 text(4, 3.5, expression("(within the budget)"))

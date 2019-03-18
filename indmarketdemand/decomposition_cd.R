@@ -3,7 +3,6 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-require(shape)
 pdf(file = "indmarketdemand/decomposition_cd.pdf", width = 10, height = 8)
 
 #Set parameters for graphics

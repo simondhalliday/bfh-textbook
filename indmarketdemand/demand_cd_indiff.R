@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/demand_cd_indiff.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/demand_cd_indiff.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -11,7 +11,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 uA <- function(x, y, alpha = 0.5) {
   x^(alpha)*y^(1 - alpha)
@@ -60,14 +60,14 @@ lines(xx1, bcA(xx1, w = 12, px = 1, py = 1), col = COLB[3], lwd = graphlinewidth
 
 
 
-mtext(expression(paste("Quantity of apples, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Quanity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Label the iso-welfare functions for the HG, Aisha
 text(11.8, 1.6, expression(u[1]))
-text(11.8, 3.4, expression(u[2]))
-text(11.8, 5.8, expression(u[3]))
+text(11.8, 3.3, expression(u[2]))
+text(11.8, 5.7, expression(u[3]))
 #text(6.6, 8.3, expression(u[4]^A))
 
 contour(x, y, 

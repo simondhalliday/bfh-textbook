@@ -1,0 +1,81 @@
+library(shape)
+pdf(file = "firmmarketsupply/cobbdouglas.pdf", width = 8, height = 6)
+
+#Set parameters for graphics
+axislabelsize <- 1.5
+labelsize <- 1.1
+graphlinewidth <- 3
+segmentlinewidth <- 2
+
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+
+#Edited the margins to cater for the larger LHS labels
+par(mar =  c(4, 4, 4, 4))
+
+uFn <- function(x, y, alpha = 0.5){
+  (x^alpha)*(y^(1 - alpha))
+}
+
+indiffA <- function(x, alpha = 0.5, uA = 5) {
+  (uA / x^alpha)^(1/(1 - alpha))
+}
+
+xlims <- c(0, 10)
+ylims <- c(0, 10)
+
+npts <- 501 
+x <- seq(xlims[1], xlims[2], length.out = npts)
+y <- seq(ylims[1], ylims[2], length.out = npts) 
+a <- c(2, 4, 6)
+
+plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
+     xlab = expression(paste("")),
+     ylab = expression(paste("")), 
+     xaxt = "n", 
+     yaxt = "n", 
+     cex.lab = axislabelsize, 
+     bty = "n", 
+     xaxs="i", 
+     yaxs="i"
+)
+
+
+ticksy <- seq(from = 0, to = ylims[2], by = 1)
+ylabels <- seq(from = 0, to = ylims[2], by = 1)
+ticksx <- seq(from = 0, to = xlims[2], by = 1)
+xlabels <- seq(from = 0, to = xlims[2], by = 1)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+
+npts <- 500 
+xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(0, xlims[2], length.out = npts)
+xx3 <- seq(xlims[1], 0, length.out = npts)
+
+#Draw the graphs
+lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidth)
+
+#Axis labels
+mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
+text(-0.8, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+
+#Label the indifference curves
+text(9, 4.5, expression("Cobb-Douglas"), cex = labelsize)
+text(9, 4, expression("isoquant"), cex = labelsize)
+text(9, 3.5, expression(bar(x) ==f(l,k)), cex = labelsize)
+Arrows(9, 3.25, 9, 2.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+#Label feasible and infeasible
+text(3, 3, expression(paste(x = bar(x), " infeasible")), cex = labelsize)
+text(3, 2.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+
+text(8, 8.5, expression(paste("Production set:")), cex = labelsize)
+text(8, 8, expression(paste(x = bar(x), " feasible")), cex = labelsize)
+text(8, 7.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+
+
+dev.off()

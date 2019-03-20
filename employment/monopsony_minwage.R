@@ -67,7 +67,7 @@ graphlinewidth <- 2.5
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 ylims <- c(0, 14.1)
@@ -75,7 +75,9 @@ xlims <- c(0.25, 1.05)
 npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-                                     # first plot: competitive vs monopsony
+
+# ----
+# first plot: competitive vs monopsony
 pdf(file = "employment/monopsony_minwage1.pdf", width = 12, height = 10)
 par(mar =  c(5, 7, 3, 3))
 
@@ -109,9 +111,9 @@ xx1 <- seq(0.01, 0.95, length.out = npts)
 xx2 <- seq(0, 1, length.out = 600)
 
 #Draw the graphs
-lines(xx1, ACL(xx1), col = COLA[3], lwd  = graphlinewidth)
-lines(xx1, MCL(xx1), col = COLB[3], lwd = graphlinewidth)
-lines(xx2, MRP(xx2), col = COL[3], lwd = graphlinewidth)
+lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
+lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 lines(xx2, Min(xx2, 4), col = COL[2],lwd = graphlinewidth)
 #lines(xx1, Min(xx1), col = COL[6], lwd = graphlinewidth)
 # with s=1
@@ -157,6 +159,9 @@ text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
 text(0.38, 13.3, "product", cex = axislabelsize)
 text(0.38, 12.8, "(mrp)", cex = axislabelsize)
 
+text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
+text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)
+
 # text(0.85, 3.7, "Competitive", cex = axislabelsize)
 # text(0.85, 3.2, "Marginal cost", cex = axislabelsize)
 # text(0.85, 2.7, "of labor", cex = axislabelsize)
@@ -165,12 +170,12 @@ text(0.38, 12.8, "(mrp)", cex = axislabelsize)
 
 
 dev.off()
-
+# ----
 # second plot:  monopsony and minwage
 pdf(file = "employment/monopsony_minwage2.pdf", width = 12, height = 10)
 par(mar =  c(5, 7, 3, 3))
 
-plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
+plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
      xaxt = "n", 
@@ -181,14 +186,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
 )
 
+ticksx2 <- c(xlims[1], employment(), employment(min = 4.6), 1)
+xlabels2 <- c(NA, expression(paste(n[M])), expression(paste(n[underline("w")])), 1)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
+axis(1, at = ticksx2, pos = 0, labels = xlabels2)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Draw the graphs
-lines(xx1, ACL(xx1), col = COLA[3], lwd  = graphlinewidth)
-lines(xx1, MCL(xx1), col = COLB[3], lwd = graphlinewidth)
-lines(xx2, MRP(xx2), col = COL[3], lwd = graphlinewidth)
+lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
+lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 lines(xx2,Min(xx2), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
@@ -220,13 +227,14 @@ text(0.4, 13.8, "Marginal revenue", cex = axislabelsize)
 text(0.4, 13.3, "product", cex = axislabelsize)
 text(0.4, 12.8, "(mrp)", cex = axislabelsize)
 
-text(employment()-0.02,ACL(employment())-0.5 , "b", cex = axislabelsize)
-text(employment()-0.02,MCL(employment())+0.5 , "a", cex = axislabelsize)
-text(employment(min = 4.6)-0.02,ACL(employment(min = 4.6))-0.5 , "c", cex = axislabelsize)
-text(employment(min = 4.6)-0.02,MCL(employment(min =  4.6))+0.5 , "d", cex = axislabelsize)
+text(employment()-0.02,ACL(employment())-0.5 , "b'", cex = axislabelsize)
+text(employment()-0.02,MCL(employment())+0.5 , "a'", cex = axislabelsize)
+text(employment(min = 4.6)-0.02,ACL(employment(min = 4.6))-0.5 , "e", cex = axislabelsize)
+text(employment(min = 4.6)-0.02,MCL(employment(min =  4.6))+0.5 , "d'", cex = axislabelsize)
 
 dev.off()
-                                        # third plot:  monopsony, minwage and EITC
+# ----
+# third plot:  monopsony, minwage and EITC
 pdf(file = "employment/monopsony_minwage3.pdf", width = 15, height = 12)
 par(mar =  c(5, 7, 3, 3))
 

@@ -100,8 +100,8 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], employment(), 0.845, 1)
 xlabels <- c(NA, expression(paste(n[M])), expression(paste(n[C])), 1)
-ticksy <- c(ylims[1], ACL(employment()), ACL(0.845), ylims[2])
-ylabels <- c(0, expression(paste(w[M])), expression(paste(w[C])), NA)
+ticksy <- c(ylims[1], ACL(0.85) - 0.8, ACL(employment()), ACL(0.845), ylims[2])
+ylabels <- c(0, expression(paste(w[underline("w")])), expression(paste(w[M])), expression(paste(w[C])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -139,7 +139,7 @@ points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1.5)
 points(0.845, ACL(0.845), pch = 16, col = "black", cex = 1.5)
 
 # label points
-text(employment() + 0.01, ACL(employment()) - 0.3 , "b", cex = axislabelsize)
+text(employment() + 0.01, ACL(employment()) - 0.5 , "b", cex = axislabelsize)
 text(employment() - 0.01, MCL(employment()) + 0.3 , "a", cex = axislabelsize)
 text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = axislabelsize)
 
@@ -188,9 +188,14 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx2 <- c(xlims[1], employment(), employment(min = 4.6), 1)
 xlabels2 <- c(NA, expression(paste(n[M])), expression(paste(n[underline("w")])), 1)
+ticksy2 <- c(ylims[1], ACL(employment(min = 4.6)), MCL(employment()), ylims[2])
+ylabels2 <- c(0, expression(paste(underline("w")^"M")), expression(paste(w[C])), NA)
 
+#Axis Lines
 axis(1, at = ticksx2, pos = 0, labels = xlabels2)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+#axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(2, at = ticksy2, pos = xlims[1], labels = ylabels2, las = 1, cex.axis = axislabelsize)
+
 
 #Draw the graphs
 lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
@@ -200,13 +205,14 @@ lines(xx2,Min(xx2), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+# text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.18, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
 segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
-
+segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 ## add points
 
 points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1)
@@ -231,6 +237,9 @@ text(employment()-0.02,ACL(employment())-0.5 , "b'", cex = axislabelsize)
 text(employment()-0.02,MCL(employment())+0.5 , "a'", cex = axislabelsize)
 text(employment(min = 4.6)-0.02,ACL(employment(min = 4.6))-0.5 , "e", cex = axislabelsize)
 text(employment(min = 4.6)-0.02,MCL(employment(min =  4.6))+0.5 , "d'", cex = axislabelsize)
+
+text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
+text(0.58, ACL(0.85) - 1.6, "binding", cex = axislabelsize)
 
 dev.off()
 # ----

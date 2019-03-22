@@ -188,8 +188,8 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx2 <- c(xlims[1], employment(), employment(min = 4.6), 1)
 xlabels2 <- c(NA, expression(paste(n[M])), expression(paste(n[underline("w")])), 1)
-ticksy2 <- c(ylims[1], ACL(employment(min = 4.6)), MCL(employment()), ylims[2])
-ylabels2 <- c(0, expression(paste(underline("w")^"M")), expression(paste(w[C])), NA)
+ticksy2 <- c(ylims[1], ACL(employment(min = 4.6)), MRP(employment(min = 4.6)), MCL(employment()), ylims[2])
+ylabels2 <- c(0, expression(paste(underline("w")["M"])), expression(paste("mrp"[underline("w")])), expression(paste(w[C])), NA)
 
 #Axis Lines
 axis(1, at = ticksx2, pos = 0, labels = xlabels2)
@@ -213,12 +213,14 @@ text(0.18, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue
 segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, MRP(employment(min = 4.6)), employment(min = 4.6), MRP(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
 ## add points
 
-points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1)
-points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1)
-points(employment(min=4.6), MCL(employment(min=4.6)), pch = 16, col = "black", cex = 1)
-points(employment(min=4.6), Min(employment(min=4.6)), pch = 16, col = "black", cex = 1)
+points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1.5)
+points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1.5)
+points(employment(min=4.6), MCL(employment(min=4.6)), pch = 16, col = "black", cex = 1.5)
+points(employment(min=4.6), Min(employment(min=4.6)), pch = 16, col = "black", cex = 1.5)
+points(employment(min = 4.6), MRP(employment(min = 4.6)), pch = 16, col = "black", cex = 1.5)
 
 # add labels
 text(1.03, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
@@ -233,10 +235,11 @@ text(0.4, 13.8, "Marginal revenue", cex = axislabelsize)
 text(0.4, 13.3, "product", cex = axislabelsize)
 text(0.4, 12.8, "(mrp)", cex = axislabelsize)
 
-text(employment()-0.02,ACL(employment())-0.5 , "b'", cex = axislabelsize)
-text(employment()-0.02,MCL(employment())+0.5 , "a'", cex = axislabelsize)
-text(employment(min = 4.6)-0.02,ACL(employment(min = 4.6))-0.5 , "e", cex = axislabelsize)
-text(employment(min = 4.6)-0.02,MCL(employment(min =  4.6))+0.5 , "d'", cex = axislabelsize)
+text(employment()-0.01,ACL(employment())-0.5 , "b'", cex = axislabelsize)
+text(employment()-0.01,MCL(employment())+0.5 , "a'", cex = axislabelsize)
+text(employment(min = 4.6)-0.01,ACL(employment(min = 4.6))-0.5 , "e", cex = axislabelsize)
+text(employment(min = 4.6)-0.01,MCL(employment(min =  4.6))+0.5 , "d'", cex = axislabelsize)
+text(employment(min = 4.6)-0.01, MRP(employment(min = 4.6))+0.5, "f", cex = axislabelsize)
 
 text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
 text(0.58, ACL(0.85) - 1.6, "binding", cex = axislabelsize)

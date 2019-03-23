@@ -100,8 +100,8 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], employment(), 0.845, 1)
 xlabels <- c(NA, expression(paste(n[M])), expression(paste(n[C])), 1)
-ticksy <- c(ylims[1], ACL(0.85) - 0.8, ACL(employment()), ACL(0.845), ylims[2])
-ylabels <- c(0, expression(paste(w[underline("w")])), expression(paste(w[M])), expression(paste(w[C])), NA)
+ticksy <- c(ylims[1], ACL(0.85) - 0.8, ACL(employment()), ACL(0.845), MCL(employment()), ylims[2])
+ylabels <- c(0, expression(paste(w[underline("w")])), expression(paste(w[M])), expression(paste(w[C])), expression(paste("mrp"["M"])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -132,6 +132,7 @@ segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray"
 segments(0, ACL(0.845), 0.845, ACL(0.845), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0.845, 0, 0.845, ACL(0.845), lty = 2, col = "gray", lwd = segmentlinewidth)
 
+segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 ## add points
 
 points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1.5)
@@ -188,8 +189,8 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx2 <- c(xlims[1], employment(), employment(min = 4.6), 1)
 xlabels2 <- c(NA, expression(paste(n[M])), expression(paste(n[underline("w")])), 1)
-ticksy2 <- c(ylims[1], ACL(employment(min = 4.6)), MRP(employment(min = 4.6)), MCL(employment()), ylims[2])
-ylabels2 <- c(0, expression(paste(underline("w")["M"])), expression(paste("mrp"[underline("w")])), expression(paste(w[C])), NA)
+ticksy2 <- c(ylims[1], ACL(employment()), ACL(employment(min = 4.6)), MRP(employment(min = 4.6)), MCL(employment()), ylims[2])
+ylabels2 <- c(0, expression(paste("w"["M"])),expression(paste(underline("w")["M"])), expression(paste("mrp"[underline("w")])), expression(paste("mrp"["M"])), NA)
 
 #Axis Lines
 axis(1, at = ticksx2, pos = 0, labels = xlabels2)
@@ -214,8 +215,9 @@ segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray"
 segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, MRP(employment(min = 4.6)), employment(min = 4.6), MRP(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
-## add points
+segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 
+# add points
 points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1.5)
 points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1.5)
 points(employment(min=4.6), MCL(employment(min=4.6)), pch = 16, col = "black", cex = 1.5)

@@ -193,7 +193,7 @@ ticksy2 <- c(ylims[1], ACL(employment()), ACL(employment(min = 4.6)), MRP(employ
 ylabels2 <- c(0, expression(paste("w"["M"])),expression(paste(underline("w")["M"])), expression(paste("mrp"[underline("w")])), expression(paste("mrp"["M"])), NA)
 
 #Axis Lines
-axis(1, at = ticksx2, pos = 0, labels = xlabels2)
+axis(1, at = ticksx2, pos = 0, labels = xlabels2, las = 1, cex.axis = axislabelsize)
 #axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 axis(2, at = ticksy2, pos = xlims[1], labels = ylabels2, las = 1, cex.axis = axislabelsize)
 

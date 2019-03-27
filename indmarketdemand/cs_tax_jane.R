@@ -1,3 +1,5 @@
+# See Version 2 of this file
+
 require(shape)
 pdf(file = "bfh-textbook/indmarketdemand/cs_tax_jane.pdf", width = 9, height = 7)
 

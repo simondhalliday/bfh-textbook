@@ -10,6 +10,7 @@ segmentlinewidth <- 2
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 par(mar =  c(6, 6, 4, 4))
 
@@ -66,7 +67,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # Tax Rev Q
 xpoly <- c(4, 4, 5)
 ypoly <- c(9, 10, 10)
-polygon(x = xpoly, y = ypoly, col = COLB[1], density=NULL, border = NA)
+polygon(x = xpoly, y = ypoly, col = COL[2], density=NULL, border = NA)
 
 # Tax Rev P 
 xpoly1 <- c(0, 4, 4, 0)
@@ -77,6 +78,11 @@ polygon(x = xpoly1, y = ypoly1, col = COLB[1], density=NULL, border = NA)
 xpoly2 <- c(4, 5, 4) 
 ypoly2 <- c(10, 10, 12) # Change y1 to 10 to meet gray line
 polygon(x = xpoly2, y = ypoly2, col = COLA[1], density=NULL, border = NA)
+
+# CS 
+xpoly3 <- c(0, 0, 4)
+ypoly3 <- c(12, 20, 12)
+polygon(x = xpoly3, y = ypoly3, col = COL[4], density=NULL, border = NA)
 
 
 #Lines for mrs graph
@@ -144,6 +150,9 @@ text(1.3, 11, expression(paste("Tax Revenue, ", R==t%.%x[t])))
 Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 text(6.6, 12.7, expression(paste("Tax" == 2)), cex = labelsize)
+
+# Label CS
+text(1.2, 14, expression(paste("Consumer Surplus")))
 
 
 dev.off()

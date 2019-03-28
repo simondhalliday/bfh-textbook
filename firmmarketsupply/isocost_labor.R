@@ -82,10 +82,10 @@ text(6, 12, expression(paste("Isocost Curves")), cex = labelsize)
 text(6, 11, expression(paste("(High Wage)")), cex = labelsize)
 # Label Point 1 + 2
 points(2, 8, pch = 16, col = "black", cex = 1.5)
-text(2.5, 8.5, expression(2))
+text(2.5, 8.5, expression(f))
 
 points(8, 2, pch = 16, col = "black", cex = 1.5)
-text(8.5, 2.5, expression(1))
+text(8.5, 2.5, expression(g))
 
 
 

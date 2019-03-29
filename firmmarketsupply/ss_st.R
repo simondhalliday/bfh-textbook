@@ -60,7 +60,7 @@ text(5.5, cost(5)+0.5, expression(a))
 
 # Label x,y axis
 mtext(expression(paste("Capacity, Gal")), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Purchased Cost, Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Unit Cost, Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 dev.off()

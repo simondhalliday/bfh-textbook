@@ -1,3 +1,5 @@
+
+
 require(shape)
 require(plotrix)
 pdf(file = "employment/employment_wage_macro_zpc.pdf", width = 9, height = 7)
@@ -22,7 +24,7 @@ ylims <- c(0, 40)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Total hours of employment as a proportion, ", H)),
+     xlab = expression(paste("Total hours of employment as a proportion of labor supply, ", H)),
      ylab = expression(paste("Wage, ", w)),
      xaxt = "n", 
      yaxt = "n",
@@ -39,6 +41,10 @@ xx1 <- seq(xlims[1], 0.9, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
+xx5 <- seq(xlims[1], 0.75, length.out = npts2)
+
+# Shade below green line
+polygon(c(0, xx5, 0.75), c(0, WageFn(xx5), 0), border = FALSE, col = COLC[3])
 
 #Draw the lines for the graphs
 lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
@@ -46,22 +52,22 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 2.5, 5, 20,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t)), expression(paste(w[0])), NA)
-ticksx <- c(0, 0.75, 1, xlims[2])
-xlabels <- c(0, expression(paste(H,"*")), 1.0, NA)
+ticksy <- c(0, 20,  40)
+ylabels <- c(0, expression(paste(w[0])), NA)
+ticksx <- c(0, 0.75, xlims[2])
+xlabels <- c(0, expression(paste(H,"*")), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))))
+text(0.72, 35, expression(paste("Wage Curve ", w(H))))
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
-Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.92, 12.5, expression(paste("Employment Rent")))
+#Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(0.92, 12.5, expression(paste("Employment Rent")))
 
 #Zero profit condition 
 segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
@@ -72,15 +78,21 @@ text(0.74, 21, expression(paste("n")))
 
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.97, 6, expression(paste(B + a/t)))
-text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
+text(1.02, 21, expression(paste("Competition condition ", w == w^c)))
+text(0.3, 23, expression(paste("Firms leaving")))
+text(0.3, 17, expression(paste("Firms entering")))
+text(0.3, 4, expression(paste("No production")))
+
+#text(0.97, 6, expression(paste(B + a/t)))
+#text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
+
+# Shade below green line
 
 
 dev.off()

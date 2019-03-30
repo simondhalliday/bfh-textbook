@@ -80,30 +80,30 @@ text(3.7, 8.1, expression(paste(e == 0)), cex = actionlabelsize)
 text(6.1, 8.5, expression(paste("Works")), cex = actionlabelsize)
 text(6.1, 8.1, expression(paste(e == underline(e))), cex = actionlabelsize)
 
-text(2.7, 6.1, expression(paste("Worker")), cex = actionlabelsize)
-text(2.7, 5.7, expression(paste("is fired")), cex = actionlabelsize)
+text(2.6, 6.1, expression(paste("Worker is")), cex = actionlabelsize)
+text(2.6, 5.7, expression(paste("terminated")), cex = actionlabelsize)
 
-text(4.3, 6.1, expression(paste("Worker")), cex = actionlabelsize)
-text(4.3, 5.7, expression(paste("keeps job")), cex = actionlabelsize)
+text(4.35, 6.1, expression(paste("Worker")), cex = actionlabelsize)
+text(4.35, 5.7, expression(paste("keeps job")), cex = actionlabelsize)
 
-text(2.7, 5.3, expression(paste(t)), cex = actionlabelsize)
-text(4.25, 5.3, expression(paste(1-t)), cex = actionlabelsize)
+text(2.6, 5.3, expression(paste((t))), cex = actionlabelsize)
+text(4.3, 5.3, expression(paste( (1-t) )), cex = actionlabelsize)
 
 text(1.2, 3.6, expression(paste("Remains")), cex = actionlabelsize)
-text(1.2, 3.1, expression(paste("unemployed")), cex = actionlabelsize)
+text(1.2, 3.1, expression(paste("jobless")), cex = actionlabelsize)
 
 
 text(3.7, 3.6, expression(paste("Gets a")), cex = actionlabelsize)
 text(3.7, 3.1, expression(paste("new job")), cex = actionlabelsize)
 
-text(1.2, 2.7, expression(paste(gamma)), cex = actionlabelsize)
-text(3.7, 2.7, expression(paste(1-gamma)), cex = actionlabelsize)
+text(1.2, 2.7, expression(paste( (j) )), cex = actionlabelsize)
+text(3.7, 2.7, expression(paste( (1-j) )), cex = actionlabelsize)
 
 
 #Payoffs 
 text(1, .6, expression("B"), cex = actionlabelsize)
 text(4, .6, expression("w"), cex = actionlabelsize)
 text(6, .6, expression("w"), cex = actionlabelsize)
-text(9, .6, expression(paste(w - delta)), cex = actionlabelsize)
+text(9, .6, expression(paste(w - underline(u))), cex = actionlabelsize)
 
 dev.off()

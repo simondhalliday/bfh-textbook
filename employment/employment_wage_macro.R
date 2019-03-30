@@ -20,7 +20,7 @@ xlims <- c(0, 1.2)
 ylims <- c(0, 40)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Total hours of employment as a proportion, ", H)),
+     xlab = expression(paste("Total hours of employment as a proportion of labor supply, ", H)),
      ylab = expression(paste("Wage, ", w)),
      xaxt = "n", 
      yaxt = "n",
@@ -44,14 +44,14 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+delta)), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))))
+text(0.72, 35, expression(paste("Wage Curve, ", w(H))))
 
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
@@ -81,7 +81,7 @@ segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 #text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.97, 6, expression(paste(B + delta)))
+text(0.97, 6, expression(paste(B + underline(u), " (opportunity cost of work)")))
 text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))

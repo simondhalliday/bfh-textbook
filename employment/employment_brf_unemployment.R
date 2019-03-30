@@ -4,8 +4,8 @@ pdf(file = "employment/employment_brf_unemployment.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 2.5
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
@@ -75,9 +75,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Customize ticks and labels for the plot
-ticksy <- c(0, brfFn(w = 18.4), brfFn(w = 38, s = 0.045), 1)
+ticksy <- c(0, brfFn(w = 18.2), brfFn(w = 38, s = 0.045), 1)
 ylabels <- c(0, expression(paste(e^{NH})), expression(paste(e^{NL})), 1)
-ticksx <- c(0, 10, 18.4, 22.2, 38, 50)
+ticksx <- c(0, 10, 18.2, 22.2, 38, 50)
 xlabels <- c(0, expression(paste(w == B/s^{H})), expression(paste(w^{NH})), expression(paste(w == B/s^{L})),expression(paste(w^{NL})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -99,19 +99,20 @@ xx5 <- seq( 18.43909, xlims[2], length.out = npts2)
 xx6 <- seq( 18.43909, 25, length.out = npts2)
 xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
-xx10 <- seq(xlims[1], xlims[2], length.out = npts2)
+xx10 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
-lines(xx7, brfFn(xx7, s = 0.045), col = "#beaed4", lwd = 4)
-lines(xx10, solowCondition(xx10, delta = 3.63), col = COL[3], lwd = graphlinewidth)
-lines(xx10, solowCondition(xx10, delta = 8), col = COL[3], lwd = graphlinewidth)
-
+lines(xx1, brfFn(xx1), col = COLA[3], lwd = graphlinewidth + 0.5)
+lines(xx7, brfFn(xx7, s = 0.045), col = COLA[3], lwd = graphlinewidth + 0.5)
+#lines(xx7, brfFn(xx7, s = 0.04), col = COLA[3], lwd = graphlinewidth)
+lines(xx10, solowCondition(xx10, delta = 3.63), col = COLB[3], lwd = graphlinewidth)
+lines(xx10, solowCondition(xx10, delta = 8.1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx10, solowCondition(xx10, delta = 9.1), col = COLB[3], lwd = graphlinewidth)
 
 #Annotation of the three graphs and the NE
-text(20, 0.85, expression(paste("Slope: ", frac(e^H, w^H) == frac(1, mu^H))))
-text(40, 0.72, expression(paste("Slope: ", frac(e^{L}, w^{L}) == frac(1, mu^{L}))))
+text(18, 0.85, expression(paste("Slope: ", frac(e^H, w^H) == frac(1, c^H) )))
+text(38, 0.72, expression(paste("Slope: ", frac(e^{L}, w^{L}) == frac(1, c^{L}) )))
 
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
@@ -122,8 +123,8 @@ text(40, 0.72, expression(paste("Slope: ", frac(e^{L}, w^{L}) == frac(1, mu^{L})
 text(44, 0.62, expression(paste("BRF")))
 text(44, 0.58, expression(paste(("low unemployment"))))
 
-text(44, 0.96, expression(paste("BRF")))
-text(44, 0.92, expression(paste(("high unemployment"))))
+text(44, 0.95, expression(paste("BRF")))
+text(44, 0.91, expression(paste(("high unemployment"))))
 
 # text(36, 0.94, expression(paste("Employee's PC")))
 # text(36, 0.9, expression(paste(v == z)))
@@ -133,8 +134,8 @@ text(44, 0.92, expression(paste(("high unemployment"))))
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
 #segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
 #segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 38, s = 0.045), 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = 2)
-segments(38, 0, 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = 2)
+segments(0, brfFn(w = 38, s = 0.045), 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(38, 0, 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(38, brfFn(w = 38, s = 0.045)  + 0.04, expression(n^L))
 # text(24.5, 0.48, expression(paste("Incomplete Contract")))
@@ -158,10 +159,11 @@ points(38, brfFn(w = 38, s = 0.045), pch = 16, col = "black", cex = 1.5)
 #Add a point for the NE
 #points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.4, 0, 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
-points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
-text(18, brfFn(w = 18.4)  + 0.04, expression(n^H))
+segments(18.2, 0, 18.2, brfFn(w = 18.2), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, brfFn(w = 18.2), 18.2, brfFn(w = 18.2), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+
+points(18.2, brfFn(w = 18.2), pch = 16, col = "black", cex = 1.5)
+text(18, brfFn(w = 18.2)  + 0.04, expression(n^H))
 
 # points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 # text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))

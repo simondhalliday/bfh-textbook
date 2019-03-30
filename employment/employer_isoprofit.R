@@ -74,7 +74,7 @@ text(10 + 0.5, 0.125 - 0.025, expression(paste(a)))
 #Arrow to Slope of isoprofit
 Arrows(10.5, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(8.2, 0.90, expression(paste("Slope of isoprofit")), cex = 1.4)
-text(8.2, 0.80, expression(paste(frac(1, mu) == frac(e, w))), cex = 1.4)
+text(8.2, 0.80, expression(paste(frac(1, c(e,w) ) == frac(e, w))), cex = 1.4)
 
 dev.off()
 

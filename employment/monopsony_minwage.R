@@ -122,7 +122,7 @@ lines(xx2, Min(xx2, 4), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
-text(0.18, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.17, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
@@ -207,7 +207,7 @@ lines(xx2,Min(xx2), col = COL[2],lwd = graphlinewidth)
 #Axis labels
 mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
 # text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.18, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.17, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
@@ -225,17 +225,17 @@ points(employment(min=4.6), Min(employment(min=4.6)), pch = 16, col = "black", c
 points(employment(min = 4.6), MRP(employment(min = 4.6)), pch = 16, col = "black", cex = 1.5)
 
 # add labels
-text(1.03, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
-text(1.03, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
-text(1.03, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
+text(1.01, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
+text(1.01, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
+text(1.01, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
 
-text(0.77, 13.8, "Marginal cost", cex = axislabelsize)
-text(0.77, 13.3, "of labor", cex = axislabelsize)
-text(0.77, 12.8, "(mcl)", cex = axislabelsize)
+text(0.79, 13.8, "Marginal cost", cex = axislabelsize)
+text(0.79, 13.3, "of labor", cex = axislabelsize)
+text(0.79, 12.8, "(mcl)", cex = axislabelsize)
 
-text(0.4, 13.8, "Marginal revenue", cex = axislabelsize)
-text(0.4, 13.3, "product", cex = axislabelsize)
-text(0.4, 12.8, "(mrp)", cex = axislabelsize)
+text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
+text(0.38, 13.3, "product", cex = axislabelsize)
+text(0.38, 12.8, "(mrp)", cex = axislabelsize)
 
 text(employment()-0.01,ACL(employment())-0.5 , "b'", cex = axislabelsize)
 text(employment()-0.01,MCL(employment())+0.5 , "a'", cex = axislabelsize)

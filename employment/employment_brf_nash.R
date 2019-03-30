@@ -80,7 +80,7 @@ xx5 <- seq( 18.43909, xlims[2], length.out = npts2)
 xx6 <- seq( 18.43909, 25, length.out = npts2)
 xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
-xx9 <- seq(xlims[1], xlims[2], length.out = npts2)
+xx9 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)

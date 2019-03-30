@@ -43,7 +43,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 4, 7, ylims[2])
-ylabels <- c(NA, expression(paste(frac(w[1],e) == mu[1])), expression(paste( frac(w[2],e) == mu[2] )), NA)
+ylabels <- c(NA, expression(paste(frac(w[1],e) == c[1])), expression(paste( frac(w[2],e) == c[2] )), NA)
 ticksx <- c(0, (10-7)/0.75, (10-4)/0.75, (15-4)/0.75, xlims[2])
 xlabels <- c(NA, expression(paste(l^{n3})), expression(paste(l^{n1})), expression(paste(l^{n2})), NA)
 
@@ -59,15 +59,15 @@ lines(xx1, mrpL(xx1, pmax = 15), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 mtext(expression(paste("Total labor used by the employer, ", l == eh)), side = 1, line = 2.5, cex = axislabelsize)
-text(-2.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", frac(w,e) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", c == frac(w,e) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #text(16, 5.75, expression(paste("Change in ", mu)), cex = labelsize)
 
 
-text(18.3, 7.4, expression(paste(mu[2], " (higher B)")), cex = labelsize)
-text(19, 5, expression(paste(mu[1] == frac(w[1],e))), cex = labelsize)
+text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize)
+text(19, 5, expression(paste(c[1] == frac(w[1],e))), cex = labelsize)
 text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
 text(16, 12, expression(paste("of labor")), cex = labelsize)
 Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

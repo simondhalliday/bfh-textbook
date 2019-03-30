@@ -100,8 +100,8 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], employment(), 0.845, 1)
 xlabels <- c(NA, expression(paste(n[M])), expression(paste(n[C])), 1)
-ticksy <- c(ylims[1], ACL(0.85) - 0.8, ACL(employment()), ACL(0.845), MCL(employment()), ylims[2])
-ylabels <- c(0, expression(paste(w[underline("w")])), expression(paste(w[M])), expression(paste(w[C])), expression(paste("mrp"["M"])), NA)
+ticksy <- c(ylims[1], ACL(employment()), ACL(0.845), MCL(employment()), ylims[2])
+ylabels <- c(0, expression(paste(w[M])), expression(paste(w[C])), expression(paste("mrp"["M"])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -114,7 +114,7 @@ xx2 <- seq(0, 1, length.out = 600)
 lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
 lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
-lines(xx2, Min(xx2, 4), col = COL[2],lwd = graphlinewidth)
+#lines(xx2, Min(xx2, 4), col = COL[2],lwd = graphlinewidth)
 #lines(xx1, Min(xx1), col = COL[6], lwd = graphlinewidth)
 # with s=1
 ## lines(xx1, ACL(xx1, s = 1), col = COLA[3], lwd = graphlinewidth, lty= 3)
@@ -160,8 +160,8 @@ text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
 text(0.38, 13.3, "product", cex = axislabelsize)
 text(0.38, 12.8, "(mrp)", cex = axislabelsize)
 
-text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
-text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)
+#text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
+#text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)
 
 # text(0.85, 3.7, "Competitive", cex = axislabelsize)
 # text(0.85, 3.2, "Marginal cost", cex = axislabelsize)
@@ -175,6 +175,7 @@ dev.off()
 # second plot:  monopsony and minwage
 pdf(file = "employment/monopsony_minwage2.pdf", width = 12, height = 10)
 par(mar =  c(5, 7, 3, 3))
+
 
 plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -198,11 +199,13 @@ axis(1, at = ticksx2, pos = 0, labels = xlabels2, las = 1, cex.axis = axislabels
 axis(2, at = ticksy2, pos = xlims[1], labels = ylabels2, las = 1, cex.axis = axislabelsize)
 
 
+xx3 <- seq(employment(min = 4.6), 0.95, length.out = npts)
+
 #Draw the graphs
 lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
-lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, MCL(xx3), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
-lines(xx2,Min(xx2), col = COL[2],lwd = graphlinewidth)
+# lines(xx2, Min(xx2), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
@@ -216,6 +219,11 @@ segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 
 segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, MRP(employment(min = 4.6)), employment(min = 4.6), MRP(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(employment(min = 4.6), ACL(employment(min = 4.6)), employment(min = 4.6), MCL(employment(min =  4.6)), lty = 1, col = COLA[4], lwd = graphlinewidth)
+
+segments(0, ACL(employment(min = 4.6)), employment(min = 4.6), ACL(employment(min = 4.6)), col = COL[2],lwd = graphlinewidth)
+segments(employment(min = 4.6), ACL(employment(min = 4.6)), 1, ACL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
+
 
 # add points
 points(employment(), ACL(employment()), pch = 16, col = "black", cex = 1.5)

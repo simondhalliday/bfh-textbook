@@ -1,3 +1,25 @@
+# TO DO
+
+# at the right a bracket for the distance from the upper dashed line 
+# to the x axis "output per worker"  then within that a bottom bracket 
+# "real wage"  and above the blue line "profit per worker hour"  
+
+# DONE the vertical axis should be "Real wage, w, and labor productivity" 
+
+# DONE Output per worker is now gamma, not q, 
+
+# DONE Blue line should be labeled "Competition condition"
+
+# DONE its Y intercept should be w^c
+
+# The txt next to the arrow above the line should be : If the w>w^c  
+#        profits will be insufficient and firms will leave
+
+# DONE Below the line If w<w^c new firms will be able to make 
+#        economic profits and the number of firms will grow
+
+
+
 require(ggplot2)
 require(shape)
 require(plotrix)
@@ -24,7 +46,7 @@ ylims <- c(0, 40)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Total Hours of Employment, ", H)),
-     ylab = expression(paste("Real Wage, ", w/p, ", and profit, ", pi)),
+     ylab = expression(paste("Real wage, w, and labor productivity")),
      xaxt = "n", 
      yaxt = "n",
      cex.lab = axislabelsize, 
@@ -48,35 +70,37 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(frac(w[0], p))),  expression(paste(q[0])), NA)
+ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma[0])), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(1.05, 22, expression(paste("Real Wage, ", frac(w,p) == pi, ", profit")))
+text(1.05, 21, expression(paste("Competition Condition")))
 
 
-text(1.05, 31, expression(paste("Output per worker, ", q)))
+text(1.05, 31, expression(paste("Output per worker, ", gamma)))
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Arrow to Slope of BRF
 #Arrows(0.2, 19, 0.2, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.3, 18, expression(paste("If the real wage is below the profit")))
-text(0.3, 16, expression(paste("curve, the strong incentive to invest ")))
-text(0.3, 14, expression(paste("leads to a rise in capital stock")))
-text(0.3, 12, expression(paste("and an increase in employment")))
+text(0.3, 18, expression(paste("If the ", w<w^c, " new firms will"  )))
+text(0.3, 16, expression(paste("be able to make economic")))
+text(0.3, 14, expression(paste("profits and the number of")))
+text(0.3, 12, expression(paste("firms will grow")))
 Arrows(0.55, 15, 0.8, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
+
+
 # Arrows(0.6, 19, 0.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.65, 28, expression(paste("If the real wage is above the profit")))
-text(0.65, 26, expression(paste("curve, the weak incentive to invest")))
-text(0.65, 24, expression(paste("leads to a fall in capital stock and")))
-text(0.65, 22, expression(paste("there are fewer jobs")))
+text(0.65, 26, expression(paste("If the ", w>w^c,  " profits will")))
+text(0.65, 24, expression(paste("be insufficient and firms")))
+text(0.65, 22, expression(paste("will leave")))
 Arrows(0.4, 25, 0.15, 25, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

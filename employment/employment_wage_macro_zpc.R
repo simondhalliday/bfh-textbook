@@ -47,6 +47,8 @@ xx5 <- seq(xlims[1], 0.75, length.out = npts2)
 
 # Shade below green line
 polygon(c(0, xx2, xlims[2]), c(0, WageFn(xx2), 0), border = FALSE, col = COLC[3])
+rect(0.99, 0, 1.2, 40, border = FALSE, col = COLC[3])
+
 
 #Draw the lines for the graphs
 lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)

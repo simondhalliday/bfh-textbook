@@ -1,3 +1,5 @@
+# TO DO
+# Figure out wages shading
 
 
 require(shape)
@@ -44,7 +46,7 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 xx5 <- seq(xlims[1], 0.75, length.out = npts2)
 
 # Shade below green line
-polygon(c(0, xx5, 0.75), c(0, WageFn(xx5), 0), border = FALSE, col = COLC[3])
+polygon(c(0, xx2, xlims[2]), c(0, WageFn(xx2), 0), border = FALSE, col = COLC[3])
 
 #Draw the lines for the graphs
 lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
@@ -52,8 +54,8 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 20,  40)
-ylabels <- c(0, expression(paste(w[0])), NA)
+ticksy <- c(0, 20, 30, 40)
+ylabels <- c(0, expression(paste(w^c)), expression(paste(gamma[0])), NA)
 ticksx <- c(0, 0.75, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -73,6 +75,11 @@ segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
+# Gamma
+segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[3])
+text(1.05, 31, expression(paste("Output per worker, ", gamma)))
+
+
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
 text(0.74, 21, expression(paste("n")))
 
@@ -83,16 +90,24 @@ text(0.74, 21, expression(paste("n")))
 
 #Zero profit condition
 text(1.02, 21, expression(paste("Competition condition ", w == w^c)))
-text(0.3, 23, expression(paste("Firms leaving")))
-text(0.3, 17, expression(paste("Firms entering")))
-text(0.3, 4, expression(paste("No production")))
+text(0.25, 23, expression(paste("Firms leaving")))
+text(0.25, 17, expression(paste("Firms entering")))
+text(0.25, 4, expression(paste("No production")))
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 
-# Shade below green line
+
+# Arrows 
+text(0.55, 25, expression(paste("Profits")))
+Arrows(0.5, 22, 0.5, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.5, 28, 0.5, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
+text(0.55, 15, expression(paste("Wages")))
+Arrows(0.5, 18, 0.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.5, 12, 0.5, 18, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 dev.off()

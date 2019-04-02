@@ -18,8 +18,8 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 6, 4, 4))
 
-brfFn <- function(delta, mu = 1) {
-  .5 + (delta / (2 * mu)) 
+brfFn <- function(delta, q = 1) {
+  .5 + (delta / (2 * q)) 
 }
 
 isoreturnFn <- function(delta, pi=0.125) {
@@ -27,16 +27,16 @@ isoreturnFn <- function(delta, pi=0.125) {
 }
 
 
-yFn <- function(d1, f1, mu = 1){
-  mu*f1*(1 - f1) - d1*(1 - f1)
+yFn <- function(d1, f1, q = 1){
+  q*f1*(1 - f1) - d1*(1 - f1)
 }
 
-ylow <- function(delta, mu = 1, ybar = 0.03){
-  (-sqrt(delta^2 - 2*delta*mu + mu^2 - 4*mu*ybar) + delta + mu)/(2*mu)
+ylow <- function(delta, q = 1, ybar = 0.03){
+  (-sqrt(delta^2 - 2*delta*q + q^2 - 4*q*ybar) + delta + q)/(2*q)
 }
 
-yhigh <- function(delta, mu = 1, ybar = 0.03){
-  (sqrt(delta^2 - 2*delta*mu + mu^2 - 4*mu*ybar) + delta + mu)/(2*mu)
+yhigh <- function(delta, q = 1, ybar = 0.03){
+  (sqrt(delta^2 - 2*delta*q + q^2 - 4*q*ybar) + delta + q)/(2*q)
 }
 
 xlims <- c(0, 1)
@@ -125,12 +125,12 @@ text(0.2, 1.01, expression(paste(y[1])), cex = labelsize)
 text(0.2, 0.87, expression(paste(y[2])), cex = labelsize)
 text(0.2, 0.77, expression(paste(y[3])), cex = labelsize)
 text(0.3, 0.2, expression(Slope), cex = labelsize)
-text(0.3, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, mu*(1 - 2*f) + delta))), cex = labelsize)
+text(0.3, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
 Arrows(0.3, 0.22, 0.3, 0.28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # text(0.85, 0.7, expression(paste("A's Best Response")), cex = labelsize)
 # text(0.85, 0.65, expression(paste("function")), cex = labelsize)
-# text(0.85, 0.58, expression(paste("Slope ", phantom() == frac(1, 2*mu))), cex = labelsize)
+# text(0.85, 0.58, expression(paste("Slope ", phantom() == frac(1, 2*q))), cex = labelsize)
 # Arrows(0.85, 0.73, 0.85, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

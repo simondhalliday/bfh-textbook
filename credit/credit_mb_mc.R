@@ -14,8 +14,8 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 
 par(mar =  c(5, 6, 4, 2))
 
-mc <- function(f, mu = 2) {
-  -mu + 2*mu*f
+mc <- function(f, q = 2) {
+  -q + 2*q*f
 }
 
 
@@ -43,7 +43,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(-2, 0, mc(f = 0.65), mc(f = 0.85), 2, ylims[2])
-ylabels <- c(expression(paste(-mu)), 0, expression(paste(delta^L)), expression(paste(delta^N)), expression(paste(mu)), NA)
+ylabels <- c(expression(paste(-q)), 0, expression(paste(delta^L)), expression(paste(delta^N)), expression(paste(q)), NA)
 ticksx <- c(0, 0.5, 0.65, 0.85, 1, xlims[2])
 xlabels <- c(NA, 0.5, expression(paste(f*(delta^{L}) )), expression(paste(f*(delta^{N}) )), 1.0, NA)
 
@@ -54,21 +54,21 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Lines for mrs graph
-lines(xx1, mc(xx1, mu = 2), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, mrpL(xx1, pmax = 15), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.12, 0.5*(ylims[2] + ylims[1]), expression(paste("Quality of project, ", mu )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.12, 0.5*(ylims[2] + ylims[1]), expression(paste("Quality of project, ", q )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -2.2, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 #Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.92, 2.4, expression(paste(mc == -mu*(1 - 2*f) )), cex = labelsize)
+text(0.92, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
 text(0.25, 1.6, expression(paste(mb^N == delta^N )), cex = labelsize)
 text(0.25, 0.8, expression(paste(mb^L == delta^L )), cex = labelsize)
-#text(19, 5, expression(paste(mu[1] == frac(w[1],e))), cex = labelsize)
+#text(19, 5, expression(paste(q[1] == frac(w[1],e))), cex = labelsize)
 #text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
 #text(16, 12, expression(paste("of labor")), cex = labelsize)
 #Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 0.1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 0.1)
 ticksy <- c(ylims[1], HWealthQ(n = 0.3), 5, LWealthQ(n = 0.3), ylims[2])
-ylabels <- c(NA, expression(paste(mu^k*(n^0))), expression(paste(mu,"*")), expression(paste(mu^0*(n^0))), NA)
+ylabels <- c(NA, expression(paste(q^k*(n^0))), expression(paste(q,"*")), expression(paste(q^0*(n^0))), NA)
 ticksx <- c(xlims[1], 0.3, 0.5, xlims[2])
 xlabels <- c(NA, expression(paste(n^{0})),expression(paste(n,"*")), NA)
 ticksy2 <- c(ylims[1], ylims[2])
@@ -75,7 +75,7 @@ lines(xx1, HWealthQ(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Proportion of low wealth projects funded, ", n)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.13, 0.5*(ylims[2]), expression(paste("Quality of project, ", mu)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.13, 0.5*(ylims[2]), expression(paste("Quality of project, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0.3, 0, 0.3, LWealthQ(n = 0.3), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -126,7 +126,7 @@ text(0.3 + 0.02, HWealthQ(n = 0.3) - 0.35, expression(paste(b)), cex = labelsize
 # 
 # text(1.75, 0.5, expression(paste("BRF for borrower")), cex = labelsize)
 # text(1.75, 0.45, expression(paste("with more than")), cex = labelsize)
-# text(1.75, 0.4, expression(paste("minimum collateral")), cex = labelsize)
+# text(1.75, 0.4, expression(paste("miniqm collateral")), cex = labelsize)
 # text(1.75, 0.35, expression(paste(f(delta, k > k^0))), cex = labelsize)
 # Arrows(1.75, 0.53, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
@@ -136,11 +136,11 @@ text(0.3 + 0.02, HWealthQ(n = 0.3) - 0.35, expression(paste(b)), cex = labelsize
 # text(0.3, 0.3, expression(paste("condition")), cex = labelsize)
 # text(0.3, 0.35, expression(paste(pi == 1 + rho)), cex = labelsize)
 
-#text(0.62, 0.9, expression(paste(f == frac(1,2) + frac(delta, 2*mu))), cex = labelsize)
+#text(0.62, 0.9, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
 
 # text(0.62, 0.4, expression(paste("A's participation")), cex = labelsize)
 # text(0.62, 0.35, expression(paste("constraint")), cex = labelsize)
-# text(0.62, 0.35, expression(paste(f == frac(delta, mu))), cex = labelsize)
+# text(0.62, 0.35, expression(paste(f == frac(delta, q))), cex = labelsize)
 
 
 

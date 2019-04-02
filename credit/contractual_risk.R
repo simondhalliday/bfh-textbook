@@ -18,8 +18,8 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 4, 4))
 
-PCFn <- function(delta, mu = 0.5) {
-  delta/mu
+PCFn <- function(delta, q = 0.5) {
+  delta/q
 }
 
 isoreturnFn <- function(delta, pi=0.125) {
@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], isoreturnFn(delta= 0.25), ylims[2])
 ylabels <- c(NA, expression(paste(f,"*", phantom()==frac(1,2))), NA)
 ticksx <- c(xlims[1], 0.25, xlims[2])
-xlabels <- c(NA, expression(paste(delta,"*", phantom()==frac(mu, 4))), NA)
+xlabels <- c(NA, expression(paste(delta,"*", phantom()==frac(q, 4))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -111,7 +111,7 @@ text(-0.08, 0.5*(ylims[2]), expression(paste("Risk, ", f)), xpd = TRUE, cex = ax
 
 #Label participation constraint
 text(0.34, 0.97, expression(paste("Borrower's Participation Constraint")), cex = labelsize)
-text(0.34, 0.89, expression(paste(f == frac(delta, mu))), cex = labelsize)
+text(0.34, 0.89, expression(paste(f == frac(delta, q))), cex = labelsize)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Iso-profit curves")), cex = labelsize)

@@ -4,8 +4,8 @@ pdf(file = "credit/credit_mb_mc.pdf", width = 7, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -18,15 +18,12 @@ mc <- function(f, q = 2) {
   -q + 2*q*f
 }
 
-
 xlims <- c(0, 1.15)
 ylims <- c(0, 3)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(46.08, 55, 64)
-b <- c(46.08, 55, 64)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -55,32 +52,16 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Lines for mrs graph
 lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
-#lines(xx1, mrpL(xx1, pmax = 15), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
 text(-0.12, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest factor, ", delta )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -2.2, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
-#Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-
 text(0.95, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
 text(0.25, 2.1, expression(paste(mb == q, phantom() == delta )), cex = labelsize)
 text(0.25, 1.5, expression(paste(mb^N == delta^N )), cex = labelsize)
 text(0.25, 0.7, expression(paste(mb^L == delta^L )), cex = labelsize)
-#text(19, 5, expression(paste(q[1] == frac(w[1],e))), cex = labelsize)
-#text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
-#text(16, 12, expression(paste("of labor")), cex = labelsize)
-#Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
-
-text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize)
-text(11, 12.3, expression(paste("marginal")), cex = labelsize)
-text(11, 11.7, expression(paste("benefit")), cex = labelsize)
-Arrows(11, 11.3, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 segments(0.65, 0, 0.65, mc(f = 0.65), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, mc(f = 0.65), xlims[2], mc(f = 0.65), lty = 1, col = COLB[4] , lwd = segmentlinewidth)

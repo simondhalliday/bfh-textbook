@@ -8,8 +8,8 @@ pdf(file = "credit/non_contractual_brf.pdf", width = 8, height = 6)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -125,12 +125,12 @@ text(0.2, 1.01, expression(paste(y[1] == y^L)), cex = labelsize)
 text(0.2, 0.87, expression(paste(y[2] == y^{NE})), cex = labelsize)
 text(0.2, 0.77, expression(paste(y[3] == y^H)), cex = labelsize)
 text(0.3, 0.2, expression(Slope), cex = labelsize)
-text(0.3, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, mu*(1 - 2*f) + delta))), cex = labelsize)
+text(0.3, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
 Arrows(0.3, 0.22, 0.3, 0.28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.85, 0.7, expression(paste("A's Best Response")), cex = labelsize)
 text(0.85, 0.65, expression(paste("function")), cex = labelsize)
-text(0.85, 0.58, expression(paste("Slope ", phantom() == frac(1, 2*mu))), cex = labelsize)
+text(0.85, 0.58, expression(paste("Slope ", phantom() == frac(1, 2*q))), cex = labelsize)
 Arrows(0.85, 0.73, 0.85, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

@@ -115,7 +115,7 @@ points(4, 12, pch = 16, col = "black", cex = 1.5)
 text(4, 12.75, expression(a))
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 7 + x)), cex = labelsize)
+text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
 text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -149,7 +149,7 @@ text(1.3, 11, expression(paste("Tax Revenue, ", R==t%.%x[t])))
 #text(4.5, 14.5, expression(paste(DWL==frac(1,2)*bgroup("(",12 - 10,")")*bgroup("(",5 - 4,")"), phantom()== 1)))
 Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
-text(6.6, 12.7, expression(paste("Tax" == 2)), cex = labelsize)
+text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
 
 # Label CS
 text(1.2, 14, expression(paste("Consumer Surplus")))

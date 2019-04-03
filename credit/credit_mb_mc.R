@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 6, 4, 2))
+par(mar =  c(5, 5, 1, 1))
 
 mc <- function(f, q = 2) {
   -q + 2*q*f
@@ -20,7 +20,7 @@ mc <- function(f, q = 2) {
 
 
 xlims <- c(0, 1.15)
-ylims <- c(-2.5, 3)
+ylims <- c(0, 3)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -43,7 +43,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(-2, 0, mc(f = 0.65), mc(f = 0.85), 2, ylims[2])
-ylabels <- c(expression(paste(-q)), 0, expression(paste(delta^L)), expression(paste(delta^N)), expression(paste(q)), NA)
+ylabels <- c(expression(paste(-q)), 0, expression(paste(delta^L)), expression(paste(delta^N)), expression(paste(delta == q)), NA)
 ticksx <- c(0, 0.5, 0.65, 0.85, 1, xlims[2])
 xlabels <- c(NA, 0.5, expression(paste(f*(delta^{L}) )), expression(paste(f*(delta^{N}) )), 1.0, NA)
 
@@ -59,15 +59,15 @@ lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.12, 0.5*(ylims[2] + ylims[1]), expression(paste("Quality of project, ", q )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.12, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest factor, ", delta )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -2.2, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 #Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.92, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
-text(0.25, 1.6, expression(paste(mb^N == delta^N )), cex = labelsize)
-text(0.25, 0.8, expression(paste(mb^L == delta^L )), cex = labelsize)
+text(0.95, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.25, 1.5, expression(paste(mb^N == delta^N )), cex = labelsize)
+text(0.25, 0.7, expression(paste(mb^L == delta^L )), cex = labelsize)
 #text(19, 5, expression(paste(q[1] == frac(w[1],e))), cex = labelsize)
 #text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
 #text(16, 12, expression(paste("of labor")), cex = labelsize)

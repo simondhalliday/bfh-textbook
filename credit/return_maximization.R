@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], return(f= 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(r,"*")), NA)
+ylabels <- c(NA, expression(paste(y,"*")), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(NA, expression(paste(f,"*")), NA)
 
@@ -91,7 +91,7 @@ lines(xx1, return(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Risk, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.08, 0.5*(ylims[2]), expression(paste("Net return, ", r)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.08, 0.5*(ylims[2]), expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 

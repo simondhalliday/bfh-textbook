@@ -66,6 +66,7 @@ text(0.5*(xlims[2]), -2.2, expression(paste("Speed of the machine, ", f)), xpd =
 
 
 text(0.95, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.25, 2.1, expression(paste(mb == q, phantom() == delta )), cex = labelsize)
 text(0.25, 1.5, expression(paste(mb^N == delta^N )), cex = labelsize)
 text(0.25, 0.7, expression(paste(mb^L == delta^L )), cex = labelsize)
 #text(19, 5, expression(paste(q[1] == frac(w[1],e))), cex = labelsize)
@@ -81,12 +82,12 @@ text(11, 12.3, expression(paste("marginal")), cex = labelsize)
 text(11, 11.7, expression(paste("benefit")), cex = labelsize)
 Arrows(11, 11.3, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-segments(0.65, 0, 0.65, mc(f = 0.65), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(0, mc(f = 0.65), 0.65, mc(f = 0.65), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(0.85, 0, 0.85, mc(f = 0.85), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(0, mc(f = 0.85), 0.85, mc(f = 0.85), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(1, 0, 1, mc(f = 1), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(0, mc(f = 1), 1, mc(f = 1), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+segments(0.65, 0, 0.65, mc(f = 0.65), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, mc(f = 0.65), xlims[2], mc(f = 0.65), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+segments(0.85, 0, 0.85, mc(f = 0.85), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, mc(f = 0.85), xlims[2], mc(f = 0.85), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+segments(1, 0, 1, mc(f = 1), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, mc(f = 1), xlims[2], mc(f = 1), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
 
 points(1, mc(1), pch = 16, col = "black", cex = 1.5)
 points(0.85, mc(0.85), pch = 16, col = "black", cex = 1.5)
@@ -95,20 +96,5 @@ points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
 text(1 + 0.025, mc(1) - 0.05, expression(paste(c)), cex = labelsize)
 text(0.85 + 0.025, mc(0.85)- 0.05, expression(paste(n)), cex = labelsize)
 text(0.65 + 0.025, mc(0.65)- 0.05, expression(paste(b)), cex = labelsize)
-
-
-
-# text(80, 12.5, expression(paste("Excess Supply at ", p^H)), cex = labelsize)
-# 
-# Arrows(62, 5.5, 82, 5.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(72, 4.75, expression(paste("Excess")), cex = labelsize)
-# text(72, 3.75, expression(paste("Demand")), cex = labelsize)
-# text(72, 2.75, expression(paste("at ", p^L)), cex = labelsize)
-
-
-
-#Label Demand
-text(13, 1, expression(paste(mb[1])), cex = labelsize)
-text(19.5, 1, expression(paste(mb[2])), cex = labelsize)
 
 dev.off()

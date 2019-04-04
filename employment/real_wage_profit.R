@@ -1,28 +1,11 @@
 # TO DO
 
-# at the right a bracket for the distance from the upper dashed line 
-# to the x axis "output per worker"  then within that a bottom bracket 
-# "real wage"  and above the blue line "profit per worker hour"  
-
-# DONE the vertical axis should be "Real wage, w, and labor productivity" 
-
-# DONE Output per worker is now gamma, not q, 
-
-# DONE Blue line should be labeled "Competition condition"
-
-# DONE its Y intercept should be w^c
-
-# The txt next to the arrow above the line should be : If the w>w^c  
-#        profits will be insufficient and firms will leave
-
-# DONE Below the line If w<w^c new firms will be able to make 
-#        economic profits and the number of firms will grow
-
-
+# MAKE BRACKET NORMAL SIZED
 
 require(ggplot2)
 require(shape)
 require(plotrix)
+library(pBrackets)
 pdf(file = "employment/real_wage_profit.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -40,7 +23,7 @@ WageFn <- function(H, delta = 5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 par(mar =  c(5, 5, 4, 2))
-xlims <- c(0, 1.2)
+xlims <- c(0, 1.5)
 ylims <- c(0, 40)
 
 
@@ -112,8 +95,8 @@ Arrows(0.4, 25, 0.15, 25, col = "black", lty = 1, lwd = 2, arr.type = "triangle"
 
 
 #Zero profit condition 
-segments(0, 20, xlims[2], 20, lty = 1, lwd = 2, col = COLB[2])
-segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[2])
+segments(0, 20, xlims[2] - 0.2, 20, lty = 1, lwd = 2, col = COLB[2])
+segments(0, 30, xlims[2] - 0.2, 30, lty = 2, lwd = 2, col = COLA[2])
 # segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Unemployment benefits & a
@@ -126,6 +109,16 @@ segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[2])
 # text(0.97, 3.5, expression(paste(b, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
+brackets(x1 = 1.3, y1 = 29.9, x2 = 1.3, y2 = 0.1,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+brackets(x1 = 1.3, y1 = 20.1, x2 = 1.3, y2 = 29.9,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+brackets(x1 = 1.3, y1 = 0.1, x2 = 1.3, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+
+text(1.1, 15, expression(paste("Output per Worker")))
+text(1, 10, expression(paste("Real Wage")))
+text(1, 25, expression(paste("Proft per Worker Hour")))
 
 
 dev.off()

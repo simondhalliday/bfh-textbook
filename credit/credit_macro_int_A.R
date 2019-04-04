@@ -54,7 +54,9 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-
+text(-4.5, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest Rate, Profit Rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]) - 12.5, -2.5, expression(paste("Firm A")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]) + 12.5, -2.5, expression(paste("Firm B")), xpd = TRUE, cex = axislabelsize) 
 
 
 # I_A RECT
@@ -81,5 +83,12 @@ rect(40, 0, 43, 10.5,
 # Segments
 segments(0, 10, xlims[2], 10, col = "gray", lty = 2, lwd = segmentlinewidth)
 segments(0, 25, xlims[2], 25, col = "gray", lty = 2, lwd = segmentlinewidth)
+
+# Labels
+
+text(11.25, 29, expression(paste("Expected Profit Rate")), cex = labelsize)
+text(8, 27.5, expression(paste("Project 1")), cex = labelsize)
+text(18, 22.5, expression(paste("Project 2")), cex = labelsize)
+text(21, 5, expression(paste("Project 3")), cex = labelsize)
 
 dev.off()

@@ -44,8 +44,8 @@ ylabels <- c(NA, expression(paste("1 %")), expression(paste("2 %")), expression(
 ticksx <- c(0, xlims[2])
 ticksx2 <- c(0, 20)
 ticksx3 <- c(25, 45)
-xlabels1 <- c(0, expression(paste(I[A])))
-xlabels2 <- c(0, expression(paste(I[B])))
+xlabels1 <- c(NA, expression(paste(I[A])))
+xlabels2 <- c(NA, expression(paste(I[B])))
 
 axis(1, at = ticksx2, pos = 0, labels = xlabels1)
 axis(1, at = ticksx3, pos = 0, labels = xlabels2)
@@ -84,11 +84,19 @@ rect(40, 0, 43, 10.5,
 segments(0, 10, xlims[2], 10, col = "gray", lty = 2, lwd = segmentlinewidth)
 segments(0, 25, xlims[2], 25, col = "gray", lty = 2, lwd = segmentlinewidth)
 
-# Labels
+# Labels --- Fig A
 
 text(11.25, 29, expression(paste("Expected Profit Rate")), cex = labelsize)
 text(8, 27.5, expression(paste("Project 1")), cex = labelsize)
 text(18, 22.5, expression(paste("Project 2")), cex = labelsize)
-text(21, 5, expression(paste("Project 3")), cex = labelsize)
+text(18, 6, expression(paste("Project 3")), cex = labelsize)
+
+# Labels --- Fig B
+
+text(36.22, 20, expression(paste("Expected Profit Rate")), cex = labelsize)
+text(33, 18.5, expression(paste("Project 1")), cex = labelsize)
+text(42.6, 15, expression(paste("Project 2")), cex = labelsize)
+text(42.6, 11.5, expression(paste("Project 3")), cex = labelsize)
+
 
 dev.off()

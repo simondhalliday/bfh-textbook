@@ -100,27 +100,27 @@ segments(0, 0.6, 1, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 #Label areas A and B
-text(0.6, 0.5, expression(paste(A)), cex = labelsize)
+#text(0.6, 0.5, expression(paste(A)), cex = labelsize)
 
 # text(0.6, 0.2, expression(paste(B[1])), cex = labelsize)
-text(0.6, 0.2, expression(paste(B[1])), cex = labelsize)
-text(0.95, 0.2, expression(paste(B[2])), cex = labelsize)
-text(0.95, 0.7, expression(paste(B[3])), cex = labelsize)
+#text(0.6, 0.2, expression(paste(B[1])), cex = labelsize)
+#text(0.95, 0.2, expression(paste(B[2])), cex = labelsize)
+#text(0.95, 0.7, expression(paste(B[3])), cex = labelsize)
 
 
 # text(0.9, 0.7, expression(paste(B[3])), cex = labelsize)
 
 #Label and provide Gini value
 #Bottom of frame
-segments(0.08, 0.75, 0.32, 0.75, lty = 1, col = "black" , lwd = 1)
+#segments(0.08, 0.75, 0.32, 0.75, lty = 1, col = "black" , lwd = 1)
 #Top of frame
-segments(0.08, 0.85, 0.32, 0.85, lty = 1, col = "black" , lwd = 1)
+#segments(0.08, 0.85, 0.32, 0.85, lty = 1, col = "black" , lwd = 1)
 #Left of frame
-segments(0.08, 0.75, 0.08, 0.85, lty = 1, col = "black" , lwd = 1)
+#segments(0.08, 0.75, 0.08, 0.85, lty = 1, col = "black" , lwd = 1)
 #Right of frame
-segments(0.32, 0.75, 0.32, 0.85, lty = 1, col = "black" , lwd = 1)
+#segments(0.32, 0.75, 0.32, 0.85, lty = 1, col = "black" , lwd = 1)
 #Gini equation
-text(0.2, 0.8, expression(paste(Gini == frac(A, A + B), phantom() == 0.36 )), cex = labelsize)
+#text(0.2, 0.8, expression(paste(Gini == frac(A, A + B), phantom() == 0.36 )), cex = labelsize)
 
 
 brackets(x1 = 0.095, y1 = -0.07, x2 = 0, y2 = -0.07,  

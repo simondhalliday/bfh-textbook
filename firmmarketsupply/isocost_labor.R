@@ -75,11 +75,11 @@ text(-1.4, 0.5*ylims[2], expression(paste("Capital Goods Input (Horsepower)")), 
 
 
 # Label Isocost H
-text(12, 6, expression(paste("Isocost Curves")), cex = labelsize)
-text(12, 5, expression(paste("(Low Wage)")), cex = labelsize)
+text(12, 6, expression(paste("Isocost Curves")), cex = labelsize,)
+text(12, 5, expression(paste("(Low Wage)")), cex = labelsize, col = COLA[4])
 # Label Isocost L
 text(6, 12, expression(paste("Isocost Curves")), cex = labelsize)
-text(6, 11, expression(paste("(High Wage)")), cex = labelsize)
+text(6, 11, expression(paste("(High Wage)")), cex = labelsize, col = COLB[4])
 # Label Point 1 + 2
 points(2, 8, pch = 16, col = "black", cex = 1.5)
 text(2.5, 8.5, expression(f))

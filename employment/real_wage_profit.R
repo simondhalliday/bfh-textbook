@@ -114,7 +114,7 @@ brackets(x1 = 1.3, y1 = 29.9, x2 = 1.3, y2 = 0.1,  ticks = 0.5, curvature = 0.5,
 brackets(x1 = 1.3, y1 = 20.1, x2 = 1.3, y2 = 29.9,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 brackets(x1 = 1.3, y1 = 0.1, x2 = 1.3, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 
 text(1.1, 15, expression(paste("Output per Worker")))
 text(1, 10, expression(paste("Real Wage")))

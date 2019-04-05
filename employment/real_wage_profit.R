@@ -60,7 +60,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
-text(1.05, 21, expression(paste("Competition Condition")))
+text(1.05, 19, expression(paste("Competition Condition")))
 
 
 text(1.05, 31, expression(paste("Output per worker, ", gamma)))
@@ -70,18 +70,18 @@ text(1.05, 31, expression(paste("Output per worker, ", gamma)))
 
 #Arrow to Slope of BRF
 #Arrows(0.2, 19, 0.2, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.3, 18, expression(paste("If the ", w<w^c, " new firms will"  )))
-text(0.3, 16, expression(paste("be able to make economic")))
-text(0.3, 14, expression(paste("profits and the number of")))
-text(0.3, 12, expression(paste("firms will grow")))
+text(0.325, 18, expression(paste("If the ", w<w^c, " new firms will"  )))
+text(0.325, 16, expression(paste("be able to make economic")))
+text(0.325, 14, expression(paste("profits and the number of")))
+text(0.325, 12, expression(paste("firms will grow")))
 Arrows(0.55, 15, 0.8, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 
 # Arrows(0.6, 19, 0.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.65, 26, expression(paste("If the ", w>w^c,  " profits will")))
-text(0.65, 24, expression(paste("be insufficient and firms")))
-text(0.65, 22, expression(paste("will leave")))
+text(0.6, 26, expression(paste("If the ", w>w^c,  " profits will")))
+text(0.6, 24, expression(paste("be insufficient and firms")))
+text(0.6, 22, expression(paste("will leave")))
 Arrows(0.4, 25, 0.15, 25, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
@@ -109,16 +109,18 @@ segments(0, 30, xlims[2] - 0.2, 30, lty = 2, lwd = 2, col = COLA[2])
 # text(0.97, 3.5, expression(paste(b, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
-brackets(x1 = 1.3, y1 = 29.9, x2 = 1.3, y2 = 0.1,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+brackets(x1 = 1.31, y1 = 29.9, x2 = 1.31, y2 = 0.1,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 brackets(x1 = 1.3, y1 = 20.1, x2 = 1.3, y2 = 29.9,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 brackets(x1 = 1.3, y1 = 0.1, x2 = 1.3, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 
-text(1.1, 15, expression(paste("Output per Worker")))
-text(1, 10, expression(paste("Real Wage")))
-text(1, 25, expression(paste("Proft per Worker Hour")))
+text(1.45, 17, expression(paste("Output")))
+text(1.45, 15, expression(paste("per")))
+text(1.45, 13, expression(paste("worker")))
+text(1.1, 10, expression(paste("Real wage")))
+text(1.025, 25, expression(paste("Proft per worker hour")))
 
 
 dev.off()

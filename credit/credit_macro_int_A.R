@@ -61,28 +61,28 @@ text(0.5*(xlims[2]) + 12.5, -2.5, expression(paste("Firm B")), xpd = TRUE, cex =
 
 # I_A RECT
 rect(0, 0, 5, 29,
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 rect(5, 0, 15, 22.5,
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 rect(15, 0, 18, 5,
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 # I_B RECT
 rect(25, 0, 30, 20,
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 rect(30, 0, 40, 15,
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 rect(40, 0, 43, 10.5,
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 
 # Segments
-segments(0, 10, xlims[2], 10, col = "gray", lty = 2, lwd = segmentlinewidth)
-segments(0, 25, xlims[2], 25, col = "gray", lty = 2, lwd = segmentlinewidth)
+segments(0, 10, xlims[2], 10, col = "darkgray", lty = 2, lwd = segmentlinewidth)
+segments(0, 25, xlims[2], 25, col = "darkgray", lty = 2, lwd = segmentlinewidth)
 
 # Labels --- Fig A
 

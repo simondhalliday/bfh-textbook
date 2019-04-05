@@ -59,28 +59,28 @@ text(0.5*(xlims[2]), -2.5, expression(paste("Aggregate Economy: Both Firms")), x
 
 # I_A RECT
 rect(0, 0, 5, 29,
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 rect(5, 0, 15, 22.5,
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 rect(33, 0, 36, 5, # width = 3
-     col=COLA[2], border=TRUE, lty=1)
+     col=COLA[1], border=TRUE, lty=1)
 
 # I_B RECT
 rect(15, 0, 20, 20, # width = 5
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 rect(20, 0, 30, 15, # width = 10
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 rect(30, 0, 33, 10.5, # width = 3
-     col=COLB[2], border=TRUE, lty=1)
+     col=COLB[1], border=TRUE, lty=1)
 
 
 # Segments
-segments(0, 10, xlims[2], 10, col = "gray", lty = 2, lwd = segmentlinewidth)
-segments(0, 25, xlims[2], 25, col = "gray", lty = 2, lwd = segmentlinewidth)
+segments(0, 10, xlims[2], 10, col = "darkgray", lty = 2, lwd = segmentlinewidth)
+segments(0, 25, xlims[2], 25, col = "darkgray", lty = 2, lwd = segmentlinewidth)
 
 # Labels
 text(32, 17.5, expression(paste("Fall in Interest Rate")), cex = labelsize)

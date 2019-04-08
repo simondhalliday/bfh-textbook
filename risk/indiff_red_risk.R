@@ -27,6 +27,10 @@ indiffA <- function(x, ua = 2, slope = 1/12) {
   ua + slope*(x)^2
 }
 
+seg <- function(x, m, b){
+  m*x + b
+}
+  
 #Add limits on axes and levels of utility for each indifference curve
 ylims <- c(0, 40)
 xlims <- c(0, 25)
@@ -65,6 +69,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
+xx5 <- seq(3, 18, length.out = npts)
 
 
 lines(xx1, indiffA(xx1, ua = 2), col = COLB[4], lwd = graphlinewidth)
@@ -100,7 +105,8 @@ segments(0, indiffA(16, ua = 2), 16, indiffA(16, ua = 2), lty = 2, col = "gray",
 
 segments(16, 0, 16, indiffA(16, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
 
-segments(5, indiffA(5, ua = 16.2), 16, indiffA(16, ua = 2), lty = 2, col = COLA[2], lwd = segmentlinewidth)
+m <- (indiffA(16, ua = 2) - indiffA(5, ua = 16.2))/(16-5)
+lines(xx5, seg(x = xx5, m, b = 16), col = COLA[2], lty = 2, lwd = segmentlinewidth)
 
 # Points
 points(5, indiffA(5, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)

@@ -63,7 +63,7 @@ xx5 <- seq(xlims[1], 25, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Taxes paid and received, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Taxes paid, ", hat(T), ", and transfers received, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 lines(xx5, seg(m = 1, x = xx5, b = 0), col = COLA[4], lwd = graphlinewidth)
 
 # Segments

@@ -23,10 +23,6 @@ riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
   int1 - (int2 - (coeff)*g)^2
 }
 
-# uA <- function(omega, g, slope = 0.5){
-#   omega + omega*g  - slope*g^2
-# }
-
 indiffA <- function(g, intercept = 3, slope = 0.125){
   intercept  + slope*g^2
 }
@@ -54,10 +50,10 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ylabels <- seq(ylims[1], ylims[2], 3)
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
-ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12) ,ylims[2])
-ylabels <- c(NA, expression(paste(omega[i])), expression(paste(omega[max])), NA)
+ticksy <- c(0,  2, 5.6, 9, riskreturn(g = 5.6), riskreturn(g = 12) ,ylims[2])
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), expression(paste(c[3])), expression(paste(omega[i])), expression(paste(bar(omega) )), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[omega*max])), NA)
+xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[bar(omega) ])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)

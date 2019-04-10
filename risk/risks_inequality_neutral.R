@@ -9,8 +9,8 @@ pdf(file = "risk/risks_inequality_neutral.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -18,7 +18,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 10, 4, 4))
+par(mar =  c(5, 5, 2, 2))
 
 #Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
 
@@ -56,11 +56,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 12,  20, 25, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[Rawls])), expression(paste(Delta[max])), expression(paste(Delta, ""[Wealthiest], " "[Rich])), NA)
+xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), expression(paste(Delta^R)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(11), avgwealth(20), 28, ylims[2])
-ylabels <- c(NA, expression(paste(omega[1])), expression(paste(omega[2] == omega[max])), expression(paste(omega[3])), NA)
+ylabels <- c(NA, expression(paste(omega[1])), expression(paste(omega[2] == bar(omega) )), expression(paste(omega[3])), NA)
 #text(-1, avgwealth(8)+7, expression(paste(omega, ""[R],"'")), xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8)-7, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)
@@ -93,7 +93,7 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Inequality of Wealth, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-6, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.8, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -118,12 +118,12 @@ points(20, avgwealth(20), pch = 16, col = "black", cex = 1.5)
 segments(0, avgwealth(12), 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(12, 0, 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(12, avgwealth(12), pch = 16, col = "black", cex = 1.5)
-text(12, avgwealth(12) + 1, expression(paste(R)), cex = labelsize)
+text(12, avgwealth(12) + 1, expression(paste(P)), cex = labelsize)
 
 segments(0, avgwealth(25), 25, avgwealth(25), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(25, 0, 25, avgwealth(25), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(25, avgwealth(25), pch = 16, col = "black", cex = 1.5)
-text(25, avgwealth(25) + 1, expression(paste(W)), cex = labelsize)
+text(25, avgwealth(25) + 1, expression(paste(R)), cex = labelsize)
 
 
 # text(14.7, avgwealth(15)+1, expression(paste("e")), cex = labelsize)

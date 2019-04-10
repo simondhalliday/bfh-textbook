@@ -56,11 +56,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 12, 20, 25, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[Rawls])), expression(paste(Delta[max])), expression(paste(Delta, ""[Wealthiest], " "[Rich])), NA)
+xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), expression(paste(Delta^R)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(12), avgwealth(20), avgwealth(25), ylims[2])
-ylabels <- c(NA, expression(paste(omega[R])), expression(paste(omega[max])), expression(paste(omega[W])), NA)
+ylabels <- c(NA, expression(paste(omega^P)), expression(paste(bar(omega) )), expression(paste(omega^R)), NA)
 #text(-1, avgwealth(8)+7, expression(paste(omega, ""[R],"'")), xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8)-7, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)
@@ -100,7 +100,7 @@ text(-4, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, 
 segments(0, avgwealth(25), 25, avgwealth(25), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(25, 0, 25, avgwealth(25), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(25, avgwealth(25), pch = 16, col = "black", cex = 1.5)
-text(25, avgwealth(25) + 0.75, expression(paste(W)), cex = labelsize)
+text(25, avgwealth(25) + 0.75, expression(paste(R)), cex = labelsize)
 
 segments(0, avgwealth(20), 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(20, 0, 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -111,7 +111,7 @@ text(20, avgwealth(20) + 0.75, expression(paste(m)), cex = labelsize)
 segments(0, avgwealth(12), 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(12, 0, 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(12, avgwealth(12), pch = 16, col = "black", cex = 1.5)
-text(12, avgwealth(12) + 0.75, expression(paste(R)), cex = labelsize)
+text(12, avgwealth(12) + 0.75, expression(paste(P)), cex = labelsize)
 
 #Label relevant points on axes
 
@@ -126,9 +126,9 @@ text(12, avgwealth(12) + 0.75, expression(paste(R)), cex = labelsize)
 
 #label the three indifference curves
 
-text(20, indiffA(20)+3.355, expression(paste("v"[1])), xpd = TRUE, cex = labelsize)
-text(18, indiffA(18)+9.8, expression(paste("v"[2])),  xpd = TRUE, cex = labelsize)
-text(16, indiffA(16)+15.5, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
+# text(20, indiffA(20)+3.355, expression(paste("v"[1])), xpd = TRUE, cex = labelsize)
+# text(18, indiffA(18)+9.8, expression(paste("v"[2])),  xpd = TRUE, cex = labelsize)
+# text(16, indiffA(16)+15.5, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
@@ -136,9 +136,9 @@ text(33, avgwealth(30)+1, expression(paste("Average Wealth")), xpd = TRUE, cex =
 text(33, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
 text(33, avgwealth(30)-1, expression(paste(omega == g(Delta) )), xpd = TRUE, cex = labelsize)
 
-text(25, 38, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-text(25, 36.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)
-text(25, 35, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
+# text(25, 38, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
+# text(25, 36.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)
+# text(25, 35, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

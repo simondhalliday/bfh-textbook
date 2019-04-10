@@ -49,9 +49,9 @@ pointbx <- 10
 pointcx <- 25
 
 ticksy <- c(0, ConcaveU(2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(36), ylims[2])
-ylabels <- c(NA, expression(paste(u(y + delta[2]))), expression(paste(v(L^underline(p)))), expression(paste(v(L^{bar(p)}))), expression(paste(u(y + delta[1]))), NA)
+ylabels <- c(NA, expression(paste(u(y - delta[2]))), expression(paste(v(L^underline(p)))), expression(paste(v(L^{bar(p)}))), expression(paste(u(y + delta[1]))), NA)
 ticksx <- c(0, 2, pointbx, pointcx, 36, xlims[2])
-xlabels <- c(NA, expression(paste(y + delta[2])), expression(paste(y^underline(p))), expression(paste(y^bar(p))), expression(paste(y + delta[1])), NA)
+xlabels <- c(NA, expression(paste(y - delta[2])), expression(paste(y^underline(p))), expression(paste(y^bar(p))), expression(paste(y + delta[1])), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -64,7 +64,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Wealth, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-4.5, 0.5*ylims[2], expression(paste("The utility of wealth, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4.5, 0.5*ylims[2], expression(paste("Utility as a function of wealth, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #lines(xx1, ConcaveU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
@@ -95,7 +95,7 @@ points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
 text(pointbx, 28 , expression(paste("Low probability, ", underline(p),",")), cex = labelsize)
 text(pointbx, 26.5 , expression(paste("means a v(L) closer to bad")), cex = labelsize)
-text(pointbx, 25 , expression(paste("outcome utility ", u(y + delta[2]))), cex = labelsize)
+text(pointbx, 25 , expression(paste("outcome utility ", u(y - delta[2]))), cex = labelsize)
 Arrows(pointbx, 24, pointbx, 20.3, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(pointbx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("b")), cex = labelsize)
 segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)

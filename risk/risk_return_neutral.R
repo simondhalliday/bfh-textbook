@@ -55,9 +55,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12), 17, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[max] == c[2])), expression(paste(c[3])), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(c) == c[2],phantom() == bar(omega))), expression(paste(c[3])), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[omega*max])), NA)
+xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[bar(omega) ])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)

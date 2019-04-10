@@ -1,7 +1,7 @@
 require(ggplot2)
 require(shape)
 #library(RColorBrewer)
-#pdf(file = "risk/risks_low_very.pdf", width = 9, height = 7)
+pdf(file = "risk/risks_low_very.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 10, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 #Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
 
@@ -55,11 +55,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 5, 16, xlims[2])
-xlabels <- c(NA, expression(paste(Delta^"T")), expression(paste(Delta)), Delta)
+xlabels <- c(NA, expression(paste(Delta^T)), expression(paste(Delta^P)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], indiffA(5, ua = 16.2), indiffA(16, ua = 2), ylims[2])
-ylabels <- c(NA, expression(paste("y"^"T")), expression(paste("y")), expression(paste("y")))
+ylabels <- c(NA, expression(paste(y^T)), expression(paste(y^P)), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -78,13 +78,13 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.6, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 
-text(20, indiffA(20)+3.355, expression(paste("v"["-"])), xpd = TRUE, cex = labelsize)
-text(15, indiffA(18)+9.8, expression(paste("v"[0])),  xpd = TRUE, cex = labelsize)
-text(10, indiffA(16)+15.5, expression(paste("v"["+"])),  xpd = TRUE, cex = labelsize)
+text(20.5, indiffA(20)+3.355, expression(paste(v[1])), xpd = TRUE, cex = labelsize)
+text(16, indiffA(18)+9.8, expression(paste(v[2])),  xpd = TRUE, cex = labelsize)
+text(10.5, indiffA(16)+15.5, expression(paste(v[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
@@ -98,11 +98,8 @@ brackets(x1 = 17, y1 = indiffA(16, ua = 2), x2 = 17, y2 = indiffA(5, ua = 16.2),
 
 # Segments
 segments(5, 0, 5, indiffA(5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
-
 segments(0, indiffA(5, ua = 16.2), 16, indiffA(5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
-
 segments(0, indiffA(16, ua = 2), 16, indiffA(16, ua = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-
 segments(16, 0, 16, indiffA(16, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 m <- (indiffA(16, ua = 2) - indiffA(5, ua = 16.2))/(16-5)
@@ -119,8 +116,8 @@ points(16, indiffA(16, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE
 text(16.5, indiffA(16, ua = 16.2) - 0.5, expression(paste("a'")), xpd = TRUE, cex = labelsize)
 
 # Arrows
-arrows(14, -1, 7, -1, col = "black", code =2, xpd = TRUE, length = 0.1, lwd = 2)
-arrows(-1, indiffA(16, ua = 2) - 2, -1, indiffA(5, ua = 16.2) + 2, col = "black", code = 2, xpd = TRUE, length = 0.1, lwd = 2)
+Arrows(15.5, -1.8, 5.5, -1.8, col = "black", code =2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
+Arrows(-0.7, indiffA(16, ua = 2) - 1, -0.7, indiffA(5, ua = 16.2) + 1.5, col = "black", code = 2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
 
 
 dev.off()

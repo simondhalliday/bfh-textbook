@@ -4,7 +4,6 @@
 
 # TO DO
 # Add slope lines for each point
-# Figure out what is printing function (n, v - ... ) 
 
 library(shape)
 library(pBrackets)
@@ -52,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 ticksx <- c(xlims[1], xlims[2])
-xlabels <- c(NA, Delta)
+xlabels <- c(0, expression(paste(Delta)))
 
 ticksy <- c(ylims[1], 3, ylims[2])
 ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(paste("y")))
@@ -68,11 +67,18 @@ xx4 <- seq(-11, 0, length.out = npts)
 xx5 <- seq(3, 18, length.out = npts)
 
 
+# Shade above and below tax line
+polygon(c(0, xx1, xlims[2]), c(3, 0, indiffA(xx1, ua = 3, slope = 1/3)), border = FALSE, col = COLB[1])
+polygon(c(0, xx1, xlims[2]), c(0, indiffA(xx1, ua = 3, slope = 1/3), 0), border = FALSE, col = COLC[2])
+polygon(c(0, 0, 5), c(3, ylims[2], ylims[2]), border = FALSE, col = COLB[1])
+
+
 lines(xx1, indiffA(xx1, ua = 5), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, ua = 16.2), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
-lines(xx1, indiffA(xx1, ua = 3, slope = 1/3), col = COLA[2], lty = 2, lwd = graphlinewidth)
+lines(xx1, indiffA(xx1, ua = 3, slope = 1/3), col = COLA[4], lty = 2, lwd = graphlinewidth)
+
 # Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
@@ -91,12 +97,12 @@ text(3, 33.5, expression(paste("No Tax")), xpd = TRUE, cex = labelsize)
 text(18, 12, expression(paste("Prefer")), xpd = TRUE, cex = labelsize)
 text(18, 10.5, expression(paste(t > 0)), xpd = TRUE, cex = labelsize)
 
-text(9, indiffA(16)+14, expression(paste("No Tax")), xpd = TRUE, cex = labelsize)
-text(9, indiffA(16)+12.5, expression(paste("Curve")), xpd = TRUE, cex = labelsize)
+text(8, indiffA(16)+12, expression(paste("No Tax")), xpd = TRUE, cex = labelsize)
+text(8, indiffA(16)+10.5, expression(paste("Curve")), xpd = TRUE, cex = labelsize)
 
 # Segments
 
-segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "dark gray", lwd = segmentlinewidth)
 text(xlims[2] - 1, 3, expression(paste(Delta)), xpd = TRUE, cex = labelsize)
 
 # Points

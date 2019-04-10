@@ -45,8 +45,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksx <- c(xlims[1], 15, xlims[2])
-xlabels <- c(NA, expression(paste(underline(y)(1 -  phi))), expression(paste("y")))
+ticksx <- c(xlims[1], 7.5, 15, 22.5, xlims[2])
+xlabels <- c(NA, expression(paste(y[L])), expression(paste(underline(y)(1 -  phi))), expression(paste(y[H])), NA)
 
 ticksy <- c(ylims[1], 15, ylims[2])
 ylabels <- c(NA, NA, NA)
@@ -70,18 +70,27 @@ lines(xx5, seg(m = 1, x = xx5, b = 0), col = COLA[4], lwd = graphlinewidth)
 segments(15, 0, 15, 15, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, 15, 25, 15, lty = 1, col = COLB[4], lwd = graphlinewidth)
 
+segments(0, 7.5, 7.5, 7.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(7.5, 0, 7.5, 7.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+
+
+segments(0, 22.5, 22.5, 22.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(22.5, 0, 22.5, 22.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+
 
 # Points
 points(15, 15, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+points(7.5, 7.5, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+points(22.5, 22.5, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 
 # labels
 text(27, 27, expression(paste("Taxes")), xpd = TRUE, cex = labelsize)
 text(27, 25.5, expression(paste("Paid")), xpd = TRUE, cex = labelsize)
 text(27, 24, expression(paste("(ty)")), xpd = TRUE, cex = labelsize)
 
-text(27, 16.5, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
-text(27, 15, expression(paste("Received")), xpd = TRUE, cex = labelsize)
-text(27, 13.5, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
+text(27, 15, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
+text(27, 13.5, expression(paste("Received")), xpd = TRUE, cex = labelsize)
+text(27, 12, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

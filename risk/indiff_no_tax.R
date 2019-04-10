@@ -86,9 +86,9 @@ text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, c
 
 # Label the three indifference curves
 
-text(20, indiffA(20)+3.355, expression(paste("v"["-"])), xpd = TRUE, cex = labelsize)
-text(17, indiffA(18)+9.8, expression(paste("v"[0])),  xpd = TRUE, cex = labelsize)
-text(12, indiffA(16)+15.5, expression(paste("v"["+"])),  xpd = TRUE, cex = labelsize)
+text(20, indiffA(20)+3.355, expression(paste("v"[1])), xpd = TRUE, cex = labelsize)
+text(17, indiffA(18)+9.8, expression(paste("v"[2])),  xpd = TRUE, cex = labelsize)
+text(12, indiffA(16)+15.5, expression(paste("v"[3])),  xpd = TRUE, cex = labelsize)
 
 # Label average wealth curve and indifference curves generally
 

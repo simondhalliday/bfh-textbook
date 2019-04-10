@@ -2,9 +2,6 @@
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-# TO DO
-# Add slope lines for each point
-
 library(shape)
 library(pBrackets)
 pdf(file = "risk/indiff_no_tax.pdf", width = 10, height = 8)
@@ -62,9 +59,9 @@ axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
-xx3 <- seq(xlims[1], 0, length.out = npts)
-xx4 <- seq(-11, 0, length.out = npts)
-xx5 <- seq(3, 18, length.out = npts)
+xx3 <- seq(1, 5, length.out = npts)
+xx4 <- seq(5, 11, length.out = npts)
+xx5 <- seq(7, 13, length.out = npts)
 
 
 # Shade above and below tax line
@@ -78,6 +75,10 @@ lines(xx1, indiffA(xx1, ua = 16.2), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 lines(xx1, indiffA(xx1, ua = 3, slope = 1/3), col = COLA[4], lty = 2, lwd = graphlinewidth)
+
+lines(xx3, seg(x = xx3, m = 0.4714, b = 4.3), col = "dark grey", lty = 2, lwd = graphlinewidth)
+lines(xx4, seg(x = xx4, m = 1.21106, b = 11.79), col = "dark grey", lty = 2, lwd = graphlinewidth)
+lines(xx5, seg(x = xx5, m = 1.67995, b = 19.94), col = "dark grey", lty = 2, lwd = graphlinewidth)
 
 # Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
@@ -106,14 +107,14 @@ segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "dark gray", lwd = segmentlinewid
 text(xlims[2] - 1, 3, expression(paste(Delta)), xpd = TRUE, cex = labelsize)
 
 # Points
-points(2.8, indiffA(2.8, ua = 5), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+points(2.8284, indiffA(2.8, ua = 5), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(3.2, indiffA(2.8, ua = 5) - 0.5, expression(paste("f")), xpd = TRUE, cex = labelsize)
 
-points(7.25, indiffA(7.25, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(7.75, indiffA(7.25, ua = 16.2) - 0.5, expression(paste("g")), xpd = TRUE, cex = labelsize)
+points(7.26636, indiffA(7.26636, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(7.76636, indiffA(7.26636, ua = 16.2) - 0.5, expression(paste("g")), xpd = TRUE, cex = labelsize)
 
-points(10.1, indiffA(10.1, ua = 28.4), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(10.6, indiffA(10.1, ua = 28.4) - 0.5, expression(paste("h")), xpd = TRUE, cex = labelsize)
+points(10.0797, indiffA(10.0797, ua = 28.4), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(10.5797, indiffA(10.0797, ua = 28.4) - 0.5, expression(paste("h")), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

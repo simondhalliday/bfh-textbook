@@ -18,7 +18,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 10, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 #Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
 
@@ -28,7 +28,7 @@ indiffA <- function(x, ua = 2, slope = 1/12) {
 
 #Add limits on axes and levels of utility for each indifference curve
 ylims <- c(0, 40)
-xlims <- c(0, 25)
+xlims <- c(0, 22)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -72,19 +72,19 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 
-text(20, indiffA(20)+3.355, expression(paste("v"["-"])), xpd = TRUE, cex = labelsize)
-text(15, indiffA(18)+9.8, expression(paste("v"[0])),  xpd = TRUE, cex = labelsize)
-text(10, indiffA(16)+15.5, expression(paste("v"["+"])),  xpd = TRUE, cex = labelsize)
+text(20.5, indiffA(20)+3.355, expression(paste(v[1])), xpd = TRUE, cex = labelsize)
+text(16, indiffA(18)+9.8, expression(paste(v[2])),  xpd = TRUE, cex = labelsize)
+text(10.5, indiffA(16)+15.5, expression(paste(v[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
-text(23, 35, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-text(23, 33.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)
-text(23, 32, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
+# text(23, 35, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
+# text(23, 33.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)
+# text(23, 32, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
 
 # Asset Labels
 

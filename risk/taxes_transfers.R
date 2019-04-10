@@ -10,8 +10,8 @@ pdf(file = "risk/taxes_transfers.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 10, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 seg <- function(x, m, b){
   m*x + b
@@ -63,8 +63,7 @@ xx5 <- seq(xlims[1], 25, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-#text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
+text(-1.2, 0.5*ylims[2], expression(paste("Taxes paid and received, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 lines(xx5, seg(m = 1, x = xx5, b = 0), col = COLA[4], lwd = graphlinewidth)
 
 # Segments
@@ -81,7 +80,7 @@ text(27, 25.5, expression(paste("Paid")), xpd = TRUE, cex = labelsize)
 text(27, 24, expression(paste("(ty)")), xpd = TRUE, cex = labelsize)
 
 text(27, 16.5, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
-text(27, 15, expression(paste("Recieved")), xpd = TRUE, cex = labelsize)
+text(27, 15, expression(paste("Received")), xpd = TRUE, cex = labelsize)
 text(27, 13.5, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
 
 

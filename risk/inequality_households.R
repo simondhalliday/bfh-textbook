@@ -9,8 +9,8 @@ pdf(file = "risk/inequality_households.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -56,7 +56,7 @@ Arrows(9, 5, 32, 5,  col = COLB[5], lty = 1, lwd = 3, code = 3, arr.type = "tria
 
 draw.circle(5, 5, 3, nv = 1000, border = COLA[5], col = COLA[1], lty = 1, lwd = 3)
 text(5, 6, expression(paste(B)), xpd = TRUE, cex = labelsize)
-text(5, 4, expression(paste(y^B == 4)), xpd = TRUE, cex = labelsize)
+text(5, 4, expression(paste(y^B == 3)), xpd = TRUE, cex = labelsize)
 
 #Arrow between 4 and 10
 Arrows(6, 9, 16, 25,  col = COLB[5], lty = 1, lwd = 3, code = 3, arr.type = "triangle", arr.lwd = 0.5)
@@ -71,23 +71,23 @@ Arrows(24, 25, 34, 8,  col = COLB[5], lty = 1, lwd = 3, code = 3, arr.type = "tr
 #Difference between A and C
 text(33, 18, expression(paste(Delta^{AC} == phantom(), y^A - y^C == 8)), xpd = TRUE, cex = labelsize)
 #Difference between A and B
-text(7, 18, expression(paste(Delta^{AB} == phantom(), y^A - y^B == 6)), xpd = TRUE, cex = labelsize)
+text(7, 18, expression(paste(Delta^{AB} == phantom(), y^A - y^B == 7)), xpd = TRUE, cex = labelsize)
 #Difference between B and C
-text(20, 4, expression(paste(Delta^{BC} == phantom(), y^B - y^C == 2)), xpd = TRUE, cex = labelsize)
+text(20, 4, expression(paste(Delta^{BC} == phantom(), y^B - y^C == 1)), xpd = TRUE, cex = labelsize)
 
 
 
 #text(20, 16, expression(paste(Gini== bgroup("(", frac(Sigma*Delta^{ij}, (n^2 - n)/2),")")*bgroup("(",frac(1,bar(y)),")")*bgroup("(",frac(1,2),")"))), cex = labelsize)
-text(20, 14, expression(paste(Gini == bgroup("(", frac(16, 3),")")*bgroup("(",frac(1,16/3),")")*bgroup("(",frac(1,2),")"), phantom() == 0.5 )), cex = labelsize)
+#text(20, 14, expression(paste(Gini == bgroup("(", frac(16, 3),")")*bgroup("(",frac(1,16/3),")")*bgroup("(",frac(1,2),")"), phantom() == 0.5 )), cex = labelsize)
 
 #Bottom of frame
-segments(14, 12, 26, 12, lty = 1, col = "black" , lwd = 1)
-#Top of frame
-segments(14, 16, 26, 16, lty = 1, col = "black" , lwd = 1)
-#Left of frame
-segments(14, 12, 14, 16, lty = 1, col = "black" , lwd = 1)
-#Right of frame
-segments(26, 12, 26, 16, lty = 1, col = "black" , lwd = 1)
+# segments(14, 12, 26, 12, lty = 1, col = "black" , lwd = 1)
+# #Top of frame
+# segments(14, 16, 26, 16, lty = 1, col = "black" , lwd = 1)
+# #Left of frame
+# segments(14, 12, 14, 16, lty = 1, col = "black" , lwd = 1)
+# #Right of frame
+# segments(26, 12, 26, 16, lty = 1, col = "black" , lwd = 1)
 
 
 dev.off()

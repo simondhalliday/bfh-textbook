@@ -10,8 +10,8 @@ pdf(file = "risk/indiff_red_risk.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -54,11 +54,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksx <- c(xlims[1], 5, 16, xlims[2])
+ticksx <- c(xlims[1], 3.5, 16.6, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^T)), expression(paste(Delta^P)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
-ticksy <- c(ylims[1], indiffA(5, ua = 16.2), indiffA(16, ua = 2), ylims[2])
+ticksy <- c(ylims[1], indiffA(3.5, ua = 16.2), indiffA(16.6, ua = 2), ylims[2])
 ylabels <- c(NA, expression(paste(y^T)), expression(paste(y^P)), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
@@ -78,7 +78,7 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.6, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.6, 0.5*ylims[2], expression(paste("Average income, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 
@@ -88,36 +88,45 @@ text(10.5, indiffA(16)+15.5, expression(paste(v[3])),  xpd = TRUE, cex = labelsi
 
 #Label average wealth curve and indifference curves generally
 
-text(20, 22.5, expression(paste("Reduced")), xpd = TRUE, cex = labelsize)
-text(20, 21, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
-text(20, 19.5, expression(paste("Income")), xpd = TRUE, cex = labelsize)
+text(19, 22.5, expression(paste("Reduced")), xpd = TRUE, cex = labelsize)
+text(19, 21, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
+text(19, 19.5, expression(paste("Income")), xpd = TRUE, cex = labelsize)
 
 # Bracket
-brackets(x1 = 17, y1 = indiffA(16, ua = 2), x2 = 17, y2 = indiffA(5, ua = 16.2),  ticks = 0.5, curvature = 0.5, type = 1, 
+brackets(x1 = 17, y1 = indiffA(16.6, ua = 2), 
+         x2 = 17, y2 = indiffA(3.5, ua = 16.2),  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.5, xpd = TRUE)
 
 # Segments
-segments(5, 0, 5, indiffA(5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, indiffA(5, ua = 16.2), 16, indiffA(5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, indiffA(16, ua = 2), 16, indiffA(16, ua = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(16, 0, 16, indiffA(16, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(3.5, 0, 3.5, indiffA(3.5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, indiffA(3.5, ua = 16.2), 16.6, indiffA(3.5, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, indiffA(16.6, ua = 2), 16.6, indiffA(16.6, ua = 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(16.6, 0, 16.6, indiffA(16.6, ua = 16.2), lty = 2, col = "gray", lwd = segmentlinewidth)
 
-m <- (indiffA(16, ua = 2) - indiffA(5, ua = 16.2))/(16-5)
-lines(xx5, seg(x = xx5, m, b = 16), col = COLA[2], lty = 2, lwd = segmentlinewidth)
+#The tangent line to the higher indifference curve
+#m <- (indiffA(16, ua = 2) - indiffA(5, ua = 16.2))/(16 - 4.75)
+#This works for a lower b. 
+#lines(xx1, seg(x = xx1, m = 0.43, b = 15.5), col = COLA[2], lty = 2, lwd = segmentlinewidth)
+#Trying to find a higher b. 
+lines(xx1, seg(x = xx1, m = 0.6, b = 15), col = COLA[4], lty = 1, lwd = graphlinewidth)
 
 # Points
-points(5, indiffA(5, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(5.5, indiffA(5, ua = 16.2) - 0.5, expression(paste("b")), xpd = TRUE, cex = labelsize)
+points(3.5, indiffA(3.5, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(3.5 + 0.5, indiffA(3.5, ua = 16.2) - 0.5, expression(paste("b")), xpd = TRUE, cex = labelsize)
 
-points(16, indiffA(16, ua = 2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(16.5, indiffA(16, ua = 2) - 0.5, expression(paste("a")), xpd = TRUE, cex = labelsize)
+points(16.6, indiffA(16.6, ua = 2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(16.6 - 0.3, indiffA(16.6, ua = 2) + 0.5, expression(paste("a")), xpd = TRUE, cex = labelsize)
 
-points(16, indiffA(16, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(16.5, indiffA(16, ua = 16.2) - 0.5, expression(paste("a'")), xpd = TRUE, cex = labelsize)
+points(16.6, indiffA(16.6, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(16.6 + 0.5, indiffA(16.6, ua = 16.2) - 0.5, expression(paste("a'")), xpd = TRUE, cex = labelsize)
+
+
+text(22, 31, expression(paste("Tax and")), xpd = TRUE, cex = labelsize)
+text(22, 29.5, expression(paste("transfer line")), xpd = TRUE, cex = labelsize)
 
 # Arrows
-Arrows(15.5, -1.8, 5.5, -1.8, col = "black", code =2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
-Arrows(-0.7, indiffA(16, ua = 2) - 1, -0.7, indiffA(5, ua = 16.2) + 1.5, col = "black", code = 2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
+Arrows(16.2, -1.8, 4, -1.8, col = "black", code = 2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
+Arrows(-0.7, indiffA(16.6, ua = 2) - 1, -0.7, indiffA(3.5, ua = 16.2) + 1.5, col = "black", code = 2, xpd = TRUE, length = 0.1, lwd = 2, arr.type = "triangle")
 
 
 dev.off()

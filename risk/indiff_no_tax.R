@@ -84,13 +84,12 @@ lines(xx5, seg(x = xx5, m = 1.67995, b = 19.94), col = "dark grey", lty = 2, lwd
 
 # Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Average Wealth, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Average income, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Label the three indifference curves
-
-text(20, indiffA(20)+3.355, expression(paste("v"["-"])), xpd = TRUE, cex = labelsize)
-text(17, indiffA(18)+9.8, expression(paste("v"[0])),  xpd = TRUE, cex = labelsize)
-text(12, indiffA(16)+15.5, expression(paste("v"["+"])),  xpd = TRUE, cex = labelsize)
+text(20 + 0.7, indiffA(20)+0.855, expression(paste(v[1])), xpd = TRUE, cex = labelsize)
+text(17 + 0.2, indiffA(18)+7.3, expression(paste(v[2])),  xpd = TRUE, cex = labelsize)
+text(12 + 0.3, indiffA(16)+13, expression(paste(v[3])),  xpd = TRUE, cex = labelsize)
 
 # Label average wealth curve and indifference curves generally
 

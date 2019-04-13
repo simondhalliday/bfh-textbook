@@ -86,17 +86,18 @@ points(22.5, 22.5, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 # Brackets
 brackets(x1 = 6.5, y1 = 8, x2 = 6.5, y2 = 14.5,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.5, xpd = TRUE)
-brackets(x1 = 14, y1 = 15.5, x2 = 14, y2 = 22,  ticks = 0.5, curvature = 0.5, type = 1, 
+
+brackets(x1 = 23, y1 = 22, x2 = 23, y2 = 15.5,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.5, xpd = TRUE)
 
 # Labels
 text(4, 12.75, expression(paste("Taxes paid")), xpd = TRUE, cex = labelsize)
 text(4, 11.25, expression(paste("lower than")), xpd = TRUE, cex = labelsize)
-text(4, 9.75, expression(paste("tranfers")), xpd = TRUE, cex = labelsize)
+text(4, 9.75, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
 
-text(11.5, 12.75 + 7.5, expression(paste("Taxes paid")), xpd = TRUE, cex = labelsize)
-text(11.5, 11.25 + 7.5, expression(paste("higher than")), xpd = TRUE, cex = labelsize)
-text(11.5, 9.75 + 7.5, expression(paste("tranfers")), xpd = TRUE, cex = labelsize)
+text(25.5, 12.75 + 7.5, expression(paste("Taxes paid")), xpd = TRUE, cex = labelsize)
+text(25.5, 11.25 + 7.5, expression(paste("higher than")), xpd = TRUE, cex = labelsize)
+text(25.5, 9.75 + 7.5, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
 
 text(7.5, 8.5, expression(paste("a")), xpd = TRUE, cex = labelsize)
 text(15, 16, expression(paste("b")), xpd = TRUE, cex = labelsize)
@@ -106,9 +107,9 @@ text(27, 27, expression(paste("Taxes")), xpd = TRUE, cex = labelsize)
 text(27, 25.5, expression(paste("Paid")), xpd = TRUE, cex = labelsize)
 text(27, 24, expression(paste("(ty)")), xpd = TRUE, cex = labelsize)
 
-text(27, 15, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
-text(27, 13.5, expression(paste("Received")), xpd = TRUE, cex = labelsize)
-text(27, 12, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
+text(27, 14.5, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
+text(27, 13, expression(paste("Received")), xpd = TRUE, cex = labelsize)
+text(27, 11.5, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
 
 
 

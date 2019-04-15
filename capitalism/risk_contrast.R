@@ -59,8 +59,8 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 5.6, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(Delta[B])), NA)
-ticksy <- c(0, 4.4, 5.75, 7.1, riskreturn(5.6), riskreturn(7.5), riskreturn(g = 12), ylims[2])
-ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(w,"*")), expression(paste(bar(w)[B])), expression(paste(y[A])), expression(paste(y[B])), expression(paste(bar(Delta)^"max")), NA)
+ticksy <- c(0, 4.4, 7.1, riskreturn(5.6), riskreturn(7.5), riskreturn(g = 12), ylims[2])
+ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(bar(w)[B])), expression(paste(y[A])), expression(paste(y[B])), expression(paste(bar(Delta)^"max")), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -101,7 +101,7 @@ points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
 
 
 #Segment for next best wage offer
-segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
+#segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 

@@ -1,7 +1,7 @@
 
 require(shape)
 require(plotrix)
-pdf(file = "employment/employment_wage_macro_zpc.pdf", width = 9, height = 7)
+pdf(file = "capitalism/employment_wage_macro_zpc.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -54,7 +54,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(w^c)), expression(paste(gamma[0])), NA)
+ylabels <- c(0, expression(paste(bar(Delta))), expression(paste(gamma[0])), NA)
 ticksx <- c(0, 0.75, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -88,7 +88,7 @@ text(0.74, 21, expression(paste("n")))
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Competition condition ", w == w^c)))
+text(1.02, 21, expression(paste("Competition condition ", w == bar(Delta))))
 text(0.25, 23, expression(paste("Firms leaving")))
 text(0.25, 17, expression(paste("Firms entering")))
 text(0.25, 4, expression(paste("No production")))
@@ -110,4 +110,3 @@ Arrows(0.5, 12, 0.5, 18, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 dev.off()
-

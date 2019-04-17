@@ -1,8 +1,8 @@
-#Graph Designer: Simon Halliday + Scott Cohn
+# Graph Designer: Scott Cohn + Simon Halliday
 
 library(shape)
 library(pBrackets)
-pdf(file = "employment/lorenz_employment_numeric.pdf", width = 10, height = 8)
+pdf(file = "capitalism/lorenz_wage_effects.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -46,8 +46,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #Therefore Gini: 
 # (0.5 - ((0.5*(0.25*0.5)) + 0.25*0.5 + 0.5*(0.75*0.5)))/0.5 = 0.25
 
-ticksy <- c(ylims[1], 0.6, ylims[2])
-ylabels <- c(0, expression(paste(60)), 100)
+ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
+ylabels <- c(0, expression(paste(60)), expression(paste(76)), 100)
 ticksx <- c(xlims[1], 0.1, 0.9, xlims[2])
 xlabels <- c(NA,  10, 90,  100)
 ticksy2 <- c(0,1)
@@ -71,22 +71,27 @@ text(0.5*xlims[2], -0.22, expression(paste("Cumulative population, (%)")), xpd =
 
 #Shaded Areas A and B
 #Area A
-xpoly1 <- c(0, 0.1, 0.9, 1, 0)
-ypoly1 <- c(0, 0, 0.6, 1, 0)
-polygon(x = xpoly1,
-        y = ypoly1,
-        col = COLB[1], density = NULL, border = NA)
+#xpoly1 <- c(0, 0.1, 0.9, 1, 0)
+#ypoly1 <- c(0, 0, 0.6, 1, 0)
+#polygon(x = xpoly1,
+#        y = ypoly1,
+#        col = COLB[1], density = NULL, border = NA)
 #Area B
-xpoly2 <- c(0, 0.1, 1, 1, 0.9, 0.1)
-ypoly2 <- c(0, 0, 0, 1, 0.6, 0)
-polygon(x = xpoly2,
-        y = ypoly2,
-        col = COLA[1], density = NULL, border = NA)
+#xpoly2 <- c(0, 0.1, 1, 1, 0.9, 0.1)
+#ypoly2 <- c(0, 0, 0, 1, 0.6, 0)
+#polygon(x = xpoly2,
+#        y = ypoly2,
+#        col = COLA[1], density = NULL, border = NA)
 
 # Lorenz curve
 segments(0, 0, 0.1, 0, lty = 1, col = COLA[5], lwd = graphlinewidth)
-segments(0.1, 0, 0.9, 0.6, lty = 1, col = COLA[5], lwd = graphlinewidth)
-segments(0.9, 0.6, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
+
+segments(0.1, 0, 0.9, 0.76, lty = 1, col = COLA[5], lwd = graphlinewidth)
+segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
+
+segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[5], lwd = graphlinewidth)
+segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[5], lwd = graphlinewidth)
+
 text(0.8, 0.47, expression(paste("Lorenz")), cex = labelsize)
 text(0.8, 0.43, expression(paste("curve")), cex = labelsize)
 
@@ -96,7 +101,10 @@ text(0.8, 0.9, expression(paste("Line of")), cex = labelsize)
 text(0.8, 0.86, expression(paste("equality")), cex = labelsize)
 
 segments(0.9, 0, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 0.6, 1, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 0.6, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+
+segments(0.9, 0, 0.9, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 0.76, 0.9, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 #Label areas A and B
@@ -140,7 +148,7 @@ brackets(x1 = 1, y1 = -0.07, x2 = 0.905, y2 = -0.07,
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 text(0.9495, -0.14, expression(paste("owners")), xpd = TRUE)
 text(0.9495, -0.18, expression(paste(1 - (u + n) == 10)), xpd = TRUE)
- 
+
 # brackets(x1 = 1.01, y1 = 1, x2 = 1.01, y2 = 0.252,  
 #          ticks = 0.5, curvature = 0.5, type = 1, 
 #          col = "black", lwd = 2, lty = 1, xpd = TRUE)
@@ -149,4 +157,3 @@ text(0.9495, -0.18, expression(paste(1 - (u + n) == 10)), xpd = TRUE)
 
 
 dev.off()
-

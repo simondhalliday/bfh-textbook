@@ -23,8 +23,8 @@ riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
   int1 - (int2 - (coeff)*g)^2
 }
 
-uA <- function(omega, g, slope = 0.5){
-  omega + omega*g  - slope*g^2
+uA <- function(y, g, slope = 0.5){
+  y + y*g  - slope*g^2
 }
 
 indiffA <- function(g, intercept = 3, slope1 = 0.25, slope2 = 0.12){
@@ -59,25 +59,25 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 5.6, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(Delta[B])), NA)
-ticksy <- c(0, 4.4, 5.75, 7.1, riskreturn(5.6), riskreturn(7.5), ylims[2])
-ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(w,"*")), expression(paste(bar(w)[B])), expression(paste(omega[A])), expression(paste(omega[B])), NA)
+ticksy <- c(0, 4.4, 7.1, riskreturn(5.6), riskreturn(7.5), riskreturn(g = 12), ylims[2])
+ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(bar(w)[B])), expression(paste(y[A])), expression(paste(y[B])), expression(paste(bar(Delta)^"max")), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(omega, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA(xx1, intercept = 5.8), col = COLB[3], lwd = segmentlinewidth, lty = 2)
+#lines(xx1, indiffA(xx1, intercept = 5.8), col = COLB[3], lwd = segmentlinewidth, lty = 2)
 #lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA2(xx1, intercept = 7.1), col = COLB[5], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 5.8), col = COLB[5], lwd = segmentlinewidth, lty = 2)
+#lines(xx1, indiffA2(xx1, intercept = 5.8), col = COLB[5], lwd = segmentlinewidth, lty = 2)
 
 #lines(xx1, indiffA2(xx1, intercept = 10), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
@@ -93,8 +93,15 @@ segments(0, riskreturn(g = 7.5) , 7.5, riskreturn(g = 7.5) , lty = 2, col = "gra
 points(7.5, riskreturn(g = 7.5) , pch = 16, col = "black", cex = 1.5)
 text(7.5 + 0.25, riskreturn(g = 7.5) - 0.2, expression(b), cex = labelsize)
 
+
+segments(12, 0, 12, riskreturn(g = 12) , lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, riskreturn(g = 12) , 12, riskreturn(g = 12) , lty = 2, col = "gray", lwd = segmentlinewidth)
+text(12 + 0.25, riskreturn(g = 12) - 0.3, expression(c), cex = labelsize)
+points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
+
+
 #Segment for next best wage offer
-segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
+#segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 
@@ -104,10 +111,10 @@ segments(0, 5.75, xlims[2], 5.75, lty = 2, col = "gray", lwd = segmentlinewidth)
 text(14, riskreturn(g = 14) - 1, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
 
 #Label value functions
-text(13.2, 17, expression(u[1]^B), cex = labelsize)
-text(11.2, 17, expression(u[2]^B), cex = labelsize)
-text(9.6, 17, expression(u[1]^A), cex = labelsize)
-text(8.2, 17, expression(u[2]^A), cex = labelsize)
+#text(13.2, 17, expression(u[1]^B), cex = labelsize)
+text(12.7, 17, expression(u[2]), cex = labelsize)
+text(10.1, 17, expression(u[1]), cex = labelsize)
+#text(8.2, 17, expression(u[2]^A), cex = labelsize)
 
 
 dev.off()

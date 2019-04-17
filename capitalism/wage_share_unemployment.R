@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # (0.5 - ((0.5*(0.25*0.5)) + 0.25*0.5 + 0.5*(0.75*0.5)))/0.5 = 0.25
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
-ylabels <- c(0, expression(paste(60)), expression(paste(76)), 100)
+ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(1.0)))
 ticksx <- c(xlims[1], 0.78467, 0.83, xlims[2])
 xlabels <- c(50, 78, 83, 90)
 ticksy2 <- c(0,1)

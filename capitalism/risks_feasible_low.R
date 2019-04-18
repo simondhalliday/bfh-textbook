@@ -62,7 +62,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0, 15, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[B])), NA)
 ticksy <- c(0, 21, ylims[2])
-ylabels <- c(NA, expression(paste(omega[B])), NA)
+ylabels <- c(NA, expression(paste(y[B])), NA)
 
 
 
@@ -84,9 +84,9 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(29-1.5, avgwealth(29)-2, expression(paste(omega == g(Delta))), xpd = TRUE, cex = labelsize)
+text(29-1.5, avgwealth(29)-2, expression(paste(y == g(Delta))), xpd = TRUE, cex = labelsize)
 
 #Label various points on line
 
@@ -101,7 +101,7 @@ text(29-1.5, avgwealth(29)-2, expression(paste(omega == g(Delta))), xpd = TRUE, 
 # text(23.63, avgwealth(23.63)+1.1, expression(paste("c")), cex = labelsize)
 # points(23.63, avgwealth(23.63), pch = 16, col = "black", cex = 1.5)
 # 
-# text(20, avgwealth(20)+1, expression(paste(omega[max])), cex = labelsize)
+# text(20, avgwealth(20)+1, expression(paste(y[max])), cex = labelsize)
 # segments(20, 0, 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
 # points(20, avgwealth(20), pch = 16, col = "black", cex = 1.5)
 # 
@@ -141,11 +141,15 @@ text(30.2, 28, expression(paste(u[1])),  xpd = TRUE, cex = labelsize)
 
 # text(34, avgwealth(30)+1.5, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
 # text(34, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
-# text(34, avgwealth(30)-1.5, expression(paste(omega, " = (",Delta,") g")), xpd = TRUE, cex = labelsize)
+# text(34, avgwealth(30)-1.5, expression(paste(y, " = (",Delta,") g")), xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 text(15, 35, expression(paste("Low risk aversion")), xpd = TRUE, cex = labelsize)
 text(15, 33.2, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
+
+# label max
+points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
+text(20.5, 24.3, expression(paste("B'")), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

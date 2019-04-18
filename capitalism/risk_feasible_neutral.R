@@ -61,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0, 20, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[C])), NA)
 ticksy <- c(0, avgwealth(20), ylims[2])
-ylabels <- c(NA, expression(paste(omega[C])), NA)
+ylabels <- c(NA, expression(paste(bar(Delta))), NA)
 
 
 
@@ -83,10 +83,10 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(29-1.5, avgwealth(29)-2, expression(paste(omega == g(Delta))), xpd = TRUE, cex = labelsize)
+text(29-1.5, avgwealth(29)-2, expression(paste(y == g(Delta))), xpd = TRUE, cex = labelsize)
 
 #Label various points on line
 
@@ -112,6 +112,7 @@ text(29, avgwealth(20) - 6, expression(paste(u[1])),  xpd = TRUE, cex = labelsiz
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 text(20, 32, expression(paste("Risk neutral")), xpd = TRUE, cex = labelsize)
 text(20, 30.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
+
 
 
 dev.off()

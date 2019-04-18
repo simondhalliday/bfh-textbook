@@ -59,8 +59,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksx <- c(0, 15, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[B])), NA)
+ticksx <- c(0, 15, 19.72, xlims[2])
+xlabels <- c(NA, expression(paste(Delta[B])), expression(paste(bar(Delta))), NA)
 ticksy <- c(0, 21, ylims[2])
 ylabels <- c(NA, expression(paste(y[B])), NA)
 
@@ -148,6 +148,8 @@ text(15, 35, expression(paste("Low risk aversion")), xpd = TRUE, cex = labelsize
 text(15, 33.2, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
 
 # label max
+
+segments(19.72, 0, 19.72, 22.718, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
 text(20.5, 24.3, expression(paste("B'")), xpd = TRUE, cex = labelsize)
 

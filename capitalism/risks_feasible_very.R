@@ -55,8 +55,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksx <- c(xlims[1], 8, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[A])), NA)
+ticksx <- c(xlims[1], 8, 19.72, xlims[2])
+xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(bar(Delta))), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(8), ylims[2])
@@ -114,7 +114,7 @@ text(16, indiffA(16)+12.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize
 
 #Label average wealth curve and indifference curves generally
 
-text(23.5, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
+text(23.75, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
 text(23.5, avgwealth(30)+1, expression(paste("function")), xpd = TRUE, cex = labelsize)
 text(23.5, avgwealth(30)-1, expression(paste(y == g(Delta))), xpd = TRUE, cex = labelsize)
 
@@ -123,8 +123,12 @@ text(25, 33.5, expression(paste("High risk aversion")), xpd = TRUE, cex = labels
 text(25, 32, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
 
 # Label Max
+segments(19.72, 0, 19.72, 22.718, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
 text(20.5, 24.3, expression(paste("A'")), xpd = TRUE, cex = labelsize)
+
+
+
 
 
 dev.off()

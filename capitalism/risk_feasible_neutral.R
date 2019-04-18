@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 ticksx <- c(0, 20, xlims[2])
-xlabels <- c(NA, expression(paste(bar(Delta))), NA)
+xlabels <- c(NA, expression(paste(Delta[C] == bar(Delta))), NA)
 ticksy <- c(0, avgwealth(20), ylims[2])
 ylabels <- c(NA, expression(paste(y[C])), NA)
 

@@ -51,8 +51,8 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 2.5, 5, WageFn(0.8),  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t)), expression(paste(w[0])), NA)
+ticksy <- c(0, WageFn(0.8),  40)
+ylabels <- c(0, expression(paste(w[0])), NA)
 ticksx <- c(0, 0.8, 0.9, xlims[2])
 xlabels <- c(0, 80, 90, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -64,8 +64,8 @@ text(0.74, 35, expression(paste("Wage Curve ", w^N*(H))))
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.8, 0, 0.8, WageFn(0.8), lty = 2, lwd = 2, col = "darkgray")
 
-Arrows(0.85, 6, 0.85, WageFn(0.8) - 1, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle")
-text(0.99,  5 + 0.5*(WageFn(0.8) - 5), expression(paste("Employment Rent")))
+#Arrows(0.85, 6, 0.85, WageFn(0.8) - 1, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle")
+#text(0.99,  5 + 0.5*(WageFn(0.8) - 5), expression(paste("Employment Rent")))
 
 #Zero profit condition 
 segments(0, WageFn(0.8), 0.8, WageFn(0.8), lty = 1, lwd = graphlinewidth, col = COLB[3])
@@ -86,13 +86,13 @@ brackets(x1 = 0.895, y1 = -3.5, x2 = 0.805, y2 = -3.5,
 text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE)
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
+#segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
 text(0.98, WageFn(0.8) + 1, expression(paste("Profit curve, ", w == w[0])))
-text(0.97, 6, expression(paste(B + a/t)))
-text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
+#text(0.97, 6, expression(paste(B + a/t)))
+#text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

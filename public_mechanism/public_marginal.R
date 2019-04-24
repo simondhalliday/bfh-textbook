@@ -39,17 +39,17 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 4, 8, 12, ylims[2])
-ylabels <- c(NA, expression(paste(u[h^A1]^A)), expression(paste(u[h^A2]^A)), expression(paste(u[h^A3]^A)), NA)
-ticksx <- c(0, 4, 8, 12, xlims[2])
-xlabels <- c(NA, expression(paste(h[1]^A)), expression(paste(h[2]^A)), expression(paste(h[3]^A)), NA)
+ticksy <- c(0, 6, 10, ylims[2])
+ylabels <- c(NA, expression(paste(u[h^A1]^A)),  expression(paste(u[h^A3]^A)), NA)
+ticksx <- c(0, 6, 10, xlims[2])
+xlabels <- c(NA, expression(paste(a^BN)), expression(paste(a^"B*")), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 
-mtext(expression(paste("Aram's effort, ", h^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Aram's marginal utility and disutility, ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Amount Contributed, ", a^B)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.4, 0.5*ylims[2], expression(paste("Marginal utility and disutility, ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -61,9 +61,8 @@ lines(xx1, MCost(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, mrsA(xx2), col = "gray", lwd = graphlinewidth, lty = 2)
 
 
-segments(0, 12, xlims[2], 12, lty = 2, col =  COLB[3] , lwd = segmentlinewidth)
-segments(0, 8, xlims[2], 8, lty = 1, col = COLB[3] , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 2, col = COLB[3] , lwd = segmentlinewidth)
+segments(0, 10, xlims[2], 10, lty = 1, col = COLB[3] , lwd = segmentlinewidth)
+segments(0, 6, xlims[2], 6, lty = 1, col = COLB[3] , lwd = segmentlinewidth)
 
 # segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 # 
@@ -74,29 +73,29 @@ segments(0, 4, xlims[2], 4, lty = 2, col = COLB[3] , lwd = segmentlinewidth)
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 # text(9.5, 30, expression(paste("Slope at ", (list(e^A, y^A)) == (list(6, 28)), " is ", e^A == 6)))
 
-text(3, 8.5, expression(paste("Marginal Benefit, ", mb[2]^A== alpha(1 - beta*h^B))), cex = labelsize)
-text(2, 12.5, expression(paste(mb[3]^A == alpha, " when ", h^b == 0)), cex = labelsize)
-text(0.7, 4.5, expression(paste(mb[1]^A)), cex = labelsize)
-text(10.8, 13, expression(paste("Marginal Disutility", phantom() == a^i)), cex = labelsize)
+text(1.4, 10.5, expression(paste("Marginal Social")), cex = labelsize)
+text(0.7, 9.5, expression(paste("Benefit")), cex = labelsize)
+text(1.5, 6.5, expression(paste("Private Marginal")), cex = labelsize)
+text(0.7, 5.5, expression(paste("Benefit")), cex = labelsize)
+text(10.8, 13, expression(paste("Marginal Cost", phantom() == a^B)), cex = labelsize)
 
-Arrows(1.5, 9, 1.5, 11.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(3, 11, expression(paste(alpha, " increases, or ")), cex = labelsize)
-text(3, 10.5, expression(paste(h^B, " decreases")), cex = labelsize)
 
-Arrows(1.5, 7.5, 1.5, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(3, 5.5, expression(paste(alpha, " decreases, or ")), cex = labelsize)
-text(3, 5, expression(paste(h^B, " increases")), cex = labelsize)
+text(13.5, 10.5, expression(paste("n", phi)), cex = labelsize)
+text(13.5, 6.5, expression(paste(phi)), cex = labelsize)
+#Arrows(1.5, 9, 1.5, 11.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(3, 11, expression(paste(alpha, " increases, or ")), cex = labelsize)
+#text(3, 10.5, expression(paste(h^B, " decreases")), cex = labelsize)
 
-segments(8, 0, 8, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(8, 8, pch = 16, col = "black", cex = 1.5)
-text(8.25, 7.5, expression(paste(f)), cex = labelsize)
+#Arrows(1.5, 7.5, 1.5, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(3, 5.5, expression(paste(alpha, " decreases, or ")), cex = labelsize)
+#text(3, 5, expression(paste(h^B, " increases")), cex = labelsize)
 
-segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(12.25, 11.5, expression(paste(g)), cex = labelsize)
+segments(10, 0, 10, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(10, 10, pch = 16, col = "black", cex = 1.5)
+text(10.25, 9.5, expression(paste(g)), cex = labelsize)
 
-segments(4, 0, 4, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(4, 4, pch = 16, col = "black", cex = 1.5)
-text(4.25, 3.5, expression(paste(e)), cex = labelsize)
+segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(6, 6, pch = 16, col = "black", cex = 1.5)
+text(6.25, 5.5, expression(paste(e)), cex = labelsize)
 
 dev.off()

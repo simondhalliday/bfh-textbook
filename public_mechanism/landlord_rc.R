@@ -55,9 +55,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 9.83, ylims[2])
-ylabels <- c(NA, expression(paste(p[rc])), expression(paste(p[B])), NA)
-ticksx <- c(0, 28.226, 48.817, xlims[2])
-xlabels <- c(NA, expression(paste(Q^r)), expression(paste(Q^0)), NA)
+ylabels <- c(NA, expression(paste(p[R])), expression(paste(p[B])), NA)
+ticksx <- c(0, 28.226, 48.817, 48.817 +18.226, xlims[2])
+xlabels <- c(NA, expression(paste(X[R])), expression(paste(X[B])), expression(paste(X[E])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -68,22 +68,22 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Draw the polygon for landlord surplus
 xpoly1 <- c(0, 28.226, 0, 0)
 ypoly1 <- c(0.75, 6, 6, 0.75)
-polygon(x = xpoly1, y = ypoly1, col=COLB[1], density=NULL, border = NA)
+polygon(x = xpoly1, y = ypoly1, col=COLB[2], density=NULL, border = NA)
 
 #Draw the polygon for renter surplus
 xpoly2 <- c(0, 0, 28.226, 28.226)
-ypoly2 <- c(9.83, 20, 14.1196, 9.83)
-polygon(x = xpoly2, y = ypoly2, col=COLA[1], density=NULL, border = NA)
+ypoly2 <- c(6, 20, 14.1196, 6)
+polygon(x = xpoly2, y = ypoly2, col=COLA[2], density=NULL, border = NA)
 
 #Draw the polygon for renter loss
 xpoly3 <- c(28.226, 28.226, 48.817)
 ypoly3 <- c( 9.83, 14.1196, 9.83)
-polygon(x = xpoly3, y = ypoly3, col=COLC[3], density=NULL, border = NA)
+polygon(x = xpoly3, y = ypoly3, col=COLA[1], density=NULL, border = NA)
 
 #Draw the polygon for LL loss
 xpoly4 <- c(28.226, 28.226, 48.817)
 ypoly4 <- c(6, 9.83, 9.83)
-polygon(x = xpoly4, y = ypoly4, col=COLB[3], density=NULL, border = NA)
+polygon(x = xpoly4, y = ypoly4, col=COLB[1], density=NULL, border = NA)
 # CHANGE THIS COLOR
 
 text(12.5, 5.5, expression(paste("Landlord Surplus")), xpd = TRUE, cex = labelsize)
@@ -92,7 +92,7 @@ text(12.5, 5.5, expression(paste("Landlord Surplus")), xpd = TRUE, cex = labelsi
 text(12.5, 10.25, expression(paste("Renter's Surplus")), xpd = TRUE, cex = labelsize) 
 text(50, 13.5, expression(paste("Renter's Surplus Lost")), xpd = TRUE, cex = labelsize) 
 
-text(50, 5.5, expression(paste("Landlord Surplus Lost")), xpd = TRUE, cex = labelsize) 
+text(51, 5.5, expression(paste("Landlord Surplus Lost")), xpd = TRUE, cex = labelsize) 
 
 #Lines for mrs graph
 lines(xx1, Demand(xx1), col = COLA[4], lwd = graphlinewidth)
@@ -103,19 +103,22 @@ segments(0, 9.83, xlims[2], 9.83, lty = 2, "gray" , lwd = segmentlinewidth)
 segments(48.817, 0, 48.817, 9.83, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(48.817, 9.83, pch = 16, col = "black", cex = 1.5)
 
+segments(48.817 +18.226, 0, 48.817 +18.226, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
+
 segments(0, 6, xlims[2], 6, lty = 2, "gray" , lwd = segmentlinewidth)
 segments(28.226, 0, 28.226, 14.1196, lty = 2, "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Market output of the good, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(-10, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Market output of housing, ", X)), side=1, line = 2.5, cex = axislabelsize)
+text(-10, 0.5*ylims[2], expression(paste("Rental price per unit of housing, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)
 # text(52, 10.5, expression(M))
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(100, 10.25, expression("Price, Before"), cex = labelsize)
-text(100, 5.5, expression(paste("Rent Control Price")), cex = labelsize)
+text(100, 10.25, expression("Price before control"), cex = labelsize)
+text(100, 5.5, expression(paste("Rent control price")), cex = labelsize)
 
 text(100, 1.5, expression("Demand"), cex = labelsize)
 text(100, 17.5, expression("Supply"), cex = labelsize)

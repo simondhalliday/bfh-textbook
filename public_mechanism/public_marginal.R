@@ -48,8 +48,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 
-mtext(expression(paste("Aram's effort, ", h^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Aram's marginal utility and disutility, ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Bridget's contribution, ", a^B)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.4, 0.5*ylims[2], expression(paste("Bridget's marginal utility and disutility, ", u[a^B]^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

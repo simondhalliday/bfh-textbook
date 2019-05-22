@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/brf_indiffs_A.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/brf_indiffs_A/brf_indiffs_A_4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -85,15 +85,15 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, brfA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
 
 
-contour(y, x, 
-        outer(x, y, uA),
-        drawlabels = FALSE,
-        col = COLA[3],
-        lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE) 
+contour(y, x,
+       outer(x, y, uA),
+       drawlabels = FALSE,
+       col = COLA[3],
+       lwd = graphlinewidth,
+       levels = a,
+       xaxs="i",
+       yaxs="i",
+       add = TRUE)
 
 mtext(expression(paste("A's hours,", h^A)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.5, 9, expression(paste("B's hours,", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
@@ -127,8 +127,8 @@ text(12.1, 1, expression(paste(h^A*(h^B) == alpha(1 - beta*h^B) )))
 Arrows(13.9, 1, 15, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-# text(10.2, 17, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A], u[h^B]), phantom() == -frac(alpha*(1 - beta*e^B) - e^A, alpha*beta*e^A), phantom() == 0, " at maximum of ", u[1]^A)))
-# Arrows(6.3, 16.5, 6.3, 15.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(10.2, 17, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A], u[h^B]), phantom() == -frac(alpha*(1 - beta*e^B) - e^A, alpha*beta*e^A), phantom() == 0, " at maximum of ", u[1]^A)))
+Arrows(6.3, 16.5, 6.3, 15.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

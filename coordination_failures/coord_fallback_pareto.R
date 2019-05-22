@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_fallback_pareto.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_fallback_pareto/coord_fallback_pareto_4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -96,18 +96,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
+
 ticksy <- c(ylims[1], ylims[2])
 ylabels <- c(NA, NA)
 ticksx <- c(xlims[1], xlims[2])
 xlabels <- c(NA, NA)
-# ticksy <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-# ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
-# ticksx <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-# xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
 text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
@@ -132,34 +125,31 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 #Pareto-efficient curve line
 lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
 
-contour(y, x, 
+contour(y, x,
         outer(x, y, uA),
         drawlabels = FALSE,
         col = COLA[3],
         lwd = graphlinewidth,
-        levels = a, 
-        xaxs="i", 
-        yaxs="i", 
-        add = TRUE) 
+        levels = a,
+        xaxs="i",
+        yaxs="i",
+        add = TRUE)
 
 text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90)
 
-contour(x, y, 
+contour(x, y,
         outer(x, y, uB),
         drawlabels = FALSE,
         col = COLB[2],
         lwd = graphlinewidth,
-        levels = b, 
+        levels = b,
         add = TRUE
-) 
+)
 
 text(4, 10.2, expression("Pareto-efficient"))
 text(4, 9.6, expression("Curve"))
 Arrows(5.7, 10, 9.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#points(13.65, 13.65, pch = 16, col = "black", cex = 1.5)
-#text(13.65 + 0.3, 13.65 + 0.3, expression(z))
 
 
 text(11.1, 5.5, expression("Pareto-improving"))
@@ -170,8 +160,7 @@ Arrows(11.1, 5.8, 11.1, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "trian
 text(4.5, 0.8, expression(u[1]^A == u[z]^A))
 text(5.8, 0.8, expression(u[2]^A))
 text(6.5, 0.8, expression(u[3]^A))
-# text(5.2, 0.8, expression(u[4]^A))
-# text(9.2, 0.8, expression(u[5]^A))
+
 
 #Label the indifference curves for theB
 text(9.3, 19, expression(u[1]^B == u[z]^B))

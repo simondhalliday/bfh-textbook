@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_brfs_cournot/coord_brfs_cournot_6.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_brfs_cournot/coord_brfs_cournot.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

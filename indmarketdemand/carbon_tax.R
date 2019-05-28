@@ -37,8 +37,8 @@ bcA <- function(x, w, p) {
 
 
 
-xlims <- c(0, 12)
-ylims <- c(0, 20)
+xlims <- c(0, 13)
+ylims <- c(0, 26)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -60,10 +60,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 10.2, 15.65, 18.9 , ylims[2])
-ylabels <- c(NA, expression(paste(tbd[1])), expression(paste(tbd[2])), expression(paste(tbd[3])), NA)
-ticksx <- c(0, xlims[2])
-xlabels <- c(NA, NA)
+ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 15.65, 18.9, 23.5, 25, ylims[2])
+ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), expression(paste(m[2] == m[1])), expression(paste(y[3] == u[3])), expression(paste(u[1])), expression(paste(m[3])), expression(paste(u[2])), expression(paste(u[3])), NA)
+ticksx <- c(0, 6.533, 10.493, xlims[2])
+xlabels <- c(NA, expression(paste(x[2] == x[1])), expression(paste(x[3])), NA)
 
 
 
@@ -87,7 +87,7 @@ lines(xx1, bcA(xx1, w = 10.2, p = 0.418), col = COLB[3], lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Fossil fuels, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Quantity of life, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Quality of life, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 #text(11.8, 1.3, expression(u[1]), cex = labelsize)
@@ -109,21 +109,21 @@ text(-1.2, 0.5*ylims[2], expression(paste("Quantity of life, ", y)), xpd = TRUE,
 #        add = TRUE)
 
 #Segments for points on Offer curve
-#segments(0, 4, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(6, 0, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(0, 5.5, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(9, 0, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(0, 7.375, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 10.709, 6.553, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6.533, 0, 6.533, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 1.38, 6.553, 1.38, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(10.493, 0, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 5.784, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x
-#points(6, 4, pch = 16, col = "black", cex = 1.5)
-#points(9, 5.5, pch = 16, col = "black", cex = 1.5)
-#points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
+points(6.533, 10.709, pch = 16, col = "black", cex = 1.5)
+points(10.493, 5.784, pch = 16, col = "black", cex = 1.5)
+points(6.533, 1.38, pch = 16, col = "black", cex = 1.5)
 
-#text(6, 4.4, expression(paste(a)), cex = labelsize)
-#text(9, 5.9, expression(paste(b)), cex = labelsize)
-#text(10.5, 7.775, expression(paste(c)), cex = labelsize)
+text(6.553 + .5, 10.709 + .5, expression(paste(a)), cex = labelsize)
+text(10.493 + .5, 5.784 + .5, expression(paste(b)), cex = labelsize)
+text(6.45  + .5, 1.38 + .5, expression(paste(c)), cex = labelsize)
 
 dev.off()

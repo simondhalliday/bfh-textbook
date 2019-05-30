@@ -89,8 +89,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 12, 9.6, 16, 24, 26)
+#ylabels <- c(NA, NA, NA, NA, NA, NA)
 ylabels <- c(NA, expression(paste(1/2*beta)), expression(paste(h^{BN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 ticksx <- c(0, 12, 9.6, 16, 24, 26)
+#xlabels <- c(NA, NA, NA, NA, NA, NA)
 xlabels <- c(NA, expression(paste(1/2*beta)), expression(paste(h^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -99,11 +101,14 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
+# These
 lines(xx1, brfA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
+
 #lines(xx1, brfPEA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, brfPEB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 
+# These
 segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 

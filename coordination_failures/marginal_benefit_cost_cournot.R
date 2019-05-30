@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/marginal_benefit_cost_cournot.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/marginal_benefit_cost_cournot/marginal_benefit_cost_cournot.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -62,13 +62,6 @@ xx2 <- seq(4, 8, length.out = npts)
 lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
-#lines(xx1, indiffA(xx1, ua = 46.08), col = COLA[4], lwd = graphlinewidth)
-#lines(xx2, mrsA(xx2), col = "gray", lwd = graphlinewidth, lty = 2)
-
-
-#segments(0, 18, xlims[2], 18, lty = 2, col =  COLB[3] , lwd = segmentlinewidth)
-
-#segments(0, 6, xlims[2], 6, lty = 2, col = COLB[3] , lwd = segmentlinewidth)
 
 #For NE hours = 12
 segments(0, 12, 12, 12, lty = 2, col =  "gray", lwd = segmentlinewidth)
@@ -79,17 +72,11 @@ segments(0, MBenefit(15, eb = 0), 15, MBenefit(15, eb = 0), lty = 2, col = "gray
 segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
-#segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-# text(9.5, 30, expression(paste("Slope at ", (list(e^A, y^A)) == (list(6, 28)), " is ", e^A == 6)))
-
 text(10, 26, expression(paste("Marginal Benefit")), cex = labelsize)
 text(10, 24.5, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
 text(10, 23, expression(paste("when, ", h^B== 0 )), cex = labelsize)
-#text(2, 12.5, expression(paste(mb[3]^A == alpha, " when ", h^b == 0)), cex = labelsize)
-#text(0.7, 4.5, expression(paste(mb[1]^A)), cex = labelsize)
 
 text(24, 18.9, expression(paste("Marginal Disutility, ", mc^A == h^A)), cex = labelsize)
-#text(24, 16, expression(paste("Marginal Disutility", phantom() == h[2]^A)), cex = labelsize)
 
 text(24, 15, expression(paste("Marginal Benefit ")), cex = labelsize)
 text(24, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)
@@ -97,24 +84,11 @@ text(24, 12, expression(paste("when, ", h^B > 0 )), cex = labelsize)
 Arrows(21.5, 12.5, 17, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-# text(3, 11, expression(paste(alpha, " increases, or ")), cex = labelsize)
-# text(3, 10.5, expression(paste(h^B, " decreases")), cex = labelsize)
-# 
-# Arrows(1.5, 7.5, 1.5, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(3, 5.5, expression(paste(alpha, " decreases, or ")), cex = labelsize)
-# text(3, 5, expression(paste(h^B, " increases")), cex = labelsize)
-
-# segments(28, 0, 28, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 text(12 + 0.75, 12, expression(paste(f)), cex = labelsize)
-# 
-# segments(16, 0, 16, 18, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
 points(15, 15, pch = 16, col = "black", cex = 1.5)
 text(15 + 0.75, 15, expression(paste(g)), cex = labelsize)
-# 
-# segments(40, 0, 40,  MBenefit(40), lty = 2, col = "gray" , lwd = segmentlinewidth)
-# points(40, MBenefit(40), pch = 16, col = "black", cex = 1.5)
-# text(40 + 0.75, MBenefit(40) + 0.75, expression(paste(e)), cex = labelsize)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(9.7, 60, expression(u[1]^A))

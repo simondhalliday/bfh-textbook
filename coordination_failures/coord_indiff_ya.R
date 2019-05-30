@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_indiff_ya.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_indiff_ya/coord_indiff_ya.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -90,17 +90,14 @@ lines(xx1, indiffA(xx1, uA = 46.08), col = COLA[4], lwd = graphlinewidth)
 
 segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-# 
-# segments(0, 6.9, 6.9, 6.9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(6.9, 0, 6.9, 6.9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
 
 mtext(expression(paste("A's hours, ", h^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 35, expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
-#segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
+text(-1, 35, expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
+#
 text(4.5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)))
 Arrows(3.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
+#
 text(8.5, 28, expression(paste("slope", phantom()==h^A, phantom() == 6)))
 Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -108,22 +105,22 @@ Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 text(9.7, 60, expression(u[1]^A))
 text(7.6, 60, expression(u[2]^A))
 text(4.8, 60, expression(u[3]^A))
-#text(6.6, 8.3, expression(u[4]^A))
+
 
 
 
 lowint <- c(8, 26, 44)
 
 slopex1 <- seq(1,3,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
 
 highint <- c(-8, 10, 28)
 slopex2 <- seq(5,7,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col = Grays[24], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
 
 
 firstpointsx <- c(2, 2, 2)

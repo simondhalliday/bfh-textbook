@@ -76,7 +76,7 @@ xx2 <- seq(1, xlims[2], length.out = npts)
 lines(xx2, markUp(xx2, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, marketProfit(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
-segments(0, 2, xlims[2], 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 2, xlims[2], 2, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 # segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
@@ -120,15 +120,17 @@ text(-3, 0.5*ylims[2], expression(paste("Market price and mark-up, $")), xpd = T
 
 #Mark-up
 text(3.5, 3.25, expression(paste("Mark-up")), cex = labelsize)
+text(3.5, 2.75, expression(paste(p - c)), cex = labelsize)
+
 #text(14, 6, expression(paste("function")))
 Arrows(6, 2.3, 6, 4.2, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label price
 text(35, 4, expression(paste("Price")), cex = labelsize)
-text(35, 3.2, expression(paste(p == c[1] + frac(1, n + 1)*(bar(p) - c[1]))))
+text(35, 3.2, expression(paste(p == c + frac(1, n + 1)*(bar(p) - c))))
 
 text(35, 1.5, expression(paste("Marginal cost")), cex = labelsize)
-text(35, 0.9, expression(paste(mc == c[1])))
+text(35, 0.9, expression(paste(mc == c)))
 
 
 

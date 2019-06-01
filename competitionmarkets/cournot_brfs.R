@@ -156,12 +156,12 @@ text(11.3, 11.3, expression(paste("n")))
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #B's brf
-text(34, 7.25, expression(paste("B's best response")))
+text(34, 7.25, expression(paste("B's best-response")))
 text(34, 6, expression(paste("function")))
 Arrows(29.5, 6.75, 24, 6.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(6, 34, expression(paste("A's best response")))
+text(6, 34, expression(paste("A's best-response")))
 text(6, 32.75, expression(paste("function")))
 Arrows(6, 32, 6, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

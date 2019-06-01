@@ -3,8 +3,8 @@ pdf(file = "constrained_optimization/offer_curve_qql_new.pdf", width = 9, height
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")

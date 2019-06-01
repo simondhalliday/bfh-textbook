@@ -1,10 +1,10 @@
 require(shape)
-pdf(file = "bfh-textbook/constrained_optimization/offer_curve_qql.pdf", width = 9, height = 7)
+pdf(file = "constrained_optimization/offer_curve_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -43,6 +43,8 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(13, 16.75, 19.25)
 
+ 
+
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
@@ -61,8 +63,6 @@ ticksy <- c(0, 4, 5.5, 7.375 , ylims[2])
 ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), NA)
 ticksx <- c(0, 6, 9, 10.5,  xlims[2])
 xlabels <- c(NA, expression(paste(x[1])), expression(paste(x[3])), expression(paste(x[3])), NA)
-
-
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)

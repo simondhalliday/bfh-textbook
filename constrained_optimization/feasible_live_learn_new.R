@@ -1,34 +1,24 @@
 #Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "constrained_optimization/feasible_shaded_new.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/feasible_live_learn_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 6, 4, 4))
 
-#Change this to make it log of l 
-
-# ppf <- function(l, k = 0.5) {
-#   k * (1/l)
-# }
-
-ppf <- function(x, k = 1.058868, maxx = 17) {
-  k*(log(maxx -  x))
-}
-
-ppf2 <- function(x, slope = 1/64, bary = 4) {
+ppf <- function(x, slope = 1/64, bary = 4) {
   bary - slope *x^2
 }
 
@@ -37,15 +27,12 @@ uFn <- function(x, y, alpha = 0.3){
   (x^alpha)*(y^(1-alpha))
 }
 
-ylims <- c(0, 5)
+ylims <- c(0, 4.2)
 xlims <- c(0, 18)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-#a <- c(3.5, 4.58, 5.5) #alpha = 0.5
-#a <- c(3, 3.9, 5) #alpha = 0.4
-a <- c(2.58, 3.38, 4.28) #alpha = 0.3
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -59,14 +46,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 1)
-# ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(ylims[1], 1, 2, 3, 4, ylims[2])
-ylabels <- c(NA, 1, 2, 3, 4, NA)
-# ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
-# xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
+ticksy <- c(ylims[1], 1, ppf(12), 3, ppf(4), 4, ylims[2])
+ylabels <- c(NA, 1, expression(paste(y[e] == 1.75)), expression(paste(y[i] == 3)), expression(paste(y[f] == 3.75)), 4, NA)
+
+
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -93,16 +78,17 @@ lines(xx1, ppf2(xx1), col = COLA[5], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(9.3, 0.53, expression("Feasible Frontier"), cex = axislabelsize)
-text(9.3, 0.3, expression(paste((ff[1]) )), cex = axislabelsize)
-Arrows(12.5, 0.53, 14.5, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(10, 0.7, expression("Feasible"), cex = axislabelsize)
+text(10, 0.5, expression("Frontier"), cex = axislabelsize)
+text(10, 0.25, expression(paste((ff[1]) )), cex = axislabelsize)
+Arrows(11.5, 0.53, 14.5, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(6, 1.5, expression("Feasible Set"), cex = axislabelsize)
 text(14, 3, expression("Infeasible"), cex = axislabelsize)
 
 #Axis labels
-mtext(expression(paste("Living (hours), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Living (hours), ", x == 16 - h)), side = 1, line = 2.5, cex = axislabelsize)
+text(-2.9, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 # text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
@@ -119,17 +105,16 @@ segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
 
-text(4, ppf(4) + 0.1, expression(paste(e)), cex = labelsize)
+text(4 + 0.4, ppf(4) + 0.1, expression(paste(g)), cex = labelsize)
 segments(4, 0, 4, ppf(4), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(4), 4, ppf(4), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(4, ppf(4), pch = 16, col = "black", cex = 1.5)
 
 
-text(12, ppf(12) + 0.1, expression(paste(g)), cex = labelsize)
+text(12 + 0.4, ppf(12) + 0.1, expression(paste(e)), cex = labelsize)
 segments(12, 0, 12, ppf(x = 12), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 12), 12, ppf(x = 12), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(12, ppf(x = 12), pch = 16, col = "black", cex = 1.5)
-
 
 
 dev.off()

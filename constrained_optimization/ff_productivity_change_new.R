@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "constrained_optimization/ff_productivity_change.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/ff_productivity_change_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -93,8 +93,8 @@ text(10.5, 0.35, expression(paste((ff[1]))), cex = labelsize)
 Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Hours of leisure, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Grade point average, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Living, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 #text(8, 2.8, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

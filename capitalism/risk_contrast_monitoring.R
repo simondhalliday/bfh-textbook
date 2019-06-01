@@ -4,8 +4,8 @@ pdf(file = "capitalism/risk_contrast_monitoring.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 a <- c(2, 4, 6)
 
 
@@ -57,9 +57,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[C])), NA)
-ticksy <- c(0, 11, ylims[2])
-ylabels <- c(NA, expression(paste(w,"*")), NA)
+xlabels <- c(NA, expression(paste( bar(Delta) )), NA)
+ticksy <- c(0, 11, riskreturn(int1 = 15, g = 12), ylims[2])
+ylabels <- c(NA, expression(paste(w,"*")), expression(paste(y(bar(Delta)))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)

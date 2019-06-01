@@ -7,8 +7,8 @@ pdf(file = "capitalism/lorenz_wage_effects.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -16,7 +16,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(8, 6, 2, 6))
+par(mar =  c(5, 5, 2, 2))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -48,13 +48,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(60)), expression(paste(76)), 100)
-ticksx <- c(xlims[1], 0.1, 0.9, xlims[2])
-xlabels <- c(NA,  10, 90,  100)
+ticksx <- c(xlims[1], 0.05, 0.07, 0.9, xlims[2])
+xlabels <- c(NA, 5, 7, 90,  100)
 ticksy2 <- c(0,1)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1)
+
+text(0.08, -0.046, expression(paste(7)), xpd = TRUE, cex = 1) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -64,8 +66,12 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Cumulative population proportion, ", F(n))), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("Cumulative income, (%)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*xlims[2], -0.22, expression(paste("Cumulative population, (%)")), xpd = TRUE, cex = axislabelsize) 
+text(-0.08, 0.5*ylims[2], expression(paste("Cumulative income, (%)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -0.1, expression(paste("Cumulative population, (%)")), xpd = TRUE, cex = axislabelsize) 
+
+text(0.18, 0.7, expression(paste("Reduced")))
+text(0.18, 0.66, expression(paste("wage share")))
+Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 
@@ -84,16 +90,27 @@ text(0.5*xlims[2], -0.22, expression(paste("Cumulative population, (%)")), xpd =
 #        col = COLA[1], density = NULL, border = NA)
 
 # Lorenz curve
-segments(0, 0, 0.1, 0, lty = 1, col = COLA[5], lwd = graphlinewidth)
+segments(0, 0, 0.07, 0, lty = 1, col = COLA[5], lwd = graphlinewidth, xpd = TRUE)
 
-segments(0.1, 0, 0.9, 0.76, lty = 1, col = COLA[5], lwd = graphlinewidth)
+segments(0.07, 0, 0.9, 0.76, lty = 1, col = COLA[5], lwd = graphlinewidth)
 segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
 
 segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[5], lwd = graphlinewidth)
 segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[5], lwd = graphlinewidth)
 
-text(0.8, 0.47, expression(paste("Lorenz")), cex = labelsize)
-text(0.8, 0.43, expression(paste("curve")), cex = labelsize)
+text(0.76, 0.47, expression(paste("New")), cex = labelsize)
+text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
+text(0.76, 0.39, expression(paste("curve")), cex = labelsize)
+
+# text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
+# text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
+
+text(0.825, 0.66, expression(paste("Old")), cex = labelsize)
+text(0.825, 0.62, expression(paste("Lorenz Curve")), cex = labelsize)
+
+
+
+
 
 #Line of equality
 segments(0, 0, 1, 1, lty = 1, col = COLB[5], lwd = graphlinewidth)
@@ -129,31 +146,6 @@ segments(0, 0.76, 0.9, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
 #segments(0.32, 0.75, 0.32, 0.85, lty = 1, col = "black" , lwd = 1)
 #Gini equation
 #text(0.2, 0.8, expression(paste(Gini == frac(A, A + B), phantom() == 0.36 )), cex = labelsize)
-
-
-brackets(x1 = 0.095, y1 = -0.07, x2 = 0, y2 = -0.07,  
-         ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.0495, -0.14, expression(paste("unemployed = 10")), xpd = TRUE)
-text(0.0495, -0.18, expression(paste(u == 10)), xpd = TRUE)
-
-brackets(x1 = 0.895, y1 = -0.07, x2 = 0.105, y2 = -0.07,  
-         ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.5, -0.14, expression(paste("employed = 80")), xpd = TRUE)
-text(0.5, -0.18, expression(paste(u + n == 90)), xpd = TRUE)
-
-brackets(x1 = 1, y1 = -0.07, x2 = 0.905, y2 = -0.07,  
-         ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.9495, -0.14, expression(paste("owners")), xpd = TRUE)
-text(0.9495, -0.18, expression(paste(1 - (u + n) == 10)), xpd = TRUE)
-
-# brackets(x1 = 1.01, y1 = 1, x2 = 1.01, y2 = 0.252,  
-#          ticks = 0.5, curvature = 0.5, type = 1, 
-#          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-# text(1.11, 0.625, expression(paste("Cumulative income")), xpd = TRUE, srt = 270)
-# text(1.08, 0.625, expression(paste("of the rich")), xpd = TRUE, srt = 270)
 
 
 dev.off()

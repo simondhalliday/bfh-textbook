@@ -7,8 +7,8 @@ pdf(file = "capitalism/wage_share_unemployment.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -54,9 +54,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(1.0)))
-ticksx <- c(xlims[1], 0.78467, 0.83, xlims[2])
-xlabels <- c(50, 78, 83, 90)
+ticksx <- c(xlims[1], 0.78467, 0.83, 0.85, xlims[2])
+xlabels <- c(0, 78, 83, 85, 90)
 ticksy2 <- c(0,1)
+
+text(0.86, -0.05, expression(paste(85)), xpd = TRUE, cex = 1) 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -66,7 +68,6 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
-xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Cumulative population proportion, ", F(n))), side = 1, line = 2.5, cex = axislabelsize)
@@ -91,17 +92,19 @@ text(0.5*xlims[2], -0.1, expression(paste("Employment, ", N)), xpd = TRUE, cex =
 
 # Wage Curve
 
-lines(xx1, WageFn(xx1, delta = 12.92), col = COLB[4], lwd = 4)
-lines(xx1, WageFn(xx1, delta = 9), col = COLA[4], lty = 2, lwd = 4)
+lines(xx1, WageFn(xx1, delta = 12.92), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, WageFn(xx1, delta = 9), col = COLA[4], lty = 2, lwd = graphlinewidth)
 
 
 #Line of equality
 
 segments(0.785, 0, 0.785, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0.83, 0, 0.83, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.85, 0, 0.85, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
-segments(0, 0.76, 1, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 0.6, 1, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 0.76, 1, 0.76, lty = 1, col = COLB[4], lwd = segmentlinewidth)
+segments(0, 0.6, 1, 0.6, lty = 1, col = COLB[4], lwd = segmentlinewidth)
+
 
 # Points
 points(0.7847, 0.6, pch = 16, col = "black", cex = 1.5)
@@ -110,17 +113,29 @@ points(0.83, 0.76, pch = 16, col = "black", cex = 1.5)
 points(0.85, 0.6, pch = 16, col = "black", cex = 1.5)
 
 # Label
-text(0.81, 0.78, expression(paste(A)), cex = labelsize)
-text(0.76, 0.62, expression(paste(B)), cex = labelsize)
-text(0.87, 0.58, expression(paste(C)), cex = labelsize)
+text(0.81, 0.78, expression(paste(a)), cex = labelsize)
+text(0.76, 0.62, expression(paste(b)), cex = labelsize)
+text(0.87, 0.58, expression(paste(c)), cex = labelsize)
 
-text(0.2, 0.25, expression(paste("Wage-Setting")), cex = labelsize)
+text(0.2, 0.29, expression(paste("Original")), cex = labelsize)
+text(0.2, 0.25, expression(paste("Wage")), cex = labelsize)
 text(0.2, 0.21, expression(paste("Curve")), cex = labelsize)
+Arrows(0.4, 0.2, 0.5, 0.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 text(0.65, 0.2, expression(paste("New")), cex = labelsize)
-text(0.65, 0.16, expression(paste("Wage-Setting")), cex = labelsize)
+text(0.65, 0.16, expression(paste("Wage")), cex = labelsize)
 text(0.65, 0.12, expression(paste("Curve")), cex = labelsize)
 
+
+text(0.2, 0.88, expression(paste("Original")), cex = labelsize)
+text(0.2, 0.84, expression(paste("Competition")), cex = labelsize)
+text(0.2, 0.8, expression(paste("Condition")), cex = labelsize)
+Arrows(0.2, 0.75, 0.2, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+
+
+text(0.2, 0.56, expression(paste("New")), cex = labelsize)
+text(0.2, 0.52, expression(paste("Competition")), cex = labelsize)
+text(0.2, 0.48, expression(paste("Condition")), cex = labelsize)
 
 # text(0.9, 0.7, expression(paste(B[3])), cex = labelsize)
 
@@ -146,3 +161,4 @@ text(0.65, 0.12, expression(paste("Curve")), cex = labelsize)
 
 
 dev.off()
+

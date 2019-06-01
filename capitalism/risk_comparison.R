@@ -4,8 +4,8 @@ pdf(file = "capitalism/risk_comparison.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 a <- c(2, 4, 6)
 
 
@@ -58,15 +58,15 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 6.3, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
-ticksy <- c(0, 3.7, 5.75, 7.8, ylims[2])
-ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), NA)
+ticksy <- c(0, 3.7, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.5), ylims[2])
+ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), expression(paste(y^A0)), expression(paste(y^A1)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(omega, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -113,10 +113,15 @@ text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize)
 # text(13.5, 9.7, expression(paste(m)), cex = labelsize)
 
 #Label value functions
-# text(12.2, 17, expression(v[1]^B), cex = labelsize)
-# text(10.1, 17, expression(v[2]^B), cex = labelsize)
-# text(8.8, 17, expression(v[1]^A), cex = labelsize)
-# text(7.2, 17, expression(v[2]^A), cex = labelsize)
+text(6.3, riskreturn(int1 = 12, 6.3) + 0.8, expression(a^0), cex = labelsize)
+text(7.5, riskreturn(int1 = 15, 7.5) + 0.8, expression(a^1), cex = labelsize)
+text(11.8, 17, expression(u[1]^A), cex = labelsize)
+text(10.1, 17, expression(u[2]^A), cex = labelsize)
+
+
+#Segment for next best wage offer
+segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[3], lwd = segmentlinewidth)
+text(12.75, 5, expression(paste("Wage from work, ", w,"*")), cex = labelsize)
 
 
 dev.off()

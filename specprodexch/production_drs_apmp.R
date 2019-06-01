@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/production_drs_apmp.pdf", width = 9, height = 7)
+pdf(file = "specprodexch/production_drs_apmp.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

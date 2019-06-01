@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "indmarketdemand/ppf_dos_quadrant.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_dos_quadrant.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
 axislabelsize <- 1

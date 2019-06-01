@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "firmmarketsupply/techvariables1.pdf", width = 8, height = 6)
+pdf(file = "specprodexch/techvariables1.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

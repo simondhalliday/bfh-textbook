@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/ppf_eos_indiff.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_eos_indiff.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

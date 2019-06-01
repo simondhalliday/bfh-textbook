@@ -3,12 +3,12 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "firmmarketsupply/techvariables3.pdf", width = 8, height = 6)
+pdf(file = "specprodexch/techvariables1.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
+graphlinewidth <- 2
 segmentlinewidth <- 2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -18,24 +18,17 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 4, 4))
 
-uFn <- function(x, y, alpha = 0.7){
-  (x^alpha)*(y^(1 - alpha))
+isoquant <- function(l, alpha = 0.7, xbar = 4) {
+  (xbar / l^alpha)^(1/(1 - alpha))
 }
 
-isoA <- function(l, alpha = 0.7, xbar = 4, A = 2) {
-  (xbar / A)^2 - alpha*l
+isocost <- function(l, m = 100, pl = 20, pk = 10){
+  m/pk - (pl/pk)*l
 }
 
-trsline <- function(x, constant = 10, slope = 4){
-  constant - (slope)*x
-}
 
-ff <- function(x, c = 12, s = 1/3){
-  c - s*x
-}
-
-xlims <- c(0, 10)
-ylims <- c(0, 10)
+xlims <- c(0, 11)
+ylims <- c(0, 11)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -74,11 +67,10 @@ xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
 #Draw the graphs
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 3, A = 2), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 1.5, A = 2 ), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 6, A = 2), col = COLA[5], lwd = graphlinewidth)
-#lines(xx1, isoA(xx1, alpha = 0.3, xbar = 4), col = COLB[5], lwd = graphlinewidth)
-#lines(xx1, ff(xx1, c = 9, s = 1.34), col = COL[3], lwd = graphlinewidth)
+lines(xx1, isoquant(xx1, alpha = 2/3, xbar = 4.22), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, isoquant(xx1, alpha = 1/3, xbar = 4.22), col = COLB[5], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = COLA[3], lwd = graphlinewidth)
 # lines(xx3, trsline(xx3, constant = 16), col = "gray", lty = 2, lwd = graphlinewidth)
 # lines(xx4, trsline(xx4, constant = 8, slope = 1), col = "gray", lty = 2, lwd = graphlinewidth)
 # lines(xx5, trsline(xx5, constant = 4, slope = 0.25), col = "gray", lty = 2, lwd = graphlinewidth)
@@ -96,28 +88,20 @@ mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axis
 text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-# contour(x, y, 
-#         outer(x, y, uFn),
-#         drawlabels = FALSE,
-#         col = COLB[3],
-#         lwd = graphlinewidth,
-#         levels = a, 
-#         xaxs="i", 
-#         yaxs="i", 
-#         add = TRUE)
-
-
 #Label the indifference curves
-#text(8, 1.6, expression(paste("Technology E, ", x[1]^E)), cex = labelsize)
-text(6, 9, expression(paste("Technology E Production: ", x == A*(alpha*l + k)^frac(1,2))), cex = labelsize)
-text(6, 8, expression(paste("Isoquant curve: ", k == bgroup("(",frac(bar(x), A),")")^2 - alpha*l   )), cex = labelsize)
-text(6, 7, expression(paste(trs(l,k) == frac(x[l],x[k]), phantom() == alpha)), cex = labelsize)
 
-text(.5, 0.8, expression(paste(x[1]^E == frac(1,2))), cex = labelsize)
-text(.5, 2.5, expression(paste(x[2]^E == 1)), cex = labelsize)
-text(.5, 9.3, expression(paste(x[3]^E == 2)), cex = labelsize)
+text(9.5, 4, expression(paste("Capital-intensive")), cex = labelsize)
+text(9.5, 3.5, expression(paste("Technology A, ", x[1]^A)), cex = labelsize)
 
-# text(8, 4, expression(paste(trs(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
+text(9.5, 1.85, expression(paste("Labor-intensive ")), cex = labelsize)
+text(9.5, 1.35, expression(paste("Technology B, ", x[1]^B)), cex = labelsize)
+
+
+text(8, 9.7, expression(paste(trs^B*(list(l,k)) > trs^A*(list(l,k)))), cex = labelsize)
+text(8, 8.8, expression(paste(frac(x[l]^B, x[k]^B) > frac(x[l]^A, x[k]^A))), cex = labelsize)
+text(8, 8, expression(paste("along the ray ", frac(k,l))), cex = labelsize)
+Arrows(7, 8.6, 3.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 # text(4, 6, expression(paste(trs(l,k) == frac(4,4), phantom()==1)), cex = labelsize)
@@ -135,7 +119,11 @@ text(.5, 9.3, expression(paste(x[3]^E == 2)), cex = labelsize)
 # text(8, 8, expression(paste(x = bar(x), " feasible")), cex = labelsize)
 # text(8, 7.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
 
-#segments(0, 0, 4, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+#text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
+#text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
+
+
+segments(0, 0, 4, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # segments(0, 8, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(2.9705, 0, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -152,12 +140,12 @@ text(.5, 9.3, expression(paste(x[3]^E == 2)), cex = labelsize)
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier
 # text(4.2, 4.2, expression(paste(b)), cex = labelsize)
-# points(2.1, isoA(l = 2.1, alpha = 0.3, xbar = 4), pch = 16, col = "black", cex = 1.5)
-# text(2.1 - 0.2, isoA(l = 2.1, alpha = 0.3, xbar = 4), expression(paste(b)), cex = labelsize)
+points(2.1, isoA(l = 2.1, alpha = 0.3, xbar = 4), pch = 16, col = "black", cex = 1.5)
+text(2.1 - 0.2, isoA(l = 2.1, alpha = 0.3, xbar = 4), expression(paste(a)), cex = labelsize)
 
 
-# points(3.04, isoA(l = 3.04, alpha = 0.7, xbar = 4), pch = 16, col = "black", cex = 1.5)
-# text(3.04 - 0.2, isoA(l = 3.04, alpha = 0.7, xbar = 4), expression(paste(a)), cex = labelsize)
+points(3.04, isoA(l = 3.04, alpha = 0.7, xbar = 4), pch = 16, col = "black", cex = 1.5)
+text(3.04 - 0.2, isoA(l = 3.04, alpha = 0.7, xbar = 4), expression(paste(b)), cex = labelsize)
 
 #points(4.8, indiffA(x = 4.8, alpha = 0.7), pch = 16, col = "black", cex = 1.5)
 

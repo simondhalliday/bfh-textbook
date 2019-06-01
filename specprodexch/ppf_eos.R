@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/ppf_eos2.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_eos.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
 axislabelsize <- 1
@@ -32,7 +32,7 @@ fishProd <- function(l, k = 0.5){
 }
 
 feasibleLabor <- function(l, time = 10){
-  -time - l
+  - time - l
 }
 
 manufactureProd <- function(l, k = 0.1, alpha = 2){
@@ -58,26 +58,26 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], -5, 0, 2.5, ylims[2])
 ylabels <- c(NA, NA, NA, NA, NA)
-ticksx <- c(xlims[1], 0, xlims[2])
+ticksx <- c(xlims[1], -5, 0, xlims[2])
 xlabels <- c(NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
-xx1 <- seq(0, 7.5, length.out = npts)
+xx1 <- seq(0, 5, length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
-xpoly1 <- seq(from = 0, to = 7.5, length.out = 500)
+xpoly1 <- seq(from = 0, to = 5, length.out = 500)
 ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
 #Draw the graphs
-lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 7.5), col = COLA[5], lwd = graphlinewidth)
-lines(xx2, fishProd(xx2, k = 4/3), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = COLA[5], lwd = graphlinewidth)
+lines(xx2, fishProd(xx2, k = 2), col = COLB[3], lwd = graphlinewidth)
 lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
@@ -92,6 +92,10 @@ text(-0.6, 2.8, expression(paste(12.5)), xpd = TRUE, cex = axislabelsize)
 text(-0.5, 9.7, expression(paste(50)), xpd = TRUE, cex = axislabelsize)
 text(2.9, -0.3, expression(paste(2.5)), xpd = TRUE, cex = axislabelsize)
 text(5.2, -0.3, expression(paste(5)), xpd = TRUE, cex = axislabelsize)
+text(-5.3, -0.3, expression(paste(5)), xpd = TRUE, cex = axislabelsize)
+text(-0.3, -5.3, expression(paste(5)), xpd = TRUE, cex = axislabelsize)
+text(-10.3, -0.3, expression(paste(10)), xpd = TRUE, cex = axislabelsize)
+text(-0.5, -10.3, expression(paste(10)), xpd = TRUE, cex = axislabelsize)
 
 #Label the two production functions
 #Clothing
@@ -113,17 +117,17 @@ segments(2.5, -5, 2.5, 2.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 #Annotate Max time on clothes
 segments(-10, 0, -10, 10, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(-10, 10, 0, 10, lty = 2, col = "gray", lwd = segmentlinewidth)
-text(-6.5, 9.5, expression(paste("10 hrs of labor")))
-text(-6.5, 8.9, expression(paste("for shirts produces")))
-text(-6.5, 8.3, expression(paste("50 shirts")))
+text(-7.3, 9.5, expression(paste("10 hrs of labor")))
+text(-7.3, 8.9, expression(paste("for shirts produces")))
+text(-7.3, 8.3, expression(paste("50 shirts")))
 points(-10, 10, pch = 16, col = "black", cex = 1.5)
 
 #Annotate Max time on fishing
 segments(0, -10, 5, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(5, -10, 5, 0, lty = 2, col = "gray", lwd = segmentlinewidth)
-text(8, -8.4, expression(paste("10 hrs of labor")))
-text(8, -9, expression(paste("for fishing produces")))
-text(8, -9.6, expression(paste("5 kgs of fish")))
+text(7.2, -8.4, expression(paste("10 hrs of labor")))
+text(7.2, -9, expression(paste("for fishing produces")))
+text(7.2, -9.6, expression(paste("5 kgs of fish")))
 points(5, -10, pch = 16, col = "black", cex = 1.5)
 
 #Annotate point on ppf 

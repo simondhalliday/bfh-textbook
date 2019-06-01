@@ -83,31 +83,24 @@ polygon(x = xpoly3, y = ypoly3, col=COLA[1], density=NULL, border = NA)
 #Draw the polygon for LL loss
 xpoly4 <- c(28.226, 28.226, 48.817)
 ypoly4 <- c(6, 9.83, 9.83)
-
-
 polygon(x = xpoly4, y = ypoly4, col=COLB[1], density=NULL, border = NA)
 # CHANGE THIS COLOR
 
+text(12.5, 5.5, expression(paste("Landlord Surplus")), xpd = TRUE, cex = labelsize)
+#text(25, 5, expression(paste("(Economic Profit)")), xpd = TRUE, cex = labelsize) 
 
-# Draw now renters surplus
-xpoly5 <- c(0, 0, 28.226, 28.226)
-ypoly5 <- c(9.83, 6, 6, 9.83)
-polygon(x = xpoly5, y = ypoly5, col= "#ffcd99", density=NULL, border = NA)
+text(12.5, 10.25, expression(paste("Renter's Surplus")), xpd = TRUE, cex = labelsize) 
+text(50, 13.5, expression(paste("Renter's Surplus Lost")), xpd = TRUE, cex = labelsize) 
 
-#text(51, 5.5, expression(paste("Landlord Surplus Lost")), xpd = TRUE, cex = labelsize) 
-
-#Segments
-segments(0, 9.83, xlims[2], 9.83, lty = 2, "gray" , lwd = segmentlinewidth)
-segments(48.817, 0, 48.817, 9.83, lty = 2, col = "gray" , lwd = segmentlinewidth)
-
-segments(0, 6, xlims[2], 6, lty = 2, "gray" , lwd = segmentlinewidth)
-segments(28.226, 0, 28.226, 14.1196, lty = 2, "gray" , lwd = segmentlinewidth)
+text(51, 5.5, expression(paste("Landlord Surplus Lost")), xpd = TRUE, cex = labelsize) 
 
 #Lines for mrs graph
 lines(xx1, Demand(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, Supply(xx1), col = COLB[4], lwd = graphlinewidth)
+#lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
-# Points
+segments(0, 9.83, xlims[2], 9.83, lty = 2, "gray" , lwd = segmentlinewidth)
+segments(48.817, 0, 48.817, 9.83, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(48.817, 9.83, pch = 16, col = "black", cex = 1.5)
 
 segments(48.817 +18.226, 0, 48.817 +18.226, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -127,37 +120,38 @@ text(-10, 0.5*ylims[2], expression(paste("Rental price per unit of housing, ", p
 text(100, 10.25, expression("Price before control"), cex = labelsize)
 text(100, 5.5, expression(paste("Rent control price")), cex = labelsize)
 
-# =======
-# #Label axes
-# mtext(expression(paste("Market output of the good, ", Q)), side=1, line = 2.5, cex = axislabelsize)
-# text(-10, 0.5*ylims[2], expression(paste("Price per unit of Q, ", p[Q])), xpd = TRUE, cex = axislabelsize, srt = 90) 
-# 
-# 
-# >>>>>>> 6e560906dce7363b8ef97368c653e613652a65a7
-
-
-# Arrows
-Arrows(48.817, 13, 40, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(38, 6.5, 38, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-# Labels
-text(10.5, 5.5, expression(paste("Landlord's")), xpd = TRUE, cex = labelsize)
-text(10.5, 4.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(10.5, 11.25, expression(paste("Renter's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 10.25, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(50, 13.5, expression(paste("Renter's Surplus Lost")), xpd = TRUE, cex = labelsize) 
-text(38, 5.5, expression(paste("Landlord")), xpd = TRUE, cex = labelsize) 
-text(38, 4.5, expression(paste("Surplus Lost")), xpd = TRUE, cex = labelsize) 
-
-text(10.5, 9.25, expression(paste("Was LL's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 8.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(11, 7.5, expression(paste("Now Renter's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 6.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-
-#text(100, 10.25, expression("Price, Before"), cex = labelsize)
-#text(100, 5.5, expression(paste("Rent Control Price")), cex = labelsize)
-
 text(100, 1.5, expression("Demand"), cex = labelsize)
 text(100, 17.5, expression("Supply"), cex = labelsize)
+#text(7.3, 2.5, expression("Curve"))
+#Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+#Label the iso-welfare functions for the HG, Aisha
+# text(3.8, 1.5, expression(u[1]^A))
+# text(4.6, 1.5, expression(u[2]^A))
+# text(5.5, 1.5, expression(u[3]^A))
+#text(6.6, 8.3, expression(u[4]^A))
+
+
+#Label the indifference curves for the HG, Betty
+# text(7.6, 17, expression(u[1]^B))
+# text(6.48.817, 17, expression(u[2]^B))
+# text(6, 17, expression(u[3]^B))
+#text(3.4, 6.9, expression(v[4]^B))
+
+#Label mrs function
+#text(94, 6.8, expression(paste("Demand: ", X(p) == 120 - 6*p)))
+
+#text(94, 5.5, expression(paste("Inverse Demand: ", p(X) == 20 - frac(1,5)*X)))
+Arrows(48.817, 13, 40, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(48.817, 6, 40, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Label satiation
+#text(20, 3.5, expression(paste(x[max] == "Point")))
+#text(20, 3, expression(paste("of Satiation")))
+#Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+#Label highest willingness to pay
+#text(5, 10, expression("Consumer Surplus"))
+#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
+#Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

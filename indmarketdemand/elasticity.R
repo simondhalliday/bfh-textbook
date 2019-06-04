@@ -13,8 +13,8 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 
 par(mar =  c(6, 6, 4, 4))
 
-xlims <- c(0, 10)
-ylims <- c(0, 10)
+xlims <- c(0, 12)
+ylims <- c(0, 12)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -45,19 +45,28 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 mtext(expression(paste("Quantity Demanded, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-1, 0.5*ylims[2], expression(paste("Price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-# Elastic
-segments(0, 5, 10, 5, lty = 1, col = COLB[4] , lwd = graphlinewidth) 
+# Demand
+segments(0, 10, 5, 5, lty = 1, col = COLB[4] , lwd = graphlinewidth) 
+segments(5, 5, 10, 0, lty = 1, col = COLA[4] , lwd = graphlinewidth) 
 
-# Inelastic
-segments(5, 0, 5, 10, lty = 1, col = COLC[4] , lwd = graphlinewidth) 
-
-# Unit Elastic
-segments(0, 0, 10, 10, lty = 1, col = COLA[4] , lwd = graphlinewidth) 
 
 
 #Label 
-text(2.5, 5.5, expression(paste("Perfectly Elastic")))
-text(6, 2.5, expression(paste("Perfectly Inelastic")))
-text(8.5, 7.5, expression(paste("Unit Elastic")))
+text(5.5, 5.5, expression(paste("Unit Elastic")))
+text(6, 5, expression(paste("n = 1")))
+text(3, 8, expression(paste("Elastic")))
+text(3.5, 7.5, expression(paste("n > 1")))
+text(8, 3, expression(paste("Inelastic")))
+text(8.5, 2.5, expression(paste("n < 1")))
+
+text(1.25, 10, expression(paste("Perfectly Elastic")))
+text(1.25, 9.5, expression(paste("n  = ", infinity)))
+text(10.3, 1, expression(paste("Perfectly Inelastic")))
+text(10.3, 0.5, expression(paste("n  = 0")))
+     
+# Points
+points(5, 5, pch = 16, col = "black", cex = 1.5)
+points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
+points(7.5, 2.5, pch = 16, col = "black", cex = 1.5)
 
 dev.off()

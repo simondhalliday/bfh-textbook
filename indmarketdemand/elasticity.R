@@ -1,3 +1,5 @@
+library(pBrackets)
+
 pdf(file = "indmarketdemand/elasticity.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -46,27 +48,30 @@ mtext(expression(paste("Quantity Demanded, ", x)), side=1, line = 2.5, cex = axi
 text(-1, 0.5*ylims[2], expression(paste("Price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Demand
-segments(0, 10, 5, 5, lty = 1, col = COLB[4] , lwd = graphlinewidth) 
-segments(5, 5, 10, 0, lty = 1, col = COLA[4] , lwd = graphlinewidth) 
+segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth) 
 
 
 
 #Label 
-text(5.5, 5.5, expression(paste("Unit Elastic")))
-text(6, 5, expression(paste("n = 1")))
-text(3, 8, expression(paste("Elastic")))
-text(3.5, 7.5, expression(paste("n > 1")))
-text(8, 3, expression(paste("Inelastic")))
-text(8.5, 2.5, expression(paste("n < 1")))
+text(6, 6.5, expression(paste("Unit Elastic")))
+text(6.5, 6, expression(paste("n = 1")))
+text(3.5, 8.75, expression(paste("Elastic")))
+text(4, 8.25, expression(paste("n > 1")))
+text(8, 4, expression(paste("Inelastic")))
+text(8.5, 3.5, expression(paste("n < 1")))
 
-text(1.25, 10, expression(paste("Perfectly Elastic")))
-text(1.25, 9.5, expression(paste("n  = ", infinity)))
-text(10.3, 1, expression(paste("Perfectly Inelastic")))
-text(10.3, 0.5, expression(paste("n  = 0")))
-     
 # Points
 points(5, 5, pch = 16, col = "black", cex = 1.5)
-points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
-points(7.5, 2.5, pch = 16, col = "black", cex = 1.5)
 
+# Braces
+brackets(1, 9.5, 4.75, 5.75, h = NULL,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = FALSE)
+brackets(5.5, 5, 9.5, 1, h = NULL,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = FALSE)
+
+# Arrows
+Arrows(6, 6, x1 = 5.35, y1 = 5.35,
+       code = 2, lty = 1,
+       lwd = segmentlinewidth,
+       arr.type = "triangle", arr.lwd = 0.5)
 dev.off()

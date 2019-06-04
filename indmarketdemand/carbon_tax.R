@@ -35,8 +35,6 @@ bcA <- function(x, w, p) {
 }
 
 
-
-
 xlims <- c(0, 13)
 ylims <- c(0, 26)
 
@@ -61,19 +59,18 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 15.65, 18.9, 23.5, 25, ylims[2])
-ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), expression(paste(m[2] == m[1])), expression(paste(y[3] == u[3])), expression(paste(u[1])), expression(paste(m[3])), expression(paste(u[2])), expression(paste(u[3])), NA)
+ticksy_mod <- c(10, 10.8)
+ylabels_mod <- c(expression(paste(m[2] == m[1])), expression(paste(y[3] == u[3])))
+ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), NA, NA, expression(paste(u[1])), expression(paste(m[3])), expression(paste(u[2])), expression(paste(u[3])), NA)
 ticksx <- c(0, 6.533, 10.493, xlims[2])
 xlabels <- c(NA, expression(paste(x[2] == x[1])), expression(paste(x[3])), NA)
 
-
-
-
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+axis(2, at = ticksy_mod, pos = 0, labels = ylabels_mod, tick = FALSE, las = 1, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, las = 1, labels = ylabels, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-
 
 lines(xx1, uA(xx1, y = 15.65), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, uA(xx1, y = 23.5), col = COLA[3], lwd = graphlinewidth)
@@ -83,7 +80,6 @@ lines(xx1, uA(xx1, y = 25), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 18.9, p = 1.25), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 10.2, p = 1.35), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 10.2, p = 0.418), col = COLB[3], lwd = graphlinewidth)
-
 
 #Label the axes
 mtext(expression(paste("Fossil fuels, ", x)), side=1, line = 2.5, cex = axislabelsize)

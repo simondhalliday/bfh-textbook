@@ -53,12 +53,12 @@ segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
 
 #Label 
-text(6, 6.5, expression(paste("Unit Elastic")))
-text(6.5, 6, expression(paste("n = 1")))
-text(3.5, 8.75, expression(paste("Elastic")))
-text(4, 8.25, expression(paste("n > 1")))
-text(8, 4, expression(paste("Inelastic")))
-text(8.5, 3.5, expression(paste("n < 1")))
+text(6.5, 6.5, expression(paste("Unit Elastic")))
+text(6.5, 6, expression(paste(eta, " = 1")))
+text(4, 8.75, expression(paste("Elastic")))
+text(4, 8.25, expression(paste(eta, " > 1")))
+text(8.5, 4, expression(paste("Inelastic")))
+text(8.5, 3.5, expression(paste(eta, " < 1")))
 
 # Points
 points(5, 5, pch = 16, col = "black", cex = 1.5)

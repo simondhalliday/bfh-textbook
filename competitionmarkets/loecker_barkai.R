@@ -79,11 +79,12 @@ LBdf <-
 
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x=year, y=markup), color = COLB[4]) +
-  geom_line(aes(x=year, y=b_share), color = COLA[4]) +
-  theme_classic() +
+  geom_line(aes(x=year, y=markup), color = COLB[4], na.rm = TRUE) +
+  geom_line(aes(x=year, y=b_share), color = COLA[4], na.rm = TRUE) +
   ylab("Year") + 
-  xlab("Value") 
+  xlab("Value") +
+  theme_minimal()
+p
 
 #Save plot to PDF
 ggsave(p, filename = "loecker_barkai.pdf", 

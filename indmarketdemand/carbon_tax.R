@@ -58,10 +58,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 15.65, 18.9, 23.5, 25, ylims[2])
+ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 18.9, ylims[2])
 ticksy_mod <- c(10, 10.8)
 ylabels_mod <- c(expression(paste(m[2] == m[1])), expression(paste(y[3] == u[3])))
-ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), NA, NA, expression(paste(u[1])), expression(paste(m[3])), expression(paste(u[2])), expression(paste(u[3])), NA)
+ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), NA, NA, expression(paste(m[3])), NA)
 ticksx <- c(0, 6.533, 10.493, xlims[2])
 xlabels <- c(NA, expression(paste(x[2] == x[1])), expression(paste(x[3])), NA)
 
@@ -118,8 +118,12 @@ points(6.533, 10.709, pch = 16, col = "black", cex = 1.5)
 points(10.493, 5.784, pch = 16, col = "black", cex = 1.5)
 points(6.533, 1.38, pch = 16, col = "black", cex = 1.5)
 
-text(6.553 + .5, 10.709 + .5, expression(paste(a)), cex = labelsize)
-text(10.493 + .5, 5.784 + .5, expression(paste(b)), cex = labelsize)
-text(6.45  + .5, 1.38 + .5, expression(paste(c)), cex = labelsize)
+text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
+text(6.45  + .35, 1.38 + .45, expression(paste(b)), cex = labelsize)
+text(6.553 + .35, 10.709 + .45, expression(paste(c)), cex = labelsize)
+
+text(12.75, 7.75, expression(paste(u[3])), cex = labelsize)
+text(12.75, 6.25, expression(paste(u[2])), cex = labelsize)
+text(7.75, 0.5, expression(paste(u[1])), cex = labelsize)
 
 dev.off()

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/demand_qql_mrs.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/demand_qql_mrs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -17,9 +17,9 @@ mrsA <- function(x, rmax = 10, xmax = 20) {
 }
 
 
-uA <- function(x, y, rmax = 10, xmas = 20) {
-  y + rmax*x - (1/2)(rmax/xmax)*x^2
-}
+# uA <- function(x, y, rmax = 10, xmas = 20) {
+#   y + rmax*x - (1/2)(rmax/xmax)*x^2
+# }
 
 xlims <- c(0, 22)
 ylims <- c(0, 14)
@@ -45,9 +45,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, ylims[2])
-ylabels <- c(NA, expression(paste(r[max])), NA)
+ylabels <- c(NA, expression(paste(bar(r))), NA)
 ticksx <- c(0, 20, xlims[2])
-xlabels <- c(NA, expression(paste(x[max])), NA)
+xlabels <- c(NA, expression(paste(bar(x))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -62,7 +62,7 @@ lines(xx1, mrsA(xx1, rmax = 10, xmax = 20), col = COLB[3], lwd = graphlinewidth)
 #segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 mtext(expression(paste("Quantity of the good, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2, 7, expression(paste("Marginal rate of substitution, ", mrs(x,y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 7, expression(paste("Marginal rate of substitution, ", mrs(x,y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -82,16 +82,16 @@ text(-2, 7, expression(paste("Marginal rate of substitution, ", mrs(x,y))), xpd 
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(10, 7.8, expression(paste(mrs(x,y) == r[max] - bgroup("(",frac(r[max], x[max]),")")*x)), cex = labelsize)
+text(10, 7.8, expression(paste(mrs(x,y) == bar(r) - bgroup("(",frac(bar(r), bar(x)),")")*x)), cex = labelsize)
 Arrows(10, 7.4, 10, 5.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation
-text(20, 3.7, expression(paste(x[max] == "Point")), cex = labelsize)
+text(20, 3.7, expression(paste(bar(x) == "Point")), cex = labelsize)
 text(20, 3, expression(paste("of Satiation")), cex = labelsize)
 Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
-text(5, 10, expression(paste(r[max] == "Maximum")), cex = labelsize)
+text(5, 10, expression(paste(bar(r) == "Maximum")), cex = labelsize)
 text(5, 9.3, expression(paste("Willingness to Pay")), cex = labelsize)
 Arrows(2.9, 10, 0.5, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

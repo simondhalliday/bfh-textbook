@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/mrs_price_jane.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/mrs_price_jane.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -17,9 +17,9 @@ mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
-  y + rmax*x - (1/2)(rmax/xmax)*x^2
-}
+# uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
+#   y + rmax*x - (1/2)(rmax/xmax)*x^2
+# }
 
 xlims <- c(0, 11)
 ylims <- c(0, 22)
@@ -45,9 +45,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p == 10)), expression(paste(r[max] == 20)), NA)
+ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(r) == 20)), NA)
 ticksx <- c(0, 5, 10, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(x[max]==10)), NA)
+xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(bar(x)==10)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -67,7 +67,7 @@ segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Marginal rate of substitution, ", mrs(x,y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Marginal rate of substitution, ", mrs(x,y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(5, 10, pch = 16, col = "black", cex = 1.5)
 text(5.25, 10.5, expression(i))
@@ -95,13 +95,13 @@ text(8.6, 5.5, expression(paste(mrs(x,y) == 20 - 2*x)))
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation
-#text(20, 3.5, expression(paste(x[max] == "Point")))
+#text(20, 3.5, expression(paste(bar(x) == "Point")))
 #text(20, 3, expression(paste("of Satiation")))
 #Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
 #text(5, 10, expression("Consumer Surplus"))
-#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
+#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x)))
 #Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/mrs_price_qql.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/mrs_price_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -17,9 +17,9 @@ mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 10, xmas = 20) {
-  y + rmax*x - (1/2)(rmax/xmax)*x^2
-}
+# uA <- function(x, y, rmax, rmax = 10, xmas = 20) {
+#   y + rmax*x - (1/2)(rmax/xmax)*x^2
+# }
 
 xlims <- c(0, 12)
 ylims <- c(0, 22)
@@ -45,9 +45,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p[x])), expression(paste(r[max])), NA)
+ylabels <- c(NA, expression(paste(p[x])), expression(paste(bar(r))), NA)
 ticksx <- c(0, 5, 10, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*")), expression(paste(x[max])), NA)
+xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -90,17 +90,17 @@ text(10, 10.5, expression(paste("Market price, ", p[x])), cex = labelsize)
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(18, 2.5, expression(paste(mrs(x,y) == r[max] - bgroup("(",frac(r[max], x[max]),")")*x)))
+text(18, 2.5, expression(paste(mrs(x,y) == bar(r) - bgroup("(",frac(bar(r), bar(x)),")")*x)))
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation
-#text(20, 3.5, expression(paste(x[max] == "Point")))
+#text(20, 3.5, expression(paste(bar(x) == "Point")))
 #text(20, 3, expression(paste("of Satiation")))
 #Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
 #text(5, 10, expression("Consumer Surplus"))
-#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
+#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x)))
 #Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

@@ -2,7 +2,7 @@ require(shape)
 library(extrafont)
 loadfonts()
 #Help from http://blog.revolutionanalytics.com/2012/09/how-to-use-your-favorite-fonts-in-r-charts.html
-pdf(file = "bfh-textbook/indmarketdemand/demand_jane_elasticity.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/demand_jane_elasticity.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -20,9 +20,9 @@ mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax = 20, xmax = 10) {
-  y + rmax*x - (1/2)(rmax/xmax)*x^2
-}
+# uA <- function(x, y, rmax = 20, xmax = 10) {
+#   y + rmax*x - (1/2)(rmax/xmax)*x^2
+# }
 
 xlims <- c(0, 11)
 ylims <- c(0, 22)
@@ -48,9 +48,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p == 10)), expression(paste(r[max] == 20)), NA)
+ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(r) == 20)), NA)
 ticksx <- c(0, 5, 10, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(x[max]==10)), NA)
+xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(bar(x)==10)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -109,13 +109,13 @@ text(8.6, 5.5, expression(paste(p(x) == 20 - 2*x)))
 
 
 #Label satiation
-#text(20, 3.5, expression(paste(x[max] == "Point")))
+#text(20, 3.5, expression(paste(bar(x) == "Point")))
 #text(20, 3, expression(paste("of Satiation")))
 #Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
 # text(2.5, 12.25, expression("Consumer Surplus"))
-# text(2.5, 11, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x, phantom()== 25)))
+# text(2.5, 11, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x, phantom()== 25)))
 #text(3.5, 16, expression(paste(CS==frac(1, 2)*bgroup("(",20 - 10,")")*5, phantom()== 25)))
 #Arrows(3.5, 15, 3.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

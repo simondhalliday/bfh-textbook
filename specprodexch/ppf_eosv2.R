@@ -84,8 +84,8 @@ lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphl
 #mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-0.5, 8, expression(paste("Shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(8, -0.5, expression(paste("Fish, ", x)), xpd = TRUE, cex = axislabelsize)
-text(0.5, -7.5, expression(paste("Labor for Fish, ", L^f)), xpd = TRUE, cex = axislabelsize, srt= 90) 
-text(-7.5, 0.5, expression(paste("Labor for Shirts, ", L^s)), xpd = TRUE, cex = axislabelsize)
+text(0.5, -7.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = axislabelsize, srt= 90) 
+text(-7.5, 0.5, expression(paste("Labor for Shirts, ", l^s)), xpd = TRUE, cex = axislabelsize)
 
 #Label the points on the axes we want
 text(-0.6, 2.8, expression(paste(12.5)), xpd = TRUE, cex = axislabelsize)
@@ -96,12 +96,12 @@ text(5.2, -0.3, expression(paste(5)), xpd = TRUE, cex = axislabelsize)
 #Label the two production functions
 #Clothing
 text(-3.25, 6, expression(paste("Shirt Production")), xpd = TRUE, cex = axislabelsize)
-text(-3.25, 5, expression(paste(y == frac(1,2)(L^s)^2)), xpd = TRUE, cex = axislabelsize)
+text(-3.25, 5, expression(paste(y == frac(1,2)(l^s)^2)), xpd = TRUE, cex = axislabelsize)
 Arrows(-4.5, 5, -6.5, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Fishing
 text(6.8, -4.8, expression(paste("Fish Production")), xpd = TRUE, cex = axislabelsize)
-text(6.8, -5.8, expression(paste(x == frac(1,2)(L^f))), xpd = TRUE, cex = axislabelsize)
+text(6.8, -5.8, expression(paste(x == frac(1,2)(l^f))), xpd = TRUE, cex = axislabelsize)
 Arrows(5.8, -5.8, 3.5, -5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Draw segments for the 50/50 split of time
@@ -133,9 +133,9 @@ text(5, 2.75, expression(paste("2.5 Kilograms of Fish")))
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)
-text(-6.75, -5, expression(paste(list(L^S ==5, L^F == 5) )))
+text(-6.75, -5, expression(paste(list(l^S ==5, l^F == 5) )))
 
-text(-3, -9, expression(paste(L^S + L^F <= 10)))
+text(-3, -9, expression(paste(l^S + l^F <= 10)))
 Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the feasible frontier

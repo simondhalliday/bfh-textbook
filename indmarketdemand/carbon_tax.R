@@ -60,8 +60,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 18.9, ylims[2])
 ticksy_mod <- c(10, 10.8)
-ylabels_mod <- c(expression(paste(m[2] == m[1])), expression(paste(y[3] == u[3])))
-ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), NA, NA, expression(paste(m[3])), NA)
+ylabels_mod <- c(expression(paste(m[2] == m[1])), expression(paste(y[3])))
+ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), NA, NA, expression(paste(m[3])), NA)
 ticksx <- c(0, 6.533, 10.493, xlims[2])
 xlabels <- c(NA, expression(paste(x[2] == x[1])), expression(paste(x[3])), NA)
 

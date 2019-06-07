@@ -114,6 +114,8 @@ p <-  ggplot(data = LBdf) +
   geom_line(aes(x=year, y=b_share), color = COLA[4], na.rm = TRUE) +
   ylab("Profit Share") + 
   xlab("Year") +
+  theme(axis.text=element_text(size=14),
+                       axis.title=element_text(size=15)) +
   theme_minimal()
 p
 

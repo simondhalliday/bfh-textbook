@@ -67,7 +67,7 @@ loecker_barkai$year <-
 
 #Loecker:
 #missing year values
-loecker_barkai$year_l<- ifelse(loecker_barkai$year_l == 0, loecker_barkai$year, loecker_barkai$year_l)
+loecker_barkai$year<- ifelse(loecker_barkai$year == 0, loecker_barkai$year, loecker_barkai$year)
 #missing markup values (estimated from original data):
 #1983:
 loecker_barkai[53, 2] <- 0.193
@@ -81,7 +81,8 @@ loecker_barkai[56, 2] <- 0.34
 loecker_barkai[57, 2] <- 0.365
 #1996:
 loecker_barkai[58, 2] <- 0.375
-
+#1998 
+loecker_barkai[59, 2]<- 0.3936267
 
 #Barkai:
 #missing year values 

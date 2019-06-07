@@ -62,6 +62,37 @@ loecker_barkai$year <-
   pmax(loecker_barkai$year_l, loecker_barkai$year_b,
        na.rm = FALSE
        )
+
+# manually inputting missing values: 
+
+#Loecker:
+#missing year values
+loecker_barkai$year_l<- ifelse(loecker_barkai$year_l == 0, loecker_barkai$year, loecker_barkai$year_l)
+#missing markup values (estimated from original data):
+#1983:
+loecker_barkai[53, 2] <- 0.193
+#1984:
+loecker_barkai[54, 2] <- 0.21
+#1987:
+loecker_barkai[55, 2] <- 0.2796
+#1993:
+loecker_barkai[56, 2] <- 0.34
+#1995:
+loecker_barkai[57, 2] <- 0.365
+#1996:
+loecker_barkai[58, 2] <- 0.375
+
+
+#Barkai:
+#missing year values 
+loecker_barkai$year_b<- ifelse(loecker_barkai$year_b == 0, ifelse(loecker_barkai$year >= 1985,loecker_barkai$year, loecker_barkai$year_b),  loecker_barkai$year_b)
+#missing b_share values (estimated from original data)
+#2001:
+loecker_barkai[40, "b_share"] <- .03
+#2011:
+loecker_barkai[50, "b_share"] <- 0.12
+
+
 #The ggplot had issues with read l_markup.y
 #So I re-did it and just mutated it
 #as  you'd coded it it was trying 
@@ -71,7 +102,6 @@ LBdf <-
   mutate(markup = l_markup$y) %>% 
   select(year, markup, b_share)
 
-# ----
 
 
 # graph

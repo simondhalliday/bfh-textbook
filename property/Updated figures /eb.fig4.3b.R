@@ -1,6 +1,6 @@
 require(shape)
 #pdf(file="bfh-textbook/property/Updated figures/eb.fig4.3a.pdf", width = 9, height = 7)
-pdf(file="eb.fig4.3a.pdf", width = 9, height = 7)
+pdf(file="eb.fig4.3b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1
@@ -78,15 +78,14 @@ text(-.8, 7, expression(paste("B's data (gigabytes) ,",y^B )), xpd = TRUE, cex =
 #Add arrows and names:
 arrows(-.8, 10, -.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(6.3, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
-mtext("Bongani", side=3, line=3, at=0, col= COLB[2])
+mtext("Bongani", side=3, line=3, at=0, col=COLB[2])
 
-COLB <- c("#fc9272", "#fb6a4a", "#ef3b2c","#cb181d", "#99000d")
 
-#Add a point for a feasible allocation
-points(1, 14, pch = 16, col = "black", cex = 1.5)
-
-#Annotating the feasible allocation
-text(.8, 13.5, expression(z))
+#Add arrows explaining eb: 
+Arrows(x0=6, y0=9, x1=9, y1=13.5, arr.type = "triangle", col=COLA[4], lwd=2)
+Arrows(x0=4, y0=6, x1=1, y1=1.5, arr.type = "triangle", col=COLB[2], lwd=2)
+text(2, 5, "Better \nfor Ayanda", col="black")
+text(8.3, 10, "Better \nfor Bongani", col="black")
 
 dev.off()
 

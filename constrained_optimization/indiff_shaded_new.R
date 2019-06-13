@@ -3,6 +3,8 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+#pdf(file = "indiff_shaded_newSTEP1.pdf", width = 8, height = 6)
+#pdf(file = "indiff_shaded_newSTEP2.pdf", width = 8, height = 6)
 pdf(file = "constrained_optimization/indiff_shaded_new.pdf", width = 8, height = 6)
 
 #Set parameters for graphics

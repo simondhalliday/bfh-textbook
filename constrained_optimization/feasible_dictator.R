@@ -3,6 +3,10 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
+#pdf(file = "feasible_dictator_fairSTEP1.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_fairSTEP2.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_fairSTEP3.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_fairSTEP4.pdf", width = 8, height = 8)
 pdf(file = "constrained_optimization/feasible_dictator.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
@@ -36,6 +40,12 @@ xlims <- c(0, 11)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
+#step by step:
+#step 2:
+#a<-uFn(7, 3) - 0.8
+#step 3:
+#a <- c(uFn(7, 3) - 0.8, uFn(7, 3) + 1.4)
+#final:
 a <- c(uFn(7, 3) - 0.8, uFn(7, 3), uFn(7, 3) + 1.4) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",

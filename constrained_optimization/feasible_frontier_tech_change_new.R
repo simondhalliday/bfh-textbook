@@ -3,6 +3,8 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+#pdf(file = "feasible_frontier_tech_change_newSTEP1.pdf", width = 8, height = 8)
+#pdf(file = "feasible_frontier_tech_change_newSTEP2.pdf", width = 8, height = 8)
 pdf(file = "constrained_optimization/feasible_frontier_tech_change_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics

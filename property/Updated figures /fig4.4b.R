@@ -1,5 +1,7 @@
 require(ggplot2)
 require(shape)
+#pdf(file = "fig4.4bSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "fig4.4bSTEP2.pdf", width = 9, height = 7)
 pdf(file = "fig4.4b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

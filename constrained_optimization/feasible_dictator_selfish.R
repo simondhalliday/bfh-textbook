@@ -3,6 +3,10 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
+#pdf(file = "feasible_dictator_selfishSTEP1.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_selfishSTEP2.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_selfishSTEP3.pdf", width = 8, height = 8)
+#pdf(file = "feasible_dictator_selfishSTEP4.pdf", width = 8, height = 8)
 pdf(file = "constrained_optimization/feasible_dictator_selfish.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
@@ -36,6 +40,12 @@ xlims <- c(0, 11.1)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
+#step by step graphs:
+#step2:
+#a <- uFn(10, 0) - 1
+#step 3:
+#a <- c(uFn(10, 0) - 1, uFn(10, 0) + 1)
+#final:
 a <- c(uFn(10, 0) - 1, uFn(10, 0), uFn(10, 0) + 1) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",

@@ -3,6 +3,10 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
+#pdf(file = "feasible_frontier_indifference_badsSTEP1.pdf", width = 8, height = 8)
+#pdf(file = "feasible_frontier_indifference_badsSTEP2.pdf", width = 8, height = 8)
+#pdf(file = "feasible_frontier_indifference_badsSTEP3.pdf", width = 8, height = 8)
+#pdf(file = "feasible_frontier_indifference_badsSTEP4.pdf", width = 8, height = 8)
 pdf(file = "constrained_optimization/feasible_frontier_indifference_bads.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
@@ -36,6 +40,12 @@ xlims <- c(0, 18)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
+#step by step graphs:
+#step 2:
+#a <- uFn(8, 3) - 1
+#step 3:
+#a <- c(uFn(8, 3) - 1, uFn(8, 3) + 1.4) 
+#final:
 a <- c(uFn(8, 3) - 1, uFn(8, 3), uFn(8, 3) + 1.4) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",

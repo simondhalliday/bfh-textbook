@@ -3,6 +3,9 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+#pdf(file = "feasible_live_learn_newSTEP1.pdf", width = 8, height = 8)
+#pdf(file = "feasible_live_learn_newSTEP2.pdf", width = 8, height = 8)
+#pdf(file = "feasible_live_learn_newSTEP3.pdf", width = 8, height = 8)
 pdf(file = "constrained_optimization/feasible_live_learn_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
@@ -18,7 +21,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 6, 4, 4))
 
-ppf <- function(x, slope = 1/64, bary = 4) {
+ppf2 <- function(x, slope = 1/64, bary = 4) {
   bary - slope *x^2
 }
 

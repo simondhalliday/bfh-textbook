@@ -1,4 +1,6 @@
 require(shape)
+#pdf(file = "fig4.4aSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "fig4.4aSTEP2.pdf", width = 9, height = 7)
 pdf(file = "fig4.4a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

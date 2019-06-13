@@ -1,5 +1,6 @@
 require(shape)
-#pdf(file="bfh-textbook/property/Updated figures/eb.fig4.3a.pdf", width = 9, height = 7)
+#pdf(file="eb.fig4.3aSTEP1.pdf", width = 9, height = 7)
+#pdf(file="eb.fig4.3aSTEP2.pdf", width = 9, height = 7)
 pdf(file="eb.fig4.3a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

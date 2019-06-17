@@ -1,17 +1,21 @@
 require(shape)
-pdf(file = "constrained_optimization/offer_curve_qql_new.pdf", width = 9, height = 7)
+#pdf(file = "offer_curve_qql_newSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "offer_curve_qql_newSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "offer_curve_qql_newSTEP3.pdf", width = 9, height = 7)
+pdf(file = "offer_curve_qql_new.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 2
-segmentlinewidth <- 1.5
+labelsize <- 1.2
+graphlinewidth <- 3
+segmentlinewidth <- 2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(6, 6, 4, 4))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -53,20 +57,20 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
+# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
+# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
+# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
+# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, 5.5, 7.375 , ylims[2])
 ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), NA)
 ticksx <- c(0, 6, 9, 10.5,  xlims[2])
-xlabels <- c(NA, expression(paste(x[1])), expression(paste(x[3])), expression(paste(x[3])), NA)
+xlabels <- c(NA, expression(paste(x[1])==6), expression(paste(x[2])==9), expression(paste(x[3])==10.5), NA)
 
 
 
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -78,21 +82,24 @@ lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
-text(11.8, 1.3, expression(u[1]))
-text(11.8, 5.1, expression(u[2]))
-text(11.8, 7.6, expression(u[3]))
+text(11.8, 1.3, expression(u[1]), cex = labelsize)
+text(11.8, 5.1, expression(u[2]), cex = labelsize)
+text(11.8, 7.6, expression(u[3]), cex = labelsize)
 
 #Label the price lines
-text(8, 0.9, expression(paste(pl[1], ", ", p[x] == 0.25)))
-text(11.3, 3.75, expression(paste(pl[2], ", ", p[x] == 0.5)))
-text(11.3, 6.8, expression(paste(pl[3], ", ", p[x] == 1)))
+text(8, 1.7, expression(paste(bc[1])))
+text(8, 1.3, expression(paste(p[x] == 1)))
+text(11.3, 4.1, expression(paste(bc[2])))
+text(11.3, 3.7, expression(paste(p[x] == 0.5)))
+text(11.3, 6.9, expression(paste(bc[3])))
+text(11.3, 6.5, expression(paste(p[x] == 0.25)))
 
 #Label the offer curve
-text(11, 9.7, expression("Offer Curve"))
+text(10.8, 9.7, expression("Offer Curve"), cex = labelsize)
 
 #Add the contour plot for the indifference curves
 contour(x, y, 
@@ -123,8 +130,8 @@ points(6, 4, pch = 16, col = "black", cex = 1.5)
 points(9, 5.5, pch = 16, col = "black", cex = 1.5)
 points(10.5, 7.375, pch = 16, col = "black", cex = 1.5)
 
-text(6, 4.4, expression(paste(a)))
-text(9, 5.9, expression(paste(b)))
-text(10.5, 7.775, expression(paste(c)))
+text(6, 4.4, expression(paste(a)), cex = labelsize)
+text(9, 5.9, expression(paste(b)), cex = labelsize)
+text(10.5, 7.775, expression(paste(c)), cex = labelsize)
 
 dev.off()

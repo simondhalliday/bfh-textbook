@@ -1,5 +1,6 @@
-# TO-DO:
-# Scale x-axis
+#Graph Designer: Scott Cohn + Simon Halliday
+#Authors: Bowles and Halliday
+#Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 # ----
 library(readxl)

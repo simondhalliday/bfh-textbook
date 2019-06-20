@@ -1,3 +1,8 @@
+#Graph Designer: Bridget Diana + Scott Cohn + Simon Halliday
+#Authors: Bowles and Halliday
+#Title: Coordination, Conflict and Competition: A Text in Microeconomics
+
+
 require(shape)
 library(tidyverse)
 library(lubridate)

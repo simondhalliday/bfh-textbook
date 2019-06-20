@@ -89,8 +89,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Quantity of coffee, x")), side = 1, line = 2.5, cex = axislabelsize)
-text(-8, 0.5*ylims[2], expression(paste("Quantity of cookies, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-8, 0.5*ylims[2], expression(paste("Gigabytes of data", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bc1(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, bc2(xx1), col = COLA[5], lwd = graphlinewidth)

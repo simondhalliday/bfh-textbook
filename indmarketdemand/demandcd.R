@@ -1,5 +1,5 @@
 library(shape)
-pdf(file = "demandcd.pdf", width = 8, height = 8)
+pdf(file = "indmarketdemand/demandcd.pdf", width = 8, height = 8)
 
 axislabelsize <- 1.5
 labelsize <- 1.2
@@ -63,8 +63,8 @@ lines(xx1, bcA(xx1, w = 12, p = 3), col = COLA[3], lwd = graphlinewidth)
 
 
 #Label Axes
-mtext(expression(paste("Quantity of apples, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.3, 0.5*ylims[2], expression(paste("Quanity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-2.3, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(2, 0, 2, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)

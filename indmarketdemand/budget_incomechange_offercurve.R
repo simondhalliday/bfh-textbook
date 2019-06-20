@@ -73,8 +73,8 @@ lines(xx1, bcA(xx1, w = 9, p = 1), col = COLB[3], lwd = graphlinewidth)
 abline(v=6, col=COL[3], lwd=graphlinewidth)
 
 #Label Axes
-mtext(expression(paste("Quantity of apples, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.3, 0.5*ylims[2], expression(paste("Money for other goods, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-2.3, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the budget curve functions for the HG, Aisha
 text(.7, 6, expression(bc[m1]), cex = labelsize)

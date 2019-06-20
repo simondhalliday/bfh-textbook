@@ -80,8 +80,8 @@ segments(49, bc1(49), 49, ylims[2], lty = 1, col = COLB[4] , lwd = graphlinewidt
 segments(49, bc1(49), xlims[2], bc1(49), lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Quantity of knives, x")), side = 1, line = 2.5, cex = axislabelsize)
-text(-9, 0.5*ylims[2], expression(paste("Quantity of forks, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, x")), side = 1, line = 2.5, cex = axislabelsize)
+text(-9, 0.5*ylims[2], expression(paste("Gigabytes of data, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bc1(xx1, y), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, bc2(xx1, y), col = COLA[5], lwd = graphlinewidth)

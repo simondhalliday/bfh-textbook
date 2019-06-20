@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "bfh-textbook/indmarketdemand/budget_pchange.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/budget_pchange.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -73,8 +73,8 @@ lines(xx1, bcA(xx1, w = 12, p = 3), col = COLB[3], lwd = graphlinewidth)
 
 
 
-mtext(expression(paste("Quantity of apples, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 6.5, expression(paste("Quanity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.4, 6.5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))

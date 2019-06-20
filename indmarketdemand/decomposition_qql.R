@@ -1,5 +1,5 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
@@ -94,11 +94,6 @@ contour(x, y,
 mtext(expression(paste("Kilograms of fish, x")), side = 1, line = 2.5, cex = axislabelsize)
 text(-6.5, 0.5*ylims[2], expression(paste("Money for other goods, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-lines(xx1, bc1(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, bc2(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, cbc1(xx1), col = COLA[6], lwd = graphlinewidth)
-
-
 #Label curves
 
 text(13.5, 39, expression(u[1]), cex = labelsize)
@@ -112,16 +107,16 @@ text(78, 7.5, expression(cbc[1]), cex = labelsize)
 text(40.2, cbc1(39)+.9, expression(paste(e[sub])), cex = labelsize)
 segments(39, 0, 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, cbc1(x = 39), 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(39, cbc1(x = 39), pch = 16, col = "black", cex = 1.5)
+
 
 text(55 + 0.8, bc2(55) + .8, expression(paste(e)), cex = labelsize)
 segments(55, 0, 55, bc2(x = 55), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bc2(x = 55), 55, bc2(x = 55), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(55, bc2(x = 55), pch = 16, col = "black", cex = 1.5)
+
 
 text(39 - 1, bc1(39) - 1, expression(paste(e*minute)), cex = labelsize)
 segments(0, bc1(x = 39), 39, bc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
+
 
 #Label y-sub,x-sub,etc. on axes
 
@@ -134,5 +129,12 @@ points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
 #text(-1.8, bc1(39)+.5, expression(paste(y[e*minute])),  xpd = TRUE,  cex = labelsize)
 #text(-2.1, bc1(39)-1, expression(paste(y[e])),  xpd = TRUE, cex = labelsize)
 
+lines(xx1, bc1(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, bc2(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, cbc1(xx1), col = COLA[6], lwd = graphlinewidth)
+
+points(39, cbc1(x = 39), pch = 16, col = "black", cex = 1.5)
+points(55, bc2(x = 55), pch = 16, col = "black", cex = 1.5)
+points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

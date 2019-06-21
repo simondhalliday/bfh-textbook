@@ -2,7 +2,7 @@
 
 library(shape)
 library(pBrackets)
-pdf(file = "employment/lorenz_employment_numeric.pdf", width = 10, height = 8)
+pdf(file = "employment/lorenz_employment_numeric.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -84,7 +84,7 @@ polygon(x = xpoly2,
         col = COLA[1], density = NULL, border = NA)
 
 # Lorenz curve
-segments(0, 0, 0.1, 0, lty = 1, col = COLA[5], lwd = graphlinewidth)
+segments(0, 0, 0.1, 0, lty = 1, col = COLA[5], lwd = graphlinewidth, xpd = TRUE)
 segments(0.1, 0, 0.9, 0.6, lty = 1, col = COLA[5], lwd = graphlinewidth)
 segments(0.9, 0.6, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
 text(0.8, 0.47, expression(paste("Lorenz")), cex = labelsize)
@@ -92,8 +92,8 @@ text(0.8, 0.43, expression(paste("curve")), cex = labelsize)
 
 #Line of equality
 segments(0, 0, 1, 1, lty = 1, col = COLB[5], lwd = graphlinewidth)
-text(0.8, 0.9, expression(paste("Line of")), cex = labelsize)
-text(0.8, 0.86, expression(paste("equality")), cex = labelsize)
+text(0.78, 0.9, expression(paste("Line of")), cex = labelsize)
+text(0.78, 0.86, expression(paste("equality")), cex = labelsize)
 
 segments(0.9, 0, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, 0.6, 1, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)

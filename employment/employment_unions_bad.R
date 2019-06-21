@@ -4,7 +4,8 @@ pdf(file = "employment/employment_unions_bad.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -47,7 +48,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 10, 20,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t[0])), expression(paste(B+a/t[1])), expression(paste(w[0])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.5, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[1],"*")),expression(paste(H[0],"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -73,8 +74,7 @@ text(0.74, 21, expression(paste(n[0])))
 
 
 #Union raises the wage function
-
-lines(xx1, WageFn(xx1, delta = 10), col = COL[1], lwd = 4)
+lines(xx1, WageFn(xx1, delta = 10), col = COL[1], lwd = graphlinewidth)
 
 #segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
 #text(0.97, 11, expression(paste(B + a[1])))
@@ -96,7 +96,7 @@ text(0.49, 21, expression(paste(n[1])))
 segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste(zpc[0], ", ", w == w[0])))
+text(1.02, 21, expression(paste("Competition Condition, ", w^C == w[0])))
 #text(0.97, 6, expression(paste(B + a[0])))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

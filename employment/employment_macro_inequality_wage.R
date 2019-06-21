@@ -88,7 +88,9 @@ text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE)
 
 
 #Zero profit condition
-text(0.98, WageFn(0.8) + 1, expression(paste("Market wage, ", w == w[0])))
+text(0.98, WageFn(0.8) + 5, expression(paste("Competition condition")))
+text(0.98, WageFn(0.8) + 3, expression(paste("determines")))
+text(0.98, WageFn(0.8) + 1, expression(paste("the wage, ", w^C == w[0])))
 #text(0.97, 6, expression(paste(B + delta/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

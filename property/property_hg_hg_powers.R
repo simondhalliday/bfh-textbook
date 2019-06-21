@@ -1,12 +1,10 @@
-#based on 
-#http://r.789695.n4.nabble.com/Indifference-curve-td4634746.html
-#Graphics 
 require(shape)
-pdf(file = "property/property_hg_hgb.pdf", width = 9, height = 7)
+pdf(file = "property/property_hg_hg_powers_a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
+namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -14,12 +12,12 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 par(mar =  c(4, 4, 4, 4))
 
-uA <- function(x, y) {
-  0.5*log(x) + 0.5*log(y) + 0.15*log(10 - x) + 0.15*log(15 - y)
+uA <- function(x, y, alpha = 0.5, lambda = 0.4) {
+  (x^(alpha)*y^(1 - alpha))^(1-lambda)*((10 - x)^(alpha)*(15 - y)^(1 - alpha))^lambda
 }
 
 uB <- function(x, y) {
-  0.15*log(x) + 0.15*log(y) + 0.5*log(10 - x) + 0.5*log(15 - y) 
+  (10 - x)^(0.5)*(15 - y)^(0.5)
 }
 
 xlims <- c(0, 10)
@@ -28,20 +26,10 @@ ylims <- c(0, 15)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(2.1, 2.357, 2.505, 2.54)
-b <- c(2.1, 2.357, 2.505, 2.54)
 
-#B's value when at A's bliss point
-#0.35*log(5.88) + 0.35*log(8.88) + 0.5*log(10 - 5.88) + 0.5*log(15 - 8.88) 
 
-#A's bliss point x = 7.69231, y = 11.5385
-#A's value when at A's bliss point = 2.55465
-#0.5*log(x) + 0.5*log(y) + 0.15*log(10 - x) + 0.15*log(15 - y)
 
-#B's bliss point x = 2.30769, y = 3.46154
-#B's value when at A's bliss point = 2.55465
-#0.15*log(x) + 0.15*log(y) + 0.5*log(10 - x) + 0.5*log(15 - y)
-
+#For B we need a utility where xA = 5.88, ya = 8.82 => corresponds to 1.618 above
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -60,16 +48,13 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
+#a <- c(uA(9,1) - 1, uA(9,1), uA(9,1) + 2, uA(9,1), uA(9,1) + 3, uA(9,1) + 4, uA(9,1) + 5, uA(9,1) + 6, uA(9,1) + 6.6,  uA(9,1) + 7)
+a <- c(uA(9,1), uA(9,1) + 1.5, uA(9,1) + 2.5,  uA(9,1) + 2.92)
 
-#persp(x, y, outer(x, y, u), ticktype="detailed") 
 contour(x, y, 
         outer(x, y, uA),
-        #labels = c("v1", "v2", "v3"),
         drawlabels = FALSE,
         col = COLA[3],
-        #xlab = expression(paste("A's Apples, ", x)),
-        #ylab = expression(paste("A's Oranges, ", y)),
-        #cex.lab = axislabelsize,
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -83,49 +68,39 @@ text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex 
 arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
-
-
-contour(x, y, 
-        outer(x, y, uB),
-        drawlabels = FALSE,
-        col = COLB[2],
-        lwd = graphlinewidth,
-        levels = b, 
-        add = TRUE
-) 
-
-segments(2.30769, 3.46154, 7.69231, 11.5385, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(4.9, 2.4, expression("Pareto Efficient"))
-text(4.9, 1.9, expression("Curve"))
-Arrows(4.9, 2.7, 4.9, 6.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+segments(4, 6, 6, 9, lty = 1, col = COL[2] , lwd = graphlinewidth)
+text(4.5, 4.5, expression("Pareto-efficient"))
+text(4.5, 4, expression("Curve"))
+Arrows(4.5, 4.8, 4.5, 6.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.35, 3.5, expression(v[1]^A))
-text(9, 6, expression(v[2]^A))
-text(8.5, 8.7, expression(v[3]^A))
-text(8.2, 10, expression(v[4]^A))
+text(9.75, 9, expression(u[1]^A))
+text(9.3, 9, expression(u[2]^A))
+text(8.5, 9, expression(u[3]^A))
+text(7, 9, expression(u[4]^A))
 
-#Label the indifference curves for the HG, Betty
-text(0.55, 11.5, expression(v[1]^B))
-text(0.95, 9, expression(v[2]^B))
-text(1.5, 6.3, expression(v[3]^B))
-text(1.7, 5, expression(v[4]^B))
+#Label the indifference curves for the HE, Betty
+text(2.7, 13.9, expression(u[1]^B))
+text(2.7, 11.9, expression(u[2]^B))
+text(2.7, 10.2, expression(u[3]^B))
+text(2.7, 8.5, expression(u[4]^B))
+
+#text(1.3, 1.1, expression(u[5]^B))
+
+#A's bliss point - 3.1073 is the value of u
+# points(5.88, 8.82, pch = 16, col = "black", cex = 1.5)
+# text(6, 13.5, expression(paste("A's highest u, ", u[max]^A)))
+# Arrows(6, 13.2, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label point i. 
 points(5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(5, 7.9, expression(paste("i")))
-
-#A's bliss point - 3.1073 is the value of u
-points(x = 7.69231, y = 11.5385, pch = 16, col = "black", cex = 1.5)
-text(7.69231, 14, expression(paste("A's highest v, ", v[max]^A)))
-Arrows(7.69231, 13.7, 7.69231, 12.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#B's bliss point: 
-points(x = 2.30769, y = 3.461547, pch = 16, col = "black", cex = 1.5)
-text(x = 2.30769, y = 0.9, expression(paste("B's highest v, ", v[max]^B)))
-Arrows(2.30769, 1.2, 2.30769, 2.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(5, 7.1, expression(paste(i)))
+# 
 
 
+
+text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 par(new = TRUE)
 
@@ -143,6 +118,41 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      bty = "n",
      xaxs="i", 
      yaxs="i")
+
+uB <- function(x, y, alpha = 0.5, lambda = 0.4) {
+  (x^(alpha)*y^(1 - alpha))^(1-lambda)*((10 - x)^(alpha)*(15 - y)^(1 - alpha))^lambda
+}
+
+b <- c(uB(1,14), uB(1,14) + 1.5, uB(1,14) + 2.33, uB(1,14) + 2.6)
+
+contour(x, y, 
+        outer(x, y, uB),
+        drawlabels = FALSE,
+        col = COLB[2],
+        lwd = graphlinewidth,
+        levels = b, 
+        add = TRUE
+) 
+
+
+# #Label two points for comparison
+points(1, 14, pch = 16, col = "black", cex = 1.5)
+text(1.2, 13.8, expression(paste(z)))
+
+# #Label two points for comparison
+points(0.4*10, 0.4*15, pch = 16, col = "black", cex = 1.5)
+text(0.4*10-0.2, 0.4*15-0.2,expression(paste(v^A)))
+
+
+points(0.6*10, 0.6*15, pch = 16, col = "black", cex = 1.5)
+text(0.6*10 + 0.2, 0.6*15 + 0.2,expression(paste(v^B)))
+
+
+# points(8.8, (3/2)*8.8, pch = 16, col = "black", cex = 1.5)
+# text(8.8, (3/2)*8.8 - 0.5, expression(paste(j)))
+# 
+# points(0.4, (3/2)*0.4, pch = 16, col = "black", cex = 1.5)
+# text(0.4 + 0.2, (3/2)*0.4 + 0.2, expression(paste(k)))
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)

@@ -1,24 +1,29 @@
-
 require(shape)
-pdf(file = "bfh-textbook/property/property_fig2b.pdf", width = 9, height = 7)
+pdf(file = "property/property_fig2b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
+namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
+
+uA <- function(x, y, alpha = 0.5, lambda = 0) {
+  (x^(alpha)*y^(1 - alpha))^(1-lambda)*((10 - x)^(alpha)*(15 - y)^(1 - alpha))^lambda
+}
+
+indiffcurveA1 <- function(x, U = 3, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveA2 <- function(x, U = 4, A = 1, a = 0.5) {
+indiffcurveA2 <- function(x, U = 3, A = 1, a = 0.5) {
   (((U/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
+indiffcurveA3 <- function(x, U = 3, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
@@ -27,15 +32,15 @@ indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
 #Aisha's utility (8^0.5)*(2^0.5) = 4
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)), line = 2.5,
+     xlab = "",
+     ylab = "",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -67,14 +72,17 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 #Add arrows:
-arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
-text(9.6, 0.9, expression(u[1]^A))
-text(9.6, 2.2, expression(u[2]^A))
-text(9.6, 4.3, expression(u[3]^A))
+text(0.3, 10, expression(u[1]^A))
+text(1.1, 10, expression(u[2]^A))
+text(2.7, 10, expression(u[3]^A))
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment
@@ -82,10 +90,11 @@ text(9.6, 4.3, expression(u[3]^A))
 #segments(2, 0, 2, 13, lty = 2, col = "darkgray", lwd = 2)
 
 
+text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Set up second axes and labels
-
 par(new = TRUE)
 #par(mar =  c(6, 4, 4, 4))
 
@@ -105,24 +114,23 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
 #axis(side=3, at = xlims2, pos = 0)
-mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-#axis(side = 4, at = ylims2, pos = 0)
-text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
-indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {
+indiffcurveB1 <- function(x, U = 3.741657, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveB2 <- function(x, U = 5.09, A = 1, a = 0.5) {
+indiffcurveB2 <- function(x, U = 3.741657, A = 1, a = 0.5) {
   (((U/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveB3 <- function(x, U = 5.09, A = 1, a = 0.5) {
+indiffcurveB3 <- function(x, U = 3.741657, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
@@ -131,15 +139,16 @@ lines(xx1, indiffcurveB2(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveB3(xx1), col = COLB[2], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(9.1, 1.6, expression(u[1]^B))
-text(9.1, 3.4, expression(u[2]^B))
-text(9.1, 6.2, expression(u[3]^B))
+text(0.5, 10, expression(u[1]^B))
+text(1.6, 10, expression(u[2]^B))
+text(3.6, 10, expression(u[3]^B))
 
 #Add a point for the initial endowment
-points(2, 13, pch = 16, col = "black", cex = 1.5)
+points(1, 14, pch = 16, col = "black", cex = 1.5)
 
 #Annotating B's endowment
-text(1.8, 12.5, expression(e))
+text(0.8, 13.5, expression(z))
+
 
 #Arrow to Slope of BRF
 #Arrows(14.2, 0.12, 12.2, 0.12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

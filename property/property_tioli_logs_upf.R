@@ -1,29 +1,50 @@
-require(ggplot2)
 require(shape)
 require(plotrix)
-pdf(file = "property/property_tioli_upf.pdf", width = 9, height = 7)
+library(tidyverse)
+pdf(file = "property/property_tioli_logs_upf.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
 arrowwidth <- 0.5
 
-
-
 #Colors
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-upf <- function(ub) {
-  12.24745 - ub
+upf <- function(ua) {
+  log(5*sqrt(6) - exp(ua))
 }
 
 
-uA <- function(xA, yA, alpha = 1/2){
-  ((xA)^alpha)*((yA)^(1 - alpha))
+
+uAlog <- function(xA, yA, alpha = 1/2){
+  alpha*log(xA) + (1-alpha)*log(yA)
 }
 
+paretoEC <- function(x, ybar = 15, xbar = 10) {
+  (ybar/xbar)*x
+}
+
+
+
+x <- seq(0.01, 10, by = 0.01)
+y <- paretoEC(x)
+uA <- uAlog(x,y, alpha = 1/2)
+uB <- rev(uA)
+data <- data.frame(x,y,uA, uB)
+
+# ggplot(data, aes(uA, rev(uA))) + 
+#   geom_point() + 
+#   xlim(0, 2.5) + 
+#   ylim(0, 2.5)
+
+#uAlog(9,1, alpha = 1/2)
+#[1] 1.098612
+
+#uAlog(1,4, alpha = 1/2)
+#[1] 1.319529
 
 #Notes
 #ua = (xa^0.5)*(ya^0.5)
@@ -31,6 +52,8 @@ uA <- function(xA, yA, alpha = 1/2){
 
 #ua = (10^0.5)*(15^0.5) = 12.24745
 #ua_e = u(8,2) = (8^0.5)*(2^0.5) = 4
+
+
 
 #Point g
 # => x^A = 4/((3/2)^0.5) = 3.27 => x^B = 6.73
@@ -41,8 +64,8 @@ uA <- function(xA, yA, alpha = 1/2){
 
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 par(mar =  c(5, 5, 4, 2))
-xlims <- c(0, 13)
-ylims <- c(0, 13)
+xlims <- c(0, 3)
+ylims <- c(0, 3)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -64,8 +87,15 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 
 #polygons
 #I need something like xx1 with npts for 
-xpoly1 <- c(uA(9,1), 8.5, uA(9,1), uA(9,1))
-ypoly1 <- c(uA(1,14), uA(1,14), upf(uA(9,1)), uA(1,14))
+
+#2.141474
+#line 245 to 756 = 512 inclusive
+#xrev <- data %>% 
+#  filter(uA >= 1.0988206 & uB >= 1.317874)
+
+polyxx <- seq(uAlog(9,1), 2.14, length.out = 200)
+xpoly1 <- c(uAlog(9,1), 2.14, polyxx, uAlog(9,1), uAlog(9,1))
+ypoly1 <- c(uAlog(1,14), upf(2.14), upf(polyxx), upf(uAlog(9,1)), uAlog(1,14))
 polygon(x = xpoly1, y = ypoly1, col=COL[4], density=NULL, border = NA)
 
 #xpoly2 = c(0, 0, 12.24745, xlims[2], xlims[2], 0)
@@ -78,17 +108,17 @@ polygon(x = xpoly1, y = ypoly1, col=COL[4], density=NULL, border = NA)
 lines(xx1, upf(xx1), col = COL[1], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
-ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-ticksx <- seq(from =  xlims[1], to = xlims[2], by = 1)
-xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
+ticksy <- c(0,1, 2, uAlog(1, 14), 3)
+ylabels <-  c(NA,1, 2, expression(paste(u[z]^B)), 3)
+ticksx <-  c(0, 1, 2, uAlog(9, 1), 3)
+xlabels <-  c(NA, 1, 2, expression(paste(u[z]^A)), 3)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
 #UPF
-text(8.8, 1.5, expression(paste("Utility Possibilities Frontier")))
-text(8.8, 1, expression(paste(u^B == bar(W) - u^A)))
+text(1.9, 0.8, expression(paste("Utility Possibilities Frontier")))
+text(1.9, 0.68, expression(paste(u^B == ln*(bar(W) - e^u^A))))
 
 #SWF
 #text(11.5, 4.5, expression(paste("Social Planner's")))
@@ -99,7 +129,7 @@ text(8.8, 1, expression(paste(u^B == bar(W) - u^A)))
 #u^B = (4.16^0.5)*(6.23^0.5) = 5.09
 #W = (7.16^0.5)*(5.09^0.5) = 6.03692
 
-#points(5.09, 7.15, pch = 16, col = "black", cex = 1.5)
+
 #text(5.3, 7.3, expression(f))
 
 
@@ -120,28 +150,34 @@ text(8.8, 1, expression(paste(u^B == bar(W) - u^A)))
 #ua_e = (8^0.5)*(2^0.5) = 4
 #ub_e = (2^0.5)*(13.1^0.5) = 5.118594
 #W = (4^0.5)*(5.118594^0.5) = 4.524862
-segments(0,  uA(1,14), xlims[2], uA(1,14), lty = 2, col = "darkgray", lwd = 2)
-segments(uA(9,1), 0, uA(9,1), ylims[2], 13, lty = 2, col = "darkgray", lwd = 2)
+segments(uAlog(9,1), 0, uAlog(9,1), ylims[2], lty = 2, col = "darkgray", lwd = 1.5)
+segments(0, uAlog(1,14), xlims[2], uAlog(1,14), lty = 2, col = "darkgray", lwd = 1.5)
 
-#Annotate e
-points(uA(9,1),  uA(1,14), pch = 16, col = "black", cex = 1.5)
-text(uA(9,1)-0.2,  uA(1,14)-0.2, expression(z))
+#Annotate z
+points(uAlog(9,1), uAlog(1,14), pch = 16, col = "black", cex = 1.5)
+text(uAlog(9,1)-0.05, uAlog(1,14)-0.05, expression(z))
+
+points(2.14, upf(2.14), pch = 16, col = "black", cex = 1.5)
+
+points(uAlog(9,1), upf(uAlog(9,1)), pch = 16, col = "black", cex = 1.5)
+
+points(uAlog(5, 7.5), uAlog(5, 7.5), pch = 16, col = "black", cex = 1.5)
+
 
 #Annotate f
-points(8.5, uA(1,14), pch = 16, col = "black", cex = 1.5)
-text(8.5 - 0.2, uA(1,14) - 0.2, expression(f))
-
+points(5.12, 7.12, pch = 16, col = "black", cex = 1.5)
+text(5.3, 7.3, expression(f))
 #Annotate g
-points(uA(9,1, alpha = 1/2), upf(uA(9,1)), pch = 16, col = "black", cex = 1.5)
-text(uA(9,1, alpha = 1/2)-0.2, upf(uA(9,1))-0.2, expression(g))
+points(8.24, 4, pch = 16, col = "black", cex = 1.5)
+text(8.4, 4.2, expression(g))
 
 #Annotate m
-#points(4.389995,  5.703502, pch = 16, col = "black", cex = 1.5)
-#text(4.6, 5.9, expression(m))
+points(5.703502, 4.389995, pch = 16, col = "black", cex = 1.5)
+text(5.9, 4.6, expression(m))
 
 #Label economic rents
-Arrows(6.68, 5.12, 6.68, 7.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(6.68, 7.82, expression(paste("Economic surplus")))
+Arrows(1.5, 2.7, 1.5, 1.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(1.5, 2.8, expression(paste("Economic Surplus")))
 
 #Point h
 #points(4, 10, pch = 16, col = "black", cex = 1.5)
@@ -158,10 +194,10 @@ text(6.3, 6.3, expression(i))
 
 #Label Participation Constraints
 #Aisha's
-text(11, 4.4, expression(paste("B's Participation Constraint ", u[z]^B)))
+text(11, 4.4, expression(paste("A's Participation Constraint ", u[z]^A)))
 
 #Betty's
-text(5.1, 12.5, expression(paste("A's Participation Constraint ", u[z]^A)))
+text(7.1, 12.5, expression(paste("B's Participation Constraint ", u[z]^B)))
 
 #Arrows showing Social Planner's choices
 #Arrows(5.2, 4.2, 5.9, 4.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = arrowwidth)

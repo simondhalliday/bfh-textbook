@@ -1,54 +1,59 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "property/property_tioli.pdf", width = 9, height = 7)
+pdf(file = "property/property_tioli_new_z.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
+namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-uA <- function(xA, yA, alpha){
+uA <- function(xA, yA, alpha = 0.5){
   (xA)^(alpha)*(yA)^(1 - alpha)
 }
 
-indiffcurveA1 <- function(x, U = 2, A = 1, a = 0.5) {
-  ((((U)/A)*(1/x)^a)^(1/(1-a)))
+uBneg <- function(xA, yA, alpha = 0.5){
+  (10-xA)^(alpha)*(15-yA)^(1 - alpha)
 }
 
-indiffcurveA2 <- function(x, U = 4, A = 1, a = 0.5) {
-  (((U/A)*(1/x)^a)^(1/(1-a)))
-}
-
-indiffcurveA3 <- function(x, U = 6.123724, A = 1, a = 0.5) {
-  (((U/A)*(1/x)^a)^(1/(1-a)))
-}
-
-indiffcurveA4 <- function(x, U = 7.156591, A = 1, a = 0.5) {
-  ((((U)/A)*(1/x)^a)^(1/(1-a)))
-}
+# indiffcurveA1 <- function(x, U = 2, A = 1, a = 0.5) {
+#   ((((U)/A)*(1/x)^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveA2 <- function(x, U = 4, A = 1, a = 0.5) {
+#   (((U/A)*(1/x)^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveA3 <- function(x, U = 6.123724, A = 1, a = 0.5) {
+#   (((U/A)*(1/x)^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveA4 <- function(x, U = 7.156591, A = 1, a = 0.5) {
+#   ((((U)/A)*(1/x)^a)^(1/(1-a)))
+# }
 
 paretoEC <- function(x) {
   (3/2)*x
 }
 
-indiffcurveBneg <- function(x, U = 5.09, A = 1, a = 0.5) {
-  15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
-}
-
-indiffcurveBneg1 <- function(x, U = 3.09, A = 1, a = 0.5) {
-  15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
-}
-
-indiffcurveBneg2 <- function(x, U = 5.09, A = 1, a = 0.5) {
-  15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
-}
-
-indiffcurveBneg3 <- function(x, U = 8.244574, A = 1, a = 0.5) {
-  15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
-}
+# indiffcurveBneg <- function(x, U = 5.09, A = 1, a = 0.5) {
+#   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveBneg1 <- function(x, U = 3.09, A = 1, a = 0.5) {
+#   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveBneg2 <- function(x, U = 5.09, A = 1, a = 0.5) {
+#   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
+# }
+# 
+# indiffcurveBneg3 <- function(x, U = 8.244574, A = 1, a = 0.5) {
+#   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
+# }
 
 
 
@@ -66,9 +71,8 @@ xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)), 
-     line = 2.5,
+     xlab = "",
+     ylab = "", 
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -94,16 +98,30 @@ ypoly1 <- indiffcurveA2(xpoly1, U = 4, A = 1, a = 0.5)
 ypoly2 <- indiffcurveBneg(xpoly1, U = 5.09, A = 1, a = 0.5)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
+
+
 #Draw the lines for the graphs
-lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
-#lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
+# lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
+# lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
+# lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
+# lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 
-lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg3(xx1), col = COLB[2], lwd = graphlinewidth)
+a <- c(uA(9,1), uA(9,1) + 1.5, uA(9,1) + 2.5,  uA(9,1) + 2.9)
+
+contour(x, y, 
+        outer(x, y, uA),
+        drawlabels = FALSE,
+        col = COLA[3],
+        lwd = graphlinewidth,
+        levels = a, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE) 
+
+# lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
+# lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
+# lines(xx1, indiffcurveBneg3(xx1), col = COLB[2], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -113,18 +131,19 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
+#Axis labels
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 #Add arrows:
-arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
 text(9.6, 0.9, expression(u[1]^A))
 text(9.6, 2.2, expression(u[2]^A))
 #text(9.6, 4.4, expression(u[3]^A))
 text(9.6, 5.9, expression(u[3]^A))
-
-
-
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)
@@ -156,15 +175,36 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      xaxs="i", 
      yaxs="i")
 
+uB <- function(xB, yB, alpha = 0.5){
+  (xB)^(alpha)*(yB)^(1 - alpha)
+}
+
+b <- c(uB(1,14) - 1, uB(1,14), uB(1,14) + 1,  uB(1,14) + 2.9)
+
+text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+
+contour(x, y, 
+        outer(x, y, uB),
+        drawlabels = FALSE,
+        col = COLB[3],
+        lwd = graphlinewidth,
+        levels = a, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE) 
+
+
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Apples, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+
+text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Label B's indifference curves
 text(9.1, 1.6, expression(u[1]^B))

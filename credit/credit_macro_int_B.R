@@ -54,7 +54,7 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 text(-4.5, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest Rate, Profit Rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*(xlims[2]), -2.5, expression(paste("Aggregate Economy: Both Firms")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -4, expression(paste("Aggregate Economy: Both Firms")), xpd = TRUE, cex = axislabelsize) 
 
 
 # I_A RECT
@@ -83,13 +83,12 @@ segments(0, 10, xlims[2], 10, col = "darkgray", lty = 2, lwd = segmentlinewidth)
 segments(0, 25, xlims[2], 25, col = "darkgray", lty = 2, lwd = segmentlinewidth)
 
 # Labels
-text(32, 17.5, expression(paste("Fall in Interest Rate")), cex = labelsize)
-Arrows(39, 12, 39, 23, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(39, 23, 39, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(33, 17.5, expression(paste("Fall in Interest Rate")), cex = labelsize)
+Arrows(39, 11, 39, 24, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(39, 23, 39, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(15, 11, expression(paste("Increase in Investment")), cex = labelsize)
-Arrows(1, 10, 29, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(29, 10, 1, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(17.5, -1.6, expression(paste("Increase in Investment")), cex = labelsize, xpd = TRUE)
+Arrows(6, -1, 29, -1, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 dev.off()

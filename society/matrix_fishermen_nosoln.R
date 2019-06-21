@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "society/matrix_disagreement.pdf", width = 9, height = 7)
+pdf(file = "society/matrix_fishermen_nosoln.pdf", width = 9, height = 7)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -10,27 +10,28 @@ ylims <- c(0, 8)
 PlayerSize <- 3
 StratSize <- 2.3
 PayoffSize <- 3
+
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 
 #Payoffs are listed as c("NW", "SW", "NE", "SE")
 
 #Considerations for Player 1
-P1Name <- c("Aisha")
-P1Strat <- c("Swahili", "English")
-P1Payoffs <- c("4", "0", "0", "2")
-P1BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
+P1Name <- c("Alfredo")
+P1Strat <- c("10 Hours", "12 Hours")
+P1Payoffs <- c("3", "4", "1", "2")
+P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
-#NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
+#NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 
 #Considerations for Player 2
-P2Name <- c("Ben")
-P2Strat <- c("Swahili", "English")
-P2Payoffs <- c("2", "0", "0", "4")
-P2BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
+P2Name <- c("Bob")
+P2Strat <- c("10 Hours", "12 Hours")
+P2Payoffs <- c("3", "1", "4", "2")
+P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
-P2bestsize <- 4 #Adjusts size of circle indicating best response of P2
+P2bestsize <- 4 #Adjusts size of circle indicating best response of P1
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(""),
@@ -124,27 +125,27 @@ segments(6, 2, 8, 0, lty = 1, col = "white")
 
 #Best responses 
 #P1 
-if (P1BR1[1] == "NW"){
-  points(5, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-if (P1BR2[1] == "NE"){
-  points(7, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-
-#P2
-if (P2BR1[1] == "NW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
-}
-
-if (P2BR2[1] == "SW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
-}
+# if (P1BR1[1] == "NW"){
+#   points(5, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# if (P1BR2[1] == "NE"){
+#   points(7, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# 
+# #P2
+# if (P2BR1[1] == "NW"){
+#   points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
+# }
+# 
+# if (P2BR2[1] == "SW"){
+#   points(5, 1, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
+# }
 
 dev.off()
 

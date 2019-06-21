@@ -10,8 +10,8 @@ ylims <- c(0, 5)
 
 #Plot command 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Bob's Payoff, ", B)),
-     ylab = expression(paste("Alfredo's Payoff, ", A)),
+     xlab = expression(paste("Bob's Payoff, ", u^B)),
+     ylab = expression(paste("Alfredo's Payoff, ", u^A)),
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
 
 

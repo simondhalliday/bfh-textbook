@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "society/matrix_disagreement.pdf", width = 9, height = 7)
+pdf(file = "society/matrix_disagreement_nosoln.pdf", width = 9, height = 7)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -122,29 +122,29 @@ segments(4, 2, 6, 0, lty = 1, col = "white")
 segments(6, 2, 8, 0, lty = 1, col = "white")
 
 
-#Best responses 
-#P1 
-if (P1BR1[1] == "NW"){
-  points(5, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-if (P1BR2[1] == "NE"){
-  points(7, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-
-#P2
-if (P2BR1[1] == "NW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
-}
-
-if (P2BR2[1] == "SW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
-}
+# #Best responses 
+# #P1 
+# if (P1BR1[1] == "NW"){
+#   points(5, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# if (P1BR2[1] == "NE"){
+#   points(7, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# 
+# #P2
+# if (P2BR1[1] == "NW"){
+#   points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
+# }
+# 
+# if (P2BR2[1] == "SW"){
+#   points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
+# }
 
 dev.off()
 

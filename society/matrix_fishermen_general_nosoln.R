@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "society/matrix_disagreement.pdf", width = 9, height = 7)
+pdf(file = "society/matrix_fishermen_general_nosoln.pdf", width = 9, height = 7)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -8,29 +8,31 @@ ylims <- c(0, 8)
 
 #TextSizes
 PlayerSize <- 3
-StratSize <- 2.3
-PayoffSize <- 3
+StratSize <- 1.8
+PayoffSize <- 1.7
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 
 #Payoffs are listed as c("NW", "SW", "NE", "SE")
 
 #Considerations for Player 1
-P1Name <- c("Aisha")
-P1Strat <- c("Swahili", "English")
-P1Payoffs <- c("4", "0", "0", "2")
-P1BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
+P1Name <- c("Alfredo")
+P1Strat <- c("10 Hours", "12 Hours")
+P1Strat2 <- c("(Cooperate)", "(Defect)")
+P1Payoffs <- c("w", "y", "x", "z")
+P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
-#NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
+#NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 
 #Considerations for Player 2
-P2Name <- c("Ben")
-P2Strat <- c("Swahili", "English")
-P2Payoffs <- c("2", "0", "0", "4")
-P2BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
+P2Name <- c("Bob")
+P2Strat <- c("10 Hours", "12 Hours")
+P2Strat2 <- c("(Cooperate)", "(Defect)")
+P2Payoffs <- c("w", "x", "y", "z")
+P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
-P2bestsize <- 4 #Adjusts size of circle indicating best response of P2
+P2bestsize <- 4 #Adjusts size of circle indicating best response of P1
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(""),
@@ -46,16 +48,20 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 polygon(c(0,0,2,2,0), c(0,4,4,0,0), col=rgb(0, 0, 1, p1fadelevel), density=NULL, border = NA)
 text(1, 2, P1Name[1], srt = 90, cex = PlayerSize)
 
-text(3, 3, P1Strat[1], cex = StratSize, srt = 90)
-text(3, 1, P1Strat[2], cex = StratSize, srt = 90)
+text(2.75, 3, P1Strat[1], cex = StratSize, srt = 90)
+text(3.25, 3, P1Strat2[1], cex = StratSize, srt = 90)
+text(2.75, 1, P1Strat[2], cex = StratSize, srt = 90)
+text(3.25, 1, P1Strat2[2], cex = StratSize, srt = 90)
 
 
 #Color and label for Player 2
 polygon(c(4,4,8,8,4), c(8,6,6,8,8), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 text(6, 7, P2Name[1], cex = PlayerSize)
 
-text(5, 5, P2Strat[1], cex = StratSize)
-text(7, 5, P2Strat[2], cex = StratSize)
+text(5, 5.25, P2Strat[1], cex = StratSize)
+text(5, 4.75, P2Strat2[1], cex = StratSize)
+text(7, 5.25, P2Strat[2], cex = StratSize)
+text(7, 4.75, P2Strat2[2], cex = StratSize)
 
 #NorthWest cell 
 #P1
@@ -121,30 +127,30 @@ segments(4, 2, 6, 0, lty = 1, col = "white")
 #Se
 segments(6, 2, 8, 0, lty = 1, col = "white")
 
-
-#Best responses 
-#P1 
-if (P1BR1[1] == "NW"){
-  points(5, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-if (P1BR2[1] == "NE"){
-  points(7, 3, pch = 16, col = "black", cex = P1bestsize)
-} else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
-}
-
-
-#P2
-if (P2BR1[1] == "NW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
-}
-
-if (P2BR2[1] == "SW"){
-  points(5, 3, pch = 1, col = "black", cex = P2bestsize)
-} else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
-}
+# 
+# #Best responses 
+# #P1 
+# if (P1BR1[1] == "NW"){
+#   points(5, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# if (P1BR2[1] == "NE"){
+#   points(7, 3, pch = 16, col = "black", cex = P1bestsize)
+# } else{points(7, 1, pch = 16, col = "black", cex = P1bestsize)
+# }
+# 
+# 
+# #P2
+# if (P2BR1[1] == "NW"){
+#   points(5, 3, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 3, pch = 1, col = "black", cex = P2bestsize)
+# }
+# 
+# if (P2BR2[1] == "SW"){
+#   points(5, 1, pch = 1, col = "black", cex = P2bestsize)
+# } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
+# }
 
 dev.off()
 

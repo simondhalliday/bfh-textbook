@@ -1,7 +1,7 @@
 require(ggplot2)
 require(shape)
 require(plotrix)
-pdf(file = "bfh-textbook/information_power/ch11_fig2.pdf", width = 9, height = 7)
+pdf(file = "information_power/ch11_fig2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

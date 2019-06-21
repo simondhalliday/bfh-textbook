@@ -1,6 +1,6 @@
-library(shape)
-library(plotrix)
-pdf(file = "coordination_failures/coord_brfs_cournot_zoom_ed/coord_brfs_cournot_zoom_ed.pdf", width = 9, height = 7)
+require(shape)
+require(plotrix)
+pdf(file = "more/coord_brfs_cournot_jee_article.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -108,17 +108,21 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
+# ticksy <- seq(from = 0, to = ylims[2], by = 2)
+# ylabels <- seq(from = 0, to = ylims[2], by = 2)
+# ticksx <- seq(from = 0, to = xlims[2], by = 2)
+# xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(ylims[1], hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+ylabels <- c(NA, expression(paste(h[B],"*")), expression(paste(h[B]^{N})), expression(paste(frac(bar(y), 1 + 2*beta))), NA)
 ticksx <- c(xlims[1], hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+xlabels <- c(NA, expression(paste(h[A],"*")), expression(paste(h[A]^{N})), expression(paste(frac(bar(y), 1 + 2*beta))), NA)
 
 axis(1, at = ticksx,  pos = xlims[1], labels = FALSE)
 text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
 
 axis(2, at = ticksy, pos = ylims[1], labels = ylabels, las = 1)
 
-axis.break(axis=1,breakpos=NULL,pos=NA,bgcol="white",breakcol="black",
+axis.break(axis=1, breakpos=NULL, pos=NA, bgcol="white",breakcol="black",
            style="slash",brw=0.01)
 axis.break(axis=2,breakpos=NULL,pos=NA,bgcol="white",breakcol="black",
            style="slash",brw=0.01)
@@ -133,33 +137,56 @@ ypoly1 <- indiffA(xpoly1, uA = 144, alpha = 30, beta = 1/2)
 ypoly2 <- indiffBroot1(xpoly1, uB = 144, alpha = 30, beta = 1/2)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
+
+
 lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfB(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth)
 lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, PECroot2(xx1, alpha = 30, beta = 1/2), col = COLB[2], lwd = graphlinewidth)
+#lines(xx1, indiffB(xx1, alpha = 30, beta = 1/2, uB = 42), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, indiffB2(xx1, alpha = 30, beta = 1/2, uB = 46.08), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, indiffB3(xx1, alpha = 30, beta = 1/2, uB = 46.08), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, indiffAlow(xx1, uA = 42, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, indiffAgain(xx1, uA = 42, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
 
-contour(y, x,
+
+#persp(x, y, outer(x, y, u), ticktype="detailed") 
+contour(y, x, 
         outer(x, y, uA),
         drawlabels = FALSE,
         col = COLA[3],
         lwd = graphlinewidth,
-        levels = a,
-        xaxs="i",
-        yaxs="i",
-        add = TRUE)
+        levels = a, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE) 
 
-text(14, 14, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(10, 7, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-contour(x, y,
+#Add arrows:
+#arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+#arrows(6.2, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
+
+
+contour(x, y, 
         outer(x, y, uB),
+        #labels = c("v1", "v2", "v3"),
         drawlabels = FALSE,
         col = COLB[2],
+        #xlab = expression(paste("")),
+        #ylab = expression(paste("")),
         lwd = graphlinewidth,
-        levels = b,
+        levels = b, 
         add = TRUE
-)
+        #xaxs="i", 
+        #yaxs="i"
+) 
 
-text(10.1, 10.5, expression("Pareto-efficient"))
+#segments(0, 12, 12, 12, lty = 1, col = COL[2] , lwd = graphlinewidth)
+
+#segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
+text(10.1, 10.5, expression("Contract"))
 text(10.1,  10.3, expression("curve"))
 
 text(11.1, 8.5, expression("Pareto-improving"))
@@ -177,29 +204,40 @@ text(7.4, 9.205, expression(u[2]^B))
 
 
 #Label Nash Equilibrium 
+#segments(0, 9.6, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(9.6, 0, 9.6, 9.6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
 #text(11.3, 10.1, expression(paste("Nash Equilibrium")))
 text(hANE(alpha = 30) + 0.1, hANE(alpha = 30) + 0.1, expression(paste(n)))
-# 
+
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
-text(10.55 + 0.1, PEC(10.55) - 0.1, expression(paste(t^A)))
+text(10.55 + 0.1, PEC(10.55) - 0.1, expression(paste(t[A])))
 
 points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
-text(9.4 - 0.1, PEC(9.4) + 0.1, expression(paste(t^B)))
+text(9.4 - 0.1, PEC(9.4) + 0.1, expression(paste(t[B])))
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hApEff2(alpha = 30)- 0.1, hApEff2(alpha = 30) - 0.1, expression(paste(i)))
 
-
+#points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #B's brf
-text(8, 13.4, expression(paste("B's best response")))
+text(8, 13.4, expression(paste("B's best-response")))
 text(8, 13.2, expression(paste("function")))
+#Arrows(2, 16.5, 2, 15.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(13.65, 8, expression(paste("A's best response")), xpd = TRUE)
-text(13.65, 7.8, expression(paste("function")), xpd = TRUE)
+text(13.6, 8.3, expression(paste("A's best-response")), xpd = TRUE)
+text(13.6, 8.1, expression(paste("function")), xpd = TRUE)
+#Arrows(15.5, 3, 15.5, 1.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+# points(2.8, 11.2, pch = 16, col = "black", cex = 1.5)
+# text(15.5, 4, expression(paste("A's best response")))
+# 
+# points(11.2, 2.8, pch = 16, col = "black", cex = 1.5)
+# text(15.5, 4, expression(paste("A's best response")))
 
 dev.off()

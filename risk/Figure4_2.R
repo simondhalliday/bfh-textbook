@@ -86,16 +86,16 @@ points(36, 36, pch = 16, col = "black", cex = 1.5)
 #Label y-sub,x-sub,etc. on axes
 
 text(36, -.9, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
-text(20, -.9, expression(paste(y == y[ce])),  xpd = TRUE,  cex = labelsize)
-text(4, -.9, expression(paste(y + delta[2])),  xpd = TRUE,  cex = labelsize)
+text(20, -.9, expression(paste(y == y[0])),  xpd = TRUE,  cex = labelsize)
+text(4, -.9, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
 
 
 text(-3, 36, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
-text(-2, 21.7, expression(paste(u(y[ce]) == phantom())),  xpd = TRUE, cex = labelsize)
+text(-2, 21.7, expression(paste(u(y[0]) == phantom())),  xpd = TRUE, cex = labelsize)
 text(-2.8, 20, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.2, 18.3, expression(paste((1 - p)%.%u(y + delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-4.2, 18.3, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 text(-1.8, 16.6, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
-text(-3, 4, expression(paste(u(y + delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-3, 4, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 
 
 dev.off()

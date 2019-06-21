@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "budget_incomechange_offercurve.pdf", width = 9, height = 7)
+pdf(file = "budget_incomechange_offercurve_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -71,6 +71,8 @@ lines(xx1, bcA(xx1, w = 6, p = 1), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 9, p = 1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 abline(v=6, col=COL[3], lwd=graphlinewidth)
+text(6.8, 12, expression(paste("Income")))
+text(6.8, 11.5, expression(paste("offer curve")))
 
 #Label Axes
 mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
@@ -100,11 +102,11 @@ contour(x, y,
         add = TRUE)
 
 points(6, 0, pch = 16, col = "black", cex = 1.5)
-text(6.2, 0.5, expression(i[1]))
+text(6.2, 0.5, expression(a))
 points(6, 4.5, pch = 16, col = "black", cex = 1.5)
-text(6.2, 5, expression(i[2]))
+text(6.2, 5, expression(b))
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.2, 6.5, expression(i[3]))
+text(6.2, 6.5, expression(c))
 
 
 dev.off()

@@ -55,10 +55,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-ticksy <- c(0, 10, 12.5, 15 , ylims[2])
+ticksy <- c(0, 10, 13.3333 , 16, ylims[2])
 ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), NA)
-ticksx <- c(0, 10, 15, 20,  xlims[2])
-xlabels <- c(NA, expression(paste(x[1])==10), expression(paste(x[2])==15), expression(paste(x[3])==20), NA)
+ticksx <- c(0, 10, 13.3333, 16,  xlims[2])
+xlabels <- c(NA, expression(paste(x[1])==10), expression(paste(x[2])==13.3), expression(paste(x[3])==16), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -79,8 +79,8 @@ text(-2, 0.5*ylims[2], expression(paste("Quantity of forks, ", y)), xpd = TRUE, 
 
 #Label the indifference curves
 text(10.5, 21, expression(u[1]), cex = labelsize)
-text(15.5, 21, expression(u[2]), cex = labelsize)
-text(20.5, 21, expression(u[3]), cex = labelsize)
+text(13.8, 21, expression(u[2]), cex = labelsize)
+text(16.5, 21, expression(u[3]), cex = labelsize)
 
 #Label the price lines
 text(17, 2, expression(paste(bc[1])))
@@ -91,37 +91,39 @@ text(23.5, 13.5, expression(paste(bc[3])))
 text(23.5, 12.5, expression(paste(p[x] == 0.25)))
 
 #Label the offer curve
-text(23, 18, expression("Offer Curve"), cex = labelsize)
+text(22, 20, expression("Price"), cex = labelsize)
+text(22, 19, expression("Offer"), cex = labelsize)
+text(22, 18, expression("Curve"), cex = labelsize)
 
 #Segments for points on Offer curve
 segments(0, 10, 10, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(10, 0, 10, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 12.5, 15, 12.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(15, 0, 15, 12.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 15, 20, 15, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(20, 0, 20, 15, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 13.3333, 13.3333, 13.3333, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(13.3333, 0, 13.3333, 13.3333, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 16, 16, 16, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(16, 0, 16, 16, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Add Leontief
 segments(10, 10, 10, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 segments(10, 10, 17, 10, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 
-segments(15, 12.5, 15, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
-segments(15, 12.5, 22, 12.5, lty = 1, col = COLA[3] , lwd = graphlinewidth)
+segments(13.3333, 13.3333, 13.3333, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
+segments(13.3333, 13.3333, 22, 13.3333, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 
-segments(20, 15, 20, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
-segments(20, 15, 25, 15, lty = 1, col = COLA[3] , lwd = graphlinewidth)
+segments(16, 16, 16, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
+segments(16, 16, 25, 16, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 
 #Add the offer curve (superimposed on the indifference curves tangent to the price lines)
-segments(4, 7, 24, 17, lty = 1, col = COL[3], lwd = graphlinewidth)
+segments(4, 4, 23, 23, lty = 1, col = COL[3], lwd = graphlinewidth)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x
 points(10, 10, pch = 16, col = "black", cex = 1.5)
-points(15, 12.5, pch = 16, col = "black", cex = 1.5)
-points(20, 15, pch = 16, col = "black", cex = 1.5)
+points(13.3333, 13.3333, pch = 16, col = "black", cex = 1.5)
+points(16, 16, pch = 16, col = "black", cex = 1.5)
 
-text(9.5, 9.25, expression(paste(e)), cex = labelsize)
-text(14.5, 11.75, expression(paste(f)), cex = labelsize)
-text(19.5, 14.25, expression(paste(g)), cex = labelsize)
+text(9.6, 9.05, expression(paste(e)), cex = labelsize)
+text(12.9333, 12.3833, expression(paste(f)), cex = labelsize)
+text(15.6, 15.05, expression(paste(g)), cex = labelsize)
 
 dev.off()

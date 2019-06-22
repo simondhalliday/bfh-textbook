@@ -105,7 +105,7 @@ segments(16, 0, 16, 16, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Add Leontief
 segments(10, 10, 10, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
-segments(10, 10, 17, 10, lty = 1, col = COLA[3] , lwd = graphlinewidth)
+segments(10, 10, 19, 10, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 
 segments(13.3333, 13.3333, 13.3333, 22, lty = 1, col = COLA[3] , lwd = graphlinewidth)
 segments(13.3333, 13.3333, 22, 13.3333, lty = 1, col = COLA[3] , lwd = graphlinewidth)

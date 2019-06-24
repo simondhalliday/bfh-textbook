@@ -1,11 +1,11 @@
 require(shape)
-pdf(file = "budget_incomechange_offercurve_cd.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/budget_incomechange_offercurve_cd.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -47,7 +47,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 9, 12, ylims[2])
-ylabels <- c(NA, expression(paste(y==m[1])), expression(paste(y == m[2])), expression(paste(y == m[3])), NA)
+ylabels <- c(NA, expression(paste(y==frac(m[1], p[y]) )), expression(paste(y == frac(m[2],p[y] ) )), expression(paste(y == frac(m[3],p[y])  )), NA)
 ticksx <- c(0, 6, 9, 12, xlims[2])
 xlabels <- c(NA, expression(paste(x == m[1]/p[x])), expression(paste(x == m[2]/p[x])), expression(paste(x == m[3]/p[x])), NA)
 
@@ -64,8 +64,9 @@ lines(xx1, bcA(xx1, w = 9, p = 1), col = COLB[3], lwd = graphlinewidth)
 abline(0, 1, col=COL[3], lwd=graphlinewidth)
 
 #Label Axes
-mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.3, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], ylims[1] - 0.15*ylims[2], expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the budget curve functions for the HG, Aisha
 text(6.6, .3, expression(bc[m1]), cex = labelsize)

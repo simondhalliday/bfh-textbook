@@ -61,9 +61,6 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, mrsA(xx1, rmax = 20, xmax = 100), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 
-
-
-
 text(0.5*xlims[2], -3, expression(paste("Market Quantity of the good, ", X)), xpd = TRUE, cex = axislabelsize) 
 text(-15, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

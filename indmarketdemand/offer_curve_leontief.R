@@ -4,20 +4,20 @@
 
 
 require(shape)
-pdf(file = "indmarketdemand/offer_curve_leontief.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/offer_curve_leontief.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 5, 2, 2))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -61,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 4, 5 , 6, ylims[2])
-ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), NA)
+ylabels <- c(NA, expression(paste(y[1])==4), expression(paste(y[2]==5)), expression(paste(y[3]==6)), NA)
 ticksx <- c(0, 4, 5, 6,  xlims[2])
 xlabels <- c(NA, expression(paste(x[1])==4), expression(paste(x[2])==5), expression(paste(x[3])==6), NA)
 
@@ -79,8 +79,9 @@ lines(xx1, bcA(xx1, w = 20, px = 3), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Quantity of knives, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.25, 0.5*ylims[2], expression(paste("Quantity of forks, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Quantity of knives, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], ylims[1] - 0.12*ylims[2], expression(paste("Quantity of knives, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-1.5, 0.5*ylims[2], expression(paste("Quantity of forks, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(4.25, 11, expression(u[1]), cex = labelsize)
@@ -88,12 +89,12 @@ text(5.25, 11, expression(u[2]), cex = labelsize)
 text(6.25, 11, expression(u[3]), cex = labelsize)
 
 #Label the price lines
-text(7, 1.5, expression(paste(bc[1])))
-text(7, 1, expression(paste(p[x] == 1.33)))
-text(10, 1.5, expression(paste(bc[2])))
-text(10, 1, expression(paste(p[x] == 2)))
-text(11.5, 3.5, expression(paste(bc[3])))
-text(11.5, 3, expression(paste(p[x] == 3)))
+text(6.6, 1.5, expression(paste(bc[1])))
+text(6.6, 1, expression(paste(p[x] == 3)))
+text(9.8, 1.5, expression(paste(bc[2])))
+text(9.8, 1, expression(paste(p[x] == 2)))
+text(11.4, 3.5, expression(paste(bc[3])))
+text(11.4, 3, expression(paste(p[x] == 1.33)))
 
 #Label the offer curve
 text(11, 10.25, expression("Price"), cex = labelsize)

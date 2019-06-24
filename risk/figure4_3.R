@@ -48,7 +48,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, ConcaveU(2), ConcaveU(36), ylims[2])
 ylabels <- c(NA, NA, NA, ylims[2])
 ticksx <- c(0, 2, 13, 23.18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(y + delta[2])), expression(paste(y[ce])), expression(paste(y)), expression(paste(y + delta[1])), NA)
+xlabels <- c(NA, expression(paste(y - delta[2])), expression(paste(y[0])), expression(paste(y)), expression(paste(y + delta[1])), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1)
@@ -106,11 +106,11 @@ points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 
 
 text(-2.7, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
-text(-1.95, ConcaveU(13)+1.7, expression(paste(u(y[ce]) == phantom() )),  xpd = TRUE, cex = labelsize)
+text(-1.95, ConcaveU(13)+1.7, expression(paste(u(y[0]) == phantom() )),  xpd = TRUE, cex = labelsize)
 text(-3.1, ConcaveU(13), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.3, ConcaveU(13)-1.5, expression(paste((1 - p)%.%u(y + delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-4.3, ConcaveU(13)-1.5, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 text(-1.8, ConcaveU(13)-3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
-text(-2.7, ConcaveU(2), expression(paste(u(y + delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-2.7, ConcaveU(2), expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 text(-1.5, ConcaveU(23.18), expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 
 #Add risk premium distance arrow and label

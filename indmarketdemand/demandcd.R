@@ -1,5 +1,5 @@
 library(shape)
-pdf(file = "indmarketdemand/demandcd.pdf", width = 8, height = 8)
+pdf(file = "demandcd.pdf", width = 8, height = 8)
 
 axislabelsize <- 1.5
 labelsize <- 1.2
@@ -94,16 +94,18 @@ contour(x, y,
         yaxs="i", 
         add = TRUE)
 
+abline(h=6, col=COL[3], lwd=graphlinewidth)
+
 
 points(2, 6, pch = 16, col = "black", cex = 1.5)
-text(2.1, 6.5, expression(i[1]))
+text(2.1, 6.5, expression(a))
 points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(4.1, 6.5, expression(i[2]))
+text(4.1, 6.5, expression(b))
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.1, 6.5, expression(i[3]))
+text(6.1, 6.5, expression(c))
 
-Arrows(8.5, 6, 6.5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(9.7, 6.05, expression(mrs==mrt))
+#Arrows(8.5, 6, 6.5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(9.7, 6.3, expression(paste("Price offer curve")))
 
 
 dev.off()

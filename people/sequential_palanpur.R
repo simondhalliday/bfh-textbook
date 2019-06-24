@@ -94,8 +94,8 @@ text(8.7, 3.1, expression(paste("late")), cex = actionlabelsize)
 
 #Payoffs 
 text(1, .6, expression("(4, 4)"), cex = actionlabelsize)
-text(4, .6, expression("(1, 3)"), cex = actionlabelsize)
-text(6, .6, expression("(3, 1)"), cex = actionlabelsize)
+text(4, .6, expression("(0, 3)"), cex = actionlabelsize)
+text(6, .6, expression("(3, 0)"), cex = actionlabelsize)
 text(9, .6, expression("(2, 2)"), cex = actionlabelsize)
 
 dev.off()

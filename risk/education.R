@@ -82,17 +82,25 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
      )
 
-ticksx <- seq(from = 0, to = xlims[2],by = 2)
-xlabels <- seq(from = 0, to = xlims[2],by = 2)
-ticksy <- seq(from = 0, to = ylims[2], by = 3)
-ylabels <- seq(from = 0, to = ylims[2], by = 3)
+# ticksx <- seq(from = 0, to = xlims[2],by = 2)
+# xlabels <- seq(from = 0, to = xlims[2],by = 2)
+ticksx <- c(0, 7, ylims[2])
+xlabels <- c(NA, expression(paste(Delta^R)), NA)
+ticksy <- c(0, 2.2, 5, 7.15, 12, 17, ylims[2])
+ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1])), expression(paste(y[2])), expression(paste(hat(y)[R])), expression(paste(hat(y)[{R*minute}] )), NA)
+
+# 
+# ticksy <- seq(from = 0, to = ylims[2], by = 3)
+# ylabels <- seq(from = 0, to = ylims[2], by = 3)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 
 # the point (y0,delta0) and the indifference curve through it
 lines(xx1, indiff(xx1, u = U(y0,delta0)), col = COLA[5], lwd = graphlinewidth)
-points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
+lines(xx1, indiff(xx1, u = U(y0 - 2.8,delta0)), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(y0 + 2.15,delta0)), col = COLA[5], lwd = graphlinewidth)
+#points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
 
 # the point (yR, deltaR), (yRprime, deltaRprime), Add segments
 segments(deltaR, 0, deltaR, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
@@ -101,13 +109,16 @@ segments(0, yRprime, deltaR + 1, yRprime, lty = 2, col = COLB[2] , lwd = segment
 points(deltaR, yR, pch = 16, col = COLB[4], cex = 1.5)
 points(deltaRprime, yRprime, pch = 16, col = COLB[4], cex = 1.5)
 
+text(1.6, 3, expression(paste(u[0])), cex = labelsize)
+text(1.6, 5.8, expression(paste(u[1])), cex = labelsize)
+text(1.6, 8, expression(paste(u[2])), cex = labelsize)
 
 #Label 5 points on line
 
-text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)
+text(deltaR-0.2, yR+0.5, expression(paste(R)), cex = labelsize)
 text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
-arrows(deltaR + 0.5, yR, deltaR + 0.5, yRprime, code = 3, length = 0.1, col = COLB[2], lty = 2)
-text(deltaR + 0.8, (yR + yRprime)/2, expression(paste("Cost")), cex = labelsize)
+Arrows(deltaR + 0.5, yR + 0.3, deltaR + 0.5, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+text(deltaR + 0.8, (yR + yRprime)/2 + 1, expression(paste("Cost")), cex = labelsize)
 dev.off()
 
 # the second plot
@@ -125,16 +136,22 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
      )
 
-ticksx <- seq(from = 0, to = xlims[2],by = 2)
-xlabels <- seq(from = 0, to = xlims[2],by = 2)
-ticksy <- seq(from = 0, to = ylims[2], by = 3)
-ylabels <- seq(from = 0, to = ylims[2], by = 3)
+# ticksx <- seq(from = 0, to = xlims[2],by = 2)
+# xlabels <- seq(from = 0, to = xlims[2],by = 2)
+ticksy <- c(0, 2.2, 5, 7.15, 12, 17, ylims[2])
+ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1])), expression(paste(y[2])), expression(paste(hat(y)[R])), expression(paste(hat(y)[{R*minute}] )), NA)
+# ticksy <- seq(from = 0, to = ylims[2], by = 3)
+# ylabels <- seq(from = 0, to = ylims[2], by = 3)
+ticksx <- c(0, 5, 7, ylims[2])
+xlabels <- c(NA, expression(paste(Delta^{RT})), expression(paste(Delta^R)), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 # the point (y0,delta0) and the indifference curve through it
+lines(xx1, indiff(xx1, u = U(y0 - 2.8,delta0)), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, indiff(xx1, u = U(y0,delta0)), col = COLA[5], lwd = graphlinewidth)
-points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
+lines(xx1, indiff(xx1, u = U(y0 + 2.15,delta0)), col = COLA[5], lwd = graphlinewidth)
+#points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
 
 # the point (yR, deltaR), (yRprime, deltaRprime), Add segments
 segments(deltaR, 0, deltaR, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
@@ -148,10 +165,14 @@ points(deltaT, yT, pch = 16, col = COLB[4], cex = 1.5)
 
 #Label 5 points on line
 
-text(deltaR-0.2, yR-0.5, expression(paste("R")), cex = labelsize)
+text(1.6, 3, expression(paste(u[0])), cex = labelsize)
+text(1.6, 5.8, expression(paste(u[1])), cex = labelsize)
+text(1.6, 8, expression(paste(u[2])), cex = labelsize)
+
+text(deltaR + 0.2, yR-0.5, expression(paste("R")), cex = labelsize)
 text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
-arrows(deltaR + 0.5, yR, deltaR + 0.5, yRprime, code = 3, length = 0.1, col = COLB[2], lty = 2)
-text(deltaR + 0.8, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
+Arrows(deltaR + 0.5, yR + 0.3, deltaR + 0.5, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+text(deltaR + 0.8, (yR + yRprime)/2 + 1, expression(paste("Tax")), cex = labelsize)
 text(deltaT, yT - 0.5, expression(R^T), cex = labelsize)
 
 

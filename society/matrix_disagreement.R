@@ -25,7 +25,7 @@ P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly.
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 
 #Considerations for Player 2
-P2Name <- c("Bob")
+P2Name <- c("Ben")
 P2Strat <- c("Swahili", "English")
 P2Payoffs <- c("2", "0", "0", "4")
 P2BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 

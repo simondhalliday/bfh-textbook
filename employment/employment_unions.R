@@ -4,7 +4,8 @@ pdf(file = "employment/employment_unions.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -40,13 +41,13 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
+lines(xx1, WageFn(xx1), col = COL[1], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 20, 25,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+a/t)), expression(paste(w[0])), expression(paste(w[2])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t)), expression(paste(w[0])), expression(paste(w[2])), NA)
 ticksx <- c(0, 0.75, 0.8, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[0],"*")), expression(paste(H[2],"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
@@ -77,12 +78,12 @@ segments(0.8, 25, 1.2, 25, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 
 Arrows(0.2, 20.5, 0.2, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.36, 22.5, expression(paste("Union raises productivity")))
+text(0.37, 22.5, expression(paste("Union raises productivity, ", gamma)))
 
 segments(0.8, 0, 0.8, 25, lty = 2, lwd = 2, col = "darkgray")
 points(0.8, 25, pch = 16, col = "black", cex = 1.5)
 text(0.79, 26, expression(paste(n[2])))
-text(1.02, 26, expression(paste(zpc[2], ", ", w == w[2])))
+text(1.02, 26, expression(paste("Competition condition, ", w^C == w[2])))
 
 
 #Unemployment benefits & a
@@ -90,7 +91,8 @@ text(1.02, 26, expression(paste(zpc[2], ", ", w == w[2])))
 segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste(zpc[0], ", ", w == w[0])))
+text(1.02, 22, expression(paste("Initial")))
+text(1.02, 21, expression(paste("competition condition, ", w^C == w[0])))
 #text(0.97, 6, expression(paste(B + a)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

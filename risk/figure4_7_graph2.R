@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 10, 4, 4))
+par(mar =  c(5, 5, 2, 2))
 
 #Indifference curves of a risk-averse homo economicus (1st graph out of the two for 4.7)
 
@@ -59,10 +59,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksx <- c(0, 8, 12, 15, 20, 25, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[e*minute])), expression(paste(Delta[Rawls])),  expression(paste(Delta[e])), expression(paste(Delta[max])), expression(paste(Delta[Wealthiest], " "[Rich])),  NA)
+ticksx <- c(0,  12, 15, 20, 25, xlims[2])
+xlabels <- c(NA, expression(paste(Delta^P)),  expression(paste(Delta^e)), expression(paste(bar(Delta) )), expression(paste(Delta^R)),  NA)
 ticksy <- c(0, 21 - 12, 21, 21 + 12, ylims[2])
-ylabels <- c(NA, expression(paste(omega[P])), expression(paste(omega[e])), expression(paste(omega[R])), NA)
+ylabels <- c(NA, expression(paste(omega^P[e])), expression(paste(omega^e)), expression(paste(omega^R[e])), NA)
 
 
 
@@ -84,7 +84,7 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Inequality of Wealth, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.5, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -111,19 +111,6 @@ points(15, avgwealth(15), pch = 16, col = "black", cex = 1.5)
 segments(12, 0, 12, avgwealth(12), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(12, avgwealth(12), pch = 16, col = "black", cex = 1.5)
 
-#Label relevant points on axes
-
-#text(8, -.9, expression(paste(Delta[e],"`")),  xpd = TRUE,  cex = labelsize)
-#text(12, -.9, expression(paste(Delta[Rawls])), xpd = TRUE, cex = labelsize)
-#text(15, -.9, expression(paste(Delta[e])),  xpd = TRUE,  cex = labelsize)
-#text(20, -.9, expression(paste(Delta[max])),  xpd = TRUE,  cex = labelsize)
-#text(25, -.9, expression(paste(Delta[Wealthiest], " "[Rich])),  xpd = TRUE,  cex = labelsize)
-
-
-#text(-1, avgwealth(23)+12, expression(paste(omega[R])), xpd = TRUE, cex = labelsize)
-#text(-1, avgwealth(23), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
-#text(-1, avgwealth(23)-12, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)
-
 #Add arrow beside y axis and points on axis
 
 arrows(-1, avgwealth(21) + 10, -1, avgwealth(20) - 1, col = "black", code = 3, arr.type = "simple", lty = 1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
@@ -138,6 +125,10 @@ arrows(-1, avgwealth(21) - 12.5, -1, avgwealth(20) - 2.5, col = "black", code = 
 text(24.7, 39.2, expression(paste(u[1])), xpd = TRUE, cex = labelsize)
 text(30.5, 39.2, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
 text(35.5, 39.2, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
+
+#Label P and R
+text(12 + 0.8, avgwealth(12) - 0.75, expression(paste(P)), cex = labelsize)
+text(25 - 0.8, avgwealth(25) - 0.75, expression(paste(R)), cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 

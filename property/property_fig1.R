@@ -4,19 +4,24 @@ pdf(file = "property/property_fig1a.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
+namesize <- 1.3
+
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
+uA <- function(x, y, alpha = 0.5, lambda = 0) {
+  (x^(alpha)*y^(1 - alpha))^(1-lambda)*((10 - x)^(alpha)*(15 - y)^(1 - alpha))^lambda
+}
 
-indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
+indiffcurveA1 <- function(x, U = 3, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveA2 <- function(x, U = 4, A = 1, a = 0.5) {
+indiffcurveA2 <- function(x, U = 3, A = 1, a = 0.5) {
   (((U/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
+indiffcurveA3 <- function(x, U = 3, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
@@ -28,16 +33,23 @@ indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 #COL <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(4, 4, 2, 2))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's coffee (100 grams), ", x)),
-     ylab = expression(paste("A's data (gigabytes), ", y)),
-     xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
+     xlab = "",
+     ylab = "",
+     xaxt = "n", 
+     yaxt = "n", 
+     cex.lab = axislabelsize, 
+     bty = "n")
+
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-1, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 
 npts <- 500 
 npts2 <- 501
@@ -63,21 +75,23 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(45, 1.3, expression(u[1])^A)
-text(45, 3.2, expression(u[2])^A)
-text(45, 6, expression(u[3])^A)
+text(0.3, 11, expression(u[1]^A))
+text(1, 11, expression(u[2]^A))
+text(2.5, 11, expression(u[3]^A))
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment
-segments(0, 2, 8, 2, lty = 2, col = "darkgray", lwd = 2)
-segments(8, 0, 8, 2, lty = 2, col = "darkgray", lwd = 2)
+segments(0, 1, 9, 1, lty = 2, col = "darkgray", lwd = 2)
+segments(9, 0, 9, 1, lty = 2, col = "darkgray", lwd = 2)
 
 #Add a point for Aisha's endowment
-points(8, 2, pch = 16, col = "black", cex = 1.5)
+points(9, 1, pch = 16, col = "black", cex = 1.5)
 
 #Annotating line of 100% quality
-text(8.5, 2.6, expression(a == (list(bar(x)^A, bar(y)^A))))
+text(9.5, 1.6, expression(z == (list(bar(x[z])^A, bar(y[z])^A))))
 
+text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+#text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Arrow to Slope of BRF
 #Arrows(14.2, 0.12, 12.2, 0.12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

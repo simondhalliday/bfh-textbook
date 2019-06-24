@@ -1,12 +1,14 @@
 require(ggplot2)
 require(shape)
 require(plotrix)
-pdf(file = "bfh-textbook/property/property_tioli_upf.pdf", width = 9, height = 7)
+pdf(file = "property/property_tioli_upf.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 3
 arrowwidth <- 0.5
+
+
 
 #Colors
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -15,6 +17,11 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 upf <- function(ub) {
   12.24745 - ub
+}
+
+
+uA <- function(xA, yA, alpha = 1/2){
+  ((xA)^alpha)*((yA)^(1 - alpha))
 }
 
 
@@ -39,8 +46,8 @@ ylims <- c(0, 13)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("B's Utility, ", u^B)),
-     ylab = expression(paste("A's Utility, ", u^A)),
+     xlab = expression(paste("A's Utility, ", u^A)),
+     ylab = expression(paste("B's Utility, ", u^B)),
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -57,8 +64,8 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 
 #polygons
 #I need something like xx1 with npts for 
-xpoly1 <- c(5.12, 8.24, 5.12, 5.12)
-ypoly1 <- c(4, 4, 7.12, 4)
+xpoly1 <- c(uA(9,1), 8.5, uA(9,1), uA(9,1))
+ypoly1 <- c(uA(1,14), uA(1,14), upf(uA(9,1)), uA(1,14))
 polygon(x = xpoly1, y = ypoly1, col=COL[4], density=NULL, border = NA)
 
 #xpoly2 = c(0, 0, 12.24745, xlims[2], xlims[2], 0)
@@ -81,7 +88,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #Annotation of the  graphs
 #UPF
 text(8.8, 1.5, expression(paste("Utility Possibilities Frontier")))
-text(8.8, 1, expression(paste(u^A == bar(W) - u^B)))
+text(8.8, 1, expression(paste(u^B == bar(W) - u^A)))
 
 #SWF
 #text(11.5, 4.5, expression(paste("Social Planner's")))
@@ -113,26 +120,28 @@ text(8.8, 1, expression(paste(u^A == bar(W) - u^B)))
 #ua_e = (8^0.5)*(2^0.5) = 4
 #ub_e = (2^0.5)*(13.1^0.5) = 5.118594
 #W = (4^0.5)*(5.118594^0.5) = 4.524862
-segments(0, 4, 13, 4, lty = 2, col = "darkgray", lwd = 2)
-segments(5.12, 0, 5.12, 13, lty = 2, col = "darkgray", lwd = 2)
+segments(0,  uA(1,14), xlims[2], uA(1,14), lty = 2, col = "darkgray", lwd = 2)
+segments(uA(9,1), 0, uA(9,1), ylims[2], 13, lty = 2, col = "darkgray", lwd = 2)
+
 #Annotate e
-points(5.12, 4, pch = 16, col = "black", cex = 1.5)
-text(4.92, 3.8, expression(e))
+points(uA(9,1),  uA(1,14), pch = 16, col = "black", cex = 1.5)
+text(uA(9,1)-0.2,  uA(1,14)-0.2, expression(z))
 
 #Annotate f
-points(5.12, 7.12, pch = 16, col = "black", cex = 1.5)
-text(5.3, 7.3, expression(f))
+points(8.5, uA(1,14), pch = 16, col = "black", cex = 1.5)
+text(8.5 - 0.2, uA(1,14) - 0.2, expression(f))
+
 #Annotate g
-points(8.24, 4, pch = 16, col = "black", cex = 1.5)
-text(8.4, 4.2, expression(g))
+points(uA(9,1, alpha = 1/2), upf(uA(9,1)), pch = 16, col = "black", cex = 1.5)
+text(uA(9,1, alpha = 1/2)-0.2, upf(uA(9,1))-0.2, expression(g))
 
 #Annotate m
-points(5.703502, 4.389995, pch = 16, col = "black", cex = 1.5)
-text(5.9, 4.6, expression(m))
+#points(4.389995,  5.703502, pch = 16, col = "black", cex = 1.5)
+#text(4.6, 5.9, expression(m))
 
 #Label economic rents
 Arrows(6.68, 5.12, 6.68, 7.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(6.68, 7.82, expression(paste("Economic Rents")))
+text(6.68, 7.82, expression(paste("Economic surplus")))
 
 #Point h
 #points(4, 10, pch = 16, col = "black", cex = 1.5)
@@ -149,10 +158,10 @@ text(6.3, 6.3, expression(i))
 
 #Label Participation Constraints
 #Aisha's
-text(11, 4.4, expression(paste("A's Participation Constraint ", u[e]^A)))
+text(11, 4.4, expression(paste("B's Participation Constraint ", u[z]^B)))
 
 #Betty's
-text(7.1, 12.5, expression(paste("B's Participation Constraint ", u[e]^B)))
+text(5.1, 12.5, expression(paste("A's Participation Constraint ", u[z]^A)))
 
 #Arrows showing Social Planner's choices
 #Arrows(5.2, 4.2, 5.9, 4.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = arrowwidth)

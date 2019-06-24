@@ -1,6 +1,6 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/property/property_psp1.pdf", width = 9, height = 7)
+pdf(file = "property/property_psp1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -74,15 +74,15 @@ indiffcurveBneg2 <- function(x, U = 5.703502, A = 1, a = 0.5) {
 
 
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)), 
+     xlab = "",
+     ylab = "", 
      line = 2.5,
      xaxt = "n", 
      yaxt = "n", 
@@ -134,9 +134,13 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 #Add arrows:
-arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
@@ -185,13 +189,13 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+
+text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
-
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {

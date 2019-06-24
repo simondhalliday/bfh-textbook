@@ -133,8 +133,6 @@ ypoly1 <- indiffA(xpoly1, uA = 144, alpha = 30, beta = 1/2)
 ypoly2 <- indiffBroot1(xpoly1, uB = 144, alpha = 30, beta = 1/2)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
-
-
 lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfB(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth)
 lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
@@ -149,8 +147,8 @@ contour(y, x,
         yaxs="i",
         add = TRUE)
 
-text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(14, 14, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(10, 7, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 contour(x, y,
         outer(x, y, uB),

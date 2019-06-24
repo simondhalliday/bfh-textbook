@@ -9,8 +9,8 @@ pdf(file = "risk/risks_inequality_ineq.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -56,11 +56,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
 #xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 8, 12, 15, 20, 25, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[e*minute])), expression(paste(Delta[Rawls])), expression(paste(Delta[e])), expression(paste(Delta[max])), expression(paste(Delta, ""[Wealthiest], " "[Rich])), NA)
+xlabels <- c(NA, expression(paste(Delta[e*minute])), expression(paste(Delta^P)), expression(paste(Delta^e)), expression(paste(bar(Delta) )), expression(paste(Delta^R)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(8) - 7, avgwealth(8), avgwealth(8) + 7, ylims[2])
-ylabels <- c(NA, expression(paste(omega[P*minute])), expression(paste(omega[e*minute])), expression(paste(omega[R*minute])), NA)
+ylabels <- c(NA, expression(paste(omega[P*minute])), expression(paste(omega^e*minute)), expression(paste(omega[R*minute])), NA)
 #text(-1, avgwealth(8)+7, expression(paste(omega, ""[R],"'")), xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8)-7, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)

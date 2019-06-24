@@ -1,6 +1,6 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/property/property_tioli.pdf", width = 9, height = 7)
+pdf(file = "property/property_tioli.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -9,6 +9,10 @@ graphlinewidth <- 3
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+
+uA <- function(xA, yA, alpha){
+  (xA)^(alpha)*(yA)^(1 - alpha)
+}
 
 indiffcurveA1 <- function(x, U = 2, A = 1, a = 0.5) {
   ((((U)/A)*(1/x)^a)^(1/(1-a)))
@@ -118,6 +122,9 @@ text(9.6, 0.9, expression(u[1]^A))
 text(9.6, 2.2, expression(u[2]^A))
 #text(9.6, 4.4, expression(u[3]^A))
 text(9.6, 5.9, expression(u[3]^A))
+
+
+
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)

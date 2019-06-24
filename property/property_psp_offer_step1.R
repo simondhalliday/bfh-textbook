@@ -79,15 +79,15 @@ indiffcurveBneg2 <- function(x, U = 5.703502, A = 1, a = 0.5) {
 
 
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)), 
+     xlab = "",
+     ylab = "", 
      line = 2.5,
      xaxt = "n", 
      yaxt = "n", 
@@ -105,8 +105,15 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 yy1 <- indiffcurveA2(xx1, U = 4, A = 1, a = 0.5)
 yy2 <- indiffcurveA2(xx1)
 
-#Polygon Attempt
-#polygon(x = c(1.34, 6, 8, 10 - 6.73), y = c(12, 9, 2, 15 - 10.1), col="powderblue", density=NULL, border = NA)
+#Axis labels
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+
+#Add arrows:
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+
 
 #I need something like xx1 with npts for 
 #xpoly1 <- seq(from = 1.34, to = 8, length.out = 500)
@@ -135,10 +142,6 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
-#Add arrows:
-arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
-
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
 #text(9.6, 2.2, expression(u[1]^A))
@@ -160,8 +163,8 @@ arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #First Price Line
-text(6.8, 13.5, expression(paste("Price Line")))
-text(6.8, 13, expression(paste("Slope", phantom()==-p[1])))
+text(6.8, 13.5, expression(paste("Price line")))
+text(6.8, 13, expression(paste("slope", phantom()==-p[1])))
 #Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # text(8, 13.5, expression(paste("Different price lines")))
@@ -198,12 +201,14 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+
+#B's axis labels
+text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 #Functions for B's indifference curves

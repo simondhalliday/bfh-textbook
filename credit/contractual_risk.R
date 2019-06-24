@@ -8,8 +8,8 @@ pdf(file = "credit/contractual_risk.pdf", width = 8, height = 6)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -53,13 +53,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], isoreturnFn(delta= 0.25), ylims[2])
 ylabels <- c(NA, expression(paste(f,"*", phantom()==frac(1,2))), NA)
 ticksx <- c(xlims[1], 0.25, xlims[2])
-xlabels <- c(NA, expression(paste(delta,"*", phantom()==frac(q, 4))), NA)
+xlabels <- c(NA, expression(paste(delta,"*", phantom()==frac(q, 2))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
-xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx1 <- seq(0.01, xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(1.5, 2.5, length.out = npts)
 xx4 <- seq(3, 5, length.out = npts)
@@ -68,8 +68,8 @@ xx5 <- seq(7, 9, length.out = npts)
 
 
 #Draw the polygon for feasibility
-xpoly1 <- c(0, 0.5, 0, 0)
-ypoly1 <- c(0, ylims[2], ylims[2], 0)
+xpoly1 <- c(0.01, xx1, 0.01, 0.01)
+ypoly1 <- c(0.01, PCFn(xx1), ylims[2], 0.01)
 polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
 

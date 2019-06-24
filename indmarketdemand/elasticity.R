@@ -1,12 +1,13 @@
 library(pBrackets)
+library(shape)
 
 pdf(file = "indmarketdemand/elasticity.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -15,8 +16,8 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 
 par(mar =  c(6, 6, 4, 4))
 
-xlims <- c(0, 12)
-ylims <- c(0, 12)
+xlims <- c(0, 11)
+ylims <- c(0, 11)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -44,8 +45,8 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Label axes
-mtext(expression(paste("Quantity Demanded, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of the good, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Demand
 segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth) 

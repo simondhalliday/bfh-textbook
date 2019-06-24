@@ -59,7 +59,7 @@ ylabels2 <- seq(from = 0, to = ylims[2], by = 10)
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels)
 axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1)
-axis(4, at = ticksy2, pos = xlims[2], labels = FALSE,las=1)
+axis(4, at = ticksy2, pos = xlims[2], labels = FALSE, las = 1)
 
 
 npts <- 503 

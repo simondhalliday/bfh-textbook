@@ -81,7 +81,7 @@ lines(xx1, bcA(xx1, w = 25, px = 3), col = COLB[4], lwd = graphlinewidth)
 #Label the axes
 #mtext(expression(paste("Quantity of knives, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], ylims[1] - 0.11*ylims[2], expression(paste("Quantity of knives, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-2, 0.5*ylims[2], expression(paste("Quantity of forks, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.9, 0.5*ylims[2], expression(paste("Quantity of forks, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(4.25, 11, expression(u[1]), cex = labelsize)

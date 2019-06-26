@@ -3,13 +3,13 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "indmarketdemand/decomposition_cd.pdf", width = 10, height = 8)
+pdf(file = "indmarketdemand/decomposition_cd.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+labelsize <- 1.3
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -17,7 +17,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 6, 2, 2))
 
 #Original budget constraint and pivoted budget constraint
 
@@ -69,8 +69,8 @@ xlabels <- c(NA, expression(paste(x[e*minute])), expression(paste(x[sub])) , exp
 ticksy <- c(0, bc1(39), cbc1(47), ylims[2])
 ylabels <- c(NA, expression(paste(y[e*minute] == y[e])), expression(paste(y[sub])), NA)
 
-axis(1, at = ticksx,  pos = 0, labels = xlabels)
-axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -81,7 +81,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 contour(x, y, 
         outer(x, y, uFn),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = COLA[4],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -89,19 +89,19 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Kilograms of coffee", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-8, 0.5*ylims[2], expression(paste("Gigabytes of data", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-12.5, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-lines(xx1, bc1(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, bc2(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, cbc1(xx1), col = COLA[6], lwd = graphlinewidth)
+lines(xx1, bc1(xx1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bc2(xx1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, cbc1(xx1), col = COLB[5], lwd = graphlinewidth)
 
 
 #Label curves
 
 text(22, 39, expression(u[1]), cex = labelsize)
-text(31, 39, expression(u[2]), cex = labelsize)
-text(78, 2.2, expression(bc[1]), cex = labelsize)
+text(31.5, 39, expression(u[2]), cex = labelsize)
+text(78, 2.5, expression(bc[1]), cex = labelsize)
 text(78, 12, expression(bc[2]), cex = labelsize)
 text(78, 7.5, expression(cbc[1]), cex = labelsize)
 

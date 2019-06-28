@@ -1,4 +1,8 @@
 require(shape)
+#pdf(file = "property_tioli_logsSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_tioli_logsSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "property_tioli_logsSTEP3.pdf", width = 9, height = 7)
+#pdf(file = "property_tioli_logsSTEP4.pdf", width = 9, height = 7)
 pdf(file = "property/property_tioli_logs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

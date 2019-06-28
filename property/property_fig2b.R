@@ -1,4 +1,7 @@
 require(shape)
+#pdf(file = "property_fig2bSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_fig2bSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "property_fig2bSTEP3.pdf", width = 9, height = 7)
 pdf(file = "property/property_fig2b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

@@ -1,5 +1,9 @@
 #require(ggplot2)
 require(shape)
+#pdf(file = "property_psp1_offerSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_psp1_offerSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "property_psp1_offerSTEP3.pdf", width = 9, height = 7)
+#pdf(file = "property_psp1_offerSTEP4.pdf", width = 9, height = 7)
 pdf(file = "property/property_psp1_offer_step2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -147,8 +151,8 @@ arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # text(4.7, 5, expression("Pareto Efficient Curve"))
 # Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Label B's offer curve
-# text(1, 3, expression("B's Offer Curve"))
-# Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(1, 3, expression("B's Offer Curve"))
+ #Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #First Price Line
 # text(6.8, 13.5, expression(paste("Price Line")))
@@ -165,10 +169,10 @@ text(4.3, 13, expression(paste("Slope", phantom()==-p[2])))
 
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-# text(8, 13.5, expression(paste("Different price lines")))
+#  text(8, 13.5, expression(paste("Different price lines")))
 # text(8, 13, expression(paste("going through the endowment")))
-# text(8, 12.5, expression(paste("and tangent to B's ICs")))
-# text(8, 12, expression(paste("form the offer curve")))
+#  text(8, 12.5, expression(paste("and tangent to B's ICs")))
+#  text(8, 12, expression(paste("form the offer curve")))
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -183,11 +187,11 @@ text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]))
 
 #Add a point for the initial endowment
 # points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
-# text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(e[3]))
+#text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(b[3]))
 
 #Add a point for the initial endowment
-# points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
-# text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(e[4]))
+#points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
+# text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(b[4]))
 
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
@@ -256,7 +260,7 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 text(9.1, 2.4, expression(u[1]^B))
 text(9.1, 4.1, expression(u[2]^B))
 #text(9.1, 5, expression(u[3]^B))
-# text(9.1, 6.7, expression(u[4]^B))
+ #text(9.1, 6.7, expression(u[4]^B))
 
 
 

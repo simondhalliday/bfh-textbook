@@ -1,7 +1,9 @@
 require(ggplot2)
 require(shape)
 require(plotrix)
-pdf(file = "bfh-textbook/property/property_fig8.pdf", width = 9, height = 7)
+pdf(file = "property_fig8STEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_fig8STEP2.pdf", width = 9, height = 7)
+pdf(file = "property_fig8.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -55,8 +57,8 @@ ylims <- c(0, 13)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("B's Utility, ", u^B)),
-     ylab = expression(paste("A's Utility, ", u^A)),
+     xlab = expression(paste("A's Utility, ", u^A)),
+     ylab = expression(paste("B's Utility, ", u^B)),
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -74,10 +76,10 @@ xx4 <- seq(xlims[1], 13, length.out = npts2)
 
 #Draw the lines for the graphs
 lines(xx1, upf(xx1), col = COL[1], lwd = graphlinewidth)
-#lines(xx1, swf.e(xx1), col = COL[2], lwd = graphlinewidth, lty = 2)
-#lines(xx1, swf.f(xx1), col = COL[2], lwd = graphlinewidth, lty = 2)
-#lines(xx1, swf.g(xx1), col = COL[2], lwd = graphlinewidth, lty = 2)
-lines(xx1, swf.i(xx1), col = COL[2], lwd = graphlinewidth)
+lines(xx1, swf.e(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
+lines(xx1, swf.f(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
+lines(xx1, swf.g(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
+lines(xx1, swf.i(xx1), col = COLB[2], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
@@ -92,7 +94,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #Annotation of the  graphs
 #UPF
 text(8.8, 1.5, expression(paste("Utility Possibilities Frontier")))
-text(8.8, 1, expression(paste(u^A == (10^0.5)*(15^0.5) - u^B)))
+text(8.8, 1, expression(paste(u^B == (10^0.5)*(15^0.5) - u^A)))
 
 #Iso-welfare curve labels
 text(11.5, 4.5, expression(paste("Social Planner's")))
@@ -104,7 +106,7 @@ text(11.5, 4, expression(paste("Iso-welfare Curves")))
 #W = (7.16^0.5)*(5.09^0.5) = 6.03692
 #W = (7.16^0.6)*(5.09^0.4) = 6.246474
 points(5.12, 7.12, pch = 16, col = "black", cex = 1.5)
-text(5.3, 7.3, expression(f))
+text(5.3, 7.3, expression(g))
 
 
 #Annotate Point i
@@ -120,7 +122,7 @@ text(6.3, 6.3, expression(i))
 #W = (4.002874^0.5)*(8.244574^0.5) = 5.744736
 #W = (4.002874^0.6)*(8.244574^0.4) = 5.344295
 points(8.24, 4, pch = 16, col = "black", cex = 1.5)
-text(8.4, 4.2, expression(g))
+text(8.4, 4.2, expression(f))
 
 #Annotate point e.
 #ua_e = (8^0.5)*(2^0.5) = 4
@@ -130,8 +132,8 @@ text(8.4, 4.2, expression(g))
 points(5.12, 4, pch = 16, col = "black", cex = 1.5)
 text(4.9, 3.8, expression(e))
 
-segments(0, 4, 13, 4, lty = 2, col = "darkgray", lwd = 2)
-segments(5.12, 0, 5.12, 13, lty = 2, col = "darkgray", lwd = 2)
+#segments(0, 4, 13, 4, lty = 2, col = "darkgray", lwd = 2)
+#segments(5.12, 0, 5.12, 13, lty = 2, col = "darkgray", lwd = 2)
 
 
 

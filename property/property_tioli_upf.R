@@ -1,6 +1,9 @@
 require(ggplot2)
 require(shape)
 require(plotrix)
+#pdf(file = "property_tioli_upfSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_tioli_upfSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "property_tioli_upfSTEP3.pdf", width = 9, height = 7)
 pdf(file = "property/property_tioli_upf.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

@@ -1,5 +1,10 @@
 require(shape)
 require(pBrackets)
+# pdf(file = "edgeworthbox_qql_unions_version2STEP1.pdf", width = 9, height = 7)
+# pdf(file = "edgeworthbox_qql_unions_version2STEP2.pdf", width = 9, height = 7)
+# pdf(file = "edgeworthbox_qql_unions_version2STEP3.pdf", width = 9, height = 7)
+# pdf(file = "edgeworthbox_qql_unions_version2STEP4.pdf", width = 9, height = 7)
+
 pdf(file = "property/edgeworthbox_qql_unions_version2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

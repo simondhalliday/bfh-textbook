@@ -1,4 +1,8 @@
 require(shape)
+#pdf(file = "property_hg_hg_powers_aSTEP1.pdf", width = 9, height = 7)
+#pdf(file = "property_hg_hg_powers_aSTEP2.pdf", width = 9, height = 7)
+#pdf(file = "property_hg_hg_powers_aSTEP3.pdf", width = 9, height = 7)
+
 pdf(file = "property/property_hg_hg_powers_a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

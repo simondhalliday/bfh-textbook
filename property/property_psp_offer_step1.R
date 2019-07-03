@@ -176,7 +176,7 @@ text(6.8, 13, expression(paste("slope", phantom()==-p[1])))
 
 #Add a point for the initial endowment
 points(8, OfferCurveB(x = 8), pch = 16, col = "black", cex = 1.5)
-text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(e[1]))
+text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(b[1]))
 
 
 #Set up second axes and labels

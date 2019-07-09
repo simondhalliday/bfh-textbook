@@ -59,12 +59,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 1.492, 5.784, 10.2, 10.709, 18.9, ylims[2])
+ticksy <- c(0, 1.38, 10.2, 10.709, 18.9, ylims[2])
 ticksy_mod <- c(10, 10.8)
-ylabels_mod <- c(expression(paste(m[a] == m[b])), expression(paste(y[3])))
-ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), NA, NA, expression(paste(m[c])), NA)
-ticksx <- c(0, 6.533, 10.493, xlims[2])
-xlabels <- c(NA, expression(paste(x[2] == x[1])), expression(paste(x[3])), NA)
+ylabels_mod <- c(expression(paste(m[b])), expression(paste(y[3])))
+ylabels <- c(NA, expression(paste(y[1])), NA, NA, expression(paste(m[c])), NA)
+ticksx <- c(0, 6.533, xlims[2])
+xlabels <- c(NA, expression(paste(x[2] == x[1])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy_mod, pos = 0, labels = ylabels_mod, tick = FALSE, las = 1, cex.axis = labelsize)
@@ -74,13 +74,13 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 lines(xx1, uA(xx1, y = 15.65), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, uA(xx1, y = 23.5), col = COLA[3], lwd = graphlinewidth)
+# lines(xx1, uA(xx1, y = 23.5), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, uA(xx1, y = 25), col = COLA[3], lwd = graphlinewidth)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 18.9, p = 1.25), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, w = 10.2, p = 1.35), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 10.2, p = 0.418), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, bcA(xx1, w = 10.2, p = 0.418), col = COLB[3], lwd = graphlinewidth)
 
 #Label the axes
 #mtext(expression(paste("Fossil fuels, ", x)), side=1, line = 2.5, cex = axislabelsize)
@@ -110,27 +110,27 @@ text(-1.8, 0.5*ylims[2], expression(paste("Quality of life, ", y)), xpd = TRUE, 
 segments(0, 10.709, 6.553, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6.533, 0, 6.533, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 1.38, 6.553, 1.38, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10.493, 0, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 5.784, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(10.493, 0, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 5.784, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x
 points(6.533, 10.709, pch = 16, col = "black", cex = 1.5)
-points(10.493, 5.784, pch = 16, col = "black", cex = 1.5)
+#points(10.493, 5.784, pch = 16, col = "black", cex = 1.5)
 points(6.533, 1.38, pch = 16, col = "black", cex = 1.5)
 
-text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
+#text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
 text(6.45  + .35, 1.38 + .45, expression(paste(b)), cex = labelsize)
 text(6.553 + .35, 10.709 + .45, expression(paste(c)), cex = labelsize)
 
 text(0.6, 15, expression(paste(u[1])), cex = labelsize)
-text(0.6, 21, expression(paste(u[2])), cex = labelsize)
+# text(0.6, 21, expression(paste(u[2])), cex = labelsize)
 text(0.6, 24, expression(paste(u[3])), cex = labelsize)
 
 
 text(7.75, 0.5, expression(paste(bc[b])), cex = labelsize)
-text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
+#text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
 text(12.75, 2.5, expression(paste(bc[c])), cex = labelsize)
 
 dev.off()

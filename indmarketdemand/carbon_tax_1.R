@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 1.492, 5.784, 10.2, ylims[2])
+ticksy <- c(0, 1.38, 5.784, 10.2, ylims[2])
 ticksy_mod <- c(10)
 ylabels_mod <- c(expression(paste(m[a] == m[b])))
 ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), NA, NA)

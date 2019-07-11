@@ -134,4 +134,14 @@ text(7.75, 0.5, expression(paste(bc[b])), cex = labelsize)
 text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
 #text(12.75, 2.5, expression(paste(bc[c])), cex = labelsize)
 
+Arrows(10.5, 1.8, 7.2, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.7, 4.8, expression(paste("Tax increases ", p[x] )), cex = labelsize)
+text(8.7, 3.8, expression(paste("budget constraint" )), cex = labelsize)
+text(8.7, 2.8, expression(paste("pivots inwards" )), cex = labelsize)
+
+
+Arrows(10.2, -1.4, 6.9, -1.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+#
+
 dev.off()

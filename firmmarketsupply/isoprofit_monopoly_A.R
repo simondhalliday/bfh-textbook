@@ -74,6 +74,10 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphline
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, IsoProf(xx1, k = 14), col = COLA[4], lwd = graphlinewidth)
 
+# Iso Prof --- To0 high/too low
+lines(xx1, IsoProf(xx1, k = 9), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, IsoProf(xx1, k = 19), col = COLA[4], lwd = graphlinewidth)
+
 
 #Label the axes
 text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 

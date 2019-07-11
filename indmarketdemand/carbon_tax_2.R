@@ -122,7 +122,12 @@ points(6.533, 1.38, pch = 16, col = "black", cex = 1.5)
 
 #text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
 text(6.45  + .35, 1.38 + .45, expression(paste(b)), cex = labelsize)
-text(6.553 + .35, 10.709 + .45, expression(paste(c)), cex = labelsize)
+text(6.45  + .35, 10.709 + .45, expression(paste(c)), cex = labelsize)
+Arrows(6.8, 2.2, 6.8, 9.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.25, 6.2, expression(paste("Rebate shifts" )), cex = labelsize)
+text(8.25, 5, expression(paste("budget constraint" )), cex = labelsize)
+#text(8.25, 4, expression(paste("increasing utility" )), cex = labelsize)
+
 
 text(0.6, 15, expression(paste(u[1])), cex = labelsize)
 # text(0.6, 21, expression(paste(u[2])), cex = labelsize)
@@ -132,5 +137,6 @@ text(0.6, 24, expression(paste(u[3])), cex = labelsize)
 text(7.75, 0.5, expression(paste(bc[b])), cex = labelsize)
 #text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
 text(12.75, 2.5, expression(paste(bc[c])), cex = labelsize)
+
 
 dev.off()

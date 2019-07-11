@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "firmmarketsupply/isoprofit_monopoly.pdf", width = 9, height = 7)
+pdf(file = "firmmarketsupply/isoprofit_monopoly_B.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
+ticksy <- c(0, 2, AvgRevenue(x = 4), ylims[2])
 ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p))))
 ticksx <- c(0, 4, 6, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))))
@@ -90,7 +90,7 @@ text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
+segments(0, 2, xlims[2], (2 + 0.5*ylims[2]), lty = 1, col = COL[1] , lwd = graphlinewidth)
 
 #Label Points for comparison
 points(4, MRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
@@ -99,8 +99,6 @@ text(3.8, MRevenue(x = 4) - 0.4, expression(i), cex = labelsize)
 
 points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
-
-
 
 
 dev.off()

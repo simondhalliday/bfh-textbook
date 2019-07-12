@@ -68,16 +68,16 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(xlims[1], xlims[2] - 2, length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, IsoProf(xx1, k = 14), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, IsoProf(xx2, k = 14), col = COLA[4], lwd = graphlinewidth)
 
-# Iso Prof --- To0 high/too low
-lines(xx1, IsoProf(xx1, k = 9), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, IsoProf(xx1, k = 19), col = COLA[4], lwd = graphlinewidth)
-
+# Iso Prof --- Too high/too low
+lines(xx2, IsoProf(xx2, k = 8), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, IsoProf(xx2, k = 20), col = COLA[4], lwd = graphlinewidth)
 
 #Label the axes
 text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
@@ -85,16 +85,19 @@ text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = a
 text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 6.5, expression(paste(Iso-Profit)), cex = labelsize)
-text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
-text(10.5, 2.8, expression(paste(p(x))), cex = labelsize)
+text(xlims[2] - 1, 7, expression(paste(Iso-Profit)), cex = labelsize)
+text(10.5, 3.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
+text(10.5, 2.5, expression(paste(p(x))), cex = labelsize)
 text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 
+text(xlims[2] - 1, 6, expression(paste(p[1])), cex = labelsize)
+text(xlims[2] - 1, 5.25, expression(paste(p[2])), cex = labelsize)
+text(xlims[2] - 1, 4.5, expression(paste(p[3])), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
+segments(0, 4, xlims[2], 4, lty = 1, col = COLA[5] , lwd = graphlinewidth)
 
 #Label Points for comparison
 points(4, MRevenue(x = 4), pch = 16, col = "black", cex = 1.5)

@@ -59,8 +59,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, AvgRevenue(x = 4), ylims[2])
 ylabels <- c(NA, expression(paste(p^{m})), expression(paste(bar(p))))
-ticksx <- c(0, 4, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})), NA)
+ticksx <- c(0, 4, 4, xlims[2])
+xlabels <- c(NA, expression(paste(x^{m})), NA, expression(paste(frac(bar(p),beta))))
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
 text(x = c(0, 4, 6, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
@@ -83,7 +83,7 @@ text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, 
 #Label curves
 text(10.5, 6.5, expression(paste(Iso-Profit)), cex = labelsize)
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
-text(10.5, 2.8, expression(paste(p(x))), cex = labelsize)
+text(10.5, 2.5, expression(paste(p(x))), cex = labelsize)
 #text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 
 

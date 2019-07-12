@@ -90,9 +90,9 @@ text(10.5, 3.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 text(10.5, 2.5, expression(paste(p(x))), cex = labelsize)
 text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 
-text(xlims[2] - 1, 6, expression(paste(p[1])), cex = labelsize)
-text(xlims[2] - 1, 5.25, expression(paste(p[2])), cex = labelsize)
-text(xlims[2] - 1, 4.5, expression(paste(p[3])), cex = labelsize)
+text(xlims[2] - 1, 6, expression(paste(pi[1])), cex = labelsize)
+text(xlims[2] - 1, 5.25, expression(paste(pi[2])), cex = labelsize)
+text(xlims[2] - 1, 4.5, expression(paste(pi[3])), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)

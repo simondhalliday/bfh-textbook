@@ -17,6 +17,11 @@ indiffA <- function(x, alpha = 0.5, uA = 5) {
   (uA / x^alpha)^(1/(1 - alpha))
 }
 
+cef <- function(x, e = 1.4, k){
+  k*(x^(-1/e))
+}
+
+
 xlims <- c(0, 300)
 ylims <- c(0, 3)
 
@@ -61,8 +66,9 @@ segments(129, 0, 129, 1.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
 # Demand Curve
-lines(xx1, indiffA(xx1, alpha = 0.38723, uA = 7.98053), col = COLA[5], lwd = graphlinewidth)
-text(xlims[2] - 0.05*xlims[2], 0.75, expression(Demand))
+#lines(xx1, indiffA(xx1, alpha = 0.38723, uA = 7.98053), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, cef(xx1, k = 44.7982), col = COLA[5], lwd = graphlinewidth)
+text(xlims[2] - 0.05*xlims[2], 0.7, expression(Demand))
 
 # Points
 points(150, 1.25, pch = 16, col = "black", cex = 1.5)

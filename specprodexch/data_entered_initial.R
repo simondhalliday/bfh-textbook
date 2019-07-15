@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "specprodexch/data_entered.pdf", width = 8, height = 8)
+pdf(file = "specprodexch/data_entered_initial.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -18,23 +18,23 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 
 ffA <- function(x, yintA = 20, sA = 20/11) {
-        yintA - sA*x
+  yintA - sA*x
 }
 
 ffB <- function(x, yintB = 8, sB = 8/10) {
-        yintB - sB*x
+  yintB - sB*x
 }
 
 exchange <- function(x, slope = 1/1.25) {
-        slope*x
+  slope*x
 }
 
 priceA <- function(x, pintA = 20, psA = 1.45) {
-        pintA - psA*x
+  pintA - psA*x
 }
 
 priceB <- function(x, pintB = 14.5, psB = 1.45) {
-        pintB - psB*x
+  pintB - psB*x
 }
 
 #Edited the margins to cater for the larger LHS labels
@@ -64,10 +64,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 1)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(ylims[1], 5.16, 7.11, 8, 14.5, 20, ylims[2])
-ylabels <- c(NA, 5.16, 7.11, 8, 14.5, 20, NA)
-ticksx <- c(xlims[1], 6.45, 8.88, 10, 11, 13.78, xlims[2])
-xlabels <-  c(NA, 6.45, 8.88, 10, 11, 13.8, NA)
+ticksy <- c(ylims[1], 4, 6.11, 8, 20, ylims[2])
+ylabels <- c(NA, 4, 6.11, 8,  20, NA)
+ticksx <- c(xlims[1], 5, 7.64, 10, 11,  xlims[2])
+xlabels <-  c(NA, 5, 7.64, 10, 11,  NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -79,27 +79,32 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, ffA(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, ffB(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, exchange(xx1), lty = 2, col = "gray", lwd = segmentlinewidth)
-lines(xx1, priceA(xx1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, priceB(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, priceA(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, priceB(xx1), col = COLB[3], lwd = graphlinewidth)
 
 
-#Segments for new points
-segments(0, 5.16, 6.45, 5.16, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(6.45, 0, 6.45, 5.16, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(0, 7.11, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(8.88, 0, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
+#segments(0, 8, 6.4, 8, lty = 2, col = "dark grey",  lwd = segmentlinewidth)
 
+
+
+segments(0, 4, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
+segments(5, 0, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
+segments(0, 6.11, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
+segments(7.64, 0, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
+
+# segments(0, 15, 10, 0, lty = 1, col = COLA[3],  lwd = graphlinewidth)
+# 
 # segments(0, 4.14, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
 # segments(4.14, 0, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
 
 #Label Points
-xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
+xpts <- c(5, 7.638888889)
 ypts <- xpts/1.25
 yadj1 <- 0.5
 yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
-ptlabels <- c("g", "h", "i", "j")
+ptlabels <- c("g", "i")
 text(xpts, ypts + yadj1, ptlabels)
 #coordlabs <- c("(5,4)", "(6.44, 5.16)", "(7.64,6.11)", "(8.89,7.11)")
 #text(xpts, ypts + yadj2, coordlabs, cex = smalllabelsize)
@@ -114,27 +119,10 @@ text(11, 11.25, expression(paste("1250 keystrokes of data")))
 text(11, 10.4, expression(paste(y == frac(x,1.25) )))
 
 #Label the curves
+# text(1, 12.5, expression(p[1]), cex = labelsize)
+# text(1, 19.4, expression(p[2]), cex = labelsize)
 
-
-
-text(13.6, 1, expression(p[2]), cex = labelsize)
-text(10.8, 1, expression(ff[A]), cex = labelsize)
-
-text(1, 12.5, expression(p[1]), cex = labelsize)
+text(1, 17.5, expression(ff[A]), cex = labelsize)
 text(1, 6.8, expression(ff[B]), cex = labelsize)
-
-
-#xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
-#ypts <- xpts/1.25
-
-Arrows(xpts[1], ypts[1] - 0.5, 10 - 1, 0 + 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(10, 0 + 0.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(10 + 0.3, 0.3, expression(s[B]), cex = labelsize)
-points(10, 0,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-
-Arrows(xpts[3] - 0.3, ypts[3], 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(0 + 0.3, 20, xpts[4] - 0.3, ypts[4] + 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0 + 0.3, 20 + 0.3, expression(s[A]), cex = labelsize)
-points(0, 20,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
 dev.off()

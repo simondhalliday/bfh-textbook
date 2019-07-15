@@ -1,6 +1,6 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
-#Title: Coordination, Conflict and Competition: A Text in Microeconomics
+# Graph Designer: Simon Halliday + Bridget Diana
+# Authors: Bowles, Foley and Halliday
+# Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
 pdf(file = "mnathappendix/indiff_map_math.pdf", width = 8, height = 6)

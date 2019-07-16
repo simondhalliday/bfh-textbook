@@ -74,19 +74,19 @@ segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = "gray" , lwd = seg
 # Demand Curve
 #lines(xx1, indiffA(xx1, alpha = 0.38723, uA = 7.98053), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, cef(xx1), col = COLA[5], lwd = graphlinewidth)
-text(xlims[2] - 0.05*xlims[2], 0.7, expression(Demand))
+text(xlims[2] - 0.05*xlims[2], 0.75, expression(Demand))
 
 # Points
-points(150, 1.25, pch = 16, col = "black", cex = 1.5)
-text(155, 1.3, expression(a))
+points(xprices[1], prices[1], pch = 16, col = "black", cex = 1.5)
+text(xprices[1] + 5, prices[1] + 0.05, expression(a))
 
-points(129, 1.375, pch = 16, col = "black", cex = 1.5)
-text(134, 1.425, expression(b))
+points(xprices[2], prices[2], pch = 16, col = "black", cex = 1.5)
+text(xprices[2] + 5, prices[2] + 0.05, expression(b))
 
 # Label Regions
-text(140, 1.3, expression(A))
+text(125, 1.35, expression(A))
 text(50, 1, expression(B))
-text(50, 1.3, expression(C))
+text(50, 1.35, expression(C))
 text(50, 1.75, expression(D))
 
 

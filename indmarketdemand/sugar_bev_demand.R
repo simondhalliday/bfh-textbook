@@ -21,10 +21,10 @@ cef <- function(x, e = 1.4, k = 44.7982){
   k*(x^(-1/e))
 }
 
+#The inverse demand function to creat the relative points
 cefinv <- function(p, e = 1.4, k = 44.7982){
   (p/k)^(-e)
 }
-
 
 xlims <- c(0, 280)
 ylims <- c(0, 2.8)
@@ -43,8 +43,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-tax <- 1.2
-prices <- c(1.25, 1.25*tax)
+
+## Paremeters to enable editing points 
+## I've assumed a tax of 20% to make this more visible 
+## I'll comment on that in the caption
+tax <- 1.2 #20 percent tax
+prices <- c(1.25, 1.25*tax) 
 xprices <- c(cefinv(prices[1]), cefinv(prices[2]))
 
 ticksy <- c(0, prices[1], prices[2], ylims[2])

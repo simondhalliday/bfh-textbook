@@ -1,3 +1,4 @@
+library(shape)
 pdf(file = "indmarketdemand/sugar_bev_demand.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -61,11 +62,23 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(48, xprices[2], length.out = npts)
+xx3 <- seq(xprices[2], xprices[1], length.out = npts)
 
 #Label axes
 mtext(expression(paste("Quantity of sugary drinks (liters), ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-27, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
+# Shade Regions
+# A
+polygon(c(xprices[2], xx3, xprices[1]), c(prices[1], cef(xx3), prices[1]), border = FALSE, col = COL[4])
+# B
+rect(0, 0, xprices[2], prices[1], col = COLB[1], density=NULL, border = NA)
+# C
+rect(0, prices[1], xprices[2], prices[2], col = COL[3], density=NULL, border = NA)
+# D
+rect(0, prices[2], 48.5, ylims[2], col = COL[2], density=NULL, border = NA)
+polygon(c(48, xx2, xprices[2]), c(prices[2], cef(xx2), prices[2]), border = FALSE, col = COL[2])
 
 # Segments
 segments(xprices[1], 0, xprices[1], prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -73,7 +86,6 @@ segments(0,  prices[1], xprices[1],  prices[1], lty = 2, col = "gray" , lwd = se
 
 segments(0, prices[2], xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-
 
 # Demand Curve
 #lines(xx1, indiffA(xx1, alpha = 0.38723, uA = 7.98053), col = COLA[5], lwd = graphlinewidth)

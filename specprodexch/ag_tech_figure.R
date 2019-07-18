@@ -37,6 +37,12 @@ ggplot(data = ag_data, mapping = aes(x = as.factor(Year), y = HoursPerBushel)) +
 
 dev.off()
 
+pdf(file = "hours_per_100bushel.pdf", width = 7, height = 7)
+
+ggplot(data = ag_data, mapping = aes(x = as.factor(Year), y = HoursPer100Bushels)) +  labs(x = "Year", y = "Labor Hours Per One Bushel of Wheat") + geom_bar(stat = "identity", fill = COLB[4]) + annotate("text", x = c(1,2, 3, 4, 5, 6, 7), y = c(300, 71, 53, 50, 41, 40, 39), label = c("walking plow, \n brush harrow, \n hand broadcast of \n seed, sickle, \n and flail", "gang plow, \n seeder, harrow, \n binder, thresher, \n wagons, \n and horses", "3-bottom \n gang plow, \n tractor, 10-foot \n tandem disk, \n harrow, 12-foot \n combine, and \n trucks", "tractor, \n 10-foot plow, \n 12-foot row \n weeder, \nharrow, \n 14-foot drill, \n self-propelled \n combine, \n and trucks", "tractor, \n 12-foot plow, \n 14-foot drill,\n  14-foot \n self-propelled \n combine, \n and trucks", "tractor, 30-foot \n sweep disk, \n 27-foot drill, \n 22-foot \n self-propelled \n combine, \n and trucks", "tractor, \n 35-foot sweep  \n disk, 30-foot \n drill, 25-foot \n self-propelled \n combine, \n and trucks") , color="black", size= 3) +theme_bw() + ylim(0,310)
+
+dev.off()
+
 pdf(file = "bushels_per_hour.pdf", width = 7, height = 7)
 
 ggplot(data = ag_data, mapping = aes(x = as.factor(Year), y = BushelsPerHourLabor)) + labs(x = "Year", y = "Bushels of Wheat Per One Hour of Labor") + geom_bar(stat = "identity", fill = COLA[4]) + annotate("text", x = c(1,2, 3, 4, 5, 6, 7), y = c(3.1,5, 9, 18.7, 23, 30, 36), label = c("Walking plow, \n brush harrow, \n hand broadcast of \n seed, sickle, and flail", "Gang plow, seeder, \n harrow, binder, \n thresher, wagons, \n and horses", "3-bottom gang plow, \n tractor, 10-foot \n tandem disk, harrow, \n 12-foot combine, \nand trucks", "tractor, 10-foot plow, \n 12-foot row weeder, \nharrow, 14-foot drill, \n self-propelled \n combine, and trucks", "tractor, 12-foot plow, \n 14-foot drill, 14-foot \n self-propelled \n combine, and trucks", "tractor, 30-foot \n sweep disk, 27-foot \n drill, 22-foot \n self-propelled \n combine, and trucks", "tractor, 35-foot sweep  \n disk, 30-foot drill, \n 25-foot self-propelled \n combine, and trucks") , color="black", size=2) +theme_bw() + ylim(0,40)

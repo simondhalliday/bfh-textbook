@@ -30,7 +30,12 @@ lumen_data$lnLaborHourPer1000LumenHours <-log(lumen_data$LaborHourPer1000LumenHo
 
 pdf(file = "hours_per_lumenhour.pdf", width = 7, height = 7)
 
-ggplot(data = lumen_data, mapping = aes(x = reorder(Year, -LaborHourPer1000LumenHours), y = LaborHourPer1000LumenHours)) + labs(x = "Year", y = "Hours of Work per 1000 Lumen Hours") + geom_bar(stat = "identity", fill = COLB[4]) + theme_bw()
+#ggplot(data = lumen_data, mapping = aes(x = reorder(YearFactor, -LaborHourPer1000LumenHours), y = LaborHourPer1000LumenHours)) + labs(x = "Year", y = "Hours of Work per 1000 Lumen Hours") + geom_bar(stat = "identity", fill = COLB[4]) + theme_bw()
+
+#ggplot(data = lumen_data, mapping = aes(x = Year, y = LaborHourPer1000LumenHours)) + labs(x = "Year", y = "Hours of Work per 1000 Lumen Hours") + geom_line(stat = "identity", colour=COLB[4]) + scale_x_continuous(breaks=c(-100000, -7500, -50000, -25000, 1), labels= c("100000 BC", "75000 BC", "50000 BC", "25000 BC", "1 AD" )) + geom_point() + theme_bw()
+
+ggplot(data = lumen_data, mapping = aes(x = reorder(YearFactor, -LaborHourPer1000LumenHours), y = LaborHourPer1000LumenHours)) + labs(x = "Year", y = "Hours of Work per 1000 Lumen Hours")  + geom_line(group="identity", colour=COLB[4])  + theme_bw() 
+
 
 dev.off()
 

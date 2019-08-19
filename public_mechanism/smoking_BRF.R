@@ -89,10 +89,10 @@ brackets(0, 2, 0, 5, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd =segmentlinewidth, lty = 1)
 
 
-text(-.6, 1.725, expression(paste("Indirect")), cex = 1)
-text(-.6, 1.55, expression(paste("effect")), cex = 1)
+text(-.6, 1.725, expression(paste("Indirect")), cex = 0.85)
+text(-.6, 1.55, expression(paste("effect")), cex = 0.85)
 
-text(-.6, 3.625, expression(paste("Direct")), cex = 1)
-text(-.6, 3.45, expression(paste("effect")), cex = 1)
+text(-.6, 3.625, expression(paste("Direct")), cex = 0.85)
+text(-.6, 3.45, expression(paste("effect")), cex = 0.85)
 
 dev.off()

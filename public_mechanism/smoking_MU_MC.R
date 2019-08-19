@@ -1,7 +1,7 @@
 require(shape)
 library(pBrackets)
 
-pdf(file = "smoking_MU_MC.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/smoking_MU_MC.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -69,13 +69,13 @@ segments(0, 10, xlims[2], 10, lty = 1, col = COLB[3] , lwd = segmentlinewidth)
 text(5.5, 10.3, expression(paste("Price after tax")), cex = 1)
 text(5.5, 4.3, expression(paste("Price before tax")), cex = 1)
 
-brackets(2, 0, 1.25, 0, h = .1,  ticks = 0.5, curvature = 0.5, type = 1,
+brackets(2, 0, 1.25, 0, h = .2,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd = segmentlinewidth, lty = 1)
 
-brackets(5, 0, 2, 0, h = .1,  ticks = 0.5, curvature = 0.5, type = 1,
+brackets(5, 0, 2, 0, h = .25,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd = segmentlinewidth, lty = 1)
 
-text(1.65, -.45, expression(paste("Indirect \n effect")), cex = .5)
-text(3.5, -.45, expression(paste("Direct \n effect")), cex = .5)
+text(1.65, -.65, expression(paste("Indirect \n effect")), cex = .5)
+text(3.5, -.65, expression(paste("Direct \n effect")), cex = .5)
 
 dev.off()

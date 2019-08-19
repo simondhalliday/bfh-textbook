@@ -1,7 +1,7 @@
 require(shape)
 library(pBrackets)
 
-pdf(file = "smoking_BRF.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/smoking_BRF.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -82,14 +82,17 @@ text(7, 5.0, expression(paste("before tax")), cex = labelsize)
 text(7, 2, expression(paste("i's best response")), cex = labelsize)
 text(7, 1.75, expression(paste("after tax")), cex = labelsize)
 
-brackets(0, 1.25, 0, 2, h = .1,  ticks = 0.5, curvature = 0.5, type = 1,
+brackets(0, 1.25, 0, 2, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd = segmentlinewidth, lty = 1)
 
-brackets(0, 2, 0, 5, h = .1,  ticks = 0.5, curvature = 0.5, type = 1,
+brackets(0, 2, 0, 5, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd =segmentlinewidth, lty = 1)
 
 
-text(-.3, 1.55, expression(paste("Indirect \n effect")), cex = .5)
-text(-.3, 3.5, expression(paste("Direct \n effect")), cex = .5)
+text(-.5, 1.725, expression(paste("Indirect")), cex = .5)
+text(-.5, 1.55, expression(paste("effect")), cex = .5)
+
+text(-.5, 3.625, expression(paste("Direct")), cex = .5)
+text(-.5, 3.45, expression(paste("effect")), cex = .5)
 
 dev.off()

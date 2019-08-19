@@ -22,8 +22,8 @@ BRFXj <- function(Xj, P, alpha = 10, beta = 2){
   (P*Xj-alpha)/beta
 }
 
-xlims <- c(-1, 10)
-ylims <- c(0, 10)
+xlims <- c(-1, 8)
+ylims <- c(0, 8)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -47,12 +47,12 @@ xlabels <- c(NA, NA, NA, NA, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
-text(1, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = .8)
-text(1.25, -0.45,  expression(paste(x[jt]^N)), xpd=TRUE, cex=.8)
-text(2.5, -0.49, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=.8 )
-text(-0.45, 1.15, expression(paste(x[it]^N)), xpd = TRUE, cex = .8)
-text(-0.45, 2.1, expression(paste(x[it]^{direct})) , xpd=TRUE, cex=.8)
-text(-0.45, 5, expression(paste(x[i0])), xpd=TRUE, cex=.8 )
+text(1, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = 1)
+text(1.25, -0.45,  expression(paste(x[jt]^N)), xpd=TRUE, cex=1)
+text(2.5, -0.49, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=1 )
+text(-0.45, 1.15, expression(paste(x[it]^N)), xpd = TRUE, cex = 1)
+text(-0.45, 2.1, expression(paste(x[it]^{direct})) , xpd=TRUE, cex=1)
+text(-0.45, 5, expression(paste(x[i0])), xpd=TRUE, cex=1 )
 text(0.5*xlims[2], -.7, expression(paste("j's smoking")), xpd = TRUE, cex = axislabelsize) 
 text(-1.3, 0.5*ylims[2], expression(paste("i's smoking ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
@@ -89,10 +89,10 @@ brackets(0, 2, 0, 5, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd =segmentlinewidth, lty = 1)
 
 
-text(-.5, 1.725, expression(paste("Indirect")), cex = .5)
-text(-.5, 1.55, expression(paste("effect")), cex = .5)
+text(-.6, 1.725, expression(paste("Indirect")), cex = 1)
+text(-.6, 1.55, expression(paste("effect")), cex = 1)
 
-text(-.5, 3.625, expression(paste("Direct")), cex = .5)
-text(-.5, 3.45, expression(paste("effect")), cex = .5)
+text(-.6, 3.625, expression(paste("Direct")), cex = 1)
+text(-.6, 3.45, expression(paste("effect")), cex = 1)
 
 dev.off()

@@ -49,9 +49,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 0, delta_PT(delta = -0.1, f = 0), ylims[2])
 ylabels <- c(NA, 0, expression(paste(frac(1,2) - 2, delta)), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(NA, expression(paste(f,"*")), NA)
+xlabels <- c(NA, expression(paste(0.5)), NA)
 ticksy2 <- c(ylims[1], delta_PT(delta = -0.1, f = 1), 0, ylims[2])
-ylabels2 <- c(NA, expression(paste(4, delta, -"(", 2, delta, + frac(1,2), ")")), 0, NA)
+ylabels2 <- c(NA,expression( paste(4, delta, - bgroup("(", 2 *  delta + frac(1, 2), ")" ))), 0, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -61,12 +61,11 @@ npts <- 503
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
-#Axis labels and draw linear utility functions
-text(0.5, -1.5, expression(paste("x")), xpd = TRUE, cex = axislabelsize, srt = 0) 
-#text(, side = 1, line = 2, cex = axislabelsize)
-text(xlims[1] - 0.75, 0.5*ylims[2], expression(paste("y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#Axis labels 
+# text(0.5, -.9, expression(paste("x")), xpd = TRUE, cex = axislabelsize, srt = 0) 
+# text(xlims[1] - 0.1, 0, expression(paste("y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-# Draw the graphs
+# Private Return
 lines(xx1, delta_PT(f = xx1), col = COLA[4], lwd = graphlinewidth)
 
 # Text Labels

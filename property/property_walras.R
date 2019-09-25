@@ -1,10 +1,10 @@
 #require(ggplot2)
 require(shape)
-pdf(file = "bfh-textbook/property/property_walras1.pdf", width = 9, height = 7)
+pdf(file = "property/property_walras1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
+graphlinewidth <- 2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -74,15 +74,15 @@ indiffcurveBneg2 <- function(x, U = 6.531973, A = 1, a = 0.5) {
 
 
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4.2, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Apples, ", x)),
-     ylab = expression(paste("A's Oranges, ", y)), 
+     xlab = expression(paste("A's coffee (kg), ", x^A)),
+     ylab = expression(paste("A's data (gb), ", y^A)), 
      line = 2.5,
      xaxt = "n", 
      yaxt = "n", 
@@ -123,7 +123,7 @@ lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
 
-lines(xx3, OfferCurveB(xx3), col = COLB[3], lwd = graphlinewidth+1)
+lines(xx3, OfferCurveB(xx3), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, WalrasPrice(xx1), col = COL[8], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
@@ -136,18 +136,14 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 #Add arrows:
 arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.4, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
-#text(9.6, 0.9, expression(u[1]^A))
 text(0.9, 14.5, expression(u[1]^A))
 text(2, 14.5, expression(u[2]^A))
-#text(9.6, 5.9, expression(u[4]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)
-
-
 
 #Pareto efficiency curve
 segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
@@ -196,12 +192,13 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Apples, x", side=3, line = 2.5, cex = axislabelsize)
-text(-0.8, 7, expression(paste("B's Oranges, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+#mtext(expression(paste("B's coffee (kg), ", x^B)), side=3, line = 2.5, cex = axislabelsize)
+text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.2, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.2, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 #Functions for B's indifference curves
@@ -237,7 +234,7 @@ text(9.1, 5.2, expression(u[2]^B))
 
 #Add a point for the initial endowment
 points(2, 13, pch = 16, col = "black", cex = 1.5)
-text(1.8, 12.5, expression(e))
+text(1.8, 12.5, expression(z))
 
 
 
@@ -277,7 +274,7 @@ text(4.16, 5.8, expression(f))
 
 
 #Annotating B's endowment
-text(1.8, 12.5, expression(e))
+text(1.8, 12.5, expression(z))
 
 #Annotating a point that is a Pareto improvement over e.
 #points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)

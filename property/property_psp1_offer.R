@@ -4,7 +4,8 @@ pdf(file = "property/property_psp1_offer.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-graphlinewidth <- 3
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")

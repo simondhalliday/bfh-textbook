@@ -1,3 +1,4 @@
+# text(4.75, 7.5, expression(w))
 #require(ggplot2)
 require(shape)
 pdf(file = "what_can_markets_do/property_walras_baseline.pdf", width = 9, height = 7)
@@ -111,9 +112,6 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 yy1 <- indiffcurveA2(xx1, U = 4, A = 1, a = 0.5)
 yy2 <- indiffcurveA2(xx1)
 
-#Polygon Attempt
-#polygon(x = c(1.34, 6, 8, 10 - 6.73), y = c(12, 9, 2, 15 - 10.1), col="powderblue", density=NULL, border = NA)
-
 #I need something like xx1 with npts for 
 #xpoly1 <- seq(from = 1.34, to = 8, length.out = 500)
 #ypoly1 <- indiffcurveA2(xpoly1, U = 4, A = 1, a = 0.5)
@@ -121,21 +119,24 @@ yy2 <- indiffcurveA2(xx1)
 #polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[3], density=NULL, border = NA)
 xx2 <- seq(4, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9, length.out = npts)
+xx4 <- seq(1, 9, length.out = npts)
 
 #Draw the lines for the graphs
 #lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, indiffcurveA2(xx1, U = uA(4.5, 9)), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1, U = uA(5, 5)), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1, U = uA(2.5, 7.5)), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
 
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg1(xx1, U = uB(5.75, 6.5)), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = COLB[2], lwd = graphlinewidth)
 
 #lines(xx1, PriceLine(xx1), col = COL[8], lwd = graphlinewidth)
-lines(xx1, PriceLine(xx1, intercept = 18, slope = 2), col = COL[8], lwd = graphlinewidth)
+lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphlinewidth)
 #lines(xx1, PriceLine(xx1, intercept = 6, slope = 0.5), col = COL[8], lwd = graphlinewidth)
 #lines(xx1, PriceLine(xx1, intercept = 50, slope = 6), col = COL[8], lwd = graphlinewidth)
 
@@ -154,19 +155,32 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(6.4, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
+
 #Annotation of the three graphs and the NE
-text(0.9, 14.5, expression(u[1]^A))
-#text(2, 14.5, expression(u[2]^A))
+text(0.95, 14.5, expression(u[1]^A))
+text(1.45, 14.5, expression(u[2]^A))
+text(1.9, 14.5, expression(u[3]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
-points(5.75, 6.5, pch = 16, col = "black", cex = 1.5)
-points(4.5, 9, pch = 16, col = "black", cex = 1.5)
+#Points for a slope of -2
+# points(5.75, 6.5, pch = 16, col = "black", cex = 1.5)
+# points(4.5, 9, pch = 16, col = "black", cex = 1.5)
 
-#Pareto efficiency curve
-segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
-text(4.5, 2.4, expression("Pareto Efficient"))
-text(4.5, 1.9, expression("Curve"))
-Arrows(4.5, 2.7, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
+text(2.7, 7.75, expression(i))
+
+points(5, 5, pch = 16, col = "black", cex = 1.5)
+text(5.2, 5.25, expression(h))
+
+#Pareto efficient curve
+# segments(3.27, 4.9, 5.84, 8.77, lty = 1, lwd = graphlinewidth, col = COL[2])
+# text(4.5, 2.4, expression("Pareto Efficient"))
+# text(4.5, 1.9, expression("Curve"))
+# Arrows(4.5, 2.7, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(9, 5.75, expression("Price line"))
+text(9, 5.25, expression(paste("slope ", phantom()==-p[h])))
+Arrows(9, 5, 9, 1.35, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label B's offer curve
 text(1, 3, expression("B's Offer Curve"))
@@ -238,14 +252,14 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
 
 
 #Label B's indifference curves
-text(9.1, 3.4, expression(u[1]^B))
-#text(9.1, 5.2, expression(u[2]^B))
-#text(9.1, 4.6, expression(u[3]^B))
+text(9.1, 3.3, expression(u[1]^B))
+text(9.1, 5.1, expression(u[2]^B))
+text(9.1, 6.6, expression(u[3]^B))
 #text(9.1, 8.2, expression(u[4]^B))
 
 #Add a point for the initial endowment
 points(2, 13, pch = 16, col = "black", cex = 1.5)
-text(1.8, 12.5, expression(z))
+text(2.2, 13.5, expression(z))
 
 
 
@@ -269,8 +283,8 @@ text(1.8, 12.5, expression(z))
 # => y^A = 3/2(x^A) = 4.9 => y^B = 10.1
 
 #Add point g for B's TIOLI power
-points(6.73, 10.1, pch = 16, col = "black", cex = 1.5)
-text(6.73, 10.6, expression(g))
+# points(6.73, 10.1, pch = 16, col = "black", cex = 1.5)
+# text(6.73, 10.6, expression(g))
 
 #Calculate TIOLI power allocation for A
 #mrs(x,y) => pareto efficient curve is (3/2)x = y
@@ -280,12 +294,12 @@ text(6.73, 10.6, expression(g))
 # => y^B = 3/2(x^B) = 6.23 => y^A = 8.77 
 #=> u^A = (5.84^0.5)*(8.77^0.5) = 7.156591
 #Add point f for A's TIOLI power
-points(4.16, 6.23, pch = 16, col = "black", cex = 1.5)
-text(4.16, 5.8, expression(f))
+# points(4.16, 6.23, pch = 16, col = "black", cex = 1.5)
+# text(4.16, 5.8, expression(f))
 
 
 #Annotating B's endowment
-text(1.8, 12.5, expression(z))
+#text(1.8, 12.5, expression(z))
 
 #Annotating a point that is a Pareto improvement over e.
 #points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)

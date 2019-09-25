@@ -6,14 +6,14 @@ pdf(file = "what_can_markets_do/edgeworthbox_qql_second.pdf", width = 9, height 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 4, 4, 5))
+par(mar =  c(4, 4, 4, 5))
 
 uA <- function(x, y, rmax = 2, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -35,9 +35,6 @@ indiffB <- function(x, utility = 11, rmax = 2, xmax = 10) {
 WalrasP <- function(x, intercept = 9) {
   intercept - x
 }
-
-
-
 
 xlims <- c(0, 10)
 ylims <- c(0, 10)
@@ -66,9 +63,9 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = NA)
 axis(side = 4, at = ticksy, pos = 0, labels = NA, las = 0)
-text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
+text(5, -1, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.15*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.8, 0.15*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 xpoly1 <- seq(from = 1.8, to = 8.2, length.out = 500)
 ypoly1 <- indiffA(xpoly1, utility = 10)
@@ -81,7 +78,7 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly5, rev(ypoly6)), col = COL[4], de
 
 #Add arrows:
 arrows(-0.8, 3, -0.8, 5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6, -1, 9, -1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.2, -1, 9, -1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 par(new = TRUE)
 
@@ -130,14 +127,14 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*ylims[2], -1.2, expression(paste("A's Good, x")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*ylims[2], -1, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.6, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.6, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:
 arrows(-0.6, 6.5, -0.6, 9, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6, -1.2, 9, -1.2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(6.2, -1, 9, -1, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 xx1 <- seq(2.5, xlims[2], length.out = npts)
 lines(xx1, WalrasP(xx1, intercept = 11.5), col = "purple", lwd = segmentlinewidth)
@@ -170,12 +167,12 @@ Arrows(4, 9, 4, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(7, 0.5, expression(v[1]^A))
-text(7, 3.5, expression(v[2]^A))
+text(7, 0.5, expression(u[1]^A))
+text(7, 3.5, expression(u[2]^A))
 
 #Label the indifference curves for the HG, Betty
-text(1, 9.6, expression(v[1]^B))
-text(1, 6.6, expression(v[2]^B))
+text(1, 9.6, expression(u[1]^B))
+text(1, 6.6, expression(u[2]^B))
 #text(2.6, 8.1, expression(v[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 
@@ -187,7 +184,6 @@ text(4.8, 3.3, expression(paste(n[0])))
 #points(5, 5, pch = 16, col = "black", cex = 1.5)
 #text(5.2, 5.2, expression(paste(n)))
 
-
 points(5, 6.5, pch = 16, col = "black", cex = 1.5)
 text(4.8, 6.4, expression(paste(n[1])))
 
@@ -197,10 +193,10 @@ segments(xlims[2], 0.35, 8.15, 0.35, col = COL[2] , lwd = segmentlinewidth, lty 
 segments(xlims[2], 3.35, 8.15, 3.35, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(x = 8.15, y = 0.35, pch = 16, col = "black", cex = 1.5)
-text(8.3, 0.6, expression(paste(e[0])))
+text(8.3, 0.6, expression(paste(z[0])))
 
 points(x = 8.15, y = 3.35, pch = 16, col = "black", cex = 1.5)
-text(8.3, 3.6, expression(paste(e[1])))
+text(8.3, 3.6, expression(paste(z[1])))
 
 #Braces for labels
 # brackets(x1 = 8.9, y1 = -0.3, x2 = 5, y2 = -0.3,  
@@ -212,9 +208,7 @@ text(8.3, 3.6, expression(paste(e[1])))
 brackets(x1 = 10.2, y1 = 3.35, x2 = 10.2, y2 = 0.35,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(11.2, 1.85, expression(paste("Redistribution of money, y")), xpd = TRUE, srt = 270)
+text(11.2, 1.85, expression(paste("Redistribution of good y")), xpd = TRUE, srt = 270)
 text(10.9, 1.85, expression(paste("From B to A")), xpd = TRUE, srt = 270)
 
-
 dev.off()
-

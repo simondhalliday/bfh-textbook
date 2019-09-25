@@ -6,14 +6,14 @@ pdf(file = "what_can_markets_do/edgeworthbox_simulation_path2.pdf", width = 9, h
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 4, 4))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -130,13 +130,15 @@ contour(x, y,
         add = TRUE,
         lty = 2) 
 
-mtext("A's Good, x", side=1, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("A's good x, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+
+text(0.5*xlims[2], -45, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.8, 265, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(6.2, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(1, 10, length.out = npts)
@@ -187,7 +189,7 @@ text(5.2, 370, expression(paste(H)))
 # 
 # #Label the iso-welfare functions for the HG, Aisha
 #text(8.2, 25, expression(u[1]^A))
-text(7.5, 11, expression(u[e]^A))
+text(7.5, 11, expression(u[z]^A))
 text(7.5, 255, expression(u[H]^A))
 
 # 
@@ -207,7 +209,7 @@ text(7.5, 255, expression(u[H]^A))
 # 
 # #Initial Allocations
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 12, expression(paste(e)))
+text(9, 12, expression(paste(z)))
 
 # points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
 # text(4.9, 190, expression(paste(n)))
@@ -247,12 +249,14 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+#mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
+
+text(0.5*xlims[2], -45, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -50, 9, -50, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.2, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)

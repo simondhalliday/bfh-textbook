@@ -4,8 +4,8 @@ pdf(file = "what_can_markets_do/edgeworthbox_qql_asym.pdf", width = 9, height = 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -69,8 +69,8 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-mtext("A's Good, x", side=1, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext("A's good x", side=1, line = 2.5, cex = axislabelsize)
+text(-0.8, 0.5*ylims[2], expression(paste("A's good y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 

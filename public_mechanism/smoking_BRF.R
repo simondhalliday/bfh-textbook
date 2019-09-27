@@ -4,7 +4,8 @@ library(pBrackets)
 pdf(file = "public_mechanism/smoking_BRF.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.3
+bigaxislabelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -47,14 +48,14 @@ xlabels <- c(NA, NA, NA, NA, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
-text(1, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = 1)
-text(1.25, -0.45,  expression(paste(x[jt]^N)), xpd=TRUE, cex=1)
-text(2.5, -0.49, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=1 )
-text(-0.45, 1.15, expression(paste(x[it]^N)), xpd = TRUE, cex = 1)
-text(-0.45, 2.1, expression(paste(x[it]^{direct})) , xpd=TRUE, cex=1)
-text(-0.45, 5, expression(paste(x[i0])), xpd=TRUE, cex=1 )
-text(0.5*xlims[2], -.7, expression(paste("j's smoking")), xpd = TRUE, cex = axislabelsize) 
-text(-1.3, 0.5*ylims[2], expression(paste("i's smoking ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.95, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = axislabelsize)
+text(1.3, -0.45,  expression(paste(x[At]^N)), xpd=TRUE, cex=axislabelsize)
+text(2.5, -0.49, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=axislabelsize )
+text(-0.3, 1.15, expression(paste(x[Bt]^N)), xpd = TRUE, cex = axislabelsize)
+text(-0.3, 2.1, expression(paste(x[Bt]^{direct})) , xpd=TRUE, cex=axislabelsize)
+text(-0.3, 5, expression(paste(x[B0])), xpd=TRUE, cex=axislabelsize )
+text(0.5*xlims[2], -.7, expression(paste("A's smoking")), xpd = TRUE, cex = bigaxislabelsize) 
+text(-1.7, 0.5*ylims[2], expression(paste("B's smoking ")), xpd = TRUE, cex = bigaxislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(0, xlims[2], length.out = npts)
@@ -67,32 +68,36 @@ lines(xx1, BRFXi(xx1,P=10), col = COLA[4], lwd = graphlinewidth)
 segments(5, 0, 5, 5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 5, 5, 5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(5, 5, pch = 16, col = "black", cex = 1.5)
-text(5.25, 4.75, expression(paste(a)), cex = labelsize)
+text(5.15, 4.9, expression(paste(a)), cex = labelsize)
 
 segments(1.25, 0, 1.25, 1.25, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 1.25, 1.25, 1.25, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(1.25, 1.25, pch = 16, col = "black", cex = 1.5)
-text(1.5, 1, expression(paste(b)), cex = labelsize)
+text(1.4, 1.1, expression(paste(b)), cex = labelsize)
 
 segments(0, 2, 5, 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
+text(1.5, 7.3, expression(paste("A's best response")), cex = labelsize)
+text(1.5, 7, expression(paste("after tax")), cex = labelsize)
+text(5.2, 7.3, expression(paste("A's best response")), cex = labelsize)
+text(5.2, 7, expression(paste("before tax")), cex = labelsize)
 
-text(7, 5.3, expression(paste("i's best response")), cex = labelsize)
+text(7, 5.3, expression(paste("B's best response")), cex = labelsize)
 text(7, 5.0, expression(paste("before tax")), cex = labelsize)
-text(7, 2, expression(paste("i's best response")), cex = labelsize)
+text(7, 2, expression(paste("B's best response")), cex = labelsize)
 text(7, 1.75, expression(paste("after tax")), cex = labelsize)
 
-brackets(0, 1.25, 0, 2, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
-         col = 1, lwd = segmentlinewidth, lty = 1)
+brackets(-0.6, 1.25, -0.6, 2, h = .2,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
 
-brackets(0, 2, 0, 5, h = .15,  ticks = 0.5, curvature = 0.5, type = 1,
-         col = 1, lwd =segmentlinewidth, lty = 1)
+brackets(-0.6, 2, -0.6, 5, h = .2,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd =segmentlinewidth, lty = 1, xpd = TRUE)
 
 
-text(-.6, 1.725, expression(paste("Indirect")), cex = 0.85)
-text(-.6, 1.55, expression(paste("effect")), cex = 0.85)
+text(-1.15, 1.75, expression(paste("Indirect")), cex = labelsize, xpd = TRUE)
+text(-1.15, 1.5, expression(paste("effect")), cex = labelsize, xpd = TRUE)
 
-text(-.6, 3.625, expression(paste("Direct")), cex = 0.85)
-text(-.6, 3.45, expression(paste("effect")), cex = 0.85)
+text(-1.15, 3.65, expression(paste("Direct")), cex = labelsize, xpd = TRUE)
+text(-1.15, 3.4, expression(paste("effect")), cex = labelsize, xpd = TRUE)
 
 dev.off()

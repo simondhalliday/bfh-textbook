@@ -98,6 +98,7 @@ polygon(x = xpoly5, y = ypoly5, col=COLB[1], density=NULL, border = NA)
 segments(0, 9.83, xlims[2], 9.83, lty = 2, "gray" , lwd = segmentlinewidth)
 segments(48.817, 0, 48.817, 9.83, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
+
 # segments(0, 6, xlims[2], 6, lty = 2, "gray" , lwd = segmentlinewidth)
 # segments(28.226, 0, 28.226, 14.1196, lty = 2, "gray" , lwd = segmentlinewidth)
 
@@ -107,6 +108,7 @@ lines(xx1, Supply(xx1), col = COLB[4], lwd = graphlinewidth)
 
 # Points
 points(48.817, 9.83, pch = 16, col = "black", cex = 1.5)
+text(48.817, 10.5, expression(paste(B)), xpd = TRUE, cex = labelsize)
 
 # segments(48.817 +18.226, 0, 48.817 +18.226, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 

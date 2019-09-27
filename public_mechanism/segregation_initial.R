@@ -66,15 +66,15 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], 0.6, length.out = npts)
 xx3 <- seq(0.6, xlims[2], length.out = npts)
 
-#Polygon 1
-xpoly1 <- c(xx2, 0.6, 0, 0)
-ypoly1 <- c(GreenPrice(xx2), 0, 0, GreenPrice(0))
-polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+# #Polygon 1
+# xpoly1 <- c(xx2, 0.6, 0, 0)
+# ypoly1 <- c(GreenPrice(xx2), 0, 0, GreenPrice(0))
+# polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
 #Polygon 2
-xpoly2 <- c(xx3, 1, 1, 0.6)
-ypoly2 <- c(GreenPrice(xx3), GreenPrice(1), 0, 0)
-polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
+# xpoly2 <- c(xx3, 1, 1, 0.6)
+# ypoly2 <- c(GreenPrice(xx3), GreenPrice(1), 0, 0)
+# polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 
 
 #Draw the graphs

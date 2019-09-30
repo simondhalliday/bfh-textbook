@@ -8,7 +8,7 @@ library(readxl)
 library(zoo)
 
 
-
+#a random edit for Harrieet
 GDPdata <- read_excel("what_can_markets_do/mpd_2013-01.xlsx", col_names = TRUE)
 
 names(GDPdata) <- gsub(" ", "_", names(GDPdata))

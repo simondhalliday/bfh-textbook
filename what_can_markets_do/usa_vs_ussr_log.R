@@ -86,7 +86,9 @@ CWPlot <-
   #                                       angle = 25)) +
   theme_bw() 
 
-print(CWPlot)
+pdf(file = "what_can_markets_do/usa_vs_ussr_log.pdf", width = 8, height = 6)
+CWPlot
+dev.off()
 
 # CWPlot + 
 #   geom_ribbon(data = GreatDepression, 

@@ -7,8 +7,6 @@ library(haven)
 library(readxl)
 library(zoo)
 
-
-#a random edit for Harrieet
 GDPdata <- read_excel("what_can_markets_do/mpd_2013-01.xlsx", col_names = TRUE)
 
 names(GDPdata) <- gsub(" ", "_", names(GDPdata))
@@ -50,14 +48,15 @@ CWPlot <-
   scale_x_continuous(breaks = round(seq(min(ColdWar$date), max(ColdWar$date), by = 10),1)) +
   ylab("Natural Log of Per Capita GDP (1990 International $)") +
   xlab("Year") +
-  annotate("text", x = 1928, y = 7.6, label = "First 5-year plan") +
-  geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.222512),
+  annotate("text", x = 1928, y = 7.75, label = "First 5-year") +
+  annotate("text", x = 1928, y = 7.6, label = "plan") +
+  geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.232512),
                size = 0.7, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                          angle = 25)) +
-  annotate("text", x = 1933, y = 9.2, label = "Great") +
+  annotate("text", x = 1933, y = 9.13, label = "Great") +
   annotate("text", x = 1933, y = 9, label = "depression") +
-  geom_segment(aes(x = 1933, y = 8.95, xend = 1933, yend = 8.571550), 
+  geom_segment(aes(x = 1933, y = 8.9, xend = 1933, yend = 8.571550), 
                 size = 0.7, arrow = arrow(type = "closed", 
                                         length = unit(0.25, "cm"), 
                                          angle = 25)) +
@@ -66,14 +65,15 @@ CWPlot <-
                 size = 0.7, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                           angle = 25)) +
-  annotate("text", x = 1959, y = 9.6, label = "Kitchen Debate") +
-  geom_segment(aes(x = 1959, y = 9.5, xend = 1959, yend = 9.346359), 
+  annotate("text", x = 1959, y = 9.65, label = "Kitchen Debate") +
+  geom_segment(aes(x = 1959, y = 9.55, xend = 1959, yend = 9.346359), 
                size = 0.7, arrow = arrow(type = "closed", 
                                           length = unit(0.25, "cm"), 
                                         angle = 25)) +
-  annotate("text", x = 1991, y = 9.3, label = "Central Planning") +
-  annotate("text", x = 1991, y = 9.1, label = "Ends") +
-  geom_segment(aes(x = 1991, y = 9, xend = 1991, yend = 8.777963),
+  annotate("text", x = 1997, y = 9.16, label = "Central") +
+  annotate("text", x = 1997, y = 9.05, label = "Planning") +
+  annotate("text", x = 1997, y = 8.92, label = "Ends") +
+  geom_segment(aes(x = 1993, y = 8.95, xend = 1991, yend = 8.787963),
                size = 0.7, arrow = arrow(type = "closed",
                                          length = unit(0.25, "cm"),
                                          angle = 25)) +
@@ -87,7 +87,7 @@ CWPlot <-
   theme_bw() 
 
 pdf(file = "what_can_markets_do/usa_vs_ussr_log.pdf", width = 8, height = 6)
-CWPlot
+print(CWPlot)
 dev.off()
 
 # CWPlot + 

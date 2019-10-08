@@ -4,8 +4,8 @@ pdf(file = "what_can_markets_do/upf_bargaining_coase_weighted.pdf", width = 9, h
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -108,7 +108,7 @@ points(-18, 9, pch = 16, col = "black", cex = 1.5)
 text(-17, 10, expression(paste(g)))
 
 points(-13.5, 4.5, pch = 16, col = "black", cex = 1.5)
-text(-12.5, 6, expression(paste("c")))
+text(-12.8, 5.7, expression(paste(n)))
 
 points(-18, 0, pch = 16, col = "black", cex = 1.5)
 text(-19, -1, expression(paste(e)))

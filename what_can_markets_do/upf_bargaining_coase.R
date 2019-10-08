@@ -4,15 +4,15 @@ pdf(file = "what_can_markets_do/upf_bargaining_coase.pdf", width = 9, height = 7
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(2, 4, 2, 2))
 xlims <- c(-15, 9)
 ylims <- c(-9, 15)
 
@@ -37,7 +37,6 @@ plot(40, 40, xlim = xlims, ylim = ylims,
      yaxs="i"
 )
 
-
 #Customize ticks and labels for the plot
 # ticksy <- seq(ylims[1], ylims[2], 1)
 # ylabels <- seq(ylims[1], ylims[2], 1)
@@ -51,9 +50,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 #mtext(expression(paste("A's utility, ", u^A)), side = 1, line = 2.5, cex = axislabelsize)
 
-text(xlims[1] - 2, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
+text(xlims[1], ylims[2] - 0.5*(ylims[2] - ylims[1]) - 5, expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
 
-text(xlims[1] - 2, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Label 2.25 and 4.5
@@ -121,7 +120,7 @@ points(46, 46, pch = 16, col = "black", cex = 1.5)
 text(45.25, 45.25, expression(paste("n")))
 
 points(-6.75, 2.25, pch = 16, col = "black", cex = 1.5)
-text(-6.25, 3, expression(paste("c")))
+text(-6.25, 3, expression(paste(n)))
 
 points(-9, 0, pch = 16, col = "black", cex = 1.5)
 text(-9.5, -0.5, expression(paste("e")))

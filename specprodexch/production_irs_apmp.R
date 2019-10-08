@@ -4,15 +4,15 @@ pdf(file = "specprodexch/production_irs_apmp.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 graphlabelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(4, 7, 1, 1))
 
 
 prodFn <- function(l, alpha = 2, k = 0.02) {
@@ -75,8 +75,8 @@ lines(xx1, AprodFn(xx1, alpha = 2, k = 0.02), col = COLA[4], lwd = graphlinewidt
 #lines(xx4, Mpline(xx4, constant = prodFn(l = 8, k = 0.02, alpha = 2) - 6*MprodFn(l = 8, k = 0.02, alpha = 2), slope = MprodFn(l = 8, k = 0.02)), col = "gray", lty = 2, lwd = graphlinewidth)
 
 #Axis Labels
-mtext(expression(paste("Hours of Labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Average & Marginal Product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
 #segments(0, MprodFn(l = 8, k = 0.02, alpha = 2), 6, MprodFn(l = 8, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -98,21 +98,19 @@ points(2, AprodFn(l = 2, k = 0.02), pch = 16, col = "black", cex = 1.2)
 #segments(0, 0, 2, AprodFn(l = 2, k = 0.02, alpha = 2), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 #points(2, AprodFn(l = 2, k = 0.02, alpha = 2), pch = 16, col = "black", cex = 1.5)
 
-
-#Label the iso-welfare functions for the HG, Aisha
-text(8.2, 1.1, expression(paste("Total Product")))
+text(8.2, 1.1, expression(paste("Total product")))
 text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 
 
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
-text(9.5, MprodFn(l = 9.5, k = 0.02, alpha = 2) + 0.09, expression(paste("Marginal Product")), cex = graphlabelsize)
+text(9.5, MprodFn(l = 9.5, k = 0.02, alpha = 2) + 0.09, expression(paste("Marginal product")), cex = graphlabelsize)
 text(9.5, MprodFn(l = 9.5, k = 0.02, alpha = 2) + 0.05, expression(paste(mp(l) == frac(1,25)*(l) )), cex = graphlabelsize)
 #Arrows(4.7, 0.075, 2.3, 0.075, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(6, 0.13, 6, 0.67, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Average Product
-text(9.5, AprodFn(l = 9.5, k = 0.02, alpha = 2) - 0.04, expression(paste("Average Product")), cex = graphlabelsize)
+text(9.5, AprodFn(l = 9.5, k = 0.02, alpha = 2) - 0.04, expression(paste("Average product")), cex = graphlabelsize)
 text(9.5, AprodFn(l = 9.5, k = 0.02, alpha = 2) - 0.08, expression(paste(ap(l) == frac(1,50)*(l) )), cex = graphlabelsize)
 #Arrows(1.5, prodFn(l = 8, k = 0.02, alpha = 2) - 0.175, 1.5, prodFn(l = 2, k = 0.02, alpha = 2) + 0.01 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(2.8, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, 4.75, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

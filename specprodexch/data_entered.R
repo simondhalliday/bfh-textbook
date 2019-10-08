@@ -114,15 +114,11 @@ text(11, 11.25, expression(paste("1250 keystrokes of data")))
 text(11, 10.4, expression(paste(y == frac(x,1.25) )))
 
 #Label the curves
-
-
-
 text(13.6, 1, expression(p[2]), cex = labelsize)
 text(10.8, 1, expression(ff[A]), cex = labelsize)
 
 text(1, 12.5, expression(p[1]), cex = labelsize)
 text(1, 6.8, expression(ff[B]), cex = labelsize)
-
 
 #xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
 #ypts <- xpts/1.25

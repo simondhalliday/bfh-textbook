@@ -4,8 +4,8 @@ pdf(file = "specprodexch/production_technique.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -66,8 +66,8 @@ polygon(x = xpoly1, y = ypoly1, col = COLA[1], density=NULL, border = NA)
 #lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 
 #Production set
-segments(4, 6, xlims[2], 6, lty = 1, col = COLA[3], lwd = graphlinewidth)
-segments(4, 6, 4, ylims[2], lty = 1, col = COLA[3],  lwd = graphlinewidth)
+segments(4, 6, xlims[2], 6, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(4, 6, 4, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
 #Segments to i
 segments(0, 6, 4, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -82,7 +82,7 @@ segments(6, 0, 6, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Amount of Capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #For good production technique i
 points(4, 6, pch = 16, col = "black", cex = 1.5)

@@ -113,8 +113,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Quantity of apples, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Quantity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-0.8, 5, expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotate max u point on feasibility frontier
 text(5.4, 5.4, expression(paste(i)), cex = labelsize)

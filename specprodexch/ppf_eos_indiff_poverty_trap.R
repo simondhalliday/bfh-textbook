@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "ppf_eos_indiff_poverty_trap.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_eos_indiff_poverty_trap.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 #Change this to make it log of l 
 
@@ -54,7 +54,7 @@ ylims <- c(0, 11)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(sqrt(9.375), 4.1)
+a <- c(uFn(1.7, ppf(1.7)), sqrt(9.375), 4.1)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -72,7 +72,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 10, ylims[2])
-ylabels <- c(NA, expression(paste(bar(x)^S)) , NA)
+ylabels <- c(NA, expression(paste(bar(y)^S)) , NA)
 ticksx <- c(xlims[1], 5,  xlims[2])
 xlabels <- c(NA, expression(paste(bar(x)^F)), NA)
 
@@ -100,7 +100,7 @@ lines(xx2, budgetExchange(xx2,  yintercept = 7.5, slope = 1.5), col = COL[3], lw
 
 #Label axes
 mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.5, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y, 
@@ -116,8 +116,9 @@ contour(x, y,
 #Label the indifference curves
 # text(7.2, 0.2, expression(u[1]^A), cex = labelsize)
 # text(7.2, 0.8, expression(u[2]^A), cex = labelsize)
-text(7.2, 2.05, expression(u^S), cex = labelsize)
-text(7.2, 1.05, expression(u^F), cex = labelsize)
+text(7.2, 2.55, expression(u^S), cex = labelsize)
+text(7.2, 1.55, expression(u[2]^F), cex = labelsize)
+text(7.2, 0.75, expression(u[1]^F), cex = labelsize)
 
 #Label point d
 # text(1.65 + 0.2, ppf(fish = 1.65) +.2, expression(d), cex = labelsize)
@@ -126,32 +127,35 @@ text(7.2, 1.05, expression(u^F), cex = labelsize)
 # points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
 
 #Label points A and B
-text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(A), cex = labelsize)
+text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(a), cex = labelsize)
 # segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 # segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 points(2.5,3.75, pch = 16, col = "black", cex = 1.5)
-text(2.7, 3.95, expression(B), cex = labelsize)
+text(2.7, 3.95, expression(b), cex = labelsize)
 
+points(1.7, ppf(1.7), pch = 16, col = "black", cex = 1.5)
+text(1.7 - 0.2, ppf(1.7) - 0.2, expression(c), cex = labelsize)
 
 #Label point s
 # text(0.2, 10.2, expression(s), cex = labelsize)
 # points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
 #Label the feasible frontier
-text(4, 8, expression("Feasible Frontier"), cex = 0.8 )
-text(4, 7.8, expression("(production possibilities frontier)"), cex = 0.8)
-Arrows(2.8, 7.8, 0.75, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 7.8, expression("Feasible Frontier"), cex = labelsize )
+text(4, 7.5, expression("(production possibilities frontier)"), cex = labelsize)
+Arrows(3.1, 7.7, 0.75, 7.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the exchange constraints
-text(4.8, 9, expression("Budget Constraint when Specializing in Shirts"), cex = 0.8)
-Arrows(3.2, 9, 0.9, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 9.8, expression("Price line when"), cex = labelsize)
+text(4, 9.4, expression("specializing in shirts"), cex = labelsize)
+Arrows(3.2, 9.6, 0.5, 9.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(6.7, 0.3, expression("Budget Constraint when Specializing"), cex = 0.8)
-text(7, 0.1, expression("in Fish"), cex = 0.8)
-Arrows(5.4, 0.3, 5.1, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.5, 2, expression("Price line when"), cex = labelsize)
+text(1.5, 1.6, expression("specializing in fish"), cex = labelsize)
+Arrows(2.3, 1.8, 3.6, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
 # text(5.5, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

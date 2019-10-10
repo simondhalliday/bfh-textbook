@@ -98,7 +98,7 @@ Arrows(3.35, 0.95, 7.7, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "trian
 
 #Label the exchange constraint
 text(8.5, 6.5, expression("Exchange"), cex = labelsize)
-text(8.5, 6.2, expression("Budget Constraint"), cex = labelsize)
+text(8.5, 6.2, expression("price line"), cex = labelsize)
 Arrows(8.5, 6, 8.5, 1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -113,8 +113,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Quantity of apples, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.9, 5, expression(paste("Quantity of oranges, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-0.9, 5, expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotate max u point on feasibility frontier
 text(5.8, 5.8, expression(paste(d)), cex = labelsize)

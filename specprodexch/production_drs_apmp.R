@@ -117,5 +117,4 @@ text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(ap(l) == frac(1,50
 #Arrows(2.8, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, 4.75, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-
 dev.off()

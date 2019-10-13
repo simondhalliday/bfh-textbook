@@ -106,13 +106,13 @@ text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
 text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = graphlabelsize)
-text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(mp(l) == frac(1,25)*(l) )), cex = graphlabelsize)
+text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(mp(l) == frac(1,'2l'+2))), cex = graphlabelsize)
 #Arrows(4.7, 0.075, 2.3, 0.075, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(6, 0.13, 6, 0.67, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Average Product
 text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Average product")), cex = graphlabelsize)
-text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(ap(l) == frac(1,50)*(l) )), cex = graphlabelsize)
+text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(ap(l) == frac(1,'2l')*(ln('l'+1)) )), cex = graphlabelsize)
 #Arrows(1.5, prodFn(l = 8, k = 0.02, alpha = 2) - 0.175, 1.5, prodFn(l = 2, k = 0.02, alpha = 2) + 0.01 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(2.8, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, 4.75, prodFn(l = 8, k = 0.02, alpha = 2) - 0.125, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

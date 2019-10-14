@@ -121,6 +121,7 @@ text(-7.3, 9.5, expression(paste("10 hrs of labor")))
 text(-7.3, 8.9, expression(paste("for shirts produces")))
 text(-7.3, 8.3, expression(paste("50 shirts")))
 points(-10, 10, pch = 16, col = "black", cex = 1.5)
+text(-9.7, 10.5, expression(paste("a")), col = "red")
 
 #Annotate Max time on fishing
 segments(0, -10, 5, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -129,11 +130,13 @@ text(7.2, -8.4, expression(paste("10 hrs of labor")))
 text(7.2, -9, expression(paste("for fishing produces")))
 text(7.2, -9.6, expression(paste("5 kgs of fish")))
 points(5, -10, pch = 16, col = "black", cex = 1.5)
+text(4.6, -10.5, expression(paste("c")), col = "red")
 
 #Annotate point on ppf 
 points(2.5, 2.5, pch = 16, col = "black", cex = 1.5)
 text(4.75, 3.35, expression(paste("12.5 Shirts and")))
 text(5, 2.75, expression(paste("2.5 Kilograms of Fish")))
+text(2.2, 2.2, expression(paste("b")), col = "red")
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)

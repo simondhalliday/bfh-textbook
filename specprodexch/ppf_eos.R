@@ -15,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(1, 1, 1, 1))
 
 #Change this to make it log of l 
 
@@ -121,7 +121,10 @@ text(-7.3, 9.5, expression(paste("10 hrs of labor")))
 text(-7.3, 8.9, expression(paste("for shirts produces")))
 text(-7.3, 8.3, expression(paste("50 shirts")))
 points(-10, 10, pch = 16, col = "black", cex = 1.5)
-text(-9.7, 10.5, expression(paste("a")), col = "red")
+text(-9.7, 10.5, expression(paste("a")))
+
+points(-5, 2.5, pch = 16, col = "black", cex = 1.5)
+text(-5, 3, expression(paste("e")))
 
 #Annotate Max time on fishing
 segments(0, -10, 5, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -130,17 +133,21 @@ text(7.2, -8.4, expression(paste("10 hrs of labor")))
 text(7.2, -9, expression(paste("for fishing produces")))
 text(7.2, -9.6, expression(paste("5 kgs of fish")))
 points(5, -10, pch = 16, col = "black", cex = 1.5)
-text(4.6, -10.5, expression(paste("c")), col = "red")
+text(4.6, -10.5, expression(paste("c")))
+
+points(2.5, -5, pch = 16, col = "black", cex = 1.5)
+text(3, -5, expression(paste("f")))
 
 #Annotate point on ppf 
 points(2.5, 2.5, pch = 16, col = "black", cex = 1.5)
 text(4.75, 3.35, expression(paste("12.5 Shirts and")))
 text(5, 2.75, expression(paste("2.5 Kilograms of Fish")))
-text(2.2, 2.2, expression(paste("b")), col = "red")
+text(2.2, 2.2, expression(paste("b")))
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)
 text(-6.75, -5, expression(paste(list(l^S ==5, l^F == 5) )))
+text(-4.5, -4.5, expression(paste("d")))
 
 text(-3, -9, expression(paste(l^S + l^F <= 10)))
 Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

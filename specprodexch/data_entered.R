@@ -123,13 +123,18 @@ text(1, 6.8, expression(ff[B]), cex = labelsize)
 #xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
 #ypts <- xpts/1.25
 
-Arrows(xpts[1], ypts[1] - 0.5, 10 - 1, 0 + 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(10, 0 + 0.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(xpts[1]+1.8, ypts[1] - 1.8, 10 - 1.6, 0 + 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(xpts[1]+1.8, ypts[1] - 1.8, 10 - 1.6, 0 + 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(10, 0 + 0.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(8.5, 0 + 2.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(10 + 0.3, 0.3, expression(s[B]), cex = labelsize)
 points(10, 0,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
-Arrows(xpts[3] - 0.3, ypts[3], 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(0 + 0.3, 20, xpts[4] - 0.3, ypts[4] + 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(xpts[3] - 0.3, ypts[3], 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(0 + 0.3, 20, xpts[4] - 0.3, ypts[4] + 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0 + 0.3, 20, 1.5, 16.8 + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 text(0 + 0.3, 20 + 0.3, expression(s[A]), cex = labelsize)
 points(0, 20,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 

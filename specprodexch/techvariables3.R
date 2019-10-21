@@ -3,20 +3,20 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "specprodexch/techvariables3.pdf", width = 8, height = 6)
+pdf(file = "specprodexch/techvariables3.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 uFn <- function(x, y, alpha = 0.7){
   (x^alpha)*(y^(1 - alpha))
@@ -74,9 +74,9 @@ xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
 #Draw the graphs
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 3, A = 2), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 1.5, A = 2 ), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, isoA(xx1, alpha = 0.7, xbar = 6, A = 2), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, isoA(xx1, alpha = 0.8, xbar = 3.5, A = 2), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, isoA(xx1, alpha = 0.8, xbar = 4.5, A = 2 ), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, isoA(xx1, alpha = 0.8, xbar = 5.5, A = 2), col = COLA[5], lwd = graphlinewidth)
 #lines(xx1, isoA(xx1, alpha = 0.3, xbar = 4), col = COLB[5], lwd = graphlinewidth)
 #lines(xx1, ff(xx1, c = 9, s = 1.34), col = COL[3], lwd = graphlinewidth)
 # lines(xx3, trsline(xx3, constant = 16), col = "gray", lty = 2, lwd = graphlinewidth)
@@ -109,13 +109,13 @@ text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, c
 
 #Label the indifference curves
 #text(8, 1.6, expression(paste("Technology E, ", x[1]^E)), cex = labelsize)
-text(6, 9, expression(paste("Technology E Production: ", x == A*(alpha*l + k)^frac(1,2))), cex = labelsize)
-text(6, 8, expression(paste("Isoquant curve: ", k == bgroup("(",frac(bar(x), A),")")^2 - alpha*l   )), cex = labelsize)
-text(6, 7, expression(paste(trs(l,k) == frac(x[l],x[k]), phantom() == alpha)), cex = labelsize)
+# text(6, 9, expression(paste("Technology E Production: ", x == A*(alpha*l + k)^frac(1,2))), cex = labelsize)
+# text(6, 8, expression(paste("Isoquant curve: ", k == bgroup("(",frac(bar(x), A),")")^2 - alpha*l   )), cex = labelsize)
+# text(6, 7, expression(paste(trs(l,k) == frac(x[l],x[k]), phantom() == alpha)), cex = labelsize)
 
-text(.5, 0.8, expression(paste(x[1]^E == frac(1,2))), cex = labelsize)
-text(.5, 2.5, expression(paste(x[2]^E == 1)), cex = labelsize)
-text(.5, 9.3, expression(paste(x[3]^E == 2)), cex = labelsize)
+text(3.5, 0.7, expression(paste(bar(x)[1]^S)), cex = labelsize)
+text(6, 0.7, expression(paste(bar(x)[2]^S)), cex = labelsize)
+text(9, 0.7, expression(paste(bar(x)[3]^S)), cex = labelsize)
 
 # text(8, 4, expression(paste(trs(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

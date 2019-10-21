@@ -12,7 +12,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -69,7 +69,7 @@ lines(xx1, isoquant(xx1, x = 5, alpha = 0.5), col = COLA[3], lwd = graphlinewidt
 
 #Label the axes
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.9, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the isoquant curve
 text(11.25, 3.15, expression("isoquant"), cex = labelsize)
@@ -121,8 +121,8 @@ points(5, 5, pch = 16, col = "black", cex = 1.5)
 text(5.25, 5.25, expression(paste(i)), cex = labelsize)
 
 #Add mrs = mrt at i
-text(5, 10.25, expression(paste(trs(l,k) == mrt(l,k))), cex = labelsize)
-text(5, 9.25, expression(paste(frac(mp[l], mp[k]) == frac(w,r))), cex = labelsize)
+text(5, 10.25, expression(paste(mrts(l,k) == mrt(l,k))), cex = labelsize)
+text(5, 9.25, expression(paste(frac(mp[l], mp[k]) == frac(w,p[k]))), cex = labelsize)
 Arrows(5, 8.5, 5, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

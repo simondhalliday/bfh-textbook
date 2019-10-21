@@ -112,12 +112,12 @@ text(1, 9, expression("costs"), cex = labelsize)
 
 
 text(10, 10, expression("Innovation expands"), cex = labelsize)
-text(10, 9.5, expression("the production set"), cex = labelsize)
+text(10, 9.5, expression("the feasible set"), cex = labelsize)
 text(10, 9, expression("creating a new, lower"), cex = labelsize)
 text(10, 8.5, expression("production isoquant"), cex = labelsize)
 text(10, 8, expression(paste("for the same ", x == bar(x))), cex = labelsize)
 
-Arrows(1.85, 10.1, 1.85, 7.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(1.85, 10.1, 1.85, 7.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(2, 3.5, expression("At a lower isoquant"), cex = labelsize)
 text(2, 3, expression("the firm reaches"), cex = labelsize)

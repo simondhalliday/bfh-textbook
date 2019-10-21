@@ -2,16 +2,16 @@ require(shape)
 pdf(file = "specprodexch/production_tech_marginfig.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.7
 labelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -54,12 +54,12 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.95, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #For production technique 
-segments(0, 6, 4, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(4, 0, 4, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 6, 4, 6, lty = 2, col = "grey22", lwd = segmentlinewidth)
+segments(4, 0, 4, 6, lty = 2, col = "grey22", lwd = segmentlinewidth)
 
 points(4, 6, pch = 16, col = "black", cex = 1.5)
 text(5.75, 7.75, expression(paste("A production")), cex = labelsize)

@@ -103,18 +103,18 @@ text(-1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex
 text(8.8, 1.25, expression("Cobb-Douglas"), cex = labelsize)
 text(8.8, 0.75, expression(paste("isoquant ", bar(x) ==f(l,k))), cex = labelsize)
 
-text(8, 4, expression(paste(trs(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
+text(8, 4, expression(paste(mrts(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
 Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(4, 6, expression(paste(trs(l,k) == frac(4,4), phantom()==1)), cex = labelsize)
+text(4, 6, expression(paste(mrts(l,k) == frac(4,4), phantom()==1)), cex = labelsize)
 Arrows(4, 5.6, 4, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(4, 8, expression(paste(trs(l,k) == frac(8,2), phantom() == 4)), cex = labelsize)
+text(4, 8, expression(paste(mrts(l,k) == frac(8,2), phantom() == 4)), cex = labelsize)
 Arrows(2.8, 8, 2.3, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label feasible and infeasible
-text(8, 9, expression(paste(trs(l,k) == frac(x[l], x[k]), phantom() == frac(mp[l], mp[k]), phantom() == -frac(dk,dl))), cex = labelsize)
+text(8, 9, expression(paste(mrts(l,k) == frac(x[l], x[k]), phantom() == frac(mp[l], mp[k]), phantom() == -frac(dk,dl))), cex = labelsize)
 #text(3, 2.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
 
 # text(8, 8.5, expression(paste("Production set:")), cex = labelsize)

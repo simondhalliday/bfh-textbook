@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(5, 6, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -78,8 +78,9 @@ lines(xx1, Supply(xx1), col = COLB[4], lwd = graphlinewidth)
 lines(xx2, Supply(xx2), col = COLB[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(-22, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -2.5, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(-17, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # segments(0, 7.5, 75, 7.5, lty = 2, "gray" , lwd = segmentlinewidth)

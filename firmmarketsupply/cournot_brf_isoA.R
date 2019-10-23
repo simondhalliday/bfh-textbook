@@ -64,9 +64,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 7.5, 12, 17.5, ylims[2])
-ylabels <- c(NA, expression(paste(x[3]^B)), expression(paste(x[2]^B)), expression(paste(x[1]^B)), expression(paste((p[max] - c[1])/s)))
+ylabels <- c(NA, expression(paste(x[3]^B)), expression(paste(x[2]^B)), expression(paste(x[1]^B)), expression(paste((bar(p) - c[1])/s)))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
-xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), expression(paste((p[max] - c[1])/2*s)), NA)
+xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), expression(paste((bar(p) - c[1])/2*s)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)

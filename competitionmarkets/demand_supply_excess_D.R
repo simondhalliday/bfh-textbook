@@ -124,4 +124,5 @@ text(72, 2.75, expression(paste("at ", p^L)), cex = labelsize)
 text(118, 3, expression(paste("Buyers'")), cex = labelsize)
 text(118, 2, expression(paste("Demand")), cex = labelsize)
 
+#doesn't seem to be giving me a new pdf 
 dev.off()

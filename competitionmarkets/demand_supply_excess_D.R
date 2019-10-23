@@ -60,9 +60,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 7.5, Demand(x = 60), 20, ylims[2])
-ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(paste(wtp(X^{SL}))), expression(paste(p[max])), NA)
+ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(paste(wtp(X^{SL}))), expression(paste(bar(p))), NA)
 ticksx <- c(0,  60, 75, 84, 120, xlims[2])
-xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(X[max])), NA)
+xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)

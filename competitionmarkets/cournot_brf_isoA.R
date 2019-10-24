@@ -28,9 +28,6 @@ brfA <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - c1)/s - 2*xa
 }
 
-
-
-
 xlims <- c(0, 36)
 ylims <- c(0, 36)
 

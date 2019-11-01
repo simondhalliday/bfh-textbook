@@ -9,15 +9,15 @@ pdf(file = "firmmarketsupply/profit_revenues_total.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(4, 6, 1, 1))
 
 Revenue <- function(x, rmax = 12, xmax = 12){
   (rmax - (rmax/xmax)*x)*x
@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, TotalCost(x = 0), TotalCost(x = 4), Revenue(x = 4), ylims[2])
 ylabels <- c(NA, expression(paste(c[0])), expression(paste(tc(x[1]))), expression(paste(r(x[1]))), NA)
 ticksx <- c(0, 4, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*")), NA)
+xlabels <- c(NA, expression(paste(x[1])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -83,7 +83,7 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.2, 0.5*ylims[2], expression(paste("Revenue and Costs, ",r, " and ", tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(8.5, 38, expression(paste(tc(x))), cex = labelsize)

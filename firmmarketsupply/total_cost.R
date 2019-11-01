@@ -8,15 +8,15 @@ pdf(file = "firmmarketsupply/total_cost.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 totalcost <- function(x, c0 = 10, c1 = 2, c2 = 0.5){
   c0 + c1*x + c2*x^2
@@ -43,7 +43,7 @@ isoquant <- function(l, alpha = 0.5, x = 5) {
   (x / l^alpha)^(1/(1 - alpha))
 }
 
-xlims <- c(0, 15)
+xlims <- c(0, 18)
 ylims <- c(0, 15)
 
 npts <- 501 
@@ -82,11 +82,12 @@ xx3 <- seq(2, 6, length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = graphlinewidth)
-lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), col = "gray", lty = 2, lwd = graphlinewidth)
+lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), 
+      col = "grey22", lty = 2, lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Total cost of production, ",tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Total cost of production, ",tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the cost curve
 text(12.5, 14, expression("Total Cost"), cex = labelsize)

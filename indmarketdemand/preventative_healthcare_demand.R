@@ -6,26 +6,26 @@ library(scales)
 pdf(file = "indmarketdemand/preventative_healthcare_demand.pdf", width = 9, height = 7)
 
 #Using digitize to get data points 
-cal = ReadAndCal("indmarketdemand/health-pricing-takeup.jpg")
+#cal = ReadAndCal("indmarketdemand/health-pricing-takeup.jpg")
 
 #Kenya bednets data 
-data.points = DigitData(col = 'red')
+#data.points = DigitData(col = 'red')
 df_kenya_bednets = Calibrate(data.points, cal, 0.3, 5.9, 0.01, 1 )
 
 #Soap in Uganda data 
-data.points1 = DigitData(col = 'red')
+#data.points1 = DigitData(col = 'red')
 df_soap_uganda = Calibrate(data.points1, cal, 0.3, 5.9, 0.01, 1 )
 
 #Deworming in keyna 
-data.points2 = DigitData(col = 'red')
+#data.points2 = DigitData(col = 'red')
 df_deworming_kenya = Calibrate(data.points2, cal, 0.3, 5.9, 0.01, 1 )
 
 #water filters Ghana
-data.points3 = DigitData(col = 'red')
+#data.points3 = DigitData(col = 'red')
 df_water_filters_ghana = Calibrate(data.points3, cal, 0.3, 5.9, 0.01, 1 )
 
 #Clorin in Kenya
-data.points4 = DigitData(col = 'red')
+#data.points4 = DigitData(col = 'red')
 df_clorin_kenya = Calibrate(data.points4, cal, 0.3, 5.9, 0.01, 1 )
 
 #Plot 

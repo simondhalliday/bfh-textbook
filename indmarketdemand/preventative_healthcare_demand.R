@@ -4,8 +4,6 @@ library(jpeg)
 library(scales)
 library(openxlsx)
 
-pdf(file = "indmarketdemand/preventative_healthcare_demand.pdf", width = 9, height = 7)
-
 #Using digitize to get data points 
 cal = ReadAndCal("health-pricing-takeup.jpg")
 
@@ -119,6 +117,9 @@ print(p1)
 #   theme(plot.title = element_text(hjust = 0.5)) 
 # 
 # print(p)
+
+
+pdf(file = "preventative_healthcare_demand.pdf", width = 9, height = 7)
 
 dev.off()
 

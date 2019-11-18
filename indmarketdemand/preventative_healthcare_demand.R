@@ -94,7 +94,7 @@ p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   theme(plot.title = element_text(hjust = 0.5)) + 
   theme(legend.position="bottom", 
         legend.title=element_blank()) +
-  guides(colour=guide_legend(nrow=5))
+  guides(colour=guide_legend(nrow=5)) 
 
 print(p1)
 

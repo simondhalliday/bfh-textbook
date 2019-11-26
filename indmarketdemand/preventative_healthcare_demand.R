@@ -96,6 +96,49 @@ p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
 
 print(p1)
 
+p2 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
+  geom_point() + 
+  geom_line() + 
+  xlab("Price in USD") +
+  ylab("Household Take-up Rate") +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
+  scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
+  theme_minimal() + 
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  theme(legend.position="right", 
+        legend.title=element_blank()) +
+  guides(colour=guide_legend(nrow=16)) +
+  coord_flip() 
+
+print(p2)
+
+
+p3 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
+  geom_point() + 
+  geom_line() + 
+  annotate("text", x = 5.779143389, y=0.34, label = "Plastic Latrine Slabs (Tanzania)", size = 3) +
+  annotate("text", x = 	5.884860335, y=0.08106436, label = "Water Filters (Ghana)", size = 3) +
+  annotate("text", x = 		4.085474860, y=0.12153465	, label = "Cement Latrine Slabs 
+  (Tanzania)", size = 3) +
+  annotate("text", x = 	2.886219739, y=0.14663366	, label = "Bednets 
+(Kenya)", size = 3) +
+  annotate("text", x = 0.550000000, y=0.02980198, label = "Clorin 
+(Kenya)", size = 3) +
+  annotate("text", x = 0.654283054, y=0.17173267, label = "Deworming 
+(Kenya)", size = 3) +
+  annotate("text", x = 	1.408826816, y=0.97933168, label = "Soap (Uganda)", size = 3) +
+  annotate("text", x = 	1.25, y=0.80846535, label = "Vitamins (Uganda)", size = 3) +
+  xlab("Price in USD") +
+  ylab("Household Take-up Rate") +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
+  scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
+  theme_minimal() + 
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.position = "none") +
+  coord_flip() 
+
+print(p3)
+
 # #Plot 
 # p = ggplot() + 
 #   geom_point(data = df_kenya_bednets, aes(x=x, y=y), color = "blue", shape = 15) +

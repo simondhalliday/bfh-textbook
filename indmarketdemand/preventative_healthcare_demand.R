@@ -107,6 +107,7 @@ p2 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   theme(legend.position="right") +
   guides(colour=guide_legend(nrow=16)) +
   labs(color='Healthcare Products')+
+  theme(legend.title.align=0.5) +
   coord_flip() 
 
 print(p2)
@@ -131,7 +132,7 @@ p3 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   ylab("Household Take-up Rate") +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
-  theme_minimal() + 
+  theme_bw() + 
   theme(plot.title = element_text(hjust = 0.5),
         legend.position = "none") +
   coord_flip() 

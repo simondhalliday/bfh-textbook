@@ -107,7 +107,7 @@ text(3, 35, expression(paste("Prefer")), xpd = TRUE, cex = labelsize)
 text(3, 33.5, expression(paste("No Tax")), xpd = TRUE, cex = labelsize)
 
 text(18, 12, expression(paste("Prefer")), xpd = TRUE, cex = labelsize)
-text(18, 10.5, expression(paste(t > 0)), xpd = TRUE, cex = labelsize)
+text(18, 10.5, expression(paste(tau > 0)), xpd = TRUE, cex = labelsize)
 
 text(7.5, indiffA(16)+2, expression(paste("No Tax")), xpd = TRUE, cex = labelsize)
 text(7.5, indiffA(16)+0.5, expression(paste("Curve")), xpd = TRUE, cex = labelsize)

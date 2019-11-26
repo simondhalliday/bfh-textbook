@@ -105,11 +105,11 @@ text(22.5, 23.5, expression(paste("c")), xpd = TRUE, cex = labelsize)
 
 text(27, 27, expression(paste("Taxes")), xpd = TRUE, cex = labelsize)
 text(27, 25.5, expression(paste("Paid")), xpd = TRUE, cex = labelsize)
-text(27, 24, expression(paste("(ty)")), xpd = TRUE, cex = labelsize)
+text(27, 24, expression(paste((tau*y))), xpd = TRUE, cex = labelsize)
 
 text(27, 14.5, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
 text(27, 13, expression(paste("Received")), xpd = TRUE, cex = labelsize)
-text(27, 11.5, expression(paste("t", underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
+text(27, 11.5, expression(paste(tau*underline(y), (1 - phi))), xpd = TRUE, cex = labelsize)
 
 
 

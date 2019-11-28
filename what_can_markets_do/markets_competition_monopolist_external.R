@@ -31,7 +31,7 @@ AvgCost <- function(x, c0 = 2, c1 = 4){
 }
 
 xlims <- c(0, 13)
-ylims <- c(0, 12)
+ylims <- c(0, 13)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 3, 6, AvgRevenue(x = 4.5), 9,  ylims[2])
+ticksy <- c(0, 3, 6, AvgRevenue(x = 4.5), 9, ylims[2])
 ylabels <- c(NA, expression(paste(p^{CP})), expression(paste(p^{CS})), expression(paste(p^{MP})), expression(paste(p^{MS})), NA)
 ticksx <- c(0, 3, 4.5, 6, 9, xlims[2])
 xlabels <- c(NA, expression(paste(X^{MS})), expression(paste(X^{MP})), expression(paste(X^{CS})), expression(paste(X^{CP})), NA)
@@ -82,6 +82,11 @@ ypolyc <- c(MRevenue(x = 3), MRevenue(x = 3), AvgRevenue(x = 4.5), AvgRevenue(x 
 polygon(x = xpolyc, y = ypolyc, col = COLA[1], density = NULL, border = NA)
 
 
+#Draw the polygon for area D
+xpolyd <- c(4.5, 6, 6,4.5,4.5)
+ypolyd <- c(3,3,6,6,3)
+polygon(x = xpolyd, y = ypolyd, col = COL[2], density = NULL, border = NA)
+
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
@@ -94,14 +99,14 @@ text(-1.8, 0.5*ylims[2], expression(paste("Dollars")), xpd = TRUE, cex = axislab
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 #text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
-text(7.5, 0.5, expression(paste("marginal revenue")), cex = labelsize)
+text(7.1, 1, expression(paste("marginal revenue")), cex = labelsize)
 text(10.65, 0.5, expression(paste(demand)), cex = labelsize)
 
-text(10.5, 6.75, expression(paste("marginal social cost")), cex = labelsize)
-text(10, 6.25, expression(paste("msc")), cex = labelsize)
+text(11, 6.75, expression(paste("marginal social cost")), cex = labelsize)
+text(11, 6.25, expression(paste("msc")), cex = labelsize)
 
-text(10.5, 3.35, expression(paste("marginal private cost")), cex = labelsize)
-text(10.5, 3.25, expression(paste("mpc")), cex = labelsize)
+text(11, 3.7, expression(paste("marginal private cost")), cex = labelsize)
+text(11, 3.25, expression(paste("mpc")), cex = labelsize)
 
 #Labels cost and profit areas
 #text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
@@ -128,8 +133,18 @@ segments(0, 6, xlims[2], 6, lty = 1, col = COL[3] , lwd = graphlinewidth)
 text(8, 5, expression(A), cex = labelsize)
 text(5, 6.5, expression(B), cex = labelsize)
 text(3.75, 7, expression(C), cex = labelsize)
+text(5.2, 4.5, expression(D), cex = labelsize)
 
 
+#labels for intersections between msc, mpc and AR and MR
+text(4.3, 2.7, expression(b), cex = labelsize)
+text(8.8, 2.7, expression(a), cex = labelsize)
+text(6.2, 6.2, expression(e), cex = labelsize)
+text(2.7, 6.2, expression(c), cex = labelsize)
+points(9, 3, pch = 16, col = "black", cex = 1.3)
+points(6, 6, pch = 16, col = "black", cex = 1.3)
+points(3, 6, pch = 16, col = "black", cex = 1.3)
+points(4.5, 3, pch = 16, col = "black", cex = 1.3)
 #Arrow to mr = mc
 #text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)
 #text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)

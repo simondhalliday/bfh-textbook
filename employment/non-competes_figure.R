@@ -3,6 +3,8 @@ library(digitize)
 library(jpeg)
 library(scales)
 library(openxlsx)
+require(shape)
+pdf(file = "employment/incidence_of_non_competes.pdf", width = 9, height = 7)
 
 cal = ReadAndCal("Non-compete.jpg")
 
@@ -65,16 +67,23 @@ group=factor(c("<HS", "HS grad", "<1 year college",">1 year of college","Associa
 
 write.xlsx(data_final_1, 'incidence_of_non_competes_data.xlsx')
 
-incidence_of_non_competes <- read.xlsx('incidence_of_non_competes_data.xlsx')
+incidence_of_non_competes <- read.xlsx('~/Documents/GitHub/bfh-textbook/employment/incidence_of_non_competes_data.xlsx')
+
+incidence_of_non_competes$group <- factor(incidence_of_non_competes$group)
 
 p1 <- ggplot(incidence_of_non_competes, aes(x=group, y=y)) +
-  geom_bar(stat = "identity") + 
+  geom_bar(stat = "identity", fill = "#386cb0", color="#386cb0", alpha = 0.7) + 
+  scale_x_discrete(limits=c("<HS","HS grad","<1 year of college",">1 year of college", "Associates", "BA", "MA", "Prof Degree", "Doctorate"), labels=c("<HS" = "<HS", "HS grad" = "HS grad",
+                            "<1 year of college" = "<1 year 
+of college", ">1 year of college" = ">1 year 
+of college" )) +
   xlab("Education Level") +
   ylab("Incidence of Non-competes") +
-  scale_y_continuous(breaks = seq(0, 0.45, by = 0.05), labels = percent) + 
-  theme_bw()  
+  scale_y_continuous(breaks = seq(0, 0.45, by = 0.05), labels = percent) +
+  theme_bw() 
+  
 
 print(p1)
 
 
-
+dev.off()

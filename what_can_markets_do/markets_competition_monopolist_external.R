@@ -30,7 +30,7 @@ AvgCost <- function(x, c0 = 2, c1 = 4){
   c0/x + c1
 }
 
-xlims <- c(0, 12)
+xlims <- c(0, 13)
 ylims <- c(0, 12)
 
 npts <- 501 
@@ -47,6 +47,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      bty = "n",
      xaxs="i", 
      yaxs="i")
+
 
 # ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
@@ -65,8 +66,8 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
 #Draw the polygon for A
-xpolya <- c(6, 9, 6, 6)
-ypolya <- c(3, 3, 6, 3)
+xpolya <- c(9, 9, 6, 9)
+ypolya <- c(3, 6, 6, 3)
 polygon(x = xpolya, y = ypolya, col=COL[4], density=NULL, border = NA)
 
 #Draw the polygon for B
@@ -88,19 +89,19 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 #text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
-text(5.35, 0.5, expression(paste(mr)), cex = labelsize)
+text(7.5, 0.5, expression(paste("marginal revenue")), cex = labelsize)
 text(10.65, 0.5, expression(paste(demand)), cex = labelsize)
 
-text(11, 6.75, expression(paste("social")), cex = labelsize)
-text(11, 6.25, expression(paste("mc")), cex = labelsize)
+text(10.5, 6.75, expression(paste("marginal social cost")), cex = labelsize)
+text(10, 6.25, expression(paste("msc")), cex = labelsize)
 
-text(11, 2.75, expression(paste("private")), cex = labelsize)
-text(11, 2.25, expression(paste("mc")), cex = labelsize)
+text(10.5, 3.35, expression(paste("marginal private cost")), cex = labelsize)
+text(10.5, 3.25, expression(paste("mpc")), cex = labelsize)
 
 #Labels cost and profit areas
 #text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
@@ -124,7 +125,7 @@ segments(0, 6, xlims[2], 6, lty = 1, col = COL[3] , lwd = graphlinewidth)
 
 
 #points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(7, 4, expression(A), cex = labelsize)
+text(8, 5, expression(A), cex = labelsize)
 text(5, 6.5, expression(B), cex = labelsize)
 text(3.75, 7, expression(C), cex = labelsize)
 

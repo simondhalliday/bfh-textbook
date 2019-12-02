@@ -33,7 +33,9 @@ trust_game_plot <-
   scale_y_continuous(breaks = seq(0, 16, by = 2), limits = c(0,16)) + 
   theme_bw() + 
   labs(fill = "Treatment") +
-  scale_fill_manual(values=c("#386cb0", "#66c2a4", "#fdc086"))
+  scale_fill_manual(values=c("#386cb0", "#66c2a4", "#fdc086"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
+but not imposed", "Trust condition - no fine possible"))
+
 
 
 

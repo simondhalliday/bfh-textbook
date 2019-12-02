@@ -12,7 +12,7 @@ pdf(file = "what_can_markets_do/trust_game_figure.pdf", width = 8, height = 8)
 dev.off()
 
 
-trust_game_data <- read.xlsx("what_can_markets_do/Fig4.1_trust_data.xlsx")
+trust_game_data <- read.xlsx("what_can_markets_do/Fig4.1_trust_game_data.xlsx")
 
 colnames(trust_game_data)[1] <- "transfer of investor"
 colnames(trust_game_data)[2] <- "incentive condition - fine imposed"
@@ -26,13 +26,14 @@ trust_game_data_long <- trust_game_data %>%
 trust_game_data_long$`transfer of investor` <- factor(trust_game_data_long$`transfer of investor`)
 
 trust_game_plot <- 
-  ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat)) + 
-  geom_col(position = "dodge") + 
+  ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat, group = desc(-Value))) + 
+  geom_col(position = "dodge", alpha = 0.9) + 
   xlab("Transfer by the investor") +
   ylab(element_blank()) + 
   scale_y_continuous(breaks = seq(0, 16, by = 2), limits = c(0,16)) + 
   theme_bw() + 
-  labs(fill = "Treatment")
+  labs(fill = "Treatment") +
+  scale_fill_manual(values=c("#386cb0", "#66c2a4", "#fdc086"))
 
 
 

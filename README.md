@@ -1,11 +1,9 @@
-# bfh-textbook
+# Microeconomics: Competition, Coordination and Conflict
 The graphics for a textbook on which I am working with Samuel Bowles (SFI, U. Siena, U. Mass, Amherst).  
-
-Duncan Foley (New School for Social Research) is a former collaborator on the project and contributed significantly to our thinking in developing many of these figures.
 
 The graphics are licensed under a CC3 license with attribution given to Simon Halliday and Samuel Bowles. 
 
-The chapters are in the following order: 
+The chapters are in the following order (repo folder indicated after the colon):
 
 - Chapter 1: society
 - Chapter 2: people
@@ -23,3 +21,17 @@ The chapters are in the following order:
 - Chapter 14: what_can_markets_do 
 - Chapter 15: capitalism 
 - Chapter 16: evolution
+
+## Collaborators
+- Duncan Foley (New School for Social Research) is a former collaborator on the project as a co-author and contributed significantly to our thinking in developing many of these figures.
+
+### Undergraduate Research Assistants 
+- Morgan Barney (Smith College)
+- Harriet Brookes-Gray (Smith College)
+- Scott Cohn (UMass, Amherst; Resource Economics)
+
+### Graduate Research Assistants
+- Nicolas Bohme Oliver, UMass, Anmherst, PhD. Candidate in Economics
+- Weikai Chen, UMass, Anmherst, PhD. Candidate in Economics
+- Bridget Diana, UMass, Anmherst, PhD. Candidate in Economics
+- Sai Madhurika Mamunuru, UMass, Anmherst, PhD. Candidate in Economics

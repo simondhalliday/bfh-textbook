@@ -26,12 +26,12 @@ The chapters are in the following order (repo folder indicated after the colon):
 - Duncan Foley (New School for Social Research) is a former collaborator on the project as a co-author and contributed significantly to our thinking in developing many of these figures.
 
 ### Undergraduate Research Assistants 
-- Morgan Barney (Smith College)
-- Harriet Brookes-Gray (Smith College)
-- Scott Cohn (UMass, Amherst; Resource Economics)
+- Morgan Barney, Smith College, Economics
+- Harriet Brookes-Gray, Smith College, Economics
+- Scott Cohn, UMass, Amherst; Resource Economics
 
 ### Graduate Research Assistants
-- Nicolas Bohme Oliver, UMass, Anmherst, PhD. Candidate in Economics
-- Weikai Chen, UMass, Anmherst, PhD. Candidate in Economics
-- Bridget Diana, UMass, Anmherst, PhD. Candidate in Economics
-- Sai Madhurika Mamunuru, UMass, Anmherst, PhD. Candidate in Economics
+- Nicolas Bohme Oliver, UMass, Amherst, PhD. Candidate in Economics
+- Weikai Chen, UMass, Amherst, PhD. Candidate in Economics
+- Bridget Diana, UMass, Amherst, PhD. Candidate in Economics
+- Sai Madhurika Mamunuru, UMass, Amherst, PhD. Candidate in Economics

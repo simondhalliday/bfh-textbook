@@ -27,11 +27,12 @@ The chapters are in the following order (repo folder indicated after the colon):
 
 ### Undergraduate Research Assistants 
 - Morgan Barney, Smith College, Economics
-- Harriet Brookes-Gray, Smith College, Economics
-- Scott Cohn, UMass, Amherst; Resource Economics
+- [Harriet Brookes-Gray](https://github.com/Harriet999), Smith College, Economics
+- [Scott Cohn](https://github.com/scottcohn97), UMass, Amherst; Resource Economics
+- Madeleine Wettach, Smith College, Economics
 
 ### Graduate Research Assistants
 - Nicolas Bohme Oliver, UMass, Amherst, PhD. Candidate in Economics
-- Weikai Chen, UMass, Amherst, PhD. Candidate in Economics
-- Bridget Diana, UMass, Amherst, PhD. Candidate in Economics
+- [Weikai Chen](https://github.com/weikai-chen), UMass, Amherst, PhD. Candidate in Economics
+- [Bridget Diana](https://github.com/bhdiana), UMass, Amherst, PhD. Candidate in Economics
 - Sai Madhurika Mamunuru, UMass, Amherst, PhD. Candidate in Economics

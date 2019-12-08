@@ -125,7 +125,7 @@ p <-  ggplot(data = LBdf) +
   guides(color = guide_legend(reverse = TRUE)) +
   theme(legend.position='top', 
         legend.justification='left',
-        legend.direction="vertical", 
+        legend.direction="horizontal", 
         legend.title = element_blank()) + 
   scale_colour_manual(values=c("#0868ac","#41ae76"))
   

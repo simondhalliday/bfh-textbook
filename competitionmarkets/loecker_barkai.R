@@ -115,9 +115,9 @@ LBdf <-
 
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x=year, y=markup, color = "Markup"), na.rm = TRUE) +
+  geom_line(aes(x=year, y=markup, color = "Markup Ratio"), na.rm = TRUE) +
   geom_line(aes(x=year, y=b_share, color = "Profit share"), na.rm = TRUE) +
-  ylab("Profit Share And Markup") + 
+  ylab("Profit Share And Markup Ratio") + 
   xlab("Year") +
   theme_minimal() +
   theme(axis.text=element_text(size=12),

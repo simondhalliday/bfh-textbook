@@ -115,13 +115,20 @@ LBdf <-
 
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x=year, y=markup), color = COLB[4], na.rm = TRUE) +
-  geom_line(aes(x=year, y=b_share), color = COLA[4], na.rm = TRUE) +
-  ylab("Profit Share") + 
+  geom_line(aes(x=year, y=markup, color = "Markup"), na.rm = TRUE) +
+  geom_line(aes(x=year, y=b_share, color = "Profit share"), na.rm = TRUE) +
+  ylab("Profit Share And Markup") + 
   xlab("Year") +
   theme_minimal() +
   theme(axis.text=element_text(size=12),
-                       axis.title=element_text(size=14)) 
+                       axis.title=element_text(size=14)) +
+  guides(color = guide_legend(reverse = TRUE)) +
+  theme(legend.position='top', 
+        legend.justification='left',
+        legend.direction="vertical", 
+        legend.title = element_blank()) + 
+  scale_colour_manual(values=c("#0868ac","#41ae76"))
+  
 
 p
 

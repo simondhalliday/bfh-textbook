@@ -5,9 +5,30 @@
 require(shape)
 library(tidyverse)
 library(lubridate)
-library(openxlsx)
+library(readxl)
 library(readr)
 
 
-markup_data <- read_csv("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
-loecker_2018 <- read_csv("competitionmarkets/loecker_barkai/loecker_2018.csv")
+markup_data <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
+gini_data <- read_excel("competitionmarkets/Gini Index Data/US_gini_index.xlsx")
+
+gini_data$`Gini Index` <- as.numeric(as.character(gini_data$`Gini Index`))
+
+p <-  ggplot() +
+  geom_line(data = markup_data, aes(x=year, y=markup, color = "markup"), na.rm = TRUE) +
+  geom_line(data = gini_data, aes(x=Year, y= `Gini Index`, color = "gini", group = 1), na.rm = TRUE) +
+  ylab("Profit Share And Markup Ratio") + 
+  xlab("Year") +
+  theme_minimal() +
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14)) +
+  guides(color = guide_legend(reverse = TRUE)) +
+  theme(legend.position='top', 
+        legend.justification='left',
+        legend.direction="horizontal", 
+        legend.title = element_blank()) + 
+  scale_colour_manual(values=c("#0868ac","#41ae76"))
+
+p
+
+

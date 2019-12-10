@@ -6,6 +6,7 @@
 require(shape)
 library(tidyverse)
 library(lubridate)
+library(openxlsx)
 #pdf(file = "competitionmarkets/loecker_barkai.pdf", width = 7, height = 7)
 # ----
 #Set parameters for graphics
@@ -108,7 +109,7 @@ LBdf <-
   mutate(markup = l_markup$y) %>% 
   select(year, markup, b_share)
 
-
+write.xlsx(LBdf, 'competitionmarkets/loecker_barkai/LBdf_data.xlsx')
 
 # graph
 # ----

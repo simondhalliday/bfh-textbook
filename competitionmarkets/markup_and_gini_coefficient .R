@@ -17,7 +17,6 @@ gini_data$`Gini Index` <- as.numeric(as.character(gini_data$`Gini Index`))
 p <-  ggplot() +
   geom_line(data = markup_data, aes(x=year, y=markup, color = "markup"), na.rm = TRUE) +
   geom_line(data = gini_data, aes(x=Year, y= gini_index, color = "gini", group = 1), na.rm = TRUE) +
-  scale_y_continuous(sec.axis = sec_axis(~., name = "Gini")) + 
   ylab("Gini Index and Markup Ratio") + 
   xlab("Year") +
   theme_minimal() +
@@ -32,7 +31,8 @@ p <-  ggplot() +
 
 p
 
-p1 <- ggplot() +
+p1 <-  ggplot() +
+  geom_line(data = markup_data, aes(x=year, y=markup, color = "markup"), na.rm = TRUE) +
   geom_line(data = gini_data, aes(x=Year, y= gini_index, color = "gini", group = 1), na.rm = TRUE) +
   ylab("Gini Index and Markup Ratio") + 
   xlab("Year") +
@@ -44,6 +44,7 @@ p1 <- ggplot() +
         legend.justification='left',
         legend.direction="horizontal", 
         legend.title = element_blank()) + 
-  scale_colour_manual(values=c("#0868ac","#41ae76"))
+  scale_colour_manual(values=c("#0868ac","#41ae76")) +
+  facet_grid(markup_data)
 
 p1

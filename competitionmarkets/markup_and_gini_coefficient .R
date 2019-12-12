@@ -35,6 +35,7 @@ p
 obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l")
 obj2 <- xyplot(markup ~ year, markup_data, type = "l")
 plot1 <- doubleYScale(obj2, obj1,add.ylab2 = TRUE)
+print(plot1)
 
 #Save plot to PDF
 ggsave(p, filename = "markup_and_gini_coefficient1.pdf", 

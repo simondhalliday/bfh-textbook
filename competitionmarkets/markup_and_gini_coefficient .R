@@ -34,12 +34,13 @@ p
 
 obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l")
 obj2 <- xyplot(markup ~ year, markup_data, type = "l")
-doubleYScale(obj2, obj1,add.ylab2 = TRUE)
+plot1 <- doubleYScale(obj2, obj1,add.ylab2 = TRUE)
 
 #Save plot to PDF
-ggsave(p, filename = "markup_and_gini_coefficient.pdf", 
+ggsave(p, filename = "markup_and_gini_coefficient1.pdf", 
        path = "competitionmarkets",
        width = 7, height = 7, units = "in")
+
 
 # ----
 

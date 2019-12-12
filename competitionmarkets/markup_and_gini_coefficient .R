@@ -48,3 +48,12 @@ p1 <-  ggplot() +
   facet_grid(markup_data)
 
 p1
+
+#Save plot to PDF
+ggsave(p, filename = "markup_and_gini_coefficient.pdf", 
+       path = "competitionmarkets",
+       width = 7, height = 7, units = "in")
+
+# ----
+
+dev.off()

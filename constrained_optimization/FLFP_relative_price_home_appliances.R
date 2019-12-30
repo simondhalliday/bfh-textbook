@@ -28,7 +28,7 @@ library(openxlsx)
 # data_final$group <- factor(data_final$group)
 # 
 # write.xlsx(data_final, 'FLFP_homeappliances.xlsx')
-data_final_1 <- read.xlsx('FLFP_homeappliances.xlsx')
+data_final_1 <- read.xlsx('constrained_optimization/FLFP_homeappliances.xlsx')
 
 
 plot1 <- ggplot(data_final_1, aes(x=x, y=y, group=group))+
@@ -45,5 +45,11 @@ plot1 <- ggplot(data_final_1, aes(x=x, y=y, group=group))+
 
 print(plot1)
 
-pdf(file = "constrained_optimization/FLFP_homeappliances.pdf", width = 8, height = 8)
+#Save plot to PDF
+ggsave(plot1, filename = "FLFP_relative_price_home_appliances.pdf", 
+       path = "constrained_optimization",
+       width = 7, height = 7, units = "in")
+
+
+
 dev.off()

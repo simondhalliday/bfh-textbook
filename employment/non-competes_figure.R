@@ -79,7 +79,7 @@ p1 <- ggplot(incidence_of_non_competes, aes(x=group, y=y)) +
 of college", ">1 year of college" = ">1 year 
 of college" )) +
   xlab("Education Level") +
-  ylab("Incidence of Non-competes") +
+  ylab("Incidence of Non-Competes") +
   scale_y_continuous(breaks = seq(0, 0.45, by = 0.05), labels = scales::percent_format(accuracy = 1)) +
   theme_bw() 
 

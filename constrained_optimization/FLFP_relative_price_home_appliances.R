@@ -32,16 +32,19 @@ data_final_1 <- read.xlsx('constrained_optimization/FLFP_homeappliances.xlsx')
 
 
 plot1 <- ggplot(data_final_1, aes(x=x, y=y, group=group))+
-  geom_line(aes(linetype = group)) + 
+  geom_line(aes(linetype = group, color  = group)) + 
   xlab("Year") +
+  ylab("Index Value (Base Year = 1975)") +
   scale_y_continuous(breaks = seq(0.8, 1.5, by = 0.1), limits = c(0.8,1.5)) + 
   scale_x_continuous(breaks = seq(1975, 1995, by = 5)) +
   theme_minimal() + 
-  ggtitle("Female Labor Force Participation Rate And The Relative Price Of Home Appliances") +
-  theme(plot.title = element_text(hjust = 0.5)) + 
   theme(legend.position="right", 
      legend.title=element_blank(), 
-     axis.title.y = element_blank()) 
+     axis.title.y = element_text(size = 12, vjust = 0.5),
+     legend.text=element_text(size=11),
+     axis.text.x = element_text(size = 12),
+     axis.text.y = element_text(size = 12),  
+     axis.title.x = element_text(size = 12, vjust = -1))
 
 print(plot1)
 

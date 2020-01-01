@@ -3,6 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+library(pBrackets)
 pdf(file = "public_mechanism/segregation_initial.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
@@ -16,7 +17,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6.5, 4, 4.5))
+par(mar =  c(4, 6.5, 1, 4.5))
 
 GreenPrice <- function(f, delta = 0.1, p = 0.1) {
   (1/2)*(f - delta)  - (1/2)*(f - delta)^2 + p 
@@ -109,11 +110,18 @@ text(0.9, GreenPrice(f = 0.9) + 0.015, expression(paste(p^G)), cex = labelsize)
 #Explain the dynamics
 text(0.3, 0.28, expression(paste("increasing willingness to pay")), cex = labelsize)
 text(0.3, 0.26, expression(paste("as ",f %->% 0.6)), cex = labelsize)
-Arrows(0.05, 0.24, 0.55, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(0.05, 0.24, 0.55, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.78, 0.28, expression(paste("decreasing willingness to pay")), cex = labelsize)
 text(0.78, 0.26, expression(paste("as ",f %->% 1)), cex = labelsize)
-Arrows(0.65, 0.24, 0.95, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+brackets(0.02, 0.24, 0.58, 0.24, h = 0.01,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+
+brackets(0.62, 0.24, 0.98, 0.24, h = 0.01, ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+
+#Arrows(0.65, 0.24, 0.95, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

@@ -95,7 +95,7 @@ brackets(-0.6, 2, -0.6, 5, h = .2,  ticks = 0.5, curvature = 0.5, type = 1,
 
 
 text(-1.15, 1.75, expression(paste("Indirect")), cex = labelsize, xpd = TRUE)
-text(-1.15, 1.5, expression(paste("effect")), cex = labelsize, xpd = TRUE)
+text(-1.15, 1.5, expression(paste("effects")), cex = labelsize, xpd = TRUE)
 
 text(-1.15, 3.65, expression(paste("Direct")), cex = labelsize, xpd = TRUE)
 text(-1.15, 3.4, expression(paste("effect")), cex = labelsize, xpd = TRUE)

@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "public_mechanism/after_tax_benefit.pdf", width = 7, height = 7)
+pdf(file = "public_mechanism/housing_pre_tax_benefit.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -20,13 +20,13 @@ par(mar =  c(1, 4, 1, 4))
 
 # Post Tax Benefit
 
-delta_PT <- function(delta = -0.1, f){
-  f*(4*delta - 1) + 1/2 - 2*delta
+delta_P <- function(delta = 0.1, f){
+  2*delta*(2*f - 1) 
 }
 
 
 #Add limits on axes and levels of utility for each function 
-ylims <- c(-0.8, 0.8)
+ylims <- c(-0.3, 0.3)
 xlims <- c(0, 1)
 
 npts <- 501 
@@ -46,13 +46,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph; y axes on both sides
 
-ticksy <- c(ylims[1], 0, delta_PT(delta = -0.1, f = 0), ylims[2])
-ylabels <- c(NA, 0, expression(paste(frac(1,2) - 2, delta)), NA)
+ticksy <- c(ylims[1], delta_P(delta = 0.1, f = 0), 0,  ylims[2]) 
+ylabels <- c(NA, expression(paste(-delta)), 0, NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(NA, NA, NA)
-ticksy2 <- c(ylims[1], delta_PT(delta = -0.1, f = 1), 0, ylims[2])
+ticksy2 <- c(ylims[1], delta_P(delta = 0.1, f = 1), 0, ylims[2])
 #ylabels2 <- c(NA,expression( paste(4, delta, - bgroup("(", 2 *  delta + frac(1, 2), ")" ))), 0, NA)
-ylabels2 <- c(NA,expression( paste(2, delta, -  frac(1, 2))), 0, NA)
+ylabels2 <- c(NA,expression( paste(delta)), 0, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -63,25 +63,26 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
 #Axis labels 
-text(0.5, -.78, expression(paste("Proportion of greens, ", f)), xpd = TRUE, cex = axislabelsize, srt = 0) 
+text(0.5, -.28, expression(paste("Proportion of greens, ", f)), xpd = TRUE, cex = axislabelsize, srt = 0) 
 text(xlims[1] - 0.1, 0, expression(paste("Private gain from exchange, ", Delta^P)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Private Return
-lines(xx1, delta_PT(f = xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, delta_P(f = xx1), col = COLA[4], lwd = graphlinewidth)
 
 # Text Labels
-text(0.2, - 0.1, expression(paste("Greens buy")), cex = labelsize)
-text(0.2, - 0.15, expression(paste("houses from Blues")), cex = labelsize)
+text(0.2, - 0.02, expression(paste("Greens sell")), cex = labelsize)
+text(0.2, - 0.04, expression(paste("houses to Blues")), cex = labelsize)
 
-text(0.8, 0.15, expression(paste("Greens sell")), cex = labelsize)
-text(0.8, 0.1, expression(paste("houses to Blues")), cex = labelsize)
+text(0.8, 0.04, expression(paste("Greens buy")), cex = labelsize)
+text(0.8, 0.02, expression(paste("houses from Blues")), cex = labelsize)
 
-text(0.32, 0.5, expression(paste(Delta^{PT} == f*(4*delta - 1) + frac(1,2) - 2*delta )), cex = labelsize)
-text(0.02, -0.05, paste(0), cex = labelsize)
-text(0.5, -0.05, paste(0.5), cex = labelsize)
-text(0.98, -0.05, paste(1), cex = labelsize)
+text(0.65, 0.12, expression(paste(Delta^P == delta*(2*f - 1))), cex = labelsize)
+
+text(0.02, -0.0175, paste(0), cex = labelsize)
+text(0.5, -0.0175, paste(0.5), cex = labelsize)
+text(0.98, -0.0175, paste(1), cex = labelsize)
 
 #Axis arrow
-arrows(0, 0, 0.25, 0, code = 2, length = 0.1, lwd = 0.75*axislabelsize, lty = 1)
-arrows(0.75, 0, 1, 0, code = 1, length = 0.1, lwd = 0.75*axislabelsize, lty = 1)
+arrows(0.5, 0, 0.25, 0, code = 2, length = 0.1, lwd = 0.75*axislabelsize, lty = 1)
+arrows(0.5, 0, 0.75, 0, code = 2, length = 0.1, lwd = 0.75*axislabelsize, lty = 1)
 dev.off()

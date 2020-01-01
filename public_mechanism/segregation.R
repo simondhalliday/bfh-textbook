@@ -3,6 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+library(pBrackets)
 pdf(file = "public_mechanism/segregation.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
@@ -97,11 +98,16 @@ text(0.9, GreenPrice(f = 0.9) + 0.015, expression(paste(p^G)), cex = labelsize)
 #Explain the dynamics
 text(0.25, 0.27, expression(paste("Greens Sell to Blues")), cex = labelsize)
 text(0.25, 0.25, expression(paste("because ", p^B > p^G, " so ", f %->% 0)), cex = labelsize)
-Arrows(0.03, 0.24, 0.47, 0.24, col = "black", code = 1, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(0.03, 0.24, 0.47, 0.24, col = "black", code = 1, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.75, 0.27, expression(paste("Blues Sell to Greens")), cex = labelsize)
 text(0.75, 0.25, expression(paste("because ", p^G > p^B, " so ", f %->% 1)), cex = labelsize)
-Arrows(0.53, 0.24, 0.97, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(0.53, 0.24, 0.97, 0.24, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+brackets(0.53, 0.23, 0.97, 0.23, h = 0.01,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+
+brackets(0.03, 0.23, 0.47, 0.23, h = 0.01, ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd =segmentlinewidth, lty = 1, xpd = TRUE)
 
 dev.off()

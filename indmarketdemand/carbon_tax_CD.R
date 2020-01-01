@@ -2,32 +2,39 @@
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-
-# DRAFT !!
-# DRAFT !!
-# DRAFT !!
-
 require(shape)
+require(pBrackets)
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-uA <- function(x, y, rmax = 3, xmax = 12) {
-  y - rmax*x + (1/2)*(rmax/xmax)*x^2
+#Set parameters for graphics
+axislabelsize <- 1.2
+labelsize <- 1.3
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+axistitlesize <- 1.5
+
+#Budget constraint
+
+bcA <- function(x, m = 40, px = 0.5, py = 1) {
+  m/py - (px/py)*x
 }
 
-CD <- function(x, alpha = 0.5, uA = 5, k = 1) {
-  k*(uA / x^alpha)^(1/(1 - alpha))
+#Utility functions 
+
+uFn <- function(x, y, alpha = 0.5){
+  (x^alpha)*(y^(1-alpha))
 }
 
-bcA <- function(x, w, p) {
-  w + p*x
+#Compensated budget constraint parallel to bc1
+
+cbc1 <- function(x, int = 48) {
+  int - .5*x
 }
 
-xlims <- c(0, 20)
-ylims <- c(0, 20)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -41,112 +48,115 @@ a <- c(25.65, 23.5, 15)
 
 pdf(file = "indmarketdemand/carbon_tax_CD_1.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 2
-segmentlinewidth <- 1.5
+#Edited the margins to cater for the larger LHS labels
+par(mar =  c(5, 6, 1, 1))
 
+#Add limits on axes and levels of utility for each indifference curve
+ylims <- c(0, 65)
+xlims <- c(0, 110)
 
-par(mar =  c(6, 6, 2, 2))
+npts <- 501 
+x <- seq(xlims[1], xlims[2], length.out = npts)
+y <- seq(ylims[1], ylims[2], length.out = npts) 
+
+ulevels <- c(28.25, 40) #alpha = 0.6
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
      xaxt = "n", 
      yaxt = "n", 
-     cex.lab = axislabelsize, 
-     bty = "n",
+     cex.lab = axistitlesize, 
+     bty = "n", 
      xaxs="i", 
-     yaxs="i")
+     yaxs="i"
+)
 
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 1.38, 5, 10, ylims[2])
-ticksy_mod <- c(10)
-ylabels_mod <- c(expression(paste(m[a] == m[b])))
-ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), NA, NA)
-ticksx <- c(0, 6.533, 10.493, xlims[2])
-xlabels <- c(NA, expression(paste(x[1])), expression(paste(x[3])), NA)
+#x and y limits with plain axes without ticks/numbers to match previous graph
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy_mod, pos = 0, labels = ylabels_mod, tick = FALSE, las = 1, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, las = 1, labels = ylabels, cex.axis = labelsize)
+ticksx <- c(0, 40, 57.5, 80, xlims[2])
+xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[c])) , expression(paste(x[a])), NA)
+ticksy <- c(0, bcA(40), bcA(57.5, m = 56.5), bcA(0), bcA(0, m = 56.5), ylims[2])
+ylabels <- c(NA, expression(paste(y[b] == y[a])), expression(paste(y[c])), expression(paste(frac(m[b],p[y]) == frac(m[a],p[y]) )), expression(paste(frac(m[c],p[y]) )), NA)
+
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(0, xlims[2], length.out = npts)
+xx3 <- seq(xlims[1], 0, length.out = npts)
+xx4 <- seq(-11, 0, length.out = npts)
 
-lines(xx1, CD(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, CD(xx1, k = 2), col = COLA[3], lwd = graphlinewidth)
-# lines(xx1, CD(xx1, k = 6), col = COLA[3], lwd = graphlinewidth)
+contour(x, y, 
+        outer(x, y, uFn),
+        drawlabels = FALSE,
+        col = COLA[4],
+        lwd = graphlinewidth,
+        levels = ulevels, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE)
 
-#lines(xx1, bcA(xx1, w = 20, p = 1), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 5, p = ((2.929 - 5)/17.071)), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 5, p = ((2.5 - 5)/10)), col = COLB[3], lwd = graphlinewidth)
+#Axis labels
+#mtext(expression(paste("Fossil fuels consumed, ", x)), side = 1, line = 2.5, cex = axistitlesize)
 
-#Label the axes
-#mtext(expression(paste("Fossil fuels, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], ylims[1] - 0.15*ylims[2], expression(paste("Amount of fossil fuels, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.8, 0.5*ylims[2], expression(paste("Quality of life, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text((40 + 57.5)/2, -3, expression(paste("Income")), xpd = TRUE, cex = axislabelsize)
+text((40 + 57.5)/2, -5, expression(paste("effect")), xpd = TRUE, cex = axislabelsize) 
+text((80 + 57.5)/2, -3, expression(paste("Substitution")), xpd = TRUE, cex = axislabelsize) 
+text((80 + 57.5)/2, -5, expression(paste("effect")), xpd = TRUE, cex = axislabelsize) 
 
-#Label the indifference curves
-#text(11.8, 1.3, expression(u[1]), cex = labelsize)
+text(0.5*xlims[2], -9, expression(paste("Fossil fuels consumed, ", x)), xpd = TRUE, cex = axistitlesize) 
+text(-15.5, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axistitlesize, srt = 90) 
 
-
-#Label the price lines
-#text(8, 1.7, expression(paste(bc[1])))
-
-
-#Add the contour plot for the indifference curves
-#contour(x, y, 
-#        outer(x, y, uA),
-#        drawlabels = FALSE,
-#        col = COLA[3],
-#        lwd = graphlinewidth,
-#        levels = a, 
-#        xaxs="i", 
-#        yaxs="i", 
-#        add = TRUE)
-
-#Segments for points on Offer curve
-#segments(0, 10.709, 6.553, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(6.533, 0, 6.533, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 1.38, 6.553, 1.38, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10.493, 0, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 5.784, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.533, 0, 6.533, 1.38, lty = 2, col = "gray" , lwd = segmentlinewidth)
-
-#Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
-#Where mrs = 2 - (1/6)*x
-#points(6.533, 10.709, pch = 16, col = "black", cex = 1.5)
-points(17.071, 2.929, pch = 16, col = "black", cex = 1.5)
-points(10, 2.5, pch = 16, col = "black", cex = 1.5)
-
-text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
-text(10  + .35, 2.5 + .45, expression(paste(b)), cex = labelsize)
-#text(6.553 + .35, 10.709 + .45, expression(paste(c)), cex = labelsize)
-
-text(0.6, 15, expression(paste(u[1])), cex = labelsize)
-text(0.6, 21 + 2, expression(paste(u[2])), cex = labelsize)
-#text(0.6, 24, expression(paste(u[3])), cex = labelsize)
+lines(xx1, bcA(xx1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, px = 0.25), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, m = 56.5), col = COLB[5], lwd = graphlinewidth)
 
 
-text(7.75, 0.5, expression(paste(bc[b])), cex = labelsize)
-text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
-#text(12.75, 2.5, expression(paste(bc[c])), cex = labelsize)
+#Label curves
 
-Arrows(10.5, 1.8, 7.2, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(8.7, 4.8, expression(paste("Tax increases ", p[x] )), cex = labelsize)
-text(8.7, 3.8, expression(paste("budget constraint" )), cex = labelsize)
-text(8.7, 2.8, expression(paste("pivots inwards" )), cex = labelsize)
+text(16, 61, expression(u[1]), cex = labelsize)
+text(29, 61, expression(u[2]), cex = labelsize)
+text(105, 12, expression(bc[a]), cex = labelsize)
+text(70, 2.5, expression(bc[b]), cex = labelsize)
+text(105, 2.5, expression(bc[c]), cex = labelsize)
+
+#Label points e-sub, e, e'
+
+text(80, bcA(80, px = 0.25) + 1.5, expression(paste(a)), cex = labelsize)
+segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
+
+text(40, bcA(40) + 1.7, expression(paste(b)), cex = labelsize)
+segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bcA(x = 40), 56, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
+
+text(57.5, bcA(57.5, m = 56.5) + 1.5, expression(paste(c)), cex = labelsize)
+segments(57.5, 0, 57.5, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bcA(57.5, m = 56.5), 56, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(57.5, bcA(57.5, m = 56.5), pch = 16, col = "black", cex = 1.5)
+
+brackets(56.5, -0.6, 41, -0.6,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+
+brackets(79, -0.6, 58.5, -0.6,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
 
 
-Arrows(10.2, -1.4, 6.9, -1.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
-#
+#Label y-sub,x-sub,etc. on axes
+
+#text(37.5, -.9, expression(paste(x[sub])), xpd = TRUE, cex = labelsize)
+#text(40.8, -.9, expression(paste(x[e'])),  xpd = TRUE,  cex = labelsize)
+#text(56.9, -.9, expression(paste(x[e])),  xpd = TRUE, cex = labelsize)
+
+#text(-2, cbc1(47), expression(paste(y[sub])), xpd = TRUE, cex = labelsize)
+#text(-2, bc1(39) + .5, expression(paste(y[e*minute] == y[e])),  xpd = TRUE,  cex = labelsize)
+#text(-2, bc1(39) - 1, expression(paste(y[e])),  xpd = TRUE, cex = labelsize)
+
 
 dev.off()
 
@@ -158,97 +168,91 @@ dev.off()
 
 pdf(file = "indmarketdemand/carbon_tax_CD_2.pdf", width = 9, height = 7)
 
+#Edited the margins to cater for the larger LHS labels
+par(mar =  c(5, 6, 1, 1))
+
+#Add limits on axes and levels of utility for each indifference curve
+ylims <- c(0, 65)
+xlims <- c(0, 110)
+
+npts <- 501 
+x <- seq(xlims[1], xlims[2], length.out = npts)
+y <- seq(ylims[1], ylims[2], length.out = npts) 
+
+ulevels <- c(28.25, 40) #alpha = 0.6
+
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
      xaxt = "n", 
      yaxt = "n", 
-     cex.lab = axislabelsize, 
-     bty = "n",
+     cex.lab = axistitlesize, 
+     bty = "n", 
      xaxs="i", 
-     yaxs="i")
+     yaxs="i"
+)
 
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 1.38, 10.2, 10.709, 18.9, ylims[2])
-ticksy_mod <- c(10, 10.8)
-ylabels_mod <- c(expression(paste(m[b])), expression(paste(y[3])))
-ylabels <- c(NA, expression(paste(y[1])), NA, NA, expression(paste(m[c])), NA)
-ticksx <- c(0, 6.533, xlims[2])
-xlabels <- c(NA, expression(paste(x[2] == x[1])), NA)
+#x and y limits with plain axes without ticks/numbers to match previous graph
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy_mod, pos = 0, labels = ylabels_mod, tick = FALSE, las = 1, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, las = 1, labels = ylabels, cex.axis = labelsize)
+ticksx <- c(0, 40, 60, xlims[2])
+xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[d])), NA)
+ticksy <- c(0, bcA(40), bcA(60, m = 62), bcA(0), bcA(0, m = 62), ylims[2])
+ylabels <- c(NA, expression(paste(y[b])), expression(paste(y[d])), expression(paste(m[b])), expression(paste(m[d])), NA)
+
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(0, xlims[2], length.out = npts)
+xx3 <- seq(xlims[1], 0, length.out = npts)
+xx4 <- seq(-11, 0, length.out = npts)
 
-lines(xx1, CD(xx1), col = COLA[3], lwd = graphlinewidth)
-# lines(xx1, CD(xx1, k = 2), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, CD(xx1, k = 4), col = COLA[3], lwd = graphlinewidth)
+ulevels <- c(28.25, 40, 43.9) #alpha = 0.6
 
-lines(xx1, bcA(xx1, w = 20, p = -1), col = COLB[5], lwd = graphlinewidth)
-#lines(xx1, bcA(xx1, w = 5, p = ((2.929 - 5)/17.071)), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 5, p = ((2.5 - 5)/10)), col = COLB[3], lwd = graphlinewidth)
+contour(x, y, 
+        outer(x, y, uFn),
+        drawlabels = FALSE,
+        col = COLA[4],
+        lwd = graphlinewidth,
+        levels = ulevels, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE)
 
-#Label the axes
-#mtext(expression(paste("Fossil fuels, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], ylims[1] - 0.15*ylims[2], expression(paste("Amount of fossil fuels, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.8, 0.5*ylims[2], expression(paste("Quality of life, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#Axis labels
+mtext(expression(paste("Fossil fuels consumed, ", x)), side = 1, line = 2.5, cex = axistitlesize)
+text(-12.5, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axistitlesize, srt = 90) 
 
-#Label the indifference curves
-#text(11.8, 1.3, expression(u[1]), cex = labelsize)
-
-
-#Label the price lines
-#text(8, 1.7, expression(paste(bc[1])))
-
-
-#Add the contour plot for the indifference curves
-#contour(x, y, 
-#        outer(x, y, uA),
-#        drawlabels = FALSE,
-#        col = COLA[3],
-#        lwd = graphlinewidth,
-#        levels = a, 
-#        xaxs="i", 
-#        yaxs="i", 
-#        add = TRUE)
-
-#Segments for points on Offer curve
-segments(0, 10.709, 6.553, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.533, 0, 6.533, 10.709, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 1.38, 6.553, 1.38, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(10.493, 0, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(0, 5.784, 10.493, 5.784, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
-
-#Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
-#Where mrs = 2 - (1/6)*x
-points(10, 10, pch = 16, col = "black", cex = 1.5)
-#points(10.493, 5.784, pch = 16, col = "black", cex = 1.5)
-points(10, 2.5, pch = 16, col = "black", cex = 1.5)
-
-#text(10.493 + .35, 5.784 + .45, expression(paste(a)), cex = labelsize)
-text(10  + .35, 2.5 + .45, expression(paste(b)), cex = labelsize)
-text(10  + .35, 10 + .45, expression(paste(c)), cex = labelsize)
-Arrows(6.8, 2.2, 6.8, 9.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(8.25, 6.2, expression(paste("Rebate shifts" )), cex = labelsize)
-text(8.25, 5, expression(paste("budget constraint" )), cex = labelsize)
-#text(8.25, 4, expression(paste("increasing utility" )), cex = labelsize)
+lines(xx1, bcA(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, bcA(xx1, px = 0.25), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, m = 62), col = COLB[5], lwd = graphlinewidth)
 
 
-text(0.6, 15, expression(paste(u[1])), cex = labelsize)
-# text(0.6, 21, expression(paste(u[2])), cex = labelsize)
-text(0.6, 24, expression(paste(u[3])), cex = labelsize)
+#Label curves
 
+text(16, 61, expression(u[1]), cex = labelsize)
+text(28, 61, expression(u[2]), cex = labelsize)
+text(34, 61, expression(u[3]), cex = labelsize)
+text(105, 12, expression(bc[d]), cex = labelsize)
+text(70, 2.5, expression(bc[b]), cex = labelsize)
+#text(105, 2.5, expression(bc[c]), cex = labelsize)
 
-text(7.75, 0.5, expression(paste(bc[b])), cex = labelsize)
-#text(12.75, 4.5, expression(paste(bc[a])), cex = labelsize)
-text(12.75, 2.5, expression(paste(bc[c])), cex = labelsize)
+#Label points e-sub, e, e'
 
+text(80 - 2, bcA(80, px = 0.25) - 1.5, expression(paste(a)), cex = labelsize)
+# segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
+
+text(40, bcA(40) + 1.7, expression(paste(b)), cex = labelsize)
+segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bcA(x = 40), 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
+
+text(60, bcA(60, m = 62) + 1.7, expression(paste(d)), cex = labelsize)
+segments(60, 0, 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, bcA(60, m = 62), 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(60, bcA(60, m = 62), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

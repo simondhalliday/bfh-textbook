@@ -4,7 +4,7 @@
 
 library(shape)
 require(shape)
-pdf(file = "indmarketdemand/decomposition_leontieff.pdf", width = 10, height = 8)
+pdf(file = "indmarketdemand/decomposition_leontief_new.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

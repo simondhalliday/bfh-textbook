@@ -85,6 +85,10 @@ AnconaAve %>%
 dev.off()
 ```
 
+```{r}
+coef(lm(sumquantity ~ meanprice, data = AnconaAve))
+```
+
 
 ```{r}
 coef(lm(meanprice ~ sumquantity, data = AnconaAve))
@@ -101,6 +105,30 @@ AnconaAve %>%
   xlab("Daily quantity (kilograms) of fish, x") +
   scale_x_continuous(limits = c(0,1600), expand = c(0, 0)) +
   scale_y_continuous(limits = c(0,12), expand = c(0, 0)) +
+  annotate("text", x = 1000, y = 5.5, label = "Marginal Rate of") +
+  annotate("text", x = 1000, y = 5, label = "Substitution, or") +
+  annotate("text", x = 1000, y = 4.5, label = "Demand for x") +
+  annotate("text", x = 53, y = 9.4, label = "bar(p)", parse = TRUE) +
+  annotate("text", x = 1530, y = 3, label = "bar(x)", parse = TRUE) +
+  geom_segment(aes(x = 1530, y = 2.7, xend = 1530, yend = 0.2), 
+               size = 0.7, arrow = arrow(type = "closed", 
+                                         length = unit(0.25, "cm"), 
+                                         angle = 25)) +
+  theme_bw() 
+dev.off()
+```
+
+
+```{r}
+pdf(file = "ancona_plot_checkslope.pdf", width = 5, height = 4)
+AnconaAve %>% 
+  ggplot(aes(x = sumquantity, y = meanprice)) +
+  geom_point() +
+  geom_abline(intercept = 16.8, slope = -0.033, col = "blue", cex = 0.9) +
+  ylab(expression(paste("Daily average price per kilogram (Euros), ", p[x]))) +
+  xlab("Daily quantity (kilograms) of fish, x") +
+  scale_x_continuous(limits = c(0,600), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0,17), expand = c(0, 0)) +
   annotate("text", x = 1000, y = 5.5, label = "Marginal Rate of") +
   annotate("text", x = 1000, y = 5, label = "Substitution, or") +
   annotate("text", x = 1000, y = 4.5, label = "Demand for x") +
@@ -213,6 +241,7 @@ Ancona78v3Aves %>%
   stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) + 
   ylab("Daily average price per kilogram (Euros)") +
   xlab("Daily quantity (kilograms)") +
+  ylim(0,15) +
   theme_bw()
 ```
 

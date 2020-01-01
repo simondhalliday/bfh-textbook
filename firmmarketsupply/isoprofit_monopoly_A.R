@@ -68,7 +68,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx2 <- seq(xlims[1], xlims[2] - 2, length.out = npts)
+xx2 <- seq(xlims[1], xlims[2] - 1.5, length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLA[5], lwd = graphlinewidth)
@@ -90,15 +90,16 @@ text(10.5, 3.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 text(11.3, 2.2, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
 text(6.4, 2.2, expression(paste(mr(x)== bar(p) - 2*beta*x)), cex = labelsize)
 
-text(xlims[2] - 1, 6, expression(paste(pi[1])), cex = labelsize)
+text(xlims[2] - 1, 5.8, expression(paste(pi[3])), cex = labelsize)
 text(xlims[2] - 1, 5.25, expression(paste(pi[2])), cex = labelsize)
-text(xlims[2] - 1, 4.5, expression(paste(pi[3])), cex = labelsize)
+text(xlims[2] - 1, 4.7, expression(paste(pi[1])), cex = labelsize)
+text(xlims[2] - 1, 4, expression(paste(pi[0])), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3] , lwd = graphlinewidth)
+segments(0, 4, xlims[2]-1.5, 4, lty = 1, col = COLB[3] , lwd = graphlinewidth)
 
 #Label Points for comparison
 points(4, MRevenue(x = 4), pch = 16, col = "black", cex = 1.5)

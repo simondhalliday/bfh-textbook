@@ -94,9 +94,9 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 #Draw the polygon for profit
-xpoly1 <- c(0, employment(), employment(), 0, 0)
-ypoly1 <- c(ACL(0), ACL(employment()), MCL(employment()), MCL(employment()), ACL(0))
-polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+#xpoly1 <- c(0, employment(), employment(), 0, 0)
+#ypoly1 <- c(ACL(0), ACL(employment()), MCL(employment()), MCL(employment()), ACL(0))
+#polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
 
 
@@ -172,6 +172,6 @@ text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
 text(0.38, 13.3, "product", cex = axislabelsize)
 text(0.38, 12.8, "(mrp)", cex = axislabelsize)
 
-text(0.48, 5.1, "Monopsony Surplus", cex = axislabelsize)
+#text(0.48, 5.1, "Monopsony Surplus", cex = axislabelsize)
 
 dev.off()

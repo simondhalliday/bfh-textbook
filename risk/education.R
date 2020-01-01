@@ -3,18 +3,15 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-require(shape)
-
-
 
 # The utility function and indifference curve
 
-U <- function(y,delta, alpha = 0.2, beta = 2){
+U <- function(y, delta, alpha = 0.2, beta = 2){
   y - alpha * delta ^ beta
 }
 
 indiff <- function(delta, u = 2, alpha = 0.2, beta = 2){
-    u + alpha * delta ^beta
+    u + alpha * delta^beta
 }
 
                                         # Assign the parameters
@@ -38,9 +35,9 @@ deltaT  <-  deltaRprime * (1 - tau) # risk with free education paying with tax
 
                                         #Set parameters for graphics
 axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+labelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -65,115 +62,73 @@ y <- seq(ylims[1], ylims[2], length.out = npts)
 ## for (i in 1:4){
 ##     points(i,i+2, col = COLB[i], pch  )
 ## }
+
 npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # the first plot
 pdf(file = "risk/education1.pdf", width = 10, height = 10)
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 8, 4, 2))
+par(mar =  c(4, 6, 1, 1))
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Risk, ",Delta)),
-     ylab = expression(paste("Expected Income, ", y)),
+     ylab = "",
      xaxt = "n",
      yaxt = "n",
-     cex.lab = axislabelsize,
+     cex.lab = axislabelsize + 0.5,
      bty = "n",
      xaxs="i",
      yaxs="i"
-     )
+)
 
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
 # xlabels <- seq(from = 0, to = xlims[2],by = 2)
+ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
+ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1] == z)), expression(paste(y[2])), expression(paste(y[3])), expression(paste(y[d])), expression(paste(y[e])), NA)
+# ticksy <- seq(from = 0, to = ylims[2], by = 3)
+# ylabels <- seq(from = 0, to = ylims[2], by = 3)
 ticksx <- c(0, 7, ylims[2])
-xlabels <- c(NA, expression(paste(Delta^R)), NA)
-ticksy <- c(0, 2.2, 5, 7.15, 12, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1])), expression(paste(y[2])), expression(paste(hat(y)[R])), expression(paste(hat(y)[{R*minute}] )), NA)
+xlabels <- c(NA, expression(paste(Delta[d] == Delta[e])), NA)
 
-# 
-# ticksy <- seq(from = 0, to = ylims[2], by = 3)
-# ylabels <- seq(from = 0, to = ylims[2], by = 3)
+#Axis label
+text(-1, 0.5*ylims[2] - 0.1, expression(paste("Expected Income, ", y)), xpd = TRUE, cex = axislabelsize + 0.5, srt = 90) 
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
+axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 # the point (y0,delta0) and the indifference curve through it
-lines(xx1, indiff(xx1, u = U(y0,delta0)), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiff(xx1, u = U(y0 - 2.8,delta0)), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiff(xx1, u = U(y0 + 2.15,delta0)), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(y0 - 4, delta0), alpha =  0.225), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(y0, delta0)), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(y0 + 2.7, delta0), alpha = 0.175), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, indiff(xx1, u = U(y0 + 4.7, delta0), alpha = 0.15), col = COLA[5], lwd = graphlinewidth)
 #points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
 
 # the point (yR, deltaR), (yRprime, deltaRprime), Add segments
-segments(deltaR, 0, deltaR, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-segments(0, yR, deltaR + 1, yR, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-segments(0, yRprime, deltaR + 1, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-points(deltaR, yR, pch = 16, col = COLB[4], cex = 1.5)
-points(deltaRprime, yRprime, pch = 16, col = COLB[4], cex = 1.5)
+segments(deltaR, 0, deltaR, yRprime, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
+segments(0, yR, deltaR, yR, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
+segments(0, yRprime, deltaR, yRprime, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
+#segments(deltaT, 0, deltaT, yT, lty = 2, col = "darkgrey", lwd = segmentlinewidth)
 
-text(1.6, 3, expression(paste(u[0])), cex = labelsize)
-text(1.6, 5.8, expression(paste(u[1])), cex = labelsize)
-text(1.6, 8, expression(paste(u[2])), cex = labelsize)
-
-#Label 5 points on line
-
-text(deltaR-0.2, yR+0.5, expression(paste(R)), cex = labelsize)
-text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
-Arrows(deltaR + 0.5, yR + 0.3, deltaR + 0.5, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
-text(deltaR + 0.8, (yR + yRprime)/2 + 1, expression(paste("Cost")), cex = labelsize)
-dev.off()
-
-# the second plot
-pdf(file = "risk/education2.pdf", width = 10, height = 10)
-                #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 8, 4, 2))
-plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Risk, ",Delta)),
-     ylab = expression(paste("Expected Income, ", y)),
-     xaxt = "n",
-     yaxt = "n",
-     cex.lab = axislabelsize,
-     bty = "n",
-     xaxs="i",
-     yaxs="i"
-     )
-
-# ticksx <- seq(from = 0, to = xlims[2],by = 2)
-# xlabels <- seq(from = 0, to = xlims[2],by = 2)
-ticksy <- c(0, 2.2, 5, 7.15, 12, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1])), expression(paste(y[2])), expression(paste(hat(y)[R])), expression(paste(hat(y)[{R*minute}] )), NA)
-# ticksy <- seq(from = 0, to = ylims[2], by = 3)
-# ylabels <- seq(from = 0, to = ylims[2], by = 3)
-ticksx <- c(0, 5, 7, ylims[2])
-xlabels <- c(NA, expression(paste(Delta^{RT})), expression(paste(Delta^R)), NA)
-
-axis(1,at = ticksx,  pos = 0, labels = xlabels)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
-# the point (y0,delta0) and the indifference curve through it
-lines(xx1, indiff(xx1, u = U(y0 - 2.8,delta0)), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiff(xx1, u = U(y0,delta0)), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiff(xx1, u = U(y0 + 2.15,delta0)), col = COLA[5], lwd = graphlinewidth)
-#points(delta0, y0, pch = 16, col = COLB[4], cex = 1.5)
-
-# the point (yR, deltaR), (yRprime, deltaRprime), Add segments
-segments(deltaR, 0, deltaR, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-segments(0, yR, deltaR + 1, yR, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-segments(0, yRprime, deltaR + 1, yRprime, lty = 2, col = COLB[2] , lwd = segmentlinewidth)
-segments(0,0, deltaR, yRprime, lty = 2, col = COLB[2], lwd = segmentlinewidth)
-points(deltaR, yR, pch = 16, col = COLB[4], cex = 1.5)
-points(deltaRprime, yRprime, pch = 16, col = COLB[4], cex = 1.5)
+#Label points
+points(deltaR, yR, pch = 16, col = "black", cex = 1.5)
+points(deltaRprime, yRprime, pch = 16, col = "black", cex = 1.5)
 # the point (yT, deltaT)
-points(deltaT, yT, pch = 16, col = COLB[4], cex = 1.5)
+#points(deltaT, yT, pch = 16, col = "black", cex = 1.5)
+
+#points(0, y0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+#text(0.1, y0 + 0.2, expression(paste(z)), cex = labelsize)
 
 #Label 5 points on line
 
-text(1.6, 3, expression(paste(u[0])), cex = labelsize)
-text(1.6, 5.8, expression(paste(u[1])), cex = labelsize)
-text(1.6, 8, expression(paste(u[2])), cex = labelsize)
+text(1.6, 1.2, expression(paste(u[0])), cex = labelsize)
+text(1.6, 5.2, expression(paste(u[1])), cex = labelsize)
+text(1.6, 7.8, expression(paste(u[2])), cex = labelsize)
+text(1.6, 9.8, expression(paste(u[3])), cex = labelsize)
 
-text(deltaR + 0.2, yR-0.5, expression(paste("R")), cex = labelsize)
-text(deltaR-0.2, yRprime+0.5, expression(paste("R'")), cex = labelsize)
-Arrows(deltaR + 0.5, yR + 0.3, deltaR + 0.5, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
-text(deltaR + 0.8, (yR + yRprime)/2 + 1, expression(paste("Tax")), cex = labelsize)
-text(deltaT, yT - 0.5, expression(R^T), cex = labelsize)
+text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
+text(deltaR-0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
 
+#Arrow for cost
+Arrows(deltaR + 0.2, yR + 0.3, deltaR + 0.2, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+text(deltaR + 0.55, (yR + yRprime)/2 + 0.5, expression(paste("Cost")), cex = labelsize)
 
 dev.off()

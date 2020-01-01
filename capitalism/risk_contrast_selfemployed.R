@@ -107,8 +107,8 @@ text(9.75, 5, expression(paste("Wage from work, ", w,"*")), cex = labelsize)
 text(14, riskreturn(g = 14) - 1, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
 
 #Label value functions
-text(11.2, 17, expression(u[1]^B), cex = labelsize)
-text(13.2, 17, expression(u[2]^B), cex = labelsize)
+text(11.2, 17, expression(u[2]^B), cex = labelsize)
+text(13.2, 17, expression(u[1]^B), cex = labelsize)
 text(9.6, 17, expression(u[1]^A), cex = labelsize)
 text(8.2, 17, expression(u[2]^A), cex = labelsize)
 

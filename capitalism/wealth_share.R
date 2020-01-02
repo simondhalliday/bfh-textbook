@@ -38,17 +38,17 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
         legend.title=element_blank(), 
         axis.title.y = element_text(size = 12, vjust = 1),
         legend.text=element_text(size=11),
-        axis.text.x = element_text(size = 12, angle = 90),
-        axis.text.y = element_text(size = 12),  
+        axis.text.x = element_text(size = 11, angle = 90, color = "black"),
+        axis.text.y = element_text(size = 11, color = "black"),  
         axis.title.x = element_text(size = 12, vjust = -1)) 
 
 
 print(wealth_share_plot)
 
 #Save plot to PDF
-ggsave(p1, filename = "wealth_share_top_1%.pdf", 
-       path = "employment",
-       width = 7, height = 7, units = "in")
+ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf", 
+       path = "capitalism",
+       width = 9, height = 7, units = "in")
 
 
 dev.off()

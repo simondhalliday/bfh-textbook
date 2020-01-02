@@ -36,11 +36,11 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
   theme_bw() + 
   theme(legend.position="right", 
         legend.title=element_blank(), 
-        axis.title.y = element_text(size = 12, vjust = 1),
+        axis.title.y = element_text(size = 12.5, vjust = 1),
         legend.text=element_text(size=11),
         axis.text.x = element_text(size = 11, angle = 90, color = "black"),
         axis.text.y = element_text(size = 11, color = "black"),  
-        axis.title.x = element_text(size = 12, vjust = -1)) 
+        axis.title.x = element_text(size = 12.5, vjust = -1)) 
 
 
 print(wealth_share_plot)

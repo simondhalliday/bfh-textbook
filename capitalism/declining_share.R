@@ -46,7 +46,7 @@ declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_sha
 print(declining_share_plot)
 
 #Save plot to PDF
-ggsave(wealth_share_plot, filename = "income_share_top_1percent.pdf",
+ggsave(declining_share_plot, filename = "declining_share_top_1percent.pdf",
        path = "capitalism",
        width = 9, height = 7, units = "in")
 

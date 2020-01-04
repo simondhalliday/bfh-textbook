@@ -46,7 +46,7 @@ income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decima
 print(income_share_plot)
 
 #Save plot to PDF
-ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf",
+ggsave(wealth_share_plot, filename = "income_share_top_1percent.pdf",
        path = "capitalism",
        width = 9, height = 7, units = "in")
 

@@ -20,7 +20,7 @@ u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) +
   #scale_fill_manual(guide = "legend") + #This is so I can supress the legend
   ylab("% of workers covered by collective bargaining") + 
   theme_bw() +
-  theme(axis.title = element_text(size = 16),
+  theme(axis.title = element_text(size = 14),
         axis.text.y = element_text(size = 12),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 14),

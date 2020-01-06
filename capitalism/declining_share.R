@@ -10,7 +10,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824", "#f0027f")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081", "#9e9ac8","#f0027f")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-
+COLD <- c("#DA3030","#6a51a3","#F7DE04", "#4eb3d3","#386cb0","#41ae76","#4eb3d3","#41ae76","#6a51a3", "#DA3030")
 #Cleaning the wealth share data. Source: CORE
 declining_share_gathered <- declining_share %>% 
   gather(Country, declining_share, c("Denmark", "France", "Germany", "Italy", "Japan", "Netherlands", "Sweden") )
@@ -40,7 +40,8 @@ declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_sha
         legend.text=element_text(size=11),
         axis.text.x = element_text(size = 11, angle = 90, color = "black"),
         axis.text.y = element_text(size = 11, color = "black"),
-        axis.title.x = element_text(size = 12.5, vjust = -1))
+        axis.title.x = element_text(size = 12.5, vjust = -1)) +  
+  scale_color_manual(values = COLD)
 
 
 print(declining_share_plot)

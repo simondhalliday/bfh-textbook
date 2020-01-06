@@ -31,6 +31,9 @@ wealth_share3 <- wealth_share2 %>%
 #Plotting the data 
 wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group = Country, color = Country)) +
   geom_line() + 
+  geom_point(aes(shape = Country)) + 
+  geom_jitter() + 
+ # geom_line(aes(linetype = Country), size = 0.7) + #if we differentiate the lines without color
   ylab("Wealth Share of the Top 1%") + 
   scale_y_continuous(breaks = seq(0, 0.7, by = 0.1), labels = scales::percent_format(accuracy = 1), limits = c(0,0.7)) +
   scale_x_continuous(breaks = seq(1740, 2010, by = 20)) +

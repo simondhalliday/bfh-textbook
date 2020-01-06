@@ -41,8 +41,8 @@ key = list(type = c("l"),
 obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l", ylab = "Gini", col = c("#0868ac"),key = list(type = c("l"),
                                                                                                       text = list(label = c("Gini", "Markup")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
                                                                                                       space = "right"))
-obj2 <- xyplot(markup ~ year, markup_data, type = "l", ylab = "Markup Ratio", xlab = "Year", col = c("#FF801D"))
-plot1 <- doubleYScale(obj2, obj1,add.ylab2 = TRUE)
+obj2 <- xyplot(markup ~ year, markup_data, par.settings = simpleTheme(col = 1), type = "l", ylab = "Markup Ratio", xlab = "Year", col = c("#FF801D"))
+plot1 <- doubleYScale(obj2, obj1, add.ylab2 = TRUE, add.ylab)
 print(plot1)
 
 

@@ -10,7 +10,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824", "#f0027f")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081", "#9e9ac8","#f0027f")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#6a51a3","#F48318","#beaed4","#386cb0","#6a51a3", "#DA3030")
+COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318","#FA328A", "#DA3030")
 
 #Cleaning the wealth share data. Source: CORE
 income_share_gathered <- income_share %>% 
@@ -38,9 +38,9 @@ income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decima
   theme(legend.position="right",
         legend.title=element_blank(),
         axis.title.y = element_text(size = 12.5, vjust = 1),
-        legend.text=element_text(size=11),
-        axis.text.x = element_text(size = 11, angle = 90, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black"),
+        legend.text=element_text(size=12.5),
+        axis.text.x = element_text(size = 12.5, angle = 90, color = "black"),
+        axis.text.y = element_text(size = 12.5, color = "black"),
         axis.title.x = element_text(size = 12.5, vjust = -1)) + 
   scale_color_manual(values = COLD)
 
@@ -48,7 +48,7 @@ income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decima
 print(income_share_plot)
 
 #Save plot to PDF
-ggsave(wealth_share_plot, filename = "income_share_top_1percent.pdf",
+ggsave(income_share_plot, filename = "income_share_top_1percent.pdf",
        path = "capitalism",
        width = 9, height = 7, units = "in")
 

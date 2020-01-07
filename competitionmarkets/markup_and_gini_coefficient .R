@@ -15,6 +15,8 @@ gini_data <- read_excel("competitionmarkets/Gini Index Data/US_gini_index.xlsx")
 
 gini_data$`Gini Index` <- as.numeric(as.character(gini_data$`Gini Index`))
 
+markup_data1 <- markup_data[-c(53:61), ]
+
 # p <-  ggplot() +
 #   geom_line(data = markup_data, aes(x=year, y=markup, color = "markup"), na.rm = TRUE) +
 #   geom_line(data = gini_data, aes(x=Year, y= gini_index, color = "gini", group = 1), na.rm = TRUE) +
@@ -34,21 +36,21 @@ gini_data$`Gini Index` <- as.numeric(as.character(gini_data$`Gini Index`))
 # 
 # colors = c("#7fc97f", "#beaed4")
 # 
-# key = list(type = c("l"),
-#            text = list(label = c("Gini"), cex = 1.2), points = list(col= c("#0868ac"), pch = 1:5), column = 2,
-#            space = "top")
-# 
-# obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l", ylab = "Gini", par.settings = simpleTheme(col = 1),
-#                col = c("#0868ac"),key = list(type = c("l"),
-#                                                                                                       text = list(label = c("Gini", "Markup")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
-#                                                                                                       space = "right"))
-# obj2 <- xyplot(markup ~ year, markup_data, type = "l", ylab = "Markup Ratio", xlab = "Year", col = c("#FF801D"))
-# plot1 <- doubleYScale(obj2, obj1, add.ylab2 = TRUE)
-# print(plot1)
+key = list(type = c("l"),
+           text = list(label = c("Gini"), cex = 1.2), points = list(col= c("#0868ac"), pch = 1:5), column = 2,
+           space = "top")
+
+obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l", ylab = "Gini", par.settings = simpleTheme(col = 1),
+               col = c("#0868ac"),key = list(type = c("l"),
+                                                                                                      text = list(label = c("Gini", "Markup")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
+                                                                                                      space = "right"))
+obj2 <- xyplot(markup ~ year, markup_data, type = "l", ylab = "Markup Ratio", xlab = "Year", col = c("#FF801D"))
+plot1 <- doubleYScale(obj2, obj1, add.ylab2 = TRUE)
+print(plot1)
 
 
 
-obj1 <- xyplot(markup ~ year, data = markup_data,
+obj1 <- xyplot(markup ~ year, data = markup_data1,
                xlab=list("Year", fontsize = 12.5),
                ylab = list("Markup Ratio", fontsize = 12.5),
                ylab.right = list("Gini Coefficient", fontsize = 12.5),
@@ -61,12 +63,14 @@ obj1 <- xyplot(markup ~ year, data = markup_data,
                key = list(type = c("l","l"),
                           lty = c(1,2),
                           text = list(label = c("Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
-                          space = "right"))
+                          x = 0.05, y = .9))
 
 obj2 <- xyplot(gini_index~Year,data = gini_data ,type = "l",col="#FF801D",
                lty=2)
 
 doubleYScale(obj1, obj2)
+
+space = "right"
 
 
 

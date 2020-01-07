@@ -66,9 +66,9 @@ obj1 <- xyplot(markup ~ year, data = markup_data,
 obj2 <- xyplot(gini_index~Year,data = gini_data ,type = "l",col="#FF801D",
                lty=2)
 
-plot1 <- doubleYScale(obj1, obj2)
+doubleYScale(obj1, obj2)
 
-print(plot1)
+
 
 
 # ----

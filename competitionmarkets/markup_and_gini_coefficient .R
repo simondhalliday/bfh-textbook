@@ -70,7 +70,7 @@ obj2 <- xyplot(gini_index~Year,data = gini_data ,type = "l",col="#FF801D",
 
 doubleYScale(obj1, obj2)
 
-space = "right"
+#space = "right"
 
 
 

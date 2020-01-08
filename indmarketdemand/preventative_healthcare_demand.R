@@ -178,8 +178,11 @@ print(p3)
 # 
 # print(p)
 
+ggsave(p2, filename = "preventative_healthcare_demand.pdf", 
+       path = "indmarketdemand",
+       width = 9, height = 7, units = "in")
 
-pdf(file = "preventative_healthcare_demand.pdf", width = 9, height = 7)
 
 dev.off()
+
 

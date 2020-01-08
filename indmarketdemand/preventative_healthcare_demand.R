@@ -4,7 +4,7 @@ library(jpeg)
 library(scales)
 library(openxlsx)
 
-COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318","#41ae76","#6a51a3", "#DA3030", "#DA3030", "#DA3030", "#DA3030")
+COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318", "#6a51a3", "#FB6AAA")
 
 # #Using digitize to get data points 
 # cal = ReadAndCal("health-pricing-takeup.jpg")
@@ -84,6 +84,12 @@ data_final_1 <- read.xlsx('indmarketdemand/preventative_healthcare.xlsx')
 
 colnames(data_final_1)[3] <- "product"
 
+data_final_2 <- data_final_1 %>%
+  filter(!(product =='Vitamins (Guatemala 2009)')) %>%
+  filter(!(product == 'Vitamin (India 2009)')) %>%
+  filter(!(product == 'Soap (Uganda 2009)')) %>%
+  filter(!(product =='Clorin (Zambia 2006)'))
+
 p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   geom_point() +
   geom_line() + 
@@ -100,7 +106,7 @@ p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
 
 print(p1)
 
-p2 <- ggplot(data_final_1, aes(x=x, y=y, group=product, color=product)) +
+p2 <- ggplot(data_final_2, aes(x=x, y=y, group=product, color=product)) +
   geom_point() + 
   geom_line() + 
   xlab("Price in USD") +
@@ -113,7 +119,12 @@ p2 <- ggplot(data_final_1, aes(x=x, y=y, group=product, color=product)) +
   labs(color='Healthcare Products')+
   theme(legend.title = element_blank()) +
   coord_flip() +
-  scale_color_manual(values = COLD)
+  scale_color_manual(values = COLD) + 
+  theme(axis.title = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        legend.text = element_text(size = 11),
+        axis.text.x  = element_text(size = 12, angle = 45, vjust = 0.5)
+  )
 
 print(p2)
 

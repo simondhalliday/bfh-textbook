@@ -4,81 +4,85 @@ library(jpeg)
 library(scales)
 library(openxlsx)
 
-#Using digitize to get data points 
-cal = ReadAndCal("health-pricing-takeup.jpg")
+COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318","#41ae76","#6a51a3", "#DA3030", "#DA3030", "#DA3030", "#DA3030")
 
-#Kenya bednets data 
-data.points = DigitData(col = 'red')
-df_kenya_bednets_pwomen = Calibrate(data.points, cal, 0.3, 5.9, 0.01, 1 )
+# #Using digitize to get data points 
+# cal = ReadAndCal("health-pricing-takeup.jpg")
+# 
+# #Kenya bednets data 
+# data.points = DigitData(col = 'red')
+# df_kenya_bednets_pwomen = Calibrate(data.points, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #Soap in Uganda data 
+# data.points1 = DigitData(col = 'red')
+# df_soap_uganda = Calibrate(data.points1, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #Deworming in keyna 
+# data.points2 = DigitData(col = 'red')
+# df_deworming_kenya = Calibrate(data.points2, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #water filters Ghana
+# data.points3 = DigitData(col = 'red')
+# df_water_filters_ghana = Calibrate(data.points3, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #Clorin in Kenya
+# data.points4 = DigitData(col = 'red')
+# df_clorin_kenya = Calibrate(data.points4, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #Vitamins India
+# data.points5 = DigitData(col = 'red')
+# df_vita_india = Calibrate(data.points5, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #bednets Kenya 
+# data.points6 = DigitData(col = 'red')
+# df_bednets_kenya = Calibrate(data.points6, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #cement latrine slabs Tanzania 
+# data.points7 = DigitData(col = 'red')
+# df_latrine_tanzania = Calibrate(data.points7, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #vitamins Uganda 
+# data.points8 = DigitData(col = 'red')
+# df_vita_uganda = Calibrate(data.points8, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #plastic latrine slabs Tanzania 
+# data.points9 = DigitData(col = 'red')
+# df_latrice_tanzania_plastic = Calibrate(data.points9, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #soap guatemala
+# data.points10 = DigitData(col = 'red')
+# df_soap_guat = Calibrate(data.points10, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #clorin Zambia 
+# data.points11 = DigitData(col = 'red')
+# df_clorin_zambia = Calibrate(data.points11, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# #vitamins Guatemala
+# data.points12 = DigitData(col = 'red')
+# df_vita_guat = Calibrate(data.points12, cal, 0.3, 5.9, 0.01, 1 )
+# 
+# df_clorin_kenya$group <- "$0.4 clorin (Kenya 2004)"
+# df_deworming_kenya$group <- "$2 deworming (Kenya 2001)"
+# df_kenya_bednets_pwomen$group <- "$7 bednets (Kenya 2007, pregnant women)"
+# df_soap_uganda$group <- "$2 soap (Uganda 2009)"
+# df_water_filters_ghana$group <- "$15 water filters (Ghana 2009)"
+# df_vita_india$group <- "$1 vitamin (India 2009)"
+# df_bednets_kenya$group <- "$7 bednets (Kenya 2007)"
+# df_latrine_tanzania$group <- "$5 cement latrine slabs (Tanzania 2015)"
+# df_vita_uganda$group <- "$2 vitamins (Uganda 2009)"
+# df_latrice_tanzania_plastic$group <- "$15 plastic latrine slab (Tanzania 2015)"
+# df_soap_guat$group <- "$2 soap (Guatemala 2009) "
+# df_clorin_zambia$group <- "$0.26 clorin (Zambia 2006)"
+# df_vita_guat$group <- "$2 vitamins (Guatemala 2009)"
+# 
+# data_final <- rbind(df_clorin_kenya, df_deworming_kenya, df_kenya_bednets_pwomen, df_soap_uganda, df_water_filters_ghana, df_vita_india, df_bednets_kenya, df_latrine_tanzania, df_vita_uganda, df_latrice_tanzania_plastic, df_soap_guat, df_clorin_zambia, df_vita_guat)
+# data_final$group <- factor(data_final$group)
+# 
+# write.xlsx(data_final, 'preventative_healthcare.xlsx')
 
-#Soap in Uganda data 
-data.points1 = DigitData(col = 'red')
-df_soap_uganda = Calibrate(data.points1, cal, 0.3, 5.9, 0.01, 1 )
+data_final_1 <- read.xlsx('indmarketdemand/preventative_healthcare.xlsx')
 
-#Deworming in keyna 
-data.points2 = DigitData(col = 'red')
-df_deworming_kenya = Calibrate(data.points2, cal, 0.3, 5.9, 0.01, 1 )
-
-#water filters Ghana
-data.points3 = DigitData(col = 'red')
-df_water_filters_ghana = Calibrate(data.points3, cal, 0.3, 5.9, 0.01, 1 )
-
-#Clorin in Kenya
-data.points4 = DigitData(col = 'red')
-df_clorin_kenya = Calibrate(data.points4, cal, 0.3, 5.9, 0.01, 1 )
-
-#Vitamins India
-data.points5 = DigitData(col = 'red')
-df_vita_india = Calibrate(data.points5, cal, 0.3, 5.9, 0.01, 1 )
-
-#bednets Kenya 
-data.points6 = DigitData(col = 'red')
-df_bednets_kenya = Calibrate(data.points6, cal, 0.3, 5.9, 0.01, 1 )
-
-#cement latrine slabs Tanzania 
-data.points7 = DigitData(col = 'red')
-df_latrine_tanzania = Calibrate(data.points7, cal, 0.3, 5.9, 0.01, 1 )
-
-#vitamins Uganda 
-data.points8 = DigitData(col = 'red')
-df_vita_uganda = Calibrate(data.points8, cal, 0.3, 5.9, 0.01, 1 )
-
-#plastic latrine slabs Tanzania 
-data.points9 = DigitData(col = 'red')
-df_latrice_tanzania_plastic = Calibrate(data.points9, cal, 0.3, 5.9, 0.01, 1 )
-
-#soap guatemala
-data.points10 = DigitData(col = 'red')
-df_soap_guat = Calibrate(data.points10, cal, 0.3, 5.9, 0.01, 1 )
-
-#clorin Zambia 
-data.points11 = DigitData(col = 'red')
-df_clorin_zambia = Calibrate(data.points11, cal, 0.3, 5.9, 0.01, 1 )
-
-#vitamins Guatemala
-data.points12 = DigitData(col = 'red')
-df_vita_guat = Calibrate(data.points12, cal, 0.3, 5.9, 0.01, 1 )
-
-df_clorin_kenya$group <- "$0.4 clorin (Kenya 2004)"
-df_deworming_kenya$group <- "$2 deworming (Kenya 2001)"
-df_kenya_bednets_pwomen$group <- "$7 bednets (Kenya 2007, pregnant women)"
-df_soap_uganda$group <- "$2 soap (Uganda 2009)"
-df_water_filters_ghana$group <- "$15 water filters (Ghana 2009)"
-df_vita_india$group <- "$1 vitamin (India 2009)"
-df_bednets_kenya$group <- "$7 bednets (Kenya 2007)"
-df_latrine_tanzania$group <- "$5 cement latrine slabs (Tanzania 2015)"
-df_vita_uganda$group <- "$2 vitamins (Uganda 2009)"
-df_latrice_tanzania_plastic$group <- "$15 plastic latrine slab (Tanzania 2015)"
-df_soap_guat$group <- "$2 soap (Guatemala 2009) "
-df_clorin_zambia$group <- "$0.26 clorin (Zambia 2006)"
-df_vita_guat$group <- "$2 vitamins (Guatemala 2009)"
-
-data_final <- rbind(df_clorin_kenya, df_deworming_kenya, df_kenya_bednets_pwomen, df_soap_uganda, df_water_filters_ghana, df_vita_india, df_bednets_kenya, df_latrine_tanzania, df_vita_uganda, df_latrice_tanzania_plastic, df_soap_guat, df_clorin_zambia, df_vita_guat)
-data_final$group <- factor(data_final$group)
-
-write.xlsx(data_final, 'preventative_healthcare.xlsx')
-
-data_final_1 <- read.xlsx('preventative_healthcare.xlsx')
+colnames(data_final_1)[3] <- "product"
 
 p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   geom_point() +
@@ -96,9 +100,9 @@ p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
 
 print(p1)
 
-p2 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
+p2 <- ggplot(data_final_1, aes(x=x, y=y, group=product, color=product)) +
   geom_point() + 
-  geom_line() + 
+  geom_line(linetype = product) + 
   xlab("Price in USD") +
   ylab("Household Take-up Rate") +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
@@ -107,8 +111,9 @@ p2 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   theme(legend.position="right") +
   guides(colour=guide_legend(nrow=16)) +
   labs(color='Healthcare Products')+
-  theme(legend.title.align=0.5) +
-  coord_flip() 
+  theme(legend.title = element_blank()) +
+  coord_flip() +
+  scale_color_manual(values = COLD)
 
 print(p2)
 
@@ -134,7 +139,8 @@ p3 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
   theme(plot.title = element_text(hjust = 0.5),
-        legend.position = "none") +
+        legend.position = "none",
+        legend.title = element_blank()) +
   coord_flip() 
 
 print(p3)

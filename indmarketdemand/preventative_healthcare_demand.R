@@ -102,7 +102,7 @@ print(p1)
 
 p2 <- ggplot(data_final_1, aes(x=x, y=y, group=product, color=product)) +
   geom_point() + 
-  geom_line(linetype = product) + 
+  geom_line() + 
   xlab("Price in USD") +
   ylab("Household Take-up Rate") +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 

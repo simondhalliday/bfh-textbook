@@ -62,7 +62,7 @@ obj1 <- xyplot(markup ~ year, data = markup_data1,
                                   cex=1,axs="r")),
                key = list(type = c("l","l"),
                           lty = c(1,2),
-                          text = list(label = c("Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
+                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
                           x = 0.05, y = .9))
 
 obj2 <- xyplot(gini_index~Year,data = gini_data ,type = "l",col="#FF801D",

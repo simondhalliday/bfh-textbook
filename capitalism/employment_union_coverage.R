@@ -1,6 +1,7 @@
 require(ggplot2)
 require(ggrepel)
 require(dplyr)
+library(countrycode)
 
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 
@@ -9,9 +10,13 @@ UnionCoverage <- read.csv("employment/union_coverage.csv")
 UnionCoverage <- 
   UnionCoverage %>% 
   arrange(Coverage)
+UnionCoverage$Country <- countrycode(UnionCoverage$Country, "iso3c", "country.name")
 
 UnionCoverage$Country <- 
   factor(UnionCoverage$Country, levels = UnionCoverage$Country[order(UnionCoverage$Coverage)])
+
+
+
 u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) + 
   geom_bar(stat = "identity", 
               aes(fill = Coverage), 

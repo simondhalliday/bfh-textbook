@@ -59,10 +59,10 @@ wage_prod_plot <-
       color = 1
     )
   ) 
+
 #wage_prod_plot + 
   #annotate("rect", xmin=c(1900, 12.9), xmax=c(1950, 14), ymin=c(-100, -100) , ymax=c(850,850), alpha=0.2,fill="gray")
   #annotate("text", x = 1960, y = 600, label = "Golden Age")
-
 
 wage_prod_plot <- 
   wage_prod_plot + 

@@ -4,6 +4,7 @@
 
 library(shape)
 pdf(file = "mathappendix/function_and_deriv_1.pdf", width = 8, height = 6)
+par(mar=c(4,6,0.75,0.75))
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -15,7 +16,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-xlims <- c(0, 5)
+xlims <- c(0, 4)
 ylims <- c(0, 12)
 
 npts <- 501 
@@ -33,10 +34,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
 )
 
-ticksx <- c(xlims[1], xlims[2])
-xlabels <- c(NA, NA)
-ticksy <- c(ylims[1], ylims[2])
-ylabels <- c(0, NA)
+ticksx <- c(xlims[1], 3.189, xlims[2])
+xlabels <- c(NA, 3.189, NA)
+ticksy <- c(ylims[1], 5, ylims[2])
+ylabels <- c(0, 5, NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)

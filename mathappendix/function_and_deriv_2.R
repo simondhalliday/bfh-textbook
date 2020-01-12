@@ -4,6 +4,7 @@
 
 library(shape)
 pdf(file = "mathappendix/function_and_deriv_2.pdf", width = 8, height = 6)
+par(mar=c(4,6,0.75,0.75))
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -15,7 +16,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-xlims <- c(0, 5)
+xlims <- c(0, 4)
 ylims <- c(-10, 10)
 
 npts <- 501 
@@ -35,8 +36,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], xlims[2])
 xlabels <- c(NA, NA)
-ticksy <- c(ylims[1], 0, ylims[2])
-ylabels <- c(NA, 0, NA)
+ticksy <- c(ylims[1], 0, 8, ylims[2])
+ylabels <- c(NA, 0, 8, NA)
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -66,6 +67,6 @@ lines(xx1, eq(xx1), col = COLB[4], lwd = graphlinewidth)
 points(1.333, 0, pch = 16, col = "black", cex = 1.5)
 
 # label function
-text(3.5, 4, expression("y = " -6*x + 8),  xpd = TRUE, cex = labelsize)
+text(3, 4, expression("y = " -6*x + 8),  xpd = TRUE, cex = labelsize)
 
 dev.off()

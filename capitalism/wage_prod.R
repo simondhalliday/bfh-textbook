@@ -60,10 +60,13 @@ wage_prod_plot <-
       color = 1
     )
   ) 
+
 #wage_prod_plot + 
   #annotate("rect", xmin=c(1900, 12.9), xmax=c(1950, 14), ymin=c(-100, -100) , ymax=c(850,850), alpha=0.2,fill="gray")
   #annotate("text", x = 1960, y = 600, label = "Golden Age")
 
+<<<<<<< HEAD
+=======
 bracketsGrob <- function(...){
   l <- list(...)
   e <- new.env()
@@ -78,6 +81,7 @@ b1 <- bracketsGrob(0.01, 0.82, 0.445, 0.82, h=0.05, lwd=2, col="black")
 b2 <- bracketsGrob(0.449, .82, 0.99, .82, h=0.05,  lwd=2, col="black")
 
 
+>>>>>>> c51b59dcbca0bb26d2c5233d36262f386e141bc9
 wage_prod_plot <- 
   wage_prod_plot + 
   annotation_custom(b1)+ 

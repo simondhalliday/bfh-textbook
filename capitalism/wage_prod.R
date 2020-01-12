@@ -11,7 +11,7 @@ wage_prod <-
   Unit_17_data_file_for_charts[-c(1:12), -c(2:8, 10, 12:14)] %>%
   rename(productivity = `Combined manufacturing productivity series`, 
          real_wages = `For chart: Manufacturing real wages`,
-         year = Variable) %>% 
+         year = year(Variable)) %>% 
   gather(measure, index, 2:3)
 
 # colors 
@@ -59,6 +59,10 @@ wage_prod_plot <-
       color = 1
     )
   ) 
+#wage_prod_plot + 
+  #annotate("rect", xmin=c(1900, 12.9), xmax=c(1950, 14), ymin=c(-100, -100) , ymax=c(850,850), alpha=0.2,fill="gray")
+  #annotate("text", x = 1960, y = 600, label = "Golden Age")
+
 
 wage_prod_plot <- 
   wage_prod_plot + 

@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "gradient.pdf", width = 8, height = 6)
+pdf(file = "mathappendix/gradient.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

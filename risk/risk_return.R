@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksy <- c(0,  2, 5.6, 9, riskreturn(g = 5.6), riskreturn(g = 12) ,ylims[2])
 ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), expression(paste(c[3])), expression(paste(hat(y)[i])), expression(paste(hat(y) )), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[hat(y) ])), NA)
+xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[y])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)

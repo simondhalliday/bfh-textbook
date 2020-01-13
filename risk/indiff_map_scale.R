@@ -67,7 +67,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.8, 0.5*ylims[2], expression(paste("Expected Income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Asset Labels
 

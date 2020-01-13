@@ -32,9 +32,9 @@ declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_sha
   geom_line() +
   ylab("Declining Income Share of the Top 1%") +
   scale_y_continuous(breaks = seq(0, 0.3, by = 0.05), labels = scales::percent_format(accuracy = 1), limits = c(0,0.3)) +
-  scale_x_continuous(breaks = seq(1900, 2010, by = 5)) +
+  scale_x_continuous(breaks = seq(1900, 2010, by = 10)) +
   theme_bw() +
-  theme(legend.position="right",
+  theme(legend.position="top",
         legend.title=element_blank(),
         axis.title.y = element_text(size = 12.5, vjust = 1),
         legend.text=element_text(size=12.5),

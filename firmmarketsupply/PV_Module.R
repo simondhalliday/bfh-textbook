@@ -18,6 +18,7 @@ PV_mod <- read_excel("firmmarketsupply/PV_module _data.xlsx",
 
 PV <- reshape2::melt(as.data.frame(PV_mod), id="Year")
 
+#PV <- PV %>% separate(col = variable, into = c("variable", "country"), sep = ",")
 # ----
 # graph
 # ----
@@ -30,13 +31,12 @@ pv_plot <-  ggplot(data = PV, aes(x=Year, y=value, group=variable, color = varia
   ylim(NA, 50) +
   labs(color = "Price and Cost", x = "Year", y = "PV Cost and Price (2015 USD)") +
   theme_bw() +
-  theme(axis.text=element_text(size=14),
-        axis.title=element_text(size=15),
+  theme(axis.text=element_text(size=15),
+        axis.title=element_text(size=18),
         legend.position = c(0.85, 0.75),
-        text = element_text(size=14)) +
+        text = element_text(size=15)) +
   scale_color_d3(palette = "category20") 
 
-pv_plot
 # ----
 #Save plot to PDF
 # ----

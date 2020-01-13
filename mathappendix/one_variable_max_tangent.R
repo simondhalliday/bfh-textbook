@@ -4,7 +4,7 @@
 
 require(shape)
 library(tidyverse)
-
+pdf(file = "mathappendix/one_variable_fn_max_tangent.pdf", width = 8, height = 6)
 par(mar=c(4,6,0.75,0.75))
 
 #Set parameters for graphics
@@ -35,11 +35,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i"
 )
 
-ticksx <- c(xlims[1], 3.189, xlims[2])
-xlabels <- c(NA, 3.189, NA)
-ticksy <- c(ylims[1], 5, ylims[2])
-ylabels <- c(0, 5, NA)
-
+ticksx <- c(xlims[1], 1.333, 3.189, xlims[2])
+xlabels <- c(NA, 1.333, 3.189, NA)
+ticksy <- c(ylims[1], 5, 10.333, ylims[2])
+ylabels <- c(0, 5, 10.333, NA)
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
@@ -73,4 +72,6 @@ segments(0.7, 10.41, 2, 10.41, lty = 1, col = COLA[4], lwd = graphlinewidth)
 
 # points
 points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)
+
+dev.off()
 

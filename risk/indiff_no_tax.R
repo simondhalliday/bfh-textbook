@@ -84,7 +84,7 @@ lines(xx5, seg(x = xx5, m = 1.67995, b = 19.94), col = "dark grey", lty = 2, lwd
 
 # Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Average income, ", "y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Label the three indifference curves
 

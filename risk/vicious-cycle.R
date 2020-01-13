@@ -13,12 +13,12 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
                                         # define the text for both diagram
 text1  <- c("Heightened \nRisk Aversion",
-            "Limited Wealth",
+            "Limited Income",
             "Avoid Risky \nInvestments",
             "Lower Returns \non Investments"
             )
 text2 <- c("Less Risk Aversion \nor Risk Neutrality",
-           "Substantial Wealth",
+           "Substantial Income",
            "Invest in Riskier \nInvestments",
            "Higher Returns \non Investments"
            )

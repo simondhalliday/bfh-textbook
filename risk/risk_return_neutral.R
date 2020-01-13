@@ -23,8 +23,8 @@ riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
   int1 - (int2 - (coeff)*g)^2
 }
 
-uA <- function(omega, g, slope = 0.5){
-  omega + omega*g  - slope*g^2
+uA <- function(y, g, slope = 0.5){
+  y+ y*g  - slope*g^2
 }
 
 indiffA <- function(g, intercept = 3, slope = 0.125){
@@ -55,14 +55,14 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12), 17, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(c) == c[2],phantom() == bar(omega))), expression(paste(c[3])), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(c) == c[2],phantom() == hat(y))), expression(paste(c[3])), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[bar(omega) ])), NA)
+xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[y])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
-text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected wealth, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 

@@ -51,14 +51,14 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
 ticksy <- c(0,  2, 5.6, 9, riskreturn(g = 5.6), riskreturn(g = 12) ,ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), expression(paste(c[3])), expression(paste(omega[i])), expression(paste(bar(omega) )), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), expression(paste(c[3])), expression(paste(hat(y)[i])), expression(paste(hat(y) )), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[bar(omega) ])), NA)
+xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[y])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
-text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected wealth, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -90,7 +90,7 @@ text(9.5 + 0.25, riskreturn(g = 9.5) - 0.3, expression(b), cex = labelsize)
 
 
 #Label risk return schedule
-text(14, 12.7, expression(paste(omega == g(Delta))), cex = labelsize)
+text(14, 12.7, expression(paste(hat(y) == g(Delta))), cex = labelsize)
 
 #Label value functions
 text(10.6, 17, expression(u[1]), cex = labelsize)

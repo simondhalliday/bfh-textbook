@@ -79,7 +79,11 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
+<<<<<<< HEAD
 text(-0.1, 0.5*ylims[2], expression(paste("W's Expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+=======
+text(-0.1, 0.5*ylims[2], expression(paste("W's Expected Income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+>>>>>>> 2ff99091e7de34ef777063709a2472775832d60c
 text(0.5*xlims[2], -100, expression(paste("W's Risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -141,6 +145,10 @@ contour(x, y,
         add = TRUE) 
 
 text(0.5*xlims[2], -100, expression(paste("N's Risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
+<<<<<<< HEAD
+=======
+#mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
+>>>>>>> 2ff99091e7de34ef777063709a2472775832d60c
 text(-0.1, 0.5*ylims[2], expression(paste("N's Expected Income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:

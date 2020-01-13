@@ -53,7 +53,7 @@ xlabels <- c(NA, 12, 24, 36, 48, 56, NA)
 
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1)
-mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 5.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected payoff, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 axis.break(axis = 2, bgcol="white", breakcol="black",
@@ -122,7 +122,7 @@ text(9.5 + 0.25, riskreturn(g = 9.5) - 0.3, expression(b), cex = labelsize)
 
 
 #Label risk return schedule
-text(14, 12.7, expression(paste(omega == g(Delta))), cex = labelsize)
+text(14, 12.7, expression(paste(hat(y) == g(Delta))), cex = labelsize)
 
 #Label value functions
 text(26.5, 27, expression(u[3]^F), cex = labelsize)

@@ -90,7 +90,7 @@ ticksx <- c(0, 7, ylims[2])
 xlabels <- c(NA, expression(paste(Delta[d] == Delta[e])), NA)
 
 #Axis label
-text(-1, 0.5*ylims[2] - 0.1, expression(paste("Expected Income, ", y)), xpd = TRUE, cex = axislabelsize + 0.5, srt = 90) 
+text(-1, 0.5*ylims[2] - 0.1, expression(paste("Expected Income, ", hat(y))), xpd = TRUE, cex = axislabelsize + 0.5, srt = 90) 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)

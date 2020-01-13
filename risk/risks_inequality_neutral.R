@@ -60,7 +60,7 @@ xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), exp
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(11), avgwealth(20), 28, ylims[2])
-ylabels <- c(NA, expression(paste(omega[1])), expression(paste(omega[2] == bar(omega) )), expression(paste(omega[3])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[1])), expression(paste(hat(y)[2] == bar(y) )), expression(paste(hat(y)[3])), NA)
 #text(-1, avgwealth(8)+7, expression(paste(omega, ""[R],"'")), xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8)-7, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)
@@ -92,8 +92,8 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Inequality of Wealth, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3.8, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Inequality of Income, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+text(-3.8, 0.5*ylims[2], expression(paste("Average Income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -154,9 +154,9 @@ text(38, 28.8, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
-text(33, avgwealth(30)+1.5, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)+1.5, expression(paste("Average Income")), xpd = TRUE, cex = labelsize)
 text(33, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
-text(33, avgwealth(30)-1.5, expression(paste(omega == g(Delta) )), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)-1.5, expression(paste(hat(y) == g(Delta) )), xpd = TRUE, cex = labelsize)
 
 text(30, 31, expression(paste("Inequality-neutral")), xpd = TRUE, cex = labelsize)
 text(30, 29.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)

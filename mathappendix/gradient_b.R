@@ -88,8 +88,8 @@ brackets(24.5, 2.8, 9.5, 2.8, h = .4, ticks = 0.5, curvature = 0.5, type = 1, co
 # label function
 text(44, 6.5, expression(paste("y = ", sqrt(x))),  xpd = TRUE, cex = labelsize)
 
-text(17, 2, expression(paste(Delta, x[ae])),  xpd = TRUE, cex = labelsize)
-text(28, 4, expression(paste(Delta, y[ce])),  xpd = TRUE, cex = labelsize)
+text(17, 2, expression(paste(Delta, x[ad])),  xpd = TRUE, cex = labelsize)
+text(28, 4, expression(paste(Delta, y[bd])),  xpd = TRUE, cex = labelsize)
 
 text(9, 3.25, expression(paste(a)),  xpd = TRUE, cex = labelsize)
 text(25, 5.25, expression(paste(b)),  xpd = TRUE, cex = labelsize)

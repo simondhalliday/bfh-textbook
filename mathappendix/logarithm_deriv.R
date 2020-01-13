@@ -58,7 +58,7 @@ lines(xx1, 1/(xx1), col = COLB[4], lwd = graphlinewidth)
 #points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)
 
 # label function
-text(6.5, 1, expression({y[x] == frac(dy, dx)} == frac(1, x)),  xpd = TRUE, cex = labelsize)
+text(6.5, 1, expression({y[x] == frac(d*log(x), dx)} == frac(1, x)),  xpd = TRUE, cex = labelsize)
 
 
 

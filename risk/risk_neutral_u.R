@@ -1,4 +1,4 @@
-#Graph Designer(s): Simon Halliday & Riley Boeth '17
+#Graph Designer(s): Simon Halliday & Riley Boeth '17 & Scott Cohn
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -61,8 +61,8 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Wealth, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-9, 0.5*ylims[2], expression(paste("The utility of wealth, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
+text(-9, 0.5*ylims[2], expression(paste("Utility, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, LinearU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
@@ -86,7 +86,7 @@ points(36, 36, pch = 16, col = "black", cex = 1.5)
 #Label y-sub,x-sub,etc. on axes
 
 text(36, -.9, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
-text(20, -.9, expression(paste(y == y[0])),  xpd = TRUE,  cex = labelsize)
+text(20, -.9, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
 text(4, -.9, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
 
 

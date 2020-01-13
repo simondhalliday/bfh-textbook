@@ -74,7 +74,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 
 ticksy2 <- c(ylims[1], 2*ylims[2]/3,ylims[2])
-ylabels2 <- c(0, expression(paste(w[z]^W)), 1000)
+ylabels2 <- c(0, expression(paste(y[z]^W)), 1000)
 ticksx2 <- c(0, 0.55, 1)
 xlabels2 <- c(0, expression(paste(Delta[i]^W)), 1)
 
@@ -85,7 +85,7 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1)
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.12, 0.5*ylims[2], expression(paste("W's Expected wealth, ", omega^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.12, 0.5*ylims[2], expression(paste("W's Expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 text(0.5*xlims[2], -110, expression(paste("W's Risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -123,7 +123,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 
             indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3) + 90), 
             ylims[2]/3,ylims[2])
-ylabels <- c(0, expression(paste(w[z]^N - p(1-Delta[i]^N))), expression(paste(w[z]^N)), 1000)
+ylabels <- c(0, expression(paste(y[z]^N - p(1-Delta[i]^N))), expression(paste(y[z]^N)), 1000)
 ticksx <- c(0, 0.45, 1)
 xlabels <- c(0, expression(paste(Delta[i]^N)), 1)
 
@@ -157,7 +157,7 @@ contour(x, y,
 
 text(0.5*xlims[2], -150, expression(paste("N's Risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.12, 0.5*ylims[2], expression(paste("N's Expected Wealth,", omega^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.12, 0.5*ylims[2], expression(paste("N's Expected Income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
 arrows(-0.12, 740, -0.12, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)

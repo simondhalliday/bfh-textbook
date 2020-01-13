@@ -79,7 +79,7 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("W's Expected wealth, ", omega^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.1, 0.5*ylims[2], expression(paste("W's Expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 text(0.5*xlims[2], -100, expression(paste("W's Risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -111,13 +111,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- seq(from = ylims[1], to = ylims[2], by = 100)
-ylabels <- seq(from = ylims[1], to = ylims[2], by = 100)
+#ylabels <- seq(from = ylims[1], to = ylims[2], by = 100)
+ylabels <- c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 ticksx <- seq(from = 0, to = xlims[2], by = 0.2)
 xlabels <- seq(from = 0, to = xlims[2], by = 0.2)
 
 
-axis(side = 1, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 #Pareto-improving lens
 xpoly1 <- seq(from = xlims[1], 
@@ -130,8 +129,6 @@ polygon(x = c(xpoly1, rev(xpoly1)),
         col = COL[4], density = NULL, 
         border = NA)
 
-# lines(xx1, priceIns(xx1), col = "gray", 
-#       lwd = segmentlinewidth, lty = 2)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -144,8 +141,7 @@ contour(x, y,
         add = TRUE) 
 
 text(0.5*xlims[2], -100, expression(paste("N's Risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
-#mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("N's Expected Wealth,", omega^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.1, 0.5*ylims[2], expression(paste("N's Expected Income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
 arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -154,9 +150,6 @@ arrows(0.63, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)
-#lines(xx1, WalrasP(xx1, intercept = 11), col = "gray", lwd = segmentlinewidth)
-#lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
-#lines(xx1, WalrasP(xx1, intercept = 10.9, slope = 8.2/7), col = "purple", lwd = segmentlinewidth, lty = 1)
 
 contour(x, y, 
         outer(x, y, uB),
@@ -167,19 +160,6 @@ contour(x, y,
         add = TRUE
 ) 
 
-# segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
-# segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-# segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-
-#Label the PEC
-# text(8, 8.8, expression("Pareto Efficient Curve"))
-# Arrows(6.8, 8.8, 5.2, 8.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label the walrasian P
-# text(4, 9.6, expression(paste("Price line")))
-# text(4, 9.2, expression(slope == -p[n] ))
-# Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# 
 
 #Label indiffs for N
 text(0.85, 220, expression(u[1]^N))
@@ -204,14 +184,6 @@ points(0.7, indiffA(0.7), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(0.7, indiffA(0.7) - 20, expression(c))
 
 
-# points(0.45, indiffA(x = 0.45, 
-#                      utility = uA(x = 1, y = ylims[2]/3) + 90), 
-#        pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-# text(0.45, indiffA(x = 0.45, 
-#                    utility = uA(x = 1, y = ylims[2]/3) + 90) - 20, 
-#      expression(a))
-
-
 #Label point f. 
 points(4, -3.75, pch = 16, col = "black", cex = 1.5)
 text(3.9, -3.5, expression(paste(f)))
@@ -223,25 +195,8 @@ text(0.5, 170, expression(paste("lens")))
 points(4, -8.25, pch = 16, col = "black", cex = 1.5)
 text(4.1, -8.75, expression(paste(g)))
 
-#Initial Allocations
-# segments(8.48, 0, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-# segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-# 
-# points(x = 8.48, y = 0.92, pch = 16, col = "black", cex = 1.5)
-# text(8.3, 0.8, expression(paste(e)))
-
-#Braces for labels
-# brackets(x1 = 8.5, y1 = -0.3, x2 = 5, y2 = -0.3,  
-#          ticks = 0.5, curvature = 0.5, type = 1, 
-#          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-# text(6.6, -1, expression(paste("Quantity of the good, x")), xpd = TRUE)
-# text(6.6, -1.4, expression(paste("A sells to B")), xpd = TRUE)
-# 
-# brackets(x1 = 10.2, y1 = 4.4, x2 = 10.2, y2 = 0.9,  
-#          ticks = 0.5, curvature = 0.5, type = 1, 
-#          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-# text(11.2, 2.6, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270)
-# text(10.9, 2.6, expression(paste("B pays A")), xpd = TRUE, srt = 270)
+axis(side = 1, at = ticksx, pos = 0, labels = xlabels)
+axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 
 

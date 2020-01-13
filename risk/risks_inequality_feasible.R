@@ -1,4 +1,4 @@
-#Graph Designer: Simon Halliday & Riley Boeth '17
+#Graph Designer: Simon Halliday & Riley Boeth '17 + Scott Cohn
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -26,7 +26,7 @@ indiffA <- function(x, ua=2) {
   ua + (1/12)*(x)^2
 }
 
-#Average wealth function 
+#Average income function 
 
 avgwealth <- function(x,y){
   (1.08)*((-1/35)*(((-((.9)*x-36))^2))+36.8+((-1/10)*(x-4)+(-1/1000)*((x-3)^3)))
@@ -60,7 +60,7 @@ xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), exp
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(12), avgwealth(20), avgwealth(25), ylims[2])
-ylabels <- c(NA, expression(paste(omega^P)), expression(paste(bar(omega) )), expression(paste(omega^R)), NA)
+ylabels <- c(NA, expression(paste(y^P)), expression(paste(bar(y) )), expression(paste(y^R)), NA)
 #text(-1, avgwealth(8)+7, expression(paste(omega, ""[R],"'")), xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8), expression(paste(omega, ""[e],"'")),  xpd = TRUE, cex = labelsize)
 #text(-1, avgwealth(8)-7, expression(paste(omega, ""[P],"'")),  xpd = TRUE, cex = labelsize)
@@ -92,8 +92,8 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Inequality of Wealth, ", Delta , " (difference between rich and poor)")), side = 1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Inequality of Income, ", Delta , " (difference between rich and poor)")), side = 1, line = 2.5, cex = axislabelsize)
+text(-4, 0.5*ylims[2], expression(paste("Expected Income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -132,9 +132,9 @@ text(12, avgwealth(12) + 0.75, expression(paste(P)), cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
-text(33, avgwealth(30)+1, expression(paste("Average Wealth")), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)+1, expression(paste("Expected Income")), xpd = TRUE, cex = labelsize)
 text(33, avgwealth(30), expression(paste("Function")), xpd = TRUE, cex = labelsize)
-text(33, avgwealth(30)-1, expression(paste(omega == g(Delta) )), xpd = TRUE, cex = labelsize)
+text(33, avgwealth(30)-1, expression(paste(hat(y) == g(Delta) )), xpd = TRUE, cex = labelsize)
 
 # text(25, 38, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 # text(25, 36.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)

@@ -54,14 +54,14 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.5), ylims[2])
-ylabels <- c(NA, expression(paste(omega^n)), expression(paste(omega[i]^{c2})), expression(paste(omega[i]^{c1})), NA)
+ylabels <- c(NA, expression(paste(hat(y)^n)), expression(paste(hat(y)[i]^{c2})), expression(paste(hat(y)[i]^{c1})), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[i]^{c2})), expression(paste(Delta^n)), expression(paste(Delta[i]^{c1})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 mtext(expression(paste("Degree of risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
-text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected wealth, ", omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 

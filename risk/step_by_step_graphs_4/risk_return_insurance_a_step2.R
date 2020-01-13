@@ -4,7 +4,7 @@
 
 require(shape)
 library(pBrackets)
-pdf(file = "risk/step_by_step_graphs_4/risk_return_insurance_a_step2.pdf", width = 9, height = 7)
+pdf(file = "risk/step_by_step_graphs_4/risk_return_insurance_ab.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -68,10 +68,10 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, riskreturn(xx1, int1 = 14, int2 = 4, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
 
-#lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 2)
+lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 2)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 7.75, slope = 0.115), col = COLB[4], lwd = graphlinewidth, lty = 2)
-#lines(xx1, indiffA(xx1, intercept = 10.35, slope = 0.1), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA(xx1, intercept = 10.35, slope = 0.1), col = COLB[4], lwd = graphlinewidth, lty = 1)
 
 
 
@@ -84,31 +84,31 @@ text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(n), cex = labelsize)
 
 
 
-#brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1, 
-#         x2 = 10.7, y2 = insurance(1.8),  
-#         ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
-#         col = "black", lwd = 1, lty = 1, xpd = TRUE)
-#text(11.7, 12.1, expression(paste(p%.%i == phantom())), xpd = TRUE, cex = labelsize)
-#text(13, 12.3, expression(paste("insurance")), xpd = TRUE, cex = labelsize)
-#text(13, 11.7, expression(paste("premium")), xpd = TRUE, cex = labelsize)
+brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1,
+        x2 = 10.7, y2 = insurance(1.8),
+        ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
+        col = "black", lwd = 1, lty = 1, xpd = TRUE)
+text(11.7, 12.1, expression(paste(p%.%i == phantom())), xpd = TRUE, cex = labelsize)
+text(13, 12.3, expression(paste("insurance")), xpd = TRUE, cex = labelsize)
+text(13, 11.7, expression(paste("premium")), xpd = TRUE, cex = labelsize)
 
-#Arrows(5.8, 3, 10.2, 3, 
-#       col = "black", lty = 2, lwd = 2, arr.type = "triangle", 
-#       arr.lwd = 0.5, code = 2)
-#text(8.05, 4, expression(paste("Increased risk-taking")), xpd = TRUE)
-#text(8.05, 3.5, expression(paste("due to insurance")), xpd = TRUE)
-
-
-#Arrows(10.4, 2, 2, 2, 
-#       col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
-#       arr.lwd = 0.5, code = 2)
-#text(3.75, 1.55, expression(paste("Decreased")), xpd = TRUE)
-#text(3.75, 1, expression(paste("risk exposure")), xpd = TRUE)
-#text(3.75, 0.5, expression(paste("due to insurance, i")), xpd = TRUE)
+Arrows(5.8, 3, 10.2, 3,
+      col = "black", lty = 2, lwd = 2, arr.type = "triangle",
+      arr.lwd = 0.5, code = 2)
+text(8.05, 4, expression(paste("Increased risk-taking")), xpd = TRUE)
+text(8.05, 3.5, expression(paste("due to insurance")), xpd = TRUE)
 
 
-#text(14, 16.2, expression(paste("insurance")), xpd = TRUE)
-#text(14, 15.6, expression(paste("contract")), xpd = TRUE)
+Arrows(10.4, 2, 2, 2,
+      col = "black", lty = 1, lwd = 2, arr.type = "triangle",
+      arr.lwd = 0.5, code = 2)
+text(3.75, 1.55, expression(paste("Decreased")), xpd = TRUE)
+text(3.75, 1, expression(paste("risk exposure")), xpd = TRUE)
+text(3.75, 0.5, expression(paste("due to insurance, i")), xpd = TRUE)
+
+
+text(14, 16.2, expression(paste("insurance")), xpd = TRUE)
+text(14, 15.6, expression(paste("contract")), xpd = TRUE)
 
 
 #Label risk return schedule
@@ -121,17 +121,17 @@ text(9.9, 17, expression(u[1]), cex = labelsize)
 
 
 #Frame for comment
-#segments(1.4, 17.7, 4.6, 17.7, lty = 1, col = "black", lwd = segmentlinewidth)
-#segments(1.4, 17.7, 1.4, 14.5, lty = 1, col = "black", lwd = segmentlinewidth)
-#segments(4.6, 14.5, 4.6, 17.7, lty = 1, col = "black", lwd = segmentlinewidth)
-#segments(1.4, 14.5, 4.6, 14.5, lty = 1, col = "black", lwd = segmentlinewidth)
+segments(1.4, 17.7, 4.6, 17.7, lty = 1, col = "black", lwd = segmentlinewidth)
+segments(1.4, 17.7, 1.4, 14.5, lty = 1, col = "black", lwd = segmentlinewidth)
+segments(4.6, 14.5, 4.6, 17.7, lty = 1, col = "black", lwd = segmentlinewidth)
+segments(1.4, 14.5, 4.6, 14.5, lty = 1, col = "black", lwd = segmentlinewidth)
 
 
-#text(3, 17.3, expression(paste("Insurance increases")), xpd = TRUE)
-#text(3, 16.7, expression(paste("risk-taking,")), xpd = TRUE)
-#text(3, 16.1, expression(paste("reduces risk")), xpd = TRUE)
-#text(3, 15.5, expression(paste("exposure and ")), xpd = TRUE)
-#text(3, 14.9, expression(paste("maximizes utility ")), xpd = TRUE)
+text(3, 17.3, expression(paste("Insurance increases")), xpd = TRUE)
+text(3, 16.7, expression(paste("risk-taking,")), xpd = TRUE)
+text(3, 16.1, expression(paste("reduces risk")), xpd = TRUE)
+text(3, 15.5, expression(paste("exposure and ")), xpd = TRUE)
+text(3, 14.9, expression(paste("maximizes utility ")), xpd = TRUE)
 
 
 dev.off()

@@ -3,8 +3,9 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "mathappendix/gradient.pdf", width = 8, height = 6)
-
+library(pBrackets)
+pdf(file = "mathappendix/gradient_a.pdf", width = 8, height = 6)
+par(mar = c(3, 3, 0.75, 1))
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
@@ -36,9 +37,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksx <- c(xlims[1], 9, 16, 25, 36, xlims[2])
-xlabels <- c(NA, 9, 16, 25, 36, NA)
+xlabels <- c(NA, 9, 16, 25, 36, expression(x))
 ticksy <- c(ylims[1], 3, 4, 5, 6, ylims[2])
-ylabels <- c(NA, 3, 4, 5, 6, NA)
+ylabels <- c(NA, 3, 4, 5, 6, expression(y))
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -49,8 +50,8 @@ xx2 <-seq(xlims[1], xlims[2] - 4, length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Axis labels
-mtext(expression(paste("", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("", x)), side = 1, line = 2.5, cex = axislabelsize)
+#text(-4, 0.5*ylims[2], expression(paste("", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #equations:
@@ -62,24 +63,40 @@ sqrt <- function(x){
 lines(xx2, sqrt(xx2), col = COLB[4], lwd = graphlinewidth)
 
 # segments
-segments(16, 3, 16, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(9, 0, 9, 3, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(36, 0, 36, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 3, 36, 3, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(25, 3, 25, 5, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(36, 3, 36, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
-segments(9, 3, 36, 3, lty = 1, col = COL[2], lwd = graphlinewidth)
-
-segments(9, 3, 20.5, 4.642, lty = 1, col = COLA[3], lwd = segmentlinewidth)
 segments(9, 3, 25, 5, lty = 1, col = COLA[4], lwd = segmentlinewidth)
 segments(9, 3, 36, 6, lty = 1, col = COLA[5], lwd = segmentlinewidth)
 
 # points
 points(9, 3, pch = 16, col = "black", cex = 1.5)
-points(16, 4, pch = 16, col = "black", cex = 1.5)
 points(25, 5, pch = 16, col = "black", cex = 1.5)
 points(36, 6, pch = 16, col = "black", cex = 1.5)
+points(25, 3, pch = 16, col = "black", cex = 1.5)
+points(36, 3, pch = 16, col = "black", cex = 1.5)
+
+# brackets
+brackets(36.5, 5.9, 36.5, 3.1, h = NULL, ticks = 0.5, curvature = 0.5, type = 1, col = 1, lwd = 1, lty = 1, xpd = FALSE)
+#brackets(25.5, 4.9, 25.5, 3.1, h = NULL, ticks = 0.5, curvature = 0.5, type = 1, col = 1, lwd = 1, lty = 1, xpd = FALSE)
+brackets(35.5, 2.8, 9.5, 2.8, h = .4, ticks = 0.5, curvature = 0.5, type = 1, col = 1, lwd = 1, lty = 1, xpd = FALSE)
+#brackets(25.5, 4.9, 25.5, 3.1, h = NULL, ticks = 0.5, curvature = 0.5, type = 1, col = 1, lwd = 1, lty = 1, xpd = FALSE)
+
 
 # label function
 text(44, 6.5, expression(paste("y = ", sqrt(x))),  xpd = TRUE, cex = labelsize)
+
+text(22.5, 2.0, expression(paste(Delta, x[ae])),  xpd = TRUE, cex = labelsize)
+text(39, 4.5, expression(paste(Delta, y[ce])),  xpd = TRUE, cex = labelsize)
+
+text(9, 3.25, expression(paste(a)),  xpd = TRUE, cex = labelsize)
+text(25, 5.25, expression(paste(b)),  xpd = TRUE, cex = labelsize)
+text(36, 6.25, expression(paste(c)),  xpd = TRUE, cex = labelsize)
+text(24.5, 3.25, expression(paste(d)),  xpd = TRUE, cex = labelsize)
+text(35.5, 3.25, expression(paste(e)),  xpd = TRUE, cex = labelsize)
+
 
 dev.off()
 

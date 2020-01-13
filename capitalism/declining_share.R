@@ -44,7 +44,7 @@ declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_sha
   scale_color_manual(values = COLD)
 
 
-print(declining_share_plot)
+print(declining_share_plot) 
 
 #Save plot to PDF
 ggsave(declining_share_plot, filename = "declining_share_top_1percent.pdf",

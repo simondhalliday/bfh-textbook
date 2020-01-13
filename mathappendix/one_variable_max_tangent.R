@@ -1,9 +1,10 @@
-#Graph Designer: Scott Cohn
+#Graph Designer: Harriet Brookes-Gray
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-library(shape)
-pdf(file = "mathappendix/function_and_deriv_1.pdf", width = 8, height = 6)
+require(shape)
+library(tidyverse)
+pdf(file = "mathappendix/one_variable_fn_max_tangent.pdf", width = 8, height = 6)
 par(mar=c(4,6,0.75,0.75))
 
 #Set parameters for graphics
@@ -38,7 +39,6 @@ ticksx <- c(xlims[1], 1.333, 3.189, xlims[2])
 xlabels <- c(NA, 1.333, 3.189, NA)
 ticksy <- c(ylims[1], 5, 10.333, ylims[2])
 ylabels <- c(0, 5, 10.333, NA)
-
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
@@ -46,6 +46,7 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <-seq(xlims[1], xlims[2] - 4, length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
+xx4 <- seq(xlims[1], xlims[1], length.out = npts)
 
 #Axis labels
 mtext(expression(paste("", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -59,16 +60,18 @@ eq <- function(x){
 
 # segments
 segments(1.333, 0, 1.333, 10.333, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 10.333, 1.333, 10.333, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 # lines
 lines(xx1, eq(xx1), col = COLB[4], lwd = graphlinewidth)
 
-# points
-points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)
-
 # label function
 text(3.5, 5, expression("y = " -3*x^2 + 8*x + 5),  xpd = TRUE, cex = labelsize)
+
+#tangent line
+segments(0.7, 10.41, 2, 10.41, lty = 1, col = COLA[4], lwd = graphlinewidth)
+
+# points
+points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)
 
 dev.off()
 

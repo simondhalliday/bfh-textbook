@@ -68,7 +68,7 @@ lines(xx1, eq(xx1), col = COLB[4], lwd = graphlinewidth)
 text(3.5, 5, expression("y = " -3*x^2 + 8*x + 5),  xpd = TRUE, cex = labelsize)
 
 #tangent line
-segments(0.7, 10.41, 2, 10.41, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(0.7, 10.41, 2, 10.41, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 # points
 points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)

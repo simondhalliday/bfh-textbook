@@ -2,6 +2,7 @@
 library(ggplot2)
 library(readxl)
 library(reshape2)
+library(ggsci)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -16,6 +17,8 @@ PV_mod <- read_excel("firmmarketsupply/PV_module _data.xlsx",
                      range = "A1:L41")
 
 PV <- reshape2::melt(as.data.frame(PV_mod), id="Year")
+
+#PV <- PV %>% separate(col = variable, into = c("variable", "country"), sep = ",")
 # ----
 # graph
 # ----
@@ -27,16 +30,19 @@ pv_plot <-  ggplot(data = PV, aes(x=Year, y=value, group=variable, color = varia
   xlim(1978, NA) +
   ylim(NA, 50) +
   labs(color = "Price and Cost", x = "Year", y = "PV Cost and Price (2015 USD)") +
-  theme_classic() +
-  theme(axis.text=element_text(size=12),
-        axis.title=element_text(size=14,face="bold"))
-  
+  theme_bw() +
+  theme(axis.text=element_text(size=15),
+        axis.title=element_text(size=18),
+        legend.position = c(0.85, 0.75),
+        text = element_text(size=15)) +
+  scale_color_d3(palette = "category20") 
+
 # ----
 #Save plot to PDF
 # ----
 ggsave(pv_plot, filename = "PV_Module.pdf", 
        path = "firmmarketsupply",
-       width = 7, height = 7, units = "in")
+       width = 9, height = 7, units = "in")
 # ----
 
 

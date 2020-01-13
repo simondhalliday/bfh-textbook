@@ -2,7 +2,7 @@
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 library(shape)
-
+pdf(file = "mathappendix/park_vs_zoo.pdf", width = 10, height = 8)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1
@@ -55,8 +55,8 @@ ticksy2 <- seq(ylims[1], ylims[2], 1)
 ylabels2 <- seq(ylims[1], ylims[2], 1)
 xlabels1 <- c(0, expression(paste(p == frac(1,3))), 1)
 xlabels2 <- c(0, expression(paste(p == frac(2,3))), 1)
-ylabels1 <- c(0, expression(paste(p == 4.33), 1))
-ylabels2 <- c(0, expression(paste(p == 4.33), 1))
+#ylabels1 <- c(0, expression(paste(p == 4.33), 1))
+#ylabels2 <- c(0, expression(paste(p == 4.33), 1))
 
 #text(x = c(0, 12/27, 1/2, 1), par("usr")[3] - 0.2, labels = xlabels, srt = 45, pos = 1, xpd = TRUE)
 
@@ -64,7 +64,7 @@ axis(1, at = ticksx,  pos = 0, labels = FALSE)
 text(x = c(0, 0.66, 1), par("usr")[3] - 0.2, labels = xlabels2, pos = 1, xpd = TRUE)
 #text(x = c(0, 0.33, 1), par("usr")[3] - 0.2, labels = xlabels1, pos = 1, xpd = TRUE)
 axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1)
-axis(4, at = ticksy2, pos = xlims[2], labels = ylabels2,las=1)
+axis(4, at = ticksy2, pos = xlims[2], labels = ylabels2, las=1)
 #text(y = c(0, 4.33, 0, 6), par("usr")[3] - 0.2, labels = ylabels1, pos = 1, xpd = TRUE)
 
  
@@ -75,8 +75,8 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility functions
-text(xlims[2]*0.5, -1.2, expression(paste("p")), xpd = TRUE, cex = axislabelsize)
-text(-0.15, 3, expression(paste("Expected Utility, EU")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(xlims[2]*0.5, -0.75, expression(paste("Probability or population proportion, p")), xpd = TRUE, cex = axislabelsize)
+text(-0.08, 3, expression(paste("Expected Utility, EU")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 
 #text(41, ylims[2], expression(paste(4)), xpd = TRUE, cex = labelsize) 
@@ -93,14 +93,14 @@ segments(0, 2.66, 0.33, 2.66, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, 4, 0.666, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
-text(0.9, 6, expression(paste("EU(a)")), xpd = TRUE, cex = labelsize)
-text(0.9, 4.2, expression(paste("EU(z)")), xpd = TRUE, cex = labelsize)
+text(0.9, 5.8, expression(paste("EU(a)")), xpd = TRUE, cex = labelsize)
+text(0.9, 4.4, expression(paste("EU(z)")), xpd = TRUE, cex = labelsize)
 points(1/3, expected_dont(1/3), pch = 16, col = "black", cex = 1)
 points(2/3, expected_pay(2/3), pch = 16, col = "black", cex = 1)
 points(2/3, expected_dont(2/3), pch = 16, col = "black", cex = 1)
 points(1/3, expected_pay(1/3), pch = 16, col = "black", cex = 1)
 
 
-pdf(file = "mathappendix/park_vs_zoo.pdf", width = 10, height = 8)
+
 
 dev.off()

@@ -72,7 +72,7 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Average Wealth, ",omega)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.5*ylims[2], expression(paste("Expected Income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 

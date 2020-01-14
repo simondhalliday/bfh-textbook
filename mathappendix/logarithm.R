@@ -58,6 +58,6 @@ lines(xx1, log(xx1), col = COLB[4], lwd = graphlinewidth)
 #points(1.333, 10.333, pch = 16, col = "black", cex = 1.5)
 
 # label function
-text(7.5, 3, expression(paste("y = ", log(x))),  xpd = TRUE, cex = labelsize)
+text(7.5, 2.5, expression(paste("y = ", log(x))),  xpd = TRUE, cex = labelsize)
 
 dev.off()

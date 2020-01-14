@@ -67,6 +67,6 @@ lines(xx1, eq(xx1), col = COLB[4], lwd = graphlinewidth)
 points(1.333, 0, pch = 16, col = "black", cex = 1.5)
 
 # label function
-text(3, -5, expression("y = " -6*x + 8),  xpd = TRUE, cex = labelsize)
+text(3, -5, expression(paste({"y'" == frac(dy, dx)} == -6*x + 8)),  xpd = TRUE, cex = labelsize)
 
 dev.off()

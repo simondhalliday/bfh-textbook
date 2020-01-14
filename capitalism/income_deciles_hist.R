@@ -22,239 +22,88 @@ df$Percentile <- as.factor(df$Percentile)
 IneqNL <- df[-c(11:20), ]
   
 IneqNL1 <- IneqNL %>% 
-  mutate(Diff = `Market Income` - lag(`Market Income`)) %>%
-  mutate(Values = ifelse(is.na(Diff), `Market Income`, Diff))
+  mutate(DiffMI = `Market Income` - lag(`Market Income`)) %>%
+  mutate(ValuesMI = ifelse(is.na(DiffMI), `Market Income`, DiffMI)) %>%
+  mutate(DiffDI = `Disposable Income` - lag(`Disposable Income`)) %>%
+  mutate(ValuesDI = ifelse(is.na(DiffDI), `Disposable Income`, DiffDI)) %>%
+  gather(key = IncomeType, value = value, c(13,15))
   
+IneqNL1$IncomeType <- factor(IneqNL1$IncomeType, levels = c('ValuesMI', 'ValuesDI'))
 
-plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = Values)) + 
-  geom_bar(stat = "identity", position = "dodge",  fill = "#386cb0", color="#386cb0") + 
-  xlab("Percentile of Population") + 
+plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
+  geom_bar(stat = "identity", position = "dodge") + 
+  scale_fill_manual(values = c("#a50f15","#386cb0"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
+  xlab("Population Decile of the Netherlands") + 
   ylab("Share of Market Income") +
   theme_bw() + 
-  scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
-                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
+  ylim(0,0.4) + 
+  scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
+                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100")) + 
+  theme(legend.position = c(0.2, 0.85),
+        legend.title = element_text(size = 12),
+    axis.title.y = element_text(size = 12, vjust = 1),
+        legend.text=element_text(size=12),
+        axis.text.x = element_text(size = 11),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12, vjust = -1))
 
 plot1
 
-IneqNL2 <- IneqNL %>% 
-  mutate(Diff = `Disposable Income` - lag(`Disposable Income`)) %>%
-  mutate(Values = ifelse(is.na(Diff), `Disposable Income`, Diff))
+# IneqNL2 <- IneqNL %>% 
+#   mutate(Diff = `Disposable Income` - lag(`Disposable Income`)) %>%
+#   mutate(Values = ifelse(is.na(Diff), `Disposable Income`, Diff))
+# 
+# 
+# plot2 <- ggplot(IneqNL2, aes(x = Percentile, y = Values)) + 
+#   geom_bar(stat = "identity", position = "dodge", fill = "#386cb0", color="#386cb0") + 
+#   xlab("Population Decile") + 
+#   ylab("Share of Disposable Income") +
+#   theme_bw() + 
+#   scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
+#                             "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
+# 
+# 
+# plot2
+IneqUS <- df[-c(1:10), ]
 
 
-plot2 <- ggplot(IneqNL2, aes(x = Percentile, y = Values)) + 
-  geom_bar(stat = "identity", position = "dodge", fill = "#386cb0", color="#386cb0") + 
-  xlab("Percentile of Population") + 
-  ylab("Share of Disposable Income") +
+IneqUS1 <- IneqUS %>% 
+  mutate(DiffMI = `Market Income` - lag(`Market Income`)) %>%
+  mutate(ValuesMI = ifelse(is.na(DiffMI), `Market Income`, DiffMI)) %>%
+  mutate(DiffDI = `Disposable Income` - lag(`Disposable Income`)) %>%
+  mutate(ValuesDI = ifelse(is.na(DiffDI), `Disposable Income`, DiffDI)) %>%
+  gather(key = IncomeType, value = value, c(13,15))
+
+IneqUS1$IncomeType <- factor(IneqUS1$IncomeType, levels = c('ValuesMI', 'ValuesDI'))
+
+plot2 <- ggplot(IneqUS1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
+  geom_bar(stat = "identity", position = "dodge") + 
+  scale_fill_manual(values = c("#a50f15","#386cb0"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
+  xlab("Population Decile of the USA") + 
+  ylab("Share of Market Income") +
   theme_bw() + 
-  scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
-                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
-
+  ylim(0,0.4) + 
+  scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
+                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100")) + 
+  theme(legend.position = c(0.2, 0.85),
+        legend.title = element_text(size = 12),
+        axis.title.y = element_text(size = 12, vjust = 1),
+        legend.text=element_text(size=12),
+        axis.text.x = element_text(size = 11),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12, vjust = -1))
 
 plot2
 
-IneqUS <- df[-c(1:10), ]
 
-IneqUS1 <- IneqUS %>% 
-  mutate(Diff = `Market Income` - lag(`Market Income`)) %>%
-  mutate(Values = ifelse(is.na(Diff), `Market Income`, Diff)) 
+ggsave(plot1, filename = "income_decile_NL.pdf",
+       path = "capitalism",
+       width = 9, height = 7, units = "in")
 
-plot3 <- ggplot(IneqUS1, aes(x = Percentile, y = Values)) + 
-  geom_bar(stat = "identity", position = "dodge", fill = "#E00707", color="#E00707") + 
-  xlab("Percentile of Population") + 
-  ylab("Share of Market Income") +
-  theme_bw() + 
-  scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
-                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
+ggsave(plot2, filename = "income_decile_US.pdf",
+       path = "capitalism",
+       width = 9, height = 7, units = "in")
 
 
-plot3
-
-IneqUS2 <- IneqUS %>% 
-  mutate(Diff = `Disposable Income` - lag(`Disposable Income`)) %>%
-  mutate(Values = ifelse(is.na(Diff), `Disposable Income`, Diff)) 
-
-
-plot4 <- ggplot(IneqUS2, aes(x = Percentile, y = Values)) + 
-  geom_bar(stat = "identity", position = "dodge",  fill = "#E00707", color="#E00707") + 
-  xlab("Percentile of Population") + 
-  ylab("Share of Disposable Income") +
-  theme_bw() + 
-  scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
-                            "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
-
-
-
-plot4
-
-
-# IneqSel <- 
-#   Ineq %>%
-#   select(-c(`Market Income (100)`, `Disposable Income (100)`, tbeqhMarket, tbeqhdhi, `Cumulative population proportion__1`, CountryPerc)) %>%
-#   rename(cumprop = `Cumulative population proportion`, markety = `Market Income`, dispy = `Disposable Income`)
-#   
-# 
-# 
-# IneqNar <- 
-#   IneqSel %>% 
-#   gather(type, cumy, -CountryDate, -Percentile,-cumprop) %>%
-#   mutate(equality = Percentile/100)
-# 
-# 
-# 
-# IneqNar$type <- factor(IneqNar$type, 
-#                        levels = c("markety", "dispy"),
-#                        labels = c("Market income", "Disposable income"))
-# #IneqNar$type_f <- factor(IneqNar$type, levels = c("markety","dispy"))
-# 
-# Lorenz1 <- 
-#   IneqNar %>% 
-#   filter(CountryDate == "NL2010") %>%
-#   ggplot(aes(y = cumy, x = cumprop, group = type)) + 
-#   geom_line() + 
-#   facet_grid(. ~type, space = "free") +
-#   scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   #geom_line(aes(y = cumprop, y = cumprop)) +
-#   geom_abline(intercept = 0, slope = 1) +
-#   xlab("Cumulative population proportion") + 
-#   ylab("Cumulative income") +
-#   theme_bw() +
-#   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +
-#   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
-#   theme(panel.spacing.x = unit(1.5, "lines"))
-# Lorenz1
-# 
-# Lorenz2 <- 
-#   Lorenz1 + 
-#   geom_area(aes(y = cumprop), fill = COLB[1], colour = COLB[5]) +
-#   geom_area(aes(y = cumy), fill = COLA[1], colour = COLA[5]) +
-#   geom_text(data = data.frame(x = 0.25, y = 0.75, 
-#                               label=c("Gini = 0.25", "Gini = 0.47"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   geom_text(data = data.frame(x = 0.5, y = 0.4, 
-#                               label=c("A'", "A"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   geom_text(data = data.frame(x = 0.8, y = 0.2, 
-#                               label=c("B'", "B"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   theme(panel.grid.major = element_blank(), 
-#         panel.grid.minor = element_blank())
-# Lorenz2  
-# 
-# 
-# pdf(file = "risk/inequality_nl.pdf", width = 8, height = 4)
-# Lorenz2
-# dev.off()
-# 
-# 
-# LorenzUS <- 
-#   IneqNar %>% 
-#   filter(CountryDate == "US2013") %>%
-#   ggplot(aes(y = cumy, x = cumprop, group = type)) + 
-#   geom_line() + 
-#   facet_grid(. ~type, space = "free") +
-#   scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   #geom_line(aes(y = cumprop, y = cumprop)) +
-#   geom_abline(intercept = 0, slope = 1) +
-#   xlab("Cumulative population proportion") + 
-#   ylab("Cumulative income") +
-#   theme_bw() +
-#   labs(title = "Lorenz curves and Gini coefficients", subtitle = "United States (2013)") +
-#   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
-#   theme(panel.spacing.x = unit(1.5, "lines"))
-# 
-# LorenzUS1 <- 
-#   LorenzUS + 
-#   geom_area(aes(y = cumprop), fill = COLB[1], colour = COLB[5]) +
-#   geom_area(aes(y = cumy), fill = COLA[1], colour = COLA[5]) +
-#   geom_text(data = data.frame(x = 0.25, y = 0.75, 
-#                               label=c("Gini = 0.39", "Gini = 0.52"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   geom_text(data = data.frame(x = 0.5, y = 0.4, 
-#                               label=c("A'", "A"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   geom_text(data = data.frame(x = 0.8, y = 0.2, 
-#                               label=c("B'", "B"), 
-#                               type=c("Disposable income","Market income")), 
-#             aes(x, y, label = label), inherit.aes = FALSE) +
-#   theme(panel.grid.major = element_blank(), 
-#         panel.grid.minor = element_blank())
-# LorenzUS1  
-# pdf(file = "risk/inequality_us.pdf", width = 8, height = 4)
-# LorenzUS1
-# dev.off()
-# 
-# LorenzComp <- 
-#   IneqNar %>% 
-#   filter(type == "Disposable income") %>%
-#   ggplot(aes(y = cumy, x = cumprop, group = CountryDate)) + 
-#   geom_line(aes(color = CountryDate, linetype = CountryDate)) + 
-#   scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   scale_color_manual(name = "Country", 
-#                      breaks = c("NL2010", "US2013"), 
-#                      labels = c("Netherlands", "United States"), 
-#                      values = c(COLA[5], COLA[6])) +
-#   scale_linetype_manual(name = "Country", 
-#                      breaks = c("NL2010", "US2013"), 
-#                      labels = c("Netherlands", "United States"), 
-#                      values = c("solid", "dashed")) +
-#   geom_abline(intercept = 0, slope = 1, color = COLB[5]) +
-#   xlab("Cumulative population proportion") + 
-#   ylab("Cumulative income") +
-#   theme_bw() +
-#   annotate("text", x = 0.2, y = 0.8, label = "NL Gini = 0.25") + 
-#   annotate("text", x = 0.2, y = 0.7, label = "US Gini = 0.38") +
-#   labs(title = "Lorenz curves and Gini coefficients of disposable income", 
-#        subtitle = "United States (2013) & The Netherlands (2010)") +
-#   theme(panel.grid.major = element_blank(), 
-#         panel.grid.minor = element_blank())
-# LorenzComp 
-# 
-# 
-# pdf(file = "risk/inequality_comp.pdf", width = 6, height = 4)
-# LorenzComp
-# dev.off()
-# 
-# 
-# ineqUSdy <- 
-#   IneqNar %>% 
-#   filter(CountryDate == "US2013" & type == "Disposable income")
-#   
-# 
-# 
-# Ginis <- read_excel("risk/ginis_comparison.xlsx")
-# 
-# GiniNar <- 
-#   Ginis %>% 
-#   gather(type, gini, -Year, -Country) 
-# 
-# GiniNar$Country <- factor(GiniNar$Country, levels(order(GiniNar$gini)))
-#   
-# 
-# 
-# Giniplot <- 
-#   GiniNar %>%
-#   ggplot(aes(y = gini, x = reorder(Country, gini), fill = type)) + 
-#   geom_bar(stat = "identity", position = "identity") + 
-#   scale_fill_brewer( type = "qual", palette = "Accent", 
-#                      breaks = c ("DisposableGini", "MarketGini"),
-#                      labels = c ("Disposable income", 
-#                                  "Market income"), 
-#                      name = "Income type") +
-#   ylab("Gini coefficient (various years, 1992-2013") +
-#   xlab("Country") +
-#   theme_bw() + 
-#   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-# Giniplot
-# 
-# pdf(file = "risk/gini_comparisons.pdf", width = 8, height = 6)
-# Giniplot
-# dev.off()
+dev.off()
 

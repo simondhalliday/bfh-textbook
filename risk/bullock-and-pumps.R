@@ -70,7 +70,7 @@ xx1 <- seq(xlims[1], xlims[2]-1, length.out = npts)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Risk, ",Delta)),
-     ylab = expression(paste("Expected Income, ", y)),
+     ylab = expression(paste("Expected Income, ", hat(y))),
      xaxt = "n",
      yaxt = "n",
      cex.lab = axislabelsize,
@@ -110,10 +110,10 @@ Arrows(3.7, (yA + yBprime) / 2, 4.6, (yA + yBprime) / 2 ,
        col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
                                         # the four points
-points(deltaB, yB, pch = 16, col = COLB[4], cex = 1.5)
-points(deltaB, yBprime, pch = 16, col = COLB[4], cex = 1.5)
-points(deltaA, yA, pch = 16, col = COLB[4], cex = 1.5)
-points(deltaA, yAprime, pch = 16, col = COLB[4], cex = 1.5)
+points(deltaB, yB, pch = 16, col = "black", cex = 1.5)
+points(deltaB, yBprime, pch = 16, col = "black", cex = 1.5)
+points(deltaA, yA, pch = 16, col = "black", cex = 1.5)
+points(deltaA, yAprime, pch = 16, col = "black", cex = 1.5)
 
 #Label 4 points
 text(deltaA-0.2, yA-0.5, expression(paste("a")), cex = labelsize)

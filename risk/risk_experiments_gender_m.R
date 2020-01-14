@@ -20,7 +20,9 @@ par(mar =  c(5, 5, 1, 1))
 xlims <- c(0, 60)
 ylims <- c(15, 28)
 
-
+riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
+  int1 - (int2 - (coeff)*g)^2
+}
 indiffA <- function(g, intercept = 3, slope = 0.125){
   intercept  + slope*g^2
 }
@@ -53,7 +55,7 @@ xlabels <- c(NA, 12, 24, 36, 48, 56, NA)
 
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1)
-mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 5.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected payoff, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 axis.break(axis = 2, bgcol="white", breakcol="black",

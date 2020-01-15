@@ -48,22 +48,24 @@ fit4.predict <- function(x) exp(fit4$coefficients[1])*x^(fit4$coefficients[2])
 
 #Plot
 
-fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time))+
-  geom_point(aes( y = ManHours),size = 1.5, color = COLB[4])+
-  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray")+
-  labs(x = "Output", y = "Cost (Hours)") +
-  theme(axis.title = element_text(size = 20),
-        axis.text = element_text(size = 20)) +
-  theme_bw()
-  
-fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time))+
-  labs(x = "Cumulative output in all previous months", y = "Cost (Hours)")+
-  stat_function(fun = fit4.predict, color = COLA[4])+
-  geom_point(aes( y = ManHours),size = 1.5, color = COLB[4])+
+fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time)) +
+  geom_point(aes( y = ManHours),size = 1.5, color = COLB[4]) +
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
-  theme(axis.title = element_text(size = 20),
-        axis.text = element_text(size = 20)) +
-  theme_bw()
+  labs(x = "Output", y = "Cost (Hours)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 14)) 
+  
+  
+fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time)) +
+  labs(x = "Cumulative output in all previous months", y = "Cost (Hours)") +
+  stat_function(fun = fit4.predict, color = COLA[4]) +
+  geom_point(aes( y = ManHours), size = 1.5, color = COLB[4]) +
+  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 14)) 
+  
   #geom_line(aes(x= CumulativeProduct, y = exp(predict(lm(log(ManHours)~ log(CumulativeProduct),data = m20gbk)))))
 # Estimate
 # save the figure

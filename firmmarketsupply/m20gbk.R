@@ -2,10 +2,14 @@ library(tidyverse)
 library(jtools)
 library(huxtable)
 library(ggrepel)
-setwd("/home/weikaichen/Documents/Code/")
+#setwd("/home/weikaichen/Documents/Code/")
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+
 
 # read the data
-m20gbk <- read.csv("M20GBK-man-hours.csv")
+m20gbk <- read.csv("firmmarketsupply/data/M20GBK-man-hours.csv")
 
 #rename the variables
 names(m20gbk) <-c("Time","TotalProduct","ManHours")
@@ -45,20 +49,26 @@ fit4.predict <- function(x) exp(fit4$coefficients[1])*x^(fit4$coefficients[2])
 #Plot
 
 fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time))+
-  geom_point(aes( y = ManHours),size = 1.5, color = "maroon3")+
-  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "wheat4", segment.alpha = 0.5, segment.color = "wheat3")+
-  labs(x = "Output", y = "Cost (Hours)")
+  geom_point(aes( y = ManHours),size = 1.5, color = COLB[4])+
+  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray")+
+  labs(x = "Output", y = "Cost (Hours)") +
+  theme(axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16)) +
+  theme_bw()
   
 fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time))+
   labs(x = "Cumulative output in all previous months", y = "Cost (Hours)")+
-  stat_function(fun = fit4.predict, color = "blue")+
-  geom_point(aes( y = ManHours),size = 1.5, color = "maroon3")+
-  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "wheat4", segment.alpha = 0.5, segment.color = "wheat3")
+  stat_function(fun = fit4.predict, color = COLA[4])+
+  geom_point(aes( y = ManHours),size = 1.5, color = COLB[4])+
+  geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
+  theme(axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16)) +
+  theme_bw()
   #geom_line(aes(x= CumulativeProduct, y = exp(predict(lm(log(ManHours)~ log(CumulativeProduct),data = m20gbk)))))
 # Estimate
 # save the figure
-ggsave(plot =fig1, "fig1.pdf", width = 8, height = 6, units = "in")
-ggsave(plot =fig2, "fig2.pdf", width = 8, height = 6, units = "in")
+ggsave(plot =fig1, "m20gbk_1.pdf", width = 8, height = 6, units = "in")
+ggsave(plot =fig2, "m20gbk_2.pdf", width = 8, height = 6, units = "in")
 ggsave(plot = ggplotRegression(fit1), "Monthly.pdf", width = 8, height = 6, units = "in")
 ggsave(plot = ggplotRegression(fit2), "Cumulative.pdf", width = 8, height = 6, units = "in")
 

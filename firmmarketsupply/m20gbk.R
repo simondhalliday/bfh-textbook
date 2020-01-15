@@ -67,8 +67,8 @@ fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = T
   #geom_line(aes(x= CumulativeProduct, y = exp(predict(lm(log(ManHours)~ log(CumulativeProduct),data = m20gbk)))))
 # Estimate
 # save the figure
-ggsave(plot =fig1, "m20gbk_1.pdf", width = 8, height = 6, units = "in")
-ggsave(plot =fig2, "m20gbk_2.pdf", width = 8, height = 6, units = "in")
+ggsave(plot =fig1, "firmmarketsupply/m20gbk_1.pdf", width = 8, height = 6, units = "in")
+ggsave(plot =fig2, "firmmarketsupply/m20gbk_2.pdf", width = 8, height = 6, units = "in")
 ggsave(plot = ggplotRegression(fit1), "Monthly.pdf", width = 8, height = 6, units = "in")
 ggsave(plot = ggplotRegression(fit2), "Cumulative.pdf", width = 8, height = 6, units = "in")
 

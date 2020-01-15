@@ -18,13 +18,13 @@ u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) +
               fill = COLA[4],
               show.legend = FALSE) + 
   #scale_fill_manual(guide = "legend") + #This is so I can supress the legend
-  ylab("% of workers covered by collective bargaining") + 
+  ylab("Percentage of workers covered by collective bargaining, %") + 
   theme_bw() +
-  theme(axis.title = element_text(size = 14),
-        axis.text.y = element_text(size = 12),
+  theme(axis.title = element_text(size = 20),
+        axis.text.y = element_text(size = 13),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 14),
-        axis.text.x  = element_text(angle = 45, vjust = 0.5, size = 12 )
+        axis.text.x  = element_text(angle = 45, vjust = 0.5, size = 13 )
         ) + 
   coord_flip()
 

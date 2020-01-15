@@ -39,16 +39,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 4, 10, ylims[2])
 ylabels <- c(NA, expression(paste(P[0])),  expression(paste(P[t])), NA)
 ticksx <- c(0, 1.25, 2, 5, xlims[2])
-xlabels <- c(NA, expression(paste(x[Bt])), expression(paste(x[Bt]^{direct})), expression(paste(x[B0])), NA)
+xlabels <- c(NA, expression(paste(x[At])), expression(paste(x[At]^{direct})), expression(paste(x[A0])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
-text(0.5*xlims[2], -2.5, expression(paste("B's smoking")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -2.5, expression(paste("A's smoking")), xpd = TRUE, cex = axislabelsize) 
 text(-.6, 0.5*ylims[2], expression(paste("Benefits and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(0.75, 11.5, expression(paste(u[B],"(",x[B],",",x[At],")")), xpd = TRUE, cex = labelsize) 
-text(2.1, 11.5, expression(paste(u[B],"(",x[B],",",x[A0],")")), xpd = TRUE, cex = labelsize) 
+text(0.75, 11.5, expression(paste(u[A],"(",x[A],",",x[Bt],")")), xpd = TRUE, cex = labelsize) 
+text(2.1, 11.5, expression(paste(u[A],"(",x[A],",",x[B0],")")), xpd = TRUE, cex = labelsize) 
 
 
 npts <- 500 

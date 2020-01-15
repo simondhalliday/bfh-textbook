@@ -93,7 +93,7 @@ points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 
 #Arrow to Slope of BRF
 Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
-text(5, 0.8, expression(paste("Slope = MRS = ", -frac(1, u[q]))))
-text(5.4, 0.73, expression(paste(" = ", frac(underline("u"), (1-q)^2))))
+text(5, 0.8, expression(paste("Slope = -mrs = ", -frac(1, u[q]))))
+text(5.4, 0.73, expression(paste(" = ", frac((1-q)^2,  underline("u")))))
 dev.off()
 

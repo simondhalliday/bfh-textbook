@@ -130,7 +130,7 @@ text(15, 0.85, expression(paste("point a.")))
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = MRS ")))
+text(32.3, 0.15, expression(paste(" = -mrs ")))
 text(32, 0.08, expression(paste(" = " -frac(v[p], v[q]))))
 
 

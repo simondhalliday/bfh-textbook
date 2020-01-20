@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "public_mechanism/landlord_rc.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/landlord_rc_simon.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

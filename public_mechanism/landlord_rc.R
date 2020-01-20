@@ -136,22 +136,29 @@ text(100, 5.5, expression(paste("Rent control price")), cex = labelsize)
 
 
 # Arrows
-Arrows(48.817, 13, 40, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(38, 6.5, 38, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(48.817, 13, 40, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(38, 6.5, 38, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Labels
-text(10.5, 5.5, expression(paste("Landlord's")), xpd = TRUE, cex = labelsize)
-text(10.5, 4.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(10.5, 11.25, expression(paste("Renter's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 10.25, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(50, 13.5, expression(paste("Renter's Surplus Lost")), xpd = TRUE, cex = labelsize) 
-text(38, 5.5, expression(paste("Landlord")), xpd = TRUE, cex = labelsize) 
-text(38, 4.5, expression(paste("Surplus Lost")), xpd = TRUE, cex = labelsize) 
+# text(10.5, 5.5, expression(paste("Landlord's")), xpd = TRUE, cex = labelsize)
+# text(10.5, 4.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
+# text(10.5, 11.25, expression(paste("Renter's")), xpd = TRUE, cex = labelsize) 
+# text(10.5, 10.25, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
+# text(50, 13.5, expression(paste("Renter's Surplus Lost")), xpd = TRUE, cex = labelsize) 
+# text(38, 5.5, expression(paste("Landlord")), xpd = TRUE, cex = labelsize) 
+# text(38, 4.5, expression(paste("Surplus Lost")), xpd = TRUE, cex = labelsize) 
+# 
+# text(10.5, 9.25, expression(paste("Was LL's")), xpd = TRUE, cex = labelsize) 
+# text(10.5, 8.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
+# text(11, 7.5, expression(paste("Now Renter's")), xpd = TRUE, cex = labelsize) 
+# text(10.5, 6.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
 
-text(10.5, 9.25, expression(paste("Was LL's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 8.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(11, 7.5, expression(paste("Now Renter's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 6.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
+text(10.5, 11, expression(paste("A")), xpd = TRUE, cex = labelsize)
+text(10.5, 4.5, expression(paste("B")), xpd = TRUE, cex = labelsize)
+text(10.5, 7.75, expression(paste("C")), xpd = TRUE, cex = labelsize)
+text(35, 11, expression(paste("D")), xpd = TRUE, cex = labelsize)
+text(35, 8.5, expression(paste("E")), xpd = TRUE, cex = labelsize)
+
 
 #text(100, 10.25, expression("Price, Before"), cex = labelsize)
 #text(100, 5.5, expression(paste("Rent Control Price")), cex = labelsize)

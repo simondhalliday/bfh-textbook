@@ -1,5 +1,4 @@
 #based on 
-#http://r.789695.n4.nabble.com/Indifference-curve-td4634746.html
 #Graphics 
 require(shape)
 pdf(file = "property/property_hg_hgb.pdf", width = 9, height = 7)
@@ -146,7 +145,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1)
 text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 

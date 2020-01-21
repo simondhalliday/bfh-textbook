@@ -169,7 +169,7 @@ Arrows(5.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Set up second axes and labels
 

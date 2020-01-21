@@ -95,8 +95,8 @@ points(1, 14, pch = 16, col = "black", cex = 1.5)
 text(1.7, 14, expression(z == (list(x[z]^B, y[z]^B))))
 
 
-text(-0.5, -1.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
-#text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.5, -1.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+#text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Arrow to Slope of BRF
 #Arrows(14.2, 0.12, 12.2, 0.12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

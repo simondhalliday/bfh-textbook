@@ -104,7 +104,7 @@ text(5, 7.1, expression(paste(i)))
 
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 par(new = TRUE)
 

@@ -95,7 +95,7 @@ yy2 <- indiffcurveA2(xx1)
 #I need something like xx1 with npts for 
 xpoly1 <- seq(from = 1.34, to = 8, length.out = 500)
 ypoly1 <- indiffcurveA2(xpoly1, U = 4, A = 1, a = 0.5)
-ypoly2 <- indiffcurveBneg(xpoly1, U = 5.09, A = 1, a = 0.5)
+ypoly2 <- uBneg(xpoly1, U = 5.09, A = 1, a = 0.5)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
 
@@ -182,7 +182,7 @@ uB <- function(xB, yB, alpha = 0.5){
 b <- c(uB(1,14) - 1, uB(1,14), uB(1,14) + 1,  uB(1,14) + 2.9)
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 contour(x, y, 
         outer(x, y, uB),

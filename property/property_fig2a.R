@@ -90,7 +90,7 @@ arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Set up second axes and labels

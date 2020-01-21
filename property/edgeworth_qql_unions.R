@@ -172,7 +172,7 @@ text(2, 130, expression(u[2]^B))
 
 
 text(-0.5, -40, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(16.4, 440, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(16.4, 440, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 par(new = TRUE)

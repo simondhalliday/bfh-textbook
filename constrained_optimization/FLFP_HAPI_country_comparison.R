@@ -83,7 +83,7 @@ plot1 <- data_final_1 %>% ggplot(aes(x = x, y = y, group = group)) +
 print(plot1)
 
 #Save plot to PDF
-ggsave(plot1, filename = "FLFP_relative_price_home_appliances.pdf", 
+ggsave(plot1, filename = "FLFP_HAPI_countries.pdf", 
        path = "constrained_optimization",
        width = 7, height = 7, units = "in")
 

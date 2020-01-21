@@ -61,9 +61,9 @@ axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
-xx3 <- seq(1, 5, length.out = npts)
-xx4 <- seq(5, 11, length.out = npts)
-xx5 <- seq(7, 13, length.out = npts)
+xx3 <- seq(0.5, 6, length.out = npts)
+xx4 <- seq(4, 12, length.out = npts)
+xx5 <- seq(6, 12, length.out = npts)
 
 
 # Shade above and below tax line
@@ -78,9 +78,9 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 lines(xx1, indiffA(xx1, ua = 3, slope = 1/3), col = COLA[4], lty = 1, lwd = graphlinewidth)
 
-lines(xx3, seg(x = xx3, m = 0.4714, b = 4.3), col = "dark grey", lty = 2, lwd = segmentlinewidth)
-lines(xx4, seg(x = xx4, m = 1.21106, b = 11.79), col = "dark grey", lty = 2, lwd = segmentlinewidth)
-lines(xx5, seg(x = xx5, m = 1.67995, b = 19.94), col = "dark grey", lty = 2, lwd = segmentlinewidth)
+lines(xx3, seg(x = xx3, m = 0.4714, b = 4.3), col = "darkgrey", lty = 2, lwd = segmentlinewidth)
+lines(xx4, seg(x = xx4, m = 1.21106, b = 11.79), col = "darkgrey", lty = 2, lwd = segmentlinewidth)
+lines(xx5, seg(x = xx5, m = 1.67995, b = 19.94), col = "darkgrey", lty = 2, lwd = segmentlinewidth)
 
 # Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
@@ -114,7 +114,7 @@ text(7.5, indiffA(16)+0.5, expression(paste("Curve")), xpd = TRUE, cex = labelsi
 
 # Segments
 
-segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "dark gray", lwd = segmentlinewidth)
+segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 #text(xlims[2] - 1, 3, expression(paste(Delta)), xpd = TRUE, cex = labelsize)
 
 # Points

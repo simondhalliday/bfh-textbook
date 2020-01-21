@@ -66,7 +66,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  2, 10.35, riskreturn(g = 5.2), riskreturn(g = retmax), ylims[2])
-ylabels <- c(NA, expression(paste(c[1] == R[1])), expression(paste(c[2] == R[2])), expression(paste(R[a])), expression(paste(c[3] == R[m])), NA)
+ylabels <- c(NA, expression(paste(c[1] == hat(y)[1])), expression(paste(c[2] == hat(y)[2])), expression(paste(hat(y)[a])), expression(paste(c[3] == hat(y)[m])), NA)
 ticksx <- c(0, 5.2, retmax, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
@@ -80,9 +80,9 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Notice, I use the earlier calculated intercept here for the polygon
 xx3 <- seq(xlims[1], int1, length.out = npts)
-polygon(x = c(xx3, rev(xx3)), 
-        y = c(riskreturn(xx3), indiffA(rev(xx3))), 
-        col = COLA[1], density=NULL, border = NA)
+# polygon(x = c(xx3, rev(xx3)), 
+#         y = c(riskreturn(xx3), indiffA(rev(xx3))), 
+#         col = COLA[1], density=NULL, border = NA)
 
 lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1), col = COLB[4], lwd = graphlinewidth, lty = 1)
@@ -97,7 +97,7 @@ text(5.2 + 0.25, riskreturn(g = 5.2) - 0.3, expression(a), cex = labelsize)
 
 
 #Risk neutral segment line
-segments(0, riskreturn(retmax), xlims[2], riskreturn(g = retmax) , lty = 2, col = COLB[4], lwd = graphlinewidth)
+#segments(0, riskreturn(retmax), xlims[2], riskreturn(g = retmax) , lty = 2, col = COLB[4], lwd = graphlinewidth)
 
 segments(retmax, 0, retmax, riskreturn(g = retmax) , lty = 2, col = "gray", lwd = segmentlinewidth)
 points(retmax, riskreturn(g = retmax), pch = 16, col = "black", cex = 1.5)
@@ -135,19 +135,19 @@ text(retmax + 0.25, riskreturn(g = retmax) - 0.5, expression(m), cex = labelsize
 # text(3.75, 0.5, expression(paste("due to insurance")), xpd = TRUE)
 # 
 # 
-text(14, 19.6, expression(paste("Risk-neutral")), xpd = TRUE, cex = labelsize)
-text(14, 18.7, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize)
+# text(14, 19.6, expression(paste("Risk-neutral")), xpd = TRUE, cex = labelsize)
+# text(14, 18.7, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize)
 # 
 # 
 # #Label risk return schedule
-text(14, 14.2, expression(paste(R(Delta))), cex = labelsize)
+text(14, 14.2, expression(paste(y(Delta))), cex = labelsize)
 text(14, 13.4, expression(paste("Risk-return")), cex = labelsize)
 text(14, 12.6, expression(paste("schedule")), cex = labelsize)
 # 
 # #Label value functions
 text(9.8, 19.5, expression(u[1]), cex = labelsize)
 text(7.4, 19.5, expression(u[2]), cex = labelsize)
-text(14, 17.5, expression(u[3]), cex = labelsize)
+# text(14, 17.5, expression(u[3]), cex = labelsize)
 
 
 text(6, 22.7, expression(paste("Risk-averse")), xpd = TRUE, cex = labelsize) 

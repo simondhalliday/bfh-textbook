@@ -77,7 +77,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 
 text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Set up second axes and labels
@@ -139,7 +139,7 @@ Arrows(5.25, 7.875, 9, 13.5, lty = 1, lwd = 2, arr.type = "triangle",  col = COL
 Arrows(4.75, 7.125, 1, 1.5, lty = 1, lwd = 2, arr.type = "triangle",  col = COLA[3])
 
 text(7.7, 9, expression(paste("Better")), cex = labelsize)
-text(7.7, 10, expression(paste("for Bongani")), cex = labelsize)
+text(7.7, 10, expression(paste("for Biko")), cex = labelsize)
 text(2.5, 5, expression(paste("Better")), cex = labelsize)
 text(2.5, 6, expression(paste("for Ayanda")), cex = labelsize)
 

@@ -45,9 +45,7 @@ plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = value, group = IncomeType, fill
         legend.text=element_text(size=12),
         axis.text.x = element_text(size = 11),
         axis.text.y = element_text(size = 12),
-        axis.title.x = element_text(size = 12, vjust = -1)) + 
-  geom_text(aes(label=round(value, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25, size = 3)
-
+        axis.title.x = element_text(size = 12, vjust = -1))
 plot1
 
 # IneqNL2 <- IneqNL %>% 

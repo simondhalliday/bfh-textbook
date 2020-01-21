@@ -64,7 +64,7 @@ data_final_1 <- read.xlsx('constrained_optimization/FLFP_HAPI_countries.xlsx')
 
 plot1 <- data_final_1 %>% ggplot(aes(x = x, y = y, group = group)) +
   geom_point(aes(color = group)) +
-  geom_text(aes(label = group, color = group), vjust = -0.5, hjust = 1, size = 6) + 
+  geom_text(aes(label = group, color = group), vjust = -0.5, hjust = 0.7, size = 6) + 
   xlab("Changes in the HAPI") +
   ylab("Change in FLFP") +
   scale_y_continuous(breaks = seq(5, 15, by = 1), limits = c(5,15)) + 

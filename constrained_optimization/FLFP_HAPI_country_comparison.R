@@ -58,28 +58,29 @@ Netherlands$group <- "Netherlands"
 data_final <- rbind(Germany,France, Ireland, Belgium, Italy, Luxembourg, UK, US, Denmark, Netherlands)
 data_final$group <- factor(data_final$group)
 # 
-write.xlsx(data_final, 'FLFP_HAPI_countries.xlsx')
+write.xlsx(data_final, 'constrained_optimization/FLFP_HAPI_countries.xlsx')
 data_final_1 <- read.xlsx('constrained_optimization/FLFP_HAPI_countries.xlsx')
 
 
 plot1 <- data_final_1 %>% ggplot(aes(x = x, y = y, group = group)) +
-  geom_line(aes(linetype = group, color  = group), size = 1) + 
-  xlab("Year") +
-  ylab("Index Value (Base Year = 1975)") +
-  scale_y_continuous(breaks = seq(0.8, 1.5, by = 0.1), limits = c(0.8,1.5)) + 
-  scale_x_continuous(breaks = seq(1975, 1995, by = 5)) +
+  geom_point(aes(color = group)) +
+  geom_text(aes(label = group), vjust = 1.5, hjust = 0.5) + 
+  xlab("Changes in the HAPI") +
+  ylab("Change in FLFP") +
+  scale_y_continuous(breaks = seq(5, 15, by = 1), limits = c(5,15)) + 
+  scale_x_continuous(breaks = seq(-0.3, -0.1, by = 0.05), limits = c(-0.3,-0.1)) +
   theme_bw() + 
-  theme(legend.position = "right", 
+  theme(legend.position = "none", 
         legend.title = element_blank(), 
         axis.title.y = element_text(size = 14, vjust = 0.5),
         axis.title.x = element_text(size = 14, vjust = -1),
-        legend.text = element_text(size = 11),
+        legend.text = element_blank(),
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12)
   ) 
 
 
-#print(plot1)
+print(plot1)
 
 #Save plot to PDF
 ggsave(plot1, filename = "FLFP_relative_price_home_appliances.pdf", 

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coordination_indiff_map/coordination_indiff_map_3.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coordination_indiff_map.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -110,7 +110,7 @@ segments(10.8, brfA(10.8) - 2, 10.8, brfA(10.8), lty = 2, col = Grays[18], lwd =
 points(10.8, brfA(10.8), pch = 16, col = "black", cex = 1.5)
 text(10.8 - 0.3, brfA(10.8) - 0.4, expression(paste("k")))
 
-text(10.2, 19.5, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A]^A, u[h^B]^A), phantom() == -frac((alpha - beta*h^B) - h^A*(1 + 2*beta), beta*h^A), phantom() == 0, " at maximum of ", u^A)), xpd = TRUE)
+text(10.2, 19.5, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A]^A, u[h^B]^A), phantom() == 0, " at maximum of ", u^A)), xpd = TRUE)
 Arrows(10.8, 18.5, 10.8, 17.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

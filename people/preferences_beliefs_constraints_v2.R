@@ -41,19 +41,20 @@ xlabels <- seq(from = 0, to = xlims[2], by = 2)
 
 
 draw.ellipse(1.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(1.5, 5.4, expression(paste("Possible")), cex = actionlabelsize)
-text(1.5, 5, expression(paste("Actions")), cex = actionlabelsize)
-text(1.5, 4.6, expression(paste("(strategy set)")), cex = actionlabelsize)
-text(1.7, 7.5, expression(paste("Constraints")), cex = labelsize, col = COLB[4])
-text(2.7, 7.5, expression(paste("+")), cex = labelsize)
-text(3.4, 7.5, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
-text(5, 7.5, expression(paste(phantom()==phantom(), "Feasible set")), cex = labelsize)
+text(1.5, 5.4, expression(paste("Constraints")), cex = actionlabelsize)
+text(1.5, 5, expression(paste("(Feasible set")), cex = actionlabelsize)
+text(1.5, 4.6, expression(paste("of actions)")), cex = actionlabelsize)
+text(2, 8, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
+text(2.5, 7.5, expression(paste("(which actions result")), cex = labelsize)
+text(2.5, 7, expression(paste("in which outcomes)")), cex = labelsize)
+#text(3.4, 7.5, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
+#text(5, 7.5, expression(paste(phantom()==phantom(), "Feasible set")), cex = labelsize)
 
 Arrows(3, 5, 3.4, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
 draw.ellipse(5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(5, 5.4, expression(paste("Outcomes")), cex = actionlabelsize)
-text(5, 5, expression(paste("believed to")), cex = actionlabelsize)
+text(5, 5.4, expression(paste("Set of")), cex = actionlabelsize)
+text(5, 5, expression(paste("outcomes to")), cex = actionlabelsize)
 text(5, 4.6, expression(paste("be feasible")), cex = actionlabelsize)
 
 
@@ -63,10 +64,10 @@ draw.ellipse(8.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd =
 text(8.5, 5.2, expression(paste("Choice of")), cex = actionlabelsize)
 text(8.5, 4.8, expression(paste("an action")), cex = actionlabelsize)
 
-text(4.6, 2.9, expression(paste("Feasible set + ")), cex = labelsize)
-text(6.6, 2.9, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
-text(8.45, 2.9, expression(paste(phantom()==phantom(), "Ranking of")), cex = labelsize)
-text(8.45, 2.5, expression(paste("feasible outcomes")), cex = labelsize)
-text(8.45, 2.1, expression(paste("and action")), cex = labelsize)
+#text(4.6, 2.9, expression(paste("Feasible set + ")), cex = labelsize)
+text(8, 8, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
+#text(8.45, 2.9, expression(paste(phantom()==phantom(), "Ranking of")), cex = labelsize)
+text(8.3, 7.5, expression(paste("(evaluation of")), cex = labelsize)
+text(8.3, 7, expression(paste("outcomes)")), cex = labelsize)
 
 dev.off()

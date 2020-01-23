@@ -13,16 +13,23 @@ BHcolors <- c("#41ae76", "#0868ac")
 tx3 <- ggplot(data = FG_2000, aes(x = p, y = contrib, col=Treatment)) +
   geom_point() + 
   geom_line() +
-  ylim(0, 20) +
   scale_color_manual(values = BHcolors) +
   #scale_shape_manual( values = c(1, 19)) + 
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 20)) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 20), limits = c(1,20)) +
   scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
   #scale_fill_discrete("Treatment", breaks=c("wo", "w"),
   #                    labels = c("without punishment", "with punishment")) +
   xlab("Periods") + 
   ylab("Average Contributions") +
-  theme_classic()
+  theme_classic() +
+  theme(axis.title.y = element_text(size = 13),
+        legend.text=element_text(size=13),
+        axis.text.x = element_text(size = 13),
+        axis.text.y = element_text(size = 13),
+        axis.title.x = element_text(size = 13)) 
+  
+
+print(tx3)
 
   
 ggsave("people/Fehr_Gachter_2000.pdf", width = 10, height = 5)

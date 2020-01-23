@@ -40,34 +40,37 @@ ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 
 
-draw.ellipse(1.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(1.5, 5.4, expression(paste("Constraints")), cex = actionlabelsize)
-text(1.5, 5, expression(paste("(Feasible set")), cex = actionlabelsize)
-text(1.5, 4.6, expression(paste("of actions)")), cex = actionlabelsize)
+draw.ellipse(1.5, 4, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
+text(1.5, 4.5, expression(paste("Constraints")), cex = actionlabelsize,col = COLB[4])
+text(1.5, 4, expression(paste("(Feasible set")), cex = actionlabelsize)
+text(1.5, 3.5, expression(paste("of actions)")), cex = actionlabelsize)
 text(2, 8, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
 text(2.5, 7.5, expression(paste("(which actions result")), cex = labelsize)
 text(2.5, 7, expression(paste("in which outcomes)")), cex = labelsize)
 #text(3.4, 7.5, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
 #text(5, 7.5, expression(paste(phantom()==phantom(), "Feasible set")), cex = labelsize)
 
-Arrows(3, 5, 3.4, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+Arrows(3, 4, 3.4, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
-draw.ellipse(5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(5, 5.4, expression(paste("Set of")), cex = actionlabelsize)
-text(5, 5, expression(paste("outcomes to")), cex = actionlabelsize)
-text(5, 4.6, expression(paste("be feasible")), cex = actionlabelsize)
+draw.ellipse(5, 4, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
+text(5, 4.5, expression(paste("Set of")), cex = actionlabelsize)
+text(5, 4, expression(paste("outcomes to")), cex = actionlabelsize)
+text(5, 3.5, expression(paste("be feasible")), cex = actionlabelsize)
 
+Arrows(3, 6.5, 4, 5.5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
-Arrows(6.5, 5, 6.9, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+Arrows(7, 6.5, 8, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
-draw.ellipse(8.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(8.5, 5.2, expression(paste("Choice of")), cex = actionlabelsize)
-text(8.5, 4.8, expression(paste("an action")), cex = actionlabelsize)
+Arrows(6.5, 4, 6.9, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+
+#draw.ellipse(8.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
+text(8.5, 4.2, expression(paste("Choice of")), cex = actionlabelsize)
+text(8.5, 3.8, expression(paste("an action")), cex = actionlabelsize)
 
 #text(4.6, 2.9, expression(paste("Feasible set + ")), cex = labelsize)
-text(8, 8, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
+text(7, 8, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
 #text(8.45, 2.9, expression(paste(phantom()==phantom(), "Ranking of")), cex = labelsize)
-text(8.3, 7.5, expression(paste("(evaluation of")), cex = labelsize)
-text(8.3, 7, expression(paste("outcomes)")), cex = labelsize)
+text(7.3, 7.5, expression(paste("(evaluation of")), cex = labelsize)
+text(7.3, 7, expression(paste("outcomes)")), cex = labelsize)
 
 dev.off()

@@ -61,7 +61,7 @@ Arrows(3, 6.5, 4, 5.5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
 Arrows(7, 6.5, 8, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
-Arrows(6.5, 4, 6.9, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+Arrows(6.5, 4, 7.5, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
 #draw.ellipse(8.5, 5, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
 text(8.5, 4.2, expression(paste("Choice of")), cex = actionlabelsize)
@@ -70,7 +70,7 @@ text(8.5, 3.8, expression(paste("an action")), cex = actionlabelsize)
 #text(4.6, 2.9, expression(paste("Feasible set + ")), cex = labelsize)
 text(7, 8, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
 #text(8.45, 2.9, expression(paste(phantom()==phantom(), "Ranking of")), cex = labelsize)
-text(7.3, 7.5, expression(paste("(evaluation of")), cex = labelsize)
-text(7.3, 7, expression(paste("outcomes)")), cex = labelsize)
+text(7, 7.5, expression(paste("(evaluation of")), cex = labelsize)
+text(7, 7, expression(paste("outcomes)")), cex = labelsize)
 
 dev.off()

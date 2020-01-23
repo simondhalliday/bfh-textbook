@@ -23,7 +23,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 # pull in data
 # ----
 library(readr)
-behavioral_data <- read_csv("behavioral_data_nyt.csv")
+behavioral_data <- read_csv("people/behavioral_data_nyt.csv")
 
 # adjust / clean
 
@@ -45,7 +45,13 @@ response_rate_subset$condFactor<- ifelse(response_rate_subset$condFactor==0, "No
 # ----
 
 
-ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + geom_point() + geom_line() + labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  scale_color_manual(values=c(COLB[4], COLA[4])) +theme_bw()
+ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + geom_point() + geom_line() + labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  scale_color_manual(values=c(COLB[4], COLA[4])) +theme_bw() + 
+  theme(axis.title.y = element_text(size = 16),
+        legend.text=element_text(size=16),
+        axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        legend.title =element_text(size=16)) 
 
 
 # ----

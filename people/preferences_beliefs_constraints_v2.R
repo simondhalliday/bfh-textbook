@@ -44,7 +44,7 @@ draw.ellipse(1.5, 4, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd =
 text(1.5, 4.5, expression(paste("Constraints")), cex = actionlabelsize,col = COLB[4])
 text(1.5, 4, expression(paste("(Feasible set")), cex = actionlabelsize)
 text(1.5, 3.5, expression(paste("of actions)")), cex = actionlabelsize)
-text(2, 8, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
+text(2.5, 8, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
 text(2.5, 7.5, expression(paste("(which actions result")), cex = labelsize)
 text(2.5, 7, expression(paste("in which outcomes)")), cex = labelsize)
 #text(3.4, 7.5, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])

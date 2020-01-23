@@ -21,7 +21,13 @@ fines <- ggplot(data = GR_2000, aes(x = weeknum)) +
   scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
   xlab("Week Number") + 
   ylab("Late Arrivals") +
-  theme_classic()
-
+  theme_classic() + 
+  theme(axis.title.y = element_text(size = 16),
+        legend.text=element_text(size=16),
+        axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        legend.title =element_text(size=16)) 
+print(fines)
 
 ggsave("people/Gneezy_Rustichini_2000.pdf", width = 10, height = 5)

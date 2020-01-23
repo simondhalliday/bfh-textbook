@@ -22,11 +22,12 @@ tx3 <- ggplot(data = FG_2000, aes(x = p, y = contrib, col=Treatment)) +
   xlab("Periods") + 
   ylab("Average Contributions") +
   theme_classic() +
-  theme(axis.title.y = element_text(size = 15),
-        legend.text=element_text(size=15),
-        axis.text.x = element_text(size = 15),
-        axis.text.y = element_text(size = 15),
-        axis.title.x = element_text(size = 15)) 
+  theme(axis.title.y = element_text(size = 16),
+        legend.text=element_text(size=16),
+        axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        legend.title =element_text(size=16)) 
   
 
 print(tx3)

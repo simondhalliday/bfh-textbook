@@ -53,9 +53,10 @@ text(2.5, 7, expression(paste("in which outcomes)")), cex = labelsize)
 Arrows(3, 4, 3.4, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
 draw.ellipse(5, 4, a = 1.4, b = 1.4, border = COL[1], angle=c(0), lty=1, lwd = elwidth)
-text(5, 4.5, expression(paste("Set of")), cex = actionlabelsize)
-text(5, 4, expression(paste("outcomes to")), cex = actionlabelsize)
-text(5, 3.5, expression(paste("be feasible")), cex = actionlabelsize)
+text(5, 4.8, expression(paste("Set of")), cex = actionlabelsize)
+text(5, 4.3, expression(paste("outcomes")), cex = actionlabelsize)
+text(5, 3.8, expression(paste("believed to")), cex = actionlabelsize)
+text(5, 3.3, expression(paste("be feasible")), cex = actionlabelsize)
 
 Arrows(3, 6.5, 4, 5.5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 

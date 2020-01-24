@@ -23,7 +23,7 @@ fines <- ggplot(data = GR_2000, aes(x = weeknum)) +
   ylab("Late Arrivals") +
   theme_classic() + 
   theme(axis.title.y = element_text(size = 16),
-        legend.position = c(0.2, 0.9),
+        legend.position = c(0.1, 0.9),
         legend.text=element_text(size=16),
         axis.text.x = element_text(size = 16),
         axis.text.y = element_text(size = 16),

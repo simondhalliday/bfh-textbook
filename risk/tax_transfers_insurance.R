@@ -47,8 +47,8 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 ticksy <- c(0, 3, 4, 7, 9, ylims[2])
 ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[b]), expression(y[c]), expression(y[d]), NA)
-ticksx <- c(0, xlims[2])
-xlabels <- c(NA, NA)
+ticksx <- c(0, 8.74, xlims[2])
+xlabels <- c(NA, expression(Delta[d]), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)

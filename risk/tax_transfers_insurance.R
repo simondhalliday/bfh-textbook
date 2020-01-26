@@ -19,23 +19,15 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 4, 2))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
-riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
-  int1 - (int2 - (coeff)*g)^2
-}
-
-uA <- function(omega, g, slope = 0.5){
-  omega + omega*g  - slope*g^2
-}
-
-indiffA <- function(g, intercept = 3, slope = 0.125){
+indiff <- function(g, intercept = 3, slope = 0.125){
   intercept  + slope*g^2
 }
 
-insurance <- function(g, intercept = 10, slope = 0.36){
+insur <- function(g, intercept = 3, slope = 0.36){
   intercept  + slope*g
 }
 
@@ -54,7 +46,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 #Customize ticks and labels for the plot
 
 ticksy <- c(0, 1, 2, 3, 4, ylims[2])
-ylabels <- c(NA, 2, expression(y[b]), expression(y[c]), expression(y[d]), NA)
+ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[b]), expression(y[c]), expression(y[d]), NA)
 ticksx <- c(0, xlims[2])
 xlabels <- c(NA, NA)
 
@@ -68,8 +60,14 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
-#lines(xx1, riskreturn(xx1, int1 = 14, int2 = 4, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
-#lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 4, slope = 0.025), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 5, slope = 0.075), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 6.5, slope = 0.125), col = COLA[4], lwd = graphlinewidth, lty = 1)
+
+lines(xx1, insur(xx1, slope = 0.32), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, insur(xx1, slope = 0.77), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, insur(xx1, slope = 1.32), col = COLB[4], lwd = graphlinewidth, lty = 1)
+
 
 # Points
 

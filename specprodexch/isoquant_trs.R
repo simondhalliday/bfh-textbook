@@ -101,7 +101,7 @@ text(-1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex
 
 #Label the indifference curves
 text(8.8, 1.25, expression("Cobb-Douglas"), cex = labelsize)
-text(8.8, 0.75, expression(paste("isoquant ", bar(x) ==f(l,k))), cex = labelsize)
+text(8.8, 0.75, expression(paste("isoquant ", underline(x) ==f(l,k))), cex = labelsize)
 
 text(8, 4, expression(paste(mrts(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
 Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

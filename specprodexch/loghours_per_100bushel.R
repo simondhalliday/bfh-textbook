@@ -84,7 +84,16 @@ ggplot(data = ag_data,
   #                    "tractor, \n 35-foot sweep  \n disk, 30-foot \n drill, 25-foot \n self-propelled \n combine, \n and trucks: \n 3 hours") , 
   #          color="black", size= 3) + 
   theme_bw() + 
-  ylim(0, 6)
+  ylim(0, 6) + 
+  theme(legend.position = "none", 
+        legend.title = element_blank(), 
+        axis.title.y = element_text(size = 16, vjust = 0.5),
+        axis.title.x = element_text(size = 16, vjust = -1),
+        legend.text = element_blank(),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12)
+  ) 
+
 
 dev.off()
 

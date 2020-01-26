@@ -7,8 +7,10 @@ library(digitize)
 library(jpeg)
 library(scales)
 library(openxlsx)
+library(ggsci)
 
-#Using digitize to get data points 
+# Dont edit digitize
+#---- Using digitize to get data points 
 cal = ReadAndCal("constrained_optimization/Change_HAPI_FLFP.jpg")
 # 
 data.points = DigitData(col = 'red')
@@ -54,11 +56,13 @@ UK$group <- "UK"
 US$group <- "US"
 Denmark$group <- "Denmark"
 Netherlands$group <- "Netherlands"
-# 
+
 data_final <- rbind(Germany,France, Ireland, Belgium, Italy, Luxembourg, UK, US, Denmark, Netherlands)
 data_final$group <- factor(data_final$group)
-# 
+
 write.xlsx(data_final, 'constrained_optimization/FLFP_HAPI_countries.xlsx')
+
+# DATA COLLECTED, JUST RUN BELOW THIS TO EDIT
 data_final_1 <- read.xlsx('constrained_optimization/FLFP_HAPI_countries.xlsx')
 
 
@@ -69,6 +73,7 @@ plot1 <- data_final_1 %>% ggplot(aes(x = x, y = y, group = group)) +
   ylab("Change in FLFP") +
   scale_y_continuous(breaks = seq(5, 15, by = 1), limits = c(5,15)) + 
   scale_x_continuous(breaks = seq(-0.3, -0.1, by = 0.05), limits = c(-0.3,-0.1)) +
+  scale_color_d3() +
   theme_bw() + 
   theme(legend.position = "none", 
         legend.title = element_blank(), 

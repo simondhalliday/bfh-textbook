@@ -74,11 +74,11 @@ text(-1.2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xp
 #Label the isoquant curve
 text(11.25, 4.5, expression("initial"), cex = labelsize)
 text(11.25, 4, expression("isoquant"), cex = labelsize)
-text(11.25, 3.6, expression(paste(x == bar(x))), cex = labelsize)
+text(11.25, 3.6, expression(paste(x == underline(x))), cex = labelsize)
 Arrows(11, 3.2, 11, 2.2, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(9, 1.8, expression("innovation"), cex = labelsize)
 text(9, 1.3, expression("isoquant"), cex = labelsize)
-text(9, 0.9, expression(paste(x == bar(x))), cex = labelsize)
+text(9, 0.9, expression(paste(x == underline(x))), cex = labelsize)
 
 #Label the price lines
 text(7.75, 1, expression(paste(c[1])))
@@ -115,7 +115,7 @@ text(10, 10, expression("Innovation expands"), cex = labelsize)
 text(10, 9.5, expression("the feasible set"), cex = labelsize)
 text(10, 9, expression("creating a new, lower"), cex = labelsize)
 text(10, 8.5, expression("production isoquant"), cex = labelsize)
-text(10, 8, expression(paste("for the same ", x == bar(x))), cex = labelsize)
+text(10, 8, expression(paste("for the same ", x == underline(x))), cex = labelsize)
 
 #Arrows(1.85, 10.1, 1.85, 7.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

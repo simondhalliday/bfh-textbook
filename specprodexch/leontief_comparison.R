@@ -54,9 +54,9 @@ mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axisla
 text(-1.1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(11, 4.25, expression(paste(bar(x)[1]^L)))
-text(11, 6.25, expression(paste(bar(x)[2]^L)))
-text(11, 8.25, expression(paste(bar(x)[3]^L)))
+text(11, 4.25, expression(paste(underline(x)[1]^L)))
+text(11, 6.25, expression(paste(underline(x)[2]^L)))
+text(11, 8.25, expression(paste(underline(x)[3]^L)))
 
 
 # text(10, 11, expression(paste("Feasible")), cex = labelsize)

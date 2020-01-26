@@ -124,6 +124,6 @@ text(6, 2.2, expression(paste("more l-intensive")), cex = labelsize)
 text(6, 1.7, expression(paste("less k-intensive")), cex = labelsize)
 #Arrows(6, 2.7, 6, 3.3, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
-text(11.2, 4.75, expression(paste(bar(x) == 100)), cex = labelsize)
+text(11.2, 4.75, expression(paste(underline(x) == 100)), cex = labelsize)
 
 dev.off()

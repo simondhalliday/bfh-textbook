@@ -113,9 +113,9 @@ text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, c
 # text(6, 8, expression(paste("Isoquant curve: ", k == bgroup("(",frac(bar(x), A),")")^2 - alpha*l   )), cex = labelsize)
 # text(6, 7, expression(paste(trs(l,k) == frac(x[l],x[k]), phantom() == alpha)), cex = labelsize)
 
-text(3.5, 0.7, expression(paste(bar(x)[1]^S)), cex = labelsize)
-text(6, 0.7, expression(paste(bar(x)[2]^S)), cex = labelsize)
-text(9, 0.7, expression(paste(bar(x)[3]^S)), cex = labelsize)
+text(3.5, 0.7, expression(paste(underline(x)[1]^S)), cex = labelsize)
+text(6, 0.7, expression(paste(underline(x)[2]^S)), cex = labelsize)
+text(9, 0.7, expression(paste(underline(x)[3]^S)), cex = labelsize)
 
 # text(8, 4, expression(paste(trs(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

@@ -73,7 +73,7 @@ text(-0.9, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xp
 
 #Label the isoquant curve
 text(11.25, 3.15, expression("isoquant"), cex = labelsize)
-text(11.25, 2.65, expression(paste(x == bar(x))), cex = labelsize)
+text(11.25, 2.65, expression(paste(x == underline(x))), cex = labelsize)
 
 #Label the price lines
 text(6.75, 1, expression(paste(c[1])))

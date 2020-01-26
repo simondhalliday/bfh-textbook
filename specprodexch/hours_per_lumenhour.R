@@ -47,7 +47,15 @@ ggplot(data = lumen_data,
   labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  + 
   #geom_line(group="identity", colour=COLB[4])  + 
   geom_bar(stat = "identity", fill = COLA[4]) +
-  theme_bw() 
+  theme_bw() + 
+  theme(legend.position = "none", 
+       legend.title = element_blank(), 
+       axis.title.y = element_text(size = 16, vjust = 0.5),
+       axis.title.x = element_text(size = 16, vjust = -1),
+       legend.text = element_blank(),
+       axis.text.x = element_text(size = 12),
+       axis.text.y = element_text(size = 12)
+  ) 
 
 
 dev.off()

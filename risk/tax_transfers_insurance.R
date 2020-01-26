@@ -59,6 +59,7 @@ text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Exp
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
+segments(8.74, 0, 8.74, 18, col = "grey", lwd = segmentlinewidth, lty = 2)
 
 lines(xx1, indiff(xx1, intercept = 4, slope = 0.09), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
@@ -68,7 +69,6 @@ lines(xx1, insur(xx1, slope = 0.75), col = COLB[4], lwd = graphlinewidth, lty = 
 lines(xx1, insur(xx1, slope = 1.28), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 1.49), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 0), col = COLB[4], lwd = graphlinewidth, lty = 1)
-
 
 # Points
 

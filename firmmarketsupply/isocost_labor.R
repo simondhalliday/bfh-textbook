@@ -11,7 +11,6 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
-COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 xlims <- c(0, 18)
 ylims <- c(0, 18)
@@ -64,10 +63,10 @@ text(0.75, 11.5, expression(paste(c[1]^H)), cex = labelsize)
 segments(0, 12, 6, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth) 
 text(0.75, 17.5, expression(paste(c[2]^H)), cex = labelsize)
 # c_1^L
-segments(0, 9, 18, 0, lty = 1, col = "#a50f15" , lwd = graphlinewidth)
+segments(0, 9, 18, 0, lty = 1, col = COLA[4] , lwd = graphlinewidth)
 text(11.5, 0.75, expression(paste(c[1]^L)), cex = labelsize)
 # c_2^L
-segments(0, 6, 12, 0, lty = 1, col = "#a50f15" , lwd = graphlinewidth) 
+segments(0, 6, 12, 0, lty = 1, col = COLA[4] , lwd = graphlinewidth) 
 text(17.5, 0.75, expression(paste(c[2]^L)), cex = labelsize)
 
 
@@ -90,16 +89,16 @@ text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, k")), xpd 
 
 #Label isoquants
 text(3.5, 17, expression(paste("Isoquant")), cex = labelsize)
-text(3.5, 16.2, expression(paste(x[f](l[f],k[f]) == bar(x))), cex = labelsize)
+text(3.5, 16.2, expression(paste(x[f](l[f],k[f]) == underline(x))), cex = labelsize)
 text(9.5, 17, expression(paste("Isoquant")), cex = labelsize)
-text(9.5, 16.2, expression(paste(x[g](l[f],k[f]) == bar(x))), cex = labelsize)
+text(9.5, 16.2, expression(paste(x[g](l[f],k[f]) == underline(x))), cex = labelsize)
 
 # Label Isocost H
-text(12, 4.8, expression(paste("Iso-cost curves")), cex = labelsize)
-text(12, 4, expression(paste("(low wage)")), cex = labelsize, col = "#a50f15")
+text(12, 4.8, expression(paste("Isocost curves")), cex = labelsize)
+text(12, 4, expression(paste("(low wage)")), cex = labelsize, col = COLA[4])
 
 # Label Isocost L
-text(5, 12.4, expression(paste("Iso-cost curves")), cex = labelsize)
+text(5, 12.4, expression(paste("Isocost curves")), cex = labelsize)
 text(5, 11.6, expression(paste("(high wage)")), cex = labelsize, col = COLB[5])
 # Label Point 1 + 2
 points(2, 8, pch = 16, col = "black", cex = 1.5)

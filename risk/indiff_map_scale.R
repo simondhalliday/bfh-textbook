@@ -27,8 +27,10 @@ indiffA <- function(x, ua = 2, slope = 1/12) {
 }
 
 #Add limits on axes and levels of utility for each indifference curve
-ylims <- c(0, 32.5)
-xlims <- c(0, 15)
+#ylims <- c(0, 32.5)
+#xlims <- c(0, 15)
+ylims <- c(0, 40)
+xlims <- c(0, 22)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -76,12 +78,6 @@ text(3, 22.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
 points(3, 26, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(3.5, 26.5, expression(paste("A")), xpd = TRUE, cex = labelsize)
 
-
-text(3, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
-text(3, 8.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
-points(3, 12, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
-text(3.5, 12.5, expression(paste("D")), xpd = TRUE, cex = labelsize)
-
 text(13, 24, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
 text(13, 22.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
 points(13, 26, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
@@ -91,5 +87,16 @@ text(13, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
 text(13, 8.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
 points(13, 12, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(13.5, 12.5, expression(paste("C")), xpd = TRUE, cex = labelsize)
+
+text(3, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
+text(3, 8.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
+points(3, 12, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
+text(3.5, 12.5, expression(paste("D")), xpd = TRUE, cex = labelsize)
+
+# Dashed lines
+segments(8, 0, 8, 38, lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(0, 19, 20, 19, lty = 2, col = "grey", lwd = segmentlinewidth)
+
+
 
 dev.off()

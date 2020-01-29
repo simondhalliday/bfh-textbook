@@ -69,8 +69,8 @@ xx5 <- seq(7, 9, length.out = npts)
 #Draw the graphs
 lines(xx1, isoquant(xx1, alpha = 2/3, xbar = 4.22), col = "grey22", lwd = graphlinewidth)
 lines(xx1, isoquant(xx1, alpha = 1/3, xbar = 4.22), col = "grey22", lwd = graphlinewidth)
-lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = "#a50f15", lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axistitlesize)
@@ -80,12 +80,12 @@ text(-1.1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, c
 #Label the isoquants
 text(9.5, 4.5, expression(paste("Capital-intensive")), cex = labelsize)
 text(9.5, 4, expression(paste("Technology A")), cex = labelsize)
-text(9.5, 3.5, expression(paste(x^A*bgroup("(", list(l,k),")")) == bar(x)), cex = labelsize)
+text(9.5, 3.5, expression(paste(x^A*bgroup("(", list(l,k),")")) == underline(x)), cex = labelsize)
 
 
 text(9.5, 2.35, expression(paste("Labor-intensive ")), cex = labelsize)
 text(9.5, 1.85, expression(paste("Technology B")), cex = labelsize)
-text(9.5, 1.35, expression(paste(x^B*bgroup("(", list(l,k),")")) == bar(x)), cex = labelsize)
+text(9.5, 1.35, expression(paste(x^B*bgroup("(", list(l,k),")")) == underline(x)), cex = labelsize)
 
 text(8, 9.7, expression(paste(trs^B*(list(l,k)) > trs^A*(list(l,k)))), cex = labelsize)
 text(8, 8.8, expression(paste(frac(x[l]^B, x[k]^B) > frac(x[l]^A, x[k]^A))), cex = labelsize)
@@ -139,6 +139,8 @@ segments(6.66, 0,
          lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), pch = 16, col = "black", cex = 1.5)
 text(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22) + 0.3, expression(paste(j)), cex = labelsize)
+
+Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label isocosts
 text(0.5, 8.25, expression(paste(c[1]^{H*minute})), cex = labelsize)

@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4, 7, 1, 1))
 
 #Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
 
@@ -59,7 +59,7 @@ xlabels <- c(NA, expression(paste(Delta^T)), expression(paste(Delta^P)), NA)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], indiffA(3.5, ua = 16.2), indiffA(16.6, ua = 2), ylims[2])
-ylabels <- c(NA, expression(paste(y^T)), expression(paste(y^P)), NA)
+ylabels <- c(NA, expression(paste(bar(y), "(1 - ", phi, ")")), expression(paste(y^P)), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -78,7 +78,7 @@ lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.6, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 

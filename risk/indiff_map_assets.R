@@ -30,6 +30,7 @@ indiffA <- function(x, ua = 2, slope = 1/12) {
 ylims <- c(0, 40)
 xlims <- c(0, 22)
 
+
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 

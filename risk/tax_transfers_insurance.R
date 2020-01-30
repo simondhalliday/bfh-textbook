@@ -45,8 +45,8 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 
-ticksy <- c(0, 3, 4, 7, 9, ylims[2])
-ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[b]), expression(y[c]), expression(y[d]), NA)
+ticksy <- c(0, 3, 4, 7, 9, 13, ylims[2])
+ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[b]), expression(y[c]), expression(y[d]), expression(y[e]), NA)
 ticksx <- c(0, 8.74, xlims[2])
 xlabels <- c(NA, expression(Delta[d]), NA)
 
@@ -64,6 +64,7 @@ segments(8.74, 0, 8.74, 18, col = "grey", lwd = segmentlinewidth, lty = 2)
 lines(xx1, indiff(xx1, intercept = 4, slope = 0.09), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 9, slope = 0.075), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graphlinewidth, lty = 1)
 
 lines(xx1, insur(xx1, slope = 0.75), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 1.28), col = COLB[4], lwd = graphlinewidth, lty = 1)
@@ -76,6 +77,7 @@ points(8.74, 3, pch = 16, col = "black", cex = 1.5) # a
 points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # b
 points(8.74, 14.187, pch = 16, col = "black", cex = 1.5) # c
 points(8.74, 16.01, pch = 16, col = "black", cex = 1.5) # d
+points(8.74, 17.367, pch = 16, col = "black", cex = 1.5) # e
 points(3.333, 5.5, pch = 16, col = "black", cex = 1.5) # b'
 points(7, 11.97, pch = 16, col = "black", cex = 1.5) # c'
 
@@ -85,6 +87,7 @@ text(9, 2.5, expression(a), cex = labelsize)
 text(9, 9, expression(b), cex = labelsize)
 text(9, 13.6, expression(c), cex = labelsize)
 text(9, 15.5, expression(d), cex = labelsize)
+text(9, 17, expression(e), cex = labelsize)
 text(3.5, 4.9, expression(paste(b,"'")), cex = labelsize)
 text(7.25, 11.5, expression(paste(c,"'")), cex = labelsize)
 
@@ -93,5 +96,7 @@ text(7.25, 11.5, expression(paste(c,"'")), cex = labelsize)
 text(.5, 4.75, expression(u[1]), cex = labelsize)
 text(.5, 7.75, expression(u[2]), cex = labelsize)
 text(.5, 9.75, expression(u[3]), cex = labelsize)
+text(.5, 13.75, expression(u[4]), cex = labelsize)
+
 
 dev.off()

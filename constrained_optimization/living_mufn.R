@@ -1,5 +1,5 @@
 #Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)

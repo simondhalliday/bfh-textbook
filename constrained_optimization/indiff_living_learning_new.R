@@ -145,6 +145,11 @@ points(14,  indiffA(x = 14, ubar = uFn(2, 3)), pch = 16, col = "black", cex = 1.
 #segments(5.605, 0, 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 #points(5.605,  indiffA(x = 5.605, ubar = uFn(8, 3)), pch = 16, col = "black", cex = 1.5)
 
+text(3, 1.1, expression("Lower"), cex = labelsize)
+text(3, 0.9, expression("Utility"), cex = labelsize)
+
+text(14, 4.1, expression("Higher"), cex = labelsize)
+text(14, 3.9, expression("Utility"), cex = labelsize)
 
 
 

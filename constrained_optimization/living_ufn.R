@@ -1,5 +1,5 @@
 #Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
@@ -24,9 +24,18 @@ uFn <- function(x, y = 3, alpha = 0.4){
   (x^alpha)*(y^(1 - alpha))
 }
 
+muFn <- function(x, y = 3, alpha = 0.4){
+  alpha*(x^(alpha - 1))*(y^(1 - alpha))
+}
+
 indiffA <- function(x, alpha = 0.5, uA = 5) {
   (uA / x^alpha)^(1/(1 - alpha))
 }
+
+tanLine <- function(intercept, slope, x = xx1){
+  slope*x + intercept
+}
+
 
 xlims <- c(0, 16)
 ylims <- c(0, 6)
@@ -73,6 +82,23 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 # polygon(x = c(0, 0, xlims[2], xlims[2], 0), y = c(0, indiffA(xlims[2]), indiffA(xlims[2]), 0, 0), col=COLA[1], density=NULL, border = NA)
 # polygon(x = c(xlims[2], rev(xpoly1), xpoly1), y = c(ylims[2], rev(ypoly1), ypoly1), col=COLB[1], density=NULL, border = NA)
 
+# Add tangent lines
+
+# Full color
+# lines(xx1, tanLine(intercept = uFn(2) - muFn(2)*2, slope = muFn(2)), col = COLB[5], lwd = graphlinewidth)
+# lines(xx1, tanLine(intercept = uFn(8) - muFn(8)*8, slope = muFn(8)), col = COLB[5], lwd = graphlinewidth)
+# lines(xx1, tanLine(intercept = uFn(14) - muFn(14)*14, slope = muFn(14)), col = COLB[5], lwd = graphlinewidth)
+
+# Short grey
+xx4 <- seq(xlims[1], 4, length.out = npts)
+xx5 <- seq(5, 10, length.out = npts)
+xx6 <- seq(11, 16, length.out = npts)
+
+lines(xx4, tanLine(x = xx4, intercept = uFn(2) - muFn(2)*2, slope = muFn(2)), col = "darkgrey", lty = 2, lwd = graphlinewidth)
+lines(xx5, tanLine(x = xx5, intercept = uFn(8) - muFn(8)*8, slope = muFn(8)), col = "darkgrey", lty = 2, lwd = graphlinewidth)
+lines(xx6, tanLine(x = xx6, intercept = uFn(14) - muFn(14)*14, slope = muFn(14)), col = "darkgrey", lty = 2, lwd = graphlinewidth)
+
+
 
 #Draw the graphs
 lines(xx1, uFn(xx1), col = COLA[5], lwd = graphlinewidth)
@@ -109,14 +135,15 @@ text(-1.1, 0.5*ylims[2], expression(paste("Utility, ", u(x,bar(y)))), xpd = TRUE
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
 
-#Annotate points (4,4),(2,8),(8,2) on indiff curve
-text(2, uFn(2) + 0.2, expression(paste(f)), cex = labelsize)
+
+# Annotate points (4,4),(2,8),(8,2) on indiff curve
+text(2, uFn(2) - 0.2, expression(paste(f)), cex = labelsize)
 points(2, uFn(2), pch = 16, col = "black", cex = 1.5)
 
-text(8, uFn(8) + 0.2, expression(paste(i)), cex = labelsize)
+text(8, uFn(8) - 0.2, expression(paste(i)), cex = labelsize)
 points(8, uFn(8), pch = 16, col = "black", cex = 1.5)
 
-text(14, uFn(14) + 0.2, expression(paste(g)), cex = labelsize)
+text(14, uFn(14) - 0.2, expression(paste(g)), cex = labelsize)
 points(14, uFn(14), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

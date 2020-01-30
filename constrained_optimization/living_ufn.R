@@ -5,7 +5,7 @@
 library(shape)
 #pdf(file = "indiff_shaded_newSTEP1.pdf", width = 8, height = 6)
 #pdf(file = "indiff_shaded_newSTEP2.pdf", width = 8, height = 6)
-pdf(file = "constrained_optimization/indiff_shaded_new.pdf", width = 8, height = 6)
+pdf(file = "constrained_optimization/living_ufn.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -20,7 +20,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 1, 1))
 
-uFn <- function(x, y, alpha = 0.5){
+uFn <- function(x, y = 3, alpha = 0.4){
   (x^alpha)*(y^(1 - alpha))
 }
 
@@ -28,8 +28,8 @@ indiffA <- function(x, alpha = 0.5, uA = 5) {
   (uA / x^alpha)^(1/(1 - alpha))
 }
 
-xlims <- c(0, 10)
-ylims <- c(0, 10)
+xlims <- c(0, 16)
+ylims <- c(0, 6)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -66,18 +66,16 @@ xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Draw the polygon for shading the utility areas
-xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
-ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
-ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
-polygon(x = c(0, 0, xlims[2], xlims[2], 0), y = c(0, indiffA(xlims[2]), indiffA(xlims[2]), 0, 0), col=COLA[1], density=NULL, border = NA)
-
-
-polygon(x = c(xlims[2], rev(xpoly1), xpoly1), y = c(ylims[2], rev(ypoly1), ypoly1), col=COLB[1], density=NULL, border = NA)
+# xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
+# ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
+# polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+# ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
+# polygon(x = c(0, 0, xlims[2], xlims[2], 0), y = c(0, indiffA(xlims[2]), indiffA(xlims[2]), 0, 0), col=COLA[1], density=NULL, border = NA)
+# polygon(x = c(xlims[2], rev(xpoly1), xpoly1), y = c(ylims[2], rev(ypoly1), ypoly1), col=COLB[1], density=NULL, border = NA)
 
 
 #Draw the graphs
-lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, uFn(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Label the feasible frontier
 # text(3.2, 1, expression("Feasible Frontier"), cex = labelsize)
@@ -85,8 +83,8 @@ lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidt
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Living, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.1, 0.5*ylims[2], expression(paste("Utility, ", u(x,bar(y)))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 
@@ -101,24 +99,24 @@ text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axi
 
 
 #Label the indifference curves
-text(9.5, 1.3, expression(u[4]^A == 4), cex = labelsize)
-
-text(3, 3, expression(u^A < 4), cex = labelsize)
-text(3, 2.5, expression(paste("Worse than ", u[4]^A)), cex = labelsize)
-
-text(7, 7, expression(u^A > 4), cex = labelsize)
-text(7, 6.5, expression(paste("Better than ", u[4]^A)), cex = labelsize)
+# text(9.5, 1.3, expression(u[4]^A == 4), cex = labelsize)
+# 
+# text(3, 3, expression(u^A < 4), cex = labelsize)
+# text(3, 2.5, expression(paste("Worse than ", u[4]^A)), cex = labelsize)
+# 
+# text(7, 7, expression(u^A > 4), cex = labelsize)
+# text(7, 6.5, expression(paste("Better than ", u[4]^A)), cex = labelsize)
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
 
 #Annotate points (4,4),(2,8),(8,2) on indiff curve
-text(2.2, 8.2, expression(paste(a)), cex = labelsize)
-points(2, 8, pch = 16, col = "black", cex = 1.5)
+text(2, uFn(2) + 0.2, expression(paste(f)), cex = labelsize)
+points(2, uFn(2), pch = 16, col = "black", cex = 1.5)
 
-text(4.2, 4.2, expression(paste(b)), cex = labelsize)
-points(4, 4, pch = 16, col = "black", cex = 1.5)
+text(8, uFn(8) + 0.2, expression(paste(i)), cex = labelsize)
+points(8, uFn(8), pch = 16, col = "black", cex = 1.5)
 
-text(8.2, 2.2, expression(paste(c)), cex = labelsize)
-points(8, 2, pch = 16, col = "black", cex = 1.5)
+text(14, uFn(14) + 0.2, expression(paste(g)), cex = labelsize)
+points(14, uFn(14), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

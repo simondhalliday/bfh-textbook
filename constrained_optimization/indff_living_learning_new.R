@@ -6,7 +6,7 @@ library(shape)
 pdf(file = "constrained_optimization/indiff_living_learning_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.8
 labelsize <- 1.1
 graphlinewidth <- 3
 segmentlinewidth <- 2
@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 ppf <- function(x, slope = 1/64, bary = 4) {
   bary - slope *x^2
@@ -26,7 +26,7 @@ uFn <- function(x, y, alpha = 0.4){
   (x^alpha)*(y^(1-alpha))
 }
 
-indiffA <- function(x, ubar = uFn(8,3) - 1, alpha = 0.4) {
+indiffA <- function(x, ubar = uFn(8,3), alpha = 0.4) {
   (ubar/ (x^alpha))^(1/ (1 - alpha))
 }
 
@@ -36,7 +36,7 @@ xlims <- c(0, 18)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(uFn(8, 3) - 1.5, uFn(8, 3), uFn(8, 3) + 1.4) #alpha = 0.4
+a <- c(uFn(2, 3), uFn(8, 3), uFn(14, 3)) #alpha = 0.4
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -99,40 +99,51 @@ text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = a
 #Arrows(8, 3.5, 8, 3.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(17, 0.8, expression(u[1]^A), cex = labelsize)
+text(17, 0.6, expression(u[1]^A), cex = labelsize)
 text(17, 1.65, expression(u[2]^A), cex = labelsize)
-text(17, 2.7, expression(u[3]^A), cex = labelsize)
+text(17, 2.5, expression(u[3]^A), cex = labelsize)
 
 #Annotate max u point on feasibility frontier
 text(8.4, ppf(8) + 0.1, expression(paste(i)), cex = labelsize)
 segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
-
-text(11.118 + 0.2, indiffA(x = 11.118, ubar = uFn(8, 3)+ 1.4) + 0.1, expression(paste(d)), cex = labelsize)
-segments(0, indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), 11.118, indiffA(x = 11.118, ubar = uFn(8, 3)+1.4), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(11.118, 0, 11.118, indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(11.118,  indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), pch = 16, col = "black", cex = 1.5)
 
 
+#text(11.118 + 0.2, indiffA(x = 11.118, ubar = uFn(8, 3)+ 1.4) + 0.1, expression(paste(d)), cex = labelsize)
+#segments(0, indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), 11.118, indiffA(x = 11.118, ubar = uFn(8, 3)+1.4), lty = 2, col = "gray", lwd = segmentlinewidth)
+#segments(11.118, 0, 11.118, indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), lty = 2, col = "gray", lwd = segmentlinewidth)
+#points(11.118,  indiffA(x = 11.118, ubar = uFn(8, 3) + 1.4), pch = 16, col = "black", cex = 1.5)
 
 
-text(2 + 0.2, indiffA(x = 2, ubar = uFn(8, 3) - 1.5) + 0.1, expression(paste(a)), cex = labelsize)
+
+
+text(2 + 0.2, indiffA(x = 2, ubar = uFn(2, 3)) + 0.1, expression(paste(f)), cex = labelsize)
 #segments(0, indiffA(x = 2, ubar = uFn(8, 3) - 1.5), 2, indiffA(x = 2, ubar = uFn(8, 3) - 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(2, 0, 2, indiffA(x = 2, ubar = uFn(8, 3) - 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(2,  indiffA(x = 2, ubar = uFn(8, 3) - 1.5), pch = 16, col = "black", cex = 1.5)
+segments(2, 0, 2, indiffA(x = 2, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
-text(14 + 0.2, indiffA(x = 14, ubar = uFn(8, 3) - 1.5) + 0.1, expression(paste(b)), cex = labelsize)
-segments(0, indiffA(x = 14, ubar = uFn(8, 3) - 1.5), 14, indiffA(x = 14, ubar = uFn(8, 3) - 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(14, 0, 14, indiffA(x = 14, ubar = uFn(8, 3) - 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(14,  indiffA(x = 14, ubar = uFn(8, 3) - 1.5), pch = 16, col = "black", cex = 1.5)
+
+text(14 + 0.2, indiffA(x = 14, ubar = uFn(2, 3)) + 0.1, expression(paste(b)), cex = labelsize)
+segments(0, indiffA(x = 14, ubar = uFn(2, 3)), 14, indiffA(x = 14, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(14, 0, 14, indiffA(x = 14, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
-text(5.605 + 0.2, indiffA(x = 5.605, ubar = uFn(8, 3)) + 0.1, expression(paste(c)), cex = labelsize)
+
+text(14 + 0.2, indiffA(x = 14, ubar = uFn(14, 3)) + 0.1, expression(paste(g)), cex = labelsize)
+segments(0, indiffA(x = 14, ubar = uFn(14, 3)), 14, indiffA(x = 14, ubar = uFn(14, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(14, 0, 14, indiffA(x = 14, ubar = uFn(14, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(14,  indiffA(x = 14, ubar = uFn(14, 3)), pch = 16, col = "black", cex = 1.5)
+points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
+points(2,  indiffA(x = 2, ubar = uFn(2, 3)), pch = 16, col = "black", cex = 1.5)
+points(14,  indiffA(x = 14, ubar = uFn(2, 3)), pch = 16, col = "black", cex = 1.5)
+
+
+
+
+#text(5.605 + 0.2, indiffA(x = 5.605, ubar = uFn(8, 3)) + 0.1, expression(paste(c)), cex = labelsize)
 #segments(0, indiffA(x = 5.605, ubar = uFn(8, 3)), 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(5.605, 0, 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(5.605,  indiffA(x = 5.605, ubar = uFn(8, 3)), pch = 16, col = "black", cex = 1.5)
+#segments(5.605, 0, 5.605, indiffA(x = 5.605, ubar = uFn(8, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
+#points(5.605,  indiffA(x = 5.605, ubar = uFn(8, 3)), pch = 16, col = "black", cex = 1.5)
 
 
 

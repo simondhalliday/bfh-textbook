@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 #Change this to make it log of l 
 
@@ -144,8 +144,8 @@ points(2, 9, pch = 16, col = "black", cex = 1.5)
 # Arrows(5.25, 7, 5.25, 5.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(9.7, .8, expression(u[1]^A), cex = labelsize)
-text(9.7, 2, expression(u[2]^A), cex = labelsize)
-text(9.7, 4.1, expression(u[3]^A), cex = labelsize)
+text(9.7, .8, expression(u[3]^A), cex = labelsize)
+text(9.7, 2, expression(u[4]^A), cex = labelsize)
+text(9.7, 4.1, expression(u[5]^A), cex = labelsize)
 
 dev.off()

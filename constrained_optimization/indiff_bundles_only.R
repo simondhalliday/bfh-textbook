@@ -5,7 +5,7 @@
 library(shape)
 #pdf(file = "indiff_shaded_newSTEP1.pdf", width = 8, height = 6)
 #pdf(file = "indiff_shaded_newSTEP2.pdf", width = 8, height = 6)
-pdf(file = "constrained_optimization/indiff_shaded_new.pdf", width = 8, height = 6)
+pdf(file = "constrained_optimization/indiff_bundles_only.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -66,18 +66,18 @@ xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Draw the polygon for shading the utility areas
-xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
-ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
-ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
-polygon(x = c(0, 0, xlims[2], xlims[2], 0), y = c(0, indiffA(xlims[2]), indiffA(xlims[2]), 0, 0), col=COLA[1], density=NULL, border = NA)
-
-
-polygon(x = c(xlims[2], rev(xpoly1), xpoly1), y = c(ylims[2], rev(ypoly1), ypoly1), col=COLB[1], density=NULL, border = NA)
+# xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
+# ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
+# polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+# ypoly1 <- indiffA(xpoly1, alpha = 0.5, uA = 4)
+# polygon(x = c(0, 0, xlims[2], xlims[2], 0), y = c(0, indiffA(xlims[2]), indiffA(xlims[2]), 0, 0), col=COLA[1], density=NULL, border = NA)
+# 
+# 
+# polygon(x = c(xlims[2], rev(xpoly1), xpoly1), y = c(ylims[2], rev(ypoly1), ypoly1), col=COLB[1], density=NULL, border = NA)
 
 
 #Draw the graphs
-lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidth)
+# lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the feasible frontier
 # text(3.2, 1, expression("Feasible Frontier"), cex = labelsize)
@@ -101,13 +101,13 @@ text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axi
 
 
 #Label the indifference curves
-text(9.5, 1.3, expression(u[4]^A == 4), cex = labelsize)
+# text(9.5, 1.3, expression(u[1]^A == 4), cex = labelsize)
 
-text(3, 3, expression(u^A < 4), cex = labelsize)
-text(3, 2.5, expression(paste("Worse than ", u[4]^A)), cex = labelsize)
+# text(3, 3, expression(u^A < 4), cex = labelsize)
+# text(3, 2.5, expression(paste("Worse than ", u[1]^A)), cex = labelsize)
 
-text(7, 7, expression(u^A > 4), cex = labelsize)
-text(7, 6.5, expression(paste("Better than ", u[4]^A)), cex = labelsize)
+# text(7, 7, expression(u^A > 4), cex = labelsize)
+# text(7, 6.5, expression(paste("Better than ", u[1]^A)), cex = labelsize)
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
 

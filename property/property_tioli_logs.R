@@ -6,8 +6,6 @@ require(shape)
 pdf(file = "property/property_tioli_logs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
 namesize <- 1.3
 pointsize <- 1.8
 axislabelsize <- 1.8

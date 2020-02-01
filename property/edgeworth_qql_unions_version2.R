@@ -8,17 +8,18 @@ require(pBrackets)
 pdf(file = "property/edgeworthbox_qql_unions_version2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+annotatesize <- 1.5
+labelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-namesize <- 1.5
+namesize <- 1.8
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 4, 4))
 
 uB <- function(x, y, xbar = 16, ybar= 400, rmax = 32, xmax = 16) {
   (ybar - y) + rmax*(xbar - x) - (1/2)*(rmax/xmax)*(xbar - x)^2
@@ -113,8 +114,8 @@ text(-1.2, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = ax
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-1.2, 260, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(11.8, -45, 15, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(12.5, -42, 15, -42, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 lines(xx1, WalrasP(xx1, intercept = 400, slope = 24), col = COL[3], lwd = graphlinewidth)
 # lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
@@ -124,30 +125,32 @@ segments(5, ylims[1], 5, ylims[2], col = "grey" , lwd = segmentlinewidth, lty = 
 
 
 #Label the PEC
-text(9.3, 270, expression("Pareto-efficient"))
-text(9.3, 255, expression("curve"))
+text(9.1, 287, expression("Pareto-"), cex = annotatesize)
+text(9.1, 270, expression("efficient"), cex = annotatesize)
+text(9.1, 253, expression("curve"), cex = annotatesize)
 #Arrows(9.5, 255, 8.3, 255, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the trade union price
 # 
 #Arrows(10, 124, 10, 148, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(10.15, 130, expression(paste("Trade union")))
-text(10.15, 115, expression(paste("wage")))
-text(10.15, 100, expression(slope == -w ))
+text(10.15, 120, expression(paste("Trade union")), cex = annotatesize)
+text(10.15, 103, expression(paste("wage")), cex = annotatesize)
+text(10.15, 90, expression(slope == -w ), cex = annotatesize)
 
 Arrows(7.8, 15, 5.2, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(6.5, 40, expression(paste("decreased work")))
-text(6.5, 25, expression(paste("hours")))
+text(6.5, 58, expression(paste("decreased")), cex = annotatesize)
+text(6.5, 41, expression(paste("work")), cex = annotatesize)
+text(6.5, 25, expression(paste("hours")), cex = annotatesize)
 
 
 #uA(0, 400), uA(0,400) + 140, uA(0,400) + 254
 #Label the indifference curves for A
-text(14.1, 20, expression(paste(u[1]^A) == phantom()))
-text(14.8, 20, paste(uA(0, 400)))
-text(14.1, 162, expression(paste(u[2]^A) == phantom()))
-text(14.8, 162, paste(uA(0, 400)+140))
-text(14.1, 275, expression(paste(u[3]^A) == phantom()))
-text(14.8, 275, paste(uA(0, 400)+254))
+text(13.3, 35, expression(paste(u[1]^A) == phantom()), cex = annotatesize)
+text(14.3, 35, paste(uA(0, 400)), cex = annotatesize)
+text(13.3, 174, expression(paste(u[2]^A) == phantom()), cex = annotatesize)
+text(14.3, 174, paste(uA(0, 400)+140), cex = annotatesize)
+text(13.3, 290, expression(paste(u[3]^A) == phantom()), cex = annotatesize)
+text(14.3, 290, paste(uA(0, 400)+254), cex = annotatesize)
 
 
 #text(2.6, 8.1, expression(v[3]^B))
@@ -218,31 +221,32 @@ mtext("B's Hours of Living, x", side=3, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-1.2, 260, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(10.6, -50, 15, -50, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+#Add arrows:
+arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(11.2, -48, 15, -48, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 points(x = 16, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(15.8, -10, expression(paste(z)), xpd = TRUE)
+text(15.8, -10, expression(paste(z)), , cex = annotatesize, xpd = TRUE)
 
 points(8, 318, pch = 16, col = "black", cex = 1.5)
-text(7.7, 310, expression(paste(t^{B})))
+text(7.7, 306, expression(paste(t^{B})), cex = annotatesize)
 
 points(8, 64, pch = 16, col = "black", cex = 1.5)
-text(7.7, 56, expression(paste(t^{A})))
+text(7.7, 50, expression(paste(t^{A})), cex = annotatesize)
 
 points(16 - 5, 400 - 280, pch = 16, col = "black", cex = 1.5)
-text(16 - 5 + 0.3, 400 - 280 + 8, expression(paste(b)))
+text(16 - 5 - 0.3, 400 - 280 - 8, expression(paste(b)), cex = annotatesize)
 
 points(8, 168, pch = 16, col = "black", cex = 1.5)
-text(7.7, 172, expression(paste(a)))
+text(7.7, 172, expression(paste(a)), cex = annotatesize)
 
 #Label the indifference curves for B
-text(16 - 3, 400 - 375, expression(paste(u[1]^B) == phantom()))
-text(16 - 3.7, 400 - 375, paste(uB2(16, 0)))
-text(16 - 3, 400 - 280, expression(paste(u[2]^B) == phantom()))
-text(16 - 3.7, 400 - 280, paste(uB2(11,120)))
-text(16 - 3, 400 - 120, expression(paste(u[3]^B) == phantom()))
-text(16 - 3.7, 400 - 120, paste(uB2(16,0) + 254))
+text(16 - 3.5, 400 - 365, expression(paste(u[1]^B) == phantom()), cex = annotatesize)
+text(16 - 4.5, 400 - 365, paste(uB2(16, 0)), cex = annotatesize)
+text(16 - 3.5, 400 - 270, expression(paste(u[2]^B) == phantom()), cex = annotatesize)
+text(16 - 4.5, 400 - 270, paste(uB2(11,120)), cex = annotatesize)
+text(16 - 3.5, 400 - 110, expression(paste(u[3]^B) == phantom()), cex = annotatesize)
+text(16 - 4.5, 400 - 110, paste(uB2(16,0) + 254), cex = annotatesize)
 
 dev.off()
 

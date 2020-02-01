@@ -5,9 +5,12 @@ require(shape)
 pdf(file = "property/property_fig1b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-namesize <- 1.3
+axislabelsize <- 1.8
+annotatesize <- 1.5
+labelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+namesize <- 1.8
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -37,7 +40,7 @@ indiffcurveB3 <- function(x, U = 3.741657, A = 1, a = 0.5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 COL <- c("#fc9272", "#fb6a4a", "#ef3b2c","#cb181d", "#99000d")
-par(mar =  c(4, 4, 2, 2))
+par(mar =  c(4, 4, 1, 1))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 
@@ -49,13 +52,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     bty = "n")
+     bty = "n",
+     xaxs="i", 
+     yaxs="i")
 
-mtext(expression(paste("B's coffee (kilograms), ", x^B)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-0.7, 0.5*ylims[2], expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-npts <- 500 
+npts <- 501 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -79,23 +84,23 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(9, 0.7, expression(u[1]^B))
-text(9, 2, expression(u[2]^B))
-text(9, 4.1, expression(u[3]^B))
-#text(16, 0.52, expression(paste("Nash Equilibrium")))
+text(9, 0.8, expression(u[1]^B), cex = annotatesize)
+text(9, 2.1, expression(u[2]^B), cex = annotatesize)
+text(9, 4.2, expression(u[3]^B), cex = annotatesize)
 
 #Line to label B's endowment
-segments(0, 14, 1, 14, lty = 2, col = "darkgray", lwd = 2)
-segments(1, 0, 1, 14, lty = 2, col = "darkgray", lwd = 2)
+segments(0, 14, 1, 14, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(1, 0, 1, 14, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Add a point for Aisha's endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
 
 #Annotating B's endowment
-text(1.7, 14, expression(z == (list(x[z]^B, y[z]^B))))
+text(1.28, 13.7, expression(z == phantom()), cex = annotatesize-0.05)
+text(1.91, 13.7, expression((list(x[z]^B, y[z]^B))), cex = annotatesize-0.05)
 
 
-text(-0.5, -1.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.3, -1.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 #text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Arrow to Slope of BRF

@@ -4,9 +4,12 @@ require(shape)
 pdf(file = "property/property_fig1a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-namesize <- 1.3
+axislabelsize <- 1.8
+annotatesize <- 1.5
+labelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+namesize <- 1.8
 
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
@@ -35,7 +38,7 @@ indiffcurveA3 <- function(x, U = 3, A = 1, a = 0.5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 #COL <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-par(mar =  c(4, 4, 2, 2))
+par(mar =  c(4, 4, 1, 1))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 
@@ -47,10 +50,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     bty = "n")
+     bty = "n",
+     xaxs="i", 
+     yaxs="i")
 
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -1.5, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.7, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -77,22 +83,22 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(0.3, 11, expression(u[1]^A))
-text(1, 11, expression(u[2]^A))
-text(2.5, 11, expression(u[3]^A))
+text(0.3, 11, expression(u[1]^A), cex = annotatesize)
+text(1.1, 11, expression(u[2]^A), cex = annotatesize)
+text(2.55, 11, expression(u[3]^A), cex = annotatesize)
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment
-segments(0, 1, 9, 1, lty = 2, col = "darkgray", lwd = 2)
-segments(9, 0, 9, 1, lty = 2, col = "darkgray", lwd = 2)
+segments(0, 1, 9, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(9, 0, 9, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Add a point for Aisha's endowment
 points(9, 1, pch = 16, col = "black", cex = 1.5)
 
 #Annotating line of 100% quality
-text(9.5, 1.6, expression(z == (list(bar(x[z])^A, bar(y[z])^A))))
+text(9.1, 1.6, expression(z == (list(x[z]^A, y[z]^A))), cex = annotatesize)
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 #text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Arrow to Slope of BRF

@@ -5,9 +5,12 @@ require(shape)
 pdf(file = "property/property_fig2b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-namesize <- 1.3
+axislabelsize <- 1.8
+annotatesize <- 1.5
+labelsize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+namesize <- 1.8
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -75,17 +78,18 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -1.5, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+#Add arrows for A: 
+arrows(-0.7, 11.6, -0.7, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.4, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
-text(0.3, 10, expression(u[1]^A))
-text(1.1, 10, expression(u[2]^A))
-text(2.7, 10, expression(u[3]^A))
+text(0.4, 9, expression(u[1]^A), cex = annotatesize)
+text(1.3, 9, expression(u[2]^A), cex = annotatesize)
+text(3.1, 9, expression(u[3]^A), cex = annotatesize)
 #text(16, 0.52, expression(paste("Nash Equilibrium")))
 
 #Line to label B's endowment
@@ -93,7 +97,7 @@ text(2.7, 10, expression(u[3]^A))
 #segments(2, 0, 2, 13, lty = 2, col = "darkgray", lwd = 2)
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
@@ -121,8 +125,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 indiffcurveB1 <- function(x, U = 3.741657, A = 1, a = 0.5) {
@@ -142,24 +146,16 @@ lines(xx1, indiffcurveB2(xx1), col = COLB[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveB3(xx1), col = COLB[2], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(0.5, 10, expression(u[1]^B))
-text(1.6, 10, expression(u[2]^B))
-text(3.6, 10, expression(u[3]^B))
+text(0.55, 10, expression(u[1]^B), cex = annotatesize)
+text(1.65, 10, expression(u[2]^B), cex = annotatesize)
+text(3.65, 10, expression(u[3]^B), cex = annotatesize)
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
 
 #Annotating B's endowment
-text(0.8, 13.5, expression(z))
+text(0.8, 13.5, expression(z), cex = annotatesize)
 
-
-#Arrow to Slope of BRF
-#Arrows(14.2, 0.12, 12.2, 0.12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-#text(16.8, 0.12, expression(paste("Slope = ", q[p])))
-
-#Arrow to Slope of isoprofit
-#Arrows(13, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-#text(10.2, 0.80, expression(paste("Slope = ", frac(q, p))))
 
 dev.off()
 

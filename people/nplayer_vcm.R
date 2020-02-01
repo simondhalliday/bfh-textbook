@@ -8,7 +8,7 @@ df2 <- df2 %>% mutate(action = factor(action),
 vcmplot <- 
   df2 %>% 
   ggplot(aes(x = others, y = payoff, group = action, color = action, fill = action)) + 
-  geom_bar(stat = "identity", position = "dodge") + 
+  geom_bar(stat = "identity", width = 0.8, position = position_dodge(width = 0.95)) + 
   xlab("Number of others contributing") + 
   ylab("Payoff net of endowment, $") + 
   scale_fill_brewer(type = "qual", 

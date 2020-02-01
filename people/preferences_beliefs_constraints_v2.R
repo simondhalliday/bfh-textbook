@@ -46,7 +46,7 @@ text(1.5, 4, expression(paste("(Feasible set")), cex = actionlabelsize)
 text(1.5, 3.5, expression(paste("of actions)")), cex = actionlabelsize)
 text(2.5, 8, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
 text(2.5, 7.5, expression(paste("(which actions result")), cex = labelsize)
-text(2.5, 7, expression(paste("in which outcomes)")), cex = labelsize)
+text(2.5, 7, expression(paste("in which feasible outcomes)")), cex = labelsize)
 #text(3.4, 7.5, expression(paste("Beliefs")), cex = labelsize, col = COLB[4])
 #text(5, 7.5, expression(paste(phantom()==phantom(), "Feasible set")), cex = labelsize)
 
@@ -58,9 +58,9 @@ text(5, 4.3, expression(paste("outcomes")), cex = actionlabelsize)
 text(5, 3.8, expression(paste("believed to")), cex = actionlabelsize)
 text(5, 3.3, expression(paste("be feasible")), cex = actionlabelsize)
 
-Arrows(3, 6.5, 4, 5.5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+Arrows(3, 6.75, 4, 5.5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
-Arrows(7, 6.5, 8, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
+Arrows(7, 6.75, 8, 5, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
 Arrows(6.5, 4, 7.5, 4, col = COLB[3], lty = 1, lwd = 3, arr.type = "triangle")
 
@@ -72,6 +72,6 @@ text(8.5, 3.8, expression(paste("an action")), cex = actionlabelsize)
 text(7, 8, expression(paste("Preferences")), cex = labelsize, col = COLB[4])
 #text(8.45, 2.9, expression(paste(phantom()==phantom(), "Ranking of")), cex = labelsize)
 text(7, 7.5, expression(paste("(evaluation of")), cex = labelsize)
-text(7, 7, expression(paste("outcomes)")), cex = labelsize)
+text(7, 7, expression(paste("feasible outcomes)")), cex = labelsize)
 
 dev.off()

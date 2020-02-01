@@ -10,8 +10,8 @@ pdf(file = "property/edgeworthbox_qql_unions_version2.pdf", width = 9, height = 
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 namesize <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -125,7 +125,7 @@ segments(5, ylims[1], 5, ylims[2], col = "grey" , lwd = segmentlinewidth, lty = 
 
 #Label the PEC
 text(9.3, 270, expression("Pareto-efficient"))
-text(9.3, 255, expression("Curve"))
+text(9.3, 255, expression("curve"))
 #Arrows(9.5, 255, 8.3, 255, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the trade union price

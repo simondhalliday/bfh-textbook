@@ -7,9 +7,14 @@ require(shape)
 pdf(file = "property/property_psp1_offer_step2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-namesize <- 1.3
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -128,12 +133,12 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 #Axis labels
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 3, cex = axislabelsize)
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
@@ -194,7 +199,7 @@ text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]))
 # text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(b[4]))
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.7, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Set up second axes and labels
@@ -225,7 +230,7 @@ text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex 
 
 #Add arrows:
 arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.4, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 #Functions for B's indifference curves

@@ -4,9 +4,9 @@ require(shape)
 pdf(file = "property/property_fig2a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.7
 pointsize <- 1.8
-namesize <- 1.3
+namesize <- 1.5
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))

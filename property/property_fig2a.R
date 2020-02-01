@@ -4,9 +4,13 @@ require(shape)
 pdf(file = "property/property_fig2a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.7
 pointsize <- 1.8
-namesize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))
@@ -73,8 +77,8 @@ mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.9, ce
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 
@@ -89,7 +93,7 @@ arrows(6.9, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 #segments(2, 0, 2, 13, lty = 2, col = "darkgray", lwd = 2)
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.7, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
@@ -119,8 +123,8 @@ text(4.5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, 
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 11.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {

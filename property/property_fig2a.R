@@ -139,7 +139,7 @@ indiffcurveB3 <- function(x, U = 5.09, A = 1, a = 0.5) {
   ((((U+2)/A)*(1/x)^a)^(1/(1-a)))
 }
 
-COLB <- c("#fc9272", "#fb6a4a", "#ef3b2c","#cb181d", "#99000d")
+COLB <- c("#fc9272", "#fb6a4a", "#ef3b2c","#084081", "#99000d")
 
 #lines(xx1, indiffcurveB1(xx1), col = COLB[3], lwd = 4)
 #lines(xx1, indiffcurveB2(xx1), col = COLB[3], lwd = 4)

@@ -2,9 +2,12 @@ require(shape)
 pdf(file = "property/edgeworth_better_worse.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.7
-labelsize <- 1.7
-namesize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))

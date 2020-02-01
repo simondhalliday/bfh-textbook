@@ -47,12 +47,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.9, cex = axislabelsize)
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 3, cex = axislabelsize)
 text(-0.8, 6, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.8, 9, -1.8, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 npts <- 500 
@@ -79,7 +79,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.7, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
@@ -104,11 +104,11 @@ axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
 #axis(side=3, at = xlims2, pos = 0)
 
-text(4.5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(4.5, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.7, 11, -0.7, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.7, 12, -0.7, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 

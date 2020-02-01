@@ -102,7 +102,7 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
 #axis(side=3, at = xlims2, pos = 0)
 
 text(4.5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
-text(-0.6, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.6, 11, -0.6, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)

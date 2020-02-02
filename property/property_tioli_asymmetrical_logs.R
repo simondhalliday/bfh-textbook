@@ -123,9 +123,9 @@ arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
-text(1.5, 14, expression(u[1]^A))
-text(2.9, 14, expression(u[2]^A==u[z]^A))
-text(5.2, 14, expression(u[3]^A))
+text(1.6, 14, expression(u[1]^A), cex = annotatesize)
+text(3, 14, expression(u[2]^A==u[z]^A), cex = annotatesize)
+text(5.25, 14, expression(u[3]^A), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)
@@ -134,15 +134,16 @@ text(5.2, 14, expression(u[3]^A))
 
 #Pareto efficient curve
 #segments(4.16, 6.23, 6.73, 10.1, lty = 2, lwd = 2)
-text(8.8, 13.5, expression("Pareto-efficient"))
-text(8.8, 13, expression("curve"))
+text(8.8, 14.4, expression("Pareto-"), cex = annotatesize)
+text(8.8, 13.7, expression("efficient"), cex = annotatesize)
+text(8.8, 13, expression("curve"), cex = annotatesize)
 Arrows(8.8, 12.7, 8.8, 10.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label Pareto Improving Lens
-text(4, 11, expression(paste("Pareto-improving")))
-text(4, 10.5, expression(paste("lens")))
-Arrows(4, 10.2, 4, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4.2, 11, expression(paste("Pareto-improving")), cex = annotatesize)
+text(4.2, 10.5, expression(paste("lens")), cex = annotatesize)
+Arrows(4.2, 10.2, 4.2, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 
@@ -189,7 +190,11 @@ uBlog2 <- function(xB, yB, alpha = 1/3){
 }
 
 #b <- c(uB2(1,14) - 1, uB2(1,14), uB2(1,14) + 1)
-b <- c(uBlog2(1,14) - 0.4, uBlog2(1,14), uBlog2(1,14) + 0.42)
+b <- c(uBlog2(1,14) - 0.4, 
+       uBlog2(1,14), 
+       uBlog2(3,13.4),
+       uBlog2(1,14) + 0.42)
+
 contour(x, y,
         outer(x, y, uBlog2),
         drawlabels = FALSE,
@@ -202,22 +207,23 @@ contour(x, y,
         xpd = TRUE)
 
 #Label B's indifference curves
-text(9.2, 3, expression(u[1]^B))
-text(9.2, 5.2, expression(u[2]^B == u[z]^B))
-#text(9.1, 4.6, expression(u[3]^B))
-text(9.2, 9.2, expression(u[3]^B))
+text(9.2, 3.1, expression(u[1]^B), cex = annotatesize)
+text(9.2, 5.4, expression(u[2]^B == u[z]^B), cex = annotatesize)
+text(9.2, 7.1, expression(u[3]^B), cex = annotatesize)
+text(9.2, 9.3, expression(u[4]^B), cex = annotatesize)
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
-text(0.9, 13.7, expression(z))
+text(0.8, 13.6, expression(z), cex = annotatesize)
 
 #Label a point on the middle of the curve
 points(10-6.66, 15-5, pch = 16, col = "black", cex = 1.5)
-text(10-6.66, 15-5 + 0.4, expression(i))
+text(10-6.66, 15-5 - 0.5, expression(i), cex = annotatesize)
 
 #Add point for comparison to participation constraint
 points(10-2.9, 15 - 9.75, pch = 16, col = "black", cex = 1.5)
-text(10-2.9 + 0.1, 15 - 9.75 + 0.4, expression(d))
+text(10-2.9 + 0.1, 15 - 9.75 + 0.5, 
+     expression(d), cex = annotatesize)
 
 
 #Calculate TIOLI power allocation for B
@@ -229,7 +235,8 @@ text(10-2.9 + 0.1, 15 - 9.75 + 0.4, expression(d))
 
 #Add point g for B's TIOLI power
 points(10-5.1, 15-3.1, pch = 16, col = "black", cex = 1.5)
-text(10-5.1, 15-3.1 + 0.5, expression(g))
+text(10-5.1, 15-3.1 + 0.5, 
+     expression(g), cex = annotatesize)
 
 #Calculate TIOLI power allocation for A
 #mrs(x,y) => pareto efficient curve is (3/2)x = y
@@ -240,7 +247,8 @@ text(10-5.1, 15-3.1 + 0.5, expression(g))
 #=> u^A = (5.84^0.5)*(8.77^0.5) = 7.156591
 #Add point f for A's TIOLI power
 points(10-7.45, 15-6.3, pch = 16, col = "black", cex = 1.5)
-text(10-7.45, 15-6.3 - 0.4, expression(f))
+text(10-7.45, 15-6.3 - 0.5, 
+     expression(f), cex = annotatesize)
 
 #Annotating B's endowment
 #text(1.8, 12.5, expression(e))
@@ -251,7 +259,8 @@ indifflogAneg <- function(xA, U, alpha = 2/3){
 }
 
 points(3, indifflogAneg(3, U = uAlog(9,1)), pch = 16, col = "black", cex = 1.5)
-text(3 - 0.15, indifflogAneg(3, U = uAlog(9,1)) - (0.15*1.5), expression(h))
+text(3 - 0.15, indifflogAneg(3, U = uAlog(9,1)) - 0.4, 
+     expression(h), cex = annotatesize)
 
 # uAlog(9,1)
 # [1] 1.464816

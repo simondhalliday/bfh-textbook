@@ -2,9 +2,14 @@ require(shape)
 pdf(file = "property/qql_y_indiff.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+namesize <- 1.3
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
-segmentlinewidth <- 1.8
+segmentlinewidth <- 1.5
 
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -13,7 +18,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 Grays <- gray.colors(25, start =1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(4, 7.5, 1, 1))
 
 mrsA <- function(x, rmax = 2, xmax = 12) {
   rmax - (rmax/xmax)*x
@@ -56,12 +61,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 13, 15, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y == u[1]^B)), expression(paste(y == u[2]^B)), expression(paste(y == u[3]^B)), NA)
+ylabels <- c(NA, expression(paste(y[1] == u[1]^B)), expression(paste(y[2] == u[2]^B)), expression(paste(y[3] == u[3]^B)), NA)
 ticksx <- c(0,  xlims[2])
 xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -69,10 +74,8 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, bcA(xx1, w = 12, p = 1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
-
-
 mtext(expression(paste("Hours of Living, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 10, expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.2, 10, expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -80,9 +83,9 @@ text(-1.4, 10, expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axi
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(11.8, 1.5, expression(u[1]^B))
-text(11.8, 3.5, expression(u[2]^B)) 
-text(11.8, 5.5, expression(u[3]^B))
+text(11.8, 1.7, expression(u[1]^B), cex = annotatesize)
+text(11.8, 3.7, expression(u[2]^B), cex = annotatesize) 
+text(11.8, 5.7, expression(u[3]^B), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty
@@ -126,14 +129,14 @@ slopeline <- function(x, yint, slope = 1.5){
 }
 
 slopex1 <- seq(2,4,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = 12.2, slope = mrsA(x = 3)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = 14.2, slope = mrsA(x = 3)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = 16.2, slope = mrsA(x = 3)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = 12.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = 14.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = 16.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
 
 slopex2 <- seq(8,10,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = 6.2, slope = mrsA(x = 9)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = 8.2, slope = mrsA(x = 9)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = 10.2, slope = mrsA(x = 9)), col = Grays[18], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = 6.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = 8.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = 10.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
 
 
 firstpointsx <- c(3, 3, 3)

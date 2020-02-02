@@ -95,10 +95,10 @@ text(-0.9, 0.5*ylims[2], expression(paste("B's Utility, ", u^B)), xpd = TRUE, ce
 
 #Draw the lines for the graphs
 lines(xx1, upf(xx1), col = COL[1], lwd = graphlinewidth)
-lines(xx1, swf.h(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
-lines(xx1, swf.z(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
-lines(xx1, swf.f(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
-lines(xx1, swf.g(xx1), col = COLB[2], lwd = graphlinewidth, lty = 2)
+lines(xx1, swf.h(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.z(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.f(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.g(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
 lines(xx1, swf.i(xx1), col = COLB[2], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
@@ -126,7 +126,7 @@ text(10.5, 5, expression(paste("Iso-welfare Curves")), cex = annotatesize)
 #W = (3^0.5)*(9.247448^0.5) = 5.2671
 #points(8.24, 4, pch = 16, col = "black", cex = 1.5)
 points(3, 9.247448, pch = 16, col = "black", cex = 1.5)
-text(3 - 0.3, 9.247448 - 0.3, expression(g), cex = annotatesize)
+text(3 - 0.3, 9.247448 - 0.3, expression(t^B), cex = annotatesize)
 
 
 #Annotate Point i
@@ -142,7 +142,7 @@ text(6.3, 6.3, expression(i), cex = annotatesize)
 #W = (8.573214^0.5)*(3.674235^0.5) = 5.744736
 #W = (4.002874^0.6)*(8.244574^0.4) = 5.344295
 points(8.522177, (1^0.5)*(14^0.5), pch = 16, col = "black", cex = 1.5)
-text(8.522177 + 0.2, (1^0.5)*(14^0.5) + 0.2, expression(f), cex = annotatesize)
+text(8.522177 + 0.3, (1^0.5)*(14^0.5) + 0.2, expression(t^A), cex = annotatesize)
 
 #Annotate point e.
 #ua_e = (8^0.5)*(2^0.5) = 4

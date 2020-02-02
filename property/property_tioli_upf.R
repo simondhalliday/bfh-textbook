@@ -101,8 +101,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 #UPF
 text(8.1, 1.5, expression(paste("Utility Possibilities Frontier")), 
      cex = annotatesize)
-text(8.1, 1, expression(paste(u^B == bar(W) - u^A)), 
-     cex = annotatesize)
+# text(8.1, 1, expression(paste(u^B == bar(W) - u^A)), 
+#      cex = annotatesize)
 
 #SWF
 #text(11.5, 4.5, expression(paste("Social Planner's")))
@@ -143,20 +143,23 @@ text(uA(9,1)-0.3,  uA(1,14)-0.3, expression(z), cex = annotatesize)
 
 #Annotate f
 points(8.5, uA(1,14), pch = 16, col = "black", cex = 1.5)
-text(8.5 - 0.2, uA(1,14) - 0.2, expression(f), cex = annotatesize)
+text(8.5 - 0.2, uA(1,14) - 0.3, expression(t^A), cex = annotatesize)
 
 #Annotate g
 points(uA(9,1, alpha = 1/2), upf(uA(9,1)), pch = 16, col = "black", cex = 1.5)
-text(uA(9,1, alpha = 1/2)-0.3, upf(uA(9,1))-0.3, expression(g), cex = annotatesize)
+text(uA(9,1, alpha = 1/2)-0.3, upf(uA(9,1))-0.3, expression(t^B), cex = annotatesize)
 
 #Annotate m
 #points(4.389995,  5.703502, pch = 16, col = "black", cex = 1.5)
 #text(4.6, 5.9, expression(m))
 
 #Label economic rents
-Arrows(6.68, 5.12, 6.68, 7.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(6.68, 7.82, expression(paste("Economic surplus")), 
+#Arrows(6.68, 5.12, 6.68, 7.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(4.5, 5.4, expression(paste("Bargaining")), 
      cex = annotatesize)
+text(4.5, 4.7, expression(paste("set")), 
+     cex = annotatesize)
+
 
 #Point h
 #points(4, 10, pch = 16, col = "black", cex = 1.5)

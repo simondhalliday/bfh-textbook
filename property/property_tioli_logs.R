@@ -135,7 +135,8 @@ arrows(7.3, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 text(0.5, 12, expression(u[1]^A), cex = annotatesize)
-text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
+#text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
+text(1.1, 12, expression(u[z]^A), cex = annotatesize)
 text(6.4, 12, expression(u[3]^A), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -214,7 +215,8 @@ contour(x, y,
 
 #Label B's indifference curves
 text(0.7, 12.5, expression(u[1]^B), cex = annotatesize)
-text(1.7, 12.5, expression(u[2]^B == u[z]^B), cex = annotatesize)
+#text(1.7, 12.5, expression(u[2]^B == u[z]^B), cex = annotatesize)
+text(1.4, 12.5, expression(u[z]^B), cex = annotatesize)
 text(3.6, 12.5, expression(u[3]^B), cex = annotatesize)
 text(7.3, 12.5, expression(u[4]^B), cex = annotatesize)
 
@@ -243,8 +245,8 @@ text(10-.7 - 0.2, 15 - 13.5 + 0.4,
 
 #Add point g for B's TIOLI power
 points(10-xatioli(uAlog(9,1)), 15-(3/2)*xatioli(uAlog(9,1)), pch = 16, col = "black", cex = 1.5)
-text(10-2.44949, 15-(3/2)*2.44949 - 0.5, 
-     expression(g), cex = annotatesize)
+text(10-2.44949, 15-(3/2)*2.44949 - 0.6, 
+     expression(t^B), cex = annotatesize)
 
 #Calculate TIOLI power allocation for A
 #mrs(x,y) => pareto efficient curve is (3/2)x = y
@@ -258,8 +260,8 @@ text(10-2.44949, 15-(3/2)*2.44949 - 0.5,
 
 #xbtioli(uBlog2(1,14))
 points(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)), pch = 16, col = "black", cex = 1.5)
-text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) - 0.5, 
-     expression(f), cex = annotatesize)
+text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) - 0.7, 
+     expression(t^A), cex = annotatesize)
 
 #Annotating B's endowment
 #text(1.8, 12.5, expression(e))

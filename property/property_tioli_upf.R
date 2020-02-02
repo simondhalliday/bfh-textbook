@@ -7,9 +7,14 @@ require(plotrix)
 pdf(file = "property/property_tioli_upf.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-arrowwidth <- 0.5
+namesize <- 1.3
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 
 
@@ -43,14 +48,14 @@ uA <- function(xA, yA, alpha = 1/2){
 #W = (4.002874^0.5)*(8.244574^0.5) = 5.744736
 
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(4, 4, 1, 1))
 xlims <- c(0, 13)
 ylims <- c(0, 13)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's Utility, ", u^A)),
-     ylab = expression(paste("B's Utility, ", u^B)),
+     xlab = "",
+     ylab = "",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -64,6 +69,10 @@ npts2 <- 501
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
+
+text(0.5*xlims[2], -1.3, expression(paste("A's Utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("B's Utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
 
 #polygons
 #I need something like xx1 with npts for 
@@ -90,8 +99,10 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the  graphs
 #UPF
-text(8.8, 1.5, expression(paste("Utility Possibilities Frontier")))
-text(8.8, 1, expression(paste(u^B == bar(W) - u^A)))
+text(8.1, 1.5, expression(paste("Utility Possibilities Frontier")), 
+     cex = annotatesize)
+text(8.1, 1, expression(paste(u^B == bar(W) - u^A)), 
+     cex = annotatesize)
 
 #SWF
 #text(11.5, 4.5, expression(paste("Social Planner's")))
@@ -128,15 +139,15 @@ segments(uA(9,1), 0, uA(9,1), ylims[2], 13, lty = 2, col = "darkgray", lwd = 2)
 
 #Annotate e
 points(uA(9,1),  uA(1,14), pch = 16, col = "black", cex = 1.5)
-text(uA(9,1)-0.2,  uA(1,14)-0.2, expression(z))
+text(uA(9,1)-0.3,  uA(1,14)-0.3, expression(z), cex = annotatesize)
 
 #Annotate f
 points(8.5, uA(1,14), pch = 16, col = "black", cex = 1.5)
-text(8.5 - 0.2, uA(1,14) - 0.2, expression(f))
+text(8.5 - 0.2, uA(1,14) - 0.2, expression(f), cex = annotatesize)
 
 #Annotate g
 points(uA(9,1, alpha = 1/2), upf(uA(9,1)), pch = 16, col = "black", cex = 1.5)
-text(uA(9,1, alpha = 1/2)-0.2, upf(uA(9,1))-0.2, expression(g))
+text(uA(9,1, alpha = 1/2)-0.3, upf(uA(9,1))-0.3, expression(g), cex = annotatesize)
 
 #Annotate m
 #points(4.389995,  5.703502, pch = 16, col = "black", cex = 1.5)
@@ -144,7 +155,8 @@ text(uA(9,1, alpha = 1/2)-0.2, upf(uA(9,1))-0.2, expression(g))
 
 #Label economic rents
 Arrows(6.68, 5.12, 6.68, 7.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(6.68, 7.82, expression(paste("Economic surplus")))
+text(6.68, 7.82, expression(paste("Economic surplus")), 
+     cex = annotatesize)
 
 #Point h
 #points(4, 10, pch = 16, col = "black", cex = 1.5)
@@ -157,14 +169,16 @@ text(6.68, 7.82, expression(paste("Economic surplus")))
 #(5^0.5)*(7.5^0.5) = 6.123724
 #W = (6.123724^0.5)(6.123724^0.5) = 6.123724
 points(6.123724, 6.123724, pch = 16, col = "black", cex = 1.5)
-text(6.3, 6.3, expression(i))
+text(6.123724 + 0.2, 6.123724 + 0.2, expression(i), cex = annotatesize)
 
 #Label Participation Constraints
 #Aisha's
-text(11, 4.4, expression(paste("B's Participation Constraint ", u[z]^B)))
+text(11, 4.9, expression(paste("B's Participation")), cex = annotatesize)
+text(11, 4.2, expression(paste("constraint ", u[z]^B)), cex = annotatesize)
 
 #Betty's
-text(5.1, 12.5, expression(paste("A's Participation Constraint ", u[z]^A)))
+text(4.6, 12.7, expression(paste("A's Participation")), cex = annotatesize)
+text(4.6, 12, expression(paste("constraint ", u[z]^A)), cex = annotatesize)
 
 #Arrows showing Social Planner's choices
 #Arrows(5.2, 4.2, 5.9, 4.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = arrowwidth)

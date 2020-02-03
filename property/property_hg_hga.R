@@ -2,8 +2,12 @@ require(shape)
 pdf(file = "property/property_hg_hga.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -73,8 +77,8 @@ mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, ce
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 
@@ -94,19 +98,19 @@ contour(x, y,
 
 segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(5.5, 2.4, expression("Pareto Efficient Curve"))
-Arrows(5.3, 2.7, 5.3, 7.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5.3, 2.7, 5.3, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.35, 3.5, expression(v[1]^A))
-text(7.8, 6.4, expression(v[2]^A))
-text(7.4, 7.1, expression(v[3]^A))
-text(6.6, 8.3, expression(v[4]^A))
+text(9.45, 3.5, expression(v[1]^A), cex = annotatesize)
+text(7.9, 6.4, expression(v[2]^A), cex = annotatesize)
+text(7.5, 7.1, expression(v[3]^A), cex = annotatesize)
+text(6.7, 8.3, expression(v[4]^A), cex = annotatesize)
 
 #Label the indifference curves for the HG, Betty
-text(0.65, 11.8, expression(v[1]^B))
-text(2.2, 8.9, expression(v[2]^B))
-text(2.6, 8.1, expression(v[3]^B))
-text(3.4, 6.9, expression(v[4]^B))
+text(0.5, 11.8, expression(v[1]^B), cex = annotatesize)
+text(2.1, 8.9, expression(v[2]^B), cex = annotatesize)
+text(2.5, 8.1, expression(v[3]^B), cex = annotatesize)
+text(3.3, 6.9, expression(v[4]^B), cex = annotatesize)
 
 #Label point i. 
 points(5, 7.5, pch = 16, col = "black", cex = 1.5)
@@ -152,8 +156,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 11.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Customize ticks and labels for the plot
 #ticksy <- seq(from = 0, to = 15, by = 1)

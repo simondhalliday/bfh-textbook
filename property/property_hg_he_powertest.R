@@ -75,9 +75,9 @@ arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 segments(0, 0, 6, 9, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(3.8, 4.3, expression("Pareto-efficient"))
-text(3.8, 3.8, expression("Curve"))
-Arrows(3.8, 4.5, 3.8, 5.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3.9, 3.8, expression("Pareto-efficient"), cex = labelsize)
+text(4, 3.2, expression("Curve"), cex = labelsize)
+Arrows(3.8, 4, 3.8, 5.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(9.7, 9, expression(u[1]^A), cex = annotatesize)
@@ -94,8 +94,8 @@ text(1.3, 0.9, expression(u[5]^B), cex = annotatesize)
 
 #A's bliss point - 3.1073 is the value of u
 # points(5.88, 8.82, pch = 16, col = "black", cex = 1.5)
-text(6, 13.5, expression(paste("A's highest u, ", u[max]^A)))
-Arrows(6, 13.2, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(6, 13.5, expression(paste("A's highest u, ", u[max]^A)), cex = labelsize)
+Arrows(6, 12.8, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label point i. 
 points(5, 7.5, pch = 16, col = "black", cex = 1.5)

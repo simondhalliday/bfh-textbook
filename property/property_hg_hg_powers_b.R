@@ -76,9 +76,9 @@ arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 segments(2, 3, 8, 12, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(4, 8.3, expression("Pareto-efficient"))
-text(4, 7.8, expression("Curve"))
-Arrows(4, 7.5, 4, 6.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3.9, 8.1, expression("Pareto-efficient"), cex = labelsize - 0.25)
+text(3.9, 7.6, expression("Curve"), cex = labelsize -0.25)
+Arrows(4, 7.3, 4, 6.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(8, 1.5, expression(u[1]^A), cex = annotatesize)

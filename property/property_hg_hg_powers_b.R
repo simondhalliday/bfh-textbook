@@ -6,9 +6,12 @@ require(shape)
 pdf(file = "property/property_hg_hg_powers_b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-namesize <- 1.3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -69,8 +72,8 @@ mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, ce
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 segments(2, 3, 8, 12, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(4, 8.3, expression("Pareto-efficient"))
@@ -78,18 +81,18 @@ text(4, 7.8, expression("Curve"))
 Arrows(4, 7.5, 4, 6.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(8, 1.3, expression(u[1]^A))
-text(8, 3.8, expression(u[2]^A))
-text(8, 6.6, expression(u[3]^A))
-text(8, 8.6, expression(u[4]^A))
-text(8, 10.2, expression(u[5]^A))
+text(8, 1.5, expression(u[1]^A), cex = annotatesize)
+text(8, 2.8, expression(u[2]^A), cex = annotatesize)
+text(8, 5.6, expression(u[3]^A), cex = annotatesize)
+text(8, 7.6, expression(u[4]^A), cex = annotatesize)
+text(8, 10, expression(u[5]^A), cex = annotatesize)
 
 #Label the indifference curves for the HE, Betty
-text(2, 14.1, expression(u[1]^B))
-text(2, 12.1, expression(u[2]^B))
-text(2, 10.4, expression(u[3]^B))
-text(2, 7.3, expression(u[4]^B))
-text(2, 4.4, expression(u[5]^B))
+text(2, 14.3, expression(u[1]^B), cex = annotatesize)
+text(2, 12.3, expression(u[2]^B), cex = annotatesize)
+text(2, 10.6, expression(u[3]^B), cex = annotatesize)
+text(2, 7.5, expression(u[4]^B), cex = annotatesize)
+text(2, 4.6, expression(u[5]^B), cex = annotatesize)
 
 #text(1.3, 1.1, expression(u[5]^B))
 
@@ -99,12 +102,12 @@ text(2, 4.4, expression(u[5]^B))
 # Arrows(6, 13.2, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label point i. 
-points(5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(5, 7.1, expression(paste(i)))
+points(5, 7.25, pch = 16, col = "black", cex = 1.5)
+text(5, 6.8, expression(paste(i)), cex = annotatesize)
 # 
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 par(new = TRUE)
@@ -142,15 +145,15 @@ contour(x, y,
 
 # #Label two points for comparison
 points(1, 14, pch = 16, col = "black", cex = 1.5)
-text(1.2, 13.8, expression(paste(z)))
+text(1.2, 13.8, expression(paste(z)), cex = annotatesize)
 
 # #Label two points for comparison
 points(0.2*10, 0.2*15, pch = 16, col = "black", cex = 1.5)
-text(0.2*10-0.2, 0.2*15-0.2,expression(paste(v^A)))
+text(0.2*10+0.2, 0.2*15-0.2,expression(paste(v^A)), cex = annotatesize)
 
 
 points(0.8*10, 0.8*15, pch = 16, col = "black", cex = 1.5)
-text(0.8*10, 0.8*15 - 0.4,expression(paste(v^B)))
+text(0.8*10- 0.4, 0.8*15 - 0.2,expression(paste(v^B)), cex = annotatesize)
 
 
 # points(8.8, (3/2)*8.8, pch = 16, col = "black", cex = 1.5)
@@ -166,8 +169,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 11.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 dev.off()

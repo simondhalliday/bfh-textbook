@@ -5,10 +5,12 @@ require(shape)
 pdf(file = "property/property_hg_he_powertest.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -69,8 +71,8 @@ mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, ce
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 segments(0, 0, 6, 9, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(3.8, 4.3, expression("Pareto-efficient"))
@@ -78,17 +80,17 @@ text(3.8, 3.8, expression("Curve"))
 Arrows(3.8, 4.5, 3.8, 5.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.75, 9, expression(u[1]^A))
-text(9.3, 9, expression(u[2]^A))
-text(8.2, 9, expression(u[3]^A))
-text(6.8, 9, expression(u[4]^A))
+text(9.7, 9, expression(u[1]^A), cex = annotatesize)
+text(9.25, 9, expression(u[2]^A), cex = annotatesize)
+text(8.15, 9, expression(u[3]^A), cex = annotatesize)
+text(6.75, 9, expression(u[4]^A), cex = annotatesize)
 
 #Label the indifference curves for the HE, Betty
-text(1.3, 13, expression(u[1]^B))
-text(1.3, 11.8, expression(u[2]^B))
-text(1.3, 10.7, expression(u[3]^B))
-text(1.3, 8.4, expression(u[4]^B))
-text(1.3, 1.1, expression(u[5]^B))
+text(1.3, 12.8, expression(u[1]^B), cex = annotatesize)
+text(1.3, 11.6, expression(u[2]^B), cex = annotatesize)
+text(1.3, 10.5, expression(u[3]^B), cex = annotatesize)
+text(1.3, 8.2, expression(u[4]^B), cex = annotatesize)
+text(1.3, 0.9, expression(u[5]^B), cex = annotatesize)
 
 #A's bliss point - 3.1073 is the value of u
 # points(5.88, 8.82, pch = 16, col = "black", cex = 1.5)
@@ -97,10 +99,10 @@ Arrows(6, 13.2, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
 
 #Label point i. 
 points(5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(5, 7.1, expression(paste(i)))
+text(5, 7, expression(paste(i)), cex = annotatesize)
 # 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.35, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Add new plot
@@ -139,19 +141,19 @@ contour(x, y,
 
 # #Label two points for comparison
 points(1, 14, pch = 16, col = "black", cex = 1.5)
-text(1.2, 13.8, expression(paste(z)))
+text(1.2, 13.8, expression(paste(z)), cex = annotatesize)
 
 # #Label two points for comparison
 points(0.4*10, 0.4*15, pch = 16, col = "black", cex = 1.5)
-text(0.4*10-0.2, 0.4*15-0.2,expression(paste(v)))
+text(0.4*10-0.2, 0.4*15-0.2,expression(paste(v)), cex = annotatesize)
 
 
 
 points(8.8, (3/2)*8.8, pch = 16, col = "black", cex = 1.5)
-text(8.8, (3/2)*8.8 - 0.5, expression(paste(j)))
+text(8.8, (3/2)*8.8 - 0.5, expression(paste(j)), cex = annotatesize)
 
 points(0.4, (3/2)*0.4, pch = 16, col = "black", cex = 1.5)
-text(0.4 + 0.2, (3/2)*0.4 + 0.2, expression(paste(k)))
+text(0.4 + 0.2, (3/2)*0.4 + 0.2, expression(paste(k)), cex = annotatesize)
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
@@ -160,8 +162,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 11.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 dev.off()

@@ -3,10 +3,13 @@ require(shape)
 pdf(file = "property/property_psp1_offer.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-namesize <- 1.3
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -151,12 +154,12 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 #Axis labels
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 3, cex = axislabelsize)
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
@@ -175,7 +178,7 @@ text(9.6, 4.4, expression(u[2]^A))
 # Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label B's offer curve
-text(1, 3, expression("B's Offer Curve"))
+text(1.3, 2.75, expression("B's Offer Curve"),cex = annotatesize - 0.05)
 Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Monopoly Price Line
@@ -183,10 +186,11 @@ Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8, 13.5, expression(paste("Different price lines")))
-text(8, 13, expression(paste("going through the endowment")))
-text(8, 12.5, expression(paste("and tangent to B's ICs")))
-text(8, 12, expression(paste("form the offer curve")))
+text(8.3, 14, expression(paste("Different price lines")), cex = annotatesize - 0.05)
+text(8.3, 13.2, expression(paste("going through")), cex = annotatesize - 0.05)
+text(8.3, 12.4, expression(paste("the endowment")), cex = annotatesize - 0.05)
+text(8.3, 11.6, expression(paste("and tangent to B's ICs")), cex = annotatesize - 0.05)
+text(8.3, 10.8, expression(paste("form the offer curve")), cex = annotatesize - 0.05)
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -208,7 +212,7 @@ points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
 text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(b[4]))
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Set up second axes and labels
@@ -237,8 +241,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 #Functions for B's indifference curves

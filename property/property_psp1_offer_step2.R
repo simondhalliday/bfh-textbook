@@ -164,8 +164,8 @@ arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # text(6.8, 13, expression(paste("Slope", phantom()==-p[1])))
 
 #Second price line
-text(4.3, 13.5, expression(paste("Price Line")))
-text(4.3, 13, expression(paste("Slope", phantom()==-p[2])))
+text(4.5, 13.5, expression(paste("Price Line")), cex = annotatesize)
+text(4.6, 12.75, expression(paste("Slope", phantom()==-p[2])), cex = annotatesize)
 
 #Third price line
 # text(2, 13.5, expression(paste("Price Line")))
@@ -183,12 +183,12 @@ text(4.3, 13, expression(paste("Slope", phantom()==-p[2])))
 
 #Add a point for the initial endowment
 points(8, OfferCurveB(x = 8), pch = 16, col = "black", cex = 1.5)
-text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(z))
+text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(z), cex = labelsize)
 
 
 #Add a point for the initial endowment
 points(6.35, OfferCurveB(x = 6.35), pch = 16, col = "black", cex = 1.5)
-text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]))
+text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]), cex = labelsize)
 
 #Add a point for the initial endowment
 # points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
@@ -262,8 +262,8 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 #lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(9.1, 2.4, expression(u[1]^B))
-text(9.1, 4.1, expression(u[2]^B))
+text(9.1, 2.4, expression(u[1]^B), cex = labelsize)
+text(9.1, 4.1, expression(u[2]^B), cex = labelsize)
 #text(9.1, 5, expression(u[3]^B))
  #text(9.1, 6.7, expression(u[4]^B))
 

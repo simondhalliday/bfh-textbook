@@ -8,8 +8,8 @@ The chapters are in the following order (repo folder indicated after the colon):
 - Chapter 1: society
 - Chapter 2: people
 - Chapter 3: constrained_maximization
-- Chapter 4: coordinationfailures
-- Chapter 5: property
+- Chapter 4: property
+- Chapter 5: coordinationfailures
 - Chapter 6: specprodexch
 - Chapter 7: indmarketdemand 
 - Chapter 8: firmmarketsupply

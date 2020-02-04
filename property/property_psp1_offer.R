@@ -163,8 +163,8 @@ arrows(7.5, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
-text(9.6, 2.2, expression(u[1]^A))
-text(9.6, 4.4, expression(u[2]^A))
+text(9.6, 2.2, expression(u[1]^A), cex = labelsize)
+text(9.6, 4.4, expression(u[2]^A), cex = labelsize)
 #text(9.6, 5.9, expression(u[4]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -196,20 +196,20 @@ text(8.3, 10.8, expression(paste("form the offer curve")), cex = annotatesize - 
 
 #Add a point for the initial endowment
 points(8, OfferCurveB(x = 8), pch = 16, col = "black", cex = 1.5)
-text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(z))
+text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(z), cex = labelsize)
 
 
 #Add a point for the initial endowment
 points(6.35, OfferCurveB(x = 6.35), pch = 16, col = "black", cex = 1.5)
-text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]))
+text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]), cex = labelsize)
 
 #Add a point for the initial endowment
 points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)
-text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(b[3]))
+text(5 + 0.2, OfferCurveB(x = 5) + 0.3, expression(b[3]), cex = labelsize)
 
 #Add a point for the initial endowment
 points(2.5, OfferCurveB(x = 2.5), pch = 16, col = "black", cex = 1.5)
-text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(b[4]))
+text(2.5 + 0.2, OfferCurveB(x = 2.5) + 0.3, expression(b[4]), cex = labelsize)
 
 
 text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
@@ -274,10 +274,10 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 #lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(9.1, 2.4, expression(u[1]^B))
-text(9.1, 4.1, expression(u[2]^B))
-text(9.1, 5, expression(u[3]^B))
-text(9.1, 6.7, expression(u[4]^B))
+text(9.1, 2.45, expression(u[1]^B), cex = labelsize - 0.05)
+text(8.5, 4.35, expression(u[2]^B), cex = labelsize - 0.05)
+text(9.4, 5, expression(u[3]^B), cex = labelsize - 0.05)
+text(9.1, 6.7, expression(u[4]^B), cex = labelsize - 0.05)
 
 
 

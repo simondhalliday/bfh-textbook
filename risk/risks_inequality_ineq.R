@@ -5,7 +5,6 @@
 library(shape)
 pdf(file = "risk/risks_inequality_ineq.pdf", width = 10, height = 8)
 
-
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.1

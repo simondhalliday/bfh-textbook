@@ -9,8 +9,8 @@ pdf(file = "risk/tax_transfers_insurance.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 a <- c(2, 4, 6)
 
 

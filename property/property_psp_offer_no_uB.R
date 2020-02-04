@@ -3,10 +3,13 @@ require(shape)
 pdf(file = "property/property_psp_offer_no_uB.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
-backgroundlinewidth <- 1.8
-namesize <- 1.3
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -113,7 +116,7 @@ xx3 <- seq(xlims[1], 9, length.out = npts)
 
 #Pareto efficiency curve
 segments(0, 0, 10, 15, lty = 1, lwd = backgroundlinewidth, col = COL[2])
-text(8.5, 10, expression("Pareto-efficient curve"))
+text(8, 10, expression("Pareto-efficient curve"), cex = annotatesize)
 Arrows(8.5, 10.3, 8.5, 12.2, col = "black", lty = 1, lwd = backgroundlinewidth, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -138,18 +141,18 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
-mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 3, cex = axislabelsize)
 text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
-text(9.2, 2.2, expression(u[1]^A == u[z]^A))
-text(9.2, 4.7, expression(u[2]^A == u[m]^A))
+text(9.2, 2.4, expression(u[1]^A == u[z]^A), cex = labelsize)
+text(9.2, 4.9, expression(u[2]^A == u[m]^A), cex = labelsize)
 #text(9.6, 5.9, expression(u[4]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -159,16 +162,16 @@ text(9.2, 4.7, expression(u[2]^A == u[m]^A))
 
 
 #Label B's offer curve
-text(1, 4, expression("B's Offer Curve"))
+text(1.3, 4, expression("B's Offer Curve"), cex = annotatesize)
 Arrows(1, 4.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Monopoly Price Line
-text(6, 13.5, expression(paste("Monopoly price line")))
-text(6, 13, expression(paste("Slope", phantom()==-p[m])))
+text(6.5, 13.5, expression(paste("Monopoly price line")), cex = annotatesize)
+text(6.5, 12.75, expression(paste("Slope", phantom()==-p[m])), cex = annotatesize)
 Arrows(5.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(-0.5, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Set up second axes and labels
@@ -198,8 +201,8 @@ text(5, -1.5, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(6.9, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {
@@ -232,7 +235,7 @@ uB2 <- function(xB, yB, alpha = 1/2){
 
 #Label B's indifference curves
 #text(9.1, 2.4, expression(u[1]^B))
-text(9.1, 4.1, expression(u[m]^B))
+text(9.1, 4.1, expression(u[m]^B), cex = annotatesize)
 #text(9.1, 4.6, expression(u[3]^B))
 #text(9.1, 8.2, expression(u[4]^B))
 
@@ -280,7 +283,7 @@ text(1.9, 12.7, expression(z), cex = labelsize)
 
 #Annotating a point that is a Pareto improvement over e.
 points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)
-text(3.5, 8.6, expression(m))
+text(3.5, 8.6, expression(m), cex = labelsize)
 #(2.94^0.5)*(12.76^0.5)
 
 #Label Pareto Improving Lens

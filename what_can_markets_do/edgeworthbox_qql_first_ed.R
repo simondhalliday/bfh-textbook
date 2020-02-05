@@ -163,7 +163,7 @@ Arrows(6.8, 8.8, 5.2, 8.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 #Label the walrasian P
 text(4, 9.6, expression(paste("Price line")))
-text(4, 9.2, expression(slope == -p[n] ))
+text(4, 9.2, expression(slope == -p[w] ))
 Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

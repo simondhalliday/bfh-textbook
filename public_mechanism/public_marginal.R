@@ -1,7 +1,7 @@
 require(shape)
 pdf(file = "public_mechanism/public_marginal.pdf", width = 8, height = 8)
 
-#Set parameters for gragammacs
+#Set parameters for graphics
 axislabelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5

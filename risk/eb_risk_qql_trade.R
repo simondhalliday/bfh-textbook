@@ -238,7 +238,7 @@ text(4.1, -8.75, expression(paste(g)))
 
 #Initial Allocations
 
-text(0.3, 105, expression(paste("Slope = p")))
+text(0.3, 105, expression(paste("Slope = ", p[s])))
 
 #Braces for labels
 brackets(x1 = 1, y1 = -10, x2 = 0.46, y2 = -10,

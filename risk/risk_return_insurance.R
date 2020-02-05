@@ -101,7 +101,7 @@ brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1,
          x2 = 10.7, y2 = insurance(1.8),  
          ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
          col = "black", lwd = 1, lty = 1, xpd = TRUE)
-text(11.7, 12.1, expression(paste(p%.%i == phantom())), xpd = TRUE, cex = labelsize)
+text(11.7, 12.1, expression(paste(p[s]%.%i == phantom())), xpd = TRUE, cex = labelsize)
 text(13, 12.3, expression(paste("insurance")), xpd = TRUE, cex = labelsize)
 text(13, 11.7, expression(paste("premium")), xpd = TRUE, cex = labelsize)
 

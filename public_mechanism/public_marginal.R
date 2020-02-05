@@ -1,7 +1,7 @@
 require(shape)
 pdf(file = "public_mechanism/public_marginal.pdf", width = 8, height = 8)
 
-#Set parameters for graphics
+#Set parameters for gragammacs
 axislabelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
@@ -80,8 +80,8 @@ text(0.83, 2.8, expression(paste("Benefit")), cex = labelsize)
 text(11.2, 13, expression(paste("Marginal Cost", phantom() == a^B)), cex = labelsize)
 
 
-text(12.6, 10.5, expression(paste(msb == n*phi, phantom() == 5*phi)), cex = labelsize)
-text(13, 3, expression(paste(mpb == phi)), cex = labelsize)
+text(12.6, 10.5, expression(paste(msb == n*gamma, phantom() == 5*gamma)), cex = labelsize)
+text(13, 3, expression(paste(mpb == gamma)), cex = labelsize)
 #Arrows(1.5, 9, 1.5, 11.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #text(3, 11, expression(paste(alpha, " increases, or ")), cex = labelsize)
 #text(3, 10.5, expression(paste(h^B, " decreases")), cex = labelsize)

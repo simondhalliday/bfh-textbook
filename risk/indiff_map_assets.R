@@ -1,34 +1,39 @@
 #Graph Designer: Simon Halliday & Scott Cohn
-#Authors: Bowles, Foley and Halliday
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "risk/indiff_map_assets.pdf", width = 10, height = 8)
-
+pdf(file = "risk/indiff_map_assets.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+labelsize <- 1.2
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+a <- c(2, 4, 6)
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-#Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4, 4, .5, .5))
+xlims <- c(0, 13)
+ylims <- c(0, 18)
+
+indiff <- function(g, intercept = 4, slope = 0.09){
+  intercept + slope*g^2 + 0.15*g
+}
+
+insur <- function(g, intercept = 3, slope = 0.36){
+  intercept  + slope*g
+}
 
 #Indifference curves of a risk-averse homo economicus (2nd graph out of the two for 4.7)
-
 indiffA <- function(x, ua = 2, slope = 1/12) {
   ua + slope*(x)^2
 }
-
-#Add limits on axes and levels of utility for each indifference curve
-ylims <- c(0, 40)
-xlims <- c(0, 22)
 
 
 npts <- 501 
@@ -67,38 +72,47 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 
-lines(xx1, indiffA(xx1, ua = 2), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, indiffA(xx1, ua = 16.2), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
+# lines(xx1, indiffA(xx1, ua = 2), col = COLB[4], lwd = graphlinewidth)
+# lines(xx1, indiffA(xx1, ua = 16.2), col = COLB[4], lwd = graphlinewidth)
+# lines(xx1, indiffA(xx1, ua = 28.4), col = COLB[4], lwd = graphlinewidth)
+
+lines(xx1, indiff(xx1, intercept = 2, slope = 0.09), col = COLA[4], lwd = graphlinewidth, lty = 1)
+#lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 8, slope = 0.075), col = COLA[4], lwd = graphlinewidth, lty = 1)
+#lines(xx1, indiff(xx1, intercept = 9.2, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graphlinewidth, lty = 1)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Expected Income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+text(xlims[1] - 1, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #label the three indifference curves
 
-text(20.5, indiffA(20)+3.355, expression(paste(v[1])), xpd = TRUE, cex = labelsize)
-text(16, indiffA(18)+9.8, expression(paste(v[2])),  xpd = TRUE, cex = labelsize)
-text(10.5, indiffA(16)+15.5, expression(paste(v[3])),  xpd = TRUE, cex = labelsize)
-
-#Label average wealth curve and indifference curves generally
-
-# text(23, 35, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-# text(23, 33.5, expression(paste("& Risk Averse")), xpd = TRUE, cex = labelsize)
-# text(23, 32, expression(paste("Indifference Curves")), xpd = TRUE, cex = labelsize)
+text(20.5, indiffA(20)+3.355, expression(paste(u[1])), xpd = TRUE, cex = labelsize)
+text(16, indiffA(18)+9.8, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
+text(10.5, indiffA(16)+15.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 # Asset Labels
 
-text(3, 24, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
-text(3, 22.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
+text(2, 12.25, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
+text(2, 11.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
 
-text(3, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
-text(3, 8.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
+text(2, 6.25, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
+text(2, 5.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
 
-text(13, 24, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
-text(13, 22.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
+text(8, 12.25, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
+text(8, 11.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
 
-text(13, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
-text(13, 8.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
+text(8, 6.25, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
+text(8, 5.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
+
+# Label value functions
+
+text(.5, 2.55, expression(u[1]), cex = labelsize)
+#text(.5, 7.55, expression(u[2]), cex = labelsize)
+text(.5, 8.55, expression(u[2]), cex = labelsize)
+text(.5, 13.55, expression(u[3]), cex = labelsize)
+
+
 
 dev.off()

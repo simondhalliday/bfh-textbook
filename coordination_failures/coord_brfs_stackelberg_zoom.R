@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 6, 1.5, 1.5))
+par(mar =  c(6, 6, 2, 2))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -120,7 +120,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-ticksy <- c(ylims[1], hApEff2(alpha = 30),brfB(ea = hAST(alpha = 30, beta = 1/2)), hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
+ticksy <- c(ylims[1], hApEff2(alpha = 30),brfB(ea = hAST(alpha = 30, beta = 1/2)), hANE(alpha = 30.5), intercept1(alpha = 30), ylims[2])
 ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BF})), expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
 ticksx <- c(xlims[1], hApEff2(alpha = 30), hANE(alpha = 30), hAST(alpha = 30, beta = 1/2), intercept1(alpha = 30), xlims[2])
 xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(h^{AF})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
@@ -162,7 +162,7 @@ contour(y, x,
         yaxs="i", 
         add = TRUE) 
 
-text(10.5, ylims[1] - 0.6, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(10.5, ylims[1] - 0.7, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(xlims[1] - 0.6, 10.5, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -183,27 +183,27 @@ text(10.3,  10.3, expression("curve"), cex = labelsize)
 
 text(12, 8.9, expression("Pareto-improving"), cex = labelsize)
 text(12,  8.6, expression("lens"), cex = labelsize)
-Arrows(12, 9, 12, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(12, 9.1, 11.5, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for A (leader)
-text(13.3, 11.95, expression(u[1]^A == u[n]^A))
-text(13.3, 11.45, expression(u[2]^A == u[f]^A))
-text(13.3, 9.8, expression(u[3]^A))
+text(12.43, 12.15, expression(u[1]^A == u[n]^A), cex = labelsize - 0.09)
+text(12.43, 11.7, expression(u[2]^A == u[f]^A), cex = labelsize - 0.09)
+text(13.3, 9.7, expression(u[3]^A), cex = labelsize)
 
 #Label the indifference curves for B (follower)
-text(12.75, 13.3, expression(u[1]^B == u[f]^B), cex = labelsize)
-text(12, 13.3, expression(u[2]^B == u[n]^B), cex = labelsize)
+text(12.9, 13.3, expression(u[1]^B == u[f]^B), cex = labelsize - 0.05)
+text(12.1, 13.3, expression(u[2]^B == u[n]^B), cex = labelsize - 0.05)
 text(10.2, 13.3, expression(u[2]^B), cex = labelsize)
 
 
 #Label Nash Equilibrium 
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
 #text(11.3, 10.1, expression(paste("Nash Equilibrium")))
-text(hANE(alpha = 30) + 0.1, hANE(alpha = 30) + 0.1, expression(paste(n)))
+text(hANE(alpha = 29.4) + 0.1, hANE(alpha = 30.1) + 0.1, expression(paste(n)), cex = labelsize - 0.05)
 
 points(hAST(alpha = 30, beta = 1/2), brfB(ea = hAST(alpha = 30, beta = 1/2)), pch = 16, col = "black", cex = 1.5)
-text(hAST(alpha = 30, beta = 1/2) - 0.1, brfB(ea = hAST(alpha = 30, beta = 1/2)) - 0.1, expression(paste(f)))
+text(hAST(alpha = 30.4, beta = 1/2) - 0.1, brfB(ea = hAST(alpha = 27.5, beta = 1/2)) - 0.1, expression(paste(f)), cex = labelsize -0.05)
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)

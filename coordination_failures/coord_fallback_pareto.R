@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_fallback_pareto/coord_fallback_pareto_4.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_fallback_pareto/coord_fallback_pareto.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "coordination_failures/coord_indiff_ya/coord_indiff_ya.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_indiff_ya.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8

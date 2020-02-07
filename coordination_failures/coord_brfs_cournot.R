@@ -180,11 +180,11 @@ text(hANE(alpha = 30) + 0.4, hANE(alpha = 30) + 0.4, expression(paste("n")), cex
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
-text(10.55 + 0.3, PEC(10.55) - 0.3, expression(paste(t^A)), cex = annotatesize)
+text(10.55 + 0.4, PEC(10.55) - 0.4, expression(paste(t^A)), cex = annotatesize)
 
 
 points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
-text(9.4 - 0.3, PEC(9.4) + 0.2, expression(paste(t^B)), cex = annotatesize)
+text(9.4 - 0.2, PEC(9.4) + 0.3, expression(paste(t^B)), cex = annotatesize)
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hApEff2(alpha = 30)- 0.3, hApEff2(alpha = 30) - 0.3, expression(paste(i)), cex = annotatesize)

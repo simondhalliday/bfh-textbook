@@ -91,10 +91,10 @@ Arrows(21.5, 12.5, 17, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle"
 
 
 points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(12 + 0.75, 12, expression(paste(f)), cex = labelsize)
+text(12 + 0.85, 12, expression(paste(f)), cex = labelsize)
 
 points(15, 15, pch = 16, col = "black", cex = 1.5)
-text(15 + 0.75, 15, expression(paste(g)), cex = labelsize)
+text(15 + 0.85, 15, expression(paste(g)), cex = labelsize)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(9.7, 60, expression(u[1]^A),  cex= labelsize - 0.05)

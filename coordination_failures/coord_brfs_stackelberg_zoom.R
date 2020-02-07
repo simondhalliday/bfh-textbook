@@ -179,16 +179,16 @@ contour(x, y,
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 
 text(10.3, 10.5, expression("Pareto-efficient"), cex = labelsize)
-text(10.3,  10.3, expression("curve"), cex = labelsize)
+text(10.3,  10.2, expression("curve"), cex = labelsize)
 
-text(12, 8.9, expression("Pareto-improving"), cex = labelsize)
-text(12,  8.6, expression("lens"), cex = labelsize)
+text(11.9, 8.8, expression("Pareto-improving"), cex = labelsize)
+text(11.9,  8.5, expression("lens"), cex = labelsize)
 Arrows(12, 9.1, 11.5, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for A (leader)
-text(12.43, 12.15, expression(u[1]^A == u[n]^A), cex = labelsize - 0.09)
-text(12.43, 11.7, expression(u[2]^A == u[f]^A), cex = labelsize - 0.09)
+text(12.43, 12.175, expression(u[1]^A == u[n]^A), cex = labelsize - 0.09)
+text(12.43, 11.55, expression(u[2]^A == u[f]^A), cex = labelsize - 0.09)
 text(13.3, 9.7, expression(u[3]^A), cex = labelsize)
 
 #Label the indifference curves for B (follower)
@@ -203,7 +203,7 @@ points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hANE(alpha = 29.4) + 0.1, hANE(alpha = 30.1) + 0.1, expression(paste(n)), cex = labelsize - 0.05)
 
 points(hAST(alpha = 30, beta = 1/2), brfB(ea = hAST(alpha = 30, beta = 1/2)), pch = 16, col = "black", cex = 1.5)
-text(hAST(alpha = 30.4, beta = 1/2) - 0.1, brfB(ea = hAST(alpha = 27.5, beta = 1/2)) - 0.1, expression(paste(f)), cex = labelsize -0.05)
+text(hAST(alpha = 30.4, beta = 1/2) - 0.05, brfB(ea = hAST(alpha = 27.5, beta = 1/2)) - 0.05, expression(paste(f)), cex = labelsize -0.05)
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
@@ -217,12 +217,12 @@ text(hApEff2(alpha = 30)- 0.1, hApEff2(alpha = 30) - 0.1, expression(paste(i)))
 
 
 #B's brf
-text(8.3, 12.6, expression(paste("B's best response")), cex = labelsize)
-text(8.3, 12.4, expression(paste("function")), cex = labelsize)
+text(8.4, 12.5, expression(paste("B's best response")), cex = labelsize)
+text(8.4, 12.2, expression(paste("function")), cex = labelsize)
 
 #A's brf
-text(12.2, 7.9, expression(paste("A's best response")), xpd = TRUE, cex = labelsize)
-text(12.2, 7.7, expression(paste("function")), xpd = TRUE, cex = labelsize)
+text(12.1, 8.0, expression(paste("A's best response")), xpd = TRUE, cex = labelsize)
+text(12.1, 7.7, expression(paste("function")), xpd = TRUE, cex = labelsize)
 
 
 

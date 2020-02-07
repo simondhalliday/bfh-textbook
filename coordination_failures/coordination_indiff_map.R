@@ -91,28 +91,28 @@ text(0.5*xlims[2], -2.5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex 
 text(-2.8, 10, expression(paste("B's hours,", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the iso-welfare functions for the A
-text(4.4, 1.5, expression(u[1]^A), cex = annotatesize)
-text(5.9, 1.5, expression(u[2]^A), cex = annotatesize)
-text(7.9, 1.5, expression(u[3]^A), cex = annotatesize)
+text(4.2, 1.5, expression(u[1]^A), cex = annotatesize)
+text(5.7, 1.5, expression(u[2]^A), cex = annotatesize)
+text(7.7, 1.5, expression(u[3]^A), cex = annotatesize)
 
 #Label Nash Equilibrium 
 segments(0, 12, 14.6, 12, lty = 2, col = Grays[18], lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = Grays[18], lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 #text(11.3, 10.1, expression(paste("Nash Equilibrium")))
-text(12 - 0.3, 12 - 0.4, expression(paste("n")), cex = annotatesize)
+text(12 - 0.3, 12 - 0.6, expression(paste("n")), cex = annotatesize)
 
 
 
 segments(0,  brfA(13.2),  13.2 + 2,  brfA(13.2), lty = 2, col = Grays[18], lwd = segmentlinewidth)
 segments(13.2,  brfA(13.2) - 2,  13.2,  brfA(13.2), lty = 2, col = Grays[18], lwd = segmentlinewidth)
 points(13.2, brfA(ea = 13.2), pch = 16, col = "black", cex = 1.5)
-text(13.2 - 0.3, brfA(ea = 13.2) - 0.4, expression(paste("j")), cex = annotatesize)
+text(13.2 - 0.3, brfA(ea = 13.2) - 0.6, expression(paste("j")), cex = annotatesize)
 
 segments(0, brfA(10.8), 10.8 + 2, brfA(10.8), lty = 2, col = Grays[18], lwd = segmentlinewidth)
 segments(10.8, brfA(10.8) - 2, 10.8, brfA(10.8), lty = 2, col = Grays[18], lwd = segmentlinewidth)
 points(10.8, brfA(10.8), pch = 16, col = "black", cex = 1.5)
-text(10.8 - 0.3, brfA(10.8) - 0.4, expression(paste("k")), cex = annotatesize)
+text(10.8 - 0.3, brfA(10.8) - 0.6, expression(paste("k")), cex = annotatesize)
 
 text(10.2, 19.5, expression(paste(mrs^{A}*(list(h^A, h^B)) == frac(u[h^A]^A, u[h^B]^A), phantom() == 0, " at maximum of ", u^A)), cex = annotatesize - 0.05, xpd = TRUE)
 Arrows(10.8, 18.5, 10.8, 17.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

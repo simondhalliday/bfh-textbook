@@ -1,8 +1,12 @@
 require(shape)
-pdf(file = "coordination_failures/coord_brfs_cournot/coord_brfs_cournot.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_brfs_cournot.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -10,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(6, 7, 1, 1))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -110,9 +114,9 @@ xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expressi
 
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
-text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
+text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = axislabelsize)
 
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -140,8 +144,8 @@ contour(y, x,
         yaxs="i",
         add = TRUE)
 
-text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -3, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-3, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y,
@@ -154,43 +158,43 @@ contour(x, y,
 )
 
 
-text(4, 10.2, expression("Pareto-efficient"))
-text(4, 9.6, expression("Curve"))
-Arrows(5.7, 10.1, 9.3, 10.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 10.2, expression("Pareto-efficient"), cex = labelsize)
+text(4, 9.4, expression("Curve"), cex = labelsize)
+Arrows(6.5, 10.1, 9.3, 10.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 #Label the iso-welfare functions for the HG, Aisha
-text(5.3, 0.8, expression(u[1]^A == u[n]^A))
-text(7.2, 0.8, expression(u[2]^A))
+text(5.0, 0.8, expression(u[1]^A == u[n]^A), cex = annotatesize)
+text(7.4, 0.8, expression(u[2]^A), cex = annotatesize)
 
 
 #Label the indifference curves for the HG, Betty
-text(7.8, 19, expression(u[1]^B == u[n]^B))
-text(4.9, 19, expression(u[2]^B))
+text(8.4, 19, expression(u[1]^B == u[n]^B), cex = annotatesize)
+text(4.5, 19, expression(u[2]^B), cex = annotatesize)
 
 
 #Label Nash Equilibrium
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
 
-text(hANE(alpha = 30) + 0.3, hANE(alpha = 30) + 0.3, expression(paste("n")))
+text(hANE(alpha = 30) + 0.4, hANE(alpha = 30) + 0.4, expression(paste("n")), cex = annotatesize)
 
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
-text(10.55 + 0.3, PEC(10.55) - 0.3, expression(paste(t^A)))
+text(10.55 + 0.3, PEC(10.55) - 0.3, expression(paste(t^A)), cex = annotatesize)
 
 
 points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
-text(9.4 - 0.3, PEC(9.4) + 0.2, expression(paste(t^B)))
+text(9.4 - 0.3, PEC(9.4) + 0.2, expression(paste(t^B)), cex = annotatesize)
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
-text(hApEff2(alpha = 30)- 0.3, hApEff2(alpha = 30) - 0.3, expression(paste(i)))
+text(hApEff2(alpha = 30)- 0.3, hApEff2(alpha = 30) - 0.3, expression(paste(i)), cex = annotatesize)
 
 #B's brf
-text(2, 15.7, expression(paste("B's best response")))
-text(2, 15.2, expression(paste("function")))
+text(3, 15.7, expression(paste("B's best response")), cex = labelsize)
+text(3, 15.0, expression(paste("function")), cex = labelsize)
 
 #A's brf
-text(16, 4, expression(paste("A's best response")))
-text(16, 3.5, expression(paste("function")))
+text(17, 4, expression(paste("A's best response")), cex = labelsize)
+text(17, 3.3, expression(paste("function")), cex = labelsize)
 
 dev.off()

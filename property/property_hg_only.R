@@ -145,11 +145,11 @@ text(0.4*10-0.2, 0.4*15-0.2,expression(paste(v)), cex = annotatesize)
 
 
 
-# points(8.8, (3/2)*8.8, pch = 16, col = "black", cex = 1.5)
-# text(8.8, (3/2)*8.8 - 0.5, expression(paste(j)))
-# 
-# points(0.4, (3/2)*0.4, pch = 16, col = "black", cex = 1.5)
-# text(0.4 + 0.2, (3/2)*0.4 + 0.2, expression(paste(k)))
+points(8.8, (3/2)*8.8, pch = 16, col = "black", cex = 1.5)
+text(8.8, (3/2)*8.8 - 0.6, expression(paste(j)), cex = annotatesize)
+
+points(0.4, (3/2)*0.4, pch = 16, col = "black", cex = 1.5)
+text(0.4 + 0.2, (3/2)*0.4 + 0.2, expression(paste(k)), cex = annotatesize)
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels)

@@ -163,8 +163,8 @@ arrows(7.5, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
 #text(9.6, 0.9, expression(u[1]^A))
-text(9.6, 2.2, expression(u[1]^A), cex = labelsize)
-text(9.6, 4.4, expression(u[2]^A), cex = labelsize)
+# text(9.6, 2.2, expression(u[1]^A), cex = labelsize)
+# text(9.6, 4.4, expression(u[2]^A), cex = labelsize)
 #text(9.6, 5.9, expression(u[4]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -178,19 +178,23 @@ text(9.6, 4.4, expression(u[2]^A), cex = labelsize)
 # Arrows(4.5, 5.3, 4.5, 6.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label B's offer curve
-text(1.3, 2.75, expression("B's Offer Curve"),cex = annotatesize - 0.05)
-Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.3, 4, expression("B's best-"), cex = annotatesize)
+text(1.3, 3.2, expression("response curve"), cex = annotatesize)
+text(1.3, 2.4, expression("(ICC)"), cex = annotatesize)
+Arrows(1, 4.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Monopoly Price Line
 # text(7, 13.5, expression(paste("Monopoly Price Line")))
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8.3, 14, expression(paste("Different price lines")), cex = annotatesize - 0.05)
-text(8.3, 13.2, expression(paste("going through")), cex = annotatesize - 0.05)
-text(8.3, 12.4, expression(paste("the endowment")), cex = annotatesize - 0.05)
-text(8.3, 11.6, expression(paste("and tangent to B's ICs")), cex = annotatesize - 0.05)
-text(8.3, 10.8, expression(paste("form the offer curve")), cex = annotatesize - 0.05)
+# text(8.3, 14.6, expression(paste("Different")), cex = annotatesize - 0.05)
+# text(8.3, 13.8, expression(paste("budget constraints")), cex = annotatesize - 0.05)
+# text(8.3, 13, expression(paste("going through")), cex = annotatesize - 0.05)
+# text(8.3, 12.2, expression(paste("the endowment")), cex = annotatesize - 0.05)
+# text(8.3, 11.4, expression(paste("and tangent to B's ICs")), cex = annotatesize - 0.05)
+# text(8.3, 10.7, expression(paste("form the best-")), cex = annotatesize - 0.05)
+# text(8.3, 9.8, expression(paste("response curve")), cex = annotatesize - 0.05)
 # text(7, 13, expression(paste("Slope", phantom()==-p[m])))
 # Arrows(6.3, 13, 3.8, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -274,10 +278,10 @@ indiffcurveB5 <- function(x, U = 9, A = 1, a = 0.5) {
 #lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(9.1, 2.45, expression(u[1]^B), cex = labelsize - 0.05)
-text(8.5, 4.35, expression(u[2]^B), cex = labelsize - 0.05)
-text(9.4, 5, expression(u[3]^B), cex = labelsize - 0.05)
-text(9.1, 6.7, expression(u[4]^B), cex = labelsize - 0.05)
+text(9.1, 2.4, expression(u[1]^B), cex = labelsize - 0.1)
+text(9.1, 4.05, expression(u[2]^B), cex = labelsize - 0.1)
+text(9.1, 5.1, expression(u[3]^B), cex = labelsize - 0.1)
+text(9.1, 6.7, expression(u[4]^B), cex = labelsize - 0.1)
 
 
 

@@ -5,8 +5,9 @@ require(shape)
 pdf(file = "property/property_fig1b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
+#Annotation is bigger because it is a 3-panel figure
 axislabelsize <- 1.8
-annotatesize <- 1.5
+annotatesize <- 1.8
 labelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
@@ -84,9 +85,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Annotation of the three graphs and the NE
-text(9, 0.8, expression(u[1]^B), cex = annotatesize)
-text(9, 2.1, expression(u[2]^B), cex = annotatesize)
-text(9, 4.2, expression(u[3]^B), cex = annotatesize)
+text(9, 0.9, expression(u[1]^B), cex = annotatesize)
+text(9, 2.2, expression(u[2]^B), cex = annotatesize)
+text(9, 4.3, expression(u[3]^B), cex = annotatesize)
 
 #Line to label B's endowment
 segments(0, 14, 1, 14, lty = 2, col = "darkgray", lwd = segmentlinewidth)
@@ -96,8 +97,8 @@ segments(1, 0, 1, 14, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 points(1, 14, pch = 16, col = "black", cex = 1.5)
 
 #Annotating B's endowment
-text(1.28, 13.7, expression(z == phantom()), cex = annotatesize-0.05)
-text(1.91, 13.7, expression((list(x[z]^B, y[z]^B))), cex = annotatesize-0.05)
+text(1.28, 13.7, expression(z), cex = annotatesize-0.05)
+#text(1.91, 13.7, expression((list(x[z]^B, y[z]^B))), cex = annotatesize-0.05)
 
 
 text(-0.3, -1.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])

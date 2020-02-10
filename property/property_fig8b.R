@@ -117,7 +117,7 @@ text(9.1, 0.5, expression(paste("Utility Possibilities Frontier")), cex = annota
 #text(8.1, 0.8, expression(paste(u^B == (10^0.5)*(15^0.5) - u^A)), cex = annotatesize)
 
 #Iso-welfare curve labels
-text(10.5, 5.7, expression(paste("Social Planner's")), cex = annotatesize)
+text(10.5, 5.7, expression(paste("Impartial Spectator's")), cex = annotatesize)
 text(10.5, 5, expression(paste("Iso-welfare Curves")), cex = annotatesize)
 
 #Annotate point g

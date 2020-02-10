@@ -1,12 +1,7 @@
 require(shape)
-#pdf(file = "property_tioli_logsSTEP1.pdf", width = 9, height = 7)
-#pdf(file = "property_tioli_logsSTEP2.pdf", width = 9, height = 7)
-#pdf(file = "property_tioli_logsSTEP3.pdf", width = 9, height = 7)
-#pdf(file = "property_tioli_logsSTEP4.pdf", width = 9, height = 7)
-pdf(file = "property/property_tioli_logs.pdf", width = 9, height = 7)
+pdf(file = "property/property_asymmetric_edgeworth_base.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-namesize <- 1.3
 pointsize <- 1.8
 axislabelsize <- 1.8
 labelsize <- 1.5
@@ -20,34 +15,31 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 
-uAlog <- function(xA, yA, alpha = 1/2){
+uAlog <- function(xA, yA, alpha = 2/3){
   alpha*log(xA) + (1-alpha)*log(yA)
 }
 
-indifflogA <- function(xA, U, alpha = 1/2){
+indifflogA <- function(xA, U, alpha = 2/3){
   exp((U - alpha*log(xA))/(1 - alpha))
 }
 
-uBlog <- function(xA, yA, alpha = 1/2){
+uBlog <- function(xA, yA, alpha = 1/3){
   alpha*log(10-xA) + (1-alpha)*log(15-yA)
 }
 
-indifflogB <- function(xA, U = uBlog(9,1), alpha = 1/2){
+indifflogB <- function(xA, U = uBlog(9,1), alpha = 1/3){
   15 - exp((U - alpha*log(10-xA))/(1 - alpha))
 }
 
-paretoEC <- function(x, ybar = 15, xbar = 10) {
-  (ybar/xbar)*x
+paretoEC <- function(x, slope1 = 15, slope2 = 3, int = 40) {
+  (slope1*x)/(int - slope2*x)
 }
 
-#Use the TIOLI funciton to find what value of x you should have for point g
-xatioli <- function(uza){
-  exp(uza - (1/2)*log(3/2))
-}
+#Aisha happens to have found 8 apples and 2 oranges, 
+#and Betty happens to have found 2 apples and 13 oranges. 
+#Aisha's utility (8^0.5)*(2^0.5) = 4
+#Betty's utility (2^0.5)*(13^0.5) = 5.09
 
-xbtioli <- function(uzb){
-  exp(uzb - (1/2)*log(3/2))
-}
 
 par(mar =  c(4, 4, 4, 4))
 xlims <- c(0, 10)
@@ -74,21 +66,18 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 yy1 <- indiffcurveA2(xx1, U = uA(8,2), A = 1, a = 2/3)
 yy2 <- indiffcurveA2(xx1)
 
-#Polygon Attempt
-#polygon(x = c(1.34, 6, 8, 10 - 6.73), y = c(12, 9, 2, 15 - 10.1), col="powderblue", density=NULL, border = NA)
-
 #I need something like xx1 with npts for 
-xpoly1 <- seq(from = 0.7, to = 9, length.out = 501)
-ypoly1 <- indifflogA(xpoly1, U = uAlog(9,1), alpha = 1/2)
-ypoly2 <- indifflogB(xpoly1, U = uBlog(9,1), alpha = 1/2)
-polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+# xpoly1 <- seq(from = 2.85, to = 9, length.out = 501)
+# ypoly1 <- indifflogA(xpoly1, U = uAlog(9,1), alpha = 2/3)
+# ypoly2 <- indifflogB(xpoly1, U = uBlog(9,1), alpha = 1/3)
+# polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(uA(9,2) - 1.5, uA(8,2), uA(8,2) + 1)
 
-a2 <- c(uAlog(9,1) - 0.5, uAlog(9,1), uAlog(10 - xbtioli(uBlog(9,1)),15 - (3/2)*xbtioli(uBlog(9,1))))
+a2 <- c(uAlog(9,1) - 0.4, uAlog(9,1), uAlog(9,1) + 0.485)
 
 contour(x, y, 
         outer(x, y, uAlog),
@@ -124,13 +113,12 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 #Add arrows:
 arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7.3, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
-text(0.5, 12, expression(u[1]^A), cex = annotatesize)
-#text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
-text(1.1, 12, expression(u[z]^A), cex = annotatesize)
-text(6.9, 12, expression(u[3]^A == 8.52), cex = annotatesize)
+text(1.6, 14, expression(u[1]^A), cex = annotatesize)
+text(2.7, 14, expression(u[z]^A), cex = annotatesize)
+text(5.25, 14, expression(u[3]^A), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)
@@ -139,19 +127,20 @@ text(6.9, 12, expression(u[3]^A == 8.52), cex = annotatesize)
 
 #Pareto efficient curve
 #segments(4.16, 6.23, 6.73, 10.1, lty = 2, lwd = 2)
-text(8.1, 14.2, expression("Pareto-efficient"), cex = annotatesize)
-text(8.1, 13.5, expression("curve"), cex = annotatesize)
-#Arrows(8.8, 12.7, 8.8, 10.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.8, 14.4, expression("Pareto-"), cex = annotatesize)
+text(8.8, 13.7, expression("efficient"), cex = annotatesize)
+text(8.8, 13, expression("curve"), cex = annotatesize)
+Arrows(8.8, 12.7, 8.8, 10.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label Pareto Improving Lens
-text(3.8, 11, expression(paste("Pareto-improving")), cex = annotatesize)
-text(3.8, 10.5, expression(paste("lens")), cex = annotatesize)
-#Arrows(4, 10.2, 4, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(4.2, 11, expression(paste("Pareto-improving")), cex = annotatesize)
+# text(4.2, 10.5, expression(paste("lens")), cex = annotatesize)
+# Arrows(4.2, 10.2, 4.2, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# 
 
 
-
-text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(-0.3, -1.5, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 #Set up second axes and labels
@@ -182,19 +171,23 @@ text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex 
 
 #Add arrows:
 arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7.3, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
-uBlog2 <- function(xB, yB, alpha = 1/2){
+uB2 <- function(xB, yB, alpha = 1/3){
+  ((xB)^alpha)*((yB)^(1-alpha))
+}
+
+uBlog2 <- function(xB, yB, alpha = 1/3){
   alpha*log(xB) + (1-alpha)*log(yB)
 }
 
 #b <- c(uB2(1,14) - 1, uB2(1,14), uB2(1,14) + 1)
+b <- c(uBlog2(1,14) - 0.4, 
+       uBlog2(1,14), 
+       uBlog2(3,13.4),
+       uBlog2(1,14) + 0.42)
 
-
-
-
-b <- c(uBlog2(1,14) - 0.4, uBlog2(1,14), uBlog2(3,13.7), uBlog2(10 - xatioli(uAlog(9,1)),15 - (3/2)*xatioli(uAlog(9,1))))
 contour(x, y,
         outer(x, y, uBlog2),
         drawlabels = FALSE,
@@ -206,25 +199,24 @@ contour(x, y,
         add = TRUE,
         xpd = TRUE)
 
-#Label B's indifference curves
-text(0.7, 12.5, expression(u[1]^B), cex = annotatesize)
-#text(1.7, 12.5, expression(u[2]^B == u[z]^B), cex = annotatesize)
-#text(1.4, 12.5, expression(u[z]^B), cex = annotatesize)
-text(1.9, 12.5, expression(u[z]^B == 3.74), cex = annotatesize)
-text(3.6, 12.5, expression(u[3]^B), cex = annotatesize)
-text(7.3, 12.5, expression(u[4]^B), cex = annotatesize)
+#Label B's indifference curves; 
+#Remember these are oriented relative to B's origin
+text(9.2, 3.1, expression(u[1]^B), cex = annotatesize)
+text(9.2, 5.3, expression(u[z]^B), cex = annotatesize)
+text(9.2, 7.1, expression(u[3]^B), cex = annotatesize)
+text(9.2, 9.3, expression(u[4]^B), cex = annotatesize)
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
-text(0.8, 13.7, expression(z), cex = annotatesize)
+text(0.8, 13.6, expression(z), cex = annotatesize)
 
 #Label a point on the middle of the curve
-points(5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(5, 7.5 - 0.5, expression(i), cex = annotatesize)
+points(10-6.66, 15-5, pch = 16, col = "black", cex = 1.5)
+text(10-6.66, 15-5 - 0.5, expression(i), cex = annotatesize)
 
 #Add point for comparison to participation constraint
-points(10-.7, 15 - 13.5, pch = 16, col = "black", cex = 1.5)
-text(10-.7 - 0.2, 15 - 13.5 + 0.4, 
+points(10-2.9, 15 - 9.75, pch = 16, col = "black", cex = 1.5)
+text(10-2.9 + 0.1, 15 - 9.75 + 0.5, 
      expression(d), cex = annotatesize)
 
 
@@ -235,11 +227,9 @@ text(10-.7 - 0.2, 15 - 13.5 + 0.4,
 # => x^A = 4/((3/2)^0.5) = 3.27 => x^B = 6.73
 # => y^A = 3/2(x^A) = 4.9 => y^B = 10.1
 
-
-
 #Add point g for B's TIOLI power
-points(10-xatioli(uAlog(9,1)), 15-(3/2)*xatioli(uAlog(9,1)), pch = 16, col = "black", cex = 1.5)
-text(10-2.44949, 15-(3/2)*2.44949 - 0.6, 
+points(10-5.1, 15-3.1, pch = 16, col = "black", cex = 1.5)
+text(10-5.1, 15-3.1 + 0.6, 
      expression(t^B), cex = annotatesize)
 
 #Calculate TIOLI power allocation for A
@@ -250,23 +240,20 @@ text(10-2.44949, 15-(3/2)*2.44949 - 0.6,
 # => y^B = 3/2(x^B) = 6.23 => y^A = 8.77 
 #=> u^A = (5.84^0.5)*(8.77^0.5) = 7.156591
 #Add point f for A's TIOLI power
-
-
-#xbtioli(uBlog2(1,14))
-points(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)), pch = 16, col = "black", cex = 1.5)
-text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) + 0.7, 
+points(10-7.45, 15-6.3, pch = 16, col = "black", cex = 1.5)
+text(10-7.45, 15-6.3 - 0.6, 
      expression(t^A), cex = annotatesize)
 
 #Annotating B's endowment
 #text(1.8, 12.5, expression(e))
 
 #Annotating a point that is a Pareto improvement over e.
-indifflogAneg <- function(xA, U, alpha = 1/2){
+indifflogAneg <- function(xA, U, alpha = 2/3){
   15 - exp((U - alpha*log(10-xA))/(1 - alpha))
 }
 
 points(3, indifflogAneg(3, U = uAlog(9,1)), pch = 16, col = "black", cex = 1.5)
-text(3 - 0.2, indifflogAneg(3, U = uAlog(9,1)) - (0.2*1.5), 
+text(3 - 0.15, indifflogAneg(3, U = uAlog(9,1)) - 0.4, 
      expression(h), cex = annotatesize)
 
 # uAlog(9,1)
@@ -275,3 +262,13 @@ text(3 - 0.2, indifflogAneg(3, U = uAlog(9,1)) - (0.2*1.5),
 
 
 dev.off()
+
+
+
+Welfare <- function(xA, yA){
+  (xA)^(2/3)*(yA)^(1/3) + (10 - xA)^(1/3)*(15 - yA)^(2/3)
+}
+
+Welfare(6.66, 5)
+
+

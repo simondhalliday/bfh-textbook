@@ -1,5 +1,6 @@
 #require(ggplot2)
 require(shape)
+library(pBrackets)
 #pdf(file = "property_psp1_offerSTEP1.pdf", width = 9, height = 7)
 #pdf(file = "property_psp1_offerSTEP2.pdf", width = 9, height = 7)
 #pdf(file = "property_psp1_offerSTEP3.pdf", width = 9, height = 7)
@@ -17,8 +18,9 @@ segmentlinewidth <- 1.5
 
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
@@ -111,12 +113,31 @@ yy2 <- indiffcurveA2(xx1)
 xx2 <- seq(4, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9, length.out = npts)
 
+xpolyF <- c(2.78, 10, 10, 8.8, 2.78)
+ypolyF1 <- c(15, 15, 0, 0, 15)
+polygon(xpolyF, ypolyF1, border = FALSE, col = COLB[1])
+
+
 #Draw the lines for the graphs
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg1(xx1), col = COLB[2], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg2(xx1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveBneg2(xx1, U = 6.4), col = COLB[2], lwd = graphlinewidth)
 #lines(xx1, indiffcurveBneg2(xx1, U = 7.5), col = COLB[2], lwd = graphlinewidth)
+
+brackets(x1 = 6.3, y1 = 8.1, x2 = 8, y2 = 8.1,  
+         ticks = 0.5, curvature = 0.5, type = 1, h = 0.15,
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(7.1, 9.8, expression(paste("Coffee")),  xpd = TRUE,  cex = labelsize)
+text(7.1, 9, expression(paste("B gets")),  xpd = TRUE,  cex = labelsize)
+
+
+brackets(x1 = 8.3, y1 = 6, x2 = 8.3, y2 = 2,  
+         ticks = 0.5, curvature = 0.5, type = 1, h = 0.15,
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(9.2, 4.4, expression(paste("Data B")),  xpd = TRUE,  cex = labelsize)
+text(9.2, 3.6, expression(paste("gives up")),  xpd = TRUE,  cex = labelsize)
+
 
 #lines(xx3, OfferCurveB(xx3), col = COLB[4], lwd = graphlinewidth+1)
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
@@ -141,7 +162,7 @@ arrows(-0.75, 11, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Annotation of the three graphs and the NE
-#text(9.6, 0.9, expression(u[1]^A))
+text(8, 13, expression("B's feasible set"), cex = annotatesize)
 # text(9.6, 2.2, expression(u[1]^A))
 # text(9.6, 4.4, expression(u[2]^A))
 #text(9.6, 5.9, expression(u[4]^A))
@@ -164,8 +185,8 @@ arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # text(6.8, 13, expression(paste("Slope", phantom()==-p[1])))
 
 #Second price line
-text(4.5, 13.5, expression(paste("Price Line")), cex = annotatesize)
-text(4.6, 12.75, expression(paste("Slope", phantom()==-p[2])), cex = annotatesize)
+text(4.8, 13.5, expression(paste("Budget constraint")), cex = annotatesize)
+text(4.8, 12.75, expression(paste("slope", phantom()==-p[2])), cex = annotatesize)
 
 #Third price line
 # text(2, 13.5, expression(paste("Price Line")))
@@ -188,7 +209,7 @@ text(8+0.2, OfferCurveB(x = 8) + 0.2, expression(z), cex = labelsize)
 
 #Add a point for the initial endowment
 points(6.35, OfferCurveB(x = 6.35), pch = 16, col = "black", cex = 1.5)
-text(6.35 + 0.2, OfferCurveB(x = 6.35) + 0.2, expression(b[2]), cex = labelsize)
+text(6.35 + 0.3, OfferCurveB(x = 6.35) + 0.3, expression(b[2]), cex = labelsize)
 
 #Add a point for the initial endowment
 # points(5, OfferCurveB(x = 5), pch = 16, col = "black", cex = 1.5)

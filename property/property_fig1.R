@@ -4,8 +4,9 @@ require(shape)
 pdf(file = "property/property_fig1a.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
+#Annotation is bigger because it is a 3-panel figure
 axislabelsize <- 1.8
-annotatesize <- 1.5
+annotatesize <- 1.8
 labelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
@@ -96,7 +97,7 @@ segments(9, 0, 9, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 points(9, 1, pch = 16, col = "black", cex = 1.5)
 
 #Annotating line of 100% quality
-text(9.1, 1.6, expression(z == (list(x[z]^A, y[z]^A))), cex = annotatesize)
+text(9.1, 1.6, expression(z), cex = annotatesize)
 
 text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
 #text(10.4, 16.4, expression("Bongani"), xpd = TRUE, cex = namesize, col = COLB[4])

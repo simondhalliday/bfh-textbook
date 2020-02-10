@@ -61,9 +61,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 13, 15, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y[1] == u[1]^B)), expression(paste(y[2] == u[2]^B)), expression(paste(y[3] == u[3]^B)), NA)
+ylabels <- c(0, expression(paste(y[1] == u[1]^B)), expression(paste(y[2] == u[2]^B)), expression(paste(y[3] == u[3]^B)), NA)
 ticksx <- c(0,  xlims[2])
-xlabels <- c(NA, NA)
+xlabels <- c(0, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
@@ -128,15 +128,15 @@ slopeline <- function(x, yint, slope = 1.5){
   yint - slope*x
 }
 
-slopex1 <- seq(2,4,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = 12.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = 14.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = 16.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+slopex1 <- seq(1.5,4.5,length.out = 200)
+lines(slopex1, slopeline(slopex1, yint = 12.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex1, slopeline(slopex1, yint = 14.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex1, slopeline(slopex1, yint = 16.2, slope = mrsA(x = 3)), col = Grays[21], lty = 2, lwd = graphlinewidth)
 
-slopex2 <- seq(8,10,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = 6.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = 8.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = 10.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = segmentlinewidth)
+slopex2 <- seq(7.6,10.5,length.out = 200)
+lines(slopex2, slopeline(slopex2, yint = 6.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex2, slopeline(slopex2, yint = 8.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex2, slopeline(slopex2, yint = 10.2, slope = mrsA(x = 9)), col = Grays[21], lty = 2, lwd = graphlinewidth)
 
 
 firstpointsx <- c(3, 3, 3)

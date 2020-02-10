@@ -6,7 +6,7 @@ pdf(file = "property/property_fig2b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
-annotatesize <- 1.5
+annotatesize <- 1.8
 labelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
@@ -147,8 +147,8 @@ lines(xx1, indiffcurveB3(xx1), col = COLB[2], lwd = graphlinewidth)
 
 #Label B's indifference curves
 text(0.55, 10, expression(u[1]^B), cex = annotatesize)
-text(1.65, 10, expression(u[2]^B), cex = annotatesize)
-text(3.65, 10, expression(u[3]^B), cex = annotatesize)
+text(1.7, 10, expression(u[2]^B), cex = annotatesize)
+text(3.7, 10, expression(u[3]^B), cex = annotatesize)
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)

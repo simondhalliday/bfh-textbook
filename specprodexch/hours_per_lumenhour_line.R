@@ -36,11 +36,11 @@ lumen_data %>% ggplot(aes(
     x = reorder(Year, -LaborHourPer1000LumenHours),
     y = logLabor
   )) +
-  labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  +
   #geom_line(group="identity", colour=COLB[4])  +
   geom_line(color = COLA[4], group = 1) +
   #scale_x_continuous(breaks = pretty(lumen_data[["Year"]], n = 10)) +
   theme_bw() +
+  labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  +
   theme(
     legend.position = "none",
     legend.title = element_blank(),

@@ -27,7 +27,7 @@ ag_data[["lnHoursPer100Bushels"]] <- log(ag_data[["HoursPer100Bushels"]])
 # Plot --------------------------------------------------------------------
 
 ag_data %>% ggplot(mapping = aes(x = Year, y = lnHoursPer100Bushels)) +  
-    labs(x = "Year", y = "Natural Log of Labor Hours Per 100 Bushels of Wheat") + 
+    labs(x = "Year", y = "Log of Labor Hours Per 100 Bushels of Wheat") + 
     geom_line(color = COLB[4]) + 
     scale_x_continuous(breaks = pretty(ag_data[["Year"]], n = 10)) +
     theme_bw() + 

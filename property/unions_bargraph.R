@@ -21,6 +21,7 @@ dfplot <-
 plot1 <- dfnar %>% 
   ggplot(aes(x = point, y = Utility)) +
   geom_bar(aes(group = type, fill = type), stat = "identity", position = position_dodge()) + 
+  #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
   scale_x_discrete(labels=c("z" = x1, "ta" = x2,
@@ -31,7 +32,7 @@ plot1 <- dfnar %>%
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
                     breaks = c("ub", "ua", "totalu"), 
-                    labels = c(expression(paste("A's Utility,", u^A)), expression(paste("B's Utility,", u^B)), "Total Utility"))+
+                    labels = c(expression(paste("B's Utility,", u^B)), expression(paste("A's Utility,", u^A)), "Total Utility"))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
   theme(axis.title = element_text(size = 20),
@@ -41,7 +42,13 @@ plot1 <- dfnar %>%
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
-  coord_flip()
+  geom_text(
+    aes(x = point, y = Utility, label = Utility, group = type), 
+    hjust = -0.5, size = 4,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE
+  ) + 
+  coord_flip() 
 plot1 
 
 

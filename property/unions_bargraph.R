@@ -9,10 +9,10 @@ dfnar <-
   gather(type, Utility, -point) %>% 
   arrange(point)
 xaxislabs <- c("a",  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
-x1 <- c(expression(paste("Endowment allocation,no trade,", bold(z))))
+x1 <- c(expression(paste("Endowment allocation, no trade,", bold(z))))
 x2 <- c(expression(paste("Employer A has TIOLI power, ", bold(t^A))))
 x3 <- c(expression(paste("Union B has TIOLI power, ", bold(t^B))))
-x5 <- c(expression(paste("Negotiated allocation after legislation,",bold(a))))
+x5 <- c(expression(paste("Negotiated allocation after legislation,", bold(a))))
 dfplot <-
   dfnar %>%
   mutate(point = factor(point, levels = c("z", "ta", "tb", "b", "a")),

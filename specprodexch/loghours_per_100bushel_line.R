@@ -38,7 +38,8 @@ ag_data %>% ggplot(mapping = aes(x = Year, y = lnHoursPer100Bushels)) +
           axis.title.x = element_text(size = 16, vjust = -1),
           legend.text = element_blank(),
           axis.text.x = element_text(size = 12),
-          axis.text.y = element_text(size = 12)
+          axis.text.y = element_text(size = 12),
+          panel.grid.minor.x = element_blank()
     ) 
 
 # Save as PDF -------------------------------------------------------------

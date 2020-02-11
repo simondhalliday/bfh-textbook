@@ -24,28 +24,32 @@ lumen_data[["lnLaborHourPer1000LumenHours"]] <-log(lumen_data[["LaborHourPer1000
 
 # Plot  -------------------------------------------------------------------
 
-lumen_data <- 
-  lumen_data %>% 
-  mutate(millionLumen = 10000*LaborHourPer1000LumenHours,
-         logLabor = log(millionLumen)) %>%
+lumen_data <-
+  lumen_data %>%
+  mutate(
+    millionLumen = 10000 * LaborHourPer1000LumenHours,
+    logLabor = log(millionLumen)
+  ) %>%
   filter(!Year %in% c(-100000, -40000, -1750))
 
-lumen_data %>% ggplot(mapping = aes(x = reorder(Year, -LaborHourPer1000LumenHours), 
-                     y = logLabor)) + 
-  labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  + 
-  #geom_line(group="identity", colour=COLB[4])  + 
-  geom_line(color = COLA[4], group = 1) + 
+lumen_data %>% ggplot(aes(
+    x = reorder(Year, -LaborHourPer1000LumenHours),
+    y = logLabor
+  )) +
+  labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  +
+  #geom_line(group="identity", colour=COLB[4])  +
+  geom_line(color = COLA[4], group = 1) +
   #scale_x_continuous(breaks = pretty(lumen_data[["Year"]], n = 10)) +
-  theme_bw() + 
-  theme(legend.position = "none", 
-        legend.title = element_blank(), 
-        axis.title.y = element_text(size = 16, vjust = 0.5),
-        axis.title.x = element_text(size = 16, vjust = -1),
-        legend.text = element_blank(),
-        axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12)
+  theme_bw() +
+  theme(
+    legend.position = "none",
+    legend.title = element_blank(),
+    axis.title.y = element_text(size = 16, vjust = 0.5),
+    axis.title.x = element_text(size = 16, vjust = -1),
+    legend.text = element_blank(),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
   ) 
-
 
 # Save as PDF -------------------------------------------------------------
 

@@ -15,8 +15,8 @@ x3 <- c(expression(paste("B has TIOLI power,", t^B)))
 x5 <- c("Negotiated allocation \n after legislation, a")
 dfplot <-
   dfnar %>%
-  mutate(point = factor(point, levels = c("z", "ta", "tb", "b", "a")), 
-         type = factor(type))
+  mutate(point = factor(point, levels = c("z", "ta", "tb", "b", "a")),
+         type = factor(type, levels = c("ub","ua", "totalu")))
 
 plot1 <- dfnar %>% 
   ggplot(aes(x = point, y = Utility)) +
@@ -30,7 +30,7 @@ plot1 <- dfnar %>%
                    limits = c(0,1000)) +
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
-                    breaks = c("ua", "ub", "totalu"), 
+                    breaks = c("ub", "ua", "totalu"), 
                     labels = c(expression(paste("A's Utility,", u^A)), expression(paste("B's Utility,", u^B)), "Total Utility"))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
@@ -39,12 +39,14 @@ plot1 <- dfnar %>%
         axis.text.y = element_text(size = 18),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
   coord_flip()
 plot1 
 
 
-ggsave("property/unions_bargraph.pdf", plot1, width = 7, height = 7)
+
+ggsave("property/unions_bargraph.pdf", plot1, width = 10, height = 7)
 
 # scale_fill_discrete(name = "", 
 #                     breaks = c("ua", "ub", "totalu"), 

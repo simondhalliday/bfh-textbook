@@ -10,8 +10,8 @@ dfnar <-
   arrange(point)
 xaxislabs <- c("a",  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
 x1 <- c("Endowment allocation,\n no trade, z")
-x2 <- c(expression(paste("A has TIOLI power,", t^A)))
-x3 <- c(expression(paste("B has TIOLI power,", t^B)))
+x2 <- c(expression(paste("A has TIOLI power, ", t^A)))
+x3 <- c(expression(paste("B has TIOLI power, ", t^B)))
 x5 <- c("Negotiated allocation \n after legislation, a")
 dfplot <-
   dfnar %>%
@@ -25,17 +25,18 @@ plot1 <- dfnar %>%
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
   scale_x_discrete(labels=c("z" = x1, "ta" = x2,
-                            "tb" = x3, "b" = " Legislated hours\n and wages, b", "a" = x5)) +
+                            "tb" = x3, "b" = "Legislated hours and \n wages, b", "a" = x5)) +
   scale_y_continuous(breaks = seq(0,1000,200),
                    labels = seq(0,1000,200),
                    limits = c(0,1000)) +
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
                     breaks = c("ub", "ua", "totalu"), 
-                    labels = c(expression(paste("B's Utility,", u^B)), expression(paste("A's Utility,", u^A)),"Total Utility"))+
+                    labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
   theme(legend.position = "right",
+        legend.text.align = 0,
         axis.title = element_text(size = 20),
         axis.title.y = element_blank(),
         axis.text.y = element_text(size = 18),

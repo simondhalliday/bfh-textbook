@@ -29,8 +29,8 @@ scale_color_discrete(name = "",
                     labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ",u^B), "Total Utility"))
 ) +
   scale_x_discrete(labels = xaxislabs) + 
-  scale_y_continuous(breaks = seq(0,1000,200), 
-                   labels = seq(0,1000,200)) +
+  scale_y_continuous(breaks = seq(0,1200,200),
+                   labels = seq(0,1200,200)) +
   xlab("Point in the Edgeworth Box") + 
   theme_bw() +
   theme(axis.title = element_text(size = 20),

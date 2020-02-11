@@ -1,6 +1,6 @@
 library(tidyverse)
-ua <- c(400, 652, 508, 540, 548)
-ub <- c(256, 256, 400, 351, 360)
+ua <- c(400, 652, 400, 540, 548)
+ub <- c(256, 256, 508, 351, 360)
 point <- c("z", "ta", "tb", "b", "a")
 totalu <- c(656, 908, 908, 891, 908)
 df <- tibble(point, ua, ub, totalu)

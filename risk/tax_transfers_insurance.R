@@ -80,11 +80,11 @@ lines(xx1, insur(xx1, slope = 0), col = COLB[4], lwd = graphlinewidth, lty = 1)
 points(8.74, 3, pch = 16, col = "black", cex = 1.5) # e
 points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # f
 points(8.74, 14.187, pch = 16, col = "black", cex = 1.5) # g
-points(8.74, 16.01, pch = 15, col = "black", cex = 1.5) # h
+points(8.74, 16.01, pch = 16, col = "black", cex = 1.5) # h
 #points(8.74, 16.626, pch = 16, col = "black", cex = 1.5) # h
 points(8.74, 17.367, pch = 16, col = "black", cex = 1.5) # i
-points(3.333, 5.5, pch = 15, col = "black", cex = 1.5) # f'
-points(7, 11.97, pch = 15, col = "black", cex = 1.5) # g'
+points(3.333, 5.5, pch = 16, col = "black", cex = 1.5) # f'
+points(7, 11.97, pch = 16, col = "black", cex = 1.5) # g'
 
 # Points Labels
 

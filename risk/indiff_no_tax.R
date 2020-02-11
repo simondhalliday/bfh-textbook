@@ -118,13 +118,13 @@ segments(0, 3, xlims[2] - 2, 3, lty = 2, col = "darkgray", lwd = segmentlinewidt
 #text(xlims[2] - 1, 3, expression(paste(Delta)), xpd = TRUE, cex = labelsize)
 
 # Points
-points(2.8284, indiffA(2.8, ua = 5), pch = 15, col = "black", cex = 1.5,xpd = TRUE)
+points(2.8284, indiffA(2.8, ua = 5), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(3.2, indiffA(2.8, ua = 5) - 0.5, expression(paste("f'")), xpd = TRUE, cex = labelsize)
 
-points(7.26636, indiffA(7.26636, ua = 16.2), pch = 15, col = "black", cex = 1.5,xpd = TRUE)
+points(7.26636, indiffA(7.26636, ua = 16.2), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(7.76636, indiffA(7.26636, ua = 16.2) - 0.5, expression(paste("g'")), xpd = TRUE, cex = labelsize)
 
-points(10.0797, indiffA(10.0797, ua = 28.4), pch = 15, col = "black", cex = 1.5,xpd = TRUE)
+points(10.0797, indiffA(10.0797, ua = 28.4), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(10.5797, indiffA(10.0797, ua = 28.4) - 0.5, expression(paste("h")), xpd = TRUE, cex = labelsize)
 
 

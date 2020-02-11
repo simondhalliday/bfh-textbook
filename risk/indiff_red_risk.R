@@ -49,10 +49,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 ticksx <- c(xlims[1], 2.1, 10, xlims[2])
-xlabels <- c(NA, expression(paste(Delta^T)), expression(paste(Delta^P)), NA)
+xlabels <- c(NA, expression(paste(Delta^"g'")), expression(paste(Delta^g)), NA)
 
-ticksy <- c(ylims[1], indiff(2.1, intercept = 8, slope = 0.075), indiff(10, intercept = 2, slope = 0.09), ylims[2])
-ylabels <- c(NA, expression(paste(bar(y), "(1 - ", phi, ")")), expression(paste(y^P)), NA)
+ticksy <- c(ylims[1], 7.64 ,indiff(2.1, intercept = 8, slope = 0.075), indiff(10, intercept = 2, slope = 0.09), ylims[2])
+ylabels <- c(NA, expression(paste(bar(y), "(1 - ", phi, ")")), expression(paste(y^"g'")), expression(paste(y^g)), NA)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
@@ -89,8 +89,8 @@ text(.5, 13.55, expression(u[3]), cex = labelsize)
 #Label average wealth curve and indifference curves generally
 
 text(12, 11.32, expression(paste("Reduced")), xpd = TRUE, cex = labelsize)
-text(12, 10.57, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
-text(12, 9.82, expression(paste("Income")), xpd = TRUE, cex = labelsize)
+text(12, 10.57, expression(paste("expected")), xpd = TRUE, cex = labelsize)
+text(12, 9.82, expression(paste("income")), xpd = TRUE, cex = labelsize)
 
 # Bracket
 brackets(x1 = 10.5, y1 = indiff(10, intercept = 2, slope = 0.09), 

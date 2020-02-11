@@ -39,20 +39,20 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      axes = FALSE,
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 #Customize ticks and labels for the plot
 
 ticksy <- c(0, 3, 4, 7, 9, 13, ylims[2])
-ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[b]), expression(y[c]), expression(y[d]), expression(y[e]), NA)
+ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[f]), expression(y[g]), expression(y[h]), expression(y[i]), NA)
 ticksx <- c(0, 8.74, xlims[2])
-xlabels <- c(NA, expression(Delta[d]), NA)
+xlabels <- c(NA, expression(Delta[h]), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
-mtext(expression(paste("Risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -70,31 +70,33 @@ lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graph
 lines(xx1, insur(xx1, slope = 0.75), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 1.28), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 1.49), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, insur(xx1, slope = 1.638), col = COLB[4], lwd = graphlinewidth, lty = 1)
+
 #lines(xx1, insur(xx1, slope = 1.559), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insur(xx1, slope = 0), col = COLB[4], lwd = graphlinewidth, lty = 1)
 
 # Points
 
-points(8.74, 3, pch = 16, col = "black", cex = 1.5) # a
-points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # b
-points(8.74, 14.187, pch = 16, col = "black", cex = 1.5) # c
-points(8.74, 16.01, pch = 16, col = "black", cex = 1.5) # d
-#points(8.74, 16.626, pch = 16, col = "black", cex = 1.5) # d
-points(8.74, 17.367, pch = 16, col = "black", cex = 1.5) # e
-points(3.333, 5.5, pch = 16, col = "black", cex = 1.5) # b'
-points(7, 11.97, pch = 16, col = "black", cex = 1.5) # c'
+points(8.74, 3, pch = 16, col = "black", cex = 1.5) # e
+points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # f
+points(8.74, 14.187, pch = 16, col = "black", cex = 1.5) # g
+points(8.74, 16.01, pch = 15, col = "black", cex = 1.5) # h
+#points(8.74, 16.626, pch = 16, col = "black", cex = 1.5) # h
+points(8.74, 17.367, pch = 16, col = "black", cex = 1.5) # i
+points(3.333, 5.5, pch = 15, col = "black", cex = 1.5) # f'
+points(7, 11.97, pch = 15, col = "black", cex = 1.5) # g'
 
 # Points Labels
 
-text(9, 2.5, expression(a), cex = labelsize)
-text(9, 9, expression(b), cex = labelsize)
-text(9, 13.65, expression(c), cex = labelsize)
-text(9, 15.5, expression(d), cex = labelsize)
+text(9, 2.5, expression(e), cex = labelsize)
+text(9, 9, expression(f), cex = labelsize)
+text(9, 13.65, expression(g), cex = labelsize)
+text(9, 15.5, expression(h), cex = labelsize)
 # text(9, 16.3, expression(d), cex = labelsize)
-text(9, 17, expression(e), cex = labelsize)
+text(9, 17, expression(i), cex = labelsize)
 # text(9, 17.37, expression(e), cex = labelsize)
-text(3.5, 4.9, expression(paste(b,"'")), cex = labelsize)
-text(7.25, 11.5, expression(paste(c,"'")), cex = labelsize)
+text(3.5, 4.9, expression(paste(f,"'")), cex = labelsize)
+text(7.25, 11.5, expression(paste(g,"'")), cex = labelsize)
 
 # Label value functions
 

@@ -73,24 +73,24 @@ text(xlims[1] - 1, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expec
 # Asset Labels
 
 text(2, 12.25, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
-text(2, 11.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
+text(2, 11.5, expression(paste("general assets")), xpd = TRUE, cex = labelsize)
 points(2, 13.25, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(2.5, 13.5, expression(paste("a")), xpd = TRUE, cex = labelsize)
 
 text(8, 12.25, expression(paste("Substantial and")), xpd = TRUE, cex = labelsize)
-text(8, 11.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
+text(8, 11.5, expression(paste("specific assets")), xpd = TRUE, cex = labelsize)
 points(8, 13.25, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(8.5, 13.5, expression(paste("b")), xpd = TRUE, cex = labelsize)
 
 text(8, 6.25, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
-text(8, 5.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
+text(8, 5.5, expression(paste("specific assets")), xpd = TRUE, cex = labelsize)
 # text(13, 10, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
 # text(13, 8.5, expression(paste("Specific Assets")), xpd = TRUE, cex = labelsize)
 points(8, 7.25, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(8.5, 7.5, expression(paste("c")), xpd = TRUE, cex = labelsize)
 
 text(2, 6.25, expression(paste("Few and")), xpd = TRUE, cex = labelsize)
-text(2, 5.5, expression(paste("General Assets")), xpd = TRUE, cex = labelsize)
+text(2, 5.5, expression(paste("general assets")), xpd = TRUE, cex = labelsize)
 points(2, 7.25, pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(2.5, 7.5, expression(paste("d")), xpd = TRUE, cex = labelsize)
 

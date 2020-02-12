@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -96,8 +96,9 @@ segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
-mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
-text(-1.2, 35, expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
+#mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
+text(0.5*xlims[2], -6, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 #
 text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
 Arrows(3.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -106,7 +107,7 @@ text(9, 28, expression(paste("slope", phantom()==h^A, phantom() == 6)), cex = an
 Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.7, 61, expression(u[1]^A), cex = annotatesize)
+text(9.6, 60, expression(u[1]^A), cex = annotatesize)
 text(7.5, 60, expression(u[2]^A), cex = annotatesize)
 text(4.6, 60, expression(u[3]^A), cex = annotatesize)
 

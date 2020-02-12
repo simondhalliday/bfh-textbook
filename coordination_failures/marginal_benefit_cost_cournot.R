@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(5, 7, 1, 1))
 
 MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
   (alpha - beta*eb - 2*beta*ea)
@@ -25,8 +25,8 @@ MCost <- function(ea, slope = 1, intercept = 0){
  }
 
 
-xlims <- c(0, 30)
-ylims <- c(0, 30)
+xlims <- c(0, 31)
+ylims <- c(0, 31)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -47,14 +47,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, MBenefit(12), MBenefit(15, eb = 0), MBenefit(ea = 0), ylims[2])
-ylabels <- c(NA, expression(paste(u[h^A1]^A)), expression(paste(u[h^A2]^A)), expression(paste(alpha - beta*h^B)), expression(paste(alpha)))
-ticksx <- c(0, 12, 15, 24, xlims[2])
-xlabels <- c(NA, expression(paste(h[1]^A)), expression(paste(h[2]^A)), expression(paste(frac(alpha - beta*h^b,2*beta) )), expression(paste(frac(alpha,2*beta) )))
+ticksy <- c(0, MBenefit(12), MBenefit(15, eb = 0), MBenefit(ea = 0), 30, ylims[2])
+ylabels <- c(NA, expression(paste(u[h^A1]^A)), expression(paste(u[h^A2]^A)), expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+ticksx <- c(0, 12, 15, 24, 30, xlims[2])
+xlabels <- c(NA, expression(paste(h[1]^A)), expression(paste(h[2]^A)), expression(paste(frac(alpha - beta*h^b,2*beta) )), expression(paste(frac(alpha,2*beta) )), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE ,las = 1, cex.axis = labelsize - 0.05)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 0.05)
-text(x = c(0, 12, 15, 24, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize - 0.05)
+text(x = c(0, 12, 15, 24, 30, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize - 0.05)
 
 mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Aram's marginal utility and disutility, ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 

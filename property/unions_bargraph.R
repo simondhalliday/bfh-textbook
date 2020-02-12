@@ -9,14 +9,16 @@ dfnar <-
   gather(type, Utility, -point) %>% 
   arrange(point)
 xaxislabs <- c("a",  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
-x1 <- c("Endowment allocation,\n no trade, z")
-x2 <- c(expression(paste("A has TIOLI power, ", t^A)))
-x3 <- c(expression(paste("B has TIOLI power, ", t^B)))
-x5 <- c("Negotiated allocation \n after legislation, a")
+x1 <- c(expression(paste("Endowment allocation, no trade, ", bold(z))))
+x2 <- c(expression(paste("Employer (A) has TIOLI power, ", bold(t^A))))
+x3 <- c(expression(paste("Union (B) has TIOLI power, ", bold(t^B))))
+x5 <- c(expression(paste("Negotiated allocation after legislation, ", bold(a))))
 dfplot <-
   dfnar %>%
   mutate(point = factor(point, levels = c("z", "ta", "tb", "b", "a")),
-         type = factor(type, levels = c("ub","ua", "totalu")))
+         type = factor(type, levels = c("ua","ub", "totalu")))
+
+dfnar$point <- factor(dfnar$point, levels = c("a", "b", "tb", "ta", "z"))
 
 plot1 <- dfnar %>% 
   ggplot(aes(x = point, y = Utility)) +
@@ -25,13 +27,13 @@ plot1 <- dfnar %>%
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
   scale_x_discrete(labels=c("z" = x1, "ta" = x2,
-                            "tb" = x3, "b" = "Legislated hours and \n wages, b", "a" = x5)) +
+                            "tb" = x3, "b" = expression(paste("Legislated hours and wages, ",bold(b))), "a" = x5)) +
   scale_y_continuous(breaks = seq(0,1000,200),
                    labels = seq(0,1000,200),
                    limits = c(0,1000)) +
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
-                    breaks = c("ub", "ua", "totalu"), 
+                    breaks = c("ub","ua", "totalu"), 
                     labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
@@ -55,7 +57,7 @@ plot1
 
 
 
-ggsave("property/unions_bargraph.pdf", plot1, width = 10, height = 7)
+ggsave("property/unions_bargraph.pdf", plot1, width = 11, height = 7)
 
 # scale_fill_discrete(name = "", 
 #                     breaks = c("ua", "ub", "totalu"), 

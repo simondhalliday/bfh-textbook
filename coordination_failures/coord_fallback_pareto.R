@@ -81,7 +81,7 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(130, 
-       uA(hANE(alpha = 30, beta = 1/2), hANE(alpha = 30, beta = 1/2)), 
+       uA(hANE(alpha = 30, beta = 1/2), hANE(alpha = 30, beta = 1/2)),
        #uA(hApEff2(alpha = 30, beta = 1/2), hApEff2(alpha = 30, beta = 1/2)),
        155.8)
 b <- c(130, 

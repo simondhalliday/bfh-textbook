@@ -132,6 +132,7 @@ MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
   (alpha - beta*eb - 2*beta*ea)
 }
 
+
 MCost <- function(ea, slope = 1, intercept = 0){
   slope*ea
 }

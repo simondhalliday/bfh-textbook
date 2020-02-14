@@ -2,7 +2,10 @@ require(shape)
 pdf(file = "specprodexch/production_drs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -11,7 +14,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(4, 9, 1, 1))
 
 #Change this to make it log of l 
 
@@ -58,8 +61,8 @@ ylabels <- c(NA, expression(paste(x(l == 2))), expression(paste(x(l==6))), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -77,7 +80,7 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 
 
 
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -95,21 +98,22 @@ segments(0, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = COLB[4] , lwd = segment
 points(2, prodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.2, 1.1, expression(paste("Total Product")))
-text(9.2, 1, expression(x == frac(1,2)*ln(1 + l)))
+text(8.7, 1, expression(paste("Total product")), cex = labelsize)
+text(8.7, 0.92, expression(x == frac(1,2)*ln(1 + l)), cex = labelsize)
 
 
 #Average Product
-text(4, 0.3, expression(paste("Slope of ray from origin")))
-text(4, 0.25, expression(paste("equals Average Product")))
+text(4.25, 0.27, expression(paste("Slope of ray from")), cex = labelsize)
+text(4.25, 0.22, expression(paste("origin equals")), cex = labelsize)
+text(4.25, 0.17, expression(paste("Average Product")), cex = labelsize)
 Arrows(2.7, 0.3, 1.3, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, 0.33, 4, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Marginal Product
-text(2, prodFn(l = 6, k = 0.5) + 0.02, expression(paste("Slope of tangent line")))
-text(2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal Product")))
+text(2, prodFn(l = 6, k = 0.5) + 0.02, expression(paste("Slope of tangent line")), cex = labelsize)
+text(2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal Product")), cex = labelsize)
 Arrows(2, prodFn(l = 6, k = 0.5) - 0.075, 2, prodFn(l = 2, k = 0.5) + 0.05 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(3.2, prodFn(l = 6, k = 0.5), 5.7, prodFn(l = 6, k = 0.5), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(4, prodFn(l = 6, k = 0.5), 5.7, prodFn(l = 6, k = 0.5), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 

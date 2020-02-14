@@ -59,8 +59,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 10, 28, 46.08, 70)
-ylabels <- c(NA, expression(paste(y[1]^A)), expression(paste(y[2]^A)), expression(paste(y[3]^A)), NA)
+ticksy <- c(0, 1, 10, 28, 46.08, 70)
+ylabels <- c(NA, expression(z), expression(paste(y[1]^A)), expression(paste(y[2]^A)), expression(paste(y[3]^A)), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
@@ -70,9 +70,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis= labelsize - 0
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
+lines(xx1, indiffA(xx1, uA = 1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, uA = 10), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, uA = 28), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, uA = 46.08), col = COLA[4], lwd = graphlinewidth)
+
 # lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 # lines(xx1, brfPEA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
 # lines(xx1, brfPEB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
@@ -100,17 +102,20 @@ segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 text(0.5*xlims[2], -6, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 #
-text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
-Arrows(3.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
+Arrows(6.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #
 text(9, 28, expression(paste("slope", phantom()==h^A, phantom() == 6)), cex = annotatesize)
 Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
+text(10.4, 60, expression(u[z]^A), cex = annotatesize)
 text(9.6, 60, expression(u[1]^A), cex = annotatesize)
 text(7.5, 60, expression(u[2]^A), cex = annotatesize)
 text(4.6, 60, expression(u[3]^A), cex = annotatesize)
 
+text(1.75, 14, expression(a), cex = annotatesize)
+text(5.75, 30, expression(b), cex = annotatesize)
 
 
 
@@ -135,6 +140,8 @@ points(firstpointsx, firstpointsy, pch = 16, col = "black", cex = 1.5)
 secondpointsx <- c(6, 6, 6)
 secondpointsy <- c(indiffA(ea = 6, uA = 10), indiffA(ea = 6, uA = 28), indiffA(ea = 6, uA = 46.08))
 points(secondpointsx, secondpointsy, pch = 16, col = "black", cex = 1.5)
+
+
 
 
 dev.off()

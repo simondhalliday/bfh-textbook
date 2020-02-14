@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "specprodexch/production_technique.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -11,13 +13,13 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(5, 7, .5, .5))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 10, xmas = 20) {
+uA <- function(x, y, rmax = 10, xmax = 20) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
@@ -46,8 +48,8 @@ ylabels <- c(NA, expression(paste(k[1])), expression(paste(k[2])), NA)
 ticksx <- c(0, 4, 6, xlims[2])
 xlabels <- c(NA, expression(paste(l[1])), expression(paste(l[2])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -82,27 +84,27 @@ segments(6, 0, 6, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #For good production technique i
 points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(4.25, 6.25, expression(i))
+text(4.45, 6.45, expression(i), cex = labelsize)
 
 #For production technique a
 points(4, 8, pch = 16, col = "black", cex = 1.5)
-text(4.25, 8.25, expression(a))
+text(4.45, 8.45, expression(a), cex = labelsize)
 
 #For production technique b
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.25, 6.25, expression(b))
+text(6.45, 6.45, expression(b), cex = labelsize)
 
 
 text(10, 11, expression(paste("Feasible")), cex = labelsize)
-text(10, 10.5, expression(paste("production")), cex = labelsize)
-text(10, 10, expression(paste("techniques")), cex = labelsize)
+text(10, 10.4, expression(paste("production")), cex = labelsize)
+text(10, 9.8, expression(paste("techniques")), cex = labelsize)
 text(2, 4, expression(paste("Infeasible")), cex = labelsize)
-text(2, 3.5, expression(paste("production")), cex = labelsize)
-text(2, 3, expression(paste("techniques")), cex = labelsize)
+text(2, 3.4, expression(paste("production")), cex = labelsize)
+text(2, 2.8, expression(paste("techniques")), cex = labelsize)
 
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

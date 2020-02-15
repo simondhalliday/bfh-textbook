@@ -98,7 +98,7 @@ lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 #text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-5, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 # text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 # text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)

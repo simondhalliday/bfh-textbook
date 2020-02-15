@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 1, 10, 12, 28, 28, 46.08, 70)
+ticksy <- c(0, 1, 10, 12, 28, 30, 46.08, 70)
 ylabels <- c(NA, expression(z), expression(paste()), expression(paste(a)),expression(paste(b)), expression(paste()), expression(paste()), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
@@ -72,7 +72,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 lines(xx1, indiffA(xx1, uA = 1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, uA = 10), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, indiffA(xx1, uA = 28), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, indiffA(xx1, uA = 30), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiffA(xx1, uA = 46.08), col = COLA[4], lwd = graphlinewidth)
 
 # lines(xx1, brfB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
@@ -113,7 +113,7 @@ Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 #Label the iso-welfare functions for the HG, Aisha
 text(11.4, 60, expression(u[z]^A), cex = annotatesize)
 text(9.6, 60, expression(u[1]^A), cex = annotatesize)
-text(7.5, 60, expression(u[2]^A), cex = annotatesize)
+text(7.3, 60, expression(u[2]^A), cex = annotatesize)
 text(4.6, 60, expression(u[3]^A), cex = annotatesize)
 
 text(1.75, 14, expression(a), cex = annotatesize)
@@ -121,7 +121,7 @@ text(5.75, 30, expression(b), cex = annotatesize)
 
 
 
-lowint <- c(8, 26, 44)
+lowint <- c(8, 27.8, 44)
 
 slopex1 <- seq(1,3,length.out = 200)
 lines(slopex1, slopeline(slopex1, yint = -1, slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
@@ -129,7 +129,7 @@ lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col =
 lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
 
-highint <- c(-8, 10, 28)
+highint <- c(-8, 11.8, 28)
 slopex2 <- seq(5,7,length.out = 200)
 lines(slopex2, slopeline(slopex2, yint = -17, slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
@@ -138,11 +138,11 @@ lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col 
 
 
 firstpointsx <- c(2, 2, 2, 2)
-firstpointsy <- c(indiffA(ea = firstpointsx[1], uA = 1), indiffA(ea = firstpointsx[2], uA = 10), indiffA(ea = firstpointsx[3], uA = 28), indiffA(ea = firstpointsx[4], uA = 46.08))
+firstpointsy <- c(indiffA(ea = firstpointsx[1], uA = 1), indiffA(ea = firstpointsx[2], uA = 10), indiffA(ea = firstpointsx[3], uA = 30), indiffA(ea = firstpointsx[4], uA = 46.08))
 points(firstpointsx, firstpointsy, pch = 16, col = "black", cex = 1.5)
 
 secondpointsx <- c(6, 6, 6, 6)
-secondpointsy <- c(indiffA(ea = 6, uA = 1), indiffA(ea = 6, uA = 10), indiffA(ea = 6, uA = 28), indiffA(ea = 6, uA = 46.08))
+secondpointsy <- c(indiffA(ea = 6, uA = 1), indiffA(ea = 6, uA = 10), indiffA(ea = 6, uA = 30), indiffA(ea = 6, uA = 46.08))
 points(secondpointsx, secondpointsy, pch = 16, col = "black", cex = 1.5)
 
 

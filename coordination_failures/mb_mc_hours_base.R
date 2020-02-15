@@ -81,7 +81,7 @@ polygon(c(0, xpolyF, xlims[2], xlims[1]),
         c(output(0, eb = 0), output(xpolyF, eb = 0), 0, 0),
         border = FALSE, col = COLA[1])
 
-text(25, 150, expression(paste("Feasible set")), cex = labelsize)
+text(20, 150, expression(paste("Feasible set, ", h^B == 0)), xpd = TRUE, cex = labelsize)
 
 
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)

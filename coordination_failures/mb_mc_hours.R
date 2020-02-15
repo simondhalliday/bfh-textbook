@@ -41,7 +41,7 @@ slopeline <- function(ea, yint = 0.5, slope = 2){
 
 
 xlims <- c(0, 24)
-ylims <- c(0, 400)
+ylims <- c(0, 450)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -72,9 +72,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis= labelsize - 0
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(xlims[1], 18, length.out = npts)
+xx3 <- seq(xlims[1], 21, length.out = npts)
 
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, output(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
 contour(x, y,
         outer(x, y, uA),
@@ -95,7 +97,7 @@ segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = "gray", lwd = seg
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 #text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-3.5, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounts, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-3.5, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 # text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 # text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
@@ -116,7 +118,7 @@ text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotate
 
 
 text(14.3, 288, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
-text(19.8, 260, expression(paste(y(h^A, h^B >0))), cex = annotatesize)
+text(18.8, 240, expression(paste(y(h^A, h^B > 0))), cex = annotatesize)
 
 
 
@@ -171,8 +173,8 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(4, 8, length.out = npts)
 
-lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, MBenefit(xx3, eb = 12), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, MBenefit(xx3, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #For NE hours = 12

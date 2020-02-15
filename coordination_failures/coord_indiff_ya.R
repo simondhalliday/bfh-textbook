@@ -60,7 +60,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 1, 10, 28, 46.08, 70)
-ylabels <- c(NA, expression(z), expression(paste(y[1]^A)), expression(paste(y[2]^A)), expression(paste(y[3]^A)), NA)
+ylabels <- c(NA, expression(z), expression(paste()), expression(paste()), expression(paste()), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
@@ -96,6 +96,7 @@ lines(xx1, indiffA(xx1, uA = 46.08), col = COLA[4], lwd = graphlinewidth)
 
 segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(1.75, 14, 1.75, 15, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)

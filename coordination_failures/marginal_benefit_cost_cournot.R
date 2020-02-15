@@ -76,17 +76,17 @@ segments(0, MBenefit(15, eb = 0), 15, MBenefit(15, eb = 0), lty = 2, col = "gray
 segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
-text(11.5, 26, expression(paste("Marginal Benefit")), cex = labelsize)
-text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
-text(11.5, 22.5, expression(paste("when, ", h^B== 0 )), cex = labelsize)
+text(11.5, 24, expression(paste("Marginal Benefit")), cex = labelsize)
+#text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
+text(11.5, 22.5, expression(paste("when ", h^B== 0 )), cex = labelsize)
 
 text(25.5, 20, expression(paste("Marginal Disutility,")), cex = labelsize)
-text(25.5, 18.6, expression(paste(mc^A == h^A)), cex = labelsize)
+#text(25.5, 18.6, expression(paste(mc^A == h^A)), cex = labelsize)
 
 
-text(24.5, 15, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(24.5, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)
-text(24.5, 12, expression(paste("when, ", h^B > 0 )), cex = labelsize)
+text(25, 13.5, expression(paste("Marginal Benefit ")), cex = labelsize)
+#text(24.5, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)
+text(25, 12, expression(paste("when ", h^B > 0 )), cex = labelsize)
 Arrows(21.5, 12.5, 17, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

@@ -95,12 +95,12 @@ text(hANE(alpha = 30) - 0.4, hANE(alpha = 30) - 0.4, expression(paste(n)), cex =
 #B's brf
 text(5, 18, expression(paste("B's best response")), cex = labelsize)
 text(5, 17, expression(paste("function")), cex = labelsize)
-text(5, 15.2, expression(paste(h^B*(h^A) == frac(alpha - beta*h^A, 1 + 2*beta) )), cex = labelsize)
+#text(5, 15.2, expression(paste(h^B*(h^A) == frac(alpha - beta*h^A, 1 + 2*beta) )), cex = labelsize)
 
 #A's brf
 text(17, 6, expression(paste("A's best response")), cex = labelsize)
 text(17, 5, expression(paste("function")), cex = labelsize)
-text(17, 3.2, expression(paste(h^A*(h^B) == frac(alpha - beta*h^B, 1 + 2*beta) )), cex = labelsize)
+#text(17, 3.2, expression(paste(h^A*(h^B) == frac(alpha - beta*h^B, 1 + 2*beta) )), cex = labelsize)
 
 
 dev.off()

@@ -1,6 +1,6 @@
 library(shape)
 library(plotrix)
-pdf(file = "coordination_failures/coord_brfs_cournot_zoom_ed/coord_brfs_cournot_zoom_ed.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_brfs_cournot_zoom_ed.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -122,10 +122,10 @@ text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xli
 
 axis(2, at = ticksy, pos = ylims[1], labels = ylabels, las = 1, cex.axis = labelsize)
 
-axis.break(axis=1,breakpos=NULL,pos=NA,bgcol="white",breakcol="black",
-           style="slash",brw=0.01)
-axis.break(axis=2,breakpos=NULL,pos=NA,bgcol="white",breakcol="black",
-           style="slash",brw=0.01)
+axis.break(axis=1,breakpos=NULL,pos=xlims[1],bgcol="white",breakcol="black",
+           style="slash",brw=0.02)
+axis.break(axis=2,breakpos=NULL,pos=ylims[1],bgcol="white",breakcol="black",
+           style="slash",brw=0.02)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -168,7 +168,7 @@ text(10.5,  10.2, expression("curve"), cex = labelsize)
 
 text(11.5, 8.5, expression("Pareto-improving"), cex = labelsize)
 text(11.5,  8.2, expression("lens"), cex = labelsize)
-Arrows(11.5, 8.6, 11.5, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(11.5, 8.8, 11.5, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for the HG, Aisha
@@ -203,7 +203,7 @@ text(8.2, 13.7, expression(paste("B's best response")), cex = labelsize)
 text(8.2, 13.4, expression(paste("function")), cex = labelsize)
 
 #A's brf
-text(12, 7.7, expression(paste("A's best response")), xpd = TRUE, cex = labelsize)
+text(12, 7.6, expression(paste("A's best response")), xpd = TRUE, cex = labelsize)
 text(12, 7.3, expression(paste("function")), xpd = TRUE, cex = labelsize)
 
 dev.off()

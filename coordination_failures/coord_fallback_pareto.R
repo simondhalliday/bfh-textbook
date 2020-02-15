@@ -1,8 +1,7 @@
 require(shape)
-pdf(file = "coordination_failures/coord_fallback_pareto/coord_fallback_pareto.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/coord_fallback_pareto.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-pointsize <- 1.8
 axislabelsize <- 1.8
 labelsize <- 1.5
 namesize <- 1.8
@@ -139,7 +138,7 @@ contour(y, x,
         yaxs="i",
         add = TRUE)
 
-text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(0.5*xlims[2], -1.7, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(-1.7, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 contour(x, y,
@@ -151,24 +150,24 @@ contour(x, y,
         add = TRUE
 )
 
-text(3.4, 10.2, expression("Pareto-efficient"), cex = annotatesize)
-text(3.4, 9.5, expression("Curve"), cex = annotatesize)
-Arrows(5.7, 10, 9.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4.2, 10.2, expression("Pareto-efficient"), cex = labelsize)
+text(4.2, 9.5, expression("curve"), cex = labelsize)
+#Arrows(5.7, 10, 9.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(11.1, 5.5, expression("Pareto-improving"), cex = annotatesize)
-text(11.1,  5, expression("lens"), cex = annotatesize)
-Arrows(11.1, 5.8, 11.1, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(11.1, 5.5, expression("Pareto-improving"), cex = annotatesize)
+#text(11.1,  5, expression("lens"), cex = annotatesize)
+#Arrows(11.1, 5.8, 11.1, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves for A
-text(4.2, 0.8, expression(u[1]^A == u[z]^A), cex = labelsize -.05)
-text(5.8, 0.8, expression(u[2]^A), cex = labelsize - 0.05)
-text(6.5, 0.8, expression(u[3]^A), cex = labelsize - 0.05)
+text(4.9, 0.8, expression(u[1]^A), cex = labelsize - 0.2)
+text(5.8, 0.8, expression(u[2]^A), cex = labelsize - 0.2)
+text(6.5, 0.8, expression(u[3]^A), cex = labelsize - 0.2)
 
 
 #Label the indifference curves for theB
-text(9.5, 19, expression(u[1]^B == u[z]^B), cex = labelsize - 0.05)
-text(7.4, 19, expression(u[2]^B), cex = labelsize - 0.05)
-text(6.1, 19, expression(u[3]^B), cex = labelsize - 0.05)
+text(9.0, 19, expression(u[1]^B), cex = labelsize - 0.2)
+text(7.4, 19, expression(u[2]^B), cex = labelsize - 0.2)
+text(6.1, 19, expression(u[3]^B), cex = labelsize - 0.2)
 
 dev.off()

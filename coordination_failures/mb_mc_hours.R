@@ -75,6 +75,15 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], 18, length.out = npts)
 xx3 <- seq(xlims[1], 21, length.out = npts)
 
+#Feasible set
+xpolyF <- seq(from = 0, to = 18, length.out = 501)
+ypolyF <- output(xpoly1, eb = 12)
+polygon(c(0, xpolyF, 18, xlims[1]), 
+        c(output(0, eb = 0), output(xpolyF, eb = 12), 0, 0),
+        border = FALSE, col = COLA[1])
+
+text(13, 150, expression(paste("Feasible set, ", h^B == 12)), xpd = TRUE, cex = labelsize)
+
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
@@ -90,6 +99,7 @@ contour(x, y,
 
 segments(12, 300, 12, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+
 
 # segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -118,7 +128,7 @@ text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotate
 
 
 text(14.3, 288, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
-text(18.8, 240, expression(paste(y(h^A, h^B > 0))), cex = annotatesize)
+text(18.8, 240, expression(paste(y(h^A, h^B == 12))), cex = annotatesize)
 
 
 
@@ -138,6 +148,8 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(12, 46.08, 90)
+
+
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),

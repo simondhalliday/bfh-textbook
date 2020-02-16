@@ -128,7 +128,7 @@ text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotate
 
 
 text(14.3, 288, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
-text(18.8, 240, expression(paste(y(h^A, h^B == 12))), cex = annotatesize)
+text(20.5, 270, expression(paste(y(h^A, h^B == 12))), cex = annotatesize)
 
 
 

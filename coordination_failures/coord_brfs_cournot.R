@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 7, 1, 1))
+par(mar =  c(6, 9, 1, 1))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -89,11 +89,12 @@ ylims <- c(0, 20)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(uA(hANE(alpha = 30, beta = 1/2), hANE(alpha = 30, beta = 1/2)), 
+a <- c(112, 
+       uA(hANE(alpha = 30, beta = 1/2), hANE(alpha = 30, beta = 1/2)), 
        155.8)
-b <- c(uA(hANE(alpha = 30, beta = 1/2),hANE(alpha = 30, beta = 1/2)), 
+b <- c(112, 
+       uA(hANE(alpha = 30, beta = 1/2),hANE(alpha = 30, beta = 1/2)), 
        155.8)
-
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -105,16 +106,24 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
+# Keeping if necessary. 
+# ticksy <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
+# ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+# ticksx <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
+# xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
 
 ticksy <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-ylabels <- c(NA, expression(paste(h^B,"*")), expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+ylabels <- c(NA, expression(paste(h^B,"*", phantom()==10)), expression(paste(h^{BN} == 12)), expression(paste(15 )), NA)
 ticksx <- c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-xlabels <- c(NA, expression(paste(h^A,"*")), expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
-
+xlabels <- c(NA, expression(paste(h^A,"*", phantom()==10)), expression(paste(h^{AN} == 12)), NA, NA)
 
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
-text(x = c(0, hApEff2(alpha = 30), hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = axislabelsize)
+text(x = c(0, hApEff2(alpha = 30)-1, hANE(alpha = 30) + 0.5, intercept1(alpha = 30), xlims[2]), 
+     par("usr")[3] - 0.3, labels = xlabels, srt = 0, pos = 1, 
+     xpd = TRUE, cex = axislabelsize)
+#15 in the labels above didn't work, so it must be indivudally located
+text(15, -1.2, expression(paste(15)), xpd = TRUE, cex = axislabelsize) 
 
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
@@ -128,11 +137,16 @@ ypoly1 <- indiffA(xpoly1, uA = 144, alpha = 30, beta = 1/2)
 ypoly2 <- indiffBroot1(xpoly1, uB = 144, alpha = 30, beta = 1/2)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
-
-
+#Draw functions
 lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfB(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth)
-lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
+
+xx2 <- seq(1, 14.5, length.out = npts)
+xx3 <- seq(9.4, 10.55, length.out = npts)
+
+lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lty = 2, lwd = segmentlinewidth)
+lines(xx3, PEC(xx3, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
+
 
 contour(y, x,
         outer(x, y, uA),
@@ -145,7 +159,7 @@ contour(y, x,
         add = TRUE)
 
 text(0.5*xlims[2], -3, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-3, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4.5, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y,
@@ -158,43 +172,43 @@ contour(x, y,
 )
 
 
-text(4, 10.2, expression("Pareto-efficient"), cex = labelsize)
-text(4, 9.4, expression("curve"), cex = labelsize)
-Arrows(6.5, 10.1, 9.3, 10.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3, 12.4, expression("Pareto-efficient"), cex = annotatesize)
+text(3, 11.4, expression("Curve"), cex = annotatesize)
+
+#Arrows(6.5, 10.1, 9.3, 10.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 #Label the iso-welfare functions for the HG, Aisha
-text(5.4, 0.8, expression(u[n]^A), cex = annotatesize)
+text(4, 0.8, expression(u[z]^A), cex = annotatesize)
+text(5.6, 0.8, expression(u[n]^A), cex = annotatesize)
 text(7.4, 0.8, expression(u[3]^A), cex = annotatesize)
 
 
 #Label the indifference curves for the HG, Betty
-text(8, 19, expression(u[n]^B), cex = annotatesize)
+text(11.2, 19, expression(u[z]^B), cex = annotatesize)
+text(7.8, 19, expression(u[n]^B), cex = annotatesize)
 text(4.5, 19, expression(u[3]^B), cex = annotatesize)
 
 
 #Label Nash Equilibrium
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
-
 text(hANE(alpha = 30) + 0.4, hANE(alpha = 30) + 0.4, expression(paste("n")), cex = annotatesize)
 
 
 #Annotate Pareto Efficient Curve and relevant points
-points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
+#points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
 #text(10.55 + 0.4, PEC(10.55) - 0.4, expression(paste(t^A)), cex = annotatesize)
-
-
-points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
+#points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
 #text(9.4 - 0.2, PEC(9.4) + 0.3, expression(paste(t^B)), cex = annotatesize)
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hApEff2(alpha = 30)- 0.3, hApEff2(alpha = 30) - 0.3, expression(paste(i)), cex = annotatesize)
 
 #B's brf
-text(3, 15.7, expression(paste("B's best response")), cex = labelsize)
+text(3, 15.7, expression(paste("B's best-response")), cex = labelsize)
 text(3, 15.0, expression(paste("function")), cex = labelsize)
 
 #A's brf
-text(17, 4, expression(paste("A's best response")), cex = labelsize)
-text(17, 3.3, expression(paste("function")), cex = labelsize)
+text(17.2, 3, expression(paste("A's best-response")), cex = labelsize, xpd = TRUE)
+text(17.2, 2.3, expression(paste("function")), cex = labelsize)
 
 dev.off()

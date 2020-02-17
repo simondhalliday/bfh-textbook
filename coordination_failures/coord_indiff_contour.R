@@ -60,8 +60,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 3)
 xlabels <- seq(from = 0, to = xlims[2], by = 3)
 #ticksy <- c(0, 1, 10, 12, 28, 30, 46.08, 70)
-ticksy <- c(ylims[1], 112, ylims[2])
-ylabels <- c(NA, expression(z),  NA)
+ticksy <- c(ylims[1], 195, 112, 255, ylims[2])
+ylabels <- c(NA, expression(z), expression(paste(y[a])), expression(paste(y[b])), NA)
 # ticksy <- c(ylims[1], 100, uA(ea = 12, output(ea = 12, eb = 12)), uA(ea = 15, output(ea = 15, eb = 0)), 300, ylims[2])
 # ylabels <- c(NA, expression(z),  expression(paste(a)),expression(paste(b)), expression(paste()), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
@@ -111,19 +111,19 @@ contour(x, y,
 
 segments(10, 0, 10, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(15, 0, 15, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 12, 2, 12, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 28, 6, 28, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 195, 10, 195, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 255, 15, 255, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 text(0.5*xlims[2], -50, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Consumption, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 #
-text(8, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
-Arrows(6.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(17, 197, expression(paste("slope", phantom()==h^A, phantom() == 10)), cex = annotatesize)
+Arrows(14, 195, 11, 195, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #
-text(9, 28, expression(paste("slope", phantom()==h^A, phantom() == 6)), cex = annotatesize)
-Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(20.5, 259, expression(paste("slope", phantom()==h^B, phantom() == 15)), cex = annotatesize)
+Arrows(18, 258, 15.8, 258, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(21, 300, expression(u[z]^A), cex = annotatesize)

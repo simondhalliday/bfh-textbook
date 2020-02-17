@@ -172,12 +172,12 @@ Arrows(11.5, 8.8, 11.5, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "trian
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(8.2, 7.3, expression(u[1]^A == u[n]^A), cex = labelsize)
-text(9.2, 7.3, expression(u[2]^A), cex = labelsize)
+text(8.0, 7.3, expression(u[n]^A), cex = labelsize)
+text(9.2, 7.3, expression(u[3]^A), cex = labelsize)
 
 #Label the indifference curves for the HG, Betty
-text(7.4, 8.2, expression(u[1]^B == u[n]^B), cex = labelsize)
-text(7.4, 9.3, expression(u[2]^B), cex = labelsize)
+text(7.4, 8.1, expression(u[n]^B), cex = labelsize)
+text(7.4, 9.3, expression(u[3]^B), cex = labelsize)
 
 
 #Label Nash Equilibrium 
@@ -188,10 +188,10 @@ text(hANE(alpha = 30) + 0.2, hANE(alpha = 30) + 0.2, expression(paste(n)), cex =
 
 #Annotate Pareto Efficient Curve and relevant points
 points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
-text(10.55 + 0.2, PEC(10.55) - 0.2, expression(paste(t^A)), cex = labelsize)
+#text(10.55 + 0.2, PEC(10.55) - 0.2, expression(paste(t^A)), cex = labelsize)
 
 points(9.4, PEC(9.4), pch = 16, col = "black", cex = 1.5)
-text(9.4 - 0.2, PEC(9.4) + 0.2, expression(paste(t^B)), cex = labelsize)
+#text(9.4 - 0.2, PEC(9.4) + 0.2, expression(paste(t^B)), cex = labelsize)
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hApEff2(alpha = 30)- 0.1, hApEff2(alpha = 30) - 0.1, expression(paste(i)), cex = labelsize)

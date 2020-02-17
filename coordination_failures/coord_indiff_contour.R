@@ -109,8 +109,8 @@ contour(x, y,
 #         add = TRUE)
 
 
-segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(10, 0, 10, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(15, 0, 15, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 12, 2, 12, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 28, 6, 28, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
@@ -136,28 +136,28 @@ text(5.75, 30, expression(b), cex = annotatesize)
 
 
 
-lowint <- c(8, 27.8, 44)
+lowint <- c(248, 174, 92)
 
-slopex1 <- seq(1,3,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = -1, slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 2)), col = "black", lty = 2, lwd = segmentlinewidth)
+slopex1 <- seq(8.5,11.5,length.out = 200)
+lines(slopex1, slopeline(slopex1, yint = 60, slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
 
 highint <- c(-8, 11.8, 28)
 slopex2 <- seq(5,7,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = -17, slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
-lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 6)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = -17, slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
+lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
 
 
-firstpointsx <- c(2, 2, 2, 2)
-firstpointsy <- c(indiffA(ea = firstpointsx[1], uA = 1), indiffA(ea = firstpointsx[2], uA = 10), indiffA(ea = firstpointsx[3], uA = 30), indiffA(ea = firstpointsx[4], uA = 46.08))
+firstpointsx <- c(10, 10, 10, 10)
+firstpointsy <- c(indiffA(ea = firstpointsx[1], uA = 300), indiffA(ea = firstpointsx[2], uA = 225), indiffA(ea = firstpointsx[3], uA = 145), indiffA(ea = firstpointsx[4], uA = 112))
 points(firstpointsx, firstpointsy, pch = 16, col = "black", cex = 1.5)
 
-secondpointsx <- c(6, 6, 6, 6)
-secondpointsy <- c(indiffA(ea = 6, uA = 1), indiffA(ea = 6, uA = 10), indiffA(ea = 6, uA = 30), indiffA(ea = 6, uA = 46.08))
+secondpointsx <- c(15, 15, 15, 15)
+secondpointsy <- c(indiffA(ea = 15, uA = 302), indiffA(ea = 15, uA = 222), indiffA(ea = 15, uA = 146), indiffA(ea = 15, uA = 111))
 points(secondpointsx, secondpointsy, pch = 16, col = "black", cex = 1.5)
 
 

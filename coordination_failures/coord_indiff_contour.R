@@ -32,6 +32,9 @@ slopeline <- function(ea, yint = 0.5, slope = 2){
   yint + slope*ea
 }
 
+output <- function(ea, eb = 12, alpha = 30, beta = 1/2){
+  (alpha - beta*(ea+eb))*ea
+}
 
 xlims <- c(0, 24)
 ylims <- c(0, 500)

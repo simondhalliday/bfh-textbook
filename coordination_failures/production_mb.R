@@ -75,52 +75,29 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis= labelsize - 0
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], 24, length.out = npts)
+xx3 <- seq(14, 22, length.out = npts)
 
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
-# contour(x, y,
-#         outer(x, y, uA),
-#         drawlabels = FALSE,
-#         col = COLB[4],
-#         lwd = graphlinewidth,
-#         levels = a,
-#         xaxs="i",
-#         yaxs="i",
-#         add = TRUE)
+segments(18, -500, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+# segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+# segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
-# segments(12, 300, 12, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-# segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+lines(xx3, slopeline(ea = xx3, slope = 6, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
+lines(xx3, slopeline(ea = xx3, slope = 12, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
-# segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-
-#Axis labels
-#mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
-#text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
-# text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
-# text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
-# Arrows(3.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(9, 28, expression(paste("slope", phantom()==h^A, phantom() == 6)), cex = annotatesize)
-# Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label the iso-welfare functions for the HG, Aisha
-# text(2, 133, expression(u[1]^A), cex = annotatesize)
-# text(2, 213, expression(u[2]^A), cex = annotatesize)
-# text(2, 285, expression(u[3]^A), cex = annotatesize)
+points(18, output(ea = 18), pch = 16, col = "black", cex = 1.5)
+text(18 - 0.75, output(ea = 18) + 14, expression(paste(j)), cex = annotatesize)
 
-# points(12, output(ea = 12), pch = 16, col = "black", cex = 1.5)
-# text(12 + 0.5, output(ea = 12) - 6, expression(paste(n)), cex = annotatesize)
+points(18, output(ea = 18, eb = 0), pch = 16, col = "black", cex = 1.5)
+text(18 - 0.75, output(ea = 18, eb = 0) + 12, expression(paste(k)), cex = annotatesize)
 
-# points(15, output(ea = 15, eb = 0), pch = 16, col = "black", cex = 1.5)
-# text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotatesize)
-
-
-#text(9.5, 350, expression(paste("Production function")), cex = labelsize)
-text(9.5, 310, expression(paste(y(h^A, h^B == 0)) ), cex = annotatesize)
-text(19.8, 250, expression(paste(y(h^A, h^B >0))), cex = annotatesize)
+text(21.8, 360, expression(paste(y(h^A, h^B == 0)) ), cex = annotatesize)
+text(21.8, 250, expression(paste(y(h^A, h^B > 0))), cex = annotatesize)
 
 MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
   (alpha - beta*eb - 2*beta*ea)
@@ -152,8 +129,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, MBenefit(0, eb = 12), MBenefit(0, eb = 0), ylims[2])
-ylabels <- c(NA, expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+ticksy <- c(0, MBenefit(18, eb = 12), MBenefit(18, eb = 0), MBenefit(0, eb = 12), MBenefit(0, eb = 0), ylims[2])
+ylabels <- c(NA, 6, 12, expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
 # ticksx <- c(0, 12, 15, 24, 30, xlims[2])
 # xlabels <- c(0, 12, 15, 24, 30, xlims[2])
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
@@ -178,45 +155,23 @@ lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 #Marginal benefit when B produce NE number of hours
 lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
+segments(0, MBenefit(ea = 18), 18, MBenefit(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, MBenefit(ea = 18, eb = 0), 18, MBenefit(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
-#lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
-
-#For NE hours = 12
-# segments(0, 12, 12, 12, lty = 2, col =  "gray", lwd = segmentlinewidth)
-# segments(12, 0, 12, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-# segments(15, 0, 15, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-
-
-#segments(0, 12, 300, 12, lty = 2, col =  "gray", lwd = segmentlinewidth, xpd = TRUE)
-
-#For P-efficient hours = 10
-#segments(0, MBenefit(15, eb = 0), 15, MBenefit(15, eb = 0), lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
-
+segments(18, 0, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
 text(7, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
 text(7, 27, expression(paste("when, ", h^B== 0 )), cex = labelsize)
-#text(8, 26.5, expression(paste("Marginal Benefit")), cex = labelsize)
-#text(8, 25, expression(paste("when, ", h^B== 0 )), cex = labelsize)
-#text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
-#text(11.5, 22.5, expression(paste("when, ", h^B== 0 )), cex = labelsize)
-
-text(7, 12.5, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(7, 11, expression(paste("when, ", h^B > 0 )), cex = labelsize)
-#text(5.5, 15.5, expression(paste("Marginal Benefit ")), cex = labelsize)
-#text(5.5, 14, expression(paste("when, ", h^B > 0 )), cex = labelsize)
-#text(24.5, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)
-#text(24.5, 12, expression(paste("when, ", h^B > 0 )), cex = labelsize)
-#Arrows(21.5, 12.5, 17, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-# text(19, 24, expression(paste("Marginal Disutility")), cex = labelsize)
-# text(19, 22.5, expression(paste(mc^A == h^A)), cex = labelsize)
 
 
-# points(12, 12, pch = 16, col = "black", cex = 1.5)
-# text(12 + 0.85, 12.1, expression(paste(n)), cex = labelsize)
+text(7, 9.5, expression(paste("Marginal Benefit ")), cex = labelsize)
+text(7, 8, expression(paste("when, ", h^B > 0 )), cex = labelsize)
 
-# points(15, 15, pch = 16, col = "black", cex = 1.5)
-# text(15 + 0.85, 15.1, expression(paste(s)), cex = labelsize)
+
+points(18, MBenefit(ea = 18), pch = 16, col = "black", cex = 1.5)
+text(18 + 0.75, MBenefit(ea = 18) + 1, expression(paste(j,"'")), cex = annotatesize)
+
+points(18, MBenefit(ea = 18, eb = 0), pch = 16, col = "black", cex = 1.5)
+text(18 + 0.75, MBenefit(ea = 18, eb = 0) + 1, expression(paste(k, "'")), cex = annotatesize)
 
 dev.off()

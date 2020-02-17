@@ -40,7 +40,7 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 
-a <- c(100, uA(ea = 12, output(ea = 12, eb = 12)), uA(ea = 15, output(ea = 15, eb = 0)), 300)
+a <- c(112, uA(ea = 12, output(ea = 12, eb = 12)), uA(ea = 15, output(ea = 15, eb = 0)), 300)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 3)
 xlabels <- seq(from = 0, to = xlims[2], by = 3)
 #ticksy <- c(0, 1, 10, 12, 28, 30, 46.08, 70)
-ticksy <- c(ylims[1], 100, ylims[2])
+ticksy <- c(ylims[1], 112, ylims[2])
 ylabels <- c(NA, expression(z),  NA)
 # ticksy <- c(ylims[1], 100, uA(ea = 12, output(ea = 12, eb = 12)), uA(ea = 15, output(ea = 15, eb = 0)), 300, ylims[2])
 # ylabels <- c(NA, expression(z),  expression(paste(a)),expression(paste(b)), expression(paste()), NA)

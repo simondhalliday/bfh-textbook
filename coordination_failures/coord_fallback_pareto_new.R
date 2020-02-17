@@ -60,7 +60,6 @@ PEC <- function(ea, alpha = 30, beta = 1/2){
   return((-b-sqrt(delta))/(2*a))
 }
 
-
 indiffA <- function(ea, alpha = 30, beta = 1/2, uA = 144) {
   (alpha*ea - beta*(ea)^2 - 0.5*(ea)^2 - uA)/(beta*ea)
 }
@@ -88,7 +87,6 @@ b <- c(112,
        uA(hANE(alpha = 30, beta = 1/2),hANE(alpha = 30, beta = 1/2)), 
        #uB(hApEff2(alpha = 30, beta = 1/2), hApEff2(alpha = 30, beta = 1/2)), 
        155.8)
-
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),

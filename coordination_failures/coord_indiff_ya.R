@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -60,7 +60,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 1, 10, 12, 28, 30, 46.08, 70)
-ylabels <- c(NA, expression(z), expression(paste()), expression(paste(a)),expression(paste(b)), expression(paste()), expression(paste()), NA)
+ylabels <- c(NA, expression(z), expression(paste()), expression(paste(y[a])),expression(paste(y[b])), expression(paste()), expression(paste()), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
@@ -102,7 +102,7 @@ segments(0, 28, 6, 28, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 text(0.5*xlims[2], -6, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-1.3, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 #
 text(8, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
 Arrows(6.6, 12, 2.4, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

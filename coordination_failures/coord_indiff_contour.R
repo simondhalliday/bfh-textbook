@@ -127,12 +127,12 @@ Arrows(7.6, 28, 6.4, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 #Label the iso-welfare functions for the HG, Aisha
 text(21, 300, expression(u[z]^A), cex = annotatesize)
-text(21, 350, expression(u[1]^A), cex = annotatesize)
+text(19, 350, expression(u[1]^A), cex = annotatesize)
 text(21, 470, expression(u[2]^A), cex = annotatesize)
 text(17, 470, expression(u[3]^A), cex = annotatesize)
 
-text(1.75, 14, expression(a), cex = annotatesize)
-text(5.75, 30, expression(b), cex = annotatesize)
+text(10, 210, expression(a), cex = annotatesize)
+text(15, 270, expression(b), cex = annotatesize)
 
 
 
@@ -144,9 +144,9 @@ lines(slopex1, slopeline(slopex1, yint = lowint[1], slope = mrsA(ea = 10)), col 
 lines(slopex1, slopeline(slopex1, yint = lowint[2], slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex1, slopeline(slopex1, yint = lowint[3], slope = mrsA(ea = 10)), col = "black", lty = 2, lwd = segmentlinewidth)
 
-highint <- c(-8, 11.8, 28)
-slopex2 <- seq(5,7,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = -17, slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
+highint <- c(186, 111, 30)
+slopex2 <- seq(13.5,16.5,length.out = 200)
+lines(slopex2, slopeline(slopex2, yint = -2, slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex2, slopeline(slopex2, yint = highint[1], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex2, slopeline(slopex2, yint = highint[2], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
 lines(slopex2, slopeline(slopex2, yint = highint[3], slope = mrsA(ea = 15)), col = "black", lty = 2, lwd = segmentlinewidth)
@@ -157,7 +157,7 @@ firstpointsy <- c(indiffA(ea = firstpointsx[1], uA = 300), indiffA(ea = firstpoi
 points(firstpointsx, firstpointsy, pch = 16, col = "black", cex = 1.5)
 
 secondpointsx <- c(15, 15, 15, 15)
-secondpointsy <- c(indiffA(ea = 15, uA = 302), indiffA(ea = 15, uA = 222), indiffA(ea = 15, uA = 146), indiffA(ea = 15, uA = 111))
+secondpointsy <- c(indiffA(ea = 15, uA = 301), indiffA(ea = 15, uA = 225), indiffA(ea = 15, uA = 144), indiffA(ea = 15, uA = 111))
 points(secondpointsx, secondpointsy, pch = 16, col = "black", cex = 1.5)
 
 

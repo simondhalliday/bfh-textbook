@@ -132,9 +132,11 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 
 #xx2 <- seq(8.05, 11.55, length.out = npts)
 xx2 <- seq(0, 15, length.out = npts)
+xx3 <- seq(6.5, 12.4, length.out = npts)
 
 #Pareto-efficient curve line
-lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
+lines(xx2, PEC(xx2, alpha = 30, beta = 1/2), col = COL[2], lty = 2, lwd = segmentlinewidth)
+lines(xx3, PEC(xx3, alpha = 30, beta = 1/2), col = COL[2], lwd = graphlinewidth)
 
 contour(y, x,
         outer(x, y, uA),
@@ -167,14 +169,22 @@ text(3, 11.4, expression("Curve"), cex = annotatesize)
 # Arrows(11.1, 3.8, 11.1, 10.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves for A
-text(3.5, 0.8, expression(u[z]^A), cex = labelsize -.05)
-text(5.7, 0.8, expression(u[2]^A), cex = labelsize - 0.05)
-text(7.3, 0.8, expression(u[3]^A), cex = labelsize - 0.05)
+# text(3.5, 0.8, expression(u[z]^A), cex = labelsize -.05)
+# text(5.7, 0.8, expression(u[2]^A), cex = labelsize - 0.05)
+# text(7.3, 0.8, expression(u[3]^A), cex = labelsize - 0.05)
 
+text(21, 8.6, expression(u[z]^A), cex = labelsize -.05)
+text(21, 5.2, expression(u[2]^A), cex = labelsize - 0.05)
+text(21, 2, expression(u[3]^A), cex = labelsize - 0.05)
 
-#Label the indifference curves for theB
+text(21, 9.8, expression(paste("A's PC")), xpd = TRUE, cex = annotatesize)
+
+#Label the indifference curves for B
+
 text(11.2, 19, expression(u[z]^B), cex = labelsize - 0.05)
 text(7.7, 19, expression(u[2]^B), cex = labelsize - 0.05)
 text(4.2, 19, expression(u[3]^B), cex = labelsize - 0.05)
+
+text(11.2, 20.2, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
 
 dev.off()

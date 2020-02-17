@@ -11,7 +11,7 @@ graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 
@@ -77,12 +77,11 @@ xx3 <- seq(xlims[1], 21, length.out = npts)
 
 #Feasible set
 xpolyF <- seq(from = 0, to = 18, length.out = 501)
-ypolyF <- output(xpoly1, eb = 12)
+ypolyF <- output(xpolyF, eb = 12)
 polygon(c(0, xpolyF, 18, xlims[1]), 
         c(output(0, eb = 0), output(xpolyF, eb = 12), 0, 0),
         border = FALSE, col = COLA[1])
 
-text(13, 150, expression(paste("Feasible set, ", h^B == 12)), xpd = TRUE, cex = labelsize)
 
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
@@ -100,6 +99,7 @@ contour(x, y,
 segments(12, 300, 12, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
+text(13, 150, expression(paste("Feasible set, ", h^B == 12)), xpd = TRUE, cex = labelsize)
 
 # segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)

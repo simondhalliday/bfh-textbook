@@ -105,20 +105,43 @@ text(20, 11, expression(paste("function")), cex = labelsize)
 # Dynamic Arrows ----------------------------------------------------------
 
 # Q1 
-Arrows(20, 20, 20, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(20, 20, 16, 20, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 19, 19, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 19, 15, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q2
-Arrows(3, 20, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(3, 20, 7, 20, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 19, 5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 19, 9, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q3
-Arrows(3, 3, 3, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(3, 3, 7, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 5, 5, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 5, 9, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q4
-Arrows(20, 3, 16, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(20, 3, 20, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 5, 15, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 5, 19, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+# Dynamics Labels ---------------------------------------------------------
+
+
+
+# Q1
+text(21.5, 17, expression(MB^B < MC^B), cex = labelsize)
+text(17, 20.5, expression(MB^A < MC^A), cex = labelsize)
+
+# Q2
+text(7, 20.5, expression(MB^A > MC^A), cex = labelsize)
+text(2.5, 17, expression(MB^B < MC^B), cex = labelsize)
+
+# Q3
+text(2.5, 7, expression(MB^B > MC^B), cex = labelsize)
+text(7, 4, expression(MB^A > MC^A), cex = labelsize)
+
+# Q4
+text(21.5, 7, expression(MB^B > MC^B), cex = labelsize)
+text(17, 4, expression(MB^A < MC^A), cex = labelsize)
+
+
 
 
 dev.off()

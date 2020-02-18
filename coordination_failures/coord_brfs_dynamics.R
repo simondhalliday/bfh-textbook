@@ -60,9 +60,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-ylabels <- c(NA,  expression(paste(h^{BN} == 12)), 15, NA)
+ylabels <- c(NA, 12, 15, NA)
 ticksx <- c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-xlabels <- c(NA, expression(paste(h^{AN} == 12)), 15, NA)
+xlabels <- c(NA, 12, 15, NA)
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
 text(x = c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)

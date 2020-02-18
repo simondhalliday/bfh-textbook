@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(8, 9, 1, 1))
+par(mar =  c(5, 9, 1, 1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -94,20 +94,6 @@ contour(x, y,
 # lines(xx1, brfPEA(xx1, alpha = 16, beta = 1/24), col = COLA[4], lwd = graphlinewidth)
 # lines(xx1, brfPEB(xx1, alpha = 16, beta = 1/24), col = COLB[4], lwd = graphlinewidth)
 
-# contour(x, y, 
-#         outer(x, y, uA),
-#         #labels = c("v1", "v2", "v3"),
-#         drawlabels = FALSE,
-#         col = COLA[3],
-#         #xlab = expression(paste("A's Apples, ", x)),
-#         #ylab = expression(paste("A's Oranges, ", y)),
-#         #cex.lab = axislabelsize,
-#         lwd = graphlinewidth,
-#         levels = a, 
-#         xaxs="i", 
-#         yaxs="i", 
-#         add = TRUE)
-
 
 segments(10, 0, 10, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(15, 0, 15, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -116,23 +102,26 @@ segments(0, 255, 15, 255, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewid
 
 
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
-text(0.5*xlims[2], -50, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(0.5*xlims[2], -55, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Consumption, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
+
 #
-text(17, 197, expression(paste("slope", phantom()==h^A, phantom() == 10)), cex = annotatesize)
-Arrows(14, 195, 11, 195, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3, 350, expression(paste("slope", phantom()==h^A, phantom() == 10)), cex = annotatesize)
+Arrows(6, 350, 9.2, 350, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 #
-text(20.5, 259, expression(paste("slope", phantom()==h^B, phantom() == 15)), cex = annotatesize)
-Arrows(18, 258, 15.8, 258, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3, indiffA(ea = 15, uA = 301), expression(paste("slope", phantom()==h^B, phantom() == 15)), cex = annotatesize)
+Arrows(6, indiffA(ea = 15, uA = 301), 14.2, indiffA(ea = 15, uA = 301), 
+       col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(22, 310, expression(u[z]^A), cex = annotatesize)
-text(19, 350, expression(u[1]^A), cex = annotatesize)
+text(21, 310, expression(u[z]^A), cex = annotatesize)
+text(21, 390, expression(u[1]^A), cex = annotatesize)
 text(21, 470, expression(u[2]^A), cex = annotatesize)
 text(17, 470, expression(u[3]^A), cex = annotatesize)
 
-text(10, 210, expression(a), cex = annotatesize)
-text(15, 270, expression(b), cex = annotatesize)
+text(9.5, 210, expression(a), cex = annotatesize)
+text(14.5, 270, expression(b), cex = annotatesize)
 
 
 

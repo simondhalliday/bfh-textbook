@@ -173,7 +173,7 @@ contour(x, y,
 
 
 text(3, 12.4, expression("Pareto-efficient"), cex = annotatesize)
-text(3, 11.4, expression("Curve"), cex = annotatesize)
+text(3, 11.4, expression("curve"), cex = annotatesize)
 
 #Arrows(6.5, 10.1, 9.3, 10.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
@@ -193,6 +193,9 @@ text(4.5, 19, expression(u[3]^B), cex = annotatesize)
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
 text(hANE(alpha = 30) + 0.4, hANE(alpha = 30) + 0.4, expression(paste("n")), cex = annotatesize)
 
+# Nash segments
+segments(10, 0, 10, 10, col = "grey", lty = 2, lwd = segmentlinewidth)
+segments(0, 10, 10, 10, col = "grey", lty = 2, lwd = segmentlinewidth)
 
 #Annotate Pareto Efficient Curve and relevant points
 #points(10.55, PEC(10.55), pch = 16, col = "black", cex = 1.5)
@@ -201,14 +204,14 @@ text(hANE(alpha = 30) + 0.4, hANE(alpha = 30) + 0.4, expression(paste("n")), cex
 #text(9.4 - 0.2, PEC(9.4) + 0.3, expression(paste(t^B)), cex = annotatesize)
 
 points(hApEff2(alpha = 30), hApEff2(alpha = 30), pch = 16, col = "black", cex = 1.5)
-text(hApEff2(alpha = 30)- 0.3, hApEff2(alpha = 30) - 0.3, expression(paste(i)), cex = annotatesize)
+text(hApEff2(alpha = 30) + 0.3, hApEff2(alpha = 30) + 0.3, expression(i), cex = annotatesize)
 
 #B's brf
 text(3, 15.7, expression(paste("B's best-response")), cex = labelsize)
 text(3, 15.0, expression(paste("function")), cex = labelsize)
 
 #A's brf
-text(17.2, 3, expression(paste("A's best-response")), cex = labelsize, xpd = TRUE)
-text(17.2, 2.3, expression(paste("function")), cex = labelsize)
+text(17.2, 3.4, expression(paste("A's best-response")), cex = labelsize, xpd = TRUE)
+text(17.2, 2.7, expression(paste("function")), cex = labelsize)
 
 dev.off()

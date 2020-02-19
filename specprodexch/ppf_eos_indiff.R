@@ -148,5 +148,7 @@ Arrows(6.6, 3, 6.6, 0.275, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 text(5.5, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
 Arrows(4.5, 4.5, 1.9, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+text(0.825, 1, expression("Feasible"), cex = labelsize)
+text(0.825, 0.7, expression("outputs"), cex = labelsize)
 
 dev.off()

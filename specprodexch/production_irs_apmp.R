@@ -14,7 +14,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 9, 1, 1))
+par(mar =  c(4, 6, 1, 1))
 
 
 prodFn <- function(l, alpha = 2, k = 0.02) {
@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, AprodFn(l = 2, k = 0.02, alpha = 2), MprodFn(l = 2, k = 0.02, alpha = 2), AprodFn(l = 8, k = 0.02, alpha = 2), MprodFn(l = 8, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(ap(l==2))), expression(paste(mp(l==2))), expression(paste(ap(l==8))), expression(paste(mp(l==8))), NA)
+ylabels <- c(NA, expression(paste(2)), expression(paste(2)), expression(paste(8)), expression(paste(8)), NA)
 ticksx <- c(0, 2, 8, xlims[2])
 xlabels <- c(NA, 2, 8, NA)
 
@@ -78,7 +78,7 @@ lines(xx1, AprodFn(xx1, alpha = 2, k = 0.02), col = COLA[4], lwd = graphlinewidt
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-2.25, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
 #segments(0, MprodFn(l = 8, k = 0.02, alpha = 2), 6, MprodFn(l = 8, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)

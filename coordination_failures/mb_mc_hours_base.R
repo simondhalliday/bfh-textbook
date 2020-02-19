@@ -17,7 +17,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Need to create a stacked graph and 
 #use the option mfrow = c(2,1) for that
-par(mar =  c(4, 8, 1, 1), mfrow = c(2,1))
+par(mar =  c(4, 6, 1, 1), mfrow = c(2,1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -64,7 +64,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
 xlabels <- c(seq(xlims[1], xlims[2], 3), NA)
 ticksy <- c(0, 144, 225, 300, ylims[2])
-ylabels <- c(NA, expression(paste(y[1]^A == 144)), expression(paste(y[2]^A == 225)), expression(paste(y[3]^A == 300)), NA)
+ylabels <- c(NA, 144, 225, 300, NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
@@ -76,7 +76,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Feasible set
 xpolyF <- seq(from = 0, to = xlims[2], length.out = 501)
-ypolyF <- output(xpoly1, eb = 0)
+ypolyF <- output(xpolyF, eb = 0)
 polygon(c(0, xpolyF, xlims[2], xlims[1]), 
         c(output(0, eb = 0), output(xpolyF, eb = 0), 0, 0),
         border = FALSE, col = COLA[1])
@@ -111,7 +111,7 @@ text(6.5, output(ea = 6, eb = 0) - 8, expression(f), cex = annotatesize)
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 #text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-6, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-4, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 # text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 # text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
@@ -165,7 +165,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, MCost(ea = 6), MBenefit(15, eb = 0), MBenefit(ea = 6, eb = 0), 30, ylims[2])
-ylabels <- c(NA, expression(paste(mc[h]^A == 6)), expression(paste(u[h^As]^A) == 15), expression(paste(mb[g]^A == 24)), expression(paste(alpha)), NA)
+ylabels <- c(NA, 6, 15, 24, expression(paste(alpha)), NA)
 # ticksx <- c(0, 12, 15, 24, 30, xlims[2])
 # xlabels <- c(0, 12, 15, 24, 30, xlims[2])
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
@@ -179,11 +179,14 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -3.8, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-6, 0.5*ylims[2], expression(paste("A's MC and MC (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("A's MC and MC (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(4, 8, length.out = npts)
+
+segments(0, 15, xlims[2], 15, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+text(24, 16, expression(mb == mc), cex = annotatesize)
 
 #lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)

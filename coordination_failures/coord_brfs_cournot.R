@@ -121,11 +121,11 @@ xlabels <- c(NA, expression(paste(h^A,"*", phantom()==10)), expression(paste(h^{
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
 text(x = c(0, hApEff2(alpha = 30)-1, hANE(alpha = 30) + 0.5, intercept1(alpha = 30), xlims[2]), 
      par("usr")[3] - 0.3, labels = xlabels, srt = 0, pos = 1, 
-     xpd = TRUE, cex = axislabelsize)
+     xpd = TRUE, cex = labelsize)
 #15 in the labels above didn't work, so it must be indivudally located
-text(15, -1.2, expression(paste(15)), xpd = TRUE, cex = axislabelsize) 
+text(15, -1.2, expression(paste(15)), xpd = TRUE, cex = labelsize) 
 
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

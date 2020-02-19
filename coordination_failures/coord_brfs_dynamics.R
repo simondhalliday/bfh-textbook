@@ -92,33 +92,33 @@ text(hANE(alpha = 31.5), hANE(alpha = 30) + 0.4, expression(paste(n)), cex = lab
 
 # B's BRF -----------------------------------------------------------------
 
-text(13, 23, expression(paste("B's best response")), cex = labelsize)
-text(13, 22, expression(paste("function")), cex = labelsize)
+text(13, 23, expression(paste("B's best response")), cex = labelsize - 0.05)
+text(13, 22, expression(paste("function")), cex = labelsize  - 0.05)
 #text(5, 15.2, expression(paste(h^B*(h^A) == frac(alpha - beta*h^A, 1 + 2*beta) )), cex = labelsize)
 
-# A' BRF ------------------------------------------------------------------
+# A' BRF ----------------------------------------------------- -------------
 
-text(20, 12, expression(paste("A's best response")), cex = labelsize)
-text(20, 11, expression(paste("function")), cex = labelsize)
+text(20, 12, expression(paste("A's best response")), cex = labelsize - 0.05)
+text(20, 11, expression(paste("function")), cex = labelsize - 0.05)
 #text(17, 3.2, expression(paste(h^A*(h^B) == frac(alpha - beta*h^B, 1 + 2*beta) )), cex = labelsize)
 
 # Dynamic Arrows ----------------------------------------------------------
 
 # Q1 
-Arrows(19, 19, 19, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(19, 19, 15, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 19, 19, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 19, 16, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q2
-Arrows(5, 19, 5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(5, 19, 9, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 19, 5, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 19, 8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q3
-Arrows(5, 5, 5, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(5, 5, 9, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 5, 5, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 5, 8, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Q4
-Arrows(19, 5, 15, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(19, 5, 19, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 5, 16, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(19, 5, 19, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 # Dynamics Labels ---------------------------------------------------------
@@ -126,20 +126,20 @@ Arrows(19, 5, 19, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 # Q1
-text(21.5, 17, expression(MB^B < MC^B), cex = labelsize)
-text(17, 20.5, expression(MB^A < MC^A), cex = labelsize)
+text(21.5, 17, expression(MB^B < MC^B), cex = labelsize - 0.05)
+text(17, 20.5, expression(MB^A < MC^A), cex = labelsize - 0.05)
 
 # Q2
-text(7, 20.5, expression(MB^A > MC^A), cex = labelsize)
-text(2.5, 17, expression(MB^B < MC^B), cex = labelsize)
+text(7, 20.5, expression(MB^A > MC^A), cex = labelsize - 0.05)
+text(2.5, 17, expression(MB^B < MC^B), cex = labelsize - 0.05)
 
 # Q3
-text(2.5, 7, expression(MB^B > MC^B), cex = labelsize)
-text(7, 4, expression(MB^A > MC^A), cex = labelsize)
+text(2.5, 7, expression(MB^B > MC^B), cex = labelsize - 0.05)
+text(7, 4, expression(MB^A > MC^A), cex = labelsize - 0.05)
 
 # Q4
-text(21.5, 7, expression(MB^B > MC^B), cex = labelsize)
-text(17, 4, expression(MB^A < MC^A), cex = labelsize)
+text(21.5, 7, expression(MB^B > MC^B), cex = labelsize - 0.05)
+text(17, 4, expression(MB^A < MC^A), cex = labelsize - 0.05)
 
 
 

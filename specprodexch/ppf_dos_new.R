@@ -93,12 +93,12 @@ lines(xx1, bcA(xx1, w = 18, p = 2), col = COL[3], lwd = graphlinewidth)
 
 #Label the feasible frontier
 text(2.2, 1, expression("Feasible Frontier"), cex = labelsize)
-text(2.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
-Arrows(3.35, 0.95, 7.7, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(2.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
+#Arrows(3.35, 0.95, 7.7, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the exchange constraint
-text(8.5, 6.5, expression("Exchange"), cex = labelsize)
-text(8.5, 6.2, expression("price line"), cex = labelsize)
+text(8.5, 6.5, expression("Price line"), cex = labelsize)
+text(8.5, 6.2, expression("(budget constraint)"), cex = labelsize)
 Arrows(8.5, 6, 8.5, 1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

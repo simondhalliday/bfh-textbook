@@ -2,6 +2,10 @@
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
+
+############
+#   OLD    #
+############
 require(shape)
 pdf(file = "specprodexch/ppf_dos.pdf", width = 8, height = 8)
 
@@ -98,9 +102,9 @@ lines(xx1, bcA(xx1, w = 15.325, p = 1.7), col = COL[3], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(3.2, 1, expression("Feasible Frontier"), cex = labelsize)
-text(3.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
-Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3.2, 1, expression("Feasible outputs"), cex = labelsize)
+#text(3.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
+#Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 contour(x, y, 
         outer(x, y, uFn),

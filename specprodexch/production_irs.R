@@ -14,7 +14,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 8, 1, 1))
+par(mar =  c(4, 6, 1, 1))
 
 
 prodFn <- function(l, alpha = 2, k = 0.02) {
@@ -56,7 +56,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, prodFn(l = 2, k = 0.02, alpha = 2), prodFn(l = 6, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(x(l == 2))), expression(paste(x(l==6))), NA)
+ylabels <- c(NA, expression(paste(2)), expression(paste(6)), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
@@ -77,7 +77,7 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.02, alpha = 2) - 6*MprodFn
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.75, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0, prodFn(l = 6, k = 0.02, alpha = 2), 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)

@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, prodFn(l = 2, k = 0.02, alpha = 2), prodFn(l = 4, k = 0.02, alpha = 2), prodFn(l = 8, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(x(l == 2))), expression(paste(x(l==4))), expression(paste(x(l==8))), NA)
+ylabels <- c(NA, expression(paste(2)), expression(paste(4)), expression(paste(8)), NA)
 ticksx <- c(0, 2, 4, 8, xlims[2])
 xlabels <- c(NA, 2, 4, 8, NA)
 

@@ -14,7 +14,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 9, 1, 1))
+par(mar =  c(4, 7, 1, 1))
 
 #Change this to make it log of l 
 
@@ -57,7 +57,7 @@ plot(1, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, prodFn(l = 2, k = 0.5), prodFn(l = 6, k = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(x(l == 2))), expression(paste(x(l==6))), NA)
+ylabels <- c(NA, expression(paste(2)), expression(paste(6)), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
@@ -80,7 +80,7 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 
 
 
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-2, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))

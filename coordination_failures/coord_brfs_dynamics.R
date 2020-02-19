@@ -88,18 +88,18 @@ segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 # Label Nash Eq. ----------------------------------------------------------
 
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
-text(hANE(alpha = 31.5), hANE(alpha = 30) + 0.4, expression(paste(n)), cex = labelsize)
+text(hANE(alpha = 31.5), hANE(alpha = 30) + 0.4, expression(paste(n)), cex = annotatesize)
 
 # B's BRF -----------------------------------------------------------------
 
-text(13, 23, expression(paste("B's best response")), cex = labelsize - 0.05)
-text(13, 22, expression(paste("function")), cex = labelsize  - 0.05)
+text(13, 23, expression(paste("B's best-response")), cex = annotatesize)
+text(13, 22, expression(paste("function")), cex = annotatesize)
 #text(5, 15.2, expression(paste(h^B*(h^A) == frac(alpha - beta*h^A, 1 + 2*beta) )), cex = labelsize)
 
 # A' BRF ----------------------------------------------------- -------------
 
-text(20, 12, expression(paste("A's best response")), cex = labelsize - 0.05)
-text(20, 11, expression(paste("function")), cex = labelsize - 0.05)
+text(20, 12, expression(paste("A's best-response")), cex = annotatesize)
+text(20, 11, expression(paste("function")), cex = annotatesize)
 #text(17, 3.2, expression(paste(h^A*(h^B) == frac(alpha - beta*h^B, 1 + 2*beta) )), cex = labelsize)
 
 # Dynamic Arrows ----------------------------------------------------------
@@ -126,20 +126,20 @@ Arrows(19, 5, 19, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 # Q1
-text(21.5, 17, expression(MB^B < MC^B), cex = labelsize - 0.05)
-text(17, 20.5, expression(MB^A < MC^A), cex = labelsize - 0.05)
+text(21.5, 17, expression(MB^B < MC^B), cex = annotatesize)
+text(17, 20.5, expression(MB^A < MC^A), cex = annotatesize)
 
 # Q2
-text(7, 20.5, expression(MB^A > MC^A), cex = labelsize - 0.05)
-text(2.5, 17, expression(MB^B < MC^B), cex = labelsize - 0.05)
+text(7, 20.5, expression(MB^A > MC^A), cex = annotatesize)
+text(2.5, 17, expression(MB^B < MC^B), cex = annotatesize)
 
 # Q3
-text(2.5, 7, expression(MB^B > MC^B), cex = labelsize - 0.05)
-text(7, 4, expression(MB^A > MC^A), cex = labelsize - 0.05)
+text(2.5, 7, expression(MB^B > MC^B), cex = annotatesize)
+text(7, 4, expression(MB^A > MC^A), cex = annotatesize)
 
 # Q4
-text(21.5, 7, expression(MB^B > MC^B), cex = labelsize - 0.05)
-text(17, 4, expression(MB^A < MC^A), cex = labelsize - 0.05)
+text(21.5, 7, expression(MB^B > MC^B), cex = annotatesize)
+text(17, 4, expression(MB^A < MC^A), cex = annotatesize)
 
 
 

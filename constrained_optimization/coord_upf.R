@@ -98,8 +98,8 @@ PEC <- function(ha, alpha = 30, beta = 1/2) {
 
 # Axis Setup --------------------------------------------------------------
 
-xlims <- c(0, 20)
-ylims <- c(0, 20)
+xlims <- c(0, 300)
+ylims <- c(0, 300)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -133,15 +133,15 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-text(0.5*xlims[2], -3, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-4.5, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -40, expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize)
+text(-40, 0.5*ylims[2], expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # Calculations ------------------------------------------------------------
 
 # Create `ha` and `hb`
 
-ha <- seq(xlims[1], 0.75 * xlims[2], length.out = npts) # TODO figure out how to define `ha`
+ha <- seq(xlims[1], 15, length.out = npts) # TODO figure out how to define `ha`
 hb <- PEC(ha)
 
 # Plug `ha` and `hb` into `uA` and `uB`
@@ -153,7 +153,7 @@ uB_vec <- uB(ha, hb)  # y-coord
 
 # Lines -------------------------------------------------------------------
 
-# lines(uA_vec, uB_vec, col = COLA[4], lty = 1, lwd = graphlinewidth)
+lines(uA_vec, uB_vec, col = COLA[4], lty = 1, lwd = graphlinewidth)
 
 # Labels ------------------------------------------------------------------
 

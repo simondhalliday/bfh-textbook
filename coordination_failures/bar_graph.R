@@ -1,5 +1,5 @@
 library(tidyverse)
-par(mar =  c(10, 10, 4, 4))
+par(mar =  c(12, 12, 4, 4))
 ua <- c(225, 144, 150, 112, 150,156,145)
 ub <- c(NA, 144, 150, 188, 150,144,139)
 point <- c("1", "2", "3", "4", "5","6","7")
@@ -9,14 +9,14 @@ dfnar <-
   df %>% 
   gather(type, Utility, -point) %>% 
   arrange(point)
-xaxislabs <- c("a",  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
+#xaxislabs <- c("a",a  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
 x1 <- c(expression(paste("Aram fishes alone; \n Bina is a farmer \n not a fisherman (15 Hours)")))
 x2 <- c(expression(paste("Nash equilibrium of \n the symmetric  game \n (24 Hours)")))
 x3 <- c(expression(paste("Social optimum (Impartial Spectator \n implemented) \n (20 Hours)")))
-x4 <- c(expression(paste("Bina owns the lake (both permits and \n employment (20 Hours))")))
+x4 <- c(expression(paste("Bina owns the lake (both permits and \n employment) (20 Hours)")))
 x5 <- c(expression(paste("Optimal tax on fishing time (20 Hours)")))
 x6 <- c(expression(paste("Aram is first mover  with TIOLI power \n (19.96 Hours)")))
-x7 <- c(expression(paste("Aram is first mover with fishing time \n setting power \n (25.64 Hours)")))
+x7 <- c(expression(paste("Aram is first mover with fishing time \n setting power (25.64 Hours)")))
 dfplot <-
   dfnar %>%
   mutate(point = factor(point, levels = c("1", "2", "3", "4", "5","6","7")),

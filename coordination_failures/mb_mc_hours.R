@@ -17,7 +17,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Need to create a stacked graph and 
 #use the option mfrow = c(2,1) for that
-par(mar =  c(9, 9, 1, 1), mfrow = c(2,1))
+par(mar =  c(5, 9, 1, 1), mfrow = c(2,1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -107,7 +107,7 @@ text(13, 150, expression(paste("Feasible set, ", h^B == 12)), xpd = TRUE, cex = 
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 #text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-5, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 # text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 # text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
@@ -166,7 +166,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, MBenefit(12), MBenefit(15, eb = 0), MBenefit(ea = 0), 30, ylims[2])
-ylabels <- c(NA, expression(paste(u[h^An]^A)), expression(paste(u[h^As]^A)), expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+#ylabels <- c(NA, expression(paste(u[h^An]^A)), expression(paste(u[h^As]^A)), expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+ylabels <- c(NA, 12, 15, 24, 30, NA)
 # ticksx <- c(0, 12, 15, 24, 30, xlims[2])
 # xlabels <- c(0, 12, 15, 24, 30, xlims[2])
 ticksx <- seq(xlims[1], xlims[2], 3)
@@ -185,8 +186,8 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(4, 8, length.out = npts)
 
-lines(xx3, MBenefit(xx3, eb = 12), col = COLA[4], lwd = graphlinewidth)
-lines(xx3, MBenefit(xx3, eb = 0), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #For NE hours = 12

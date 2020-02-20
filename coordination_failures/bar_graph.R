@@ -32,9 +32,9 @@ plot1 <- dfnar %>%
   #scale_x_discrete(labels = xaxislabs) + 
   scale_x_discrete(labels=c("1" = "Aram fishes alone; Bina is a farmer not a \n fisherman (15 Hours)", "2" = "Nash equilibrium of the symmetric game \n (24 Hours)",
                             "3" = "Social optimum (Impartial Spectator \n implemented) (20 Hours)", "4" = x4, "5" = x5, "6" = x6, "7" = x7)) +
-  scale_y_continuous(breaks = seq(0,400,50),
-                     labels = seq(0,400,50),
-                     limits = c(0,400)) +
+  scale_y_continuous(breaks = seq(0,350,50),
+                     labels = seq(0,350,50),
+                     limits = c(0,350)) +
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
                     breaks = c("ub","ua", "totalu"), 

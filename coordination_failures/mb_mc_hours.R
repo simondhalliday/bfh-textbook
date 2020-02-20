@@ -63,7 +63,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 3)
 xlabels <- seq(from = 0, to = xlims[2], by = 3)
 ticksy <- c(0, 144, 225, 300, ylims[2])
-ylabels <- c(NA, expression(paste(y[1]^A == 144)), expression(paste(y[2]^A == 225)), expression(paste(y[3]^A == 300)), NA)
+ylabels <- c(NA, expression(paste(144)), expression(paste(225)), expression(paste(300)), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
 # xlabels <- c(NA, expression(paste(e^A,"*")), expression(paste(1/2*beta)), expression(paste(e^{AN})), expression(paste(alpha)), expression(paste(1/beta)), NA)
 
@@ -166,7 +166,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, MBenefit(12), MBenefit(15, eb = 0), MBenefit(ea = 0), 30, ylims[2])
-ylabels <- c(NA, expression(paste(u[h^An]^A)), expression(paste(u[h^As]^A)), expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+ylabels <- c(NA, expression(paste(12)), expression(paste(15)), expression(paste(24)), expression(paste(30)), NA)
 # ticksx <- c(0, 12, 15, 24, 30, xlims[2])
 # xlabels <- c(0, 12, 15, 24, 30, xlims[2])
 ticksx <- seq(xlims[1], xlims[2], 3)
@@ -193,7 +193,9 @@ lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
 # segments(0, 12, 12, 12, lty = 2, col =  "gray", lwd = segmentlinewidth)
 segments(12, 0, 12, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 segments(15, 0, 15, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-
+segments(0, 12, 12, 12, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, 15, 24, 15, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+text(20, 16, expression(mb == mc), cex = annotatesize)
 
 #segments(0, 12, 300, 12, lty = 2, col =  "gray", lwd = segmentlinewidth, xpd = TRUE)
 
@@ -203,14 +205,14 @@ segments(15, 0, 15, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 35
 
 
 text(6, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
-text(6, 27, expression(paste("when, ", h^B== 0 )), cex = labelsize)
+text(6, 26.5, expression(paste("when, ", h^B == 0 )), cex = labelsize)
 #text(8, 26.5, expression(paste("Marginal Benefit")), cex = labelsize)
 #text(8, 25, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 #text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
 #text(11.5, 22.5, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 
-text(6, 14.5, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(6, 13, expression(paste("when, ", h^B > 0 )), cex = labelsize)
+text(13, 7, expression(paste("Marginal Benefit ")), cex = labelsize)
+text(13, 5.3, expression(paste("when, ", h^B == 12 )), cex = labelsize)
 #text(5.5, 15.5, expression(paste("Marginal Benefit ")), cex = labelsize)
 #text(5.5, 14, expression(paste("when, ", h^B > 0 )), cex = labelsize)
 #text(24.5, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)

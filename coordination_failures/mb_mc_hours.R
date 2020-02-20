@@ -204,8 +204,8 @@ text(20, 16, expression(mb == mc), cex = annotatesize)
 #segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
-text(6, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
-text(6, 26.5, expression(paste("when, ", h^B == 0 )), cex = labelsize)
+text(7, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
+text(7, 26.5, expression(paste("when, ", h^B == 0 )), cex = labelsize)
 #text(8, 26.5, expression(paste("Marginal Benefit")), cex = labelsize)
 #text(8, 25, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 #text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)

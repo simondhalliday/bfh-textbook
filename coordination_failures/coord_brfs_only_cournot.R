@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(9, 9, 4, 4))
+par(mar =  c(6, 8, 1, 1))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -44,8 +44,8 @@ intercept1 <- function(alpha, beta = 1/2){
   alpha/(1 + 2*beta)
 }
 
-xlims <- c(0, 22)
-ylims <- c(0, 22)
+xlims <- c(0, 24)
+ylims <- c(0, 24)
 
 npts <- 501 
 
@@ -60,12 +60,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-ylabels <- c(NA,  expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta) == 12)), NA)
+ylabels <- c(0,  expression(paste(h^{BN} == 12)), expression(paste(frac(alpha, 1 + 2*beta) == 15)), ylims[2])
 ticksx <- c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-xlabels <- c(NA, expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta) == 15)), NA)
+xlabels <- c(0, expression(paste(h^{AN} ==12)), expression(paste(frac(alpha, 1 + 2*beta) == 15)), xlims[2])
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
-text(x = c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, hANE(alpha = 30)-1, intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -78,8 +78,8 @@ lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidt
 lines(xx1, brfB(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth)
 
 
-text(0.5*xlims[2], -5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-5, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -3.5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-4.5, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -88,18 +88,18 @@ segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label Nash Equilibrium 
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
-text(hANE(alpha = 31.5) + 2.5, hANE(alpha = 30) + 0.4, expression(paste("Nash Equilibrium")), cex = labelsize)
+text(hANE(alpha = 30) + 3.5, hANE(alpha = 30) + 0.4, expression(paste("Nash Equilibrium")), cex = labelsize)
 text(hANE(alpha = 30) - 0.4, hANE(alpha = 30) - 0.4, expression(paste(n)), cex = labelsize)
 
 
 #B's brf
-text(5, 18, expression(paste("B's best response")), cex = labelsize)
-text(5, 17, expression(paste("function")), cex = labelsize)
+text(5, 15.8, expression(paste("B's best-response")), cex = labelsize)
+text(5, 14.8, expression(paste("function")), cex = labelsize)
 #text(5, 15.2, expression(paste(h^B*(h^A) == frac(alpha - beta*h^A, 1 + 2*beta) )), cex = labelsize)
 
 #A's brf
-text(17, 6, expression(paste("A's best response")), cex = labelsize)
-text(17, 5, expression(paste("function")), cex = labelsize)
+text(17.1, 6, expression(paste("A's best-response")), cex = labelsize)
+text(17.1, 5, expression(paste("function")), cex = labelsize)
 #text(17, 3.2, expression(paste(h^A*(h^B) == frac(alpha - beta*h^B, 1 + 2*beta) )), cex = labelsize)
 
 

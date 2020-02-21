@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(7, 7, 1, 1))
+par(mar =  c(9, 9, 1, 1))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -60,9 +60,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, hANE(alpha = 30), intercept1(alpha = 30), ylims[2])
-ylabels <- c(NA,  expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+ylabels <- c(NA,  expression(paste(h^{BN})), expression(paste(frac(alpha, 1 + 2*beta) == 12)), NA)
 ticksx <- c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2])
-xlabels <- c(NA, expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta))), NA)
+xlabels <- c(NA, expression(paste(h^{AN})), expression(paste(frac(alpha, 1 + 2*beta) == 15)), NA)
 
 axis(1, at = ticksx,  pos = 0, labels = FALSE)
 text(x = c(0, hANE(alpha = 30), intercept1(alpha = 30), xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
@@ -78,8 +78,8 @@ lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidt
 lines(xx1, brfB(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth)
 
 
-text(0.5*xlims[2], -3.5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-3, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-5, 9, expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)

@@ -28,6 +28,8 @@ brfB <- function(ea, alpha = 30, beta = 1/2) {
   (alpha - beta*ea)/(1 + 2*beta)
 }
 
+
+
 brfA <- function(ea, alpha = 30, beta = 1/2) {
   (alpha - ea*(1 + 2*beta))/(beta)
 }
@@ -182,7 +184,7 @@ text(21, 9.8, expression(paste("A's PC")), xpd = TRUE, cex = annotatesize)
 #Label the indifference curves for B
 
 text(11.2, 19, expression(u[z]^B), cex = labelsize - 0.05)
-text(7.7, 19, expression(u[1]^B), cex = labelsize - 0.05)
+text(7.7, 19, expression(u[1]^B == 144), cex = labelsize - 0.05)
 text(4.2, 19, expression(u[3]^B), cex = labelsize - 0.05)
 
 text(11.2, 20.2, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)

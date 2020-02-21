@@ -131,7 +131,7 @@ ypoly2 <- indiffBroot1(xpoly1, uB = 112, alpha = 30, beta = 1/2)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
 
 #xx2 <- seq(8.05, 11.55, length.out = npts)
-xx2 <- seq(0, 15, length.out = npts)
+xx2 <- seq(1, 14.5, length.out = npts)
 xx3 <- seq(6.5, 12.4, length.out = npts)
 
 #Pareto-efficient curve line
@@ -161,7 +161,7 @@ contour(x, y,
 )
 
 text(3, 12.4, expression("Pareto-efficient"), cex = annotatesize)
-text(3, 11.4, expression("Curve"), cex = annotatesize)
+text(3, 11.4, expression("curve"), cex = annotatesize)
 #Arrows(5.7, 10, 9.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # text(11.1, 3.5, expression("Pareto-improving"), cex = annotatesize)

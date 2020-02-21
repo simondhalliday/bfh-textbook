@@ -17,7 +17,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Need to create a stacked graph and 
 #use the option mfrow = c(2,1) for that
-par(mar =  c(4, 7, 1, 1), mfrow = c(2,1))
+par(mar =  c(4, 6, 1, 1), mfrow = c(2,1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -62,8 +62,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
 xlabels <- c(seq(xlims[1], xlims[2], 3), NA)
-ticksy <- c(0, ylims[2])
-ylabels <- c(NA, NA)
+ticksy <- c(0, output(ea = 18), output(ea = 18, eb = 0), ylims[2])
+ylabels <- c(NA, output(ea = 18), output(ea = 18, eb = 0), NA)
 # ticksy <- c(0, 144, 225, 300, ylims[2])
 # ylabels <- c(NA, expression(paste(y[1]^A)), expression(paste(y[2]^A)), expression(paste(y[3]^A)), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
@@ -80,6 +80,10 @@ xx3 <- seq(14, 22, length.out = npts)
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
+#output(ea = 18), output(ea = 18, eb = 0),
+segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+
 segments(18, -500, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 # segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 # segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
@@ -87,7 +91,7 @@ segments(18, -500, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd =
 lines(xx3, slopeline(ea = xx3, slope = 6, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
 lines(xx3, slopeline(ea = xx3, slope = 12, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
-text(-5, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-4, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 
 points(18, output(ea = 18), pch = 16, col = "black", cex = 1.5)
@@ -130,7 +134,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, MBenefit(18, eb = 12), MBenefit(18, eb = 0), MBenefit(0, eb = 12), MBenefit(0, eb = 0), ylims[2])
-ylabels <- c(NA, 6, 12, expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+#ylabels <- c(NA, 6, 12, expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
+ylabels <- c(NA, 6, 12, 24, 30, NA)
 # ticksx <- c(0, 12, 15, 24, 30, xlims[2])
 # xlabels <- c(0, 12, 15, 24, 30, xlims[2])
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
@@ -143,7 +148,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -3.8, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("A's marginal benefit (ounces, oz) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("A's marginal benefit (ounces, oz) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -160,18 +165,18 @@ segments(0, MBenefit(ea = 18, eb = 0), 18, MBenefit(ea = 18, eb = 0), lty = 2, c
 
 segments(18, 0, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
-text(7, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
-text(7, 27, expression(paste("when, ", h^B== 0 )), cex = labelsize)
+text(10, 25.5, expression(paste("Marginal Benefit")), cex = labelsize)
+text(10, 24, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 
 
-text(7, 9.5, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(7, 8, expression(paste("when, ", h^B > 0 )), cex = labelsize)
+text(10, 9.5, expression(paste("Marginal Benefit ")), cex = labelsize)
+text(10, 8, expression(paste("when, ", h^B > 0 )), cex = labelsize)
 
 
 points(18, MBenefit(ea = 18), pch = 16, col = "black", cex = 1.5)
-text(18 + 0.75, MBenefit(ea = 18) + 1, expression(paste(j,"'")), cex = annotatesize)
+text(18 + 0.75, MBenefit(ea = 18) + 1, expression(paste(j)), cex = annotatesize)
 
 points(18, MBenefit(ea = 18, eb = 0), pch = 16, col = "black", cex = 1.5)
-text(18 + 0.75, MBenefit(ea = 18, eb = 0) + 1, expression(paste(k, "'")), cex = annotatesize)
+text(18 + 0.75, MBenefit(ea = 18, eb = 0) + 1, expression(paste(k)), cex = annotatesize)
 
 dev.off()

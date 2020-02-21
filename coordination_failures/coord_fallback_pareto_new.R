@@ -175,18 +175,18 @@ text(3, 11.4, expression("curve"), cex = annotatesize)
 # text(5.7, 0.8, expression(u[2]^A), cex = labelsize - 0.05)
 # text(7.3, 0.8, expression(u[3]^A), cex = labelsize - 0.05)
 
-text(21, 8.6, expression(u[z]^A), cex = labelsize -.05)
-text(21, 5.2, expression(u[1]^A), cex = labelsize - 0.05)
-text(21, 2, expression(u[3]^A), cex = labelsize - 0.05)
+text(21, 10, expression(u[z]^A ==112), cex = labelsize -.05)
+text(21, 7, expression(u[1]^A == 144), cex = labelsize - 0.05)
+text(21, 1, expression(u[3]^A == 155.8), cex = labelsize - 0.05)
 
-text(21, 9.8, expression(paste("A's PC")), xpd = TRUE, cex = annotatesize)
+text(21, 12, expression(paste("A's PC")), xpd = TRUE, cex = annotatesize)
 
 #Label the indifference curves for B
 
-text(11.2, 19, expression(u[z]^B), cex = labelsize - 0.05)
-text(7.7, 19, expression(u[1]^B == 144), cex = labelsize - 0.05)
-text(4.2, 19, expression(u[3]^B), cex = labelsize - 0.05)
+text(12.2, 19, expression(u[z]^B  == 112), cex = labelsize - 0.05)
+text(8.8, 19, expression(u[1]^B == 144), cex = labelsize - 0.05)
+text(3.5, 19, expression(u[3]^B == 155.8), cex = labelsize - 0.05)
 
-text(11.2, 20.2, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
+text(11.2, 20.5, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
 
 dev.off()

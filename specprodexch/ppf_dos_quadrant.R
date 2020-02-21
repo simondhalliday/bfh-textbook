@@ -80,6 +80,11 @@ xpoly1 <- seq(from = 0, to = 8, length.out = 501)
 ypoly1 <- ppf(xpoly1)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
+# shade 
+polygon(x = c(-10, 0, 0), 
+        y = c(0, -0, -10),
+        border = FALSE, col = COL[4])
+
 #Draw the graphs
 lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, foodProd(xx2), col = COLB[3], lwd = graphlinewidth)
@@ -150,6 +155,8 @@ Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 #Label the feasible frontier
 text(4.5, 9, expression("Feasible Frontier"))
 text(4.5, 8.4, expression("(production possibilities frontier)"))
+
+
 
 
 dev.off()

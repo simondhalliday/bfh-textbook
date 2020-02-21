@@ -17,7 +17,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Need to create a stacked graph and 
 #use the option mfrow = c(2,1) for that
-par(mar =  c(9, 9, 1, 1), mfrow = c(2,1))
+par(mar =  c(5, 7, 1, 3), mfrow = c(2,1))
 
 indiffA <- function(ea, uA = 46.08) {
   uA + (1/2)*(ea)^2
@@ -72,13 +72,13 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis= labelsize - 0
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx2 <- seq(xlims[1], 18, length.out = npts)
+xx2 <- seq(xlims[1], 24, length.out = npts)
 xx3 <- seq(xlims[1], 21, length.out = npts)
 
 #Feasible set
-xpolyF <- seq(from = 0, to = 18, length.out = 501)
+xpolyF <- seq(from = 0, to = 24, length.out = 501)
 ypolyF <- output(xpolyF, eb = 12)
-polygon(c(0, xpolyF, 18, xlims[1]), 
+polygon(c(0, xpolyF, 24, xlims[1]), 
         c(output(0, eb = 0), output(xpolyF, eb = 12), 0, 0),
         border = FALSE, col = COLA[1])
 
@@ -107,7 +107,7 @@ text(13, 150, expression(paste("Feasible set, ", h^B == 12)), xpd = TRUE, cex = 
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
 #text(0.5*xlims[2], -40, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Output, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(-3, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 # text(-0.9, 0.5*ylims[2], expression(paste("Output, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90)
 # text(5, 12, expression(paste("slope", phantom()==h^A, phantom() == 2)), cex = annotatesize)
@@ -127,8 +127,9 @@ points(15, output(ea = 15, eb = 0), pch = 16, col = "black", cex = 1.5)
 text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotatesize)
 
 
-text(14.3, 288, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
-text(20.5, 270, expression(paste(y(h^A, h^B == 12))), cex = annotatesize)
+text(23.7, 445, expression(paste(y(h^A, h^B == 0))), cex = annotatesize, xpd = TRUE)
+#text(14.3, 288, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
+text(23.7, 305, expression(paste(y(h^A, h^B == 12))), cex = annotatesize, xpd = TRUE)
 
 
 
@@ -179,11 +180,12 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -5, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("A's mb and mc (pounds, lb), ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("A's mb and mc (pounds, lb), ", u[h^A]^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(4, 8, length.out = npts)
+xx3 <- seq(xlims[1], 24, length.out = npts)
 
 lines(xx3, MBenefit(xx3, eb = 12), col = COLA[4], lwd = graphlinewidth)
 lines(xx3, MBenefit(xx3, eb = 0), col = COLA[4], lwd = graphlinewidth)
@@ -204,15 +206,15 @@ text(20, 16, expression(mb == mc), cex = annotatesize)
 #segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
-text(7, 28.5, expression(paste("Marginal Benefit")), cex = labelsize)
-text(7, 26.5, expression(paste("when, ", h^B == 0 )), cex = labelsize)
+text(4, 31, expression(paste("Marginal Benefit")), cex = labelsize, xpd = TRUE)
+text(4, 29.5, expression(paste("when, ", h^B == 0 )), cex = labelsize, xpd = TRUE)
 #text(8, 26.5, expression(paste("Marginal Benefit")), cex = labelsize)
 #text(8, 25, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 #text(11.5, 24.3, expression(paste(mb^A== alpha - 2*beta*h^A )), cex = labelsize)
 #text(11.5, 22.5, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 
-text(13, 7, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(13, 5.3, expression(paste("when, ", h^B == 12 )), cex = labelsize)
+text(4, 16, expression(paste("Marginal Benefit ")), cex = labelsize)
+text(4, 14.5, expression(paste("when, ", h^B == 12 )), cex = labelsize)
 #text(5.5, 15.5, expression(paste("Marginal Benefit ")), cex = labelsize)
 #text(5.5, 14, expression(paste("when, ", h^B > 0 )), cex = labelsize)
 #text(24.5, 13.5, expression(paste(mb^A == alpha - beta*h^B - 2*beta*h^A)), cex = labelsize)

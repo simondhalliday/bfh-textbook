@@ -37,8 +37,10 @@ plot1 <- dfnar %>%
                      limits = c(0,350)) +
   scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
                     name = "Type",
-                    breaks = c("ub","ua", "totalu"), 
-                    labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+
+                    breaks = c("ua", "ub", "totalu"), 
+                    labels = c(expression(paste("A's Utility, ", u^A)),
+                               expression(paste("B's Utility, ", u^B)), 
+                               paste("Total Utility")))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
   theme(legend.position = "right",

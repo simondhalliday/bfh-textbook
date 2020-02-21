@@ -109,9 +109,9 @@ mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 2.5, cex
 text(-1.3, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Text
-text(11, 12, expression(paste("Each graph requires")))
-text(11, 11.25, expression(paste("1250 keystrokes of data")))
-text(11, 10.4, expression(paste(y == frac(x,1.25) )))
+# text(11, 12, expression(paste("Each graph requires")))
+# text(11, 11.25, expression(paste("1250 keystrokes of data")))
+# text(11, 10.4, expression(paste(y == frac(x,1.25) )))
 
 #Label the curves
 text(13.6, 1, expression(p[2]), cex = labelsize)

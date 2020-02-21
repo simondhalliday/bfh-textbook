@@ -92,10 +92,6 @@ segments(5, 0, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
 segments(0, 6.11, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
 segments(7.64, 0, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
 
-# segments(0, 15, 10, 0, lty = 1, col = COLA[3],  lwd = graphlinewidth)
-# 
-# segments(0, 4.14, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
-# segments(4.14, 0, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
 
 #Label Points
 xpts <- c(5, 7.638888889)
@@ -106,21 +102,16 @@ yadj2 <- -0.5
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "i")
 text(xpts, ypts + yadj1, ptlabels)
-#coordlabs <- c("(5,4)", "(6.44, 5.16)", "(7.64,6.11)", "(8.89,7.11)")
-#text(xpts, ypts + yadj2, coordlabs, cex = smalllabelsize)
 
 #Axis labels
 mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.3, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Text
-text(11, 12, expression(paste("Each graph requires")))
-text(11, 11.25, expression(paste("1250 keystrokes of data")))
-text(11, 10.4, expression(paste(y == frac(x,1.25) )))
+# text(11, 12, expression(paste("Each graph requires")))
+# text(11, 11.25, expression(paste("1250 keystrokes of data")))
+# text(11, 10.4, expression(paste(y == frac(x,1.25) )))
 
-#Label the curves
-# text(1, 12.5, expression(p[1]), cex = labelsize)
-# text(1, 19.4, expression(p[2]), cex = labelsize)
 
 text(1, 17.5, expression(ff[A]), cex = labelsize)
 text(1, 6.8, expression(ff[B]), cex = labelsize)

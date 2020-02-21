@@ -1,5 +1,5 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
@@ -18,27 +18,11 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
 
-#Change this to make it log of l 
-
-# ppf <- function(l, k = 0.5) {
-#   k * (1/l)
-# }
 
 ppf <- function(fish, k = 10/25, alpha = 2, maxfish = 5) {
   k * (fish - maxfish)^alpha 
 }
-# 
-# fishProd <- function(l, k = 0.5){
-#   (-k)*l
-# }
-# 
-# feasibleLabor <- function(l, time = 10){
-#   -time - l
-# }
-# 
-# manufactureProd <- function(l, k = 0.1, alpha = 2){
-#   k * (-l)^alpha
-# }
+
 
 uFn <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1-alpha))
@@ -63,8 +47,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 1)
@@ -89,14 +73,12 @@ xx4 <- seq(-11, 0, length.out = npts)
 #Draw the polygon for shading the feasible set
 xpoly1 <- seq(from = 0, to = 5, length.out = 500)
 ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col = COLA[1], density = NULL, border = NA)
 
 #Draw the graphs
 lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd = graphlinewidth)
 lines(xx2, budgetExchange(xx2,  yintercept = 7.5, slope = 1.5), col = COL[3], lwd = graphlinewidth)
-#lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
-#lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label axes
 mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -114,22 +96,12 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-# text(7.2, 0.2, expression(u[1]^A), cex = labelsize)
-# text(7.2, 0.8, expression(u[2]^A), cex = labelsize)
 text(7.2, 2.55, expression(u^S), cex = labelsize)
 text(7.2, 1.55, expression(u[2]^F), cex = labelsize)
 text(7.2, 0.75, expression(u[1]^F), cex = labelsize)
 
-#Label point d
-# text(1.65 + 0.2, ppf(fish = 1.65) +.2, expression(d), cex = labelsize)
-# segments(1.65, 0, 1.65, ppf(fish = 1.65), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(0, ppf(fish = 1.65), 1.65, ppf(fish = 1.65, k = 10/25, alpha = 2, maxfish = 5), lty = 2, col = "gray", lwd = segmentlinewidth)
-# points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
-
 #Label points A and B
 text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(a), cex = labelsize)
-# segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 points(2.5,3.75, pch = 16, col = "black", cex = 1.5)
 text(2.7, 3.95, expression(b), cex = labelsize)
@@ -137,18 +109,16 @@ text(2.7, 3.95, expression(b), cex = labelsize)
 points(1.7, ppf(1.7), pch = 16, col = "black", cex = 1.5)
 text(1.7 - 0.2, ppf(1.7) - 0.2, expression(c), cex = labelsize)
 
-#Label point s
-# text(0.2, 10.2, expression(s), cex = labelsize)
-# points(0.02, 10, pch = 16, col = "black", cex = 1.5)
-
 #Label the feasible frontier
 text(4, 7.8, expression("Feasible Frontier"), cex = labelsize )
 text(4, 7.5, expression("(production possibilities frontier)"), cex = labelsize)
 Arrows(3.1, 7.7, 0.75, 7.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+# Label feasible outputs
+text(1, 0.5, expression("Feasible Outputs"), cex = labelsize )
 
 #Label the exchange constraints
-text(4, 9.8, expression("Price line when"), cex = labelsize)
+text(4, 9.7, expression("Price line when"), cex = labelsize)
 text(4, 9.4, expression("specializing in shirts"), cex = labelsize)
 Arrows(3.2, 9.6, 0.5, 9.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

@@ -80,16 +80,13 @@ xx3 <- seq(14, 22, length.out = npts)
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
-#output(ea = 18), output(ea = 18, eb = 0),
 segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
 segments(18, -500, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-# segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-# segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
 
-lines(xx3, slopeline(ea = xx3, slope = 6, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
-lines(xx3, slopeline(ea = xx3, slope = 12, yint = 162), lty = 2, col = COLB[4], lwd = graphlinewidth)
+lines(xx3, slopeline(ea = xx3, slope = 6, yint = 162), lty = 2, col = "black", lwd = graphlinewidth)
+lines(xx3, slopeline(ea = xx3, slope = 12, yint = 162), lty = 2, col = "black", lwd = graphlinewidth)
 
 text(-4, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
 
@@ -103,6 +100,10 @@ text(18 - 0.75, output(ea = 18, eb = 0) + 12, expression(paste(k)), cex = annota
 text(21.8, 360, expression(paste(y(h^A, h^B == 0)) ), cex = annotatesize)
 text(21.8, 250, expression(paste(y(h^A, h^B > 0))), cex = annotatesize)
 
+############
+# Bottom Fig 
+############
+
 MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
   (alpha - beta*eb - 2*beta*ea)
 }
@@ -110,7 +111,6 @@ MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
 MCost <- function(ea, slope = 1, intercept = 0){
   slope*ea
 }
-
 
 xlims <- c(0, 31)
 ylims <- c(0, 31)
@@ -126,18 +126,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, MBenefit(18, eb = 12), MBenefit(18, eb = 0), MBenefit(0, eb = 12), MBenefit(0, eb = 0), ylims[2])
-#ylabels <- c(NA, 6, 12, expression(paste(alpha - beta*h^B)), expression(paste(alpha)), NA)
 ylabels <- c(NA, 6, 12, 24, 30, NA)
-# ticksx <- c(0, 12, 15, 24, 30, xlims[2])
-# xlabels <- c(0, 12, 15, 24, 30, xlims[2])
+
 ticksx <- c(seq(xlims[1], xlims[2], 3), xlims[2])
 xlabels <- c(seq(xlims[1], xlims[2], 3), NA)
 #xlabels <- c(NA, expression(paste(h[1]^A)), expression(paste(h[2]^A)), expression(paste(frac(alpha - beta*h^b,2*beta) )), expression(paste(frac(alpha,2*beta) )), NA)

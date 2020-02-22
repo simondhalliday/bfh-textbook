@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 4, 8))
 
 uA <- function(ea, eb, alpha = 30, beta = 1/2) {
   (alpha - beta*(ea+eb))*ea - 0.5*(ea)^2
@@ -150,8 +150,8 @@ contour(y, x,
         yaxs="i",
         add = TRUE)
 
-text(0.5*xlims[2], -1.9, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-1.7, 0.5*ylims[2], expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90)
+text(0.5*xlims[2], -3, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
+text(-3, 0.5*ylims[2], expression(paste("B's hours, ", h^B)), xpd = TRUE, cex = axislabelsize, srt = 90)
 
 contour(x, y,
         outer(x, y, uB),
@@ -162,8 +162,8 @@ contour(x, y,
         add = TRUE
 )
 
-text(3, 12.4, expression("Pareto-efficient"), cex = annotatesize)
-text(3, 11.4, expression("curve"), cex = annotatesize)
+text(3.5, 16, expression("Pareto-efficient"), cex = annotatesize)
+text(3.5, 15, expression("curve"), cex = annotatesize)
 #Arrows(5.7, 10, 9.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # text(11.1, 3.5, expression("Pareto-improving"), cex = annotatesize)
@@ -175,18 +175,18 @@ text(3, 11.4, expression("curve"), cex = annotatesize)
 # text(5.7, 0.8, expression(u[2]^A), cex = labelsize - 0.05)
 # text(7.3, 0.8, expression(u[3]^A), cex = labelsize - 0.05)
 
-text(21, 10, expression(u[z]^A ==112), cex = labelsize -.05)
-text(21, 7, expression(u[1]^A == 144), cex = labelsize - 0.05)
-text(21, 1, expression(u[3]^A == 155.8), cex = labelsize - 0.05)
+text(24.5, 6, expression(u[z]^A ==112), xpd= TRUE, cex = labelsize -.05)
+text(24.5, 2, expression(u[1]^A == 144), xpd = TRUE,  cex = labelsize - 0.05)
+text(19.5, 2, expression(u[3]^A == 155.8),xpd = TRUE, cex = labelsize - 0.05)
 
 text(21, 12, expression(paste("A's PC")), xpd = TRUE, cex = annotatesize)
 
 #Label the indifference curves for B
 
-text(12.2, 19, expression(u[z]^B  == 112), cex = labelsize - 0.05)
-text(8.8, 19, expression(u[1]^B == 144), cex = labelsize - 0.05)
-text(3.5, 19, expression(u[3]^B == 155.8), cex = labelsize - 0.05)
+text(12.8, 19, expression(u[z]^B  == 112), xpd = TRUE, cex = labelsize - 0.05)
+text(2, 24.5, expression(u[1]^B == 144),xpd = TRUE,cex = labelsize - 0.05)
+text(2.5, 19, expression(u[3]^B == 155.8),xpd = TRUE, cex = labelsize - 0.05)
 
-text(11.2, 20.5, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
+text(10.5, 23, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
 
 dev.off()

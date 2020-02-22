@@ -187,6 +187,6 @@ text(12.8, 19, expression(u[z]^B  == 112), xpd = TRUE, cex = labelsize - 0.05)
 text(2, 24.5, expression(u[1]^B == 144),xpd = TRUE,cex = labelsize - 0.05)
 text(2.5, 19, expression(u[3]^B == 155.8),xpd = TRUE, cex = labelsize - 0.05)
 
-text(10.5, 23, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
+text(8.5, 23, expression(paste("B's PC")), xpd = TRUE, cex = annotatesize)
 
 dev.off()

@@ -88,15 +88,15 @@ mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabe
 text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #For good production technique i
-points(4, 6, pch = 16, col = "black", cex = pointsize)
+points(4, 6, pch = 16, col = "black", cex = 1.5)
 text(4.45, 6.45, expression(i), cex = labelsize)
 
 #For production technique a
-points(4, 8, pch = 16, col = "black", cex = pointsize)
+points(4, 8, pch = 16, col = "black", cex = 1.5)
 text(4.45, 8.45, expression(a), cex = labelsize)
 
 #For production technique b
-points(6, 6, pch = 16, col = "black", cex = pointsize)
+points(6, 6, pch = 16, col = "black", cex = 1.5)
 text(6.45, 6.45, expression(b), cex = labelsize)
 
 

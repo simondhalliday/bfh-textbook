@@ -58,8 +58,8 @@ ylabels <- c(NA, expression(paste(k[j])), expression(paste(k[h])), expression(pa
 ticksx <- c(0, 1.8, 2.77, 6.66, xlims[2])
 xlabels <- c(NA, expression(paste(l[h])), expression(paste(l[i])), expression(paste(l[j])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, las = 1, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -75,8 +75,8 @@ lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLB[4], lwd = graphli
 lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3, cex = labelsize)
-text(-1.5, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = labelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3, cex = axislabelsize)
+text(-1.5, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Label the isoquants

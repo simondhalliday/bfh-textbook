@@ -124,17 +124,17 @@ text(7.2, 2.6, expression(u[3]^A), cex = labelsize)
 text(1.65 + 0.2, ppf(fish = 1.65) +.2, expression(d), cex = labelsize)
 segments(1.65, 0, 1.65, ppf(fish = 1.65), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(fish = 1.65), 1.65, ppf(fish = 1.65, k = 10/25, alpha = 2, maxfish = 5), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = pointsize)
+points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
 
 #Label point e
 text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(e), cex = labelsize)
 segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = pointsize)
+points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 
 #Label point s
 text(0.2, 10.2, expression(s), cex = labelsize)
-points(0.02, 10, pch = 16, col = "black", cex = pointsize)
+points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
 #Label the feasible frontier
 text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)

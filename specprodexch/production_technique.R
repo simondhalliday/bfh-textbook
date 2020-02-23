@@ -2,6 +2,7 @@ require(shape)
 pdf(file = "specprodexch/production_technique.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
+pointsize <- 1.8
 axislabelsize <- 1.8
 labelsize <- 1.5
 namesize <- 1.8
@@ -83,19 +84,19 @@ segments(6, 0, 6, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #For good production technique i
-points(4, 6, pch = 16, col = "black", cex = 1.5)
+points(4, 6, pch = 16, col = "black", cex = pointsize)
 text(4.45, 6.45, expression(i), cex = labelsize)
 
 #For production technique a
-points(4, 8, pch = 16, col = "black", cex = 1.5)
+points(4, 8, pch = 16, col = "black", cex = pointsize)
 text(4.45, 8.45, expression(a), cex = labelsize)
 
 #For production technique b
-points(6, 6, pch = 16, col = "black", cex = 1.5)
+points(6, 6, pch = 16, col = "black", cex = pointsize)
 text(6.45, 6.45, expression(b), cex = labelsize)
 
 

@@ -6,10 +6,13 @@ require(shape)
 pdf(file = "specprodexch/ppf_eos_indiff.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -98,7 +101,7 @@ lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-0.9, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -113,9 +116,9 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-text(7.2, 0.2, expression(u[1]^A), cex = labelsize)
-text(7.2, 0.8, expression(u[2]^A), cex = labelsize)
-text(7.2, 2.05, expression(u[3]^A), cex = labelsize)
+text(7.2, 0.7, expression(u[1]^A), cex = labelsize)
+text(7.2, 1.35, expression(u[2]^A), cex = labelsize)
+text(7.2, 2.6, expression(u[3]^A), cex = labelsize)
 
 #Label point d
 text(1.65 + 0.2, ppf(fish = 1.65) +.2, expression(d), cex = labelsize)
@@ -134,8 +137,8 @@ text(0.2, 10.2, expression(s), cex = labelsize)
 points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
 #Label the feasible frontier
-text(4, 8, expression("Feasible Frontier"), cex = labelsize)
-text(4, 7.6, expression("(production possibilities frontier)"), cex = labelsize)
+text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)
+text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
 Arrows(3.2, 7.8, 0.75, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -145,10 +148,10 @@ text(6.6, 3.2, expression("Budget Constraint"), cex = labelsize)
 Arrows(6.6, 3, 6.6, 0.275, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
-text(5.5, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+text(5.8, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
 Arrows(4.5, 4.5, 1.9, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.825, 1, expression("Feasible"), cex = labelsize)
-text(0.825, 0.7, expression("outputs"), cex = labelsize)
+text(0.825, 0.6, expression("outputs"), cex = labelsize)
 
 dev.off()

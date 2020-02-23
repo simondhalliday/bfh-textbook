@@ -6,9 +6,11 @@ library(shape)
 pdf(file = "specprodexch/techvariables1.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.3
-axistitlesize <- 1.5
-labelsize <- 1.1
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -17,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 2, 2))
 
 isoquant <- function(l, alpha = 0.7, xbar = 4) {
   (xbar / l^alpha)^(1/(1 - alpha))
@@ -73,23 +75,23 @@ lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLB[4], lwd = graphli
 lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axistitlesize)
-text(-1.1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axistitlesize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3, cex = labelsize)
+text(-1.5, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = labelsize, srt = 90) 
 
 
 #Label the isoquants
-text(9.5, 4.5, expression(paste("Capital-intensive")), cex = labelsize)
-text(9.5, 4, expression(paste("Technology A")), cex = labelsize)
-text(9.5, 3.5, expression(paste(x^A*bgroup("(", list(l,k),")")) == underline(x)), cex = labelsize)
+text(9.5, 4.7, expression(paste("Capital-intensive")), xpd = TRUE,cex = labelsize)
+text(9.5, 4.2, expression(paste("technology A")), xpd = TRUE, cex = labelsize)
+text(9.5, 3.5, expression(paste(x^A*bgroup("(", list(l,k),")")) == underline(x)), xpd = TRUE, cex = labelsize)
 
 
-text(9.5, 2.35, expression(paste("Labor-intensive ")), cex = labelsize)
-text(9.5, 1.85, expression(paste("Technology B")), cex = labelsize)
-text(9.5, 1.35, expression(paste(x^B*bgroup("(", list(l,k),")")) == underline(x)), cex = labelsize)
+text(9.5, 2.35, expression(paste("Labor-intensive ")), xpd = TRUE, cex = labelsize)
+text(9.5, 1.85, expression(paste("technology B")), xpd = TRUE, cex = labelsize)
+text(9.5, 1.32, expression(paste(x^B*bgroup("(", list(l,k),")")) == underline(x)), xpd = TRUE, cex = labelsize)
 
 text(8, 9.7, expression(paste(trs^B*(list(l,k)) > trs^A*(list(l,k)))), cex = labelsize)
-text(8, 8.8, expression(paste(frac(x[l]^B, x[k]^B) > frac(x[l]^A, x[k]^A))), cex = labelsize)
-text(8, 8, expression(paste("along the ray ", frac(k,l))), cex = labelsize)
+text(8, 8.5, expression(paste(frac(x[l]^B, x[k]^B) > frac(x[l]^A, x[k]^A))), cex = labelsize)
+text(8, 7.5, expression(paste("along the ray ", frac(k,l))), cex = labelsize)
 Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -143,6 +145,6 @@ text(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22) + 0.3, expression(paste(
 Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label isocosts
-text(0.5, 8.25, expression(paste(c[1]^{H*minute})), cex = labelsize)
-text(8.25, 0.5, expression(paste(c[1]^{L*minute})), cex = labelsize)
+text(0.4, 8.25, expression(paste(c[1]^{H*minute})), cex = labelsize)
+text(8.25, 0.4, expression(paste(c[1]^{L*minute})), cex = labelsize)
 dev.off()

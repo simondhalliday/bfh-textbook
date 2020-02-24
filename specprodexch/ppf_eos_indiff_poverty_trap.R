@@ -6,8 +6,11 @@ require(shape)
 pdf(file = "specprodexch/ppf_eos_indiff_poverty_trap.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -81,7 +84,7 @@ lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd
 lines(xx2, budgetExchange(xx2,  yintercept = 7.5, slope = 1.5), col = COL[3], lwd = graphlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-0.5, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -110,21 +113,21 @@ points(1.7, ppf(1.7), pch = 16, col = "black", cex = 1.5)
 text(1.7 - 0.2, ppf(1.7) - 0.2, expression(c), cex = labelsize)
 
 #Label the feasible frontier
-text(4, 7.8, expression("Feasible Frontier"), cex = labelsize )
-text(4, 7.5, expression("(production possibilities frontier)"), cex = labelsize)
+text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize )
+text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
 Arrows(3.1, 7.7, 0.75, 7.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Label feasible outputs
 text(1, 0.5, expression("Feasible Outputs"), cex = labelsize )
 
 #Label the exchange constraints
-text(4, 9.7, expression("Price line when"), cex = labelsize)
-text(4, 9.4, expression("specializing in shirts"), cex = labelsize)
+text(4.3, 9.7, expression("Price line when"), cex = labelsize)
+text(4.3, 9.3, expression("specializing in shirts"), cex = labelsize)
 Arrows(3.2, 9.6, 0.5, 9.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(1.5, 2, expression("Price line when"), cex = labelsize)
-text(1.5, 1.6, expression("specializing in fish"), cex = labelsize)
+text(1.3, 2, expression("Price line when"), cex = labelsize)
+text(1.3, 1.6, expression("specializing in fish"), cex = labelsize)
 Arrows(2.3, 1.8, 3.6, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs

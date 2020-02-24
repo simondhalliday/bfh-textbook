@@ -6,17 +6,20 @@ library(shape)
 pdf(file = "specprodexch/isoquant_shaded.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(6, 6, 4, 4))
 
 uFn <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1 - alpha))
@@ -55,8 +58,8 @@ xlabels <- seq(from = 0, to = xlims[2], by = 1)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -83,8 +86,8 @@ lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidt
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3.5, cex = axislabelsize)
+text(-1.3, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 
@@ -99,18 +102,18 @@ text(-0.8, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axi
 
 
 #Label the indifference curves
-text(9, 4.5, expression("Cobb-Douglas"), cex = labelsize)
-text(9, 4, expression("isoquant"), cex = labelsize)
-text(9, 3.5, expression(underline(x) ==f(l,k)), cex = labelsize)
+text(8.5, 5, expression("Cobb-Douglas"), cex = labelsize)
+text(8.5, 4.4, expression("isoquant"), cex = labelsize)
+text(8.5, 3.7, expression(underline(x) ==f(l,k)), cex = labelsize)
 Arrows(9, 3.25, 9, 2.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label feasible and infeasible
 text(3, 3, expression(paste(x = underline(x), " infeasible")), cex = labelsize)
-text(3, 2.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+text(3, 2.3, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
 
 text(8, 8.5, expression(paste("Production set:")), cex = labelsize)
-text(8, 8, expression(paste(x = underline(x), " feasible")), cex = labelsize)
-text(8, 7.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+text(8, 7.9, expression(paste(x = underline(x), " feasible")), cex = labelsize)
+text(8, 7.3, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
 
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)

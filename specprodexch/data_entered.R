@@ -6,9 +6,11 @@ require(shape)
 pdf(file = "specprodexch/data_entered.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-smalllabelsize <- 0.9
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -38,7 +40,7 @@ priceB <- function(x, pintB = 14.5, psB = 1.45) {
 }
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 1, 1))
 
 xlims <- c(0, 15)
 ylims <- c(0, 21)
@@ -69,8 +71,8 @@ ylabels <- c(NA, 5.16, 7.11, 8, 14.5, 20, NA)
 ticksx <- c(xlims[1], 6.45, 8.88, 10, 11, 13.78, xlims[2])
 xlabels <-  c(NA, 6.45, 8.88, 10, 11, 13.8, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -105,8 +107,8 @@ text(xpts, ypts + yadj1, ptlabels)
 #text(xpts, ypts + yadj2, coordlabs, cex = smalllabelsize)
 
 #Axis labels
-mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.3, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.3, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Text
 # text(11, 12, expression(paste("Each graph requires")))

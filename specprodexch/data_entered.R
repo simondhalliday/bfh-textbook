@@ -40,7 +40,7 @@ priceB <- function(x, pintB = 14.5, psB = 1.45) {
 }
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 xlims <- c(0, 15)
 ylims <- c(0, 21)
@@ -102,13 +102,13 @@ yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "h", "i", "j")
-text(xpts, ypts + yadj1, ptlabels)
+text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
 #coordlabs <- c("(5,4)", "(6.44, 5.16)", "(7.64,6.11)", "(8.89,7.11)")
 #text(xpts, ypts + yadj2, coordlabs, cex = smalllabelsize)
 
 #Axis labels
-mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.3, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
+text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Text
 # text(11, 12, expression(paste("Each graph requires")))

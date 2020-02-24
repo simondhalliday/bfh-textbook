@@ -2,17 +2,19 @@ require(shape)
 pdf(file = "specprodexch/production_technique_angle.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
-arrwidth <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 2, 2))
+par(mar =  c(6, 6, 2, 2))
 
 xlims <- c(0, 12)
 ylims <- c(0, 12)
@@ -39,8 +41,8 @@ ylabels <- c(NA, expression(paste(k[1])), expression(paste(k[2])), expression(pa
 ticksx <- c(0, 4.5, 6, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(l[1])), expression(paste(l[2])), expression(paste(l[3])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -70,8 +72,8 @@ segments(0, 4.5, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 #For l2
 segments(7.5, 0, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3.3, cex = axislabelsize)
+text(-2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Reminder: slope of the ray (to calculate useful points)
 #4.5/7.5
@@ -83,15 +85,15 @@ Arrows(0, 0, 4.32, 7.2, col = "black", lty = 1, lwd = arrwidth, arr.type = "tria
 
 #For production technique a
 points(4.5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(4.25, 7.75, expression(a))
+text(4.25, 7.75, expression(a), cex = labelsize)
 
 #For production technique b
 points(7.5, 4.5, pch = 16, col = "black", cex = 1.5)
-text(7.75, 4.25, expression(b))
+text(7.75, 4.25, expression(b), cex = labelsize)
 
 #For production technique c
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6, 5.7, expression(c))
+text(6, 5.7, expression(c), cex = labelsize)
 
 
 
@@ -113,9 +115,9 @@ Arrows(7.25, 7.25, 6.25, 6.25, col = "black", lty = 1, lwd = arrwidth, arr.type 
 #text(10, 2, expression(paste("techniques")), cex = labelsize)
 
 
-text(1.9, 7, expression(paste("Steeper ray:")), cex = labelsize)
-text(1.9, 6.5, expression(paste("more k-intensive")), cex = labelsize)
-text(1.9, 6, expression(paste("less l-intensive")), cex = labelsize)
+text(2, 7, expression(paste("Steeper ray:")), cex = labelsize)
+text(2.3, 6.5, expression(paste("more k-intensive")), cex = labelsize)
+text(2.3, 6, expression(paste("less l-intensive")), cex = labelsize)
 #Arrows(2.8, 6.9, 3.85, 6.9, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -124,6 +126,6 @@ text(6, 2.2, expression(paste("more l-intensive")), cex = labelsize)
 text(6, 1.7, expression(paste("less k-intensive")), cex = labelsize)
 #Arrows(6, 2.7, 6, 3.3, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
-text(11.2, 4.75, expression(paste(underline(x) == 100)), cex = labelsize)
+text(11, 4.75, expression(paste(underline(x) == 100)), cex = labelsize)
 
 dev.off()

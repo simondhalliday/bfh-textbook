@@ -2,17 +2,20 @@ require(shape)
 pdf(file = "specprodexch/isocost_map.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 2, 2))
+par(mar =  c(7, 7, 3, 3))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -63,13 +66,13 @@ lines(xx1, isocost(xx1, c = 12, w = 1, r = 1), col = COLB[3], lwd = graphlinewid
 
 
 #Label the axes
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3.5, cex = axislabelsize)
+text(-2.2, 0.5*ylims[2], expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the price lines
-text(5.4, 1, expression(paste(c[1])))
-text(8.4, 1, expression(paste(c[2])))
-text(11.4, 1, expression(paste(c[3])))
+text(5.4, 1, expression(paste(c[1])), cex = labelsize)
+text(8.4, 1, expression(paste(c[2])),cex = labelsize)
+text(11.4, 1, expression(paste(c[3])),cex = labelsize)
 
 
 #Add mrs = mrt at i

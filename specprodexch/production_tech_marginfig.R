@@ -2,16 +2,20 @@ require(shape)
 pdf(file = "specprodexch/production_tech_marginfig.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.7
+pointsize <- 1.8
+axislabelsize <- 1.8
 labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -53,8 +57,8 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.95, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
+text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #For production technique 

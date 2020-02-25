@@ -8,8 +8,11 @@ library(tidyverse)
 library(lubridate)
 # ----
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -90,8 +93,8 @@ ggplot(data = ag_data,
         axis.title.y = element_text(size = 16, vjust = 0.5),
         axis.title.x = element_text(size = 16, vjust = -1),
         legend.text = element_blank(),
-        axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12)
+        axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15)
   ) 
 
 
@@ -106,7 +109,7 @@ ggplot(data = ag_data,
        mapping = aes(x = as.factor(Year), y = BushelsPerHourLabor)) + 
   labs(x = "Year", y = "Bushels of Wheat Per One Hour of Labor") + 
   geom_bar(stat = "identity", fill = COLA[4]) + 
-  annotate("text", x = c(1,2, 3, 4, 5, 6, 7), y = c(3.1,5, 9, 18.7, 23, 30, 36), label = c("Walking plow, \n brush harrow, \n hand broadcast of \n seed, sickle, and flail", "Gang plow, seeder, \n harrow, binder, \n thresher, wagons, \n and horses", "3-bottom gang plow, \n tractor, 10-foot \n tandem disk, harrow, \n 12-foot combine, \nand trucks", "tractor, 10-foot plow, \n 12-foot row weeder, \nharrow, 14-foot drill, \n self-propelled \n combine, and trucks", "tractor, 12-foot plow, \n 14-foot drill, 14-foot \n self-propelled \n combine, and trucks", "tractor, 30-foot \n sweep disk, 27-foot \n drill, 22-foot \n self-propelled \n combine, and trucks", "tractor, 35-foot sweep  \n disk, 30-foot drill, \n 25-foot self-propelled \n combine, and trucks") , color="black", size=2) +theme_bw() + ylim(0,40)
+  annotate("text", x = c(1,2, 3, 4, 5, 6, 7), y = c(3.1,5, 9, 18.7, 23, 30, 36), label = c("Walking plow, \n brush harrow, \n hand broadcast of \n seed, sickle, and flail", "Gang plow, seeder, \n harrow, binder, \n thresher, wagons, \n and horses", "3-bottom gang plow, \n tractor, 10-foot \n tandem disk, harrow, \n 12-foot combine, \nand trucks", "tractor, 10-foot plow, \n 12-foot row weeder, \nharrow, 14-foot drill, \n self-propelled \n combine, and trucks", "tractor, 12-foot plow, \n 14-foot drill, 14-foot \n self-propelled \n combine, and trucks", "tractor, 30-foot \n sweep disk, 27-foot \n drill, 22-foot \n self-propelled \n combine, and trucks", "tractor, 35-foot sweep  \n disk, 30-foot drill, \n 25-foot self-propelled \n combine, and trucks") , color="black", size=labelsize) +theme_bw() + ylim(0,40)
 #+ annotate("segment", x = c(1,2,3,4), xend = c(1,2,3,4), y = c(4,7,10,18.5) , yend = c(1,3,6,15.5), colour = "black", size=0.4, alpha=1, arrow=arrow()) 
 
 dev.off()

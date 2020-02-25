@@ -52,7 +52,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 0.5, 1, ylims[2])
 ylabels <- c(NA, expression(paste(1 - h,"*")), expression(paste(l == 1)), NA)
 ticksx <- c(0, 2,  4, xlims[2])
-xlabels <- c(NA, expression(paste(c,"*" == w*h,"*")),  expression(paste(c == w)), NA)
+xlabels <- c(NA, expression(paste(x,"*" == w*h,"*")),  expression(paste(x == w)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
@@ -65,7 +65,7 @@ lines(xx1, bcA(xx1, w = 0.25, h = 1), col = COLB[3], lwd = graphlinewidth)
 
 
 
-mtext(expression(paste("Consumption, ", c == w*h)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Consumption, ", x == w*h)), side=1, line = 2.5, cex = axislabelsize)
 text(-0.5, 0.5*ylims[2], expression(paste("Leisure time as a proportion of the day, ", l == 1 - h)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

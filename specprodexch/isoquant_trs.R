@@ -113,7 +113,7 @@ Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 text(4.5, 6, expression(paste(mrts(l,k) == frac(4,4), phantom()==1)), cex = labelsize)
 Arrows(4, 5.6, 4, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(4.5, 8, expression(paste(mrts(l,k) == frac(8,2), phantom() == 4)), cex = labelsize)
+text(4.7, 8, expression(paste(mrts(l,k) == frac(8,2), phantom() == 4)), cex = labelsize)
 Arrows(2.8, 8, 2.3, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

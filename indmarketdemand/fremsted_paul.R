@@ -26,9 +26,6 @@ plot2 <-
         axis.text = element_text(size = 14),
         panel.grid.minor = element_blank())
 
-#plot_fp <- grid.arrange(plot1, plot2, ncol = 2)
-
 ggsave("indmarketdemand/plot_fp_A.pdf", plot1, width = 9, height = 7)
 ggsave("indmarketdemand/plot_fp_B.pdf", plot2, width = 9, height = 7)
-
 

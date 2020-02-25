@@ -180,6 +180,15 @@ text(155, 155, expression(i), cex = labelsize)
 points(112, 112, pch = 16, col = "black", cex = 1.5)
 text(105, 105, expression(z), cex = labelsize)
 
+points(144, 144, pch = 16, col = "black", cex = 1.5)
+text(144 - 6, 144 - 6, expression(n), cex = labelsize)
+
+points(156, 144, pch = 16, col = "black", cex = 1.5)
+text(156 + 8, 144 + 4, expression(t^A), cex = labelsize)
+
+points(144, 156, pch = 16, col = "black", cex = 1.5)
+text(144 + 4, 156 + 10, expression(t^B), cex = labelsize)
+
 text(130, 280, expression(paste("A's PC")), cex = labelsize)
 # label fallbacks
 text(280, 120, expression(paste("B's PC")), cex = labelsize)

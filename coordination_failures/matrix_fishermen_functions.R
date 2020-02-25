@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "coordination_failures/matrix_fishermen_functions.pdf", width = 9, height = 7)
+pdf(file = "coordination_failures/matrix_fishermen_functions.pdf", width = 8, height = 8)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -8,8 +8,8 @@ ylims <- c(0, 8)
 
 #TextSizes
 PlayerSize <- 3
-StratSize <- 2.3
-PayoffSize <- 3
+StratSize <- 1.9
+PayoffSize <- 2.3
 
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
@@ -146,6 +146,12 @@ if (P2BR2[1] == "SW"){
   points(5, 1, pch = 1, col = "black", cex = P2bestsize)
 } else{points(7, 1, pch = 1, col = "black", cex = P2bestsize)
 }
+
+#label point for Pareto comparisons
+text(5.25, 2.25, expression(a), cex = LabelSize)
+text(5.25, 0.25, expression(b), cex = LabelSize)
+text(7.25, 2.25, expression(d), cex = LabelSize)
+text(7.25, 0.25, expression(c), cex = LabelSize)
 
 dev.off()
 

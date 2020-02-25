@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "specprodexch/tech_change_isoquant.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(6, 6, 2, 2))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -68,21 +71,21 @@ lines(xx1, isoquant(xx1, x = 5, alpha = 0.5, A = 0.83), col = COLA[3], lwd = gra
 lines(xx1, isoquant(xx1, x = 5, alpha = 0.5, A = 1.11), col = COLA[4], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3.5, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the isoquant curve
-text(11.25, 4.5, expression("initial"), cex = labelsize)
-text(11.25, 4, expression("isoquant"), cex = labelsize)
-text(11.25, 3.6, expression(paste(x == underline(x))), cex = labelsize)
+text(11.25, 4.5, expression("initial"), cex = labelsize, xpd = TRUE)
+text(11.25, 4, expression("isoquant"), cex = labelsize, xpd = TRUE)
+text(11.25, 3.6, expression(paste(x == underline(x))), cex = labelsize, xpd = TRUE)
 Arrows(11, 3.2, 11, 2.2, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(9, 1.8, expression("innovation"), cex = labelsize)
-text(9, 1.3, expression("isoquant"), cex = labelsize)
-text(9, 0.9, expression(paste(x == underline(x))), cex = labelsize)
+text(9, 1.8, expression("innovation"), cex = labelsize, xpd = TRUE)
+text(9, 1.3, expression("isoquant"), cex = labelsize, xpd = TRUE)
+text(9, 0.9, expression(paste(x == underline(x))), cex = labelsize, xpd = TRUE)
 
 #Label the price lines
-text(7.75, 1, expression(paste(c[1])))
-text(10.75, 1, expression(paste(c[2])))
+text(7.75, 1, expression(paste(c[1])), cex = labelsize)
+text(10.75, 1, expression(paste(c[2])), cex = labelsize)
 
 #Label a
 segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -106,25 +109,25 @@ Arrows(5.8, 5.8, 4.75, 4.75, col = "black", lty = 2, lwd = 2, arr.type = "triang
 #New tech cost min
 #points(4, isoquant(l = 4, A = 1.25), pch = 16, col = "black", cex = 1.5)
 
-text(1, 10, expression("innovation"), cex = labelsize)
-text(1, 9.5, expression("decreases"), cex = labelsize)
-text(1, 9, expression("costs"), cex = labelsize)
+text(1, 10, expression("innovation"), cex = labelsize -0.05, xpd = TRUE)
+text(1, 9.5, expression("decreases"), cex = labelsize-0.05, xpd = TRUE)
+text(1, 9, expression("costs"), cex = labelsize-0.05, xpd = TRUE)
 
 
-text(10, 10, expression("Innovation expands"), cex = labelsize)
-text(10, 9.5, expression("the feasible set"), cex = labelsize)
-text(10, 9, expression("creating a new, lower"), cex = labelsize)
-text(10, 8.5, expression("production isoquant"), cex = labelsize)
-text(10, 8, expression(paste("for the same ", x == underline(x))), cex = labelsize)
+text(10, 10, expression("Innovation expands"), cex = labelsize, xpd = TRUE)
+text(10, 9.5, expression("the feasible set"), cex = labelsize, xpd = TRUE)
+text(10, 9, expression("creating a new, lower"), cex = labelsize, xpd = TRUE)
+text(10, 8.5, expression("production isoquant"), cex = labelsize, xpd = TRUE)
+text(10, 8, expression(paste("for the same ", x == underline(x))), cex = labelsize, xpd = TRUE)
 
 #Arrows(1.85, 10.1, 1.85, 7.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(2, 3.5, expression("At a lower isoquant"), cex = labelsize)
-text(2, 3, expression("the firm reaches"), cex = labelsize)
-text(2, 2.5, expression(paste("lower isocost ", c[1])), cex = labelsize)
-text(2, 2, expression("employing less"), cex = labelsize)
-text(2, 1.5, expression(paste("labor and capital at")), cex = labelsize)
-text(2, 1, expression(paste("identical relative prices ", frac(w,r))), cex = labelsize)
+text(2.4, 3.5, expression("At a lower isoquant"), cex = labelsize, xpd = TRUE)
+text(2.4, 3, expression("the firm reaches"), cex = labelsize, xpd = TRUE)
+text(2.4, 2.5, expression(paste("lower isocost ", c[1])), cex = labelsize, xpd = TRUE)
+text(2.4, 2, expression("employing less"), cex = labelsize, xpd = TRUE)
+text(2.4, 1.5, expression(paste("labor and capital at")), cex = labelsize, xpd = TRUE)
+text(2.7, 1, expression(paste("identical relative prices ", frac(w,r))), cex = labelsize, xpd = TRUE)
 
 
 #text(9, 5.9, expression(paste(b)), cex = labelsize)

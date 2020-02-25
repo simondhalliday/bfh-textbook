@@ -19,9 +19,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 4, 4))
-xlims <- c(0, 10)
-ylims <- c(0, 15)
+par(mar =  c(6, 6, 4, 4))
+xlims <- c(0, 5)
+ylims <- c(0, 10)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
@@ -30,8 +30,8 @@ elasticity1 <- function(x, A, b ) {
 }
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = "",
-     ylab = "", 
+     xlab = "Quantity of the good, x",
+     ylab = "Price per unit of x, p", 
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -60,11 +60,15 @@ yy3 <- elasticity1(xx3, A = 5, b = -3.4)
 xx4 <- seq(xlims[1], xlims[2], length.out = npts)
 yy4 <- elasticity1(xx4, A = 5, b = -4.74)
 
-
 lines(xx1,yy1, col = COL[3], lwd = graphlinewidth)
 lines(xx2,yy2, col = COLB[2], lwd = graphlinewidth)
 lines(xx3,yy3, col = COLA[3], lwd = graphlinewidth)
 lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
+
+points(1, 5, pch = 16, col = "black", cex = 1.5)
+
+legend(3.2, 9.5, legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
+       col=c(COL[3], COLB[2],COLA[3],COLB[4]), lty=1, cex=1)
 
 dev.off()
 

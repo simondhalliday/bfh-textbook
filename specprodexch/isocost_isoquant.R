@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "specprodexch/isocost_isoquant.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 1, 1))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -68,19 +71,19 @@ lines(xx1, isoquant(xx1, x = 5, alpha = 0.5), col = COLA[3], lwd = graphlinewidt
 
 
 #Label the axes
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the isoquant curve
 text(11.25, 3.15, expression("isoquant"), cex = labelsize)
 text(11.25, 2.65, expression(paste(x == underline(x))), cex = labelsize)
 
 #Label the price lines
-text(6.75, 1, expression(paste(c[1])))
+text(6.75, 1, expression(paste(c[1])), cex = labelsize)
 #text(8, 1.3, expression(paste(p[x] == 1)))
-text(8.75, 1, expression(paste(c[2])))
+text(8.75, 1, expression(paste(c[2])),cex = labelsize)
 #text(11.3, 3.7, expression(paste(p[x] == 0.5)))
-text(10.75, 1, expression(paste(c[3])))
+text(10.75, 1, expression(paste(c[3])),cex = labelsize)
 #text(11.3, 6.5, expression(paste(p[x] == 0.25)))
 
 #Add the contour plot for the indifference curves

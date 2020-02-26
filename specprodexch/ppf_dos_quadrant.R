@@ -86,8 +86,8 @@ polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1
 
 # shade 
 polygon(x = c(-10, 0, 0), 
-        y = c(0, -0, -10),
-        border = FALSE, col = COL[4])
+        y = c(0, 0, -10),
+        border = FALSE, col = adjustcolor(COL[3], alpha.f = 0.5))
 
 #Draw the graphs
 lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
@@ -96,7 +96,7 @@ lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 lines(xx4, manufactureProd(xx4, k =  2.529822, alpha = 0.5), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of food, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.5, 8, expression(paste("Shirts,", y)), xpd = TRUE, cex = axislabelsize, srt = 90, cex = labelsize) 
+text(-0.5, 8, expression(paste("Shirts,", y)), xpd = TRUE, srt = 90, cex = labelsize) 
 text(8, 0.4, expression(paste("Kilograms of Fish, ", x)), xpd = TRUE, cex = labelsize)
 text(0.5, -7.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = labelsize, srt= 90) 
 text(-7.5, 0.5, expression(paste("Labor for Shirts, ", l^c)), xpd = TRUE, cex = labelsize)
@@ -160,7 +160,10 @@ Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 text(5.5, 9, expression("Feasible Frontier"),cex = labelsize)
 text(5.5, 8.4, expression("(production possibilities frontier)"),cex = labelsize)
 
-
-
+# Label constaint 
+#Label the feasible frontier
+text(-2.65, -2.2, expression("Constraint"),cex = labelsize)
+text(-2.65, -2.8, expression("on totals"),cex = labelsize)
+text(-2.65, -3.4, expression("labor hours"),cex = labelsize)
 
 dev.off()

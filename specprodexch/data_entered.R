@@ -62,10 +62,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 1)
-# ylabels <- seq(from = 0, to = ylims[2], by = 1)
-# ticksx <- seq(from = 0, to = xlims[2], by = 1)
-# xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 5.16, 7.11, 8, 14.5, 20, ylims[2])
 ylabels <- c(NA, 5.16, 7.11, 8, 14.5, 20, NA)
 ticksx <- c(xlims[1], 6.45, 8.88, 10, 11, 13.78, xlims[2])
@@ -91,8 +87,6 @@ segments(6.45, 0, 6.45, 5.16, lty = 2, col = "grey",  lwd = segmentlinewidth)
 segments(0, 7.11, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
 segments(8.88, 0, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
 
-# segments(0, 4.14, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
-# segments(4.14, 0, 4.14, 4.14, lty = 2, col = "grey",  lwd = segmentlinewidth)
 
 #Label Points
 xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
@@ -103,17 +97,11 @@ yadj2 <- -0.5
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "h", "i", "j")
 text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
-#coordlabs <- c("(5,4)", "(6.44, 5.16)", "(7.64,6.11)", "(8.89,7.11)")
-#text(xpts, ypts + yadj2, coordlabs, cex = smalllabelsize)
 
 #Axis labels
 mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
 text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Text
-# text(11, 12, expression(paste("Each graph requires")))
-# text(11, 11.25, expression(paste("1250 keystrokes of data")))
-# text(11, 10.4, expression(paste(y == frac(x,1.25) )))
 
 #Label the curves
 text(13.6, 1, expression(p[2]), cex = labelsize)
@@ -122,19 +110,13 @@ text(10.8, 1, expression(ff[A]), cex = labelsize)
 text(1, 12.5, expression(p[1]), cex = labelsize)
 text(1, 6.8, expression(ff[B]), cex = labelsize)
 
-#xpts <- c(5, 6.444444444, 7.638888889, 8.888888889)
-#ypts <- xpts/1.25
 
-#Arrows(xpts[1]+1.8, ypts[1] - 1.8, 10 - 1.6, 0 + 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(xpts[1]+1.8, ypts[1] - 1.8, 10 - 1.6, 0 + 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-#Arrows(10, 0 + 0.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(8.5, 0 + 2.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(10 + 0.3, 0.3, expression(s[B]), cex = labelsize)
 points(10, 0,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
-#Arrows(xpts[3] - 0.3, ypts[3], 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-#Arrows(0 + 0.3, 20, xpts[4] - 0.3, ypts[4] + 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(0 + 0.3, 20, 1.5, 16.8 + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0 + 0.3, 20 + 0.3, expression(s[A]), cex = labelsize)

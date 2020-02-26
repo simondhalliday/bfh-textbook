@@ -6,9 +6,11 @@ require(shape)
 pdf(file = "specprodexch/data_entered_initial.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-smalllabelsize <- 0.9
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -38,7 +40,7 @@ priceB <- function(x, pintB = 14.5, psB = 1.45) {
 }
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 xlims <- c(0, 15)
 ylims <- c(0, 21)
@@ -60,17 +62,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 1)
-# ylabels <- seq(from = 0, to = ylims[2], by = 1)
-# ticksx <- seq(from = 0, to = xlims[2], by = 1)
-# xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 4, 6.11, 8, 20, ylims[2])
 ylabels <- c(NA, 4, 6.11, 8,  20, NA)
 ticksx <- c(xlims[1], 5, 7.64, 10, 11,  xlims[2])
 xlabels <-  c(NA, 5, 7.64, 10, 11,  NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -79,12 +77,6 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, ffA(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, ffB(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx1, exchange(xx1), lty = 2, col = "gray", lwd = segmentlinewidth)
-#lines(xx1, priceA(xx1), col = COLB[3], lwd = graphlinewidth)
-#lines(xx1, priceB(xx1), col = COLB[3], lwd = graphlinewidth)
-
-
-#segments(0, 8, 6.4, 8, lty = 2, col = "dark grey",  lwd = segmentlinewidth)
-
 
 
 segments(0, 4, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
@@ -101,19 +93,14 @@ yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "i")
-text(xpts, ypts + yadj1, ptlabels)
+text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
 
 #Axis labels
-mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.3, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
-#Text
-# text(11, 12, expression(paste("Each graph requires")))
-# text(11, 11.25, expression(paste("1250 keystrokes of data")))
-# text(11, 10.4, expression(paste(y == frac(x,1.25) )))
+mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
+text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(1, 17.5, expression(ff[A]), cex = labelsize)
-text(1, 6.8, expression(ff[B]), cex = labelsize)
+text(1, 17.7, expression(ff[A]), cex = labelsize)
+text(1, 6.6, expression(ff[B]), cex = labelsize)
 
 dev.off()

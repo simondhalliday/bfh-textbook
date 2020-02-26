@@ -79,6 +79,12 @@ xpoly1 <- seq(from = 0, to = 5, length.out = 500)
 ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
+# shade 
+polygon(x = c(-10, 0, 0), 
+        y = c(0, 0, -10),
+        border = FALSE, col = adjustcolor(COL[3], alpha.f = 0.5))
+
+
 #Draw the graphs
 lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, fishProd(xx2, k = 2), col = COLB[3], lwd = graphlinewidth)
@@ -160,5 +166,10 @@ Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 text(5.5, 8, expression("Feasible Frontier"), cex = annotatesize)
 text(5.5, 7.4, expression("(production possibilities frontier)"), cex = annotatesize)
 
+# Label constaint 
+#Label the feasible frontier
+text(-2.65, -2.2, expression("Constraint"),cex = labelsize)
+text(-2.65, -2.8, expression("on totals"),cex = labelsize)
+text(-2.65, -3.4, expression("labor hours"),cex = labelsize)
 
 dev.off()

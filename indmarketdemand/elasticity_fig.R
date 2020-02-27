@@ -46,6 +46,10 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 2, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
+axis.break(axis=1,breakpos=NULL,pos=xlims[2],bgcol="white",breakcol="black",
+           style="slash",brw=0.02)
+axis.break(axis=2,breakpos=NULL,pos=ylims[6],bgcol="white",breakcol="black",
+           style="slash",brw=0.02)
 
 npts <- 500 
 npts2 <- 501
@@ -69,6 +73,7 @@ points(1, 5, pch = 16, col = "black", cex = 1.5)
 
 legend(2, 7.5, legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), lty=1, cex=1)
+
 
 dev.off()
 

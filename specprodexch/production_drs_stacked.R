@@ -14,7 +14,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 7, 0.2, 1), mfrow = c(2, 1))
+par(mar =  c(4, 7, 3, 3), mfrow = c(2, 1))
 
 
 #Change this to make it log of l 
@@ -58,7 +58,7 @@ plot(1, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, prodFn(l = 2, k = 0.5), prodFn(l = 6, k = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(2)), expression(paste(6)), NA)
+ylabels <- c(NA, expression(paste(0.55)), expression(paste(0.97)), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
@@ -79,7 +79,7 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -98,7 +98,7 @@ points(2, prodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
 #Label the iso-welfare functions for the HG, Aisha
 text(8.7, 1, expression(paste("Total product")), cex = labelsize)
-text(8.7, 0.92, expression(x == frac(1,2)*ln(1 + l)), cex = labelsize)
+text(8.7, 0.9, expression(x == frac(1,2)*ln(1 + l)), cex = labelsize)
 
 
 #Average Product
@@ -148,8 +148,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-ticksy <- c(0, AprodFn(l = 2, k = 0.5), MprodFn(l = 2, k = 0.5), AprodFn(l = 8, k = 0.5), MprodFn(l = 8, k = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(2)), expression(paste(2)), expression(paste(8)), expression(paste(8)), NA)
+ticksy <- c(0, AprodFn(l = 2, k = 0.5), MprodFn(l = 2, k = 0.5), AprodFn(l = 6, k = 0.5), MprodFn(l = 6, k = 0.5), ylims[2])
+ylabels <- c(NA, expression(paste(0.27)), expression(paste(0.17)), expression(paste(0.16)), expression(paste(0.07)), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
@@ -167,7 +167,7 @@ lines(xx1, AprodFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
 segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -188,12 +188,12 @@ text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
-text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = annotatesize)
-text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.025, expression(paste(mp(l) == frac(1,'2l'+2))), cex = annotatesize)
+text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = annotatesize, xpd = TRUE)
+text(9.8, MprodFn(l = 9.5, k = 0.5) + 0.015, expression(paste(mp(l) == frac(1,'2l'+2))), cex = annotatesize, xpd = TRUE)
 
 #Average Product
-text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.06, expression(paste("Average product")), cex = annotatesize)
-text(9.5, AprodFn(l = 9.5, k = 0.5) + 0.03, expression(paste(ap(l) == frac(1,'2l')*(ln('l'+1)) )), cex = annotatesize)
+text(8, AprodFn(l = 9.5, k = 0.5) + 0.1, expression(paste("Average product")), cex = annotatesize)
+text(8, AprodFn(l = 9.5, k = 0.5) + 0.05, expression(paste(ap(l) == frac(1,'2l')*(ln('l'+1)) )), cex = annotatesize)
 
 
 dev.off()

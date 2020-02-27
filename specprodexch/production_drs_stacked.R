@@ -102,9 +102,9 @@ text(8.7, 0.9, expression(x == frac(1,2)*ln(1 + l)), cex = labelsize)
 
 
 #Average Product
-text(4.25, 0.27, expression(paste("Slope of ray from")), cex = labelsize)
+text(4.25, 0.28, expression(paste("Slope of ray from")), cex = labelsize)
 text(4.25, 0.22, expression(paste("origin equals")), cex = labelsize)
-text(4.25, 0.17, expression(paste("Average Product")), cex = labelsize)
+text(4.25, 0.15, expression(paste("Average Product")), cex = labelsize)
 Arrows(2.7, 0.3, 1.3, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, 0.33, 4, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -189,7 +189,7 @@ text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
 text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = annotatesize, xpd = TRUE)
-text(9.8, MprodFn(l = 9.5, k = 0.5) + 0.015, expression(paste(mp(l) == frac(1,'2l'+2))), cex = annotatesize, xpd = TRUE)
+text(9.75, MprodFn(l = 9.5, k = 0.5) + 0.015, expression(paste(mp(l) == frac(1,'2l'+2))), cex = annotatesize, xpd = TRUE)
 
 #Average Product
 text(8, AprodFn(l = 9.5, k = 0.5) + 0.1, expression(paste("Average product")), cex = annotatesize)

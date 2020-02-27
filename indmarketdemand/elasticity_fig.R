@@ -67,7 +67,7 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
-legend(3.2, 9.5, legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
+legend(2, 7.5, legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), lty=1, cex=1)
 
 dev.off()

@@ -19,9 +19,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 6, 4, 4))
-xlims <- c(0, 5)
-ylims <- c(0, 10)
+par(mar =  c(6, 6, 1, 1))
+xlims <- c(0, 3)
+ylims <- c(2, 8)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
@@ -43,7 +43,7 @@ ticksy <- seq(from = 0, to = 15, by = 1)
 ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
+axis(1, at = ticksx, pos = 2, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 
 

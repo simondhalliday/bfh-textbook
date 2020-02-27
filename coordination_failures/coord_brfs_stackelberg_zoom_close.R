@@ -147,6 +147,7 @@ axis(2, at = ticksy, pos = ylims[1], labels = ylabels, las = 1, cex.axis = label
 
 axis.break(axis=1,breakpos=NULL,pos=xlims[1],bgcol="white",breakcol="black",
            style="slash",brw=0.02)
+
 axis.break(axis=2,breakpos=NULL,pos=ylims[1],bgcol="white",breakcol="black",
            style="slash",brw=0.02)
 

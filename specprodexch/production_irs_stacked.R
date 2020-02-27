@@ -56,7 +56,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(0, prodFn(l = 2, k = 0.02, alpha = 2), prodFn(l = 6, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(2)), expression(paste(6)), NA)
+ylabels <- c(NA, expression(paste(0.08)), expression(paste(0.72)), NA)
 ticksx <- c(0, 2, 6, xlims[2])
 xlabels <- c(NA, 2, 6, NA)
 
@@ -77,7 +77,7 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.02, alpha = 2) - 6*MprodFn
 
 #Axis Labels
 #mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0, prodFn(l = 6, k = 0.02, alpha = 2), 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -91,8 +91,8 @@ points(2, prodFn(l = 2, k = 0.02, alpha = 2), pch = 16, col = "black", cex = 1.5
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(6.6, 1.1, expression(paste("Total Product")), cex = annotatesize)
-text(6.6, 1, expression(x == frac(1,50)*(l)^2), cex = annotatesize)
+text(6.2, 1.1, expression(paste("Total Product")), cex = annotatesize)
+text(6.2, 1, expression(x == frac(1,50)*(l)^2), cex = annotatesize)
 
 
 #Marginal Product
@@ -102,7 +102,7 @@ Arrows(4.7, 0.075, 2.3, 0.075, col = "black", lty = 1, lwd = 2, arr.type = "tria
 Arrows(6, 0.16, 6, 0.67, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Average Product
-text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.1, expression(paste("Slope of ray from origin")), cex = labelsize)
+text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.08, expression(paste("Slope of ray from origin")), cex = labelsize)
 text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.15, expression(paste("equals Average Product")), cex = labelsize)
 Arrows(1.5, prodFn(l = 6, k = 0.02, alpha = 2) - 0.175, 1.5, prodFn(l = 2, k = 0.02, alpha = 2) + 0.01 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, prodFn(l = 6, k = 0.02, alpha = 2) - 0.125, 4.75, prodFn(l = 6, k = 0.02, alpha = 2) - 0.125, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -141,10 +141,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, AprodFn(l = 2, k = 0.02, alpha = 2), MprodFn(l = 2, k = 0.02, alpha = 2), AprodFn(l = 8, k = 0.02, alpha = 2), MprodFn(l = 8, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(2)), expression(paste(2)), expression(paste(8)), expression(paste(8)), NA)
-ticksx <- c(0, 2, 8, xlims[2])
-xlabels <- c(NA, 2, 8, NA)
+ticksy <- c(0, AprodFn(l = 2, k = 0.02, alpha = 2), MprodFn(l = 2, k = 0.02, alpha = 2), AprodFn(l = 6, k = 0.02, alpha = 2), MprodFn(l = 6, k = 0.02, alpha = 2), ylims[2])
+ylabels <- c(NA, expression(paste(0.04)), expression(paste(0.08)), expression(paste(0.16)), expression(paste(0.32)), NA)
+ticksx <- c(0, 2, 6, xlims[2])
+xlabels <- c(NA, 2, 6, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -160,7 +160,7 @@ lines(xx1, AprodFn(xx1, alpha = 2, k = 0.02), col = COLA[4], lwd = graphlinewidt
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
 segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)

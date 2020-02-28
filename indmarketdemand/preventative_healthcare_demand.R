@@ -100,13 +100,13 @@ p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   theme_minimal() + 
   ggtitle("Demand for Preventative Healthcare Products") +
   theme(plot.title = element_text(hjust = 0.5)) + 
-  theme(legend.position="bottom", 
+  theme(legend.position= c(0.9,2), 
         legend.title=element_blank()) +
   guides(colour=guide_legend(nrow=5)) 
 
 print(p1)
 
-p2 <- ggplot(data_final_2, aes(x = x, y = y, group = product, color = product)) +
+p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   geom_point() + 
   geom_line() + 
   xlab("Price in USD") +
@@ -114,15 +114,15 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group = product, color = product)) 
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
-  theme(legend.position = "right") +
-  guides(colour = guide_legend(nrow = 16)) +
+  theme(legend.position = c(0.75,0.7)) +
+  guides(colour = guide_legend(override.aes=list(fill=NA),nrow = 2)) +
   labs(color = 'Healthcare Products') +
   theme(legend.title = element_blank()) +
   coord_flip() +
   scale_color_manual(values = COLD) + 
   theme(axis.title = element_text(size = 16),
         axis.text.y = element_text(size = 12),
-        legend.text = element_text(size = 11),
+        legend.text = element_text(size = 7.5),
         axis.text.x  = element_text(size = 12, angle = 45, vjust = 0.5)
   )
 

@@ -12,9 +12,11 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start =1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 7, 3, 3), mfrow = c(2, 1))
+par(mar =  c(4, 7, 0.2, 5), #margins
+    mfrow = c(2, 1)) #stacked plots
 
 
 #Change this to make it log of l 
@@ -57,25 +59,18 @@ plot(1, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 0.25)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(0, prodFn(l = 2, k = 0.5), prodFn(l = 6, k = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(0.55)), expression(paste(0.97)), NA)
-ticksx <- c(0, 2, 6, xlims[2])
-xlabels <- c(NA, 2, 6, NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
-xx3 <- seq(1, 3, length.out = npts)
-xx4 <- seq(5, 7, length.out = npts)
+xx3 <- seq(0.5, 3.5, length.out = npts)
+xx4 <- seq(4.25, 7.75, length.out = npts)
 
 lines(xx1, prodFn(xx1, k = 0.5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx2, MprodFn(xx1, k = 0.5), col = COLA[1], lwd = graphlinewidth)
 #lines(xx1, AprodFn(xx1, k = 0.5), col = COLA[2], lwd = graphlinewidth)
-lines(xx3, Mpline(xx3, constant = prodFn(l = 2, k = 0.5) - 2*MprodFn(l = 2, k = 0.5), slope = MprodFn(l = 2, k = 0.5)), col = "gray", lty = 2, lwd = graphlinewidth)
-lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 0.5), slope = MprodFn(l = 6, k = 0.5)), col = "gray", lty = 2, lwd = graphlinewidth)
+lines(xx3, Mpline(xx3, constant = prodFn(l = 2, k = 0.5) - 2*MprodFn(l = 2, k = 0.5), slope = MprodFn(l = 2, k = 0.5)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 0.5), slope = MprodFn(l = 6, k = 0.5)), col = Grays[21], lty = 2, lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
@@ -87,14 +82,29 @@ text(-1.5, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axis
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 segments(0, prodFn(l = 6, k = 0.5), 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, -2, 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(6, prodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
+segments(0, prodFn(l = 4, k = 0.5), 4, prodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, -2, 4, prodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 0, 4, prodFn(l = 4, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+points(4, prodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.5)
+
+
 segments(0, prodFn(l = 2, k = 0.5), 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2, -2, 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(2, prodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.5)
+
+ticksy <- c(0, prodFn(l = 2, k = 0.5), prodFn(l = 4, k = 0.5), prodFn(l = 6, k = 0.5), ylims[2])
+ylabels <- c(NA, expression(paste(0.55)), round(prodFn(l = 4, k = 0.5),2), expression(paste(0.97)), NA)
+ticksx <- c(0, 2, 4, 6, xlims[2])
+xlabels <- c(NA, 2, 4, 6, NA)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+
 
 #Label the iso-welfare functions for the HG, Aisha
 text(8.7, 1, expression(paste("Total product")), cex = labelsize)
@@ -109,8 +119,8 @@ Arrows(2.7, 0.3, 1.3, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 Arrows(4, 0.33, 4, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Marginal Product
-text(2, prodFn(l = 6, k = 0.5) + 0.02, expression(paste("Slope of tangent line")), cex = labelsize)
-text(2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal Product")), cex = labelsize)
+text(2.2, prodFn(l = 6, k = 0.5) + 0.03, expression(paste("Slope of tangent line")), cex = labelsize)
+text(2.2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal Product")), cex = labelsize)
 Arrows(2, prodFn(l = 6, k = 0.5) - 0.075, 2, prodFn(l = 2, k = 0.5) + 0.05 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, prodFn(l = 6, k = 0.5), 5.7, prodFn(l = 6, k = 0.5), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -131,7 +141,7 @@ Mpline <- function(l, constant = 0.3181472, slope = 0.125){
   constant + slope*l
 }
 xlims <- c(0, 10)
-ylims <- c(0, 0.52)
+ylims <- c(0, 0.5)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -148,10 +158,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-ticksy <- c(0, AprodFn(l = 2, k = 0.5), MprodFn(l = 2, k = 0.5), AprodFn(l = 6, k = 0.5), MprodFn(l = 6, k = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(0.27)), expression(paste(0.17)), expression(paste(0.16)), expression(paste(0.07)), NA)
-ticksx <- c(0, 2, 6, xlims[2])
-xlabels <- c(NA, 2, 6, NA)
+ticksy <- c(0, MprodFn(l = 6, k = 0.5), MprodFn(l = 4, k = 0.5), AprodFn(l = 6, k = 0.5),   MprodFn(l = 2, k = 0.5), AprodFn(l = 4, k = 0.5), AprodFn(l = 2, k = 0.5),  ylims[2])
+ylabels <- c(NA,  0.07, round(MprodFn(l = 4, k = 0.5),2), NA, NA, round(AprodFn(l = 4, k = 0.5),2), 0.27, NA)
+ticksx <- c(0, 2, 4, 6, xlims[2])
+xlabels <- c(NA, 2, 4, 6, NA)
+
+text(-0.66, 0.17, 0.17, xpd = TRUE, cex = labelsize) 
+text(-0.66, 0.15, 0.16, xpd = TRUE, cex = labelsize) 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -169,13 +182,23 @@ lines(xx1, AprodFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
+
+
 #Margin
-segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, MprodFn(l = 6, k = 0.5), 8, MprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 6, k = 0.5), 8, AprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, 0, 6, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 6, k = 0.5), 6, MprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 6, k = 0.5), 6, AprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6, MprodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(6, AprodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.2)
-segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+
+segments(4, 0, 4, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 4, k = 0.5), 4, MprodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 4, k = 0.5), 4, AprodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(4, MprodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.2)
+points(4, AprodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.2)
+
+
+segments(2, 0, 2, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, MprodFn(l = 2, k = 0.5), 2, MprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, AprodFn(l = 2, k = 0.5), 2, AprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(2, MprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
@@ -188,12 +211,12 @@ text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
-text(9.5, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = annotatesize, xpd = TRUE)
-text(9.75, MprodFn(l = 9.5, k = 0.5) + 0.015, expression(paste(mp(l) == frac(1,'2l'+2))), cex = annotatesize, xpd = TRUE)
+text(10, MprodFn(l = 9.5, k = 0.5) + 0.055, expression(paste("Marginal product")), cex = annotatesize, xpd = TRUE)
+text(10, MprodFn(l = 9.5, k = 0.5) + 0.015, expression(paste(mp(l) == frac(1,2*(l+1) ))), cex = annotatesize, xpd = TRUE)
 
 #Average Product
-text(8, AprodFn(l = 9.5, k = 0.5) + 0.1, expression(paste("Average product")), cex = annotatesize)
-text(8, AprodFn(l = 9.5, k = 0.5) + 0.05, expression(paste(ap(l) == frac(1,'2l')*(ln('l'+1)) )), cex = annotatesize)
+text(10, AprodFn(l = 9.5, k = 0.5) + 0.1, expression(paste("Average product")), cex = annotatesize, xpd = TRUE)
+text(10, AprodFn(l = 9.5, k = 0.5) + 0.05, expression(paste(ap(l) == frac(1,'2l')*(ln(l+1)) )), cex = annotatesize, xpd = TRUE)
 
 
 dev.off()

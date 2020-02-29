@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(3, 3, 1, 3))
 
 #Change this to make it log of l 
 
@@ -96,10 +96,10 @@ lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 lines(xx4, manufactureProd(xx4, k =  2.529822, alpha = 0.5), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of food, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.5, 8, expression(paste("Shirts,", y)), xpd = TRUE, srt = 90, cex = labelsize) 
-text(8, 0.4, expression(paste("Kilograms of Fish, ", x)), xpd = TRUE, cex = labelsize)
-text(0.5, -7.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = labelsize, srt= 90) 
-text(-7.5, 0.5, expression(paste("Labor for Shirts, ", l^c)), xpd = TRUE, cex = labelsize)
+text(-0.75, 9.5, expression(paste("Shirts,", y)), xpd = TRUE, srt = 90, cex = labelsize) 
+text(10.1, -0.75, expression(paste("Kgs of Fish, ", x)), xpd = TRUE, cex = labelsize)
+text(0.5, -9.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = labelsize, srt= 90) 
+text(-9.5, 0.5, expression(paste("Labor for Shirts, ", l^c)), xpd = TRUE, cex = labelsize)
 
 #Label the points on the axes we want
 #text(-0.6, 2.8, expression(paste(12.5)), xpd = TRUE, cex = axislabelsize)
@@ -110,6 +110,10 @@ text(-5, -0.3, expression(paste(5)), xpd = TRUE, cex = labelsize)
 text(-0.3, -5.3, expression(paste(5)), xpd = TRUE, cex = labelsize)
 text(-10.3, -0.3, expression(paste(10)), xpd = TRUE, cex = labelsize)
 text(-0.5, -10.3, expression(paste(10)), xpd = TRUE, cex = labelsize)
+
+#Feasble output
+text(2.65, 2.8, expression("Feasible"),cex = labelsize)
+text(2.65, 2.2, expression("output"),cex = labelsize)
 
 #Label the two production functions
 #Clothing
@@ -139,15 +143,15 @@ points(-10, 8, pch = 16, col = "black", cex = 1.5)
 #Annotate Max time on farming
 segments(0, -10, 8, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(8, -10, 8, 0, lty = 2, col = "gray", lwd = segmentlinewidth)
-text(5.2, -10, expression(paste("10 hrs of labor")), xpd= TRUE, cex = labelsize)
-text(5, -10.7, expression(paste("for fishing produces")), xpd= TRUE, cex = labelsize)
-text(5.2, -11.5, expression(paste("8 kgs of fish")),xpd= TRUE, cex = labelsize)
+text(5.2, -10.4, expression(paste("10 hrs of labor")), xpd= TRUE, cex = labelsize)
+text(5, -11.1, expression(paste("for fishing produces")), xpd= TRUE, cex = labelsize)
+text(5.2, -11.9, expression(paste("8 kgs of fish")),xpd= TRUE, cex = labelsize)
 points(8, -10, pch = 16, col = "black", cex = 1.5)
 
 #Annotate point on ppf 
 points(manufactureProd(-5), manufactureProd(-5), pch = 16, col = "black", cex = 1.5)
-text(manufactureProd(-5) + 3.5, manufactureProd(-5) + 0.5, expression(paste("5.66 shirts &")),xpd= TRUE, cex = labelsize)
-text(manufactureProd(-5) + 4, manufactureProd(-4.5), expression(paste("5.66 kilograms of fish")),xpd= TRUE, cex = labelsize)
+# text(manufactureProd(-5) + 3.5, manufactureProd(-5) + 0.5, expression(paste("5.66 shirts &")),xpd= TRUE, cex = labelsize)
+# text(manufactureProd(-5) + 4, manufactureProd(-4.5), expression(paste("5.66 kilograms of fish")),xpd= TRUE, cex = labelsize)
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)
@@ -155,15 +159,20 @@ text(-7, -5, expression(paste(list(l^c ==5, l^f == 5))), cex = labelsize)
 
 text(-3, -9, expression(paste(l^c + l^f <= 10)), cex = labelsize)
 Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(-3, -9.8, expression("Constraint"),cex = labelsize)
+text(-3, -10.5, expression("on total"),cex = labelsize, xpd = TRUE)
+text(-3, -11.2, expression("labor hours"),cex = labelsize, xpd = TRUE)
+
+
 
 #Label the feasible frontier
-text(5.5, 9, expression("Feasible Frontier"),cex = labelsize)
-text(5.5, 8.4, expression("(production possibilities frontier)"),cex = labelsize)
+text(5.5, 8, expression("Feasible Frontier"),cex = labelsize)
+#text(5.5, 8.4, expression("(production possibilities frontier)"),cex = labelsize)
 
-# Label constaint 
+# Label constraint 
 #Label the feasible frontier
-text(-2.65, -2.2, expression("Constraint"),cex = labelsize)
-text(-2.65, -2.8, expression("on totals"),cex = labelsize)
-text(-2.65, -3.4, expression("labor hours"),cex = labelsize)
+text(-2.65, -2.2, expression("Feasible"),cex = labelsize)
+text(-2.65, -2.8, expression("labor hours"),cex = labelsize)
+#text(-2.65, -3.4, expression("labor hours"),cex = labelsize)
 
 dev.off()

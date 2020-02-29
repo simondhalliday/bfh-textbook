@@ -57,13 +57,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 0.25)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(0, prodFn(l = 2, k = 0.02, alpha = 2), prodFn(l = 4, k = 0.02, alpha = 2), prodFn(l = 6, k = 0.02, alpha = 2), ylims[2])
-ylabels <- c(NA, expression(paste(0.08)), prodFn(l = 4, k = 0.02, alpha = 2), expression(paste(0.72)), NA)
-ticksx <- c(0, 2, 4, 6, xlims[2])
-xlabels <- c(NA, 2, 4, 6, NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -82,14 +75,28 @@ lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.02, alpha = 2) - 6*MprodFn
 text(-1.5, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0, prodFn(l = 6, k = 0.02, alpha = 2), 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, -1, 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 6, prodFn(l = 6, k = 0.02, alpha = 2), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(6, prodFn(l = 6, k = 0.02), pch = 16, col = "black", cex = 1.5)
 
 segments(0, prodFn(l = 2, k = 0.02, alpha = 2), 2, prodFn(l = 2, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, 0, 2, prodFn(l = 2, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2, -1, 2, prodFn(l = 2, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 2, prodFn(l = 2, k = 0.02, alpha = 2), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(2, prodFn(l = 2, k = 0.02, alpha = 2), pch = 16, col = "black", cex = 1.5)
+
+segments(0, prodFn(l = 4, k = 0.02, alpha = 2), 4, prodFn(l = 4, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, -1, 4, prodFn(l = 4, k = 0.02, alpha = 2), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 0, 4, prodFn(l = 4, k = 0.02, alpha = 2), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+points(4, prodFn(l = 4, k = 0.02, alpha = 2), pch = 16, col = "black", cex = 1.5)
+
+ticksy <- c(0, prodFn(l = 2, k = 0.02, alpha = 2), prodFn(l = 4, k = 0.02, alpha = 2), prodFn(l = 6, k = 0.02, alpha = 2), ylims[2])
+ylabels <- c(NA, expression(paste(0.08)), prodFn(l = 4, k = 0.02, alpha = 2), expression(paste(0.72)), NA)
+ticksx <- c(0, 2, 4, 6, xlims[2])
+xlabels <- c(NA, 2, 4, 6, NA)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
 
 #Label total product
 text(6.2, 1.1, expression(paste("Total Product")), cex = annotatesize)
@@ -176,11 +183,18 @@ segments(0, MprodFn(l = 6, k = 0.02), 6, MprodFn(l = 6, k = 0.02), lty = 2, col 
 segments(0, AprodFn(l = 6, k = 0.02), 6, AprodFn(l = 6, k = 0.02), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6, MprodFn(l = 6, k = 0.02), pch = 16, col = "black", cex = 1.2)
 points(6, AprodFn(l = 6, k = 0.02), pch = 16, col = "black", cex = 1.2)
+
 segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, MprodFn(l = 2, k = 0.02), 2, MprodFn(l = 2, k = 0.02), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, AprodFn(l = 2, k = 0.02), 2, AprodFn(l = 2, k = 0.02), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(2, MprodFn(l = 2, k = 0.02), pch = 16, col = "black", cex = 1.2)
 points(2, AprodFn(l = 2, k = 0.02), pch = 16, col = "black", cex = 1.2)
+
+segments(4, 0, 4, 1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 4, k = 0.02), 4, MprodFn(l = 4, k = 0.02), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 4, k = 0.02), 4, AprodFn(l = 4, k = 0.02), lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(4, MprodFn(l = 4, k = 0.02), pch = 16, col = "black", cex = 1.2)
+points(4, AprodFn(l = 4, k = 0.02), pch = 16, col = "black", cex = 1.2)
 
 
 text(6.2, 1.1, expression(paste("Total product")))
@@ -189,12 +203,12 @@ text(6.2, 1, expression(x == frac(1,50)*(l)^2))
 
 #Marginal Product
 #text(6, 0.1, expression(paste("Slope of tangent line")))
-text(6.5, MprodFn(l = 6.5, k = 0.02, alpha = 2) + 0.11, expression(paste("Marginal product")), cex = labelsize)
-text(6.5, MprodFn(l = 6.5, k = 0.02, alpha = 2) + 0.07, expression(paste(mp(l) == frac(1,25)*(l) )), cex = labelsize)
+text(7.5, MprodFn(l = 7.5, k = 0.02, alpha = 2) + 0.08, expression(paste("Marginal product")), cex = labelsize, xpd = TRUE)
+text(7.5, MprodFn(l = 7.5, k = 0.02, alpha = 2) + 0.05, expression(paste(mp(l) == frac(1,25)*(l) )), cex = labelsize)
 
 #Average Product
-text(6.5, AprodFn(l = 6.5, k = 0.02, alpha = 2) - 0.05, expression(paste("Average product")), cex = labelsize)
-text(6.5, AprodFn(l = 6.5, k = 0.02, alpha = 2) - 0.08, expression(paste(ap(l) == frac(1,50)*(l) )), cex = labelsize)
+text(7.5, AprodFn(l = 7.5, k = 0.02, alpha = 2) - 0.035, expression(paste("Average product")), cex = labelsize)
+text(7.5, AprodFn(l = 7.5, k = 0.02, alpha = 2) - 0.065, expression(paste(ap(l) == frac(1,50)*(l) )), cex = labelsize)
 
 
 

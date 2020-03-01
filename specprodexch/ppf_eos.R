@@ -160,11 +160,11 @@ text(-6.75, -5, expression(paste(list(l^S ==5, l^F == 5) )),cex = annotatesize)
 text(-4.5, -4.5, expression(paste("d")),cex = annotatesize)
 
 
-text(-2.65, -2.2, expression("Constraint"),cex = labelsize)
-text(-2.65, -2.8, expression("on totals"),cex = labelsize)
-text(-2.65, -3.4, expression("labor hours"),cex = labelsize)
-text(-5, -9, expression(paste(l^S + l^F <= 10)),cex = annotatesize)
-Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(-8, -6.5, expression("Constraint"),cex = labelsize)
+text(-8, -7, expression("on totals"),cex = labelsize)
+text(-8, -7.5, expression("labor hours"),cex = labelsize)
+text(-8, -8.3, expression(paste(l^S + l^F <= 10)),cex = annotatesize)
+Arrows(-6, -7, -3.5, -7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the feasible frontier
 text(5.5, 8, expression("Feasible Frontier"), cex = annotatesize)

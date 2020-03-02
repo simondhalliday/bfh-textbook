@@ -75,9 +75,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 4.5, 4.9, 10, ylims[2])
-ylabels <- c(NA, expression(paste(y[d])), expression(paste(y[sc])),expression(paste(y[sp] == bar(y)))   , NA)
+ylabels <- c(NA, expression(paste(4.5)), expression(paste(4.9)),expression(paste(10))   , NA)
 ticksx <- c(xlims[1], 1.65, 3.4, 5,  xlims[2])
-xlabels <- c(expression(paste(x[sp])), expression(paste(x[d])), expression(paste(x[sc])), expression(paste(bar(x))), NA)
+xlabels <- c(expression(paste(x[sp])), expression(paste(1.65)), expression(paste(3.4)), expression(paste(5)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -145,7 +145,7 @@ points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 #Label the exchange constraint
 text(6.6, 3.5, expression("Exchange"), cex = labelsize)
 text(6.6, 3.2, expression("Budget Constraint"), cex = labelsize)
-Arrows(6.6, 3, 5, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5.9, 3.5, 4.5, 3.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
 text(5.8, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

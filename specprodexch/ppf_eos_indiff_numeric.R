@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "specprodexch/ppf_eos_indiff.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_eos_indiff_numeric.pdf", width = 9, height = 9)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -137,15 +137,15 @@ text(0.2, 10.2, expression(s), cex = labelsize)
 points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
 #Label the feasible frontier
-text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)
-text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
-Arrows(3.2, 7.8, 0.75, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)
+#text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
+#Arrows(3.2, 7.8, 0.75, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the exchange constraint
 text(6.6, 3.5, expression("Exchange"), cex = labelsize)
 text(6.6, 3.2, expression("Budget Constraint"), cex = labelsize)
-Arrows(6.6, 3, 6.6, 0.275, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(6.6, 3, 5, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
 text(5.8, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

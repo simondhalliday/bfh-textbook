@@ -143,8 +143,8 @@ points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
 
 #Label the exchange constraint
-text(6.6, 3.5, expression("Exchange"), cex = labelsize)
-text(6.6, 3.2, expression("Budget Constraint"), cex = labelsize)
+text(6.6, 3.5, expression("Feasible frontier"), cex = labelsize)
+text(6.6, 3.2, expression("with exchange when specializing in shirts"), cex = labelsize)
 Arrows(5.9, 3.5, 4.5, 3.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs

@@ -44,7 +44,7 @@ manufactureProd <- function(l, k = 0.1, alpha = 2){
 }
 
 xlims <- c(-10, 10)
-ylims <- c(-10, 10)
+ylims <- c(-11, 11)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -110,12 +110,12 @@ text(-0.5, -10.3, expression(paste(10)), xpd = TRUE, cex = annotatesize)
 #Label the two production functions
 #Clothing
 text(-3.25, 6, expression(paste("Shirt Production")), xpd = TRUE, cex = annotatesize)
-text(-3.25, 5, expression(paste(y == frac(1,2)(l^s)^2)), xpd = TRUE, cex = annotatesize)
+text(-3.15, 4.8, expression(paste(y == frac(1,2)(l^s)^2)), xpd = TRUE, cex = annotatesize)
 Arrows(-4.5, 5, -6.5, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Fishing
 text(6.8, -4.8, expression(paste("Fish Production")), xpd = TRUE, cex = annotatesize)
-text(7, -5.8, expression(paste(x == frac(1,2)(l^f))), xpd = TRUE, cex = annotatesize)
+text(7, -6, expression(paste(x == frac(1,2)(l^f))), xpd = TRUE, cex = annotatesize)
 Arrows(5.8, -5.8, 3.5, -5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Draw segments for the 50/50 split of time
@@ -128,8 +128,8 @@ segments(2.5, -5, 2.5, 2.5, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(-10, 0, -10, 10, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(-10, 10, 0, 10, lty = 2, col = "gray", lwd = segmentlinewidth)
 text(-6.5, 9.5, expression(paste("10 hrs of labor")), cex = annotatesize)
-text(-6.5, 8.9, expression(paste("for shirts produces")),  cex = annotatesize)
-text(-6.5, 8.3, expression(paste("50 shirts")),  cex = annotatesize)
+text(-6.5, 8.7, expression(paste("for shirts produces")),  cex = annotatesize)
+text(-6.5, 8.1, expression(paste("50 shirts")),  cex = annotatesize)
 points(-10, 10, pch = 16, col = "black", cex = 1.5)
 text(-9.7, 10.5, expression(paste("a")),  cex = annotatesize)
 
@@ -140,8 +140,8 @@ text(-5, 3, expression(paste("e")), cex = annotatesize)
 segments(0, -10, 5, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(5, -10, 5, 0, lty = 2, col = "gray", lwd = segmentlinewidth)
 text(7.8, -8.4, expression(paste("10 hrs of labor")), cex = annotatesize)
-text(7.8, -9, expression(paste("for fishing produces")),cex = annotatesize)
-text(7.8, -9.6, expression(paste("5 kgs of fish")), cex = annotatesize)
+text(7.8, -9.2, expression(paste("for fishing produces")),cex = annotatesize)
+text(7.8, -9.9, expression(paste("5 kgs of fish")), cex = annotatesize)
 points(5, -10, pch = 16, col = "black", cex = 1.5)
 text(4.6, -10.5, expression(paste("c")), cex = annotatesize)
 
@@ -150,9 +150,9 @@ text(3, -5, expression(paste("f")), cex = annotatesize)
 
 #Annotate point on ppf 
 points(2.5, 2.5, pch = 16, col = "black", cex = 1.5)
-text(5.6, 3.35, expression(paste("12.5 Shirts and")),cex = annotatesize)
-text(5.6, 2.75, expression(paste("2.5 Kilograms of Fish")), cex = annotatesize)
-text(2.2, 2.2, expression(paste("b")), cex = annotatesize)
+#text(5.6, 3.35, expression(paste("12.5 Shirts and")),cex = annotatesize)
+#text(5.6, 2.75, expression(paste("2.5 Kilograms of Fish")), cex = annotatesize)
+text(2.9, 2.6, expression(paste("b")), cex = annotatesize)
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)
@@ -161,14 +161,15 @@ text(-4.5, -4.5, expression(paste("d")),cex = annotatesize)
 
 
 text(-8, -6.5, expression("Constraint"),cex = labelsize)
-text(-8, -7, expression("on totals"),cex = labelsize)
-text(-8, -7.5, expression("labor hours"),cex = labelsize)
-text(-8, -8.3, expression(paste(l^S + l^F <= 10)),cex = annotatesize)
+text(-8, -7.1, expression("on totals"),cex = labelsize)
+text(-8, -7.7, expression("labor hours"),cex = labelsize)
+text(-8, -8.5, expression(paste(l^S + l^F <= 10)),cex = annotatesize)
 Arrows(-6, -7, -3.5, -7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the feasible frontier
-text(5.5, 8, expression("Feasible Frontier"), cex = annotatesize)
-text(5.5, 7.4, expression("(production possibilities frontier)"), cex = annotatesize)
+text(1.4, 2, expression("Feasible"), cex = annotatesize)
+text(1.4, 1.4, expression("set of"), cex = annotatesize)
+text(1.4, 0.7, expression("outputs"), cex = annotatesize)
 
 # Label constaint 
 #Label the feasible frontier

@@ -30,7 +30,7 @@ plot1
 
 
 
-ggsave("coordination_failures/bargraph.pdf", plot1, width = 11, height = 7)
+ggsave("coordination_failures/NE_bargraph.pdf", plot1, width = 11, height = 7)
 
 # scale_fill_discrete(name = "", 
 #                     breaks = c("ua", "ub", "totalu"), 

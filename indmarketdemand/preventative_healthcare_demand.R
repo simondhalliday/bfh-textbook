@@ -114,16 +114,16 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
-  theme(legend.position = c(0.75,0.7)) +
-  guides(colour = guide_legend(override.aes=list(fill=NA),nrow = 2)) +
+  theme(legend.position = c(0.77,0.78)) +
+  #guides(colour = guide_legend(override.aes=list(fill=NA),nrow = 2)) +
   labs(color = 'Healthcare Products') +
   theme(legend.title = element_blank()) +
   coord_flip() +
   scale_color_manual(values = COLD) + 
-  theme(axis.title = element_text(size = 16),
-        axis.text.y = element_text(size = 12),
-        legend.text = element_text(size = 7.5),
-        axis.text.x  = element_text(size = 12, angle = 45, vjust = 0.5)
+  theme(axis.title = element_text(size = 24),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 12),
+        axis.text.x  = element_text(size = 14, angle = 45, vjust = 0.5)
   )
 
 print(p2)
@@ -151,11 +151,12 @@ p3 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
   theme_bw() + 
   theme(plot.title = element_text(hjust = 0.5),
         legend.position = "none",
-        legend.title = element_blank()) +
+        legend.title = element_blank()
+        ) +
   coord_flip() 
 
 print(p3)
-
+p2
 # #Plot 
 # p = ggplot() + 
 #   geom_point(data = df_kenya_bednets, aes(x=x, y=y), color = "blue", shape = 15) +

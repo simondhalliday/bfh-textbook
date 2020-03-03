@@ -2,9 +2,13 @@ require(shape)
 pdf(file = "indmarketdemand/budget_basic.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -56,12 +60,17 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 12, ylims[2])
-ylabels <- c(NA, expression(paste(y == w/p[y])), NA)
+ylabels <- c(NA, expression(paste(y == frac(w, p[y]) )), NA)
 ticksx <- c(0, 12, xlims[2])
-xlabels <- c(NA,  expression(paste(x == w/p[x])), NA)
+xlabels <- c(NA, NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(12, -1, expression(paste(x == frac(w, p[x]) )), cex = labelsize, xpd = TRUE)
+
+
+
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -78,17 +87,17 @@ lines(xx1, bcA(xx1, w = 12, p = 1), col = COLA[3], lwd = graphlinewidth)
 mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(4, 4, expression("Feasible"))
-text(4, 3.5, expression("(within the budget)"))
-text(10, 10, expression("Infeasible"))
-text(10, 9.5, expression("(outside the budget)"))
+text(4, 4, expression("Feasible"), cex = annotatesize)
+text(4, 3.3, expression("(within the budget)"), cex = annotatesize)
+text(10, 10, expression("Infeasible"), cex = annotatesize)
+text(10, 9.3, expression("(outside the budget)"), cex = annotatesize)
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
 #text(4, 1.5, expression(bc[px]))
 #text(7.5, 1.5, expression(bc[px]))
-text(11.5, 3, expression("Budget Constraint"))
-text(11.5, 2, expression(paste(y == frac(w,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)))
+text(11, 3.6, expression("Budget Constraint"), cex = annotatesize)
+text(11, 2.6, expression(paste(y == frac(w,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)), cex = annotatesize)
 
 dev.off()

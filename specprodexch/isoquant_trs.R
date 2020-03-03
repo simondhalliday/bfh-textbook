@@ -20,7 +20,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 3, 3))
+par(mar =  c(6, 6, 1, 1))
 
 uFn <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1 - alpha))
@@ -80,8 +80,8 @@ mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3.5, cex = axis
 text(-1.5, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
-text(8.8, 1.25, expression("Cobb-Douglas"), cex = labelsize, xpd = TRUE)
-text(8.8, 0.75, expression(paste("isoquant ", underline(x) ==f(l,k))), cex = labelsize, xpd = TRUE)
+text(8.2, 1.25, expression("Cobb-Douglas"), cex = labelsize, xpd = TRUE)
+text(8.2, 0.75, expression(paste("isoquant ", underline(x) ==f(l,k))), cex = labelsize, xpd = TRUE)
 
 text(8, 4, expression(paste(mrts(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize, xpd = TRUE)
 Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -94,7 +94,8 @@ Arrows(3, 8, 2.5, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 #Label feasible and infeasible
-text(8, 9, expression(paste(mrts(l,k) == frac(x[l], x[k]), phantom() == frac(mp[l], mp[k]), phantom() == -frac(dk,dl))), cex = labelsize, xpd = TRUE)
+#Label removed for now
+#text(8, 9, expression(paste(mrts(l,k) == frac(x[l], x[k]), phantom() == frac(mp[l], mp[k]), phantom() == -frac(dk,dl))), cex = labelsize, xpd = TRUE)
 
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier

@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "indmarketdemand/budget_incomechange_offercurve_cd.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,8 +15,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
+
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 uA <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1-alpha))
@@ -47,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 9, 12, ylims[2])
-ylabels <- c(NA, expression(paste(y==frac(m[1], p[y]) )), expression(paste(y == frac(m[2],p[y] ) )), expression(paste(y == frac(m[3],p[y])  )), NA)
+ylabels <- c(NA, expression(paste(frac(m[1],p[y]) )), expression(paste(frac(m[2],p[y]) )), expression(paste(frac(m[3],p[y]) )), NA)
 ticksx <- c(0, 6, 9, 12, xlims[2])
 xlabels <- c(NA, expression(paste(x == m[1]/p[x])), expression(paste(x == m[2]/p[x])), expression(paste(x == m[3]/p[x])), NA)
 
@@ -65,23 +69,23 @@ abline(0, 1, col=COL[3], lwd=graphlinewidth)
 
 #Label Axes
 #mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], ylims[1] - 0.15*ylims[2], expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.3, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.5, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
 
 #Label the budget curve functions for the HG, Aisha
-text(6.6, .3, expression(bc[m1]), cex = labelsize)
-text(9.6, .3, expression(bc[m2]), cex = labelsize)
-text(12.6, .3, expression(bc[m3]), cex = labelsize)
+text(5.2, .3, expression(bc[1]), cex = annotatesize)
+text(8.2, .3, expression(bc[2]), cex = annotatesize)
+text(11.2, .3, expression(bc[3]), cex = annotatesize)
 
-text(11, 9, expression(paste("Income offer curve")), cex = labelsize)
-
+text(11, 9.2, expression(paste("Income-offer")), cex = labelsize)
+text(11, 8.4, expression(paste("curve")), cex = labelsize)
 
 #adding iso-welfare functions:
 
 #Label the iso-welfare functions for the HG, Aisha
-# text(11.8, 1.6, expression(u[1]))
-# text(11.8, 3.3, expression(u[2]))
-# text(11.8, 5.7, expression(u[3]))
+text(1.1, 11.8, expression(u[1]), cex = annotatesize)
+text(2.05, 11.8, expression(u[2]), cex = annotatesize)
+text(3.4, 11.8, expression(u[3]), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 contour(x, y, 
@@ -95,11 +99,11 @@ contour(x, y,
         add = TRUE)
 
 points(3, 3, pch = 16, col = "black", cex = 1.5)
-text(3.2, 3.5, expression(a))
+text(3, 3.5, expression(a), cex = annotatesize)
 points(4.5, 4.5, pch = 16, col = "black", cex = 1.5)
-text(4.7, 5, expression(b))
+text(4.5, 5, expression(b), cex = annotatesize)
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.2, 6.5, expression(c))
+text(6, 6.5, expression(c), cex = annotatesize)
 
 
 dev.off()

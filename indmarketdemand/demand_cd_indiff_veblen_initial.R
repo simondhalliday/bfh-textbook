@@ -2,7 +2,11 @@ require(shape)
 pdf(file = "indmarketdemand/demand_cd_indiff_veblen_initial.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -11,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 uA <- function(x, y, alpha = 0.5) {
   x^(alpha)*y^(1 - alpha)
@@ -54,8 +58,8 @@ ylabels <- c(NA, expression(paste(1 - h,"*")), expression(paste(l == 1)), NA)
 ticksx <- c(0, 2,  4, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*" == w*h,"*")),  expression(paste(x == w)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -64,15 +68,15 @@ lines(xx1, bcA(xx1, w = 0.25, h = 1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
-
-mtext(expression(paste("Consumption, ", x == w*h)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.5, 0.5*ylims[2], expression(paste("Leisure time as a proportion of the day, ", l == 1 - h)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -0.15, expression(paste("Consumption, ", x == w*h)), xpd = TRUE, cex = axislabelsize) 
+#mtext(expression(paste("Consumption, ", x == w*h)), side=1, line = 2.5, cex = axislabelsize)
+text(-0.66, 0.5*ylims[2], expression(paste("Leisure time as a proportion, ", l == 1 - h)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Label the iso-welfare functions for the HG, Aisha
 # text(4.6, 0.04, expression(u[1]^v))
 # text(4.6, 0.13, expression(u[2]^v))
-text(4.6, 0.26, expression(paste(u == u,"*")))
+text(4.6, 0.25, expression(paste(u,"*")), cex = annotatesize)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -87,7 +91,7 @@ contour(x, y,
 segments(0, 0.5, 2, 0.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(2, 0, 2, 0.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(2, 0.5, pch = 16, col = "black", cex = 1.5)
-text(1.9, 0.48, expression(a))
+text(1.9, 0.48, expression(a), cex = annotatesize)
 
 text(10, 10, expression(paste("Budget constraint, ", bc[1])))
 Arrows(10, 9.7, 10, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

@@ -55,7 +55,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 13, 15, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y == u[1])), expression(paste(y == u[2])), expression(paste(y == u[3])), NA)
+  ylabels <- c(NA, expression(paste(13)), expression(paste(15)), expression(paste(17)), NA)
 ticksx <- c(0,  xlims[2])
 xlabels <- c(NA, NA)
 

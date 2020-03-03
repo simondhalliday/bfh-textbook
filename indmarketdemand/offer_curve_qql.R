@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "indmarketdemand/offer_curve_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(4, 4, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -42,7 +45,7 @@ ylims <- c(0, 12)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(13, 16.75, 19.25)
+a <- c(13, 16.75, 19.2)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -58,8 +61,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-ticksy <- c(0, 4, 5.5, 7.375 , ylims[2])
-ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), NA)
+ticksy <- c(0, 4, 5.5, 7.375 , 10, ylims[2])
+ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2])), expression(paste(y[3])), expression(paste(m)), NA)
 ticksx <- c(0, 6, 9, 10.5,  xlims[2])
 xlabels <- c(NA, expression(paste(x[1])==6), expression(paste(x[2])==9), expression(paste(x[3])==10.5), NA)
 
@@ -79,24 +82,25 @@ lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.3, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(11.8, 1.3, expression(u[1]), cex = labelsize)
 text(11.8, 5.1, expression(u[2]), cex = labelsize)
-text(11.8, 7.6, expression(u[3]), cex = labelsize)
+text(11.8, 7.5, expression(u[3]), cex = labelsize)
 
 #Label the price lines
-text(8, 1.7, expression(paste(bc[1])))
-text(8, 1.3, expression(paste(p[x] == 1)))
-text(11.3, 4.1, expression(paste(bc[2])))
-text(11.3, 3.7, expression(paste(p[x] == 0.5)))
-text(11.3, 6.9, expression(paste(bc[3])))
-text(11.3, 6.5, expression(paste(p[x] == 0.25)))
+text(8, 1.7, expression(paste(bc[1])), cex = annotatesize)
+text(8, 1.2, expression(paste(p[x] == 1)), cex = annotatesize)
+text(11.3, 4.1, expression(paste(bc[2])), cex = annotatesize)
+text(11.3, 3.6, expression(paste(p[x] == 0.5)), cex = annotatesize)
+text(11.3, 6.9, expression(paste(bc[3])), cex = annotatesize)
+text(11.3, 6.4, expression(paste(p[x] == 0.25)), cex = annotatesize)
 
 #Label the offer curve
-text(10.8, 9.7, expression("Offer Curve"), cex = labelsize)
+text(10.9, 10.2, expression("Price-offer"), cex = labelsize)
+text(10.9, 9.7, expression("curve"), cex = labelsize)
 
 #Add the contour plot for the indifference curves
 contour(x, y, 

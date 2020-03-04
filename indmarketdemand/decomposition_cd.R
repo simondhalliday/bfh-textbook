@@ -6,8 +6,10 @@ library(shape)
 pdf(file = "indmarketdemand/decomposition_cd.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -17,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 2, 2))
+par(mar =  c(5, 7, 1, 1))
 
 #Original budget constraint and pivoted budget constraint
 
@@ -89,8 +91,9 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-12.5, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -4, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-14, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bc1(xx1), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bc2(xx1), col = COLB[3], lwd = graphlinewidth)
@@ -99,15 +102,15 @@ lines(xx1, cbc1(xx1), col = COLB[5], lwd = graphlinewidth)
 
 #Label curves
 
-text(22, 39, expression(u[1]), cex = labelsize)
+text(22.5, 39, expression(u[1]), cex = labelsize)
 text(31.5, 39, expression(u[2]), cex = labelsize)
-text(78, 2.5, expression(bc[1]), cex = labelsize)
+text(78, 2.8, expression(bc[1]), cex = labelsize)
 text(78, 12, expression(bc[2]), cex = labelsize)
 text(78, 7.5, expression(cbc[1]), cex = labelsize)
 
 #Label points e-sub, e, e'
 
-text(47 + 1, cbc1(47) + 1, expression(paste(e[sub])), cex = labelsize)
+text(47 + 3, cbc1(47) + 1, expression(paste(e[sub])), cex = labelsize)
 segments(47, 0, 47, cbc1(x = 47), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, cbc1(x = 47), 47, cbc1(47), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(47, cbc1(x = 47), pch = 16, col = "black", cex = 1.5)
@@ -117,7 +120,7 @@ segments(56.8, 0, 56.8, bc2(x = 56.8), lty = 2, col = "gray", lwd = segmentlinew
 segments(0, bc2(x = 56.8), 56, bc2(x = 56.8), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(56.8, bc2(x = 56.8), pch = 16, col = "black", cex = 1.5)
 
-text(39 - 0.9, bc1(39) - .9, expression(paste(e*minute)), cex = labelsize)
+text(39 - 2, bc1(39) - .9, expression(paste(e*minute)), cex = labelsize)
 segments(39, 0, 39, bc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(39, bc1(x = 39), pch = 16, col = "black", cex = 1.5)
 

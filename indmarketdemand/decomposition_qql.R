@@ -6,8 +6,10 @@ library(shape)
 pdf(file = "indmarketdemand/decomposition_qql.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -17,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 2, 2))
+par(mar =  c(5, 5, 1, 1))
 
 #Original budget constraint and pivoted budget constraint
 
@@ -91,8 +93,8 @@ contour(x, y,
 
 
 #Axis labels
-mtext(expression(paste("Kilograms of fish, x")), side = 1, line = 2.5, cex = axislabelsize)
-text(-8.5, 0.5*ylims[2], expression(paste("Money for other goods, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -4, expression(paste("Kilograms of fish, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-9.5, 0.5*ylims[2], expression(paste("Money for other goods, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 
@@ -104,7 +106,7 @@ text(78, 7.5, expression(cbc[1]), cex = labelsize)
 
 #Label points e-sub, e, e'
 
-text(40.2, cbc1(39)+.9, expression(paste(e[sub])), cex = labelsize)
+text(40 + 2, cbc1(39)+.9, expression(paste(e[sub])), cex = labelsize)
 segments(39, 0, 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, cbc1(x = 39), 39, cbc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
 
@@ -114,7 +116,7 @@ segments(55, 0, 55, bc2(x = 55), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bc2(x = 55), 55, bc2(x = 55), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
-text(39 - 1, bc1(39) - 1, expression(paste(e*minute)), cex = labelsize)
+text(39 - 1.5, bc1(39) - 1, expression(paste(e*minute)), cex = labelsize)
 segments(0, bc1(x = 39), 39, bc1(x = 39), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 

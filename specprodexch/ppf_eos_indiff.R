@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 4, 4))
+par(mar =  c(5, 8, 1, 1))
 
 #Change this to make it log of l 
 
@@ -75,9 +75,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 4.5, 4.9, 10, ylims[2])
-ylabels <- c(NA, expression(paste(y[d])), expression(paste(y[sc])),expression(paste(y[sp] == bar(y)))   , NA)
+ylabels <- c(NA, expression(paste(y[d]) == 4.5), expression(paste(y[sc]) == 4.9),expression(paste(y[sp] == bar(y), phantom()==10)), NA)
 ticksx <- c(xlims[1], 1.65, 3.4, 5,  xlims[2])
-xlabels <- c(expression(paste(x[sp])), expression(paste(x[d])), expression(paste(x[sc])), expression(paste(bar(x))), NA)
+xlabels <- c(expression(paste(x[sp])), expression(paste(x[d]) == 1.65), expression(paste(x[sc])==3), expression(paste(bar(x)==5)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -102,7 +102,7 @@ lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd
 
 #Label axes
 mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 3, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y, 

@@ -1,5 +1,5 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 7, 1, 1))
+par(mar =  c(5, 8, 0.5, 0.5))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -48,14 +48,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
+
 ticksy <- c(0, 4, AvgCost(x = 4), AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(mc == c[1])), expression(paste(ac, "(", x,"*)")), expression(paste(ar, "(", x,"*)", phantom()== p)), NA)
+ylabels <- c(NA, expression(paste(mc == c[1])), expression(paste(ac, "(", x^m,")")), expression(paste(ar, "(", x^m,")", phantom()== p^m)), NA)
 ticksx <- c(0, 4, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*")), NA)
+xlabels <- c(NA, expression(paste(x^m)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -74,14 +71,13 @@ xpoly2 <- c(0, 4, 4, 0, 0)
 ypoly2 <- c(0, 0, AvgCost(x = 4), AvgCost(x = 4), AvgCost(x = 4))
 polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 
-#lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.9, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 4.5, expression(paste(ac(x))), cex = labelsize)

@@ -76,8 +76,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 4.5, 4.9, 10, ylims[2])
 ylabels <- c(NA, expression(paste(4.5)), expression(paste(4.9)),expression(paste(10))   , NA)
-ticksx <- c(xlims[1], 1.65, 3.4, 5,  xlims[2])
-xlabels <- c(expression(paste(x[sp])), expression(paste(1.65)), expression(paste(3.4)), expression(paste(5)), NA)
+ticksx <- c(xlims[1], 1.65, 3.4, 5, 10/1.5, xlims[2])
+xlabels <- c(0, expression(paste(1.65)), expression(paste(3.4)), expression(paste(5)), 6.67, NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

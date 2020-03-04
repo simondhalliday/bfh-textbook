@@ -11,11 +11,12 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Set parameters for graphics
-axislabelsize <- 1.2
-labelsize <- 1.3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-axistitlesize <- 1.5
 
 #Budget constraint
 
@@ -49,7 +50,7 @@ a <- c(25.65, 23.5, 15)
 pdf(file = "indmarketdemand/carbon_tax_CD_1.pdf", width = 9, height = 7)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(5, 7, 1, 1))
 
 #Add limits on axes and levels of utility for each indifference curve
 ylims <- c(0, 65)
@@ -79,8 +80,8 @@ xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[c])) , expression(p
 ticksy <- c(0, bcA(40), bcA(57.5, m = 56.5), bcA(0), bcA(0, m = 56.5), ylims[2])
 ylabels <- c(NA, expression(paste(y[b] == y[a])), expression(paste(y[c])), expression(paste(frac(m[b],p[y]) == frac(m[a],p[y]) )), expression(paste(frac(m[c],p[y]) )), NA)
 
-axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -101,13 +102,13 @@ contour(x, y,
 #Axis labels
 #mtext(expression(paste("Fossil fuels consumed, ", x)), side = 1, line = 2.5, cex = axistitlesize)
 
-text((40 + 57.5)/2, -3, expression(paste("Income")), xpd = TRUE, cex = axislabelsize)
-text((40 + 57.5)/2, -5, expression(paste("effect")), xpd = TRUE, cex = axislabelsize) 
-text((80 + 57.5)/2, -3, expression(paste("Substitution")), xpd = TRUE, cex = axislabelsize) 
-text((80 + 57.5)/2, -5, expression(paste("effect")), xpd = TRUE, cex = axislabelsize) 
+text((40 + 57.5)/2, -3, expression(paste("Income")), xpd = TRUE, cex = annotatesize - 0.15)
+text((40 + 57.5)/2, -5.5, expression(paste("effect")), xpd = TRUE, cex = annotatesize - 0.15) 
+text((80 + 57.5)/2, -3, expression(paste("Substitution")), xpd = TRUE, cex = annotatesize - 0.15) 
+text((80 + 57.5)/2, -5.5, expression(paste("effect")), xpd = TRUE, cex = annotatesize - 0.15) 
 
-text(0.5*xlims[2], -9, expression(paste("Fossil fuels consumed, ", x)), xpd = TRUE, cex = axistitlesize) 
-text(-15.5, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axistitlesize, srt = 90) 
+text(0.5*xlims[2], -9, expression(paste("Fossil fuels consumed, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-18, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bcA(xx1), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, px = 0.25), col = COLB[3], lwd = graphlinewidth)
@@ -124,17 +125,17 @@ text(105, 2.5, expression(bc[c]), cex = labelsize)
 
 #Label points e-sub, e, e'
 
-text(80, bcA(80, px = 0.25) + 1.5, expression(paste(a)), cex = labelsize)
+text(80, bcA(80, px = 0.25) + 2, expression(paste(a)), cex = labelsize)
 segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
 
-text(40, bcA(40) + 1.7, expression(paste(b)), cex = labelsize)
+text(40, bcA(40) + 2, expression(paste(b)), cex = labelsize)
 segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bcA(x = 40), 56, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
 
-text(57.5, bcA(57.5, m = 56.5) + 1.5, expression(paste(c)), cex = labelsize)
+text(57.5, bcA(57.5, m = 56.5) + 2, expression(paste(c)), cex = labelsize)
 segments(57.5, 0, 57.5, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bcA(57.5, m = 56.5), 56, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(57.5, bcA(57.5, m = 56.5), pch = 16, col = "black", cex = 1.5)
@@ -199,8 +200,8 @@ xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[d])), NA)
 ticksy <- c(0, bcA(40), bcA(60, m = 62), bcA(0), bcA(0, m = 62), ylims[2])
 ylabels <- c(NA, expression(paste(y[b])), expression(paste(y[d])), expression(paste(m[b])), expression(paste(m[d])), NA)
 
-axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -221,8 +222,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Fossil fuels consumed, ", x)), side = 1, line = 2.5, cex = axistitlesize)
-text(-12.5, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axistitlesize, srt = 90) 
+text(0.5*xlims[2], -9, expression(paste("Fossil fuels consumed, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-12.5, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bcA(xx1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, bcA(xx1, px = 0.25), col = COLB[3], lwd = graphlinewidth)
@@ -232,7 +233,7 @@ lines(xx1, bcA(xx1, m = 62), col = COLB[5], lwd = graphlinewidth)
 #Label curves
 
 text(16, 61, expression(u[1]), cex = labelsize)
-text(28, 61, expression(u[2]), cex = labelsize)
+text(28.5, 61, expression(u[2]), cex = labelsize)
 text(34, 61, expression(u[3]), cex = labelsize)
 text(105, 12, expression(bc[d]), cex = labelsize)
 text(70, 2.5, expression(bc[b]), cex = labelsize)
@@ -245,12 +246,12 @@ text(80 - 2, bcA(80, px = 0.25) - 1.5, expression(paste(a)), cex = labelsize)
 # segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
 
-text(40, bcA(40) + 1.7, expression(paste(b)), cex = labelsize)
+text(40, bcA(40) + 2, expression(paste(b)), cex = labelsize)
 segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bcA(x = 40), 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
 
-text(60, bcA(60, m = 62) + 1.7, expression(paste(d)), cex = labelsize)
+text(60, bcA(60, m = 62) + 2, expression(paste(d)), cex = labelsize)
 segments(60, 0, 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, bcA(60, m = 62), 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(60, bcA(60, m = 62), pch = 16, col = "black", cex = 1.5)

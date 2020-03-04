@@ -2,15 +2,18 @@ require(shape)
 pdf(file = "indmarketdemand/demand_qql_mrs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -82,17 +85,17 @@ text(-1.5, 0.5*ylims[2], expression(paste("Price per unit of good x, ", p)), xpd
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(10, 7.8, expression(paste(mrs(x,y) == bar(p) - bgroup("(",frac(bar(p), bar(x)),")")*x)), cex = labelsize)
+text(10, 7.8, expression(paste(mrs(x,y) == bar(p) - bgroup("(",frac(bar(p), bar(x)),")")*x)), cex = annotatesize)
 Arrows(10, 7.4, 10, 5.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation
-text(20, 3.7, expression(paste(bar(x) == "Point")), cex = labelsize)
-text(20, 3, expression(paste("of Satiation")), cex = labelsize)
+text(20, 3.7, expression(paste(bar(x) == "Point")), cex = annotatesize)
+text(20, 3, expression(paste("of Satiation")), cex = annotatesize)
 Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
-text(5, 10, expression(paste(bar(p) == "Maximum")), cex = labelsize)
-text(5, 9.3, expression(paste("Willingness to Pay")), cex = labelsize)
+text(5, 10, expression(paste(bar(p) == "Maximum")), cex = annotatesize)
+text(5, 9.3, expression(paste("Willingness to Pay")), cex = annotatesize)
 Arrows(2.9, 10, 0.5, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

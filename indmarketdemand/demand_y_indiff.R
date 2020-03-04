@@ -1,17 +1,22 @@
 require(shape)
 pdf(file = "indmarketdemand/demand_y_indiff.pdf", width = 9, height = 7)
 
+
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(4, 7, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -55,12 +60,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 13, 15, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y == u[1])), expression(paste(y == u[2])), expression(paste(y == u[3])), NA)
+ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), expression(paste(y[3] == u[3])), NA)
 ticksx <- c(0,  xlims[2])
 xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -71,7 +76,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
 mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 10, expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.9, 10, expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -79,9 +84,9 @@ text(-1.4, 10, expression(paste("Quanity of money, ", y)), xpd = TRUE, cex = axi
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(11.8, 1.6, expression(u[1]))
-text(11.8, 3.6, expression(u[2]))
-text(11.8, 5.6, expression(u[3]))
+text(11.8, 1.6, expression(u[1]), cex = annotatesize)
+text(11.8, 3.6, expression(u[2]), cex = annotatesize)
+text(11.8, 5.6, expression(u[3]), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty

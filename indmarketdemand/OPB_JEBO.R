@@ -13,13 +13,13 @@ OBP_plot <-
   labs(x = "Income Inequality",
        y = "Annual Average Work Hours",
        color = "Country") +
-  annotate("text", x = 3.2, y = 3300, label = "Sweden, 1900", size = 3) +
+  annotate("text", x = 3, y = 3300, label = "Sweden, 1900", size = 3) +
   annotate("text", x = 1.7, y = 1623, label = "Sweden, 2000", size = 3) +
-  annotate("text", x = 3.0, y = 2929, label = "Netherlands, 1913", size = 3) +
+  annotate("text", x = 2.8, y = 2929, label = "Netherlands, 1913", size = 3) +
   annotate("text", x = 1.7, y = 1347, label = "Netherlands, 2000", size = 3) +
-  scale_color_manual(values = colors) +
+  scale_color_manual(values = colors, name = "Country", labels = c("AUS" = "Australia","CAN" = "Canada","FRA" ="France","GER"="Germany","JPN" = "Japan","NET" = "Netherlands","SWE"="Sweden","SWI" = "Switzerland","UK"= "United Kingdom", "US"="United States")) +
   theme_bw()
-
+OBP_plot
 # OBP_plot_year <-
 #   ggplot(OBP_JEBO, aes(x = lnp99_new, y = hour, color = as.factor(year), label = name)) +
 #   #geom_point() +

@@ -60,7 +60,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 13, 15, 17, ylims[2])
+<<<<<<< HEAD
 ylabels <- c(NA, expression(paste(y[1] == u[1])), expression(paste(y[2] == u[2])), expression(paste(y[3] == u[3])), NA)
+=======
+  ylabels <- c(NA, expression(paste(13)), expression(paste(15)), expression(paste(17)), NA)
+>>>>>>> c05056236fe49c3b60252a3a83b898b7c1274a74
 ticksx <- c(0,  xlims[2])
 xlabels <- c(NA, NA)
 

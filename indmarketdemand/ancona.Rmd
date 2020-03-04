@@ -101,10 +101,10 @@ AnconaAve %>%
   ggplot(aes(x = sumquantity, y = meanprice)) +
   geom_point() +
   geom_abline(intercept = 9.2, slope = -0.006, col = "blue", cex = 0.9) +
-  ylab(expression(paste("Daily average price per kilogram (Euros), ", p[x]))) +
+  ylab(expression(paste("Daily average price per kilogram (Euros), ", p))) +
   xlab("Daily quantity (kilograms) of fish, x") +
   scale_x_continuous(limits = c(0,1600), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0,12), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(3,12), expand = c(0, 0)) +
   annotate("text", x = 1000, y = 5.5, label = "Marginal Rate of") +
   annotate("text", x = 1000, y = 5, label = "Substitution, or") +
   annotate("text", x = 1000, y = 4.5, label = "Demand for x") +

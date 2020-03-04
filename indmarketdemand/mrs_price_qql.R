@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "indmarketdemand/mrs_price_qql.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -11,7 +13,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 5, 4, 4))
+par(mar =  c(5, 5, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -49,8 +51,8 @@ ylabels <- c(NA, expression(paste(p[L])), expression(paste(p,"*")), expression(p
 ticksx <- c(0, 3, 5, 7, 10, xlims[2])
 xlabels <- c(NA, expression(paste(x[H] == 3)), expression(paste(x,"*" == 5)), expression(paste(x[L] == 7)), expression(paste(bar(x) == 10)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -67,27 +69,27 @@ lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of the good, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -3, expression(paste("Quantity of the good, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 10, xlims[2], 10, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 10.5, expression(paste("Base price, ", p,"*" == 10)), cex = labelsize)
+text(10, 10.6, expression(paste("Base price, ", p,"*" == 10)), cex = labelsize)
 points(5, 10, pch = 16, col = "black", cex = 1.5)
-text(5.25, 10.5, expression(e))
+text(5.25, 10.5, expression(e), cex = annotatesize)
 
 segments(0, 14, xlims[2], 14, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 segments(3, 0, 3, 14, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 14.5, expression(paste("High price, ", p[H] == 14)), cex = labelsize)
+text(10, 14.6, expression(paste("High price, ", p[H] == 14)), cex = labelsize)
 points(3, 14, pch = 16, col = "black", cex = 1.5)
-text(3.25, 14.5, expression(f))
+text(3.25, 14.5, expression(f), cex = annotatesize)
 
 
 segments(0, 6, xlims[2], 6, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 segments(7, 0, 7, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 6.5, expression(paste("Low price, ", p[L] == 6)), cex = labelsize)
+text(10, 6.6, expression(paste("Low price, ", p[L] == 6)), cex = labelsize)
 points(7, 6, pch = 16, col = "black", cex = 1.5)
-text(7.25, 6.5, expression(g))
+text(7.25, 6.5, expression(g), cex = annotatesize)
 
 
 #text(7.3, 2.5, expression("Curve"))
@@ -107,7 +109,7 @@ text(7.25, 6.5, expression(g))
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(2, 19, expression(paste(mrs(x,y) == 20 - 2*x)), cex = labelsize)
+text(2.5, 19, expression(paste(mrs(x,y) == 20 - 2*x)), cex = labelsize)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation

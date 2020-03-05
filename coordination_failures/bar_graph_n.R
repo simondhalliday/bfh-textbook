@@ -4,12 +4,12 @@ library(tidyverse)
 #hj <- c(4.6, 2.7 ,2.7)
 #uA <- c(21.3, 40.9, 229.1)
 #uj <- c(21.3, 40.9, 20)
-w <- c(213, 409.1,409.1)
+w <- c(213, 409.1, 409.1)
 group2 <- c("NE", "Social", "Private")
 #dfn10 <- tibble(hA, hj, uA, uj,w,type)
 hours <- c(4.6, 4.6 ,2.7, 2.7, 2.7 ,2.7)
-utility <- c(21.3,21.3, 40.9, 40.9, 229.1, 20)
-type <- c("A_NE","j_NE", "A_s","j_s", "A_p", "j_p")
+utility <- c(21.3, 21.3, 40.9, 40.9, 229.1, 20)
+type <- c("u^A","u^J", "u^A","u^J", "u^A","u^J")
 group <- c("NE", "NE", "Social","Social", "Private", "Private")
 dfn10 <- tibble(hours, utility, type, group)
 dfn10_total <- tibble(w, group2)
@@ -128,5 +128,116 @@ plot3
 require(gridExtra)
 plots <- grid.arrange(plot2, plot1, plot3, ncol = 1, heights = c(2, 2, 1))
 
-ggsave("coordination_failures/bargraph_n.pdf", plots, width = 7, height = 12)
+ggsave("coordination_failures/bargraph_n5.pdf", plots, width = 7, height = 12)
+
+
+
+dfn10 <- 
+  dfn10 %>% 
+  mutate(group = factor(group, levels = c("Private", "Social","NE")))
+
+dfn10_total <- 
+  dfn10_total %>% 
+  mutate(group2 = factor(group2, levels = c("Private", "Social","NE")))
+
+
+plot4 <- 
+  dfn10 %>% 
+  ggplot(aes(x = group, y = utility, fill = type)) + 
+  geom_bar(stat = "identity", position = position_dodge()) + 
+  xlab("") +
+  ylab("Individual utility") +
+  scale_fill_manual(values=c("#377eb8","#e41a1c", "#41AE76","#FFEF66","#386cb0","#386cb0"),
+                    name = "", 
+                    breaks = c("u^J","u^A"),
+                    labels = c( "Others' utility", "A's utility")
+  ) + 
+  theme_bw() + 
+  theme(legend.position = c(0.8,0.85),
+        legend.text.align = 0,
+        axis.title = element_text(size = 20),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 18),
+        #legend.title = element_text(size = 16),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
+  geom_text(
+    aes(x = group, y = utility, label = utility, group = type),
+    col = "black",
+    hjust = -0.5, size = 4,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE
+  ) +
+  ylim(0, 250) +
+  coord_flip()
+plot4
+
+plot5 <- 
+  dfn5 %>% 
+  ggplot(aes(x = group, y = hours, fill = type)) + 
+  geom_bar(stat = "identity", position = position_dodge()) + 
+  xlab("") +
+  ylab("Individual hours") +
+  scale_fill_manual(values = c("#4daf4a", "#984ea3"),
+                    #values=c("#377eb8","#e41a1c", "#41AE76","#FFEF66","#386cb0"),
+                    name = "", 
+                    breaks = c("u^J","u^A"),
+                    labels = c( "Others' hours", "A's hours")
+  ) + 
+  theme_bw() + 
+  theme(legend.position = c(0.8,0.85),
+        legend.text.align = 0,
+        axis.title = element_text(size = 20),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 18),
+        #legend.title = element_text(size = 16),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
+  geom_text(
+    aes(x = group, y = hours, label = hours, group = type),
+    col = "black",
+    hjust = -0.5, size = 4,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE
+  ) +
+  ylim(0, 5) +
+  coord_flip()
+plot5
+
+plot6 <- 
+  dfn10_total %>% 
+  ggplot(aes(x = group2, y = w)) + 
+  geom_bar(stat = "identity", position = position_dodge(), fill = "#ff7f00") + 
+  xlab("") +
+  ylab("Total utility") +
+  theme_bw() + 
+  theme(legend.position = c(0.8,0.85),
+        legend.text.align = 0,
+        axis.title = element_text(size = 20),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 18),
+        #legend.title = element_text(size = 16),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
+  geom_text(
+    aes(x = group2, y = w, label = w),
+    col = "black",
+    hjust = -0.5, size = 4,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE
+  ) +
+  ylim(0, 450) +
+  coord_flip()
+plot6
+
+require(gridExtra)
+plots <- grid.arrange(plot5, plot4, plot6, ncol = 1, heights = c(2, 2, 1))
+
+ggsave("coordination_failures/bargraph_n10.pdf", plots, width = 7, height = 12)
+
+
+
 

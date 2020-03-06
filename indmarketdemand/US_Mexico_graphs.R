@@ -32,7 +32,7 @@ US_elec <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes
   labs(x = "Expenditure decile", y = "U.S. Average Electricity Expenditure as Percent of Total Spending") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = COLB[4]) +
-  ylim(0, 7) +
+  #ylim(0, 7) +
   theme_bw() +
   theme(text = element_text(size = 14),
         axis.text = element_text(size = 14),
@@ -44,7 +44,7 @@ Mex_elec <- ggplot(data = subset(US_Mexico_data, Country == "Mexico"), mapping =
   labs(x = "Expenditure decile", y = "Mexico Average Electricity Expenditure as Percent of Total Spending") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = COLB[4]) +
-  ylim(0, 7) +
+  #ylim(0, 7) +
   theme_bw() +
   theme(text = element_text(size = 14),
         axis.text = element_text(size = 14),
@@ -56,7 +56,7 @@ US_gas <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes(
   labs(x = "Expenditure decile", y = "U.S. Average Motor Fuels Expenditure as Percent of Total Spending") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = COLB[4]) +
-  ylim(0, 7) +
+  #ylim(0, 7) +
   theme_bw() +
   theme(text = element_text(size = 14),
         axis.text = element_text(size = 14),
@@ -68,7 +68,7 @@ Mex_gas <- ggplot(data = subset(US_Mexico_data, Country == "Mexico"), mapping = 
   labs(x = "Expenditure decile", y = "Mexico Average Motor Fuels Expenditure as Percent of Total Spending") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = COLB[4]) +
-  ylim(0, 7) +
+  #ylim(0, 7) +
   theme_bw() +
   theme(text = element_text(size = 14),
         axis.text = element_text(size = 14),

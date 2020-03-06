@@ -17,7 +17,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(4, 4, 1, 1))
 
 xlims <- c(0, 11)
 ylims <- c(0, 11)
@@ -36,10 +36,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksx <- c(0, xlims[2])
-ticksy <- c(0, ylims[2])
-ylabels <- c(NA, "p")
-xlabels <- c(0, "x")
+ticksx <- c(0, 10, xlims[2])
+ticksy <- c(0, 10, ylims[2])
+ylabels <- c(NA, expression(bar(p)), NA)
+xlabels <- c(0, expression(bar(x)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -49,7 +49,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Label axes
 mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.7, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Demand
 segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth) 

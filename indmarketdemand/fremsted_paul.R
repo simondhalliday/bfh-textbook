@@ -10,9 +10,9 @@ plot1 <-
   theme_bw()  +
   labs(y = "Cost as percent of income",
        x = "Decile") +
-  theme(axis.text=element_text(size=15),
-        axis.title=element_text(size=18),
-        text = element_text(size=15),
+  theme(axis.text=element_text(size=17),
+        axis.title=element_text(size=22),
+        text = element_text(size=17),
         panel.grid.minor = element_blank())
 
 
@@ -23,9 +23,9 @@ plot2 <-
   theme_bw()  +
   labs(y = "Cost as percent of income",
        x = "Decile") +
-  theme(axis.text=element_text(size=15),
-        axis.title=element_text(size=18),
-        text = element_text(size=15),
+  theme(axis.text=element_text(size=17),
+        axis.title=element_text(size=22),
+        text = element_text(size=17),
         panel.grid.minor = element_blank())
 
 ggsave("indmarketdemand/plot_fp_A.pdf", plot1, width = 9, height = 7)

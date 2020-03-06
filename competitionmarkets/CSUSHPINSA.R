@@ -36,11 +36,14 @@ p <-  ggplot(data = CSUSH ) +
              color = COLA[4], size=0.5) +
   annotate("text", label = "Start of Banking Crisis", x = CSUSH$observation_date[269], y = 100, 
            color = COL[1], angle = 90, size = 6) +
-  theme_classic() +
+  theme_bw() +
   xlab("Date") + 
-  ylab("S&P/Case-Shiller U.S. National Home Price Index") + 
-  theme(axis.text=element_text(size=12),
-        axis.title=element_text(size=14,face="bold"))
+  ylab("S&P/Case-Shiller U.S. National Home Price Index") +
+  theme(text = element_text(size = 19),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 19),
+        panel.grid.minor = element_blank(),
+        plot.margin = margin(5, 20, 5, 8))
 
 #Save plot to PDF
 ggsave(p, filename = "CSUSHPINSA.pdf", 

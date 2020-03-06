@@ -36,6 +36,10 @@ df %>%
   xlab("Number of firms, n") +
   ylab("Deadweight Loss") + 
   theme_bw() + 
-  theme(legend.position="top")
+  theme(text = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        axis.title = element_text(size = 19),
+        panel.grid.minor = element_blank())
+
 ggsave(file = "competitionmarkets/deadweight_loss_n.pdf", device = "pdf", width = 6, height = 4)
 

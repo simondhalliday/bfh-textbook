@@ -63,7 +63,7 @@ plotPh <-
   ggplot(aes(x = group, y = hours, fill = type)) + 
   geom_bar(stat = "identity", position = position_dodge()) + 
   xlab("") +
-  ylab("Individual utility") +
+  ylab("Individual hours") +
   scale_fill_manual(values = c("#4daf4a", "#984ea3"),
                     #values=c("#377eb8","#e41a1c", "#41AE76","#FFEF66","#386cb0"),
                     name = "", 

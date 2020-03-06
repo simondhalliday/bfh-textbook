@@ -53,8 +53,9 @@ fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time))
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
   labs(x = "Output", y = "Cost (Hours)") +
   theme_bw() +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14)) 
+  theme(axis.text=element_text(size=15),
+        axis.title=element_text(size=18),
+        text = element_text(size=15))
   
   
 fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time)) +
@@ -63,8 +64,9 @@ fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = T
   geom_point(aes( y = ManHours), size = 1.5, color = COLB[4]) +
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
   theme_bw() +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14)) 
+  theme(axis.text=element_text(size=15),
+        axis.title=element_text(size=18),
+        text = element_text(size=15))
   
   #geom_line(aes(x= CumulativeProduct, y = exp(predict(lm(log(ManHours)~ log(CumulativeProduct),data = m20gbk)))))
 # Estimate

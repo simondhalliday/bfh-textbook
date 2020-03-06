@@ -1,4 +1,5 @@
 require(shape)
+require(plotrix)
 require(ggplot2)
 #pdf(file = "property_psp1_offerSTEP1.pdf", width = 9, height = 7)
 #pdf(file = "property_psp1_offerSTEP2.pdf", width = 9, height = 7)
@@ -43,13 +44,14 @@ ticksy <- seq(from = 0, to = 15, by = 1)
 ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 2, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(1, at = ticksx, pos = 2, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 axis.break(axis=1,breakpos=NULL,pos=xlims[2],bgcol="white",breakcol="black",
            style="slash",brw=0.02)
-axis.break(axis=2,breakpos=NULL,pos=ylims[6],bgcol="white",breakcol="black",
-           style="slash",brw=0.02)
+axis.break(axis = 2, breakpos = 2.2, pos = 0,
+           bgcol = "white", breakcol = "black",
+           style = "slash", brw = 0.02)
 
 npts <- 500 
 npts2 <- 501
@@ -71,8 +73,10 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
-legend(2, 7.5, legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
-       col=c(COL[3], COLB[2],COLA[3],COLB[4]), lty=1, cex=1)
+legend(1.6, 8, 
+       legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
+       col=c(COL[3], COLB[2],COLA[3],COLB[4]), 
+       lty=1, cex=labelsize)
 
 
 dev.off()

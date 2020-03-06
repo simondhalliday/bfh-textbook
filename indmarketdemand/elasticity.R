@@ -4,8 +4,11 @@ library(shape)
 pdf(file = "indmarketdemand/elasticity.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -14,7 +17,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(6, 6, 1, 1))
 
 xlims <- c(0, 11)
 ylims <- c(0, 11)
@@ -38,14 +41,14 @@ ticksy <- c(0, ylims[2])
 ylabels <- c(NA, "p")
 xlabels <- c(0, "x")
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Label axes
-mtext(expression(paste("Quantity of the good, ", x)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Demand
@@ -54,12 +57,12 @@ segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
 
 #Label 
-text(6.5, 6.5, expression(paste("Unit Elastic")))
-text(6.5, 6, expression(paste(eta, " = 1")))
-text(4, 8.75, expression(paste("Elastic")))
-text(4, 8.25, expression(paste(eta, " > 1")))
-text(8.5, 4, expression(paste("Inelastic")))
-text(8.5, 3.5, expression(paste(eta, " < 1")))
+text(6.5, 6.6, expression(paste("Unit Elastic")), cex = annotatesize)
+text(6.5, 6, expression(paste(eta, " = 1")), cex = annotatesize)
+text(4, 8.76, expression(paste("Elastic")), cex = annotatesize)
+text(4, 8.25, expression(paste(eta, " > 1")), cex = annotatesize)
+text(8.5, 4.1, expression(paste("Inelastic")), cex = annotatesize)
+text(8.5, 3.5, expression(paste(eta, " < 1")), cex = annotatesize)
 
 # Points
 points(5, 5, pch = 16, col = "black", cex = 1.5)

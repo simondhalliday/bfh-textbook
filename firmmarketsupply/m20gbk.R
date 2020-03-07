@@ -55,7 +55,8 @@ fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time))
   theme_bw() +
   theme(axis.text=element_text(size=15),
         axis.title=element_text(size=18),
-        text = element_text(size=15))
+        text = element_text(size=15),
+        plot.margin = margin(10, 20, 10, 10))
   
   
 fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time)) +

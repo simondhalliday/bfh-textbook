@@ -1,5 +1,5 @@
 pdf(file = "firmmarketsupply/ss_st.pdf", width = 9, height = 7)
-
+par(mar =  c(5, 5, 1, 1))
 #Set parameters for graphics
 pointsize <- 1.8
 axislabelsize <- 1.8

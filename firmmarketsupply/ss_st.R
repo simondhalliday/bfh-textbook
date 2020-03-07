@@ -1,10 +1,13 @@
 pdf(file = "firmmarketsupply/ss_st.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -35,8 +38,8 @@ ylabels <- c(0, ylims[2])
 ticksx <- c(0, xlims[2])
 xlabels <- c(0, xlims[2])
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis=labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -56,7 +59,7 @@ text(19, 4, expression(paste(C(x))), cex = labelsize)
 
 # Point
 points(5, cost(5), pch = 16, col = "black", cex = 1.5)
-text(5.5, cost(5)+0.5, expression(a))
+text(5.5, cost(5)+0.5, expression(a), cex = labelsize)
 
 # Label x,y axis
 mtext(expression(paste("Capacity, Gal")), side=1, line = 2.5, cex = axislabelsize)

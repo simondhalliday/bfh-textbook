@@ -111,7 +111,7 @@ segments(4, 0, 4, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(2, 0, 2, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of sugary drinks (thousands of six-packs), ", x)), side=1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Quantity of sugary drinks (thousands of six-packs), ", x)), side=1, line = 3.4, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Price per six-pack, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label a

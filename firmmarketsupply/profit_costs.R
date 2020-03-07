@@ -6,8 +6,10 @@ require(shape)
 pdf(file = "firmmarketsupply/profit_costs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -16,7 +18,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 8, 0.5, 0.5))
+par(mar =  c(5, 10, 0.5, 0.5))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -45,12 +47,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 
 ticksy <- c(0, 4, AvgCost(x = 4), AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(mc == c[1])), expression(paste(ac, "(", x^m,")")), expression(paste(ar, "(", x^m,")", phantom()== p^m)), NA)
+ylabels <- c(NA, expression(paste(mc == c[1])), expression(paste(ac, "(", x^m,")")), expression(paste(ar, "(", x^m,")", phantom() == p^m)), NA)
 ticksx <- c(0, 4, xlims[2])
 xlabels <- c(NA, expression(paste(x^m)), NA)
 
@@ -64,31 +66,31 @@ xx3 <- seq(2, 6, length.out = npts)
 #Draw the polygon for profit
 xpoly1 <- c(0, 4, 4, 0, 0)
 ypoly1 <- c(AvgCost(x = 4), AvgCost(x = 4), AvgRevenue(x = 4), AvgRevenue(x = 4), AvgCost(x = 4))
-polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
 
 #Draw the polygon for costs
 xpoly2 <- c(0, 4, 4, 0, 0)
 ypoly2 <- c(0, 0, AvgCost(x = 4), AvgCost(x = 4), AvgCost(x = 4))
-polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
+polygon(x = xpoly2, y = ypoly2, col = COLB[1], density = NULL, border = NA)
 
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-3, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.5, expression(paste(ac(x))), cex = labelsize)
-text(10.5, 3.6, expression(paste(mc(x))), cex = labelsize)
+text(10.5, 4.6, expression(paste(ac(x))), cex = labelsize)
+text(10.5, 3.5, expression(paste(mc(x))), cex = labelsize)
 text(10.5, 0.8, expression(paste(ar(x))), cex = labelsize)
-text(5, 0.8, expression(paste(mr(x))), cex = labelsize)
+text(4.75, 0.8, expression(paste(mr(x))), cex = labelsize)
 
 #Labels cost and profit areas
-text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
-text(2, 6.25, expression("Economic"), cex = labelsize)
-text(2, 5.75, expression("Profit"), cex = labelsize)
+text(2, 0.5*AvgCost(x = 4), expression("Total costs"), cex = annotatesize)
+text(1.9, 6.25, expression("Economic"), cex = annotatesize)
+text(1.9, 5.75, expression("profit"), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -109,8 +111,8 @@ text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
 
 #Arrow to mr = mc
-text(7.5, 2, expression(paste("Profit maximum at")), cex = labelsize)
-text(7.5, 1.5, expression(paste(mr == mc)), cex = labelsize)
+text(7.5, 1.9, expression(paste("Profit maximum at")), cex = annotatesize)
+text(7.5, 1.4, expression(paste(mr == mc)), cex = annotatesize)
 Arrows(6.1, 2.2, 4.3, 3.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

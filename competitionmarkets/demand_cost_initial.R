@@ -6,10 +6,14 @@ require(shape)
 pdf(file = "competitionmarkets/demand_cost_initial.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
-segmentlinewidth <- 1.8
+segmentlinewidth <- 1.5
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -57,9 +61,9 @@ ylabels <- c(NA, expression(paste(c)),  expression(paste(bar(p))))
 ticksx <- c(0,  xlims[2])
 xlabels <- c(NA, expression(paste(frac(bar(p),beta))))
 
-axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(x = c(0, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -86,12 +90,12 @@ text(0.5*(xlims[2]), -0.8, expression(paste("Firm Output, ", x)), xpd = TRUE, ce
 text(-0.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 5.2, expression(paste("Costs")), cex = labelsize)
-text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize)
+text(10.5, 5.2, expression(paste("Costs")), cex = labelsize, xpd = TRUE)
+text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize,xpd = TRUE)
 
-text(6, 9.4, expression(paste("Demand or Average Revenue")), cex = labelsize)
-text(6, 8.7, expression(paste(p(X) == bar(p) - beta*X )), cex = labelsize)
-text(6, 8, expression(paste(x == X, " for a monopolist" )), cex = labelsize)
+text(6, 9.4, expression(paste("Demand or Average Revenue")), cex = labelsize,xpd = TRUE)
+text(6, 8.7, expression(paste(p(X) == bar(p) - beta*X )), cex = labelsize,xpd = TRUE)
+text(6.5, 8, expression(paste(x == X, " for a monopolist" )), cex = labelsize, xpd = TRUE)
 
 #text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 

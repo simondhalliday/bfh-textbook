@@ -2,10 +2,13 @@ require(shape)
 pdf(file = "competitionmarkets/long_run_n.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -60,8 +63,8 @@ ylabels <- c(NA, expression(c), expression(paste(p,"(n*)")), NA)
 ticksx <- c(0, nstar(b = barriers[1]), xlims[2])
 xlabels <- c(NA, expression(paste(n,"*")), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -75,21 +78,10 @@ lines(xx1, bte(n = xx1, b = barriers[1]), col = COLA[3], lty = 2, lwd = graphlin
 # No Barrier --- Green
 lines(xx1, cournotPrice(xx1, c = costs[2]), col = COLA[4], lwd = graphlinewidth) 
 
-# lines(xx1, Profit(xx1, c = 0.25), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
 text(-4.5, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
-#Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)
-
-
-#text(5, 11, expression(paste(c)), cex = labelsize)
-# text(19, 4.4, expression(paste(rho[1])), cex = labelsize)
-
-#Arrows(4, 9, 7.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(5.7, 10, expression(paste("Decrease in ", c)), cex = labelsize)
 
 text(34, 12, expression(paste(p(n))), cex = labelsize)
 text(34, 8, expression(paste(hat(p)*(n) == (1-b)*p(n) )), cex = labelsize)
@@ -109,9 +101,6 @@ segments(0,
          cournotPrice(n = nstar(b = barriers[1]), c = costs[2]), 
          lty = 2, col = "gray", lwd = segmentlinewidth)
 
-# segments(4.5, 0, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
-# segments(0, 6.8, 4.5, 6.8, lty = 2, col = "grey", lwd = segmentlinewidth)
-# 
 
 points(nstar(b = barriers[1]), 
        bte(n = nstar(b = barriers[1]), b = barriers[1]), 

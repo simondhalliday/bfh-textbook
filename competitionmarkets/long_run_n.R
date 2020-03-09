@@ -15,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 8, 2, 1))
 
 Profit <- function(n, pbar = 60, c = 10, beta = 0.5) {
   (pbar - c)^2 / (((n + 1)^2)*beta)
@@ -81,7 +81,7 @@ lines(xx1, cournotPrice(xx1, c = costs[2]), col = COLA[4], lwd = graphlinewidth)
 
 #Label axes
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
-text(-4.5, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-6, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(34, 12, expression(paste(p(n))), cex = labelsize)
 text(34, 8, expression(paste(hat(p)*(n) == (1-b)*p(n) )), cex = labelsize)

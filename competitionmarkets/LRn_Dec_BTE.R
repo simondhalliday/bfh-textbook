@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "competitionmarkets/LRn_Dec_BTE.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +14,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 8, 1, 1))
 
 Profit <- function(n, pbar = 60, c = 10, beta = 0.5) {
   (pbar - c)^2 / (((n + 1)^2)*beta)
@@ -63,15 +65,13 @@ ylabels <- c(NA, expression(c), expression(paste(p[L])), expression(paste(p[H]))
 ticksx <- c(0, nstar(b = barriers[2]), nstar(b = barriers[1]), xlims[2])
 xlabels <- c(NA, expression(paste(n[H])), expression(paste(n[L])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Lines for barrier graph
-#lines(xx1, bte(n = xx1, b = barriers[3]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
-#lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
 lines(xx1, bte(n = xx1, b = barriers[1]), col = COLA[3], lty = 2, lwd = graphlinewidth)
 lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = graphlinewidth)
 
@@ -83,7 +83,7 @@ lines(xx1, cournotPrice(xx1, c = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Label axes
 mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-6, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)
@@ -91,8 +91,8 @@ text(-4, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", li
 
 # Eq labels
 text(34, 12, expression(paste(p(n))), cex = labelsize)
-text(34, 8, expression(paste(hat(p)*(list(n, b[L])) == (1-b)*p(n) )), cex = labelsize)
-text(34, 4.8, expression(paste(hat(p)*(list(n, b[H])) == (1-b)*p(n) )), cex = labelsize)
+text(32, 8, expression(paste(hat(p)*(list(n, b[L])) == (1-b)*p(n) )), cex = labelsize)
+text(32, 4.8, expression(paste(hat(p)*(list(n, b[H])) == (1-b)*p(n) )), cex = labelsize)
 
 
 # line for the marginal cost

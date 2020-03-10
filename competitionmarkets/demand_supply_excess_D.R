@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "competitionmarkets/demand_supply_excess_D.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(5, 8, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -64,8 +67,8 @@ ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(pa
 ticksx <- c(0,  60, 75, 84, 120, xlims[2])
 xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,  cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], 75, length.out = npts)
@@ -80,7 +83,7 @@ lines(xx2, Supply(xx2), col = COLB[4], lty = 2, lwd = segmentlinewidth)
 #Label axes
 #mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -2.5, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-17, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-24, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # segments(0, 7.5, 75, 7.5, lty = 2, "gray" , lwd = segmentlinewidth)

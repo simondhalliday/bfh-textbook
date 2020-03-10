@@ -2,10 +2,8 @@ require(shape)
 pdf(file = "competitionmarkets/cournot_brf_isoA.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-<<<<<<< HEAD
-=======
+
 pointsize <- 1.8
->>>>>>> 80df52b58c86ae3b550aab760c72696bcde28597
 axislabelsize <- 1.8
 labelsize <- 1.5
 namesize <- 1.8

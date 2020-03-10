@@ -6,7 +6,11 @@ require(shape)
 pdf(file = "competitionmarkets/cournot_brfs_profits.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -78,9 +82,9 @@ ylabels <- c(NA, expression(paste(x^{B},"*")), expression(paste(x^{BN})), expres
 ticksx <- c(0, 9, 12, 13.5, 18, xlims[2])
 xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(x[Opp]^{A})), expression(paste(frac(bar(p) - c[1],2*beta))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 9, 12, 13.5, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(x = c(0, 9, 12, 13.5, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -109,8 +113,8 @@ contour(y, x,
         yaxs="i", 
         add = TRUE) 
 
-mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.8, 9, expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("A's output, ", x^A)), side=1, line =3.8, cex = axislabelsize)
+text(-2.5, 9, expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 #arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -138,17 +142,17 @@ contour(x, y,
 # Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(4.5, 1.5, expression(pi[1]^A))
-text(5.2, 1.5, expression(pi[2]^A))
-text(6, 1.5, expression(pi[3]^A))
-text(7, 1.5, expression(pi[Opp]^A))
+text(4.5, 1.5, expression(pi[1]^A), cex = labelsize, xpd = TRUE)
+text(5.2, 1.5, expression(pi[2]^A), cex = labelsize, xpd = TRUE)
+text(6, 1.5, expression(pi[3]^A), cex = labelsize, xpd = TRUE)
+text(7.2, 1.5, expression(pi[Opp]^A), cex = labelsize, xpd = TRUE)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty
-text(11.8, 18, expression(pi[Vic]^B))
-text(10.5, 18, expression(pi[1]^B))
-text(9.4, 18, expression(pi[2]^B))
-text(8.4, 18, expression(pi[3]^B))
+text(11.9, 18, expression(pi[Vic]^B),cex = labelsize, xpd = TRUE)
+text(10.5, 18, expression(pi[1]^B), cex = labelsize, xpd = TRUE)
+text(9.4, 18, expression(pi[2]^B), cex = labelsize, xpd = TRUE)
+text(8.4, 18, expression(pi[3]^B), cex = labelsize, xpd = TRUE)
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label Nash Equilibrium 
@@ -156,26 +160,26 @@ segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 #text(14, 12.4, expression(paste("Nash Equilibrium")))
-text(11.5, 11.5, expression(paste("n")))
+text(11.5, 11.5, expression(paste("n")), cex = labelsize)
 
 #Checking points
 #points(5.95, 5.95, pch = 16, col = "black", cex = 1.5)
 segments(8, 10, 10, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
 
 
-text(9, 9.6, expression(paste("i")))
+text(9, 9.6, expression(paste("i")), cex = labelsize)
 segments(0, 9, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(13.5, 0, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9, 9, pch = 16, col = "black", cex = 1.5)
 points(13.5, 9, pch = 16, col = "black", cex = 1.5)
-text(13.45, 9.6, expression(paste("d")))
+text(13.45, 9.6, expression(paste("d")), cex = labelsize)
 
 
 points(10, 8, pch = 16, col = "black", cex = 1.5)
-text(10, 8.6, expression(paste("f")))
+text(10, 8.6, expression(paste("f")),cex = labelsize)
 points(8, 10, pch = 16, col = "black", cex = 1.5)
-text(8, 10.6, expression(paste("g")))
+text(8, 10.6, expression(paste("g")), cex = labelsize)
 
 
 # #Annotate Pareto Efficient Curve and relevant points
@@ -192,13 +196,13 @@ text(8, 10.6, expression(paste("g")))
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #A's brf
-text(2, 14, expression(paste("B's best response")))
-text(2, 13.5, expression(paste("function")))
-Arrows(2, 14.3, 2, 16.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3, 14, expression(paste("B's best response")), cex = labelsize)
+text(3, 13.3, expression(paste("function")),cex = labelsize)
+Arrows(2, 14.5, 2, 16.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #B's brf
-text(16.5, 7, expression(paste("A's best response")))
-text(16.5, 6.5, expression(paste("function")))
+text(17.5, 7, expression(paste("A's best response")), cex = labelsize, xpd = TRUE)
+text(17.5, 6.3, expression(paste("function")), cex = labelsize, xpd = TRUE)
 Arrows(16.5, 6, 16.5, 3.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

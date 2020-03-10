@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "competitionmarkets/markup_nfirms.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -63,11 +66,11 @@ xlabels <- seq(from = 0, to = xlims[2], by = 10)
 # ticksx <- c(0, xlims[2])
 # xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 
 #text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
 
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -80,8 +83,8 @@ segments(0, 2, xlims[2], 2, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 # segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*(xlims[2]), -1.2, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
-text(-3, 0.5*ylims[2], expression(paste("Market price and mark-up, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -1.5, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
+text(-3.5, 0.5*ylims[2], expression(paste("Market price and mark-up, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -119,18 +122,18 @@ text(-3, 0.5*ylims[2], expression(paste("Market price and mark-up, $")), xpd = T
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #Mark-up
-text(3.5, 3.25, expression(paste("Mark-up")), cex = labelsize)
-text(3.5, 2.75, expression(paste(p - c)), cex = labelsize)
+text(3.2, 3.25, expression(paste("Mark-up")), cex = labelsize)
+text(3.2, 2.75, expression(paste(p - c)), cex = labelsize)
 
 #text(14, 6, expression(paste("function")))
 Arrows(6, 2.3, 6, 4.2, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label price
 text(35, 4, expression(paste("Price")), cex = labelsize)
-text(35, 3.2, expression(paste(p == c + frac(1, n + 1)*(bar(p) - c))))
+text(35, 3.2, expression(paste(p == c + frac(1, n + 1)*(bar(p) - c))), cex = labelsize, xpd = TRUE)
 
 text(35, 1.5, expression(paste("Marginal cost")), cex = labelsize)
-text(35, 0.9, expression(paste(mc == c)))
+text(35, 0.9, expression(paste(mc == c)), cex = labelsize)
 
 
 

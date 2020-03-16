@@ -58,8 +58,6 @@ ylabels <- c(NA, 6, expression(paste(frac(m,p[y])==12 )), NA)
 ticksx <- c(0, 2, 4, 6, 8, 12, xlims[2])
 xlabels <- c(NA, 2, 4, 6, 8, 12, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -73,13 +71,13 @@ lines(xx1, bcA(xx1, w = 12, p = 3), col = COLA[3], lwd = graphlinewidth)
 #Label Axes
 #mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
 
-text(0.5*xlims[2], -2, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
+#text(0.5*xlims[2], -2, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-2, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, 0, 2, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(2, -10, 2, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(4, -10, 4, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(6, -10, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 #Label the budget curve functions for the HG, Aisha
 text(3.5, 0.5, expression(bc[1]), cex = annotatesize)
@@ -116,6 +114,9 @@ text(6.2, 6.3, expression(c), cex = annotatesize)
 
 #Arrows(8.5, 6, 6.5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(9.7, 6.3, expression(paste("Price-offer curve")), cex = annotatesize)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 # cd_demand_coffeedata ----------------------------------------------------
@@ -189,8 +190,8 @@ text(9.5, 38, expression(u[2]^A), cex = labelsize)
 text(11.3, 38, expression(u[3]^A), cex = labelsize)
 
 #Label the feasible frontiers
-text(3.5, 3.8, expression(paste("Demand curve")), cex = labelsize)
-text(3.5, 3.65, expression(paste("for coffee")), cex = labelsize)
+text(10.5, 1, expression(paste("Demand curve")), cex = labelsize)
+text(10.5, 0.85, expression(paste("for coffee")), cex = labelsize)
 text(14, 6, expression(paste(x == frac(alpha*m, p[x]), " or")), cex = labelsize)
 text(14, 4.5, expression(paste(p[x] == frac(alpha*m, x))), cex = labelsize)
 
@@ -198,11 +199,11 @@ text(14, 4.5, expression(paste(p[x] == frac(alpha*m, x))), cex = labelsize)
 demandx <- c(2, 4, 6)
 #Segments for the prices and quantities
 segments(0, demand(demandx[1]), demandx[1], demand(demandx[1]), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(demandx[1], 0, demandx[1], demand(demandx[1]), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(demandx[1], 0, demandx[1], demand(demandx[1]) + 1.5, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = TRUE)
 segments(0, demand(demandx[2]), demandx[2], demand(demandx[2]), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(demandx[2], 0, demandx[2], demand(demandx[2]), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(demandx[2], 0, demandx[2], demand(demandx[2]) + 3.5, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = TRUE)
 segments(0, demand(demandx[3]), demandx[3], demand(demandx[3]), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(demandx[3], 0, demandx[3], demand(demandx[3]), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(demandx[3], 0, demandx[3], demand(demandx[3]) + 4.5, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = TRUE)
 
 points(demandx[1], demand(demandx[1]), pch = 16, col = "black", cex = 1.5)
 points(demandx[2], demand(demandx[2]), pch = 16, col = "black", cex = 1.5)

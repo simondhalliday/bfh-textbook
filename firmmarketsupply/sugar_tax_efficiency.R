@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "firmmarketsupply/sugar_tax_efficiency.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -12,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(7, 7, 1, 1))
 
 mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
@@ -58,8 +61,8 @@ ylabels <- c(NA, expression(paste(p[d] == 9)), expression(paste(p[b] == 10)), ex
 ticksx <- c(0, 4, 5, 10, xlims[2])
 xlabels <- c(0, expression(paste(x[a]) == 4), expression(paste(x[b]) == 5), expression(paste(10)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -108,33 +111,33 @@ segments(4, 0, 4, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(2, 0, 2, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of sugary drinks (thousands of six-packs), ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Price per six-pack, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of sugary drinks (thousands of six-packs), ", x)), side=1, line = 3.4, cex = axislabelsize)
+text(-1.8, 0.5*ylims[2], expression(paste("Price per six-pack, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label a
 points(4, 12, pch = 16, col = "black", cex = 1.5)
-text(4, 12.75, expression(a))
+text(4, 12.75, expression(a),cex = labelsize)
 
 #Label b
 points(5, 10, pch = 16, col = "black", cex = 1.5)
-text(5, 10.75, expression(b))
+text(5, 10.75, expression(b), cex = labelsize)
 
 #Label c
 points(4, 10, pch = 16, col = "black", cex = 1.5)
-text(4 - 0.2, 10 - 0.25, expression(c))
+text(4 - 0.2, 10 - 0.25, expression(c),cex = labelsize)
 
 #Label d
 points(4, Qs(4) , pch = 16, col = "black", cex = 1.5)
-text(4 + 0.2, Qs(4) - 0.25, expression(d))
+text(4 + 0.2, Qs(4) - 0.25, expression(d),cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
 text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
 
 #Label mrs function
-text(8.05, 5.5, expression(paste("Demand")), cex = labelsize)
+text(8.1, 5.5, expression(paste("Demand")), cex = labelsize)
 Arrows(6, 11.6, 6, 13.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2, code = 3)
-text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
+text(6.8, 12.9, expression(paste("Tax" == 3)), cex = labelsize)
 
 # Label CS
 #text(1.2, 14, expression(paste("Consumer Surplus")))

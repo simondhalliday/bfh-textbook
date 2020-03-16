@@ -2,8 +2,11 @@ require(shape)
 pdf(file = "competitionmarkets/profit_consumersurplus_n.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -36,6 +39,10 @@ df %>%
   xlab("Number of firms, n") +
   ylab("Deadweight Loss") + 
   theme_bw() + 
-  theme(legend.position="top")
+  theme(text = element_text(size = 17),
+        axis.text = element_text(size = 17),
+        axis.title = element_text(size = 19),
+        panel.grid.minor = element_blank())
+
 ggsave(file = "competitionmarkets/deadweight_loss_n.pdf", device = "pdf", width = 6, height = 4)
 

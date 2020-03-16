@@ -6,7 +6,11 @@ require(shape)
 pdf(file = "competitionmarkets/cournot_brfs_profits_social.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -14,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(5, 5, 4, 4))
+par(mar =  c(6.5, 6.5, 2, 2))
 
 socialW <- function(xa, s = 0.5, pmax = 20, c1 = 2, slope = 1) {
   (pmax - c1)/s - slope*xa
@@ -87,9 +91,9 @@ ticksx <- c(0, 9, 12, 18, 36, xlims[2])
 xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 
 
-axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 9, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(x = c(0, 9, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -120,8 +124,8 @@ contour(y, x,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*(xlims[2]), -5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-4, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -4, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-3.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 #arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -149,16 +153,16 @@ contour(x, y,
 # Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(4.1, 1.5, expression(pi[1]^A))
-text(6.2, 1.5, expression(pi[2]^A))
+text(4.1, 1.5, expression(pi[1]^A), cex = labelsize)
+text(6.2, 1.5, expression(pi[2]^A), cex = labelsize)
 #text(6, 1.5, expression(pi[3]^A))
 #text(7, 1.5, expression(pi[Opp]^A))
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty
 #text(11.8, 18, expression(pi[Vic]^B))
-text(8.5, 22, expression(pi[1]^B))
-text(5.6, 22, expression(pi[2]^B))
+text(8.5, 22, expression(pi[1]^B), cex = labelsize)
+text(5.6, 22, expression(pi[2]^B), cex = labelsize)
 #text(8.4, 18, expression(pi[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 
@@ -167,14 +171,14 @@ segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 #text(14, 12.4, expression(paste("Nash Equilibrium")))
-text(12.5, 11.5, expression(paste(n)))
+text(12.5, 11.5, expression(paste(n)), cex = labelsize)
 
 #Checking points
 #points(5.95, 5.95, pch = 16, col = "black", cex = 1.5)
 #segments(8, 10, 10, 8, lty = 1, col = COL[2] , lwd = graphlinewidth)
 
 # 
-text(9, 9.9, expression(paste(i)))
+text(9, 9.9, expression(paste(i)), cex = labelsize)
 segments(0, 9, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(13.5, 0, 13.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -203,7 +207,7 @@ points(9, 9, pch = 16, col = "black", cex = 1.5)
 segments(0, 18, 18, 18, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(18, 0, 18, 18, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(18, 18, pch = 16, col = "black", cex = 1.5)
-text(18.5, 18.5, expression(paste(j)))
+text(18.5, 18.5, expression(paste(j)), cex = labelsize)
 
 #A's brf
 #text(2, 14, expression(paste("B's best response")))
@@ -217,13 +221,13 @@ text(18.5, 18.5, expression(paste(j)))
 
 #Arrow for owners and consumers
 Arrows(12.3, 12.3, 17.4, 17.4, lty = 1, lwd = 2, arr.type = "triangle",  col = COL[2])
-text(14, 17, expression(paste("Better for")), cex = labelsize)
-text(14, 16, expression(paste("consumers")), cex = labelsize)
+text(13.5, 17, expression(paste("Better for")), cex = labelsize)
+text(13.5, 16, expression(paste("consumers")), cex = labelsize)
 
 Arrows(12, 8, 9.5, 5.5, lty = 1, lwd = 2, arr.type = "triangle",  col = "#ff7f00")
-text(10.5, 5, expression(paste("Better")), cex = labelsize)
-text(10.5, 4, expression(paste("for")), cex = labelsize)
-text(10.5, 3, expression(paste("owners")), cex = labelsize)
+text(10.5, 4.5, expression(paste("Better")), cex = labelsize)
+text(10.5, 3.5, expression(paste("for")), cex = labelsize)
+text(10.5, 2.5, expression(paste("owners")), cex = labelsize)
 
 #f0027f
 #e41a1c

@@ -11,7 +11,7 @@ sug_bev <- ggplot(homescan_sugar_bev, aes(x = X, y = Y)) +
   labs(x = "Household Income ($000s)", 
        y = "Liters purchased per adult equivalent per year") + 
   theme_bw() + 
-  theme(axis.text = element_text(size = 14),
-        axis.title = element_text(size = 16))
+  theme(axis.text = element_text(size = 15),
+        axis.title = element_text(size = 19))
 
 ggsave("firmmarketsupply/sugar_tax_data.pdf", width = 9, height = 7)

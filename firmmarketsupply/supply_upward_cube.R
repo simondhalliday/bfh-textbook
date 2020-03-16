@@ -6,17 +6,19 @@ require(shape)
 pdf(file = "firmmarketsupply/supply_upward_cube.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(6, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -54,13 +56,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
+
 ticksy <- c(0, 2, MCost(x = 5/2), MCost(x = 3.63514), ylims[2])
 ylabels <- c(NA, expression(paste(c[0])), expression(paste(p[min])),expression(paste(p[Break])), NA)
 ticksx <- c(0, 5/2, 3.63514, xlims[2])
@@ -83,15 +82,15 @@ lines(xx2, MCost(xx2), col = COLA[4], lwd = graphlinewidth, lty = 2)
 lines(xx3, MCost(xx3), col = COL[2], lwd = graphlinewidth, lty = 2)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(6.1, 4.9, expression(paste(ac(x))), cex = labelsize)
 text(7.5, 4.9, expression(paste(avc(x))), cex = labelsize)
-text(3.6, 4.9, expression(paste("Firm's")), cex = labelsize)
-text(3.6, 4.7, expression(paste("supply curve")), cex = labelsize)
-text(3.6, 4.5, expression(paste(mc(x))), cex = labelsize)
+text(3.5, 4.9, expression(paste("Firm's")), cex = labelsize)
+text(3.5, 4.7, expression(paste("supply curve")), cex = labelsize)
+text(3.5, 4.5, expression(paste(mc(x))), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, MCost(x = 5/2), 3.63514, MCost(x = 5/2), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -111,7 +110,7 @@ text(5/2 + 0.15, MCost(x = 5/2) - 0.15, expression(b), cex = labelsize)
 
 #Arrow to for sr losses
 text(1.5, 2.22, expression(paste(p[min] < p, phantom() < p[Break])), cex = labelsize)
-text(1.5, 2, expression(paste("short-run losses")), cex = labelsize)
+text(1.45, 2, expression(paste("short-run losses")), cex = labelsize)
 text(1.5, 1.78, expression(paste("firm supplies x")), cex = labelsize)
 text(1.5, 1.6, expression(paste("in short run")), cex = labelsize)
 text(1.5, 1.38, expression(paste("not long run")), cex = labelsize)

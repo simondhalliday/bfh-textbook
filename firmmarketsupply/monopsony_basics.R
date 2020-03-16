@@ -63,9 +63,11 @@ Min <- function(n, min = 4.6){
 }
 
 #Set parameters for graphics
-labelsize <- 1.6
-axislabelsize <- 1.6
-graphlinewidth <- 2.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -79,7 +81,7 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 # first plot: competitive vs monopsony
 pdf(file = "firmmarketsupply/monopsony_basics.pdf", width = 12, height = 10)
-par(mar =  c(5, 7, 3, 3))
+par(mar =  c(5, 10, 3, 5))
 
 #Notice the plot starts at x = 0.2 not 0
 plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
@@ -89,21 +91,10 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
-#Draw the polygon for profit
-#xpoly1 <- c(0, employment(), employment(), 0, 0)
-#ypoly1 <- c(ACL(0), ACL(employment()), MCL(employment()), MCL(employment()), ACL(0))
-#polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
-
-
-
-# ticksx <- seq(from = 0, to = xlims[2], by = 0.2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 0.2)
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
 
 ticksx <- c(xlims[1], employment(), 0.845, 1)
 xlabels <- c(NA, expression(paste(l[M])), expression(paste(l[C])), NA)
@@ -121,15 +112,10 @@ xx2 <- seq(0, 1, length.out = 600)
 lines(xx1, ACL(xx1), col = COLA[5], lwd  = graphlinewidth)
 lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
-#lines(xx2, Min(xx2,4), col = COL[2],lwd = graphlinewidth)
-#lines(xx1, Min(xx1), col = COL[6], lwd = graphlinewidth)
-# with s=1
-## lines(xx1, ACL(xx1, s = 1), col = COLA[3], lwd = graphlinewidth, lty= 3)
-## lines(xx1, MCL(xx1, s = 1), col = COLB[1], lwd = graphlinewidth,lty = 3)
 
 #Axis labels
 mtext(expression(paste("Employment, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(0.17, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.12, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
@@ -140,8 +126,8 @@ segments(0, MRP(employment()), employment(), MRP(employment()), lty = 2, col = "
 segments(0, ACL(0.845), xlims[2], ACL(0.845), lty = 1, col = COLA[3], lwd = segmentlinewidth)
 segments(0.845, 0, 0.845, ACL(0.845), lty = 2, col = "gray", lwd = segmentlinewidth)
 
-text(employment(), 9.5, expression(paste("Profit maximum at")), cex = labelsize)
-text(employment(), 9, expression(paste(mrp == mcl)), cex = labelsize)
+text(employment(), 9.5, expression(paste("Profit maximum at")), cex = annotatesize)
+text(employment(), 9, expression(paste(mrp == mcl)), cex = annotatesize)
 Arrows(employment(), 8.8, employment(), MRP(employment()) + 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -152,26 +138,16 @@ points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1.5)
 points(0.845, ACL(0.845), pch = 16, col = "black", cex = 1.5)
 
 # label points
-text(employment() + 0.01, ACL(employment()) - 0.3 , "b", cex = axislabelsize)
-text(employment() + 0.01, MCL(employment()) - 0.3 , "a", cex = axislabelsize)
-text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = axislabelsize)
+text(employment() + 0.01, ACL(employment()) - 0.3 , "b", cex = labelsize)
+text(employment() + 0.01, MCL(employment()) - 0.3 , "a", cex = labelsize)
+text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = labelsize)
 
 
 # add labels to graphs and polygon
-#text(1.03, 14.3, "Monopsony", cex = axislabelsize, xpd = TRUE)
-text(1.01, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
-text(1.01, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
-text(1.01, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
+text(1.04, 13.5, "Average cost \n of labor \n (acl)", cex = annotatesize, xpd = TRUE)
 
-#text(0.77, 14.3, "Monopsony", cex = axislabelsize, xpd = TRUE)
-text(0.78, 13.8, "Marginal cost", cex = axislabelsize)
-text(0.78, 13.3, "of labor", cex = axislabelsize)
-text(0.78, 12.8, "(mcl)", cex = axislabelsize)
+text(0.75, 13.4, "Marginal cost \n of labor \n (acl)", cex = annotatesize)
 
-text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
-text(0.38, 13.3, "product", cex = axislabelsize)
-text(0.38, 12.8, "(mrp)", cex = axislabelsize)
-
-#text(0.48, 5.1, "Monopsony Surplus", cex = axislabelsize)
+text(0.4, 13.4, "Marginal revenue \n product \n (mrp)", cex = annotatesize)
 
 dev.off()

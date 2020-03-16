@@ -6,7 +6,11 @@ require(shape)
 pdf(file = "firmmarketsupply/firm_size.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -14,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4, 4, 2, 2))
 
 A <- function(s2 = 2.1, x, pmin = -6) {
   (pmin + s2*x)
@@ -59,8 +63,8 @@ xlabels <- c(NA, expression(paste(s,"*")),expression(paste(s["+"],"*")),NA)
 
 
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 npts <- 500 
@@ -84,14 +88,14 @@ segments(0, 15, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(10, 0, 10, 15, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 points(10, 15, pch = 16, col = "black", cex = 1.5)
-text(-0.65, -6, expression(-f*underline(s)) )
+text(-0.65, -5.9, expression(-f*underline(s)), cex = labelsize )
 
 #Label the figures
-text(10, A(x=11.4), expression(f(bar(s) - underline(s))))
-text(15, B(x=12.4), expression(bar(s)(1 - f)*g^s))
-text(14, C(x=12) + 0.7, expression(paste(bar(s)(1 - f)*b, g["+"]^s)))
-text(9.5, A(x=12), expression(paste("Firm death effect")))
-text(14.5, B(x=11.5), expression(paste("Firm growth effect")))
+text(10, A(x=11.4), expression(f(bar(s) - underline(s))),cex = labelsize)
+text(15, B(x=12.4), expression(bar(s)(1 - f)*g^s),cex = labelsize)
+text(14.4, C(x=12) + 2.5, expression(paste(bar(s)(1 - f)*b, g["+"]^s)),cex = labelsize, xpd = TRUE)
+text(9.2, A(x=12), expression(paste("Firm death effect")), cex = labelsize)
+text(14.7, B(x=11.5), expression(paste("Firm growth effect")),cex = labelsize)
 
 dev.off()
 

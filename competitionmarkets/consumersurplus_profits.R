@@ -1,9 +1,12 @@
 require(shape)
-pdf(file = "competitionmarkets/profit_consumersurplus_n.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/consumersurplus_profits.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -83,9 +86,14 @@ df1 %>%
                      breaks = c("csN", "profitN"),
                      labels = c("Consumer Surplus", "Total Economic Profit")
   ) +
-  theme_bw() + 
-  theme(legend.position="top")
-ggsave(file = "competitionmarkets/consumersurplus_profits.pdf", device = "pdf", width = 6, height = 4)
+  theme_bw() + theme(legend.position="top",
+              axis.title = element_text(size = 20),
+              axis.title.y = element_text(size = 20),
+              axis.text.y = element_text(size = 18),
+              #legend.title = element_text(size = 16),
+              legend.text = element_text(size = 18),
+              legend.title = element_text(size = 18))
+#ggsave(file = "competitionmarkets/consumersurplus_profits.pdf", device = "pdf", width = 6, height = 4)
   
 
 #B's value when at A's bliss point
@@ -95,38 +103,38 @@ ggsave(file = "competitionmarkets/consumersurplus_profits.pdf", device = "pdf", 
 #A's value when at A's bliss point
 #0.5*log(4.11765) + 0.5*log(6.17647) + 0.35*log(10 - 4.11765) + 0.35*log(15 - 6.17647) 
 
-
-plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("")),
-     ylab = expression(paste("")), 
-     xaxt = "n", 
-     yaxt = "n", 
-     cex.lab = axislabelsize, 
-     bty = "n",
-     xaxs="i", 
-     yaxs="i")
-
-# ticksy <- seq(from = 0, to = ylims[2], by = 20)
-# ylabels <- seq(from = 0, to = ylims[2], by = 20)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, ylims[2])
-ylabels <- c(NA, NA)
-ticksx <- c(0, xlims[2])
-xlabels <- c(NA, NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-
-#text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
-
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
-
-npts <- 500 
-xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx2 <- seq(1, xlims[2], length.out = npts)
-
-lines(xx2, consumerSurplus(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
-lines(xx2, marketProfit(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
+# 
+# plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
+#      xlab = expression(paste("")),
+#      ylab = expression(paste("")), 
+#      xaxt = "n", 
+#      yaxt = "n", 
+#      cex.lab = axislabelsize, 
+#      bty = "n",
+#      xaxs="i", 
+#      yaxs="i")
+# 
+# # ticksy <- seq(from = 0, to = ylims[2], by = 20)
+# # ylabels <- seq(from = 0, to = ylims[2], by = 20)
+# # ticksx <- seq(from = 0, to = xlims[2], by = 2)
+# # xlabels <- seq(from = 0, to = xlims[2], by = 2)
+# ticksy <- c(0, ylims[2])
+# ylabels <- c(NA, NA)
+# ticksx <- c(0, xlims[2])
+# xlabels <- c(NA, NA)
+# 
+# axis(1, at = ticksx, pos = 0, labels = xlabels)
+# 
+# #text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
+# 
+# axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+# 
+# npts <- 500 
+# xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+# xx2 <- seq(1, xlims[2], length.out = npts)
+# 
+# lines(xx2, consumerSurplus(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+# lines(xx2, marketProfit(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
 # segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)

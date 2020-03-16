@@ -114,24 +114,26 @@ write.xlsx(LBdf, 'competitionmarkets/loecker_barkai/LBdf_data.xlsx')
 # graph
 # ----
 
+#library(readxl)
+#LBdf <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x=year, y=markup, color = "Markup Ratio"), na.rm = TRUE) +
-  geom_line(aes(x=year, y=b_share, color = "Profit share"), na.rm = TRUE) +
+  geom_line(aes(x = year, y = markup, color = "Markup Ratio"), na.rm = TRUE) +
+  geom_line(aes(x = year, y = b_share, color = "Profit share"), na.rm = TRUE) +
   ylab("Profit Share And Markup Ratio") + 
   xlab("Year") +
-  theme_minimal() +
-  theme(axis.text=element_text(size=12),
-                       axis.title=element_text(size=14)) +
+  theme_bw() +
   guides(color = guide_legend(reverse = TRUE)) +
-  theme(legend.position='top', 
-        legend.justification='left',
-        legend.direction="horizontal", 
-        legend.title = element_blank()) + 
-  scale_colour_manual(values=c("#0868ac","#41ae76"))
+  theme(legend.position = c(0.01, 0.96), 
+        legend.justification = 'left',
+        legend.direction = "horizontal", 
+        legend.title = element_blank(),
+        text = element_text(size = 19),
+        axis.text = element_text(size = 17),
+        axis.title = element_text(size = 22),
+        panel.grid.minor = element_blank()) + 
+  scale_colour_manual(values = c("#0868ac","#41ae76"))
   
-
-p
 
 #Save plot to PDF
 ggsave(p, filename = "loecker_barkai.pdf", 

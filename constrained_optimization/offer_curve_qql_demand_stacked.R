@@ -216,9 +216,9 @@ points(6, 1, pch = 16, col = "black", cex = 1.5)
 points(9, 0.5, pch = 16, col = "black", cex = 1.5)
 points(10.5, 0.25, pch = 16, col = "black", cex = 1.5)
 
-text(6, 1.1, expression(paste(a*minute)), cex = labelsize)
-text(9, 0.6, expression(paste(b*minute)), cex = labelsize)
-text(10.5, 0.35, expression(paste(c*minute)), cex = labelsize)
+text(6.2, 1.1, expression(paste(a*minute)), cex = labelsize)
+text(9.2, 0.6, expression(paste(b*minute)), cex = labelsize)
+text(10.7, 0.35, expression(paste(c*minute)), cex = labelsize)
 
 #Label the offer curve
 text(8, 1.8, expression("Demand Function"), cex = labelsize)

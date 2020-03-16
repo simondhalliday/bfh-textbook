@@ -45,14 +45,15 @@ response_rate_subset$condFactor<- ifelse(response_rate_subset$condFactor==0, "No
 # ----
 
 nytfig <- ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + geom_point() + geom_line() + labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  scale_color_manual(values=c(COLB[4], COLA[4])) +theme_bw() + 
-  theme(axis.title.y = element_text(size = 16),
-        legend.text=element_text(size=16),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 13),
-        axis.title.x = element_text(size = 16),
-        legend.title =element_text(size=16)) 
+  theme(axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 18),
+        axis.text.y = element_text(size = 14),
+        axis.title.x = element_text(size = 20),
+        legend.text=element_text(size = 16),
+        legend.title = element_text(size = 16), 
+        legend.position = c(0.85, 0.08)) 
 
-ggsave("people/nyt_wallet_by_country.pdf", nytfig, width = 7, height = 7)
+ggsave("people/nyt_wallet_by_country.pdf", nytfig, width = 7, height = 8)
 
 # ----
 

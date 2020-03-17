@@ -82,7 +82,7 @@ lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-2, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
@@ -118,11 +118,11 @@ lines(xx2, offerCurve(xx2, w = 10, rmax = 2, xmax = 12), col = COL[3], lwd = gra
 
 #Segments for points on Offer curve
 segments(0, 4, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, -50, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 5.5, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(9, -50, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 7.375, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(10.5, -50, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x
@@ -204,11 +204,11 @@ text(-2, 0.5*ylims[2], expression(paste("Price per kilogram of fish, ", p[x])), 
 
 #Segments for points on Offer curve
 segments(0, 1, 6, 1, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, 0, 6, ylims[2] + 5, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0.5, 9, 0.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(9, 0, 9, ylims[2] + 5, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0.25, 10.5, 0.25, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10.5, 0, 10.5, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(10.5, 0, 10.5, ylims[2] + 5, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x

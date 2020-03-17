@@ -67,7 +67,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      ylab = expression(paste("")), 
      xaxt = "n", 
      yaxt = "n", 
-     cex.lab = axistitlesize, 
+     cex.lab = axislabelsize, 
      bty = "n", 
      xaxs="i", 
      yaxs="i"
@@ -78,7 +78,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0, 40, 57.5, 80, xlims[2])
 xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[c])) , expression(paste(x[a])), NA)
 ticksy <- c(0, bcA(40), bcA(57.5, m = 56.5), bcA(0), bcA(0, m = 56.5), ylims[2])
-ylabels <- c(NA, expression(paste(y[b] == y[a])), expression(paste(y[c])), expression(paste(frac(m[b],p[y]) == frac(m[a],p[y]) )), expression(paste(frac(m[c],p[y]) )), NA)
+ylabels <- c(NA, expression(paste(y[b] == y[a])), expression(paste(y[c])), expression(paste(m[b] == m[a])), expression(paste(m[c])), NA)
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -187,7 +187,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      ylab = expression(paste("")), 
      xaxt = "n", 
      yaxt = "n", 
-     cex.lab = axistitlesize, 
+     cex.lab = axislabelsize, 
      bty = "n", 
      xaxs="i", 
      yaxs="i"

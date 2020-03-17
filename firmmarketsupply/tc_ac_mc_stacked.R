@@ -94,7 +94,7 @@ lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05)
 text(-2.7, 0.5*ylims[2], expression(paste("Total cost of production, ",tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the cost curve
-text(11.5, 14, expression("Total Cost"), cex = annotatesize)
+text(11.5, 14.3, expression("Total Cost"), cex = annotatesize)
 text(11.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
@@ -103,8 +103,8 @@ text(3.5, 9.4, expression(paste("equals Average Cost")), cex = annotatesize)
 Arrows(2, 9, 2, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Marginal Cost
-text(13.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.3, expression(paste("Slope of tangent line")), cex = annotatesize)
-text(13.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.3, expression(paste("equals Marginal Cost")), cex = annotatesize)
+text(13.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.4, expression(paste("Slope of tangent line")), cex = annotatesize)
+text(13.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.4, expression(paste("equals Marginal Cost")), cex = annotatesize)
 Arrows(10, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), 4.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Draw segments for average cost
@@ -177,8 +177,8 @@ text(12.5, 14, expression("Total Cost"), cex = labelsize)
 text(12.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
-text(3.75, avgcost(x = 3.2) + 0.825, expression(paste("Average Costs")), cex = labelsize)
-text(3.75, avgcost(x = 3.2) + 0.7, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
+text(3.75, avgcost(x = 3.2) + 0.82, expression(paste("Average Costs")), cex = labelsize)
+text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
 
 #Average cost minimum
 segments(0, avgcost(x = 6.32456), 6.32456, avgcost(x = 6.32456), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -188,12 +188,12 @@ points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 
 #Marginal Cost
-text(11, marginalcost(x = 12) + 0.3, expression(paste("Marginal Cost")), cex = annotatesize)
+text(11, marginalcost(x = 12) + 0.325, expression(paste("Marginal Cost")), cex = annotatesize)
 text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost
 text(12, avgvarcost(x = 12) - 0.2, expression(paste("Average Variable Cost")), cex = annotatesize)
-text(12, avgvarcost(x = 12) - 0.3, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
+text(12, avgvarcost(x = 12) - 0.325, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
 
 
 #Draw segments for average cost

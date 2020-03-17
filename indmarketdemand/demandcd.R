@@ -33,7 +33,7 @@ ylims <- c(0, 13)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(sqrt(2)*sqrt(6), 2*sqrt(6), 6,7,8)
+a <- c(sqrt(2)*sqrt(6), 2*sqrt(6), 6)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -88,8 +88,7 @@ text(11.1, 0.5, expression(bc[3]), cex = annotatesize)
 text(12.2, 1.2, expression(u[1]), cex = annotatesize)
 text(12.2, 2.2, expression(u[2]), cex = annotatesize)
 text(12.2, 3.15, expression(u[3]), cex = annotatesize)
-text(12.2, 4.2, expression(u[4]), cex = annotatesize)
-text(12.2, 5.5, expression(u[5]), cex = annotatesize)
+
 
 
 #text(6.6, 8.3, expression(u[4]^A))

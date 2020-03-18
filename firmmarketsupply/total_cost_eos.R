@@ -85,7 +85,8 @@ lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = gr
 lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), col = "gray", lty = 2, lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Firm quantity, ", x)), side=1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Total cost of production, ",tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the cost curve

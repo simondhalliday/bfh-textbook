@@ -88,7 +88,8 @@ segments(75, 0, 75, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(75, 7.5, pch = 16, col = "black", cex = 1.5)
 
 #Label axes
-mtext(expression(paste("Market output of the good, ", X)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Market quantity, ", X)), side = 1, line = 3, cex = axislabelsize)
+#mtext(expression(paste("Market output of the good, ", X)), side = 1, line = 3, cex = axislabelsize)
 text(-12, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(103, 12, expression("Sellers' Supply"), cex = labelsize)

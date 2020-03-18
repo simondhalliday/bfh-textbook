@@ -63,7 +63,7 @@ text(5.5, cost(5)+0.5, expression(a), cex = labelsize)
 
 # Label x,y axis
 mtext(expression(paste("Capacity, Gal")), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Unit Cost, Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Pipe Cost per Unit of Capacity, Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 dev.off()

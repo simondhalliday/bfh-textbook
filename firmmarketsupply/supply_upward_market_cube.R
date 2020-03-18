@@ -118,7 +118,8 @@ lines(xx12, MarketMCost_2(xx12), col = COLA[6], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-7, 0.5*ylims[2], expression(paste("Price per unit of output, ", p[x])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

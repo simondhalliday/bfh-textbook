@@ -73,7 +73,8 @@ lines(xx2, IsoProf(xx2, k = 20), col = COLB[4], lwd = graphlinewidth)
 segments(0, 4, xlims[2] - 1.5, 4, lty = 1, col = COLB[3] , lwd = graphlinewidth)
 
 #Label the axes
-text(0.5*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+#text(0.5*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -1.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.5, 0.5*ylims[2], expression(paste("Price, ", p, " ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

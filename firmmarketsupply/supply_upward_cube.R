@@ -82,7 +82,7 @@ lines(xx2, MCost(xx2), col = COLA[4], lwd = graphlinewidth, lty = 2)
 lines(xx3, MCost(xx3), col = COL[2], lwd = graphlinewidth, lty = 2)
 
 #Label the axes
-mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side = 1, line = 3, cex = axislabelsize)
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

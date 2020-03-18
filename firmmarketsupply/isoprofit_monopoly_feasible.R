@@ -85,7 +85,8 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLA[5], lwd = graphline
 
 
 #Label the axes
-text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -1.8, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
+#text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(2, AvgRevenue(x = 4) + 0.2, expression("Demand curve"), cex = annotatesize)

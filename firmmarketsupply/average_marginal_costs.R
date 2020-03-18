@@ -78,7 +78,8 @@ lines(xx1, avgvarcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[2], lwd = graphlinew
 lines(xx1, marginalcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-2.5, 0.5*ylims[2], expression(paste("Costs of production, ",tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the cost curve

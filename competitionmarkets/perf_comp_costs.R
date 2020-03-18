@@ -100,7 +100,8 @@ lines(xx1, MCost(xx1), col = COLA[4], lwd = graphlinewidth)
 # Label the axes
 
 # text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side=1, line = 3, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side=1, line = 3, cex = axislabelsize)
 text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

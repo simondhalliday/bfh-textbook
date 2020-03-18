@@ -82,7 +82,8 @@ lines(xx1, TotalCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MRevenue(x = 4)), col = "gray", lty = 2, lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side=1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.2, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

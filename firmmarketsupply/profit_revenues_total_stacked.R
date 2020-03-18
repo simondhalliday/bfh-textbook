@@ -57,8 +57,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, TotalCost(x = 0), TotalCost(x = 4), Revenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(c[0])), expression(paste(tc(x[1]))), expression(paste(r(x[1]))), NA)
+ticksy <- c(0, TotalCost(x = 4), Revenue(x = 4), ylims[2])
+ylabels <- c(expression(paste(c[0])), expression(paste(tc(x[1]))), expression(paste(r(x[1]))), NA)
 ticksx <- c(0, 4, xlims[2])
 xlabels <- c(NA, expression(paste(x[1])), NA)
 
@@ -70,11 +70,11 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(3, 5, length.out = npts)
 
 lines(xx1, Revenue(xx1, rmax = 12, xmax = 10), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, TotalCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, TotalCost(xx1, c0 = 0, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MRevenue(x = 4)), col = "gray", lty = 2, lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
@@ -83,18 +83,18 @@ text(8.3, 21, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, TotalCost(x = 4), 4, TotalCost(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, 0, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label Points for comparison
 points(4, Revenue(x = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, Revenue(x = 4) - 0.5, expression(a), cex = annotatesize)
 
-points(4, TotalCost(x = 4), pch = 16, col = "black", cex = 1.5)
-text(4.2, TotalCost(x = 4) - 0.5, expression(b), cex = annotatesize)
+points(4, TotalCost(x = 4, c0 = 0, c1 = 4), pch = 16, col = "black", cex = 1.5)
+text(4.2, TotalCost(x = 4, c0 = 0, c1 = 4) - 0.5, expression(b), cex = annotatesize)
 
-Arrows(4, Revenue(x = 4) - 1.5, 4, TotalCost(x = 4) + 1.5, code = 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(4.5, 0.8*Revenue(x = 4), expression("Profits"), cex = annotatesize)
+Arrows(4, Revenue(x = 4) - 1.5, 4, TotalCost(x = 4, c0 = 0, c1 = 4) + 1.5, code = 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4.5, 0.8*TotalCost(x = 4, c0 = 0, c1 = 4), expression("Profits"), cex = annotatesize)
 
 
 

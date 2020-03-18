@@ -18,7 +18,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -79,7 +79,7 @@ lines(xx2, IsoProf(xx2, k = 8), col = COLB[4], lwd = graphlinewidth)
 lines(xx2, IsoProf(xx2, k = 20), col = COLB[4], lwd = graphlinewidth)
 
 #Label the axes
-text(0.5*(xlims[2]), -1.8, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -1.8, expression(paste("Quantity of output, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

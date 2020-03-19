@@ -56,14 +56,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, AvgRevenue(x = 4), 12, ylims[2])
-ylabels <- c(NA, expression(paste(p^{m})), expression(paste(bar(p))), NA)
-ticksx <- c(0, 4, 12, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})),  expression(paste(frac(bar(p),beta))), NA)
+ticksy <- c(0, AvgRevenue(x = 4), AvgRevenue(x = 6.45), 12, ylims[2])
+ylabels <- c(NA, expression(paste(p^{m})), expression(paste(p^{bar(m)})), expression(paste(bar(p))), NA)
+ticksx <- c(0, 4, 6.45, 12, xlims[2])
+xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^bar(m))), expression(paste(frac(bar(p),beta))), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 4, 12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 4, 6.45, 12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
@@ -86,7 +86,6 @@ text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, 
 #Label curves
 text(xlims[2] - 1, 7, expression(paste("Isoprofit \n curves")), cex = labelsize)
 
-
 text(xlims[2] - 1, 6, expression(paste(pi[3])), cex = labelsize)
 text(xlims[2] - 1, 5.25, expression(paste(pi[2])), cex = labelsize)
 text(xlims[2] - 1, 4.5, expression(paste(pi[1])), cex = labelsize)
@@ -95,8 +94,13 @@ text(xlims[2] - 1, 4.5, expression(paste(pi[1])), cex = labelsize)
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(4.1, AvgRevenue(x = 4) + 0.5, expression("h"), cex = labelsize)
+segments(0, AvgRevenue(x = 6.45), 6.45, AvgRevenue(x = 6.45), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6.45, 0, 6.45, AvgRevenue(x = 6.45), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
+points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
+text(4.2, AvgRevenue(x = 4) + 0.5, expression("h"), cex = labelsize)
+
+points(6.45, AvgRevenue(x = 6.45), pch = 16, col = "black", cex = 1.5)
+text(6.65, AvgRevenue(x = 6.45) + 0.4, expression("h'"), cex = labelsize)
 
 dev.off()

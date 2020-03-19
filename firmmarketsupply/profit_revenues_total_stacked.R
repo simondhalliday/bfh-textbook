@@ -23,7 +23,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 1, 1), mfrow = c(2,1))
+par(mar =  c(4.5, 7, .2, 1), mfrow = c(2,1))
 
 Revenue <- function(x, rmax = 12, xmax = 10){
   (rmax - (rmax/xmax)*x)*x
@@ -58,9 +58,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, TotalCost(x = 4), Revenue(x = 4), ylims[2])
-ylabels <- c(expression(paste(c[0])), expression(paste(tc(x[1]))), expression(paste(r(x[1]))), NA)
+ylabels <- c(expression(paste(c[0])), expression(paste(c(x[1]))), expression(paste(r(x[1]))), NA)
 ticksx <- c(0, 4, xlims[2])
-xlabels <- c(NA, expression(paste(x[1])), NA)
+xlabels <- c(NA, expression(paste(x[m])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -75,10 +75,10 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", tc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(8.3, 38, expression(paste(tc(x))), cex = annotatesize)
+text(8.3, 38, expression(paste(c(x))), cex = annotatesize)
 text(8.3, 21, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs
@@ -131,6 +131,17 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
+#Draw the polygon for profit
+xpoly1 <- c(0, 4, 4, 0, 0)
+ypoly1 <- c(3.35, 3.35, AvgRevenue(x = 4) - 1.2, AvgRevenue(x = 4) - 1.2, 3.35)
+polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
+
+#Draw the polygon for costs
+xpoly2 <- c(0, 4, 4, 0, 0)
+ypoly2 <- c(0, 0, 3.35, 3.35, 3.35)
+polygon(x = xpoly2, y = ypoly2, col = COLB[1], density = NULL, border = NA)
+
+
 ticksy <- c(0, MRevenue(x = 4) + 0.95, AvgRevenue(x = 4) - 1.2, ylims[2])
 ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p))))
 ticksx <- c(0, 4, 6, xlims[2])
@@ -144,21 +155,12 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
-#Draw the polygon for profit
-xpoly1 <- c(0, 4, 4, 0, 0)
-ypoly1 <- c(3.35, 3.35, AvgRevenue(x = 4) - 1.2, AvgRevenue(x = 4) - 1.2, 3.35)
-polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
-
-#Draw the polygon for costs
-xpoly2 <- c(0, 4, 4, 0, 0)
-ypoly2 <- c(0, 0, 3.35, 3.35, 3.35)
-polygon(x = xpoly2, y = ypoly2, col = COLB[1], density = NULL, border = NA)
 
 lines(xx1, AvgRevenue(xx1, rmax = 10, xmax = 10), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 10, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 
 #Label the axes
-text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.48*(xlims[2]), -1.4, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

@@ -51,7 +51,7 @@ fit4.predict <- function(x) exp(fit4$coefficients[1])*x^(fit4$coefficients[2])
 fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time)) +
   geom_point(aes( y = ManHours),size = 1.5, color = COLB[4]) +
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
-  labs(x = "Output", y = "Cost (Hours)") +
+  labs(x = "Monthly utput", y = "Cost (Hours)") +
   theme_bw() +
   theme(axis.text=element_text(size=15),
         axis.title=element_text(size=18),

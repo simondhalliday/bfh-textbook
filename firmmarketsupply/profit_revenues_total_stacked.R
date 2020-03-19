@@ -23,7 +23,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4.5, 7, .2, 1), mfrow = c(2,1))
+par(mar =  c(4.75, 7, .2, 1), mfrow = c(2,1))
 
 Revenue <- function(x, rmax = 12, xmax = 10){
   (rmax - (rmax/xmax)*x)*x
@@ -41,7 +41,15 @@ TotalCost <- function(x, c0 = 2, c1 = 4){
   c0 + c1*x
 }
 
-xlims <- c(0, 10)
+AvgRevenue <- function(x, rmax = 12, xmax = 10){
+  rmax - (rmax/xmax)*x
+}
+
+AvgCost <- function(x, c0 = 2, c1 = 4){
+  c0/x + c1
+}
+
+xlims <- c(0, 10.5)
 ylims <- c(0, 40)
 
 npts <- 501 
@@ -57,13 +65,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, TotalCost(x = 4), Revenue(x = 4), ylims[2])
-ylabels <- c(expression(paste(c[0])), expression(paste(c(x[1]))), expression(paste(r(x[1]))), NA)
+ticksy <- c(0, TotalCost(x = 4, c0 = 0, c1 = 4), Revenue(x = 4), ylims[2])
+ylabels <- c(expression(paste(c[0])), expression(paste(c(x^m))), expression(paste(r(x^m))), NA)
 ticksx <- c(0, 4, xlims[2])
-xlabels <- c(NA, expression(paste(x[m])), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+xlabels <- c(NA, expression(paste(x^m)), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -75,15 +80,15 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ",r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ", r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(8.3, 38, expression(paste(c(x))), cex = annotatesize)
+text(8.3, 36, expression(paste(c(x))), cex = annotatesize)
 text(8.3, 21, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, -20, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label Points for comparison
@@ -94,25 +99,17 @@ points(4, TotalCost(x = 4, c0 = 0, c1 = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, TotalCost(x = 4, c0 = 0, c1 = 4) - 0.5, expression(b), cex = annotatesize)
 
 Arrows(4, Revenue(x = 4) - 1.5, 4, TotalCost(x = 4, c0 = 0, c1 = 4) + 1.5, code = 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(4.5, 0.8*TotalCost(x = 4, c0 = 0, c1 = 4), expression("Profits"), cex = annotatesize)
+text(4.6, 1.4*TotalCost(x = 4, c0 = 0, c1 = 4), expression("Profits"), cex = annotatesize)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 
 # Monopolist Profit ------------------------------------------------------------
 
-AvgRevenue <- function(x, rmax = 12, xmax = 10){
-  rmax - (rmax/xmax)*x
-}
 
-MRevenue <- function(x, rmax = 12, xmax = 10){
-  rmax - 2*(rmax/xmax)*x
-}
-
-AvgCost <- function(x, c0 = 2, c1 = 4){
-  c0/x + c1
-}
-
-xlims <- c(0, 10)
+xlims <- c(0, 10.5)
 ylims <- c(0, 10)
 
 npts <- 501 
@@ -144,11 +141,11 @@ polygon(x = xpoly2, y = ypoly2, col = COLB[1], density = NULL, border = NA)
 
 ticksy <- c(0, MRevenue(x = 4) + 0.95, AvgRevenue(x = 4) - 1.2, ylims[2])
 ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p))))
-ticksx <- c(0, 4, 6, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))))
+ticksx <- c(0, 4, 6, xlims[2] - 0.5, xlims[2])
+xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 4, 6, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 4, 6, xlims[2] - 0.5, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
@@ -160,11 +157,11 @@ lines(xx1, AvgRevenue(xx1, rmax = 10, xmax = 10), col = COLB[5], lwd = graphline
 lines(xx1, MRevenue(xx1, rmax = 10, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 
 #Label the axes
-text(0.48*(xlims[2]), -1.4, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.48*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-1.4, 0.44*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(8.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = annotatesize)
+text(8.5, MRevenue(x = 4) + 1.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = annotatesize)
 text(8.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = annotatesize)
 text(5.6, 2.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = annotatesize)
 
@@ -175,7 +172,7 @@ text(2, 4.25, expression("Profit"), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4) - 1.2, 4, AvgRevenue(x = 4) - 1.2, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4) - 1.2, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4) + 40, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, MRevenue(x = 4) + 0.95, xlims[2], MRevenue(x = 4) + 0.95, lty = 1, col = COL[1] , lwd = graphlinewidth)
 
 #Label Points for comparison

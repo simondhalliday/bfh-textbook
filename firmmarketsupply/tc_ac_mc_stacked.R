@@ -78,16 +78,11 @@ xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx3 <- seq(2.5, 5.5, length.out = npts)
-xx4 <- seq(4.82456, 7.82456, length.out = npts)
+xx3 <- seq(3, 5, length.out = npts)
+xx4 <- seq(5.32456, 7.32456, length.out = npts)
 
 
 lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = graphlinewidth)
-lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), 
-      col = "grey22", lty = 2, lwd = graphlinewidth)
-lines(xx4, mcline(xx4, constant = totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) - 6.32456*marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05)), 
-      col = "grey22", lty = 2, lwd = graphlinewidth)
-
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -102,6 +97,11 @@ segments(6.32456, -20, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0
 
 segments(0, 0, 4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 0, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[3] , lwd = segmentlinewidth)
+
+lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), 
+      col = "#E18500", lty = 1, lwd = graphlinewidth)
+lines(xx4, mcline(xx4, constant = totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) - 6.32456*marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05)), 
+      col = "#E18500", lty = 1, lwd = graphlinewidth)
 
 points(4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 text(3.85, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)

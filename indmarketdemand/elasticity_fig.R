@@ -31,7 +31,7 @@ elasticity1 <- function(x, A, b ) {
 }
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = "Quantity of the good, x",
+     xlab = "Quantity of the good, X",
      ylab = "Price per unit of x, p", 
      xaxt = "n", 
      yaxt = "n", 
@@ -74,7 +74,7 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
 legend(1.6, 8, 
-       legend=c("Rice (Japan)", "Fish","Coca-cola","Alcohol (expensive)"),
+       legend=c("Rice in Japan", "Fish","Coca-cola","Expensive alcohol"),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), 
        lty=1, cex=labelsize)
 

@@ -59,6 +59,15 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
+
+
+
+#Lines for mrs graph
+lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
+
+segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
+segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
 #Polygon for CS
 xpoly <- c(0, 5, 0)
 ypoly <- c(10, 10, 20)
@@ -68,13 +77,6 @@ polygon(x = xpoly, y = ypoly, col = COL[4], density=NULL, border = NA)
 xpoly3 <- c(0, 5, 5, 0, 0)
 ypoly3 <- c(0, 0, 10, 10, 0)
 polygon(x = xpoly3, y = ypoly3, col = COLB[1], density=NULL, border = NA)
-
-
-#Lines for mrs graph
-lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
-
-segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 3, cex = axislabelsize)

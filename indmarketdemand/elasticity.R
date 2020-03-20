@@ -48,8 +48,8 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Label axes
-mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.7, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of the good, ", X)), side = 1, line = 2.5, cex = axislabelsize)
+text(-0.7, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Demand
 segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth) 

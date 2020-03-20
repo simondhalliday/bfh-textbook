@@ -61,6 +61,11 @@ ylabels <- c(NA, expression(paste(p^{m})), expression(paste(p^{bar(m)})), expres
 ticksx <- c(0, 4, 6.45, 12, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^bar(m))), expression(paste(frac(bar(p),beta))), NA)
 
+#Draw the polygon for feasible
+xpoly1 <- c(0, 0, 12, 0)
+ypoly1 <- c(0, 12, 0, 0)
+polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
+
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
 text(x = c(0, 4, 6.45, 12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)

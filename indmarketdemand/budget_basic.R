@@ -52,8 +52,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 2)
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
@@ -63,13 +63,6 @@ ticksy <- c(0, 12, ylims[2])
 ylabels <- c(NA, expression(paste(y == frac(w, p[y]) )), NA)
 ticksx <- c(0, 12, xlims[2])
 xlabels <- c(NA, NA, NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
-text(12, -1, expression(paste(x == frac(w, p[x]) )), cex = labelsize, xpd = TRUE)
-
-
 
 
 npts <- 500 
@@ -99,5 +92,12 @@ text(10, 9.3, expression("(outside the budget)"), cex = annotatesize)
 #text(7.5, 1.5, expression(bc[px]))
 text(11, 3.6, expression("Budget Constraint"), cex = annotatesize)
 text(11, 2.6, expression(paste(y == frac(w,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)), cex = annotatesize)
+
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(12, -1, expression(paste(x == frac(w, p[x]) )), cex = labelsize, xpd = TRUE)
+
 
 dev.off()

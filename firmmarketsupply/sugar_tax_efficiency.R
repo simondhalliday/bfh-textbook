@@ -49,20 +49,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 9, 10, 12, 20, ylims[2])
 ylabels <- c(NA, expression(paste(p[d] == 9)), expression(paste(p[b] == 10)), expression(paste(p[a] == 12)), expression(paste(20)), NA)
 ticksx <- c(0, 4, 5, 10, xlims[2])
 xlabels <- c(0, expression(paste(x[a]) == 4), expression(paste(x[b]) == 5), expression(paste(10)), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -131,7 +124,7 @@ points(4, Qs(4) , pch = 16, col = "black", cex = 1.5)
 text(4 + 0.2, Qs(4) - 0.25, expression(d),cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
+text(8.3, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
 text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
 
 #Label mrs function
@@ -141,6 +134,9 @@ text(6.8, 12.9, expression(paste("Tax" == 3)), cex = labelsize)
 
 # Label CS
 #text(1.2, 14, expression(paste("Consumer Surplus")))
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 
 dev.off()

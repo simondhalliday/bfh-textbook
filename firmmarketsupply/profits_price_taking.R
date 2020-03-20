@@ -1,5 +1,5 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
@@ -8,7 +8,7 @@ pdf(file = "firmmarketsupply/profits_price_taking.pdf", width = 9, height = 7)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
-graphlinewidth <- 3
+graphlinewidth <- 2
 segmentlinewidth <- 2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(5, 6, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -65,9 +65,6 @@ ylabels <- c(NA, expression(paste(ac, "(", x,"*)")), expression(paste(p)), NA)
 ticksx <- c(0, 6, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*")), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
@@ -91,7 +88,7 @@ lines(xx1, MCost(xx1, c1 = 2, c2 = 0.5), col = COLA[4], lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 7.4, expression(paste(ac(x))), cex = labelsize)
@@ -124,6 +121,8 @@ text(6, 11.5, expression(paste("Profit Maximum at")), cex = labelsize)
 text(6, 11, expression(paste(mr == mc)), cex = labelsize)
 Arrows(6, 10.7, 6, 8.5 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

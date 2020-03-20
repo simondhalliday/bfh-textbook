@@ -2,7 +2,11 @@ require(shape)
 pdf(file = "indmarketdemand/demand_cd_indiff_veblen.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 

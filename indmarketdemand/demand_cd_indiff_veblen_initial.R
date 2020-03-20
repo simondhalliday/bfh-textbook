@@ -37,7 +37,7 @@ ylims <- c(0, 1.1)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(1)
+a <- c(0.7,1,1.2)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -77,6 +77,8 @@ text(-0.66, 0.5*ylims[2], expression(paste("Leisure time as a proportion, ", l =
 # text(4.6, 0.04, expression(u[1]^v))
 # text(4.6, 0.13, expression(u[2]^v))
 text(4.6, 0.25, expression(paste(u,"*")), cex = annotatesize)
+text(4.6, 0.35, expression(paste(u[1])), cex = annotatesize)
+text(4.6, 0.13, expression(paste(u[2])), cex = annotatesize)
 
 contour(x, y, 
         outer(x, y, uA),

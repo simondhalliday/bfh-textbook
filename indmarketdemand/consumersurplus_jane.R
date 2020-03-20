@@ -25,7 +25,7 @@ uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
-xlims <- c(0, 115)
+xlims <- c(0, 11)
 ylims <- c(0, 22)
 
 npts <- 501 
@@ -53,8 +53,8 @@ ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(p) == 20)), NA
 ticksx <- c(0, 5, 10, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(bar(x)==10)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -81,7 +81,7 @@ mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 3,
 text(-1.6, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(5, 10, pch = 16, col = "black", cex = 1.5)
-text(5.25, 10.5, expression(i))
+text(5.25, 10.5, expression(i), cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(9, 10.5, expression("Market price, p = 10"), cex = labelsize)
@@ -102,7 +102,7 @@ text(9, 10.5, expression("Market price, p = 10"), cex = labelsize)
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(8.6, 5.5, expression(paste(p(x) == 20 - 2*x)))
+text(8.8, 5.5, expression(paste(p(x) == 20 - 2*x)), cex = labelsize)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation
@@ -111,13 +111,13 @@ text(8.6, 5.5, expression(paste(p(x) == 20 - 2*x)))
 #Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
-text(2.5, 12.25, expression("Consumer Surplus"))
-text(2.5, 11, expression(paste(CS==frac(1, 2)*bgroup("(",bar(p) - p,")")*x, phantom()== 25)))
+text(1.7, 12.8, expression("Consumer Surplus"), cex = labelsize)
+text(1.7, 11.2, expression(paste(CS==frac(1, 2)*bgroup("(",bar(p) - p,")")*x, phantom()== 25)), cex = labelsize)
 #text(3.5, 16, expression(paste(CS==frac(1, 2)*bgroup("(",20 - 10,")")*5, phantom()== 25)))
 #Arrows(3.5, 15, 3.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(2.5, 6, expression("Consumer Expenditure"))
-text(2.5, 4.5, expression(paste(CE==p(x)%.%x,"*", phantom() == 50)))
+text(2.5, 6, expression("Consumer Expenditure"), cex = labelsize)
+text(2.5, 4.5, expression(paste(CE==p(x)%.%x,"*", phantom() == 50)), cex = labelsize)
 
 
 dev.off()

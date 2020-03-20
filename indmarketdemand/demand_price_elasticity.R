@@ -53,7 +53,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 lines(xx1, mrsA(xx1, rmax = 20, xmax = 100), col = COLA[4], lwd = graphlinewidth)
 
-text(0.5*xlims[2], -3, expression(paste("Market Quantity of the good, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -3, expression(paste("Market quantity of the good, ", X)), xpd = TRUE, cex = axislabelsize) 
 text(-19, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -75,7 +75,7 @@ Arrows(40, 16.8, 34.5, 15.2, col = "black", lty = 1, lwd = 2, arr.type = "triang
 segments(0, 6, 70, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(70, 0, 70, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(70, 6, pch = 16, col = "black", cex = 1.5)
-text(72.5, 6.5, expression(g))
+text(72.5, 6.5, expression(g), cex = labelsize)
 text(92, 10, expression(paste(eta[g] == 5*bgroup("(",frac(6,70), ")"), phantom() == 0.43)), cex = labelsize)
 Arrows(80, 8.8, 74.5, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

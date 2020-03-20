@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "bfh-textbook/firmmarketsupply//isoquant_shaded.pdf", width = 8, height = 6)
+pdf(file = "firmmarketsupply/isoquant_shaded.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -41,8 +41,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 
@@ -54,9 +54,6 @@ xlabels <- seq(from = 0, to = xlims[2], by = 1)
 # ylabels <- c(NA, expression(paste(y,"*")), expression(paste(bar(y))), NA)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -87,17 +84,6 @@ mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axis
 text(-0.8, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-# contour(x, y, 
-#         outer(x, y, uFn),
-#         drawlabels = FALSE,
-#         col = COLB[3],
-#         lwd = graphlinewidth,
-#         levels = a, 
-#         xaxs="i", 
-#         yaxs="i", 
-#         add = TRUE)
-
-
 #Label the indifference curves
 text(9, 4.5, expression("Cobb-Douglas"), cex = labelsize)
 text(9, 4, expression("isoquant"), cex = labelsize)
@@ -112,7 +98,7 @@ text(8, 8.5, expression(paste("Production set:")), cex = labelsize)
 text(8, 8, expression(paste(x = bar(x), " feasible")), cex = labelsize)
 text(8, 7.5, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
 
-#text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
-#text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 dev.off()

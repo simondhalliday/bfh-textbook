@@ -6,17 +6,20 @@ require(shape)
 pdf(file = "firmmarketsupply/supply_upward_market_cube.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.8
+namesize <- 1.8
+annotatesize <- 1.8
+graphlinewidth <- 2.5
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(6, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -81,7 +84,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, MCost(x = 2.5), ylims[2])
 ylabels <- c(NA,  expression(paste(p[min]^{SR})), NA)
 ticksx <- c(0,2.5*5, 2.5*10, xlims[2])
-xlabels <- c(NA, expression(paste(x[m]^{5})), expression(paste(x[m]^{Market})), NA)
+xlabels <- c(NA, NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -120,7 +123,7 @@ lines(xx12, MarketMCost_2(xx12), col = COLA[6], lwd = graphlinewidth)
 #Label the axes
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-7, 0.5*ylims[2], expression(paste("Price per unit of output, ", p[x])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-9, 0.5*ylims[2], expression(paste("Price per unit of output, ", p[x])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 # text(6.1, 4.9, expression(paste(ac(x))), cex = labelsize)
@@ -136,9 +139,9 @@ text(75, 15.5, expression(paste(S[Market])), cex = labelsize)
 #text(8, 8, expression(paste(mc(x))), cex = labelsize)
 
 
-text(42, 10, expression(paste("With more firms")), cex = labelsize)
-text(42, 9.2, expression(paste("the supply curve")), cex = labelsize)
-text(42, 8.4, expression(paste("flattens")), cex = labelsize)
+text(15, 10, expression(paste("With more firms\n the supply\n curve flattens")), cex = labelsize)
+#text(15, 9.2+5, expression(paste("the supply curve")), cex = labelsize)
+#text(15, 8.4+5, expression(paste("flattens")), cex = labelsize)
 #Arrows(6.5 ,11, 10, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(13 ,11, 27, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(31 ,11, 57, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -188,6 +191,7 @@ segments(2.5*10, 0, 2.5*10, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd
 # text(5.5, 0.45, expression(paste("unable to cover fixed costs")), cex = labelsize)
 # text(5.5, 0.25, expression(paste("firm shuts down")), cex = labelsize)
 # Arrows(3.8, 0.1, 3.8, MCost(x = 5/2) - 0.1, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
+text(2.5*5, -1, expression(paste(x[m]^{5})), xpd = TRUE, cex = labelsize)
+text(2.5*10, -1, expression(paste(x[m]^{Market})), xpd = TRUE, cex = labelsize)
 
 dev.off()

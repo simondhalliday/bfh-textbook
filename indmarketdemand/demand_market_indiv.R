@@ -28,7 +28,7 @@ uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
-xlims <- c(0, 115)
+xlims <- c(0, 120)
 ylims <- c(0, 22)
 
 npts <- 501 
@@ -76,7 +76,7 @@ segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #Label axes
 #mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
 
-text(0.5*xlims[2], -2, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -2, expression(paste("Kilograms of fish, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-15, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(5, 10, pch = 16, col = "black", cex = 1.5)

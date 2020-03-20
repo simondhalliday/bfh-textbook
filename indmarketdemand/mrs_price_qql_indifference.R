@@ -49,7 +49,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(0, 600, ylims[2])
 ylabels <- c(NA, 6, expression(paste(frac(m,p[y])==600 )), NA)
-ticksx <- c(0, 2, 4, 6, 8, 12, xlims[2])
+ticksx <- c(0, 100, NA, 60, NA, 43, xlims[2])
 xlabels <- c(NA, 2, 4, 6, 8, 12, NA)
 
 

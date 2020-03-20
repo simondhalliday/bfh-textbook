@@ -71,7 +71,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
 segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)

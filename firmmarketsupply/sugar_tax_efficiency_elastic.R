@@ -53,21 +53,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
+
 ticksy <- c(0, Qs(xpost),  Qs(xpre), Qs_tax(xpost), 20, ylims[2])
 ylabels <- c(NA, expression(paste(p[d])), expression(paste(p[a])), expression(paste(p[b])), expression(paste(bar(p) )), NA)
 ticksx <- c(0, xpost, xpre, 10, xlims[2])
 xlabels <- c(NA, expression(paste(X[b])), expression(paste(X[a])), expression(paste(frac(bar(p), beta ) )), NA)
 
-axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = ticksx, par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -126,19 +120,19 @@ text(-0.8, 0.5*ylims[2], expression(paste("Price per liter ($), ", p)), xpd = TR
 
 #Label a
 points(xpost, Qs_tax(xpost), pch = 16, col = "black", cex = 1.5)
-text(xpost, Qs_tax(xpost) + 0.75, expression(b))
+text(xpost, Qs_tax(xpost) + 0.75, expression(b), cex = annotatesize)
 
 #Label b
 points(xpre, Qs(xpre), pch = 16, col = "black", cex = 1.5)
-text(xpre + 0.1, Qs(xpre) - 0.75, expression(a))
+text(xpre + 0.1, Qs(xpre) - 0.75, expression(a), cex = annotatesize)
 
 #Label c
 points(xpost, Qs(xpost), pch = 16, col = "black", cex = 1.5)
-text(xpost + 0.2, Qs(xpost) - 0.25, expression(d))
+text(xpost + 0.2, Qs(xpost) - 0.3, expression(d), cex = annotatesize)
 
 #Label d
 points(xpost, Qs(xpre) , pch = 16, col = "black", cex = 1.5)
-text(xpost + 0.2, Qs(xpre) + 0.25, expression(c))
+text(xpost + 0.2, Qs(xpre) + 0.3, expression(c), cex = annotatesize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(8.5, 14, expression(paste("Supply with tax, ", tau)), cex = labelsize)
@@ -153,6 +147,9 @@ text(6.6, 9.95, expression(paste("Tax" == tau)), cex = labelsize)
 
 # Label CS
 #text(1.2, 14, expression(paste("Consumer Surplus")))
+axis(1, at = ticksx, pos = 0, labels = FALSE)
+text(x = ticksx, par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

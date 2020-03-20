@@ -5,11 +5,11 @@ pdf(file = "indmarketdemand/demand_giffen.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
-axislabelsize <- 1.8
-labelsize <- 1.5
+axislabelsize <- 2
+labelsize <- 1.8
 namesize <- 1.8
-annotatesize <- 1.5
-graphlinewidth <- 2
+annotatesize <- 1.8
+graphlinewidth <- 2.5
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -75,15 +75,15 @@ text(3, 7.5, expression(paste("Giffen demand")), cex = annotatesize)
 brackets(9.2, 10, 9.2, 4.1,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
 
-text(11.4, 7.5, expression(paste("Downward-")), cex = annotatesize, xpd = TRUE)
-text(11.4, 7, expression(paste("sloping")), cex = annotatesize, xpd = TRUE)
-text(11.4, 6.5, expression(paste("demand")), cex = annotatesize, xpd = TRUE)
+text(11.6, 7.5, expression(paste("Downward-")), cex = annotatesize, xpd = TRUE)
+text(11.6, 7, expression(paste("sloping")), cex = annotatesize, xpd = TRUE)
+text(11.6, 6.5, expression(paste("demand")), cex = annotatesize, xpd = TRUE)
 
 brackets(9.2, 3.9, 9.2, 0.1,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
          col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
 
-text(11.4, 2.5, expression(paste("Upward-")), cex = annotatesize)
-text(11.4, 2, expression(paste("sloping")), cex = annotatesize)
-text(11.4, 1.5, expression(paste("demand")), cex = annotatesize)
+text(11.5, 2.5, expression(paste("Upward-")), cex = annotatesize)
+text(11.5, 2, expression(paste("sloping")), cex = annotatesize)
+text(11.5, 1.5, expression(paste("demand")), cex = annotatesize)
 
 dev.off()

@@ -37,8 +37,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 2)
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
@@ -48,9 +48,6 @@ ticksy <- c(0, 10, ylims[2])
 ylabels <- c(NA, expression(paste(bar(r))), NA)
 ticksx <- c(0, 10, 20, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -73,34 +70,16 @@ text(10.5, 5.25, expression(i))
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(20, 5.25, expression("Market price, p"), cex = labelsize)
-#text(7.3, 2.5, expression("Curve"))
-#Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label the iso-welfare functions for the HG, Aisha
-# text(3.8, 1.5, expression(u[1]^A))
-# text(4.6, 1.5, expression(u[2]^A))
-# text(5.5, 1.5, expression(u[3]^A))
-#text(6.6, 8.3, expression(u[4]^A))
-
-
-#Label the indifference curves for the HG, Betty
-# text(7.6, 17, expression(u[1]^B))
-# text(6.75, 17, expression(u[2]^B))
-# text(6, 17, expression(u[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(18, 2.5, expression(paste(mrs(x,y) == bar(r) - bgroup("(",frac(bar(r), bar(x)),")")*x)))
-#Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label satiation
-#text(20, 3.5, expression(paste(bar(x) == "Point")))
-#text(20, 3, expression(paste("of Satiation")))
-#Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(18, 2.5, expression(paste(mrs(x,y) == bar(r) - bgroup("(",frac(bar(r), bar(x)),")")*x)), cex = labelsize)
 
 #Label highest willingness to pay
-text(5, 10, expression("Consumer Surplus"))
-text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x)))
+text(5, 10, expression("Consumer Surplus"), cex = labelsize)
+text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x)), cex = labelsize)
 Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 dev.off()

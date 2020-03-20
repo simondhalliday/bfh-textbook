@@ -46,8 +46,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 2)
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
@@ -57,9 +57,6 @@ ticksy <- c(0, 10, 12, 20, ylims[2])
 ylabels <- c(NA, expression(paste(p[b] == 10)), expression(paste(p[a] == 12)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 2, 4, 5, 10, xlims[2])
 xlabels <- c(0, expression(paste(x["m"]) == 2),expression(paste(x[a]) == 4), expression(paste(x[b]) == 5), expression(paste(bar(x)==10)), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -108,45 +105,24 @@ text(-1.6, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, 
 
 #Label i
 points(5, 10, pch = 16, col = "black", cex = 1.5)
-text(5, 10.75, expression(b))
+text(5, 10.75, expression(b), cex = annotatesize)
 
 #Label g
 points(4, 12, pch = 16, col = "black", cex = 1.5)
-text(4, 12.75, expression(a))
+text(4, 12.75, expression(a), cex = annotatesize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
 text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
-#text(7.3, 2.5, expression("Curve"))
-#Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrs function
 text(8.05, 8, expression(paste("Demand, ", p(x) == 20 - 2*x)), cex = labelsize)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label satiation
-#text(20, 3.5, expression(paste(x[max] == "Point")))
-#text(20, 3, expression(paste("of Satiation")))
-#Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label highest willingness to pay
-#text(1.25, 15, expression(paste("Consumer Surplus" )))
-#text(1.25, 13.5, expression(paste(cs[t]==frac(1, 2)*bgroup("(",r[max] - p[t],")")*x)))
-#text(2.5, 19, expression(paste(CS==frac(1, 2)*bgroup("(",20 - 12,")")*4, phantom()== 16)))
-#Arrows(2, 18, 2, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
 #Label tax revenue
 text(1.3, 11, expression(paste("Tax Revenue, ", R==t%.%x[t])))
-#text(3.5, 18, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
-#text(2, 2, expression(paste()))
-#text(2.5, 0.75, expression(paste(R==2*bgroup("(",12 - 10,")")*4, phantom()== 8)))
-#Arrows(2, 4, 2, 10.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label deadweight loss
-#text(4.25, 17, expression("Deadweight Loss"))
-#text(3.5, 18, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
-#text(4.25, 15.5, expression(paste(dwl==frac(1,2)*bgroup("(",x[nt] - x[t],")")*t)))
-#text(4.5, 14.5, expression(paste(DWL==frac(1,2)*bgroup("(",12 - 10,")")*bgroup("(",5 - 4,")"), phantom()== 1)))
 Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
@@ -154,5 +130,7 @@ text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
 # Label CS
 text(1.2, 14, expression(paste("Consumer Surplus")))
 
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 dev.off()

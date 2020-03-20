@@ -12,7 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(6, 6, 1, 1))
 
 mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
@@ -57,9 +57,6 @@ ticksy <- c(0, 9, 10, 12, 20, ylims[2])
 ylabels <- c(NA, expression(paste(p[d] == 9)), expression(paste(p[b] == 10)), expression(paste(p[a] == 12)), expression(paste(20)), NA)
 ticksx <- c(0, 4, 5, 10, xlims[2])
 xlabels <- c(0, expression(paste(x[a]) == 4), expression(paste(x[b]) == 5), expression(paste(10)), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -138,6 +135,8 @@ text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
 
 # Label CS
 #text(1.2, 14, expression(paste("Consumer Surplus")))
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

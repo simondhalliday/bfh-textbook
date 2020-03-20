@@ -25,7 +25,7 @@ uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
-xlims <- c(0, 11)
+xlims <- c(0, 115)
 ylims <- c(0, 22)
 
 npts <- 501 
@@ -49,7 +49,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(r) == 20)), NA)
+ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 5, 10, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(bar(x)==10)), NA)
 
@@ -77,8 +77,8 @@ segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
 segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.6, 0.5*ylims[2], expression(paste("Price per kilogram, ", p[x])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 3, cex = axislabelsize)
+text(-1.6, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(5, 10, pch = 16, col = "black", cex = 1.5)
 text(5.25, 10.5, expression(i))
@@ -112,7 +112,7 @@ text(8.6, 5.5, expression(paste(p(x) == 20 - 2*x)))
 
 #Label highest willingness to pay
 text(2.5, 12.25, expression("Consumer Surplus"))
-text(2.5, 11, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x, phantom()== 25)))
+text(2.5, 11, expression(paste(CS==frac(1, 2)*bgroup("(",bar(p) - p,")")*x, phantom()== 25)))
 #text(3.5, 16, expression(paste(CS==frac(1, 2)*bgroup("(",20 - 10,")")*5, phantom()== 25)))
 #Arrows(3.5, 15, 3.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

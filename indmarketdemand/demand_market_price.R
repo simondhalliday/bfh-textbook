@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 mrsA <- function(x, rmax = 20, xmax = 100) {
   rmax - (rmax/xmax)*x
@@ -70,7 +70,7 @@ segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -2.2, expression(paste("Market quantity of fish (kilograms), ", X)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -2.2, expression(paste("Kilograms of fish, ", X)), xpd = TRUE, cex = axislabelsize) 
 text(-16, 0.5*ylims[2], expression(paste("Price per kilogram, ", p )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(50, 10, pch = 16, col = "black", cex = 1.5)

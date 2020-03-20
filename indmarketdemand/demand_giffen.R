@@ -17,7 +17,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 4, 1, 1))
+par(mar =  c(4, 4, 0.2, 0.2))
 
 demand1 <- function(x, a = 5, b = 2, c = 0.25) {
    (b - (4*a*c + b^2 - 4*c*x)^0.5)/(2*c)
@@ -68,7 +68,7 @@ mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 3, cex = 
 text(-1, 0.5*ylims[2], expression(paste("Price per unit, $, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # text labels
-text(9, 5.9, expression(paste(b)), cex = labelsize)
+#text(9, 5.9, expression(paste(b)), cex = labelsize)
 text(3, 7.5, expression(paste("Giffen demand")), cex = annotatesize)
 
 

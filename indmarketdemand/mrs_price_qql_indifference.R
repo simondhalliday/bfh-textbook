@@ -14,7 +14,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 8, 1, 1), mfrow = c(2,1))
+par(mar =  c(8, 8, 1, 1), mfrow = c(2,1))
 
 
 # demandcd ----------------------------------------------------------------

@@ -64,7 +64,7 @@ lines(xx2, demand1(xx2), col = COLA[3], lwd = graphlinewidth)
 lines(xx3, demand2(xx3), col = COLA[3], lwd = graphlinewidth)
 
 # Label the axes
-mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity of the good, ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-1, 0.5*ylims[2], expression(paste("Price per unit, $, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # text labels

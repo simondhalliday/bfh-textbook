@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "indmarketdemand/sugar_tax.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/price_increase.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -49,10 +49,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, 12, 20, ylims[2])
 ylabels <- c(NA, expression(paste(p[b] == 10)), expression(paste(p[a] == 12)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 2, 4, 5, 10, xlims[2])
@@ -60,26 +56,6 @@ xlabels <- c(0, expression(paste(x["m"]) == 2),expression(paste(x[a]) == 4), exp
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-
-# Tax Rev Q
-xpoly <- c(4, 4, 5)
-ypoly <- c(9, 10, 10)
-polygon(x = xpoly, y = ypoly, col = COL[2], density=NULL, border = NA)
-
-# Tax Rev P 
-xpoly1 <- c(0, 4, 4, 0)
-ypoly1 <- c(10, 10, 12, 12)
-polygon(x = xpoly1, y = ypoly1, col = COLB[1], density=NULL, border = NA)
-
-# DWL
-xpoly2 <- c(4, 5, 4) 
-ypoly2 <- c(10, 10, 12) # Change y1 to 10 to meet gray line
-polygon(x = xpoly2, y = ypoly2, col = COLA[1], density=NULL, border = NA)
-
-# CS 
-xpoly3 <- c(0, 0, 4)
-ypoly3 <- c(12, 20, 12)
-polygon(x = xpoly3, y = ypoly3, col = COL[4], density=NULL, border = NA)
 
 
 #Lines for mrs graph
@@ -100,8 +76,14 @@ segments(4, 0, 4, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(2, 0, 2, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of Sugary Drinks, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Quantity, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.4, 0.5*ylims[2], expression(paste("Price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+# Tax
+Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
+Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
+text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
+
 
 #Label i
 points(5, 10, pch = 16, col = "black", cex = 1.5)
@@ -119,16 +101,6 @@ text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
 text(8.05, 8, expression(paste("Demand, ", p(x) == 20 - 2*x)), cex = labelsize)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label tax revenue
-text(1.3, 11, expression(paste("Tax Revenue, ", R==t%.%x[t])))
-
-#Label deadweight loss
-Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
-Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
-text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
-
-# Label CS
-text(1.2, 14, expression(paste("Consumer Surplus")))
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

@@ -70,8 +70,8 @@ segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -2.2, expression(paste("Kilograms of fish, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-16, 0.5*ylims[2], expression(paste("Price per kilogram, ", p )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -2.7, expression(paste("Kilograms of fish, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(-16.2, 0.5*ylims[2], expression(paste("Price per kilogram, ", p )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(50, 10, pch = 16, col = "black", cex = 1.5)
 text(51.5, 10.5, expression(i), cex = annotatesize)

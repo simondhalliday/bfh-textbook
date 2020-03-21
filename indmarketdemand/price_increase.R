@@ -82,7 +82,7 @@ text(-1.4, 0.5*ylims[2], expression(paste("Price, ", p)), xpd = TRUE, cex = axis
 # Tax
 Arrows(6, 11.6, 6, 13.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
 Arrows(6, 13.1, 6, 11.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2)
-text(6.6, 12.7, expression(paste("Tax" == 3)), cex = labelsize)
+text(6.6, 12.7, expression(paste(Delta, p == 3)), cex = labelsize)
 
 
 #Label i
@@ -94,7 +94,7 @@ points(4, 12, pch = 16, col = "black", cex = 1.5)
 text(4, 12.75, expression(a), cex = annotatesize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(8.5, 19, expression(paste("Supply with tax, ", p(x) == 8 + x)), cex = labelsize)
+text(8, 19, expression(paste("Supply with price increase, ", p(x) == 8 + x)), cex = labelsize)
 text(7.75, 10.5, expression(paste("Supply, ", p(x) == 5 + x)), cex = labelsize)
 
 #Label mrs function

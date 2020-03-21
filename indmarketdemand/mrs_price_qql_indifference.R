@@ -85,9 +85,9 @@ text(-1.3, 580, expression(paste("Money left over, ", y)), xpd = TRUE, cex = axi
 #segments(6, -10, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 #Label the budget curve functions for the HG, Aisha
-#text(3.5, 0.5, expression(bc[1]), cex = annotatesize)
-#text(7.2, 0.5, expression(bc[2]), cex = annotatesize)
-#text(11.1, 0.5, expression(bc[3]), cex = annotatesize)
+text(5, 523, expression(bc[1]), cex = annotatesize)
+text(8.3, 523, expression(bc[2]), cex = annotatesize)
+text(10, 537, expression(bc[3]), cex = annotatesize)
 
 
 

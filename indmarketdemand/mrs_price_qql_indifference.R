@@ -1,4 +1,6 @@
 require(shape)
+require(plotrix)
+require(ggplot2)
 pdf(file = "indmarketdemand/mrs_price_qql_indiff.pdf", width = 9, height = 14)
 
 #Set parameters for graphics
@@ -122,6 +124,9 @@ text(x = 7 - 0.2, y = 600 - 7*6 - 3, expression(c), cex = annotatesize)
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
+axis.break(axis = 2, breakpos = 525, pos = 0,
+           bgcol = "white", breakcol = "black",
+           style = "slash", brw = 0.02)
 #------
 
 

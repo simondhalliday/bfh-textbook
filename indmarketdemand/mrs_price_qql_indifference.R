@@ -77,7 +77,7 @@ lines(xx1, bcA(xx1, w = 600, p = 14), col = COLA[3], lwd = graphlinewidth)
 #mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
 
 #text(0.5*xlims[2], -2, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-15, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.3, 580, expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 #segments(2, -10, 2, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
@@ -93,9 +93,9 @@ text(-15, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, c
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(105, 40, expression(u[1]), cex = annotatesize)
-text(105, 110, expression(u[2]), cex = annotatesize)
-text(105, 160, expression(u[3]), cex = annotatesize)
+text(6.5, 525, expression(u[1]), cex = annotatesize)
+text(6.5, 540, expression(u[2]), cex = annotatesize)
+text(6.5, 565, expression(u[3]), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 contour(x, y, 

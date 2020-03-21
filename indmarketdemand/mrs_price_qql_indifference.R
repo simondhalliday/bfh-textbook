@@ -109,7 +109,13 @@ contour(x, y,
         add = TRUE)
 
 #abline(h=6, col=COL[3], lwd=graphlinewidth)
+segments(7, 558, 7, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(5, 550, 5, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(3, 558, 3, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
+segments(0, 558,3, 558, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 550,5, 550, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 558,7, 558, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 points(x = 3, y = 600 - 3*14, pch = 16, col = "black", cex = 1.5)
 text(x = 3 - 0.2, y = 600 - 3*14 - 3, expression(a), cex = annotatesize)
@@ -127,6 +133,9 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 axis.break(axis = 2, breakpos = 525, pos = 0,
            bgcol = "white", breakcol = "black",
            style = "slash", brw = 0.02)
+
+
+
 #------
 
 
@@ -186,21 +195,21 @@ text(-1.2, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), x
 
 
 segments(0, 10, xlims[2], 10, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 10.6, expression(paste("Base price, ", p,"*" == 10)), cex = labelsize)
+segments(5, 0, 5, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
+text(9, 10.6, expression(paste("Base price, ", p,"*" == 10)), cex = labelsize)
 points(5, 10, pch = 16, col = "black", cex = 1.5)
 text(5.25, 10.5, expression(e), cex = annotatesize)
 
 segments(0, 14, xlims[2], 14, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(3, 0, 3, 14, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 14.6, expression(paste("High price, ", p[H] == 14)), cex = labelsize)
+segments(3, 0, 3, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
+text(9, 14.6, expression(paste("High price, ", p[H] == 14)), cex = labelsize)
 points(3, 14, pch = 16, col = "black", cex = 1.5)
 text(3.25, 14.5, expression(f), cex = annotatesize)
 
 
 segments(0, 6, xlims[2], 6, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(7, 0, 7, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(10, 6.6, expression(paste("Low price, ", p[L] == 6)), cex = labelsize)
+segments(7, 0, 7, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
+text(9, 6.6, expression(paste("Low price, ", p[L] == 6)), cex = labelsize)
 points(7, 6, pch = 16, col = "black", cex = 1.5)
 text(7.25, 6.5, expression(g), cex = annotatesize)
 

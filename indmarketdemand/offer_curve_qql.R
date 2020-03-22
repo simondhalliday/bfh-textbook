@@ -83,7 +83,7 @@ lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 #Label the axes
 text(0.5*xlims[2], -1.3, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.9, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(11.8, 1.3, expression(u[1]), cex = labelsize)

@@ -78,7 +78,7 @@ lines(xx1, bcA(xx1, w = 12, p = 3), col = COLB[3], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -1.3, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.9, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))

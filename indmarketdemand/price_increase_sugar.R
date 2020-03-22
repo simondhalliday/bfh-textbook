@@ -15,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 11, 1, 1))
+par(mar =  c(4, 9, 1, 1))
 
 indiffA <- function(x, alpha = 0.5, uA = 5) {
   (uA / x^alpha)^(1/(1 - alpha))
@@ -56,11 +56,11 @@ prices <- c(1.25, 1.25*tax)
 xprices <- c(cefinv(prices[1]), cefinv(prices[2]))
 
 ticksy <- c(0, prices[1], prices[2], ylims[2])
-ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0](1 + t))), NA)
+ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0] + Delta*p^tau)), NA)
 ticksx <- c(0, xprices[2], xprices[1], xlims[2])
 xlabels <- c(NA, expression(paste(x[1]) == 108), expression(paste(x[0]) == 150), NA)
 
-text(-23, prices[2] - 0.09, expression(paste(phantom() == phantom(),"$1.50")), xpd = TRUE, cex.axis = labelsize - 0.2)
+text(-23, prices[2] - 0.09, expression(paste(phantom() == phantom(),"$1.50")), xpd = TRUE, cex = labelsize - 0.2)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize - 0.2)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 0.2)
@@ -72,7 +72,7 @@ xx3 <- seq(xprices[2], xprices[1], length.out = npts)
 
 #Label axes
 mtext(expression(paste("Quantity of sugary drinks (liters), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-70, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-56, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Segments
 segments(xprices[1], 0, xprices[1], prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)

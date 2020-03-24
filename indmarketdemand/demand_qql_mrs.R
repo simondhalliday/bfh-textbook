@@ -85,7 +85,8 @@ text(-1.5, 0.5*ylims[2], expression(paste("Price per unit of good x, ", p)), xpd
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(10, 7.8, expression(paste(mrs(x,y) == bar(p) - bgroup("(",frac(bar(p), bar(x)),")")*x)), cex = annotatesize)
+text(10, 8.6, expression(paste(Demand)), cex = annotatesize)
+text(10, 7.8, expression(paste(mrs(x,y) == bar(p) - bgroup("(",frac(bar(p), bar(x)),")")*x, phantom()==p)), cex = annotatesize)
 Arrows(10, 7.4, 10, 5.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation

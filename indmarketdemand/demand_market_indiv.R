@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(4, 6, 1, 1))
 
 MarketD <- function(x, rmax = 20, xmax = 10, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -71,7 +71,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
 segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
@@ -101,8 +101,8 @@ text(95, 10.5, expression("Market price, p = 10"), cex = labelsize)
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(34, 6.8, expression(paste("Demand: ", x(p) == 20 - 2*p)), cex = annotatesize)
-text(34, 5.5, expression(paste("Inverse Demand: ", p(x) == 10 - frac(1,2)*x)), cex = annotatesize)
+text(35, 6.8, expression(paste("Demand: ", p== 20 - 2*x)), cex = annotatesize)
+text(35, 5.5, expression(paste("Inverse Demand: ", x(p) == 10 - frac(1,2)*p)), cex = annotatesize)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation

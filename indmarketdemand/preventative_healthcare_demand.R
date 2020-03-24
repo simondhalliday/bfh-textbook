@@ -123,7 +123,8 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   theme(axis.title = element_text(size = 24),
         axis.text.y = element_text(size = 14),
         legend.text = element_text(size = 12),
-        axis.text.x  = element_text(size = 14, angle = 45, vjust = 0.5)
+        axis.text.x = element_text(size = 14, angle = 45, vjust = 0.5),
+        panel.grid.minor = element_blank()
   )
 
 print(p2)

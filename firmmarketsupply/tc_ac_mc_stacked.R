@@ -84,7 +84,7 @@ xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xi - 1.5, xi + 1.5, length.out = npts)
-xx4 <- seq(5.32456, 7.32456, length.out = npts)
+xx4 <- seq(4.82456, 7.82456, length.out = npts)
 
 
 lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = graphlinewidth)
@@ -109,7 +109,7 @@ lines(xx4, mcline(xx4, constant = totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 =
       col = "#E18500", lty = 1, lwd = graphlinewidth)
 
 points(xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
-text(3.85, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)
+text(xi - 0.15, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)
 
 points(6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 text(6.1, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("a"), cex = annotatesize)
@@ -124,9 +124,9 @@ text(8.5, 7, expression("Total cost"), cex = annotatesize)
 #text(11.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
-text(3.5, 6.0, expression(paste("Slope of ray from origin")), cex = annotatesize)
-text(3.5, 5.6, expression(paste("equals average cost")), cex = annotatesize)
-Arrows(2, 5, 2, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.5, 6.0, expression(paste("Slope of ray from origin")), cex = annotatesize)
+text(2.5, 5.6, expression(paste("equals average cost")), cex = annotatesize)
+Arrows(1.5, 5, 1.5, 1.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

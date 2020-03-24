@@ -62,7 +62,7 @@ yy1 <- elasticity1(xx1, A = 5, b = -0.2)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 yy2 <- elasticity1(xx2, A = 5, b = -1.5)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts)
-yy3 <- elasticity1(xx3, A = 5, b = -3.4)
+yy3 <- elasticity1(xx3, A = 5, b = -3.79)
 xx4 <- seq(xlims[1], xlims[2], length.out = npts)
 yy4 <- elasticity1(xx4, A = 5, b = -4.74)
 

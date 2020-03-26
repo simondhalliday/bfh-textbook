@@ -83,7 +83,7 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 text(-1.4, 0.5*ylims[2], expression(paste("Revenue and costs ($), ", r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(8.3, 36, expression(paste(c(x))), cex = annotatesize)
+text(7.3, 36, expression(paste("Total costs, ", c(x))), cex = annotatesize)
 text(8.3, 21, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs

@@ -71,15 +71,20 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- c(0, 2, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), ylims[2])
+# Choose x_i
+
+i <- c(2, 2.5, 3, 3.5, 4)
+xi <- i[2]
+
+ticksy <- c(0, 2, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), ylims[2])
 ylabels <- c(NA, expression(paste(c[0])), expression(paste(c[i])), expression(paste(c[a])), NA)
-ticksx <- c(0, 4, 6.32456, xlims[2])
+ticksx <- c(0, xi, 6.32456, xlims[2])
 xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx3 <- seq(3, 5, length.out = npts)
-xx4 <- seq(5.32456, 7.32456, length.out = npts)
+xx3 <- seq(xi - 1.5, xi + 1.5, length.out = npts)
+xx4 <- seq(4.82456, 7.82456, length.out = npts)
 
 
 lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = graphlinewidth)
@@ -89,39 +94,39 @@ lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = gr
 text(-1.25, 0.5*ylims[2], expression(paste("Total cost of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Draw segments for average cost
-segments(0, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), 4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, -20, 4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(xi, -20, xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
 segments(0, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6.32456, -20, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
-segments(0, 0, 4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+segments(0, 0, xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 0, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[3] , lwd = segmentlinewidth)
 
-lines(xx3, mcline(xx3, constant = totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 4*marginalcost(x = 4, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 4, c1 = 0.05, c2 = 0.05)), 
+lines(xx3, mcline(xx3, constant = totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) - xi*marginalcost(x = xi, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = xi, c1 = 0.05, c2 = 0.05)), 
       col = "#E18500", lty = 1, lwd = graphlinewidth)
 lines(xx4, mcline(xx4, constant = totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) - 6.32456*marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05)), 
       col = "#E18500", lty = 1, lwd = graphlinewidth)
 
-points(4, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
-text(3.85, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)
+points(xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
+text(xi - 0.15, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)
 
 points(6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 text(6.1, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("a"), cex = annotatesize)
 
 #Marginal Cost
-text(7.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.2, expression(paste("Slope of tangent line")), cex = annotatesize)
-text(7.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.2, expression(paste("equals marginal cost")), cex = annotatesize)
-Arrows(5.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), 4.5, totalcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05) , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.2, expression(paste("Slope of tangent line")), cex = annotatesize)
+text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.2, expression(paste("equals marginal cost")), cex = annotatesize)
+Arrows(5.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi + 0.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the cost curve
 text(8.5, 7, expression("Total cost"), cex = annotatesize)
 #text(11.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
-text(3.5, 6.0, expression(paste("Slope of ray from origin")), cex = annotatesize)
-text(3.5, 5.6, expression(paste("equals average cost")), cex = annotatesize)
-Arrows(2, 5, 2, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.5, 6.0, expression(paste("Slope of ray from origin")), cex = annotatesize)
+text(2.5, 5.6, expression(paste("equals average cost")), cex = annotatesize)
+Arrows(1.5, 5, 1.5, 1.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -133,16 +138,8 @@ avgcost <- function(x,  c0 = 2, c1 = 0.05, c2 = 0.05){
   (c0 + c1*x + c2*x^2)/x
 }
 
-avgvarcost <- function(x,  c1 = 0.05, c2 = 0.05){
-  (c1*x + c2*x^2)/x
-}
-
 marginalcost <- function(x, c1 = 0.05, c2 = 0.05){
   c1 + 2*c2*x
-}
-
-mcline <- Mpline <- function(x, constant = 0.3181472, slope = 0.125){
-  constant + slope*x
 }
 
 xlims <- c(0, 10)
@@ -164,9 +161,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, avgvarcost(x = 4), marginalcost(x = 4), avgcost(6.82456), avgcost(x = 4), ylims[2])
+ticksy <- c(0, avgvarcost(x = xi), marginalcost(x = xi), avgcost(6.82456), avgcost(x = xi), ylims[2])
 ylabels <- c(NA, expression(paste(avc[h])), expression(paste(mc[g])), expression(paste(ac[a])), expression(paste(ac[f])), NA)
-ticksx <- c(0, 4, 6.32456, xlims[2])
+ticksx <- c(0, xi, 6.32456, xlims[2])
 xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
 
 
@@ -176,10 +173,13 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(4, 8, length.out = npts)
+xx4 <- seq(xlims[1], 6.32456, length.out = npts)
+xx5 <- seq(6.32456, xlims[2], length.out = npts)
 
 lines(xx1, avgcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COL[1], lwd = graphlinewidth)
 lines(xx1, avgvarcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[2], lwd = graphlinewidth)
-lines(xx1, marginalcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
+lines(xx4, marginalcost(xx4, c1 = 0.05, c2 = 0.05), lty = 2, col = COL[3], lwd = graphlinewidth)
+lines(xx5, marginalcost(xx5, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -187,20 +187,20 @@ text(-1.25, 0.5*ylims[2], expression(paste("Costs of production, ", c)), xpd = T
 
 
 #Draw segments for average cost
-segments(0, avgcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), 4, avgcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, avgcost(x = 4) + 10, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, marginalcost(x = 4), 4, marginalcost(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, avgvarcost(x = 4), 4, avgvarcost(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(4, avgcost(x = 4, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
-
-text(4.2, avgcost(x = 4) + 0.05, expression(paste("f")), cex = labelsize)
-points(4, avgcost(x = 4), pch = 16, col = "black", cex = 1.5)
-
-text(4.2, marginalcost(x = 4) - 0.05, expression(paste("g")), cex = labelsize)
-points(4, marginalcost(x = 4), pch = 16, col = "black", cex = 1.5)
-
-text(4.2, avgvarcost(x = 4) - 0.05, expression(paste("h")), cex = labelsize)
-points(4, avgvarcost(x = 4), pch = 16, col = "black", cex = 1.5)
+segments(0, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
+# 
+# text(xi + 0.2, avgcost(x = xi) + 0.05, expression(paste("f")), cex = labelsize)
+# points(xi, avgcost(x = xi), pch = 16, col = "black", cex = 1.5)
+# 
+# text(xi + 0.2, marginalcost(x = xi) - 0.05, expression(paste("g")), cex = labelsize)
+# points(xi, marginalcost(x = xi), pch = 16, col = "black", cex = 1.5)
+# 
+# text(xi + 0.2, avgvarcost(x = xi) - 0.05, expression(paste("h")), cex = labelsize)
+# points(xi, avgvarcost(x = xi), pch = 16, col = "black", cex = 1.5)
 
 #Label the cost curve
 text(12.7, 12, expression("Total cost"), cex = labelsize)
@@ -218,7 +218,7 @@ points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 
 #Marginal Cost
-text(8.25, marginalcost(x = 8.25) + 0.15, expression(paste("Marginal cost")), cex = annotatesize)
+text(8.25, marginalcost(x = 8.25) + 0.2, expression(paste("Marginal cost and \n firm supply curve")), cex = annotatesize)
 #text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost

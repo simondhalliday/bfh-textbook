@@ -80,7 +80,7 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Revenue and Costs ($), ", r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Revenue and costs ($), ", r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(8.3, 36, expression(paste(c(x))), cex = annotatesize)
@@ -93,13 +93,13 @@ segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4
 
 #Label Points for comparison
 points(4, Revenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(4.2, Revenue(x = 4) - 0.5, expression(a), cex = annotatesize)
+text(4.2, Revenue(x = 4) + 1.5, expression(a), cex = annotatesize)
 
 points(4, TotalCost(x = 4, c0 = 0, c1 = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, TotalCost(x = 4, c0 = 0, c1 = 4) - 0.5, expression(b), cex = annotatesize)
 
 Arrows(4, Revenue(x = 4) - 1.5, 4, TotalCost(x = 4, c0 = 0, c1 = 4) + 1.5, code = 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(4.6, 1.4*TotalCost(x = 4, c0 = 0, c1 = 4), expression("Profits"), cex = annotatesize)
+text(5.0, 1.4*TotalCost(x = 4, c0 = 0, c1 = 4) - 0.75, expression("Total \n economic \n profits"), cex = annotatesize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -157,8 +157,8 @@ lines(xx1, AvgRevenue(xx1, rmax = 10, xmax = 10), col = COLB[5], lwd = graphline
 lines(xx1, MRevenue(xx1, rmax = 10, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 
 #Label the axes
-text(0.48*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.4, 0.44*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.45*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-1.4, 0.44*ylims[2], expression(paste("Price, revenue and costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(8.5, MRevenue(x = 4) + 1.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = annotatesize)
@@ -166,9 +166,9 @@ text(8.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = annotatesize)
 text(5.6, 2.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = annotatesize)
 
 #Labels cost and profit areas
-text(2, 0.5*(AvgCost(x = 4) - 1.2), expression("Total Costs"), cex = annotatesize)
+text(2, 0.5*(AvgCost(x = 4) - 1.2), expression("Total costs"), cex = annotatesize)
 text(2, 4.75, expression("Economic"), cex = annotatesize)
-text(2, 4.25, expression("Profit"), cex = annotatesize)
+text(2, 4.25, expression("profit"), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4) - 1.2, 4, AvgRevenue(x = 4) - 1.2, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -184,7 +184,7 @@ points(4, AvgRevenue(x = 4) - 1.2, pch = 16, col = "black", cex = 1.5)
 text(4.2, AvgRevenue(x = 4) - 0.8, expression(h), cex = annotatesize)
 
 #Arrow to mr = mc
-text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = annotatesize)
+text(7.5, 9.5, expression(paste("Profit maximum at")), cex = annotatesize)
 text(7.5, 9, expression(paste(mr == mc)), cex = annotatesize)
 Arrows(6.1, 9.2, 4.2, 4.0, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

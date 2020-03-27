@@ -93,7 +93,7 @@ text(-0.65, -5.9, expression(-f*underline(s)), cex = labelsize )
 #Label the figures
 text(10, A(x=11.4), expression(f(bar(s) - underline(s))),cex = labelsize)
 text(15, B(x=12.4), expression(bar(s)(1 - f)*g^s),cex = labelsize)
-text(14.4, C(x=12) + 2.5, expression(paste(bar(s)(1 - f)*b, g["+"]^s)),cex = labelsize, xpd = TRUE)
+text(14.4, C(x=12) + 2.5, expression(paste(bar(s)(1 - f)*g["+"]^s)),cex = labelsize, xpd = TRUE)
 text(9.2, A(x=12), expression(paste("Firm death effect")), cex = labelsize)
 text(14.7, B(x=11.5), expression(paste("Firm growth effect")),cex = labelsize)
 

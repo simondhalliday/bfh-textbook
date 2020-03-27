@@ -84,49 +84,25 @@ mtext(expression(paste("Market quantity of fish in kilograms, ", X)), side=1, li
 text(-16.2, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(50, 10, pch = 16, col = "black", cex = 1.5)
-text(52, 10.5, expression(M), cex = labelsize)
+text(52, 11.0, expression(M), cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(100, 10.5, expression("Market price, p = 10"), cex = labelsize, xpd = TRUE)
+text(90, 10.5, expression("Market price, p = 10"), cex = labelsize, xpd = TRUE)
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label the iso-welfare functions for the HG, Aisha
-# text(3.8, 1.5, expression(u[1]^A))
-# text(4.6, 1.5, expression(u[2]^A))
-# text(5.5, 1.5, expression(u[3]^A))
-#text(6.6, 8.3, expression(u[4]^A))
-
-
-#Label the indifference curves for the HG, Betty
-# text(7.6, 17, expression(u[1]^B))
-# text(6.75, 17, expression(u[2]^B))
-# text(6, 17, expression(u[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
-
 #Label mrs function
-text(98, 7.5, expression(paste("Demand: ", X(p) == 100 - 5*p)), cex = labelsize,xpd = TRUE)
-text(98, 6.5, expression(paste("Inverse Demand: ", p(X) == 20 - frac(1,5)*X)), cex = labelsize,xpd = TRUE)
+#text(98, 7.5, expression(paste("Demand: ", X(p) == 100 - 5*p)), cex = labelsize,xpd = TRUE)
+text(98, 6.75, expression(paste("Inverse demand")), cex = labelsize)
+text(98, 5, expression(paste(p(X) == 20 - frac(1,5)*X)), cex = labelsize,xpd = TRUE)
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#Label satiation
-#text(20, 3.5, expression(paste(bar(x) == "Point")))
-#text(20, 3, expression(paste("of Satiation")))
-#Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
 #Label highest willingness to pay
-#text(5, 10, expression("Consumer Surplus"))
-#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",bar(r) - p,")")*x)))
-#Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label highest willingness to pay
-text(18.5, 12.8, expression("Consumer Surplus"), cex = labelsize, xpd = TRUE)
-text(19, 11.2, expression(paste(CS==frac(1, 2)*bgroup("(",bar(p) - p,")")*X, phantom()== 250)),cex = labelsize)
+text(18.0, 12.8, expression("Consumer surplus"), cex = labelsize, xpd = TRUE)
 #text(15, 11.5, expression(paste(CS==frac(1, 2)*bgroup("(",20 - 10,")")*50, phantom()== 250)))
 #Arrows(25, 15, 25, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label consumer expenditure
-text(25, 6, expression("Consumer Expenditure"), cex = labelsize)
-text(25, 4.5, expression(paste(CE==p(X)%.%X, phantom() == 500)), cex = labelsize)
+text(22, 6, expression("Consumer expenditure"), cex = labelsize)
 
 dev.off()

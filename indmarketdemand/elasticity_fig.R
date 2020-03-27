@@ -74,7 +74,7 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
 legend(1.6, 8, 
-       legend=c("Rice in Japan", "Fish","Coca-cola","Alcoholic Drinks"),
+       legend=c("Rice in Japan  (0.2)", "Fish (1.5)","Coca-cola (3.8)","Expensive Alcoholic Drinks (4.7)"),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), 
        lty=1, cex=labelsize)
 

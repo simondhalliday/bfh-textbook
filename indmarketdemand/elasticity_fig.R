@@ -20,7 +20,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(6, 6, 2, 2))
 xlims <- c(0, 3)
 ylims <- c(2, 8)
 xlims2 <- c(10, 0)
@@ -47,8 +47,6 @@ xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 2, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
-axis.break(axis=1,breakpos=NULL,pos=xlims[2],bgcol="white",breakcol="black",
-           style="slash",brw=0.02)
 axis.break(axis = 2, breakpos = 2.2, pos = 0,
            bgcol = "white", breakcol = "black",
            style = "slash", brw = 0.02)
@@ -73,10 +71,10 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
-legend(1.6, 8, 
+legend(1.3, 8, 
        legend=c("Rice in Japan  (0.2)", "Fish (1.5)","Coca-cola (3.8)","Expensive Alcoholic Drinks (4.7)"),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), 
-       lty=1, cex=labelsize)
+       lty=1, cex=labelsize, xpd =TRUE)
 
 
 dev.off()

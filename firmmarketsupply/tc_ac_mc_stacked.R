@@ -178,8 +178,8 @@ xx5 <- seq(6.32456, xlims[2], length.out = npts)
 
 lines(xx1, avgcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COL[1], lwd = graphlinewidth)
 lines(xx1, avgvarcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[2], lwd = graphlinewidth)
-lines(xx4, marginalcost(xx4, c1 = 0.05, c2 = 0.05), lty = 2, col = COL[3], lwd = graphlinewidth)
-lines(xx5, marginalcost(xx5, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
+lines(xx1, marginalcost(xx1, c1 = 0.05, c2 = 0.05), lty = 1, col = COL[3], lwd = graphlinewidth)
+#lines(xx5, marginalcost(xx5, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
 
 #Label the axes
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -192,23 +192,23 @@ segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = "gray" , lwd = segmentl
 segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
-# 
-# text(xi + 0.2, avgcost(x = xi) + 0.05, expression(paste("f")), cex = labelsize)
-# points(xi, avgcost(x = xi), pch = 16, col = "black", cex = 1.5)
-# 
-# text(xi + 0.2, marginalcost(x = xi) - 0.05, expression(paste("g")), cex = labelsize)
-# points(xi, marginalcost(x = xi), pch = 16, col = "black", cex = 1.5)
-# 
-# text(xi + 0.2, avgvarcost(x = xi) - 0.05, expression(paste("h")), cex = labelsize)
-# points(xi, avgvarcost(x = xi), pch = 16, col = "black", cex = 1.5)
+
+text(xi + 0.2, avgcost(x = xi) + 0.05, expression(paste("f")), cex = labelsize)
+points(xi, avgcost(x = xi), pch = 16, col = "black", cex = 1.5)
+
+text(xi + 0.2, marginalcost(x = xi) - 0.05, expression(paste("g")), cex = labelsize)
+points(xi, marginalcost(x = xi), pch = 16, col = "black", cex = 1.5)
+
+text(xi + 0.2, avgvarcost(x = xi) - 0.05, expression(paste("h")), cex = labelsize)
+points(xi, avgvarcost(x = xi), pch = 16, col = "black", cex = 1.5)
 
 #Label the cost curve
 text(12.7, 12, expression("Total cost"), cex = labelsize)
-#text(12.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
+# text(12.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
 text(2, avgcost(x = 3.2), expression(paste("Average costs")), cex = labelsize)
-#text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
+# text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
 
 #Average cost minimum
 segments(0, avgcost(x = 6.32456), 6.32456, avgcost(x = 6.32456), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -219,11 +219,11 @@ points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 #Marginal Cost
 text(8.25, marginalcost(x = 8.25) + 0.2, expression(paste("Marginal cost and \n firm supply curve")), cex = annotatesize)
-#text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
+# text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost
 text(8.25, avgvarcost(x = 8) - 0.15, expression(paste("Average variable cost")), cex = annotatesize)
-#text(12, avgvarcost(x = 12) - 0.325, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
+# text(12, avgvarcost(x = 12) - 0.325, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
 
 
 dev.off()

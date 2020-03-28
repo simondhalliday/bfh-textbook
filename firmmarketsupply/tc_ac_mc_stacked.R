@@ -115,18 +115,18 @@ points(6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, 
 text(6.1, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("a"), cex = annotatesize)
 
 #Marginal Cost
-text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.2, expression(paste("Slope of tangent line")), cex = annotatesize)
-text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.2, expression(paste("equals marginal cost")), cex = annotatesize)
-Arrows(5.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi + 0.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.2, expression(paste("Slope of ray from origin")), cex = annotatesize)
+text(7.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) - 0.2, expression(paste("equals average cost")), cex = annotatesize)
+Arrows(5.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi + 1.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the cost curve
 text(8.5, 7, expression("Total cost"), cex = annotatesize)
 #text(11.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
-text(2.5, 6.0, expression(paste("Slope of ray from origin")), cex = annotatesize)
-text(2.5, 5.6, expression(paste("equals average cost")), cex = annotatesize)
-Arrows(1.5, 5, 1.5, 1.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.5, 6.0, expression(paste("Slope of tangent line")), cex = annotatesize)
+text(2.5, 5.6, expression(paste("equals marginal cost")), cex = annotatesize)
+Arrows(1.5, 5, 1.5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

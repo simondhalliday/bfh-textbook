@@ -53,9 +53,6 @@ ylabels <- c(NA, expression(paste(p == 10)), expression(paste(bar(p) == 20)), NA
 ticksx <- c(0, 5, 10, xlims[2])
 xlabels <- c(NA, expression(paste(x,"*") == 5), expression(paste(bar(x)==10)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -97,6 +94,9 @@ text(1.7, 12.8, expression("Consumer surplus"), cex = labelsize)
 #Arrows(3.5, 15, 3.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(2.1, 6, expression("Consumer expenditure"), cex = labelsize)
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

@@ -61,14 +61,14 @@ segments(0, 10, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(50, 10, pch = 16, col = "black", cex = 1.5)
 text(52.5, 10.5, expression(e), cex = labelsize)
-text(70, 14, expression(paste(eta[e] == 5*bgroup("(",frac(10,50), ")"), phantom() == 1)), cex = labelsize)
+text(70, 14, expression(paste(abs(eta[e]) == 5*bgroup("(",frac(10,50), ")"), phantom() == 1)), cex = labelsize)
 Arrows(60, 12.8, 54.5, 11.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 segments(0, 14, 30, 14, lty = 2, "gray" , lwd = segmentlinewidth)
 segments(30, 0, 30, 14, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(30, 14, pch = 16, col = "black", cex = 1.5)
 text(32.5, 14.5, expression(f), cex = labelsize)
-text(52, 18, expression(paste(eta[f] == 5*bgroup("(",frac(14,30), ")"), phantom() == 2.33)), cex = labelsize)
+text(52, 18, expression(paste(abs(eta[f]) == 5*bgroup("(",frac(14,30), ")"), phantom() == 2.33)), cex = labelsize)
 Arrows(40, 16.8, 34.5, 15.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -76,7 +76,7 @@ segments(0, 6, 70, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(70, 0, 70, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(70, 6, pch = 16, col = "black", cex = 1.5)
 text(72.5, 6.5, expression(g), cex = labelsize)
-text(92, 10, expression(paste(eta[g] == 5*bgroup("(",frac(6,70), ")"), phantom() == 0.43)), cex = labelsize)
+text(92, 10, expression(paste(abs(eta[g]) == 5*bgroup("(",frac(6,70), ")"), phantom() == 0.43)), cex = labelsize)
 Arrows(80, 8.8, 74.5, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrs function

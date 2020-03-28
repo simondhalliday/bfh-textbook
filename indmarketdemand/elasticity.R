@@ -58,11 +58,11 @@ segments(0, 10, 10, 0, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
 #Label 
 text(6.5, 6.6, expression(paste("Unit Elastic")), cex = annotatesize)
-text(6.5, 6, expression(paste(eta, " = 1")), cex = annotatesize)
+text(6.5, 6, expression(paste(abs(eta), " = 1")), cex = annotatesize)
 text(4, 8.76, expression(paste("Elastic")), cex = annotatesize)
-text(4, 8.25, expression(paste(eta, " > 1")), cex = annotatesize)
+text(4, 8.25, expression(paste(abs(eta), " > 1")), cex = annotatesize)
 text(8.5, 4.1, expression(paste("Inelastic")), cex = annotatesize)
-text(8.5, 3.5, expression(paste(eta, " < 1")), cex = annotatesize)
+text(8.5, 3.5, expression(paste(abs(eta) , " < 1")), cex = annotatesize)
 
 # Points
 points(5, 5, pch = 16, col = "black", cex = 1.5)

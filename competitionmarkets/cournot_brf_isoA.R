@@ -54,7 +54,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 ticksy <- c(0, 7.5, 12, 17.5, ylims[2])
-ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste((bar(p) - c[1])/beta)))
+ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste(frac(bar(p) - c[1],beta))))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
 xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), expression(paste((bar(p) - c[1])/2*beta)), NA)
 
@@ -100,6 +100,12 @@ Arrows(14.25, 19, 14.25, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangl
 text(8, 30.4, expression(paste("A's best response")), cex = annotatesize)
 text(8, 29.2, expression(paste("function")), cex = annotatesize)
 Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+#labels for the isoprofits
+text(18, 7.4, expression(paste(pi[1])), cex = annotatesize)
+text(18, 10.8, expression(paste(pi[2])), cex = annotatesize)
+text(18, 14.1, expression(paste(pi[3])), cex = annotatesize)
+
 
 
 dev.off()

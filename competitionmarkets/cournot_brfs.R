@@ -56,11 +56,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 12, 18, 36, ylims[2])
 ylabels <- c(NA, expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 ticksx <- c(0, 12, 18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+#xlabels <- c(NA, expression(paste(x^{AN} == 12)), expression(paste(frac(bar(p) - c[1],2*beta) == 18)), expression(paste( frac(bar(p) - c[1],beta) ==36 )), NA)
+xlabelsnum <- c(NA, NA, NA, expression(paste( frac(bar(p) - c[1],beta) ==36 )), NA)
+
+text(11, -2.3, expression(paste(x^{AN} == 12)),xpd = TRUE, cex = labelsize)
+text(19.2, -3, expression(paste(frac(bar(p) - c[1],2*beta) == 18)),xpd = TRUE, cex = labelsize)
+
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
 
-text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabelsnum, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 

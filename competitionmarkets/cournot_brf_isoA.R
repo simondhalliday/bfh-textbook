@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(7, 7, 2, 2))
+par(mar =  c(6, 8, 2, 2))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xb)*xa - s*(xa)^2 - c1*xa
@@ -58,14 +58,15 @@ ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 1
 #ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste(frac(bar(p) - c[1],beta))))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
 #xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), NA, NA)
+xlabelsnum <- c(NA, expression(paste(9)), expression(paste(12)), expression(paste(14)), expression(paste(18)), NA)
 
-#xlabels
-text(7, -2.3, expression(paste(x[1]^A == 9)),xpd = TRUE, cex = labelsize - 0.05)
-text(10, -2.3, expression(paste(x[2]^A == 12)),xpd = TRUE, cex = labelsize - 0.05)
-text(15, -2.3, expression(paste(x[3]^A == 14)),xpd = TRUE, cex = labelsize - 0.05)
-text(20, -2.5, expression(paste(frac(bar(p) - c[1],2*beta) == 18)),xpd = TRUE, cex = labelsize - 0.05)
+#xlabels that include labels and numerical values 
+#text(7, -2.3, expression(paste(x[1]^A == 9)),xpd = TRUE, cex = labelsize - 0.05)
+#text(10, -2.3, expression(paste(x[2]^A == 12)),xpd = TRUE, cex = labelsize - 0.05)
+#text(15, -2.3, expression(paste(x[3]^A == 14)),xpd = TRUE, cex = labelsize - 0.05)
+#text(20, -2.5, expression(paste(frac(bar(p) - c[1],2*beta) == 18)),xpd = TRUE, cex = labelsize - 0.05)
 
-axis(1, at = ticksx, pos = 0, labels = NA, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabelsnum, cex.axis = labelsize)
 #axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabelsnum, las = 1, cex.axis = labelsize)
 
@@ -85,7 +86,7 @@ contour(x, y,
         add = TRUE) 
 
 text(0.5*xlims[2], -5.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-5.8, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-6.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 12, 14, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)

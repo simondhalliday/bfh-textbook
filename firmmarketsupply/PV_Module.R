@@ -31,10 +31,10 @@ pv_plot <-  ggplot(data = PV, aes(x=Year, y=value, group=variable, color = varia
   ylim(NA, 50) +
   labs(color = "Price and Cost", x = "Year", y = "PV Cost and Price (2015 USD)") +
   theme_bw() +
-  theme(axis.text=element_text(size=15),
-        axis.title=element_text(size=18),
-        legend.position = c(0.85, 0.75),
-        text = element_text(size=15)) +
+  theme(axis.text=element_text(size=17),
+        axis.title=element_text(size=22),
+        legend.position = c(0.82, 0.73),
+        text = element_text(size=17)) +
   scale_color_d3(palette = "category20") 
 
 # ----

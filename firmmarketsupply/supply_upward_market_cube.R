@@ -42,7 +42,7 @@ AvgVarCost <- function(x, c0 = 6, c1 = 2, c2 = -1, c3 = 0.2){
 }
 
 MCost <- function(x, c1 = 2, c2 = -1, c3 = 0.2){
-  c1 + 2*c2*x + 3*c3*x^2
+  c1 + 2*c2*x + 2.6*c3*x^2
 }
 
 TwoFirmMCost <- function(x, c1 = 2, c2 = -1/2, c3 = 0.2/4){
@@ -54,14 +54,14 @@ FiveFirmMCost <- function(x, c1 = 2, c2 = -1/5, c3 = 0.2/25){
 }
 
 MarketMCost <- function(x, c1 = 2, c2 = -1/10, c3 = 0.2/100){
-  c1 + 2*c2*x + 3*c3*x^2
+  c1 + 2*c2*x + 2.6*c3*x^2
 }
 
 MarketMCost_2 <- function(x, c1 = 2, c2 = -1/15, c3 = 0.2/220){
-  c1 + 2*c2*x + 3*c3*x^2
+  c1 + 2*c2*x + 2.6*c3*x^2
 }
 
-xlims <- c(0, 100)
+xlims <- c(0, 115)
 #xlims <- c(0, 75) 
 ylims <- c(0, 16)
 
@@ -83,8 +83,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, MCost(x = 2.5), ylims[2])
 ylabels <- c(NA,  expression(paste(p[min]^{SR})), NA)
-ticksx <- c(0,2.5*5, 2.5*10, xlims[2])
-xlabels <- c(NA, NA, NA, NA)
+ticksx <- c(0, 2.5*15, xlims[2])
+xlabels <- c(NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -108,11 +108,11 @@ xx12 <- seq(2.5*15, 3.63514*15, length.out = npts)
 #lines(xx1, AvgVarCost(xx1), col = COLA[5], lwd = graphlinewidth)
 #lines(xx3, MCost(xx3), col = COLA[2], lwd = graphlinewidth)
 #lines(xx4, TwoFirmMCost(xx4), col = COLA[3], lwd = graphlinewidth)
-lines(xx5, FiveFirmMCost(xx5), col = COLA[4], lwd = graphlinewidth)
+#lines(xx5, FiveFirmMCost(xx5), col = COLA[4], lwd = graphlinewidth)
 lines(xx6, MarketMCost(xx6), col = COLA[5], lwd = graphlinewidth)
 #lines(xx7, MCost(xx7), col = COLA[2], lwd = graphlinewidth)
 #lines(xx8, TwoFirmMCost(xx8), col = COLA[3], lwd = graphlinewidth)
-lines(xx9, FiveFirmMCost(xx9), col = COLA[4], lwd = graphlinewidth)
+#lines(xx9, FiveFirmMCost(xx9), col = COLA[4], lwd = graphlinewidth)
 lines(xx10, MarketMCost(xx10), col = COLA[5], lwd = graphlinewidth)
 
 lines(xx11, MarketMCost_2(xx11), col = COLA[6], lwd = graphlinewidth)
@@ -130,8 +130,8 @@ text(-9, 0.5*ylims[2], expression(paste("Price per unit of output, ", p[x])), xp
 # text(7.5, 4.9, expression(paste(avc(x))), cex = labelsize)
 #text(8, 15.5, expression(paste(S[1])), cex = labelsize)
 #text(15, 15.5, expression(paste(S[2])), cex = labelsize)
-text(37.5, 15.5, expression(paste(S[5])), cex = labelsize)
-text(75, 15.5, expression(paste(S[Market])), cex = labelsize)
+#text(37.5, 15.5, expression(paste(S[5])), cex = labelsize)
+text(95, 15.5, expression(paste(S[Market])), cex = labelsize)
 
 #text(9, 8.5, expression(paste("curve for")), cex = labelsize)
 #text(9, 9, expression(paste("1 firm")), cex = labelsize)
@@ -139,12 +139,12 @@ text(75, 15.5, expression(paste(S[Market])), cex = labelsize)
 #text(8, 8, expression(paste(mc(x))), cex = labelsize)
 
 
-text(15, 10, expression(paste("With more firms\n the supply\n curve flattens")), cex = labelsize)
+text(38, 10, expression(paste("With more firms\n the supply\n curve flattens")), cex = labelsize)
 #text(15, 9.2+5, expression(paste("the supply curve")), cex = labelsize)
 #text(15, 8.4+5, expression(paste("flattens")), cex = labelsize)
 #Arrows(6.5 ,11, 10, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(13 ,11, 27, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(31 ,11, 57, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(68 ,11, 90, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Draw segments for total costs
 # segments(0, MCost(x = 5/2), 3.63514, MCost(x = 5/2), lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(5/2, 0, 5/2, MCost(x = 5/2), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -156,11 +156,11 @@ Arrows(31 ,11, 57, 11, col = "black", code = 2, lty = 2, lwd = 2, arr.type = "tr
 # segments(3.63514*5, 0, 3.63514*5, FiveFirmMCost(x = 3.63514*5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 # segments(36.3514, 0, 36.3514, MarketMCost(x = 36.3514), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-segments(0, MarketMCost(x = 2.5*10), 2.5*10, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, MarketMCost(x = 2.5*10), 2.5*15, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(2.5, 0, 2.5, MCost(x = 2.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(2.5*2, 0, 2.5*2, TwoFirmMCost(x = 2.5*2), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2.5*5, 0, 2.5*5, FiveFirmMCost(x = 2.5*5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2.5*10, 0, 2.5*10, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(2.5*5, 0, 2.5*5, FiveFirmMCost(x = 2.5*5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2.5*15, 0, 2.5*15, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 
 #Label Points for comparison
@@ -191,7 +191,7 @@ segments(2.5*10, 0, 2.5*10, MarketMCost(x = 2.5*10), lty = 2, col = "gray" , lwd
 # text(5.5, 0.45, expression(paste("unable to cover fixed costs")), cex = labelsize)
 # text(5.5, 0.25, expression(paste("firm shuts down")), cex = labelsize)
 # Arrows(3.8, 0.1, 3.8, MCost(x = 5/2) - 0.1, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(2.5*5, -1, expression(paste(x[m]^{5})), xpd = TRUE, cex = labelsize)
-text(2.5*10, -1, expression(paste(x[m]^{Market})), xpd = TRUE, cex = labelsize)
+#text(2.5*5, -1, expression(paste(x[m]^{5})), xpd = TRUE, cex = labelsize)
+text(2.5*15, -1, expression(paste(x[m]^{Market})), xpd = TRUE, cex = labelsize)
 
 dev.off()

@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(6, 7.8, 2, 2))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xb)*xa - s*(xa)^2 - c1*xa
@@ -78,12 +78,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 9, 12, 18, ylims[2])
-ylabels <- c(NA, expression(paste(x^{B},"*")), expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )),  NA)
+ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN}, "= 12")), expression(paste( frac(bar(p) - c[1],2*beta) )),  NA)
 ticksx <- c(0, 9, 12, 13.5, 18, xlims[2])
-xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(x[Opp]^{A})), expression(paste(frac(bar(p) - c[1],2*beta))), NA)
+xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN}, "= 12")), expression(paste(x[Opp]^{A}, "= 13.5")), expression(paste(frac(bar(p) - c[1],2*beta))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
-text(x = c(0, 9, 12, 13.5, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 8, 11, 14.5, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
@@ -114,7 +114,7 @@ contour(y, x,
         add = TRUE) 
 
 mtext(expression(paste("A's output, ", x^A)), side=1, line =3.8, cex = axislabelsize)
-text(-2.5, 9, expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.5, 9, expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 #arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -196,14 +196,14 @@ text(8, 10.6, expression(paste("g")), cex = labelsize)
 #points(5.84, 8.77, pch = 16, col = "black", cex = 1.5)
 
 #A's brf
-text(3, 14, expression(paste("B's best response")), cex = labelsize)
+text(3, 14, expression(paste("B's best-response")), cex = labelsize)
 text(3, 13.3, expression(paste("function")),cex = labelsize)
 Arrows(2, 14.5, 2, 16.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #B's brf
-text(17.5, 7, expression(paste("A's best response")), cex = labelsize, xpd = TRUE)
-text(17.5, 6.3, expression(paste("function")), cex = labelsize, xpd = TRUE)
-Arrows(16.5, 6, 16.5, 3.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(12.5, 4, expression(paste("A's best-response")), cex = labelsize, xpd = TRUE)
+text(12.5, 3.3, expression(paste("function")), cex = labelsize, xpd = TRUE)
+Arrows(14, 3, 15.8, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6.5, 6.5, 2, 2))
+par(mar =  c(6.5, 7.80, 1, 1))
 
 socialW <- function(xa, s = 0.5, pmax = 20, c1 = 2, slope = 1) {
   (pmax - c1)/s - slope*xa
@@ -86,9 +86,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 9, 12, 18, 36, ylims[2])
-ylabels <- c(NA, expression(paste(x^{B},"*")), expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN}, "= 12")), expression(paste( frac(bar(p) - c[1],2*beta), "= 18" )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 ticksx <- c(0, 9, 12, 18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN}, "= 12")), expression(paste(frac(bar(p) - c[1],2*beta), "= 18")), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
@@ -125,7 +125,7 @@ contour(y, x,
         add = TRUE) 
 
 text(0.5*(xlims[2]), -4, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-3.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4.3, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
 #arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)

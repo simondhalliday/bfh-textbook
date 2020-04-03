@@ -82,13 +82,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 9, 12, 18, 36, ylims[2])
-ylabels <- c(NA, expression(paste(x^{B},"*")), expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN},"= 12")), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 ticksx <- c(0, 9, 12, 18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(x^{A},"*")), expression(paste(x^{AN})), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN},"= 12")), expression(paste(frac(bar(p) - c[1],2*beta))), expression(paste( frac(bar(p) - c[1],beta) )), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 9, 12, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 8, 13, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 

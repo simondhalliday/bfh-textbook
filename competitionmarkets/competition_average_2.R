@@ -122,7 +122,7 @@ text(16.5, 12.1, expression(paste("of other firms")))
 
 
 text(3, 13, expression(paste("Typical firm's")))
-text(3, 12.3, expression(paste("best response function")))
+text(3, 12.3, expression(paste("best-response function")))
 Arrows(3, 13.4, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

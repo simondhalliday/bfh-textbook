@@ -53,9 +53,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, 3.7, 6, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*")), expression(paste(x^N)), NA)
+ylabels <- c(NA, expression(paste(x,"*") == 4), expression(paste(x^N) == 6), NA)
 ticksx <- c(0, 3.7, 6, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*")), expression(paste(bar(x)^{N})), NA)
+xlabels <- c(NA, expression(paste(bar(x),"*" == 4)), expression(paste(bar(x)^{N} == 6)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -81,8 +81,8 @@ contour(x, y,
         yaxs="i",
         add = TRUE)
 
-mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 2.5, cex = axislabelsize)
-text(-2, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 3, cex = axislabelsize)
+text(-2.5, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 

@@ -54,7 +54,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 ticksy <- c(0, 7.5, 12, 17.6, 36, ylims[2])
-ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==17.5), expression(paste(frac(bar(p) - c[1],beta) == 36), NA))
+ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==17.5), expression(paste(frac(bar(p) - c,beta) == 36), NA))
 #ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste(frac(bar(p) - c[1],beta))))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
 #xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), NA, NA)
@@ -86,7 +86,7 @@ contour(x, y,
         add = TRUE) 
 
 text(0.5*xlims[2], -3.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-6.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-7.3, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 12, 14, 12, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
@@ -105,8 +105,8 @@ text(24, 16.4, expression(paste("best-response function")), cex = annotatesize)
 Arrows(18, 18, 10.25, 18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(9, 30.4, expression(paste("A's best-response")), cex = annotatesize)
-text(9, 29.2, expression(paste("function")), cex = annotatesize)
+text(8.8, 30.4, expression(paste("A's best-response")), cex = annotatesize)
+text(8.8, 29.2, expression(paste("function")), cex = annotatesize)
 #Arrows(9, 28.2, 9, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #labels for the isoprofits

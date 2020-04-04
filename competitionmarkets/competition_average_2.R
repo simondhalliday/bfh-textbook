@@ -2,15 +2,18 @@ require(shape)
 pdf(file = "competitionmarkets/competition_average_2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 6, 4, 6))
+par(mar =  c(4, 7, 4, 6))
 
 piA <- function(xbar, x, s = 0.5, pmax = 20, c1 = 2, n = 2) {
   (pmax - s*(n - 1)*xbar)*x - s*(x)^2 - c1*x
@@ -51,13 +54,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 9, 12, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*")), expression(paste(x^N)), NA)
+ylabels <- c(NA, expression(paste(x,"*") == 9), expression(paste(x^N) == 12), NA)
 ticksx <- c(0, 9, 12, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*")), expression(paste(bar(x)^{N})), NA)
+xlabels <- c(NA, expression(paste(bar(x),"*" == 9)), expression(paste(bar(x)^{N} == 12)), NA)
 
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -79,8 +82,8 @@ contour(x, y,
         yaxs="i",
         add = TRUE)
 
-mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 2.5, cex = axislabelsize)
-text(-2, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 3, cex = axislabelsize)
+text(-3.5, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 
@@ -97,43 +100,43 @@ text(-2, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TR
 segments(0, 9, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9, 9, pch = 16, col = "black", cex = 1.5)
-text(9.5, 9, expression(paste("i")))
+text(9.3, 8.7, expression(paste("i")), cex = labelsize)
 #segments(0, 4, 7, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(12.5, 12.1, expression(paste("n")))
+text(12.5, 12.1, expression(paste("n")), cex = labelsize)
 
 
-text(14.5, brfA(xbar = 14.1) + 0.2, expression(paste("h")))
+text(14.5, brfA(xbar = 14.1) + 0.3, expression(paste("h")), cex = labelsize)
 segments(14.1, brfA(xbar = 14.1) - 2, 14.1, brfA(xbar = 14.1) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(14.1, brfA(xbar = 14.1), pch = 16, col = "black", cex = 1.5)
 
-text(14.1, 4.7, expression(paste("Iso-profit vertical")))
-text(14.1, 4, expression(paste("at intersection")))
-text(14.1, 3.3, expression(paste("with best response")))
+text(14.1, 4.7, expression(paste("Iso-profit vertical")), cex = labelsize)
+text(14.1, 4, expression(paste("at intersection")),cex = labelsize)
+text(14.1, 3.3, expression(paste("with best response")),cex = labelsize)
 Arrows(14.1, 5.2, 14.1, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-Arrows(16.5, 14.9, 16.5, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(16.5, 14.5, expression(paste(x == bar(x))))
-text(16.5, 13.7, expression(paste("Typical firm's output")))
-text(16.5, 12.9, expression(paste("equals average ouput")))
-text(16.5, 12.1, expression(paste("of other firms")))
+Arrows(17.5, 14.9, 17.5, 17, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(17.5, 14.5, expression(paste(x == bar(x))), cex = labelsize)
+text(17.5, 13.7, expression(paste("Typical firm's output")),cex = labelsize, xpd = TRUE)
+text(17.5, 12.9, expression(paste("equals average ouput")),cex = labelsize, xpd = TRUE)
+text(17.5, 12.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
 
 
-text(3, 13, expression(paste("Typical firm's")))
-text(3, 12.3, expression(paste("best-response function")))
+text(4, 13, expression(paste("Typical firm's")),cex = labelsize)
+text(4, 12.3, expression(paste("best-response function")),cex = labelsize)
 Arrows(3, 13.4, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(11, 18, expression(pi[1]))
-text(9.5, 18, expression(pi[2]))
-text(8.5, 18, expression(pi[3]))
+text(11, 18, expression(pi[1]), cex = labelsize)
+text(9.5, 18, expression(pi[2]), cex = labelsize)
+text(8.5, 18, expression(pi[3]), cex = labelsize)
 
-text(14, 18.7, expression("Typical firm's"))
-text(14, 18, expression("iso-profit curves"))
-text(14, 17.3, expression(paste(pi[3] > pi[2], phantom() > pi[1])))
+text(14.5, 18.7, expression("Typical firm's"),cex = labelsize, xpd = TRUE)
+text(14.5, 18, expression("iso-profit curves"),cex = labelsize,xpd = TRUE)
+text(14.5, 17.3, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty
@@ -149,8 +152,8 @@ text(14, 17.3, expression(paste(pi[3] > pi[2], phantom() > pi[1])))
 
 
 #B's brf
-text(7, 30, expression(paste("A's best response")))
-text(7, 29, expression(paste("function")))
+text(7, 30, expression(paste("A's best response")),cex = labelsize)
+text(7, 29, expression(paste("function")),cex = labelsize)
 Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

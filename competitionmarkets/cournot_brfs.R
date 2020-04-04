@@ -13,7 +13,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(6, 7, 0.5, 0.5))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xb)*xa - s*(xa)^2 - c1*xa
@@ -54,13 +54,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 12, 18, 36, ylims[2])
-ylabels <- c(NA, expression(paste(x^{BN})), expression(paste( frac(bar(p) - c[1],2*beta) )), expression(paste( frac(bar(p) - c[1],beta) )), NA)
+ylabels <- c(NA, expression(paste(x^{BN})), expression(paste( frac(bar(p) - c,2*beta) )), expression(paste( frac(bar(p) - c,beta) )), NA)
 ticksx <- c(0, 12, 18, 36, xlims[2])
 #xlabels <- c(NA, expression(paste(x^{AN} == 12)), expression(paste(frac(bar(p) - c[1],2*beta) == 18)), expression(paste( frac(bar(p) - c[1],beta) ==36 )), NA)
-xlabelsnum <- c(NA, NA, NA, expression(paste( frac(bar(p) - c[1],beta) ==36 )), NA)
+xlabelsnum <- c(NA, NA, NA, expression(paste( frac(bar(p) - c,beta) ==36 )), NA)
 
 text(11, -2.3, expression(paste(x^{AN} == 12)),xpd = TRUE, cex = labelsize)
-text(19.2, -3, expression(paste(frac(bar(p) - c[1],2*beta) == 18)),xpd = TRUE, cex = labelsize)
+text(19.2, -3, expression(paste(frac(bar(p) - c,2*beta) == 18)),xpd = TRUE, cex = labelsize)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
@@ -79,7 +79,7 @@ segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 text(0.5*(xlims[2]), -7, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-7, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-6, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 

@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(6, 8, 2, 2))
+par(mar =  c(4, 8, 2, 2))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xb)*xa - s*(xa)^2 - c1*xa
@@ -33,8 +33,8 @@ brfA <- function(xa, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - c1)/s - 2*xa
 }
 
-xlims <- c(0, 36)
-ylims <- c(0, 36)
+xlims <- c(0, 36.5)
+ylims <- c(0, 36.5)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -53,8 +53,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- c(0, 7.5, 12, 17.5, ylims[2])
-ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==18), expression(paste(frac(bar(p) - c[1],beta) == 36)))
+ticksy <- c(0, 7.5, 12, 17.6, 36, ylims[2])
+ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==17.5), expression(paste(frac(bar(p) - c[1],beta) == 36), NA))
 #ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste(frac(bar(p) - c[1],beta))))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
 #xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), NA, NA)
@@ -85,11 +85,11 @@ contour(x, y,
         yaxs = "i", 
         add = TRUE) 
 
-text(0.5*xlims[2], -5.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -3.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 text(-6.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-segments(0, 12, 14, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 12, 14, 12, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 segments(0, 7.5, 16.25, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -99,20 +99,20 @@ segments(0, 17.7, 11.2, 17.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9.2, 0, 9.2, 17.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
-text(15, 22.4, expression(paste("Iso-profit horizontal")), cex = annotatesize)
-text(15, 21.2, expression(paste("at intersection with")), cex = annotatesize)
-text(15, 19.8, expression(paste("best response function")), cex = annotatesize)
-Arrows(14.25, 19, 14.25, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(24, 19.4, expression(paste("Iso-profit horizontal")), cex = annotatesize)
+text(24, 18, expression(paste("at intersection with")), cex = annotatesize)
+text(24, 16.4, expression(paste("best-response function")), cex = annotatesize)
+Arrows(18, 18, 10.25, 18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(8, 30.4, expression(paste("A's best response")), cex = annotatesize)
-text(8, 29.2, expression(paste("function")), cex = annotatesize)
-Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(9, 30.4, expression(paste("A's best-response")), cex = annotatesize)
+text(9, 29.2, expression(paste("function")), cex = annotatesize)
+#Arrows(9, 28.2, 9, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #labels for the isoprofits
-text(18, 7.4, expression(paste(pi[1])), cex = annotatesize)
+text(18, 7.4, expression(paste(pi[3])), cex = annotatesize)
 text(18, 10.8, expression(paste(pi[2])), cex = annotatesize)
-text(18, 14.1, expression(paste(pi[3])), cex = annotatesize)
+text(18, 14.1, expression(paste(pi[1])), cex = annotatesize)
 
 
 

@@ -103,8 +103,9 @@ xx3 <- seq(2, 6, length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, AvgRevenue(xx1, beta = 1), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, MRevenue(xx1, beta = 1), col = COLB[4], lwd = graphlinewidth)
-#lines(xx1, AvgRevenue(xx1, xB = 3, beta = 1), col = COLB[5], lwd = graphlinewidth)
+#lines(xx1, MRevenue(xx1, beta = 1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, AvgRevenue(xx1, xB = 0, beta = 1), col = COLB[5], lwd = graphlinewidth)
+lines(xx1, AvgRevenue(xx1, xB = 2.666667, beta = 1), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, xB = 2.666667, beta = 1), col = COLB[4], lwd = graphlinewidth)
 
 
@@ -121,8 +122,11 @@ text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = annotate
 text(10.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = annotatesize)
 #text(xlims[2] - 1, ylims[2] - 1, expression(paste(mr^A == bar(p) - 2*beta*x^A - beta*x^B)), cex = labelsize)
 
-text(4, 5.8, expression(paste(mr[2]^A, " when ", x^B == 0)), cex = annotatesize)
-text(0.9, 5.8, expression(paste(mr[1]^A, " when ", x^B > 0 )), cex = annotatesize)
+# text(4, 5.8, expression(paste(mr[2]^A, " when ", x^B == 0)), cex = annotatesize)
+text(0.9, 5.8, expression(paste(mr^A, " when ", x^B > 0 )), cex = annotatesize)
+text(4.6, 5.8, expression(paste(p^A, " when ", x^B > 0 )), cex = annotatesize)
+text(4.6, 8.8, expression(paste(p^A, " when ", x^B == 0 )), cex = annotatesize)
+
 
 #Labels cost and profit areas
 # text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)

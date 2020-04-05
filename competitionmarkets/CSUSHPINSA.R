@@ -4,6 +4,7 @@
 
 # ----
 library(readxl)
+library(ggplot2)
 #Set parameters for graphics
 axislabelsize <- 1.5
 labelsize <- 1.2
@@ -30,15 +31,15 @@ p <-  ggplot(data = CSUSH ) +
   #scale_x_date(breaks='6 months') +
   geom_vline(xintercept = as.numeric(CSUSH$observation_date[236]), linetype="dashed", 
                color = COLA[4], size=0.5) +
-  annotate("text", label = "Peak of Housing Prices", x = CSUSH$observation_date[227], y = 100, 
-           color = COL[1], angle = 90, size = 6) +
+  annotate("text", label = "Peak of housing prices", x = CSUSH$observation_date[227], y = 100, 
+            angle = 90, size = 6) +
   geom_vline(xintercept = as.numeric(CSUSH$observation_date[261]), linetype="dashed", 
              color = COLA[4], size=0.5) +
-  annotate("text", label = "Start of Banking Crisis", x = CSUSH$observation_date[269], y = 100, 
-           color = COL[1], angle = 90, size = 6) +
+  annotate("text", label = "Start of banking crisis", x = CSUSH$observation_date[269], y = 100, 
+            angle = 90, size = 6) +
   theme_bw() +
   xlab("Date") + 
-  ylab("S&P/Case-Shiller U.S. National Home Price Index") +
+  ylab("S&P/Case-Shiller U.S. national home price index") +
   theme(text = element_text(size = 19),
         axis.text = element_text(size = 16),
         axis.title = element_text(size = 19),

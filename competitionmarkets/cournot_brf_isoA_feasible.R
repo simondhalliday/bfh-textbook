@@ -65,10 +65,15 @@ polygon(c(0, 0, xlims[2], xlims[2]),
         c(ylims[2], 7.5 , 7.5, ylims[2]),
         border = FALSE, col = COLA[1])
 
+# Feasible
+segments(0, 7.5, xlims[2], 7.5, col = COLA[4], lwd = graphlinewidth)
+text(5, 35, expression("Feasible set"), cex = annotatesize)
+# polygon( feasible )
+
 contour(x, y, 
         outer(x, y, piA),
         drawlabels = FALSE,
-        col = COLB[4],
+        col = COLB[3],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -77,11 +82,6 @@ contour(x, y,
 
 text(0.5*xlims[2], -3.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 text(-7.3, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
-# Feasible
-segments(0, 7.5, xlims[2], 7.5, col = COLA[4], lwd = graphlinewidth)
-text(5, 35, expression("Feasible set"), cex = annotatesize)
-# polygon( feasible )
 
 segments(7.05, 0, 7.05, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)

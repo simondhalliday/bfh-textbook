@@ -73,12 +73,12 @@ axis(2, at = ticksy, pos = 0, labels = ylabelsnum, las = 1, cex.axis = labelsize
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
 contour(x, y, 
         outer(x, y, piA),
         drawlabels = FALSE,
-        col = COLA[2],
+        col = COLB[2],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -99,7 +99,7 @@ segments(0, 17.7, 11.2, 17.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(9.2, 0, 9.2, 17.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
-text(24, 19.4, expression(paste("Iso-profit horizontal")), cex = annotatesize)
+text(24, 19.4, expression(paste("Isoprofit horizontal")), cex = annotatesize)
 text(24, 18, expression(paste("at intersection with")), cex = annotatesize)
 text(24, 16.4, expression(paste("best-response function")), cex = annotatesize)
 Arrows(18, 18, 10.25, 18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

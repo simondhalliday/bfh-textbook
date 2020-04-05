@@ -17,7 +17,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(5, 7, 2, 2))
+par(mar =  c(6, 8.5, 2, 2))
 
 socialW <- function(xa, s = 0.5, pmax = 20, c1 = 2, slope = 1) {
   (pmax - c1)/s - slope*xa
@@ -82,13 +82,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 9, 12, 18, 36, ylims[2])
-ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN},"= 12")), expression(paste( frac(bar(p) - c,2*beta) )), expression(paste( frac(bar(p) - c,beta) )), NA)
+ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN},"= 12")), expression(paste( frac(bar(p) - c,2*beta), "= 18" )), expression(paste( frac(bar(p) - c,beta) )), NA)
 ticksx <- c(0, 9, 12, 18, 36, xlims[2])
-xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN},"= 12")), expression(paste(frac(bar(p) - c,2*beta))), expression(paste( frac(bar(p) - c,beta) )), NA)
+xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN},"= 12")), expression(paste(frac(bar(p) - c,2*beta), "= 18")), expression(paste( frac(bar(p) - c,beta))), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE)
-text(x = c(0, 8, 13, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 8, 13, 19, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
@@ -101,8 +101,8 @@ lines(xx1, socialW(xx1, s = 0.5, pmax = 20, c1 = 2), col = COL[2], lwd = graphli
 
 
 
-text(0.5*(xlims[2]), -5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-6, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -5.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-7.5, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label Nash Equilibrium 
 segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -117,13 +117,13 @@ points(18, 18, pch = 16, col = "black", cex = 1.5)
 text(18.75, 18.75, expression(paste(j)), cex = labelsize)
 
 #B's brf
-text(31, 11.5, expression(paste("B's best response")), cex = annotatesize)
-text(31, 10, expression(paste("function")), cex = annotatesize)
+text(30.5, 11.5, expression(paste("B's best-response")), cex = annotatesize)
+text(30.5, 10, expression(paste("function")), cex = annotatesize)
 Arrows(32, 9, 32, 2.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A's brf
-text(7, 34.5, expression(paste("A's best response")), cex = annotatesize)
-text(7, 33, expression(paste("function")), cex = annotatesize)
+text(7.5, 34.5, expression(paste("A's best-response")), cex = annotatesize)
+text(7.5, 33, expression(paste("function")), cex = annotatesize)
 Arrows(6, 32, 6, 25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Arrow for owners and consumers

@@ -16,7 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5, 2, 2))
+par(mar =  c(5, 6.5, 0.5, 0.5))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -26,7 +26,7 @@ mrsA <- function(x, rmax = 20, xmax = 10) {
   rmax - (rmax/xmax)*x
 }
 
-uA <- function(x, y, rmax, rmax = 20, xmax = 10) {
+uA <- function(x, y, rmax = 20, xmax = 10) {
   y + rmax*x - (1/2)(rmax/xmax)*x^2
 }
 
@@ -83,15 +83,15 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Line for Demand
-segments(0, 3, 1, 3, lty = 1, col = COLA[4] , lwd = segmentlinewidth)
-segments(1, 0, 1, 3, lty = 1, col = COLA[4] , lwd = segmentlinewidth)
+segments(0, 3, 1, 3, lty = 1, col = COLA[4] , lwd = graphlinewidth)
+segments(1, 0, 1, 3, lty = 1, col = COLA[4] , lwd = graphlinewidth)
 
 #Line for Supply
-segments(0, 1, 0.98, 1, lty = 1, col = COLB[4] , lwd = segmentlinewidth)
-segments(0.98, 1, 0.98, 4, lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+segments(0, 1, 0.98, 1, lty = 1, col = COLB[4] , lwd = graphlinewidth)
+segments(0.98, 1, 0.98, 4, lty = 1, col = COLB[4] , lwd = graphlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Quantity, ", x)), side=1, line = 3, cex = axislabelsize)
 text(-0.2, 0.5*ylims[2], expression(paste("Price per unit of x, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)

@@ -105,16 +105,16 @@ text(9.3, 8.7, expression(paste("i")), cex = labelsize)
 segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(12.5, 12.1, expression(paste("n")), cex = labelsize)
+text(12.6, 12.1, expression(paste("n")), cex = labelsize)
 
 
 text(14.5, brfA(xbar = 14.1) + 0.3, expression(paste("h")), cex = labelsize)
 segments(14.1, brfA(xbar = 14.1) - 2, 14.1, brfA(xbar = 14.1) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(14.1, brfA(xbar = 14.1), pch = 16, col = "black", cex = 1.5)
 
-text(14.1, 4.7, expression(paste("Iso-profit vertical")), cex = labelsize)
+text(14.1, 4.8, expression(paste("Isoprofit vertical")), cex = labelsize)
 text(14.1, 4, expression(paste("at intersection")),cex = labelsize)
-text(14.1, 3.3, expression(paste("with best response")),cex = labelsize)
+text(14.1, 3.2, expression(paste("with best response")),cex = labelsize)
 Arrows(14.1, 5.2, 14.1, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(17.5, 14.9, 17.5, 17, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -124,19 +124,19 @@ text(17.5, 12.9, expression(paste("equals average ouput")),cex = labelsize, xpd 
 text(17.5, 12.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
 
 
-text(4, 13, expression(paste("Typical firm's")),cex = labelsize)
+text(4, 13.1, expression(paste("Typical firm's")),cex = labelsize)
 text(4, 12.3, expression(paste("best-response function")),cex = labelsize)
-Arrows(3, 13.4, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(3, 13.5, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(11, 18, expression(pi[1]), cex = labelsize)
+text(10.7, 18, expression(pi[1]), cex = labelsize)
 text(9.5, 18, expression(pi[2]), cex = labelsize)
 text(8.5, 18, expression(pi[3]), cex = labelsize)
 
-text(14.5, 18.7, expression("Typical firm's"),cex = labelsize, xpd = TRUE)
-text(14.5, 18, expression("iso-profit curves"),cex = labelsize,xpd = TRUE)
-text(14.5, 17.3, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
+text(14.5, 18.8, expression("Typical firm's"),cex = labelsize, xpd = TRUE)
+text(14.5, 18, expression("isoprofit curves"),cex = labelsize,xpd = TRUE)
+text(14.5, 17.2, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty

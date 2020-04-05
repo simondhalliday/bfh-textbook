@@ -118,12 +118,12 @@ Arrows(2, 9.4, 2, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", ar
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(7, 9, expression(pi[1]), cex = annotatesize)
-text(6.1, 9, expression(pi[2]), cex = annotatesize)
-text(5.3, 9, expression(pi[3]), cex = annotatesize)
+text(7, 9, expression(paste(pi[1],"'")), cex = annotatesize)
+text(6.1, 9, expression(paste(pi[2],"'")), cex = annotatesize)
+text(5.3, 9, expression(paste(pi[3],"'")), cex = annotatesize)
 text(7.1, 18, expression("Typical firm's"), cex = annotatesize)
 text(7.1, 17.2, expression("isoprofit curves"), cex = annotatesize)
-text(7.1, 16.4, expression(paste(pi[3] > pi[2], phantom() > pi[1])), cex = annotatesize)
+text(7.1, 16.4, expression(paste(pi[3], "'", phantom() > pi[2], "'", phantom() > pi[1], "'")), cex = annotatesize)
 
 
 #B's brf

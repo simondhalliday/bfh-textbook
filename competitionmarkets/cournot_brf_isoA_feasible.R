@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 8, 2, 2))
+par(mar =  c(4, 8, 2, 0.1))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
   (pmax - s*xb)*xa - s*(xa)^2 - c1*xa

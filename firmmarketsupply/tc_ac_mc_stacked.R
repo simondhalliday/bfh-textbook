@@ -218,7 +218,7 @@ points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 
 #Marginal Cost
-text(8.25, marginalcost(x = 8.25) + 0.2, expression(paste("Marginal cost and \n firm supply curve")), cex = annotatesize)
+text(8.25, marginalcost(x = 8.25) + 0.13, expression(paste("Marginal cost")), cex = annotatesize)
 # text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost

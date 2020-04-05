@@ -54,7 +54,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 ticksy <- c(0, 7.5, 12, 17.6, 36, ylims[2])
-ylabelsnum <- c(NA, expression(paste(x[1]^B == 8)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==17.5), expression(paste(frac(bar(p) - c,beta) == 36), NA))
+ylabelsnum <- c(NA, expression(paste(x[1]^B == 7.5)), expression(paste(x[2]^B == 12)), expression(paste(x[3]^B)==17.5), expression(paste(frac(bar(p) - c,beta) == 36), NA))
 #ylabels <- c(NA, expression(paste(x[1]^B)), expression(paste(x[2]^B)), expression(paste(x[3]^B)), expression(paste(frac(bar(p) - c[1],beta))))
 ticksx <- c(0, 9.2, 12, 14.25, 18, xlims[2])
 #xlabels <- c(NA, expression(paste(x[1]^A)), expression(paste(x[2]^A)), expression(paste(x[3]^A)), NA, NA)

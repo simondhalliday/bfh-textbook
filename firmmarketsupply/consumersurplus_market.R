@@ -82,7 +82,7 @@ mtext(expression(paste("Market quantity of fish in kilograms, ", X)), side=1, li
 text(-16.2, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(50, 10, pch = 16, col = "black", cex = 1.5)
-text(52, 11.0, expression(M), cex = labelsize)
+text(50 + 1.5, 10 + 0.7, expression(M), cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(90, 10.5, expression("Market price, p = 10"), cex = labelsize, xpd = TRUE)

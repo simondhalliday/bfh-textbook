@@ -26,6 +26,7 @@ plot1 <- df %>%
   theme(legend.position = "right",
         legend.text.align = 0,
         axis.title.y = element_text(size=20),
+        axis.title.x = element_text(size=20),
         axis.text.y = element_text(size = 18),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),

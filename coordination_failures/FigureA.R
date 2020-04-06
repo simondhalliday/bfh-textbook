@@ -1,54 +1,39 @@
 library(tidyverse)
-ua <- c(400, 652, 400, 540, 548)
-ub <- c(256, 256, 508, 351, 360)
-point <- c("z", "ta", "tb", "b", "a")
-totalu <- c(656, 908, 908, 891, 908)
-df <- tibble(point, ua, ub, totalu)
-dfnar <- 
-  df %>% 
-  gather(type, Utility, -point) %>% 
-  arrange(point)
-xaxislabs <- c("a",  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
-x1 <- c(expression(paste("Endowment allocation, no trade, ", bold(z))))
-x2 <- c(expression(paste("Employer (A) has TIOLI power, ", bold(t^A))))
-x3 <- c(expression(paste("Union (B) has TIOLI power, ", bold(t^B))))
-x5 <- c(expression(paste("Negotiated allocation after legislation, ", bold(a))))
-dfplot <-
-  dfnar %>%
-  mutate(point = factor(point, levels = c("z", "ta", "tb", "b", "a")),
-         type = factor(type, levels = c("ua","ub", "totalu")))
 
-dfnar$point <- factor(dfnar$point, levels = c("a", "b", "tb", "ta", "z"))
+#data for the figure 
+x <- c("Nash Equilibrium", "Impartial Spectator", "Private Ownership","Nash Equilibrium", "Impartial Spectator", "Private Ownership")
+y1 <- c(144,150,280,0,0,20)
+y2 <- c("h=12","h=10","h=10",NA,NA,"h=10")
+y3 <- c("a","a","a","b","b","b")
 
-plot1 <- dfnar %>% 
-  ggplot(aes(x = point, y = Utility)) +
-  geom_bar(aes(group = type, fill = type), stat = "identity", position = position_dodge()) + 
-  #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
-  #geom_text(aes(x = point, y = Utility, label = Utility)) +
-  #scale_x_discrete(labels = xaxislabs) + 
-  scale_x_discrete(labels=c("z" = x1, "ta" = x2,
-                            "tb" = x3, "b" = expression(paste("Legislated hours and wages, ",bold(b))), "a" = x5)) +
-  scale_y_continuous(breaks = seq(0,1000,200),
-                     labels = seq(0,1000,200),
-                     limits = c(0,1000)) +
-  scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
-                    name = "Type",
-                    breaks = c("ub","ua", "totalu"), 
-                    labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+
+df <- tibble(x, y1, y2, y3)
+
+#figure 
+plot1 <- df %>% 
+  ggplot(aes(x = x, y = y1)) +
+  geom_bar(aes(group = y3, fill = y3), stat = "identity", position = position_dodge())  +
+  scale_y_continuous(breaks = seq(0,300,50),
+                     labels = seq(0,300,50),
+                     limits = c(0,300)) +
+  scale_fill_manual(values=c("#386cb0","#41AE76"), 
+                    name = "",
+                    breaks = c("a","b"), 
+                    labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ", u^B))))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
+  ylab("Utility") +
+  xlab("") +
   theme(legend.position = "right",
         legend.text.align = 0,
-        axis.title = element_text(size = 20),
-        axis.title.y = element_blank(),
+        axis.title.y = element_text(size=20),
         axis.text.y = element_text(size = 18),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
   geom_text(
-    aes(x = point, y = Utility, label = Utility, group = type), 
-    hjust = -0.5, size = 4,
+    aes(x = x, y = y1, label = y2, group = y3), 
+    hjust = -0.5, size = 6,
     position = position_dodge(width = 1),
     inherit.aes = TRUE
   ) + 
@@ -57,13 +42,5 @@ plot1
 
 
 
-ggsave("property/unions_bargraph.pdf", plot1, width = 11, height = 7)
+ggsave("coordination_failures/figureA.pdf", plot1, width = 13, height = 7)
 
-# scale_fill_discrete(name = "", 
-#                     breaks = c("ua", "ub", "totalu"), 
-#                     labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ",u^B), "Total Utility"))
-# ) +
-#   scale_color_discrete(name = "", 
-#                        breaks = c("ua", "ub", "totalu"), 
-#                        labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ",u^B), "Total Utility"))
-#   ) +

@@ -1,0 +1,47 @@
+library(tidyverse)
+
+#data for the figure 
+x <- c("Nash Equilibrium","TIOLI power" ,"Impartial Spectator", "Private Ownership","Nash Equilibrium","TIOLI power" ,"Impartial Spectator", "Private Ownership")
+y1 <- c(21.3,153.2,90,300, NA,21.3,NA,20)
+y2 <- c("h=4.62","h=11.30","h=6","h=6",NA,"h=1.14",NA,"h=6")
+y3 <- c("a","a","a","a","b","b","b","b")
+
+df <- tibble(x, y1, y2, y3)
+
+#figure 
+plot1 <- df %>% 
+  ggplot(aes(x = x, y = y1)) +
+  geom_bar(aes(group = y3, fill = y3), stat = "identity", position = position_dodge())  +
+  scale_y_continuous(breaks = seq(0,300,50),
+                     labels = seq(0,300,50),
+                     limits = c(0,300)) +
+  scale_fill_manual(values=c("#386cb0","#41AE76"), 
+                    name = "",
+                    breaks = c("a","b"), 
+                    labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ", u^B))))+
+  #xlab("Point in the Edgeworth Box") + 
+  theme_bw() +
+  ylab("Utility") +
+  xlab("") +
+  theme(legend.position = "right",
+        legend.text.align = 0,
+        axis.title.y = element_text(size=20),
+        axis.title.x = element_text(size = 20),
+        axis.text.y = element_text(size = 18),
+        #legend.title = element_text(size = 16),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
+  geom_text(
+    aes(x = x, y = y1, label = y2, group = y3), 
+    hjust = -0.5, size = 6,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE
+  ) + 
+  coord_flip() 
+plot1 
+
+
+
+ggsave("coordination_failures/figureC.pdf", plot1, width = 18, height = 7)
+

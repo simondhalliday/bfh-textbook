@@ -84,8 +84,8 @@ mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.7, cex = ax
 text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
-text(10.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
+text(10.6, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
+text(10.6, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)

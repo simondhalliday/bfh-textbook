@@ -93,9 +93,9 @@ segments(3.4, 0, 3.4, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
 #labels for the isoprofits
-text(18, 5.9, expression(paste(pi[3])), cex = annotatesize)
-text(18, 10.8, expression(paste(pi[2])), cex = annotatesize)
-text(18, 14.2, expression(paste(pi[1])), cex = annotatesize)
+text(17.5, 5.0, expression(paste(pi[3]^A, "= 41.9")), cex = annotatesize)
+text(17, 8.8, expression(paste(pi[2]^A, "= 72")), cex = annotatesize)
+text(18, 16, expression(paste(pi[1]^A, "= 101.5")), cex = annotatesize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabelsnum, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabelsnum, las = 1, cex.axis = labelsize)

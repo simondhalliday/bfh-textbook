@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 5, 1, 1))
+par(mar =  c(4, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -56,12 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p) )))
+ylabels <- c(NA, expression(paste(c, "= 4")), expression(paste(p^{m}, "= 8")), expression(paste(bar(p), "= 12")))
 ticksx <- c(0, 4, 8, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^{d})), NA)
-
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+xlabels <- c(NA, expression(paste(x^{m}, "= 4")), expression(paste(x^{d},"= 8")), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -84,7 +81,7 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphline
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.7, cex = axislabelsize)
-text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
@@ -111,12 +108,13 @@ text(8.2, AvgRevenue(x = 8) + 0.4, expression(d), cex = labelsize)
 points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
-
 #Arrow to mr = mc
 #text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)
 #text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)
 #Arrows(6.1, 9.2, 4.2, 4.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

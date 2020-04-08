@@ -94,7 +94,7 @@ brackets(x1 = 4 - 0.2, y1 = 4 + 0.1,
          x2 = 4 - 0.2, y2 = AvgRevenue(x = 4) - 0.1,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(2, 6.3, expression(paste("Mark-up")), xpd = TRUE, cex = annotatesize)
+text(2, 6.3, expression(paste("Markup")), xpd = TRUE, cex = annotatesize)
 text(2, 5.7, expression(paste(phantom() == p - c)), xpd = TRUE, cex = annotatesize)
 
 # text(xlims[2] - 1, 5.8, expression(paste(pi[3])), cex = labelsize)

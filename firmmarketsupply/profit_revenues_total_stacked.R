@@ -76,7 +76,7 @@ xx3 <- seq(3, 5, length.out = npts)
 
 lines(xx1, Revenue(xx1, rmax = 12, xmax = 10), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, TotalCost(xx1, c0 = 0, c1 = 4), col = COLA[5], lwd = graphlinewidth)
-lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MRevenue(x = 4)), col = "gray", lty = 2, lwd = graphlinewidth)
+lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MRevenue(x = 4)), col = "darkgrey", lty = 2, lwd = graphlinewidth)
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
@@ -84,7 +84,8 @@ text(-1.4, 0.5*ylims[2], expression(paste("Revenue and costs ($), ", r, " and ",
 
 #Label curves
 text(7.3, 36, expression(paste("Total costs, ", c(x))), cex = annotatesize)
-text(8.3, 21, expression(paste(r(x))), cex = annotatesize)
+text(8.8, 23, expression(paste("Total revenues")), cex = annotatesize)
+text(8.8, 20, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs
 segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)

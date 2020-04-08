@@ -38,7 +38,7 @@ p <-  ggplot(data = CSUSH ) +
   annotate("text", label = "Start of banking crisis", x = CSUSH$observation_date[269], y = 100, 
             angle = 90, size = 6) +
   theme_bw() +
-  xlab("Date") + 
+  xlab("Year") + 
   ylab("S&P/Case-Shiller U.S. national home price index") +
   theme(text = element_text(size = 19),
         axis.text = element_text(size = 16),

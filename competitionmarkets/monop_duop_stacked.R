@@ -3,6 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
+library(pBrackets)
 pdf(file = "competitionmarkets/monop_duop_stacked.pdf", width = 9, height = 12)
 
 #Set parameters for graphics
@@ -62,11 +63,6 @@ xlabels <- c(NA, expression(paste(x^{Am})), expression(paste(frac(bar(p),2*beta)
 
 segments(4, -20, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 
-
-axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis=labelsize)
-text(x = c(0, 4, 6, 12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis=labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
@@ -121,6 +117,9 @@ text(7.5, 9.6, expression(paste("Profit maximum at")), cex = labelsize)
 text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)
 Arrows(6.1, 9.2, 4.2, 4.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis=labelsize)
+text(x = c(0, 4, 6, 12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis=labelsize)
 
 
 

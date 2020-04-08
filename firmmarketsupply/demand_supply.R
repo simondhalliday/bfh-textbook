@@ -58,9 +58,6 @@ ylabels <- c(NA, expression(paste(p,"*")), expression(paste(bar(p))), NA)
 ticksx <- c(0, 75, 120, xlims[2])
 xlabels <- c(NA, expression(paste(X,"*")), expression(paste(bar(X))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -74,6 +71,9 @@ xpoly2 <- c(0, 75, 0, 0)
 ypoly2 <- c(7.5, 7.5, 20, 7.5)
 polygon(x = xpoly2, y = ypoly2, col = COLA[1], density = NULL, border = NA)
 
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis=labelsize)
+text(x = c(0, 75, 120, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis=labelsize)
 
 text(25, 6, expression(paste("Producer surplus")), xpd = TRUE, cex = labelsize)
 text(25, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 

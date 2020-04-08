@@ -8,6 +8,9 @@ y3 <- c("a","a","a","b","b","b")
 
 df <- tibble(x, y1, y2, y3)
 
+df$x <- factor(df$x,levels = c("Private Ownership","Impartial Spectator","Nash Equilibrium"))
+
+
 #figure 
 plot1 <- df %>% 
   ggplot(aes(x = x, y = y1)) +

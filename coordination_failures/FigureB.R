@@ -95,13 +95,13 @@ theme_bw() +
     axis.title.y = element_text(size = 24),
     axis.text.y = element_text(size = 18),
     axis.text.x = element_text(size = 18)
-  ) + 
-  geom_text(
-    aes(x = n1, y = u1, label = u1), 
-    vjust = -1, size = 6,
-    position = position_dodge(width = 1),
-    inherit.aes = TRUE
-  ) 
+  ) # + 
+  #geom_text(
+  # aes(x = n1, y = u1, label = u1), 
+  #  vjust = -1, size = 6,
+  #  position = position_dodge(width = 1),
+  #  inherit.aes = TRUE
+ # ) 
 
 plot2
 

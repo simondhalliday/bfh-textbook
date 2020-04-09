@@ -17,8 +17,8 @@ plot1 <- df %>%
   scale_y_continuous(breaks = seq(0,300,50),
                      labels = seq(0,300,50),
                      limits = c(0,300)) +
-  scale_x_discrete(labels=c("Nash Equilibrium" = "Nash equilibrium, n=10 \n total hours:4.62", "TIOLI power" = "A has TIOLI power, n=10 \n total hours:12.44",
-                            "Impartial Spectator" = "Impartial Spectator, n=4 \n total hours:6", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:12")))) +
+  scale_x_discrete(labels=c("Nash Equilibrium" = "Nash equilibrium, n=10 \n total hours:46.15", "TIOLI power" = "A has TIOLI power, n=10 \n total hours:21.56",
+                            "Impartial Spectator" = "Impartial Spectator, n=4 \n total hours:24", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:24")))) +
   scale_fill_manual(values=c("#386cb0","#41AE76"), 
                     name = "",
                     breaks = c("a","b"), 
@@ -36,16 +36,15 @@ plot1 <- df %>%
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
-  #geom_text(
-    #aes(x = x, y = y1, label = y2, group = y3), 
-    #hjust = -0.5, size = 6,
-    #position = position_dodge(width = 1),
-    #inherit.aes = TRUE
- # ) + 
+  geom_text(
+    aes(x = x, y = y1, label = y2, group = y3), 
+    hjust = -0.5, size = 6,
+    position = position_dodge(width = 1),
+    inherit.aes = TRUE) + 
   coord_flip() 
 plot1 
 
 
 
-ggsave("coordination_failures/figureC.pdf", plot1, width = 10, height = 7)
+ggsave("coordination_failures/figureC.pdf", plot1, width = 19, height = 7)
 

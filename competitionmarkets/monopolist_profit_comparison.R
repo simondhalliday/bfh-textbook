@@ -60,10 +60,6 @@ ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(past
 ticksx <- c(0, 4, 6, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))))
 
-axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis=labelsize)
-text(x = c(0, 4, 6, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis=labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
@@ -78,13 +74,17 @@ xpoly2 <- c(0, 4, 4, 0, 0)
 ypoly2 <- c(0, 0, 4, 4, 4)
 polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis=labelsize)
+text(x = c(0, 4, 6, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis=labelsize)
+
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", X)), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -2.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 #mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
@@ -95,9 +95,9 @@ text(10.5, 2.8, expression(paste(p(x))), cex = labelsize)
 text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 
 #Labels cost and profit areas
-text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
+text(2, 0.5*AvgCost(x = 4), expression("Total costs"), cex = labelsize)
 text(2, 6, expression("Economic"), cex = labelsize)
-text(2, 5.5, expression("Profit"), cex = labelsize)
+text(2, 5.5, expression("profit"), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -114,7 +114,7 @@ text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
 
 #Arrow to mr = mc
-text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)
+text(7.5, 9.5, expression(paste("Profit maximum at")), cex = labelsize)
 text(7.5, 9, expression(paste(mr == mc)), cex = labelsize)
 Arrows(6.1, 9.2, 4.2, 4.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

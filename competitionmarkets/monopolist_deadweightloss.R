@@ -107,9 +107,9 @@ text(10.2, 2.6, expression(paste(p(x))), cex = labelsize)
 text(5.5, 2.6, expression(paste(mr(x))), cex = labelsize)
 
 #Labels cost and profit areas
-text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
+text(2, 0.5*AvgCost(x = 4), expression("Total costs"), cex = labelsize)
 text(2, 6, expression("Economic"), cex = labelsize)
-text(2, 5.5, expression("Profit"), cex = labelsize)
+text(2, 5.5, expression("profit"), cex = labelsize)
 # text(5.25, 5.5, expression("Deadweight"), cex = labelsize)
 # text(5.25, 5, expression("Loss"), cex = labelsize)
 
@@ -131,12 +131,12 @@ text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
 
 # Arrow to Consumer surplus
-text(6, 11, expression(paste("Consumer Surplus")), cex = labelsize)
+text(6, 11, expression(paste("Consumer surplus")), cex = labelsize)
 #text(6, 11, expression(paste(cs(x) == frac(1,2)*(bar(p) - p^{m})*x^{m} )), cex = labelsize)
 Arrows(4.4, 10.5, 2.4, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrow to Deadweight loss
-text(9, 7.00, expression(paste("Deadweight Loss")), cex = labelsize)
+text(9, 7.00, expression(paste("Deadweight loss")), cex = labelsize)
 #text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c)*(x^{c} - x^{m}))), cex = labelsize)
 Arrows(7.4, 6.5, 5.4, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

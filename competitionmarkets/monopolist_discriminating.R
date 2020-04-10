@@ -80,7 +80,7 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphline
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.7, cex = axislabelsize)
+mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.7, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
@@ -88,9 +88,9 @@ text(10.6, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 text(10.6, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
 
 #Labels cost and profit areas
-text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
+text(2, 0.5*AvgCost(x = 4), expression("Total costs"), cex = labelsize)
 text(2, 6, expression("Economic"), cex = labelsize)
-text(2, 5.5, expression("Profit"), cex = labelsize)
+text(2, 5.5, expression("profit"), cex = labelsize)
 
 #Draw segments for total costs
 segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)

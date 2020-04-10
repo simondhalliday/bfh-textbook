@@ -91,8 +91,8 @@ text(-6, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", li
 
 # Eq labels
 text(34, 12, expression(paste(p(n))), cex = labelsize)
-text(32, 8, expression(paste(hat(p)*(list(n, b[L])) == (1-b[L])*p(n) )), cex = labelsize)
-text(32, 4.8, expression(paste(hat(p)*(list(n, b[H])) == (1-b[H])*p(n) )), cex = labelsize)
+text(32, 8, expression(paste(hat(p)[L]*(list(n, b[L])) == (1-b[L])*p(n) )), cex = labelsize)
+text(32, 4.8, expression(paste(hat(p)[H]*(list(n, b[H])) == (1-b[H])*p(n) )), cex = labelsize)
 
 
 # line for the marginal cost

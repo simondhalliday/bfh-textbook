@@ -73,7 +73,7 @@ df1 <- tibble(n1,u1)
 plot2 <- 
   df1 %>% 
   ggplot(aes(x = n1, y = u1)) + 
-  geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#377eb8") + 
+  geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#41AE76") + 
   xlab("Number of people, n") +
   ylab(expression(paste("Owner's utility "))) + 
   scale_y_continuous(breaks = seq(0,320,20),

@@ -112,7 +112,7 @@ text(36, 8, expression(paste("Buyers' rent at ", p^L)), cex = labelsize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(118, 13.75, expression("Sellers'"), cex = labelsize)
-text(118, 12.75, expression("Supply"), cex = labelsize)
+text(118, 12.75, expression("supply"), cex = labelsize)
 #text(7.3, 2.5, expression("Curve"))
 
 # Arrows(56, 11.5, 108, 11.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -120,13 +120,13 @@ text(118, 12.75, expression("Supply"), cex = labelsize)
 
 Arrows(62, 5.5, 82, 5.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(72, 4.75, expression(paste("Excess")), cex = labelsize)
-text(72, 3.75, expression(paste("Demand")), cex = labelsize)
+text(72, 3.75, expression(paste("demand")), cex = labelsize)
 text(72, 2.75, expression(paste("at ", p^L)), cex = labelsize)
 
 
 #Label Demand
-text(118, 3, expression(paste("Buyers'")), cex = labelsize)
-text(118, 2, expression(paste("Demand")), cex = labelsize)
+text(118.5, 3, expression(paste("Buyers'")), cex = labelsize)
+text(118.5, 2, expression(paste("demand")), cex = labelsize)
 
 #doesn't seem to be giving me a new pdf 
 dev.off()

@@ -116,11 +116,11 @@ text(-12, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TR
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(118, 13.75, expression("Sellers'"), cex = labelsize)
-text(118, 12.75, expression("Supply"), cex = labelsize)
+text(118, 12.75, expression("supply"), cex = labelsize)
 #text(7.3, 2.5, expression("Curve"))
 
 Arrows(56, 11.5, 108, 11.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(80, 12.5, expression(paste("Excess Supply at ", p^H)), cex = labelsize)
+text(80, 12.5, expression(paste("Excess supply at ", p^H)), cex = labelsize)
 
 Arrows(48, 6, 48, 10.25, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(31, 8.5, expression(paste("Sellers' rent at ", p^H)), cex = labelsize)
@@ -134,6 +134,6 @@ text(31, 8.5, expression(paste("Sellers' rent at ", p^H)), cex = labelsize)
 
 #Label Demand
 text(118, 3, expression(paste("Buyers'")), cex = labelsize)
-text(118, 2, expression(paste("Demand")), cex = labelsize)
+text(118, 2, expression(paste("demand")), cex = labelsize)
 
 dev.off()

@@ -61,9 +61,6 @@ ylabels <- c(NA, expression(paste(p,"*", phantom()== c)), expression(paste(p^{m}
 ticksx <- c(0, 4, 8, xlims[2])
 xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^{c})), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
@@ -88,6 +85,8 @@ xpoly4 <- c(0, 4, 0, 0)
 ypoly4 <- c(8, 8, 12, 8)
 polygon(x = xpoly4, y = ypoly4, col=COLC[3], density=NULL, border = NA)
 
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphlinewidth)
@@ -95,13 +94,17 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", x)), side=1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Quantity of output, ", X)), side=1, line = 3, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.3, expression(paste(ac(x) == mc(x))), cex = labelsize)
-text(10.7, 2.6, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
-text(6.2, 2.6, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
+# text(10.5, 4.3, expression(paste(ac(x) == mc(x))), cex = labelsize)
+# text(10.7, 2.6, expression(paste(p(x) == bar(p) - beta*x)), cex = labelsize)
+# text(6.2, 2.6, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
+
+text(10.5, 4.35, expression(paste(ac(x) == mc(x))), cex = labelsize)
+text(10.2, 2.6, expression(paste(p(x))), cex = labelsize)
+text(5.5, 2.6, expression(paste(mr(x))), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
@@ -128,13 +131,13 @@ text(4.2, AvgRevenue(x = 4) + 0.4, expression(h), cex = labelsize)
 
 
 # Arrow to Consumer surplus
-text(6, 11.75, expression(paste("Consumer Surplus")), cex = labelsize)
-text(6, 11, expression(paste(cs(x) == frac(1,2)*(bar(p) - p^{m})*x^{m} )), cex = labelsize)
+text(6, 11, expression(paste("Consumer Surplus")), cex = labelsize)
+#text(6, 11, expression(paste(cs(x) == frac(1,2)*(bar(p) - p^{m})*x^{m} )), cex = labelsize)
 Arrows(4.4, 10.5, 2.4, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrow to Deadweight loss
-text(9, 7.75, expression(paste("Deadweight Loss")), cex = labelsize)
-text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c)*(x^{c} - x^{m}))), cex = labelsize)
+text(9, 7.00, expression(paste("Deadweight Loss")), cex = labelsize)
+#text(9, 7, expression(paste(dwl(x) == frac(1,2)*(p^{m} - c)*(x^{c} - x^{m}))), cex = labelsize)
 Arrows(7.4, 6.5, 5.4, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

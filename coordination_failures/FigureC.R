@@ -8,17 +8,17 @@ y3 <- c("a","a","a","a","a","b","b","b","b","b")
 
 df <- tibble(x, y1, y2, y3)
 
-df$x <- factor(df$x,levels = c("Private Ownership","Impartial Spectator","TIOLI power", "Nash Equilibrium"))
+df$x <- factor(df$x,levels = c("Private Ownership","Impartial Spectator4","Impartial Spectator10","TIOLI power", "Nash Equilibrium"))
 
 #figure 
-plot1 <- dfs %>% 
+plot1 <- df %>% 
   ggplot(aes(x = x, y = y1)) +
   geom_bar(aes(group = y3, fill = y3), stat = "identity", position = position_dodge())  +
   scale_y_continuous(breaks = seq(0,300,50),
                      labels = seq(0,300,50),
                      limits = c(0,300)) +
   scale_x_discrete(labels=c("Nash Equilibrium" = "Nash equilibrium, n=10 \n total hours:46.15", "TIOLI power" = "A has TIOLI power, n=10 \n total hours:21.56", "Impartial Spectator10" ="Impartial Spectator, n=10 \n total hours:27.27",
-                            "Impartial Spectator" = "Impartial Spectator, n=4 \n total hours:24", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:24")))) +
+                            "Impartial Spectator4" = "Impartial Spectator, n=4 \n total hours:24", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:24")))) +
   scale_fill_manual(values=c("#386cb0","#41AE76"), 
                     name = "",
                     breaks = c("a","b"), 

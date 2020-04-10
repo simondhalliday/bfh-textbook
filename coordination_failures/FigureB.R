@@ -28,7 +28,7 @@ plot1 <-
   ggplot(aes(x = n, y = u)) + 
   geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#377eb8") + 
   xlab("Number of people, n") +
-  ylab(expression(paste("Utility, ", u ))) + 
+  ylab(expression(paste("Utility"))) + 
   scale_y_continuous(breaks = seq(0,240,20),
                      labels = seq(0,240,20),
                      limits = c(0,240)) +

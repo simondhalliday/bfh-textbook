@@ -155,7 +155,7 @@ dfCostAvg %>%
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +
-  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), hjust = -0.25, size = 3) +
+  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), hjust = -0.25, size = 3, check_overlap = TRUE) +
   theme_bw() +
   theme(legend.title = element_blank(),
         panel.grid.minor = element_blank(),

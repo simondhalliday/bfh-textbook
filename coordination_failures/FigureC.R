@@ -17,8 +17,8 @@ plot1 <- df %>%
   scale_y_continuous(breaks = seq(0,300,50),
                      labels = seq(0,300,50),
                      limits = c(0,300)) +
-  scale_x_discrete(labels=c("Nash Equilibrium" = "Nash equilibrium, n=10 \n total hours:46.15", "TIOLI power" = "A has TIOLI power, n=10 \n total hours:21.56", "Impartial Spectator10" ="Impartial Spectator, n=10 \n total hours:27.27",
-                            "Impartial Spectator4" = "Impartial Spectator, n=4 \n total hours:24", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:24")))) +
+  scale_x_discrete(labels=c("Nash Equilibrium" = "Open access, n=10 \n total hours:46.15", "TIOLI power" = "A has TIOLI power, n=10 \n total hours:21.56", "Impartial Spectator10" ="Cooperative, n=10 \n total hours:27.27",
+                            "Impartial Spectator4" = "Cooperative, n=4 \n total hours:24", "Private Ownership" = expression(paste("A owns the lake, n=4 \n total hours:24")))) +
   scale_fill_manual(values=c("#386cb0","#41AE76"), 
                     name = "",
                     breaks = c("a","b"), 

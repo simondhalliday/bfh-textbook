@@ -155,11 +155,11 @@ dfCostAvg %>%
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +
-  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), hjust = -0.25) +
+  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), hjust = -0.25, size = 3) +
   theme_bw() +
   theme(legend.title = element_blank(),
         panel.grid.minor = element_blank(),
-        text = element_text(size = 15),
+        text = element_text(size = 12),
         legend.position = c(.875, .85),
         legend.margin = margin(1, 1, 1, 1)) 
 

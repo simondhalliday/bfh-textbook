@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(c, "= 4")), expression(paste(p^{m}, "= 8")), expression(paste(bar(p), "= 12")))
+ylabels <- c(NA, expression(paste(c == 4)), expression(paste(p^{m} == 8)), expression(paste(bar(p) == 12)))
 ticksx <- c(0, 4, 8, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m}, "= 4")), expression(paste(x^{d},"= 8")), NA)
+xlabels <- c(NA, expression(paste(x^{m} == 4)), expression(paste(x^{d} == 8)), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

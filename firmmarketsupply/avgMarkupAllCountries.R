@@ -137,15 +137,15 @@ dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugID") %>%
 
 # avg markup by drug across ALL countries
 
-drugNames <- c("Sofosbuvir/daclatasvir", "Azithromycin", "Hydroxychloroquine", "Lopinavir/ritonavir", "Chloroquine")
+drugNames <- c("Sofosbuvir/daclatasvir", "Azithromycin", "Lopinavir/ritonavir", "Chloroquine")
 drugNameDisease <- c("Sofosbuvir/daclatasvir \n (Hepatitis C)", 
                      "Azithromycin \n (Antibiotic)", 
-                     "Hydroxychloroquine \n (Malaria)", 
                      "Lopinavir/ritonavir \n (HIV-1)", 
                      "Chloroquine \n (Malaria)")
 
 dfCostAvg %>% 
   filter(drugID != 6) %>%
+  filter(drugName != "Hydroxychloroquine") %>% 
   mutate(drugName = factor(drugName, levels = drugNames)) %>%
   ggplot(aes(x = factor(drugName), y = avgVal, fill = avgType)) +
   geom_bar(stat = "identity", position = "dodge") +

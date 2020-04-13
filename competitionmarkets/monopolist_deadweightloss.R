@@ -20,7 +20,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(4, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -57,9 +57,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(p,"*", phantom()== c)), expression(paste(p^{m})), expression(paste(bar(p) )))
+ylabels <- c(NA, expression(paste(p,"*", phantom()== 4)), expression(paste(p^{m}==8)), expression(paste(bar(p)==12)))
 ticksx <- c(0, 4, 8, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})), expression(paste(x^{c})), NA)
+xlabels <- c(NA, expression(paste(x^{m} == 4)), expression(paste(x^{c}==8)), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -95,7 +95,7 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", X)), side=1, line = 3, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 # text(10.5, 4.3, expression(paste(ac(x) == mc(x))), cex = labelsize)

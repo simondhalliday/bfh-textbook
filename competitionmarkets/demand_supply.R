@@ -14,7 +14,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -54,9 +54,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 7.5, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p,"*")), expression(paste(bar(p))), NA)
+ylabels <- c(NA, expression(paste(p,"*") == 8), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 75, 120, xlims[2])
-xlabels <- c(NA, expression(paste(X,"*")), expression(paste(bar(X))), NA)
+xlabels <- c(NA, expression(paste(X,"*") == 75), expression(paste(bar(X) == 120)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -90,7 +90,7 @@ points(75, 7.5, pch = 16, col = "black", cex = 1.5)
 #Label axes
 mtext(expression(paste("Market quantity, ", X)), side = 1, line = 3, cex = axislabelsize)
 #mtext(expression(paste("Market output of the good, ", X)), side = 1, line = 3, cex = axislabelsize)
-text(-12, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-16, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(103, 12, expression("Sellers' Supply"), cex = labelsize)
 text(103, 6, expression(paste("Buyers' demand")), cex = labelsize)

@@ -70,7 +70,7 @@ ticksx <- c(0,  60, 75, 84, 120, xlims[2])
 xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X^{"*"} == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
-text(x = c(0, 55, 73, 90, 120, xlims[2]), par("usr")[3] - 0.5, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
+text(x = c(0, 52, 71, 90, 115, xlims[2]), par("usr")[3] - 0.5, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,  cex.axis = labelsize)
 
 npts <- 500 
@@ -106,7 +106,7 @@ text(60 - 2, Supply(x = 60) + 0.75, expression(e), cex = labelsize)
 text(60 - 2, Demand(x = 60) - 0.75, expression(f), cex = labelsize)
 
 Arrows(54, 6.5, 54, 9.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(36, 8, expression(paste("Buyers' rent at ", p^L)), cex = labelsize)
+text(33, 8, expression(paste("Buyers' rent at ", p^L)), cex = labelsize)
 
 
 # 

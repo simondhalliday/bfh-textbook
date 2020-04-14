@@ -126,7 +126,7 @@ Arrows(56, 11.5, 108, 11.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type 
 text(80, 12.5, expression(paste("Excess supply at ", p^H)), cex = labelsize)
 
 Arrows(48, 6, 48, 10.25, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(31, 8.5, expression(paste("Sellers' rent at ", p^H)), cex = labelsize)
+text(25, 8.5, expression(paste("Sellers' rent at ", p^H)), cex = labelsize)
 
 
 # Arrows(62, 5.5, 82, 5.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

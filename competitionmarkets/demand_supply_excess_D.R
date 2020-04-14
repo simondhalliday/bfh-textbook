@@ -15,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 8, 1, 1))
+par(mar =  c(6, 10, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -67,9 +67,10 @@ ticksy <- c(0, 6, 7.5, Demand(x = 60), 20, ylims[2])
 ylabels <- c(NA, expression(paste(p^L) == 6), expression(paste(p,"*") == 7.5), expression(paste(wtp(X^{SL}) == 10)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0,  60, 75, 84, 120, xlims[2])
 #xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
-xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X,"*" == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
+xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X^{"*"} == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(x = c(0, 55, 73, 90, 120, xlims[2]), par("usr")[3] - 0.5, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,  cex.axis = labelsize)
 
 npts <- 500 
@@ -84,8 +85,8 @@ lines(xx2, Supply(xx2), col = COLB[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -2.5, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-24, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -3, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(-35, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # segments(0, 7.5, 75, 7.5, lty = 2, "gray" , lwd = segmentlinewidth)

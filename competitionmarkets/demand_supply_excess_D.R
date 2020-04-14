@@ -63,9 +63,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 7.5, Demand(x = 60), 20, ylims[2])
-ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(paste(wtp(X^{SL}))), expression(paste(bar(p))), NA)
+#ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(paste(wtp(X^{SL}))), expression(paste(bar(p))), NA)
+ylabels <- c(NA, expression(paste(p^L) == 6), expression(paste(p,"*") == 7.5), expression(paste(wtp(X^{SL}) == 10)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0,  60, 75, 84, 120, xlims[2])
-xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
+#xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
+xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X,"*" == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,  cex.axis = labelsize)

@@ -15,7 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(6,8, 1, 1))
+par(mar =  c(8,9, 1, 3))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -67,9 +67,10 @@ ticksy <- c(0, Supply(x = 54), 7.5, 11, 20, ylims[2])
 ylabels <- c(NA,  expression(paste(mc(X^{DH}) == 5.5)), expression(paste(p,"*") == 7.5), expression(paste(p^H) == 11), expression(paste(bar(p)==20 )), NA)
 ticksx <- c(0, 54, 75, 110, 120, xlims[2])
 #xlabels <- c(NA, expression(paste(X^{DH})), expression(paste(X,"*")), expression(paste(X^{SH})), expression(paste(bar(p)/beta )), NA)
-xlabels <- c(NA, expression(paste(X^{DH} == 54)), expression(paste(X,"*") == 75), expression(paste(X^{SH} == 110)), expression(paste(bar(p)/beta ==120 )), NA)
+xlabels <- c(NA, expression(paste(X^{DH} == 54)), expression(paste(X^{"*"}) == 75), expression(paste(X^{SH} == 110)), expression(paste(bar(p)/beta ==120 )), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(x = c(0, 52, 75, 103, 127, xlims[2]), par("usr")[3] - 0.5, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
@@ -110,8 +111,8 @@ text(110 + 2, Supply(x = 110) - 0.5, expression(b), cex = labelsize)
 
 
 #Label axes
-mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 3, cex = axislabelsize)
-text(-22, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 4, cex = axislabelsize)
+text(-26, 0.6*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)
 # text(52, 10.5, expression(M))

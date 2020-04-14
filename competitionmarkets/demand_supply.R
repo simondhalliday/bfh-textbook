@@ -54,8 +54,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 7.5, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p,"*") == 8), expression(paste(bar(p) == 20)), NA)
+#ylabels <- c(NA, expression(paste(p,"*")), expression(paste(bar(p))), NA)
+ylabels <- c(NA, expression(paste(p,"*") == 7.5), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 75, 120, xlims[2])
+#xlabels <- c(NA, expression(paste(X,"*")), expression(paste(bar(X))), NA)
 xlabels <- c(NA, expression(paste(X,"*") == 75), expression(paste(bar(X) == 120)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

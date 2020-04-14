@@ -85,7 +85,7 @@ lines(xx2, Supply(xx2), col = COLB[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -3, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -3.5, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
 text(-35, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

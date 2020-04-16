@@ -3,10 +3,16 @@ require(shape)
 pdf(file = "information_power/ch11_fig4.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-segmentlinewidth <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
@@ -57,7 +63,8 @@ tangencyLine <- function(p){
 #COL <- c("#bae4b3", "#74c476", "#238b45")
 #COL <- c("#f7fcf0", "#e0f3db", "#ccebc5", "#a8ddb5", "#7bccc4", "#4eb3d3", "#2b8cbe", "#08589e")
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(4, 4, .5, .5))
+
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -100,19 +107,19 @@ ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 5, 10, 20, 40)
 xlabels <- c(0, expression(paste(underline("u"))), expression(paste(p[0] == 2*underline("u"))), expression(paste(p == 4*underline("u"))) , 40)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
-text(3.9, 0.05, expression(paste(v[0],  " = z")))
-text(9.5, 0.05, expression(paste(v[1])))
-text(14, 0.05, expression(paste(v[2])))
-text(23.5, 0.05, expression(paste(v[3])))
-text(21, 0.48, expression(paste("a")))
-text(35, 0.62, expression(paste("Best Response Function")))
-text(36, 0.9, expression(paste("Iso-v curves")))
+text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
+text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
+text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
+text(23.5, 0.05, expression(paste(v[3])), cex = annotatesize)
+text(21, 0.48, expression(paste("a")), cex = annotatesize)
+text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
+text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
@@ -124,14 +131,14 @@ segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmen
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(14.8, 0.9, expression(paste("Rent at")))
-text(15, 0.85, expression(paste("point a.")))
+text(14.8, 0.9, expression(paste("Rent at")), cex = annotatesize)
+text(15, 0.85, expression(paste("point a")), cex = annotatesize)
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = -mrs ")))
-text(32, 0.08, expression(paste(" = " -frac(v[p], v[q]))))
+text(32, 0.2, expression(paste("Slope of iso-v")), cex = annotatesize)
+text(32.3, 0.15, expression(paste(" = -mrs ")), cex = annotatesize)
+text(32, 0.06, expression(paste(" = " -frac(v[p], v[q]))), cex = annotatesize)
 
 
 
@@ -141,12 +148,12 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a point for b
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
-text(9.5, 0.53, expression(paste("b")))
+text(9.5, 0.53, expression(paste("b")), cex = annotatesize)
 
 #Add a point for c
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
 points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
-text(15, 0.2928934, expression(paste("c")))
+text(15, 0.2928934, expression(paste("c")), cex = annotatesize)
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

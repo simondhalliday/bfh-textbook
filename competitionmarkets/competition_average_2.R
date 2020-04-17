@@ -13,20 +13,19 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(4, 7, 4, 6))
+par(mar =  c(4, 8, 1, 1))
 
-piA <- function(xbar, x, s = 0.5, pmax = 20, c1 = 2, n = 2) {
+piA <- function(xbar, x, s = 0.5, pmax = 20, c1 = 2, n = 3) {
   (pmax - s*(n - 1)*xbar)*x - s*(x)^2 - c1*x
 }
 
-brfA <- function(xbar, s = 0.5, pmax = 20, c1 = 2, n = 2) {
-  (pmax - c1)/(2*s) - ((n-1)/(2))*xbar
+brfA <- function(xbar, s = 0.5, pmax = 20, c1 = 2, n = 3) {
+  (pmax - c1)/(2*s) - ((n - 1)/(2))*xbar
 }
 
 Equal45 <- function(xbar, slope = 1){
   slope*xbar
 }
-
 
 
 xlims <- c(0, 19)
@@ -46,115 +45,88 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
+
 ticksy <- c(0, 9, 12, ylims[2])
 ylabels <- c(NA, expression(paste(x,"*") == 9), expression(paste(x^N) == 12), NA)
-ticksx <- c(0, 9, 12, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*" == 9)), expression(paste(bar(x)^{N} == 12)), NA)
+ticksx <- c(0, 4.5, 6, xlims[2])
+xlabels <- c(NA, expression(paste(bar(x),"*" == 4.5)), expression(paste(bar(x)^{N} == 6)), NA)
 
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
+text(4, par("usr")[3] - 0.9, expression(paste(bar(x),"*" == 4.5)), xpd = TRUE, cex = labelsize)
+text(6.5, par("usr")[3] - 0.8, expression(paste(bar(x)^{N} == 6)), xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(xlims[1], 8.3, length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2, n = 2), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, Equal45(xx1, slope = 1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2, n = 3), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, Equal45(xx2, slope = 2), col = COLB[4], lwd = graphlinewidth)
 
 contour(x, y,
         outer(x, y, piA),
-        #labels = c("v1", "v2", "v3"),
         drawlabels = FALSE,
         col = COLA[2],
-        #xlab = expression(paste("A's Apples, ", x)),
-        #ylab = expression(paste("A's Oranges, ", y)),
-        #cex.lab = axislabelsize,
         lwd = graphlinewidth,
         levels = a,
-        xaxs="i",
-        yaxs="i",
+        xaxs = "i",
+        yaxs = "i",
         add = TRUE)
 
-mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 3, cex = axislabelsize)
-text(-3.5, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Average output of other firms, ", bar(x))), side = 1, line = 3, cex = axislabelsize)
+text(-3.5, 0.5*ylims[2], expression(paste("The firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+segments(0, 9, 4.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(4.5, 9, pch = 16, col = "black", cex = 1.5)
+text(4.2, 9.5, expression(paste("i")), cex = labelsize)
+ 
+segments(6, 0, 6, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 12, 6, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(6, 12, pch = 16, col = "black", cex = 1.5)
+text(6.6, 12.1, expression(paste("n")), cex = labelsize)
 
 
+text(7.74, brfA(xbar = 7.05) + 0.3, expression(paste("h")), cex = labelsize)
+segments(7.05, brfA(xbar = 7.05) - 2, 7.05, brfA(xbar = 7.05) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(7.05, brfA(xbar = 7.05), pch = 16, col = "black", cex = 1.5)
+
+text(7.05, 4.8, expression(paste("Isoprofit vertical")), cex = labelsize)
+text(7.05, 4, expression(paste("at intersection")),cex = labelsize)
+text(7.05, 3.2, expression(paste("with best response")),cex = labelsize)
+Arrows(7.05, 5.2, 7.05, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+Arrows(11.5, 15, 8.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(15.5, 16.5, expression(paste(x == bar(x))), cex = labelsize)
+text(15.5, 15.7, expression(paste("The firm's output")),cex = labelsize, xpd = TRUE)
+text(15.5, 14.9, expression(paste("equals average ouput")),cex = labelsize, xpd = TRUE)
+text(15.5, 14.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
 
 
-#Add arrows:
-#arrows(-0.8, 10, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-#arrows(6.2, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
-
-# segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(6, 0, 6, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# points(6, 6, pch = 16, col = "black", cex = 1.5)
-# text(6.2, 6, expression(paste(n)))
-
-segments(0, 9, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(9, 9, pch = 16, col = "black", cex = 1.5)
-text(9.3, 8.7, expression(paste("i")), cex = labelsize)
-#segments(0, 4, 7, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(12.6, 12.1, expression(paste("n")), cex = labelsize)
-
-
-text(14.5, brfA(xbar = 14.1) + 0.3, expression(paste("h")), cex = labelsize)
-segments(14.1, brfA(xbar = 14.1) - 2, 14.1, brfA(xbar = 14.1) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(14.1, brfA(xbar = 14.1), pch = 16, col = "black", cex = 1.5)
-
-text(14.1, 4.8, expression(paste("Isoprofit vertical")), cex = labelsize)
-text(14.1, 4, expression(paste("at intersection")),cex = labelsize)
-text(14.1, 3.2, expression(paste("with best response")),cex = labelsize)
-Arrows(14.1, 5.2, 14.1, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-Arrows(17.5, 14.9, 17.5, 17, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(17.5, 14.5, expression(paste(x == bar(x))), cex = labelsize)
-text(17.5, 13.7, expression(paste("Typical firm's output")),cex = labelsize, xpd = TRUE)
-text(17.5, 12.9, expression(paste("equals average ouput")),cex = labelsize, xpd = TRUE)
-text(17.5, 12.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
-
-
-text(4, 13.1, expression(paste("Typical firm's")),cex = labelsize)
-text(4, 12.3, expression(paste("best-response function")),cex = labelsize)
-Arrows(3, 13.5, 3, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.5, 13.1 - 0.8, expression(paste("The firm's")),cex = labelsize)
+text(2.5, 12.3 - 0.8, expression(paste("best-response")),cex = labelsize)
+text(2.5, 11.5 - 0.8, expression(paste("function")),cex = labelsize)
+Arrows(2.5, 13, 2.5, 14.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(10.7, 18, expression(pi[1]), cex = labelsize)
-text(9.5, 18, expression(pi[2]), cex = labelsize)
-text(8.5, 18, expression(pi[3]), cex = labelsize)
+text(4.1, 18, expression(pi[1]), cex = labelsize)
+text(5.4, 18, expression(pi[2]), cex = labelsize)
+text(6.1, 18, expression(pi[3]), cex = labelsize)
 
-text(14.5, 18.8, expression("Typical firm's"),cex = labelsize, xpd = TRUE)
-text(14.5, 18, expression("isoprofit curves"),cex = labelsize,xpd = TRUE)
-text(14.5, 17.2, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
-#text(6.6, 8.3, expression(u[4]^A))
-
-#Label the indifference curves for the HG, Betty
-# text(8.9, 19, expression(pi[1]^B))
-# text(7.9, 19, expression(pi[2]^B))
-# text(7, 19, expression(pi[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
-
-# #Label Nash Equilibrium 
-# segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-
-
+text(9.55, 18.8, expression("The firm's"),cex = labelsize, xpd = TRUE)
+text(9.55, 18, expression("isoprofit curves"),cex = labelsize,xpd = TRUE)
+text(9.55, 17.2, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
 
 #B's brf
-text(7, 30, expression(paste("A's best response")),cex = labelsize)
-text(7, 29, expression(paste("function")),cex = labelsize)
-Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(7, 30, expression(paste("A's best response")),cex = labelsize)
+# text(7, 29, expression(paste("function")),cex = labelsize)
+# Arrows(7, 28.2, 7, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

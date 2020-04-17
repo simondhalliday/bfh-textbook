@@ -82,7 +82,7 @@ contour(x, y,
         add = TRUE)
 
 mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 3, cex = axislabelsize)
-text(-2.5, 0.5*ylims[2], expression(paste("Typical firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.5, 0.5*ylims[2], expression(paste("The firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 
@@ -107,11 +107,11 @@ Arrows(11, brfA(xbar = 8), 9.5, brfA(xbar = 8), col = "black", lty = 1, lwd = 2,
 
 Arrows(13.5, 10.9, 13.5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(13.5, 10.5, expression(paste(x == bar(x))), cex = annotatesize)
-text(13.5, 9.7, expression(paste("Typical firm's output")), cex = annotatesize)
+text(13.5, 9.7, expression(paste("The firm's output")), cex = annotatesize)
 text(13.5, 8.9, expression(paste("equals average ouput")), cex = annotatesize)
 text(13.5, 8.1, expression(paste("of other firms")), cex = annotatesize)
 
-text(2.1, 9, expression(paste("Typical firm's")), cex = annotatesize)
+text(2.1, 9, expression(paste("The firm's")), cex = annotatesize)
 text(2.1, 8.2, expression(paste("best-response")), cex = annotatesize)
 text(2.1, 7.4, expression(paste("function")), cex = annotatesize)
 Arrows(2, 9.4, 2, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -121,7 +121,7 @@ Arrows(2, 9.4, 2, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", ar
 text(7, 9, expression(paste(pi[1],"'")), cex = annotatesize)
 text(6.1, 9, expression(paste(pi[2],"'")), cex = annotatesize)
 text(5.3, 9, expression(paste(pi[3],"'")), cex = annotatesize)
-text(7.1, 18, expression("Typical firm's"), cex = annotatesize)
+text(7.1, 18, expression("The firm's"), cex = annotatesize)
 text(7.1, 17.2, expression("isoprofit curves"), cex = annotatesize)
 text(7.1, 16.4, expression(paste(pi[3], "'", phantom() > pi[2], "'", phantom() > pi[1], "'")), cex = annotatesize)
 

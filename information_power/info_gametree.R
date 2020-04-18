@@ -10,9 +10,7 @@ segmentlinewidth <- 2
 nodesize <- 1.5
 fadelevel <- 1
 
-COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+col_agent = c(rgb(0, 0, 1, 0.5), rgb(1, 0, 0, 0.5))
 
 par(mar =  c(0, 0, 0, 0))
 
@@ -31,7 +29,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      cex.lab = axislabelsize, 
      bty = "n",
      xaxs = "i", 
-     yaxs  ="i")
+     yaxs = "i")
 
 ticksy <- seq(from = 0, to = ylims[2], by = 2)
 ylabels <- seq(from = 0, to = ylims[2], by = 2)
@@ -39,13 +37,13 @@ ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 
 # Agent
-segments(5, 9, 3, 5, col = COLB[4], lty = 1, lwd = 3)
-segments(5, 9, 9, 1, lty = 1, col = COLB[4], lwd = graphlinewidth)
+segments(5, 9, 3, 5, col = col_agent[1], lty = 1, lwd = 3)
+segments(5, 9, 9, 1, lty = 1, col = col_agent[1], lwd = graphlinewidth)
 
 
 # Principal
-segments(3, 5, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
-segments(3, 5, 5, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(3, 5, 1, 1, lty = 1, col = col_agent[2], lwd = graphlinewidth)
+segments(3, 5, 5, 1, lty = 1, col = col_agent[2], lwd = graphlinewidth)
 
 #Initial node
 points(5, 9, pch = 16, cex = nodesize)

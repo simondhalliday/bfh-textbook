@@ -1,6 +1,6 @@
 require(shape)
 library(tidyverse)
-#pdf(file = "competitionmarkets/long_run_n_bargraph.pdf", width = 9, height = 7)
+# pdf(file = "competitionmarkets/long_run_n_bargraph.pdf", width = 9, height = 7)
 
 
 #Set parameters for graphics
@@ -28,7 +28,7 @@ totaln <- function(pi, pbar = 60, c = 10, beta = 0.5){
 }
 
 cournotPrice <- function(n, pbar = 60, c1 = 10) {
-  c1 + (1/(n+1))*(pbar - c1)
+  c1 + (1/(n + 1))*(pbar - c1)
 }
 
 
@@ -59,6 +59,7 @@ plot <-
   nfirms %>% 
   ggplot(aes(x = firms, y = pbar, fill = pbar, col = pbar)) + 
   geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#377eb8") + 
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 5.5)) +
   xlab("Number of firms, n") +
   ylab(expression(paste("Expected Price, ", hat(p)*(n) ))) + 
   xlim(0, 25) + 

@@ -104,7 +104,7 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a ray and a point for d.  
 segments(0, 0, 20, 1, lty = 1, lwd = 3, col = COLB[4])
-points(10, 0.5, pch = 16, col = "black", cex = 1.2)
+points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
 #Add a ray and a point for a. 

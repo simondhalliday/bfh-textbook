@@ -107,8 +107,8 @@ text(37, 0.05, expression(paste("v = ", v[2])), cex = annotatesize)
 text(14, 0.52, expression(paste("Nash equilibrium")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(20, 0, 20, 0.65, lty = 2, col = "darkgray")
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray")
+segments(20, 0, 20, 0.65, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

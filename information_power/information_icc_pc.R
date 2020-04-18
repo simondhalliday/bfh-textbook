@@ -87,9 +87,9 @@ Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 #Lines for the coordinates of the Nash equilbrium
-segments(20, 0, 20, 0.5, lty = 2, col = "darkgray")
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray")
-segments(10, 0, 10, 0.5, lty = 2, col = "darkgray")
+segments(20, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(10, 0, 10, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Iso-profit slope annotation
 # text(25, 0.81, expression(paste("Slope = ", frac(1, 8*delta))))

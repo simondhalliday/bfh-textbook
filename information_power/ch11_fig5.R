@@ -23,8 +23,7 @@ solowCondition <- function(p, delta = 5){
   (p*(1/(8*delta)))
 }
 
-#COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
-COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
+
 par(mar =  c(4, 4, 0.5, 0.5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
@@ -81,12 +80,12 @@ Arrows(25, 0.43, 25, 0.56, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a ray and a point for d.  
-segments(0, 0, 20, 1, lty = 2, lwd = 1.8, col = "darkgray")
+segments(0, 0, 20, 1, lty = 2, lwd = segmentlinewidth, col = "darkgray")
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("d")), cex = annotatesize)
 
 #Add a ray and a point for a. 
-segments(0, 0, 20, 0.25, lty = 2, lwd = 1.8, col = "darkgray")
+segments(0, 0, 20, 0.25, lty = 2, lwd = segmentlinewidth, col = "darkgray")
 points(11.8, 0.15, pch = 16, col = "black", cex = 1.5)
 text(11.3, 0.17, expression(paste("c")), cex = annotatesize)
 

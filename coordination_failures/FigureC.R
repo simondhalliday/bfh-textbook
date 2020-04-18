@@ -10,6 +10,9 @@ df <- tibble(x, y1, y2, y3)
 
 df$x <- factor(df$x,levels = c("Private Ownership","Impartial Spectator4","Impartial Spectator10","TIOLI power", "Nash Equilibrium"))
 
+labels2 <- c(expression(paste("h" == 4.62)),"h=11.30","h=2.73","h=6","h=6",NA,"h=1.14",NA,NA,"h=6")
+
+
 #figure 
 plot1 <- df %>% 
   ggplot(aes(x = x, y = y1)) +
@@ -38,7 +41,7 @@ plot1 <- df %>%
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
   geom_text(
     aes(x = x, y = y1, label = y2, group = y3), 
-    hjust = -0.5, size = 6,
+    hjust = -0.2, size = 6,
     position = position_dodge(width = 1),
     inherit.aes = TRUE) + 
   coord_flip() 

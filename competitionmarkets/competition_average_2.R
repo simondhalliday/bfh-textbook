@@ -34,8 +34,8 @@ ylims <- c(0, 19)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-#a <- c(30, 35, 40)
-a <- c(60, 72, 81)
+a <- c(34, 40.5, 54)
+# a <- c(72, 81, 95)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -49,15 +49,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, 9, 12, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*") == 9), expression(paste(x^N) == 12), NA)
-ticksx <- c(0, 4.5, 6, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*" == 4.5)), expression(paste(bar(x)^{N} == 6)), NA)
+ticksy <- c(0, 6, 9, ylims[2])
+ylabels <- c(NA, expression(paste(x,"*") == 6), expression(paste(x^N) == 9), NA)
+ticksx <- c(0, 6, 9, xlims[2])
+xlabels <- c(NA, expression(paste(bar(x),"*" == 6)), expression(paste(bar(x)^{N} == 9)), NA)
 
 
-axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
-text(4, par("usr")[3] - 0.9, expression(paste(bar(x),"*" == 4.5)), xpd = TRUE, cex = labelsize)
-text(6.5, par("usr")[3] - 0.8, expression(paste(bar(x)^{N} == 6)), xpd = TRUE, cex = labelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+# text(4, par("usr")[3] - 0.9, expression(paste(bar(x),"*" == 4.5)), xpd = TRUE, cex = labelsize)
+# text(6.5, par("usr")[3] - 0.8, expression(paste(bar(x)^{N} == 6)), xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
@@ -66,7 +66,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], 8.3, length.out = npts)
 
 lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2, n = 3), col = COLA[4], lwd = graphlinewidth)
-lines(xx2, Equal45(xx2, slope = 2), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, Equal45(xx1, slope = 1), col = COLB[4], lwd = graphlinewidth)
 
 contour(x, y,
         outer(x, y, piA),
@@ -81,31 +81,31 @@ contour(x, y,
 mtext(expression(paste("Average output of other firms, ", bar(x))), side = 1, line = 3, cex = axislabelsize)
 text(-3.5, 0.5*ylims[2], expression(paste("The firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(0, 9, 4.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4.5, 0, 4.5, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(4.5, 9, pch = 16, col = "black", cex = 1.5)
-text(4.2, 9.5, expression(paste("i")), cex = labelsize)
+segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(6, 6, pch = 16, col = "black", cex = 1.5)
+text(5.8, 6.5, expression(paste("i")), cex = labelsize)
  
-segments(6, 0, 6, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 12, 6, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(6, 12, pch = 16, col = "black", cex = 1.5)
-text(6.6, 12.1, expression(paste("n")), cex = labelsize)
+segments(9, 0, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 9, 9, 9, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(9, 9, pch = 16, col = "black", cex = 1.5)
+text(8.7, 9.8, expression(paste("n")), cex = labelsize)
 
 
-text(7.74, brfA(xbar = 7.05) + 0.3, expression(paste("h")), cex = labelsize)
-segments(7.05, brfA(xbar = 7.05) - 2, 7.05, brfA(xbar = 7.05) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(7.05, brfA(xbar = 7.05), pch = 16, col = "black", cex = 1.5)
+text(10.25, brfA(xbar = 9.75) + 0.3, expression(paste("h")), cex = labelsize)
+segments(9.75, brfA(xbar = 9.75) - 2, 9.75, brfA(xbar = 9.75) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
+points(9.75, brfA(xbar = 9.75), pch = 16, col = "black", cex = 1.5)
 
-text(7.05, 4.8, expression(paste("Isoprofit vertical")), cex = labelsize)
-text(7.05, 4, expression(paste("at intersection")),cex = labelsize)
-text(7.05, 3.2, expression(paste("with best response")),cex = labelsize)
-Arrows(7.05, 5.2, 7.05, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(9.75, 3.5, expression(paste("Isoprofit vertical")), cex = labelsize)
+text(9.75, 2.7, expression(paste("at intersection")),cex = labelsize)
+text(9.75, 1.9, expression(paste("with best response")),cex = labelsize)
+Arrows(9.75, 4, 9.75, 6.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-Arrows(11.5, 15, 8.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(15.5, 16.5, expression(paste(x == bar(x))), cex = labelsize)
-text(15.5, 15.7, expression(paste("The firm's output")),cex = labelsize, xpd = TRUE)
-text(15.5, 14.9, expression(paste("equals average ouput")),cex = labelsize, xpd = TRUE)
-text(15.5, 14.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
+Arrows(15.5, 13, 15.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(15.5, 12.5, expression(paste(x == bar(x))), cex = labelsize)
+text(15.5, 11.7, expression(paste("The firm's output")),cex = labelsize, xpd = TRUE)
+text(15.5, 10.9, expression(paste("equals average ouput")),cex = labelsize, xpd = TRUE)
+text(15.5, 10.1, expression(paste("of other firms")),cex = labelsize, xpd = TRUE)
 
 
 text(2.5, 13.1 - 0.8, expression(paste("The firm's")),cex = labelsize)
@@ -115,13 +115,13 @@ Arrows(2.5, 13, 2.5, 14.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(4.1, 18, expression(pi[1]), cex = labelsize)
-text(5.4, 18, expression(pi[2]), cex = labelsize)
-text(6.1, 18, expression(pi[3]), cex = labelsize)
+text(5.4, 18, expression(pi[1]), cex = labelsize)
+text(6.4, 18, expression(pi[2]), cex = labelsize)
+text(7.6, 18, expression(pi[3]), cex = labelsize)
 
-text(9.55, 18.8, expression("The firm's"),cex = labelsize, xpd = TRUE)
-text(9.55, 18, expression("isoprofit curves"),cex = labelsize,xpd = TRUE)
-text(9.55, 17.2, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
+text(11, 18.8, expression("The firm's"),cex = labelsize, xpd = TRUE)
+text(11, 18, expression("isoprofit curves"),cex = labelsize,xpd = TRUE)
+text(11, 17.2, expression(paste(pi[3] > pi[2], phantom() > pi[1])),cex = labelsize)
 
 #B's brf
 # text(7, 30, expression(paste("A's best response")),cex = labelsize)

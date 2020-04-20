@@ -111,15 +111,15 @@ text(110 + 2, Supply(x = 110) - 0.5, expression(b), cex = labelsize)
 
 
 #Label axes
-mtext(expression(paste("Market Quantity of output, ", X)), side=1, line = 4, cex = axislabelsize)
+mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 4, cex = axislabelsize)
 text(-26, 0.6*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 # 
 # points(50, 10, pch = 16, col = "black", cex = 1.5)
 # text(52, 10.5, expression(M))
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(118, 13.75, expression("Sellers'"), cex = labelsize)
-text(118, 12.75, expression("supply"), cex = labelsize)
+text(120, 13.75, expression("Sellers'"), cex = labelsize)
+text(120, 12.75, expression("supply"), cex = labelsize)
 #text(7.3, 2.5, expression("Curve"))
 
 Arrows(56, 11.5, 108, 11.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -136,7 +136,7 @@ text(25, 8.5, expression(paste("Sellers' rent at ", p^H)), cex = labelsize)
 
 
 #Label Demand
-text(118, 3, expression(paste("Buyers'")), cex = labelsize)
-text(118, 2, expression(paste("demand")), cex = labelsize)
+text(120, 3, expression(paste("Buyers'")), cex = labelsize)
+text(120, 2, expression(paste("demand")), cex = labelsize)
 
 dev.off()

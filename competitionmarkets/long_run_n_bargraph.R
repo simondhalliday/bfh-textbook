@@ -59,7 +59,7 @@ plot <-
   nfirms %>% 
   ggplot(aes(x = firms, y = pbar, fill = pbar, col = pbar)) + 
   geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#377eb8") + 
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 5.5)) +
+  #scale_y_continuous(expand = c(0, 0), limits = c(0, 5.5)) +
   xlab("Number of firms, n") +
   ylab(expression(paste("Expected Price, ", hat(p)*(n) ))) + 
   xlim(0, 25) + 

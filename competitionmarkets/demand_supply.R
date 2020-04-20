@@ -60,8 +60,6 @@ ticksx <- c(0, 75, 120, xlims[2])
 #xlabels <- c(NA, expression(paste(X,"*")), expression(paste(bar(X))), NA)
 xlabels <- c(NA, expression(paste(X,"*") == 75), expression(paste(bar(X) == 120)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -76,9 +74,11 @@ xpoly2 <- c(0, 75, 0, 0)
 ypoly2 <- c(7.5, 7.5, 20, 7.5)
 polygon(x = xpoly2, y = ypoly2, col = COLA[1], density = NULL, border = NA)
 
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 text(25, 6, expression(paste("Producer surplus")), xpd = TRUE, cex = labelsize)
-text(25, 5, expression(paste("(Economic profit)")), xpd = TRUE, cex = labelsize) 
+#text(25, 5, expression(paste("(Economic profit)")), xpd = TRUE, cex = labelsize) 
 text(25, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 
 
 #Lines for mrs graph
@@ -94,7 +94,7 @@ mtext(expression(paste("Market quantity, ", X)), side = 1, line = 3, cex = axisl
 #mtext(expression(paste("Market output of the good, ", X)), side = 1, line = 3, cex = axislabelsize)
 text(-20, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(103, 12, expression("Sellers' Supply"), cex = labelsize)
+text(103, 12, expression("Sellers' supply"), cex = labelsize)
 text(103, 6, expression(paste("Buyers' demand")), cex = labelsize)
 
 dev.off()

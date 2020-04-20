@@ -52,10 +52,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, 3.7, 6, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*") == 4), expression(paste(x^N) == 6), NA)
-ticksx <- c(0, 3.7, 6, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*" == 4)), expression(paste(bar(x)^{N} == 6)), NA)
+ticksy <- c(0, 3.7, 6, 18, ylims[2])
+ylabels <- c(NA, expression(paste(x,"*") == 4), expression(paste(x^N) == 6), expression(x == 18), NA)
+ticksx <- c(0, 3.7, 6, 9, xlims[2])
+xlabels <- c(NA, expression(paste(bar(x),"*" == 4)), expression(paste(bar(x)^{N} == 6)), expression(x == 9), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -100,15 +100,15 @@ points(8, brfA(xbar = 8), pch = 16, col = "black", cex = 1.5)
 text(8.5, brfA(xbar = 8), expression(paste(h,"'")), cex = labelsize)
 
 
-text(14, brfA(xbar = 8) + 0.8, expression(paste("Isoprofit vertical")), cex = annotatesize)
-text(14, brfA(xbar = 8), expression(paste("at intersection")), cex = annotatesize)
-text(14, brfA(xbar = 8) - 0.8, expression(paste("with best response")), cex = annotatesize)
+text(14, brfA(xbar = 8) + 0.8, expression(paste("Isoprofit vertical at")), cex = annotatesize)
+text(14, brfA(xbar = 8), expression(paste("the best response")), cex = annotatesize)
+# text(14, brfA(xbar = 8) - 0.8, expression(paste("with best response")), cex = annotatesize)
 Arrows(11, brfA(xbar = 8), 9.5, brfA(xbar = 8), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(13.5, 10.9, 13.5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(13.5, 10.5, expression(paste(x == bar(x))), cex = annotatesize)
 text(13.5, 9.7, expression(paste("The firm's output")), cex = annotatesize)
-text(13.5, 8.9, expression(paste("equals average ouput")), cex = annotatesize)
+text(13.5, 8.9, expression(paste("equals average output")), cex = annotatesize)
 text(13.5, 8.1, expression(paste("of other firms")), cex = annotatesize)
 
 text(2.1, 9, expression(paste("The firm's")), cex = annotatesize)

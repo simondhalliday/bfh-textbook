@@ -118,10 +118,11 @@ write.xlsx(LBdf, 'competitionmarkets/loecker_barkai/LBdf_data.xlsx')
 #LBdf <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
 
 p <-  ggplot(data = LBdf) +
-  geom_line(aes(x = year, y = markup, color = "Markup Ratio"), na.rm = TRUE) +
-  geom_line(aes(x = year, y = b_share, color = "Profit share"), na.rm = TRUE) +
-  ylab("Profit Share And Markup Ratio") + 
+  geom_line(aes(x = year, y = markup, color = "Markup ratio"), na.rm = TRUE) +
+  geom_line(aes(x = year, y = b_share, color = "Share of economic profit"), na.rm = TRUE) +
+  ylab("Share of economic profit and markup ratio") + 
   xlab("Year") +
+  #scale_x_continuous() +
   theme_bw() +
   guides(color = guide_legend(reverse = TRUE)) +
   theme(legend.position = c(0.01, 0.96), 
@@ -142,4 +143,4 @@ ggsave(p, filename = "loecker_barkai.pdf",
 
 # ----
 
-dev.off()
+#dev.off()

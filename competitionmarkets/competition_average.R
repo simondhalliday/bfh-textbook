@@ -52,11 +52,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, 3.7, 6, 18, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*") == 4), expression(paste(x^N) == 6), expression(x == 18), NA)
-ticksx <- c(0, 3.7, 6, 9, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*" == 4)), expression(paste(bar(x)^{N} == 6)), expression(x == 9), NA)
-
+ticksy <- c(0, 6, 18, ylims[2])
+ylabels <- c(NA, expression(paste(x^N) == 6), expression(x == 18), NA)
+ticksx <- c(0, 6, 9, xlims[2])
+xlabels <- c(NA, expression(paste(bar(x)^{N} == 6)), expression(x == 9), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -84,25 +83,24 @@ contour(x, y,
 mtext(expression(paste("Average output of other firms, ", bar(x))), side=1, line = 3, cex = axislabelsize)
 text(-2.5, 0.5*ylims[2], expression(paste("The firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-
-
-
 segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6, 0, 6, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6, 6, pch = 16, col = "black", cex = 1.5)
 text(6.5, 6, expression(paste(n,"'")), cex = labelsize)
-segments(0, 3.7, 3.7, 3.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(3.7, 0, 3.7, 3.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
+
+# segments(0, 3.7, 3.7, 3.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(3.7, 0, 3.7, 3.7, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(3.7, 3.7, pch = 16, col = "black", cex = 1.5)
+
 text(4.2, 3.6, expression(paste(i,"'")), cex = labelsize)
 segments(8, brfA(xbar = 8) - 2, 8, brfA(xbar = 8) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(8, brfA(xbar = 8), pch = 16, col = "black", cex = 1.5)
 text(8.5, brfA(xbar = 8), expression(paste(h,"'")), cex = labelsize)
 
 
-text(14, brfA(xbar = 8) + 0.8, expression(paste("Isoprofit vertical at")), cex = annotatesize)
-text(14, brfA(xbar = 8), expression(paste("the best response")), cex = annotatesize)
-# text(14, brfA(xbar = 8) - 0.8, expression(paste("with best response")), cex = annotatesize)
+text(14, brfA(xbar = 8) + 0.8, expression(paste("Best response is")), cex = annotatesize)
+text(14, brfA(xbar = 8), expression(paste("where isoprofit")), cex = annotatesize)
+ text(14, brfA(xbar = 8) - 0.8, expression(paste("is vertical")), cex = annotatesize)
 Arrows(11, brfA(xbar = 8), 9.5, brfA(xbar = 8), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(13.5, 10.9, 13.5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

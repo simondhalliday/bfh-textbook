@@ -49,15 +49,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, 6, 9, 18, ylims[2])
-ylabels <- c(NA, expression(paste(x,"*") == 6), expression(paste(x^N) == 9), expression(x == 18), NA)
-ticksx <- c(0, 6, 9, 18, xlims[2])
-xlabels <- c(NA, expression(paste(bar(x),"*" == 6)), expression(paste(bar(x)^{N} == 9)), expression(x == 18), NA)
+ticksy <- c(0, 9, 18, ylims[2])
+ylabels <- c(NA, expression(paste(x^N) == 9), expression(x == 18), NA)
+ticksx <- c(0, 9, 18, xlims[2])
+xlabels <- c(NA, expression(paste(bar(x)^{N} == 9)), expression(x == 18), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-# text(4, par("usr")[3] - 0.9, expression(paste(bar(x),"*" == 4.5)), xpd = TRUE, cex = labelsize)
-# text(6.5, par("usr")[3] - 0.8, expression(paste(bar(x)^{N} == 6)), xpd = TRUE, cex = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
@@ -81,8 +79,8 @@ contour(x, y,
 mtext(expression(paste("Average output of other firms, ", bar(x))), side = 1, line = 3, cex = axislabelsize)
 text(-2.5, 0.5*ylims[2], expression(paste("The firm's output, ", x)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6, 6, pch = 16, col = "black", cex = 1.5)
 text(5.8, 6.5, expression(paste("i")), cex = labelsize)
  
@@ -96,9 +94,9 @@ text(10.25, brfA(xbar = 9.75) + 0.3, expression(paste("h")), cex = labelsize)
 segments(9.75, brfA(xbar = 9.75) - 2, 9.75, brfA(xbar = 9.75) + 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(9.75, brfA(xbar = 9.75), pch = 16, col = "black", cex = 1.5)
 
-text(9.75, 3.5, expression(paste("Isoprofit vertical at")), cex = labelsize)
-text(9.75, 2.7, expression(paste("the best response")),cex = labelsize)
-#text(9.75, 1.9, expression(paste("with best response")),cex = labelsize)
+text(9.75, 3.5, expression(paste("Best response is")), cex = labelsize)
+text(9.75, 2.7, expression(paste("where isoprofit")),cex = labelsize)
+text(9.75, 1.9, expression(paste("is vertical")),cex = labelsize)
 Arrows(9.75, 4, 9.75, 6.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(15.5, 13, 15.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

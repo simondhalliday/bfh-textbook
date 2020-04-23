@@ -1,5 +1,8 @@
+# Defunct. See `veblen_bowles_[non]_euro.R` in \indmarketdemand.
+
 library(tidyr)
 library(dplyr)
+
 library(readr)
 library(ggplot2)
 library(mosaic)

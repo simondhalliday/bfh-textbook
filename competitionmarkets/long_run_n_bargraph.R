@@ -19,15 +19,15 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 
 par(mar =  c(5, 8, 1, 1))
 
-Profit <- function(n, pbar = 60, c = 10, beta = 0.5) {
+Profit <- function(n, pbar = 20, c = 2, beta = 0.5) {
   (pbar - c)^2 / (((n + 1)^2)*beta)
 }
 
-totaln <- function(pi, pbar = 60, c = 10, beta = 0.5){
+totaln <- function(pi, pbar = 20, c = 2, beta = 0.5){
   (pbar - c)/(sqrt(pi*beta)) - 1
 }
 
-cournotPrice <- function(n, pbar = 60, c1 = 10) {
+cournotPrice <- function(n, pbar = 20, c1 = 2) {
   c1 + (1/(n + 1))*(pbar - c1)
 }
 
@@ -39,31 +39,31 @@ bte <- function(n, b = 0) {
   cournotPrice(n)*(1-b)
 }
 
-nstar <- function(b, pbar = 60, c = 10){
+nstar <- function(b, pbar = 20, c = 2){
   (pbar*(1 - b) - c) / (b*c)
 }
 
 #Levels for the barriers to entry specified here
-barriers <- c(0.2, 0.5, 0.71)
-costs <- c(5, 10)
+barriers <- c(0.4, 0.5, 0.71)
+costs <- c(2, 5, 10)
 
-firms <- seq(1, 40, 1)
+firms <- seq(1, 25, 1)
 cost <- rep(6, length(firms))
 nfirms <- tibble(firms, cost)
 nfirms <- 
   nfirms %>% 
   mutate(price = cournotPrice(firms), 
-         pbar = bte(firms, b = 0.85))
+         pbar = bte(firms, b = barriers[1]))
 
 plot <- 
   nfirms %>% 
   ggplot(aes(x = firms, y = pbar, fill = pbar, col = pbar)) + 
-  geom_bar(stat = "identity", position = "dodge", col = "#377eb8", fill = "#377eb8") + 
+  geom_bar(stat = "identity", position = "dodge", col = COLA[4], fill = COLA[4]) + 
   #scale_y_continuous(expand = c(0, 0), limits = c(0, 5.5)) +
   xlab("Number of firms, n") +
   ylab(expression(paste("Expected Price, ", hat(p)*(n) ))) + 
   xlim(0, 25) + 
-  geom_line(y = 2, lty = 2, col = "black", lwd = 0.8) +
+  geom_line(y = 2, lty = 1, col = COLB[4], lwd = 0.8) +
   annotate("text", x = 20, y = 2.2, label = "marginal cost, c = 2", cex = 8) + 
   
   # scale_fill_brewer(type = "qual", palette = "Set1", 

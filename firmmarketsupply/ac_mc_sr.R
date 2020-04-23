@@ -82,10 +82,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 i <- c(2, 2.5, 3, 3.5, 4)
 xi <- i[2]
 
-ticksy <- c(0, avgvarcost(x = xi), marginalcost(x = xi), avgcost(6.82456), avgcost(x = xi), ylims[2])
-ylabels <- c(NA, expression(paste(avc[h])), expression(paste(mc[g])), expression(paste(ac[a])), expression(paste(ac[f])), NA)
-ticksx <- c(0, xi, 6.32456, xlims[2])
-xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
+# ticksy <- c(0, avgvarcost(x = xi), marginalcost(x = xi), avgcost(6.82456), avgcost(x = xi), ylims[2])
+# ylabels <- c(NA, expression(paste(avc[h])), expression(paste(mc[g])), expression(paste(ac[a])), expression(paste(ac[f])), NA)
+# ticksx <- c(0, xi, 6.32456, xlims[2])
+# xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
+ticksy <- c(0, avgcost(6.82456),  ylims[2])
+ylabels <- c(NA,  expression(paste(ac[a] == mc[a])),  NA)
+ticksx <- c(0, 6.32456, xlims[2])
+xlabels <- c(NA, expression(paste(x[a])), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -104,15 +108,15 @@ lines(xx5, marginalcost(xx5, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlin
 
 #Label the axes
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.25, 0.5*ylims[2], expression(paste("Costs of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.95, 0.5*ylims[2], expression(paste("Costs of production ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Draw segments for average cost
-segments(0, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
-points(xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
+# segments(0, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+# segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#points(xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 # 
 # text(xi + 0.2, avgcost(x = xi) + 0.05, expression(paste("f")), cex = labelsize)
 # points(xi, avgcost(x = xi), pch = 16, col = "black", cex = 1.5)
@@ -128,22 +132,22 @@ text(12.7, 12, expression("Total cost"), cex = labelsize)
 #text(12.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
-text(2, avgcost(x = 3.2), expression(paste("Average costs")), cex = labelsize)
+text(4.5, avgcost(x = 3.2), expression(paste("Average costs")), cex = labelsize)
 #text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
 
 #Average cost minimum
 segments(0, avgcost(x = 6.32456), 6.32456, avgcost(x = 6.32456), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(6.32456, 0, 6.32456, 2, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-text(6.1, avgcost(x = 6.32456) + 0.05, expression(paste("a")), cex = annotatesize)
+text(6.1, avgcost(x = 6.32456) + 0.04, expression(paste("a")), cex = annotatesize)
 points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 
 #Marginal Cost
-text(8.25, marginalcost(x = 8.25) + 0.2, expression(paste("Marginal cost and \n firm supply curve")), cex = annotatesize)
+text(8.25, marginalcost(x = 8.25) + 0.15, expression(paste("Marginal cost and \n firm supply curve")), cex = annotatesize)
 #text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost
-text(8.25, avgvarcost(x = 8) - 0.15, expression(paste("Average variable cost")), cex = annotatesize)
+text(8.25, avgvarcost(x = 8) - 0.1, expression(paste("Average variable cost")), cex = annotatesize)
 #text(12, avgvarcost(x = 12) - 0.325, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
 
 

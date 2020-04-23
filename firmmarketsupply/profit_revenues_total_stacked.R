@@ -92,6 +92,14 @@ segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = seg
 segments(4, -20, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
+#segment for average revenue
+text(2.5, 38, expression(paste("Slope of ray")), cex = annotatesize)
+text(2.5, 36, expression(paste("from origin equals")), cex = annotatesize)
+text(2.5, 34, expression(paste("average revenue")), cex = annotatesize)
+segments(0, 0, 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = graphlinewidth)
+Arrows(2.5, 33, 2.5, 19.2, code = 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
 #Label Points for comparison
 points(4, Revenue(x = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, Revenue(x = 4) + 1.5, expression(a), cex = annotatesize)

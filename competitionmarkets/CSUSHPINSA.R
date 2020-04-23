@@ -39,10 +39,10 @@ p <-  ggplot(data = CSUSH ) +
             angle = 90, size = 6) +
   theme_bw() +
   xlab("Year") + 
-  ylab("S&P/Case-Shiller U.S. national home price index") +
+  ylab("Home price index") +
   theme(text = element_text(size = 19),
         axis.text = element_text(size = 16),
-        axis.title = element_text(size = 19),
+        axis.title = element_text(size = 24),
         panel.grid.minor = element_blank(),
         plot.margin = margin(5, 20, 5, 8))
 

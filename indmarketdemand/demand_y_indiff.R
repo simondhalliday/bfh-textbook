@@ -36,6 +36,10 @@ bcA <- function(x, w = 20, p = 2) {
   w - p*x
 }
 
+tan_line <- function(x, m, b){
+  x*m + b
+}
+
 
 xlims <- c(0, 12)
 ylims <- c(0, 18)
@@ -62,28 +66,28 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 13, 15, 17, ylims[2])
 ylabels <- c(NA, expression(paste(y[1] == 13)), expression(paste(y[2] == 15)), expression(paste(y[3] == 17)), NA)
 #ylabels <- c(NA, expression(paste(13)), expression(paste(15)), expression(paste(17)), NA)
-ticksx <- c(0,  xlims[2])
-xlabels <- c(NA, NA)
+ticksx <- c(0, 3, 8, xlims[2])
+xlabels <- c(NA, expression(x[0]), expression(x[1]), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(2, 4, length.out = npts)
+xx3 <- seq(7, 9, length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 12, p = 1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
-
-mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Quantity of fish, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.9, 10, expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the iso-welfare functions for the HG, Aisha
 text(11.8, 1.6, expression(u[1]), cex = annotatesize)
 text(11.8, 3.6, expression(u[2]), cex = annotatesize)
 text(11.8, 5.6, expression(u[3]), cex = annotatesize)
-
 
 
 contour(x, y, 
@@ -96,5 +100,27 @@ contour(x, y,
         xaxs = "i", 
         yaxs = "i", 
         add = TRUE)
+
+
+segments(3, 0, 3, 14.75, col = "grey", lty = 2, lwd = segmentlinewidth)
+segments(8, 0, 8, 9.333, col = "grey", lty = 2, lwd = segmentlinewidth)
+
+lines(xx2, tan_line(xx2, -1.5, 12.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx2, tan_line(xx2, -1.5, 14.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx2, tan_line(xx2, -1.5, 16.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+
+lines(xx3, tan_line(xx3, -4/6, 7.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx3, tan_line(xx3, -4/6, 9.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx3, tan_line(xx3, -4/6, 11.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+
+
+points(3, 7.75, pch = 16, col = "black", cex = 1.2)
+points(3, 11.75, pch = 16, col = "black", cex = 1.2)
+points(3, 9.75, pch = 16, col = "black", cex = 1.2)
+
+points(8, 6.333, pch = 16, col = "black", cex = 1.2)
+points(8, 4.333, pch = 16, col = "black", cex = 1.2)
+points(8, 2.333, pch = 16, col = "black", cex = 1.2)
+
 
 dev.off()

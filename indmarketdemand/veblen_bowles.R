@@ -7,7 +7,7 @@ library(ggsci)     # d3 colors
 library(readxl)    # import
 
 # Import Data
-JEBO_chart_data <- read_excel("~/Desktop/JEBO chart data.xlsx")
+JEBO_chart_data <- read_excel("~/Downloads/JEBO chart data.xlsx")
 
 # Note countries codes are not iso3c or iso2c consistent/nor accurate
 # Changed manually
@@ -28,9 +28,10 @@ europe <- c("FRA", "GER", "NET", "SWE", "UK", "SWI")
 
 p1 <- JEBO_chart_data %>% 
   filter(name %in% europe) %>% 
-  ggplot(aes(x = year,y = hour, color = fullname)) +
-  geom_line() + 
+  mutate(year = as.factor(year)) %>%
+  ggplot(aes(x = year, y = hour, group = fullname, color = fullname)) +
   geom_point() +
+  geom_line() + 
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +
   #scale_color_manual(values = c("France", "Germany", "Netherlands", "Sweden", "Switzerland", "United Kingdom")) +
   scale_color_d3() +
@@ -48,7 +49,8 @@ ggsave("indmarketdemand/veblen_bowles_euro.pdf", plot = p1, width = 7, height = 
 
 p2 <- JEBO_chart_data %>% 
   filter(!name %in% europe) %>% 
-  ggplot(aes(x = year,y = hour, color = fullname)) +
+  mutate(year = as.factor(year)) %>%
+  ggplot(aes(x = year,y = hour, group = fullname, color = fullname)) +
   geom_line() + 
   geom_point() +
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +

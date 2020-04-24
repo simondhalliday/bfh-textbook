@@ -9,7 +9,7 @@ ylims <- c(0, 8)
 #TextSizes
 PlayerSize <- 3
 StratSize <- 1.8
-PayoffSize <- 2.2
+PayoffSize <- 2.1
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 
@@ -18,18 +18,19 @@ p2fadelevel <- 0.2
 #Considerations for Player 1
 P1Name <- c("Firm A")
 P1Strat <- c("Reduce ", "Produce ")
-P1Strat2 <- c("Output", "on BRF")
-P1Payoffs <- c(expression(paste(pi^{A},"*")), expression(paste(pi[Opp]^{A})), expression(paste(pi[Vic]^{A})), expression(paste(pi^{AN})))
+P1Strat2 <- c("output", "on BRF")
+#61, 72, 81, 91.125
+P1Payoffs <- c(expression(paste(pi^{A},"*", phantom() == 81)), expression(paste(pi[O]^{A} == 91)), expression(paste(pi[V]^{A} == 61)), expression(paste(pi^{AN})==72))
 P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 #NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 
 #Considerations for Player 2
-c("Firm B")
+P2Name <- c("Firm B")
 P2Strat <- c("Reduce ", "Produce")
-P2Strat2 <- c("Output", "on BRF")
-P2Payoffs <- c(expression(paste(pi^{B},"*")), expression(paste(pi[Vic]^{B})), expression(paste(pi[Opp]^{B})),expression(paste(pi^{BN})))
+P2Strat2 <- c("output", "on BRF")
+P2Payoffs <- c(expression(paste(pi^{B},"*", phantom() == 81)), expression(paste(pi[V]^{B} == 61)), expression(paste(pi[O]^{B} == 91)), expression(paste(pi^{BN} == 72)))
 P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P2bestsize <- 4 #Adjusts size of circle indicating best response of P1
@@ -70,9 +71,9 @@ polygon(c(4,4,6,4), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 polygon(c(4,6,6,4), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
-text(4.5, 2.5, P1Payoffs[1], cex = PayoffSize)
+text(4.75, 2.5, P1Payoffs[1], cex = PayoffSize)
 #P2
-text(5.5, 3.5, P2Payoffs[1], cex = PayoffSize)
+text(5.4, 3.5, P2Payoffs[1], cex = PayoffSize)
 
 #SouthWest cell  
 #P1
@@ -81,9 +82,9 @@ polygon(c(4,4,6,4), c(2,0,0,2), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 polygon(c(4,6,6,4), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
-text(4.5, 0.5, P1Payoffs[2], cex = PayoffSize)
+text(4.75, 0.5, P1Payoffs[2], cex = PayoffSize)
 #P2
-text(5.5, 1.5, P2Payoffs[2], cex = PayoffSize)
+text(5.4, 1.5, P2Payoffs[2], cex = PayoffSize)
 
 
 #NorthEast cell 
@@ -92,9 +93,9 @@ polygon(c(6,6,8,6), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 #P2
 polygon(c(6,8,8,6), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 #P1
-text(6.5, 2.5, P1Payoffs[3], cex = PayoffSize)
+text(6.75, 2.5, P1Payoffs[3], cex = PayoffSize)
 #P2
-text(7.5, 3.5, P2Payoffs[3], cex = PayoffSize)
+text(7.4, 3.5, P2Payoffs[3], cex = PayoffSize)
 
 #SouthEast cell 
 #P1
@@ -102,9 +103,9 @@ polygon(c(6,6,8,6), c(2,0,0,2), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 #P2
 polygon(c(6,8,8,6), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 #P1
-text(6.5, 0.5, P1Payoffs[4], cex = PayoffSize)
+text(6.75, 0.5, P1Payoffs[4], cex = PayoffSize)
 #P2
-text(7.5, 1.5, P2Payoffs[4], cex = PayoffSize)
+text(7.37, 1.5, P2Payoffs[4], cex = PayoffSize)
 
 
 #Lines for the Table

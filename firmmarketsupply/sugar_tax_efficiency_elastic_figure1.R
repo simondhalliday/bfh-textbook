@@ -1,6 +1,6 @@
 require(shape)
 library(tidyverse)
-pdf(file = "firmmarketsupply/sugar_tax_efficiency_elastic.pdf", width = 9, height = 7)
+pdf(file = "firmmarketsupply/sugar_tax_efficiency_elastic1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -59,61 +59,64 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, Qs(xpost),  Qs(xpre), Qs_tax(xpost), 20, ylims[2])
-ylabels <- c(NA, expression(paste(p[d])), expression(paste(p[a])), expression(paste(p[b])), expression(paste(bar(p) )), NA)
+ticksy <- c(0, NA,  Qs(xpre), NA, 20, ylims[2])
+ylabels <- c(NA, NA, expression(paste(p[a])), NA, expression(paste(bar(p) )), NA)
 ticksx <- c(0, xpost, xpre, 10, xlims[2])
-xlabels <- c(NA, expression(paste(X[b])), expression(paste(X[a])), expression(paste(frac(bar(p), beta ) )), NA)
+xlabels <- c(NA, NA, expression(paste(X[a])), expression(paste(frac(bar(p), beta ) )), NA)
 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 # Tax Rev 
-xpoly1 <- c(0, xpost, xpost, 0)
-ypoly1 <- c(Qs(xpost), Qs(xpost), Qs_tax(xpost), Qs_tax(xpost))
-polygon(x = xpoly1, y = ypoly1, col = COL[3], density=NULL, border = NA)
+#xpoly1 <- c(0, xpost, xpost, 0)
+#ypoly1 <- c(Qs(xpost), Qs(xpost), Qs_tax(xpost), Qs_tax(xpost))
+#polygon(x = xpoly1, y = ypoly1, col = COL[3], density=NULL, border = NA)
 
 # DWL of PS
-xpoly <- c(xpost, xpost, xpre)
-ypoly <- c(Qs(xpost), Qs(xpre), Qs(xpre))
-polygon(x = xpoly, y = ypoly, col = COL[2], density=NULL, border = NA)
+#xpoly <- c(0, 0, xpre)
+#ypoly <- c(Qs(xpost), Qs(xpre), Qs(xpre))
+#polygon(x = xpoly, y = ypoly, col = COL[2], density=NULL, border = NA)
 
 
 # DWL of CS
-xpoly2 <- c(xpost, xpre, xpost) 
-ypoly2 <- c(Qs(xpre), Qs(xpre), Qs_tax(xpost)) 
-polygon(x = xpoly2, y = ypoly2, col = COL[4], density=NULL, border = NA)
+#xpoly2 <- c(xpost, xpre, xpost) 
+#ypoly2 <- c(Qs(xpre), Qs(xpre), Qs_tax(xpost)) 
+#polygon(x = xpoly2, y = ypoly2, col = COL[4], density=NULL, border = NA)
 
 # CS 
-xpoly3 <- c(0, 0, xpost)
-ypoly3 <- c(Qs_tax(xpost), mrsA(0), Qs_tax(xpost))
+xpoly3 <- c(0, 0, xpre)
+ypoly3 <- c(Qs(xpre), mrsA(0), Qs(xpre))
 polygon(x = xpoly3, y = ypoly3, col = COLA[1], density=NULL, border = NA)
 
 # PS
-xpoly4 <- c(0, 0, xpost, 0)
-ypoly4 <- c(Qs(xpost), Qs(0), Qs(xpost), Qs(xpost))
+xpoly4 <- c(0, 0, xpre, 0)
+ypoly4 <- c(Qs(xpre), Qs(0), Qs(xpre), Qs(xpre))
 polygon(x = xpoly4, y = ypoly4, col = COLB[1], density=NULL, border = NA)
+
+text(2, 7, expression(paste("Producer surplus")), xpd = TRUE, cex = labelsize)
+text(2, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 
 
 
 #Lines for mrs graph
 lines(xx1, mrsA(xx1), col = COLA[4], lwd = graphlinewidth)
 
 lines(xx1, Qs(xx1), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, Qs_tax(xx1), col = COLB[5], lwd = graphlinewidth)
+#lines(xx1, Qs_tax(xx1), col = COLB[5], lwd = graphlinewidth)
 
 # Prices
 ##Price with tax
-segments(0, Qs_tax(xpost), xpost, Qs_tax(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth) 
+#segments(0, Qs_tax(xpost), xpost, Qs_tax(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth) 
 ##Price pre-tax
 segments(0, Qs(xpre), xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Vert Seg from Q 
-segments(xpost, 0, xpost, Qs_tax(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(xpost, 0, xpost, Qs_tax(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-segments(xpre, 0, xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(xpre, 0, xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Horizontal to PS
-segments(0, Qs(xpost), xpost, Qs(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(0, Qs(xpost), xpost, Qs(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
 #mtext(expression(paste("Quantity of sugary drinks (liters), ", X)), side=1, line = 2.5, cex = axislabelsize)
@@ -121,31 +124,31 @@ text(0.5*xlims[2], -2, expression(paste("Quantity of sugary drinks (liters), ", 
 text(-0.8, 0.5*ylims[2], expression(paste("Price per liter ($), ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label a
-points(xpost, Qs_tax(xpost), pch = 16, col = "black", cex = 1.5)
-text(xpost, Qs_tax(xpost) + 0.75, expression(b), cex = annotatesize)
+#points(xpost, Qs_tax(xpost), pch = 16, col = "black", cex = 1.5)
+#text(xpost, Qs_tax(xpost) + 0.75, expression(b), cex = annotatesize)
 
 #Label b
 points(xpre, Qs(xpre), pch = 16, col = "black", cex = 1.5)
-text(xpre + 0.1, Qs(xpre) - 0.75, expression(a), cex = annotatesize)
+#text(xpre + 0.1, Qs(xpre) - 0.75, expression(a), cex = annotatesize)
 
 #Label c
-points(xpost, Qs(xpost), pch = 16, col = "black", cex = 1.5)
-text(xpost + 0.2, Qs(xpost) - 0.3, expression(d), cex = annotatesize)
+#points(xpost, Qs(xpost), pch = 16, col = "black", cex = 1.5)
+#text(xpost + 0.2, Qs(xpost) - 0.3, expression(d), cex = annotatesize)
 
 #Label d
-points(xpost, Qs(xpre) , pch = 16, col = "black", cex = 1.5)
-text(xpost + 0.2, Qs(xpre) + 0.3, expression(c), cex = annotatesize)
+#points(xpost, Qs(xpre) , pch = 16, col = "black", cex = 1.5)
+#text(xpost + 0.2, Qs(xpre) + 0.3, expression(c), cex = annotatesize)
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
-text(8.5, 14, expression(paste("Supply with tax, ", tau)), cex = labelsize)
+#text(8.5, 14, expression(paste("Supply with tax, ", tau)), cex = labelsize)
 #text(8.5, 14, expression(paste(p(x) == (c + tau) + x)), cex = labelsize)
 #text(8.5, 7.8, expression(paste("Pre-tax supply, ", p(x) == c + x)), cex = labelsize)
-text(8.5, 8, expression(paste("Pre-tax supply")), cex = labelsize)
+text(8.5, 10.5, expression(paste("Seller's supply")), cex = labelsize)
 
 #Label mrs function
-text(8.05, 5.5, expression(paste("Demand")), cex = labelsize)
-Arrows(6, 8.7, 6, 10.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2, code = 3)
-text(6.6, 9.95, expression(paste("Tax" == tau)), cex = labelsize)
+text(9.3, 4.5, expression(paste("Buyers' demand")), cex = labelsize)
+#Arrows(6, 8.7, 6, 10.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.2, code = 3)
+#text(6.6, 9.95, expression(paste("Tax" == tau)), cex = labelsize)
 
 # Label CS
 #text(1.2, 14, expression(paste("Consumer Surplus")))
@@ -155,3 +158,4 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()
+

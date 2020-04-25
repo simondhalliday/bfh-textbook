@@ -121,6 +121,7 @@ Arrows(5.5, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi + 1.5, totalcost
 
 #Label the cost curve
 text(8.5, 7, expression("Total cost"), cex = annotatesize)
+text(8.5, 6.5, expression(c(x)), cex = annotatesize)
 #text(11.5, 13.5, expression(paste(tc(x) == c[0] + c[1]*x + c[2]*x^2)), cex = annotatesize)
 
 #Average Cost
@@ -208,6 +209,8 @@ text(12.7, 12, expression("Total cost"), cex = labelsize)
 
 #Average Cost
 text(2, avgcost(x = 3.2), expression(paste("Average costs")), cex = labelsize)
+text(2, avgcost(x = 3.2) - 0.075, expression(ac(x)), cex = labelsize)
+
 # text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
 
 #Average cost minimum
@@ -218,11 +221,13 @@ points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 
 
 #Marginal Cost
-text(8.25, marginalcost(x = 8.25) + 0.13, expression(paste("Marginal cost")), cex = annotatesize)
+text(8.25, marginalcost(x = 8.25) + 0.15, expression(paste("Marginal cost")), cex = annotatesize)
+text(8.25, marginalcost(x = 8.25) + 0.075, expression(mc(x)), cex = annotatesize)
 # text(11, marginalcost(x = 12) + 0.2, expression(paste(mc(x) == c[1] + 2*c[2]*x)), cex = annotatesize)
 
 #Average Variable Cost
 text(8.25, avgvarcost(x = 8) - 0.15, expression(paste("Average variable cost")), cex = annotatesize)
+text(8.25, avgvarcost(x = 8) - 0.225, expression(avc(x)), cex = annotatesize)
 # text(12, avgvarcost(x = 12) - 0.325, expression(paste(avc(x) == c[1] + c[2]*x)), cex = annotatesize)
 
 

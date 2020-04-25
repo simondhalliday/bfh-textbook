@@ -144,7 +144,7 @@ xx3 <- seq(4, 8, length.out = npts)
 xx4 <- seq(xlims[1], 6.32456, length.out = npts)
 xx5 <- seq(6.32456, xlims[2], length.out = npts)
 
-text(-1.25, 0.5*ylims[2], expression(paste("Cost of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.25, 0.5*ylims[2], expression(paste("Costs of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 
 # segments

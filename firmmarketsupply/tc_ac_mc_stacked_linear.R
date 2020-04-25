@@ -164,7 +164,8 @@ points(xi, avgcost(xi, c0 = 2, c1 = 0.5), pch = 16, col = "black", cex = 1.5)
 text(xi + 0.15, avgcost(xi, c0 = 2, c1 = 0.5) + 0.1, expression("g"), cex = annotatesize)
 
 # Label curves
-text(0.8*xlims[2], 0.85, expression("Average costs"), cex = annotatesize)
+text(0.8*xlims[2], 0.95, expression("Average costs"), cex = annotatesize)
+text(0.8*xlims[2], 0.85, expression(ac(x)), cex = annotatesize)
 text(0.8*xlims[2], 0.45, expression(paste(avc == mc, phantom() == c)), cex = annotatesize)
 
 dev.off()

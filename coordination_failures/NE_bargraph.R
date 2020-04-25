@@ -7,8 +7,8 @@ df <- tibble(x,utility)
 
 plot1 <- df %>% 
   ggplot(aes(x = x, y = utility)) +
-  geom_bar(stat = "identity", position = position_dodge(), fill = "#41AE76" ) + 
-  geom_text(aes(x=x,y=utility,label=utility), vjust = -1) + 
+  geom_bar(stat = "identity", position = position_dodge(), fill = "#377eb8" ) + 
+  geom_text(aes(x=x,y=utility,label=utility), vjust = -0.4, cex = 6) + 
   geom_segment(aes(x=0.5, xend=11.5, y=20, yend=20), linetype=2) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
@@ -17,15 +17,15 @@ plot1 <- df %>%
                      labels = seq(0,240,20),
                      limits = c(0,240)) +
   scale_fill_manual(values=c("#386cb0")) + theme_bw() + ylab("Utility, u") + xlab("Number of people, n") + 
-  annotate("text", x = 9, y = 70, label = "Fallback position = 20") + 
+  #annotate("text", x = 10.5, y = 50, label = "Fallback position = 20", cex = 6) + 
   theme(
-        axis.title = element_text(size = 15),
-        axis.title.y = element_text(size = 15),
-        axis.text.y = element_text(size = 15),
+        axis.title = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        axis.text.y = element_text(size = 18),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
-        axis.text.x  = element_text(vjust = 0.5, size = 15))
+        axis.text.x  = element_text(vjust = 0.5, size = 16))
 plot1 
 
 

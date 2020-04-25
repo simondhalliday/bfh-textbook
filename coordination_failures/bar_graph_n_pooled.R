@@ -1,12 +1,9 @@
 library(tidyverse)
 
-hours <- c(12, 12, 5,5,7.5,7.5,5,5, 4.6, 4.6 ,2.7, 2.7, 2.7 , 2.7)
-utility <- c(144, 144, 56.25, 56.25, 75, 75, 150, 56.25, 21.3, 21.3, 40.9, 40.9, 229.1, 20 )
-type <- c("u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J")
-group <- c("NE (n = 2)","NE (n = 2)", 
-           "NE (n = 5)","NE (n = 5)", 
-           "Social Optimum (n = 5)", "Social Optimum (n = 5)",
-           "TIOLI (n = 5)", "TIOLI (n = 5)",
+hours <- c(15, NA, 4.6, 4.6, 2.7, 2.7, 2.7, 2.7)
+utility <- c(225, NA, 21.3, 21.3, 40.9, 40.9, 229.1, 20 )
+type <- c("u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J")
+group <- c("Individual","Individual", 
            "NE (n = 10)", "NE (n = 10)", 
            "Social Optimum (n = 10)","Social Optimum (n = 10)", 
            "Private Ownership (n = 10)", "Private Ownership (n = 10)"
@@ -17,10 +14,7 @@ dfpool <-
   mutate(group = factor(group, levels = c("Private Ownership (n = 10)",
                                           "Social Optimum (n = 10)", 
                                           "NE (n = 10)",
-                                          "TIOLI (n = 5)",
-                                          "Social Optimum (n = 5)", 
-                                          "NE (n = 5)",
-                                          "NE (n = 2)"
+                                          "Individual"
                                           ))
          )
 
@@ -58,20 +52,19 @@ plotP <-
 #plotP
 ggsave("coordination_failures/bargraph_pooled_u.pdf", plotP, width = 12, height = 12)
 
-plotPh <- 
+dfpoolh <- 
   dfpool %>% 
+  filter(type == "u^A")
+  
+
+plotPh <- 
+  dfpoolh %>%
   ggplot(aes(x = group, y = hours, fill = type)) + 
   geom_bar(stat = "identity", position = position_dodge()) + 
   xlab("") +
   ylab("Individual hours") +
-  scale_fill_manual(values = c("#4daf4a", "#984ea3"),
-                    #values=c("#377eb8","#e41a1c", "#41AE76","#FFEF66","#386cb0"),
-                    name = "", 
-                    breaks = c("u^J","u^A"),
-                    labels = c( "Others' hours", "A's hours")
-  ) + 
   theme_bw() + 
-  theme(legend.position = c(0.8, 0.8),
+  theme(legend.position = "none",
         legend.text.align = 0,
         axis.title = element_text(size = 20),
         axis.title.y = element_blank(),
@@ -87,7 +80,22 @@ plotPh <-
     position = position_dodge(width = 1),
     inherit.aes = TRUE
   ) +
-  ylim(0, 13) +
+  ylim(0, 16) +
   coord_flip()
 ggsave("coordination_failures/bargraph_pooled_hrs.pdf", plotPh, width = 12, height = 12)
 
+
+
+
+#Old DF with NE for 2
+# hours <- c(12, 12, 5,5,7.5,7.5,5,5, 4.6, 4.6 ,2.7, 2.7, 2.7 , 2.7)
+# utility <- c(144, 144, 56.25, 56.25, 75, 75, 150, 56.25, 21.3, 21.3, 40.9, 40.9, 229.1, 20 )
+# type <- c("u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J", "u^A","u^J")
+# group <- c("NE (n = 2)","NE (n = 2)", 
+#            "NE (n = 5)","NE (n = 5)", 
+#            "Social Optimum (n = 5)", "Social Optimum (n = 5)",
+#            "TIOLI (n = 5)", "TIOLI (n = 5)",
+#            "NE (n = 10)", "NE (n = 10)", 
+#            "Social Optimum (n = 10)","Social Optimum (n = 10)", 
+#            "Private Ownership (n = 10)", "Private Ownership (n = 10)"
+# )

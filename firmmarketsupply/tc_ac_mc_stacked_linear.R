@@ -68,11 +68,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 i <- c(2, 2.5, 3, 3.5, 4)
 xi <- i[2]
+xa <- 6.3
 
-ticksy <- c(0, 2, totalcost(x = xi, c0 = 10, c1 = 2), ylims[2])
-ylabels <- c(NA, expression(paste(c[0])), expression(paste(c[i])), NA)
-ticksx <- c(0, xi, xlims[2])
-xlabels <- c(NA, expression(paste(x[i])), NA)
+ticksy <- c(0, 2, totalcost(x = xi, c0 = 10, c1 = 2), totalcost(x = xi, c0 = 2, c1 = 0.5), totalcost(x = xa, c0 = 2, c1 = 0.5), ylims[2])
+ylabels <- c(NA, expression(paste(c[0])), expression(paste(c[0])), expression(paste(c[i])), expression(paste(c[a])), NA)
+ticksx <- c(0, xi, xa, xlims[2])
+xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])), NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -89,9 +90,19 @@ text(-1.25, 0.5*ylims[2], expression(paste("Total cost of production, ", c)), xp
 segments(xi, -50, xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
 segments(0, totalcost(xi, c0 = 2, c1 = 0.5), xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth)
 
+segments(xa, -50, xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(xa, c0 = 2, c1 = 0.5), xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth)
+
+segments(0, 0, xi, totalcost(x = xi, c0 = 2, c1 = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+segments(0, 0, xa, totalcost(x = xa, c0 = 2, c1 = 0.5), lty = 2, col = COLB[3] , lwd = segmentlinewidth)
+
+
 # Add point and label
 points(xi, totalcost(x = xi, c0 = 2, c1 = 0.5), pch = 16, col = "black", cex = 1.5)
 text(xi - 0.15, totalcost(x = xi, c0 = 2, c1 = 0.5) + 0.25, expression("i"), cex = annotatesize)
+
+points(xa, totalcost(x = xa, c0 = 2, c1 = 0.5), pch = 16, col = "black", cex = 1.5)
+text(xa - 0.15, totalcost(x = xa, c0 = 2, c1 = 0.5) + 0.25, expression("a"), cex = annotatesize)
 
 #Label the cost curve
 text(7.5, 7.0, expression("Total cost"), cex = annotatesize)
@@ -132,8 +143,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(0, 0.5, ylims[2])
 ylabels <- c(NA, expression(paste(c[0])), NA)
-ticksx <- c(0, xi, xlims[2])
-xlabels <- c(NA, expression(paste(x[i])), NA)
+ticksx <- c(0, xi, xa, xlims[2])
+xlabels <- c(NA, expression(paste(x[i])), expression(paste(x[a])),NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -149,6 +160,7 @@ mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabels
 
 # segments
 segments(xi, 0, xi, ylims[2] + 1, lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
+segments(xa, 0, xa, ylims[2] + 1, lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
 
 # AC
 lines(x, avgcost(x, c0 = 2, c1 = 0.5), col = COLA[4], lwd = graphlinewidth)

@@ -56,7 +56,7 @@ prices <- c(1.25, 1.25*tax)
 xprices <- c(cefinv(prices[1]), cefinv(prices[2]))
 
 ticksy <- c(0, prices[1], prices[2], ylims[2])
-ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0](1 + t))), NA)
+ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0] + Delta*p^tau)), NA)
 ticksx <- c(0, xprices[2], xprices[1], xlims[2])
 xlabels <- c(NA, expression(paste(x[1]) == 108), expression(paste(x[0]) == 150), NA)
 

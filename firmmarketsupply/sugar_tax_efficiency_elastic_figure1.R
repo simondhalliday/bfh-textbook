@@ -61,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(0, NA,  Qs(xpre), NA, 20, ylims[2])
 ylabels <- c(NA, NA, expression(paste(p[a])), NA, expression(paste(bar(p) )), NA)
-ticksx <- c(0, xpost, xpre, 10, xlims[2])
+ticksx <- c(0, NA, xpre, 10, xlims[2])
 xlabels <- c(NA, NA, expression(paste(X[a])), expression(paste(frac(bar(p), beta ) )), NA)
 
 
@@ -113,7 +113,7 @@ segments(0, Qs(xpre), xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinew
 # Vert Seg from Q 
 #segments(xpost, 0, xpost, Qs_tax(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-#segments(xpre, 0, xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(xpre, 0, xpre, Qs(xpre), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Horizontal to PS
 #segments(0, Qs(xpost), xpost, Qs(xpost), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -129,7 +129,7 @@ text(-0.8, 0.5*ylims[2], expression(paste("Price per liter ($), ", p)), xpd = TR
 
 #Label b
 points(xpre, Qs(xpre), pch = 16, col = "black", cex = 1.5)
-#text(xpre + 0.1, Qs(xpre) - 0.75, expression(a), cex = annotatesize)
+text(xpre + 0.1, Qs(xpre) + 0.75, expression(a), cex = annotatesize)
 
 #Label c
 #points(xpost, Qs(xpost), pch = 16, col = "black", cex = 1.5)
@@ -143,7 +143,7 @@ points(xpre, Qs(xpre), pch = 16, col = "black", cex = 1.5)
 #text(8.5, 14, expression(paste("Supply with tax, ", tau)), cex = labelsize)
 #text(8.5, 14, expression(paste(p(x) == (c + tau) + x)), cex = labelsize)
 #text(8.5, 7.8, expression(paste("Pre-tax supply, ", p(x) == c + x)), cex = labelsize)
-text(8.5, 10.5, expression(paste("Seller's supply")), cex = labelsize)
+text(8.5, 10.5, expression(paste("Sellers' supply")), cex = labelsize)
 
 #Label mrs function
 text(9.3, 4.5, expression(paste("Buyers' demand")), cex = labelsize)

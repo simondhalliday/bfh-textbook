@@ -80,7 +80,7 @@ lines(xx3, mrline(xx3, constant = Revenue(x = 4) - 4*MRevenue(x = 4), slope = MR
 
 #Label the axes
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Revenue and costs ($), ", r, " and ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Revenue and costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(7.3, 36, expression(paste("Total costs, ", c(x))), cex = annotatesize)
@@ -167,12 +167,12 @@ lines(xx1, MRevenue(xx1, rmax = 10, xmax = 12), col = COLB[4], lwd = graphlinewi
 
 #Label the axes
 text(0.45*(xlims[2]), -1.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.4, 0.44*ylims[2], expression(paste("Price, revenue and costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.44*ylims[2], expression(paste("Price, revenue, and costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(8.5, MRevenue(x = 4) + 1.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = annotatesize)
-text(8.5, 2.8, expression(paste(p(x) == bar(p) - beta*x)), cex = annotatesize)
-text(5.6, 2.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = annotatesize)
+text(9.5, MRevenue(x = 4) + 1.2, expression(paste(ac == mc,phantom() == c)), cex = annotatesize)
+text(9.5, 1.8, expression(paste(p(x) == bar(p) - beta*x)), cex = annotatesize)
+text(6.3, 1.8, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = annotatesize)
 
 #Labels cost and profit areas
 text(2, 0.5*(AvgCost(x = 4) - 1.2), expression("Total costs"), cex = annotatesize)

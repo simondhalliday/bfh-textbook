@@ -161,7 +161,7 @@ points(xi, marginalcost(xi, c1 = 0.5), pch = 16, col = "black", cex = 1.5)
 text(xi + 0.15, marginalcost(xi, c1 = 0.5) - 0.1, expression("h"), cex = annotatesize)
 
 points(xi, avgcost(xi, c0 = 2, c1 = 0.5), pch = 16, col = "black", cex = 1.5)
-text(xi + 0.15, avgcost(xi, c0 = 2, c1 = 0.5) + 0.1, expression("g"), cex = annotatesize)
+text(xi + 0.15, avgcost(xi, c0 = 2, c1 = 0.5) + 0.1, expression("f"), cex = annotatesize)
 
 # Label curves
 text(0.8*xlims[2], 0.95, expression("Average costs"), cex = annotatesize)

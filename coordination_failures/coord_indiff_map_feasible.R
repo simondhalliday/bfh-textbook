@@ -68,11 +68,10 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Polygon for the feasible set
-xpoly1 <- c(xlims[1], xlims[2], xlims[2], xlims[1], xlims[1])
-ypoly1 <- c(brfA(13), brfA(13), ylims[2], ylims[2], brfA(13))
-polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
-
-text(3, 17, expression(paste("Feasible Set")), xpd = TRUE, cex = annotatesize) 
+# xpoly1 <- c(xlims[1], xlims[2], xlims[2], xlims[1], xlims[1])
+# ypoly1 <- c(brfA(13), brfA(13), ylims[2], ylims[2], brfA(13))
+# polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
+#text(3, 17, expression(paste("Feasible Set")), xpd = TRUE, cex = annotatesize) 
 
 contour(y, x, 
         outer(x, y, uA),

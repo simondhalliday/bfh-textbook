@@ -106,7 +106,7 @@ text(-1.1, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, 
 
 #Label curves
 
-text(10, 5.5, expression(paste("ar(x) = mr(x) = p")), cex = labelsize)
+text(10, 5.5, expression(paste("ar = mr = p")), cex = labelsize)
 text(11, 9, expression(paste("ac(x)")), cex = labelsize)
 text(8.75, 11.5, expression(paste("mc(x)")), cex = labelsize)
 

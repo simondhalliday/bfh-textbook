@@ -63,7 +63,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 xpoly <- c(0, 50, 0)
 ypoly <- c(10, 10, 20)
-polygon(x = xpoly, y = ypoly, col = COL[4], density=NULL, border = NA)
+polygon(x = xpoly, y = ypoly, col = COLA[1], density=NULL, border = NA)
 
 xpoly3 <- c(0, 50, 50, 0, 0)
 ypoly3 <- c(0, 0, 10, 10, 0)

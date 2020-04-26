@@ -101,8 +101,9 @@ text(95, 10.5, expression("Market price, p = 10"), cex = labelsize)
 #text(3.4, 6.9, expression(v[4]^B))
 
 #Label mrs function
-text(35, 6.8, expression(paste("Demand: ", p== 20 - 2*x)), cex = annotatesize)
-text(35, 5.5, expression(paste("Inverse Demand: ", x(p) == 10 - frac(1,2)*p)), cex = annotatesize)
+text(35, 7, expression(paste("Demand: ", x(p) == 10 - frac(1,2)*p)), cex = annotatesize)
+text(35, 5.5, expression(paste("Inverse Demand: ", p(x) == 20 - 2*x)), cex = annotatesize)
+
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label satiation

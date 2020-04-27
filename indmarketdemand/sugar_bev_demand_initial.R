@@ -1,5 +1,5 @@
 library(shape)
-pdf(file = "indmarketdemand/sugar_bev_demand.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/sugar_bev_demand_initial.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -55,12 +55,12 @@ tax <- 1.2 #20 percent tax
 prices <- c(1.25, 1.25*tax) 
 xprices <- c(cefinv(prices[1]), cefinv(prices[2]))
 
-ticksy <- c(0, prices[1], prices[2], ylims[2])
-ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0] + Delta*p^tau)), NA)
-ticksx <- c(0, xprices[2], xprices[1], xlims[2])
-xlabels <- c(NA, expression(paste(x[1]) == 108), expression(paste(x[0]) == 150), NA)
+ticksy <- c(0, prices[1], ylims[2])
+ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")),  NA)
+ticksx <- c(0, xprices[1], xlims[2])
+xlabels <- c(NA,  expression(paste(x[0]) == 150), NA)
 
-text(-23, prices[2] - 0.09, expression(paste(phantom() == phantom(),"$1.50")), xpd = TRUE, cex.axis = labelsize - 0.2)
+#text(-23, prices[2] - 0.09, expression(paste(phantom() == phantom(),"$1.50")), xpd = TRUE, cex.axis = labelsize - 0.2)
 
 
 npts <- 500 
@@ -74,21 +74,24 @@ text(0.5*xlims[2], -0.25, expression(paste("Quantity of sugary drinks (liters), 
 text(-55, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Shade Regions
-# A
+#Initial consumer surplus
+
+#Lost consumer surplus
+# C
 polygon(c(xprices[2], xx3, xprices[1]), 
         c(prices[1], cef(xx3), prices[1]), 
         border = FALSE, 
-        col = COL[4])
+        col = COLA[1])
 # B
 rect(0, 0, xprices[2], prices[1], col = COLB[1], density = NULL, border = NA)
 
 # E
 rect(0, prices[1], xprices[2], prices[2], 
-     #col = COL[1],
-     col ="#9ecae1",
+     col = COLA[1],
+     #col ="#9ecae1",
      density = NULL, border = NA)
 
-# D
+# A
 rect(0, prices[2], 48.5, ylims[2], 
      col = COLA[1], 
      density = NULL, border = NA)
@@ -98,7 +101,8 @@ polygon(c(48, xx2, xprices[2]),
 
 # E
 rect(xprices[2], 0, 150, prices[1], 
-     col = "#deebf7", 
+     col = COLB[1], 
+     #col = "#deebf7", 
      density = NULL, border = NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize - 0.2)
@@ -109,8 +113,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 segments(xprices[1], 0, xprices[1], prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(0,  prices[1], xprices[1],  prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
-segments(0, prices[2], xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, prices[2], xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # Demand Curve
 lines(xx1, cef(xx1), col = COLA[5], lwd = graphlinewidth)
@@ -120,16 +124,20 @@ text(xlims[2] - 0.1*xlims[2], 0.78, expression(Demand), cex = annotatesize)
 points(xprices[1], prices[1], pch = 16, col = "black", cex = 1.5)
 text(xprices[1] + 5, prices[1] + 0.05, expression(a), cex = labelsize)
 
-points(xprices[2], prices[2], pch = 16, col = "black", cex = 1.5)
-text(xprices[2] + 5, prices[2] + 0.05, expression(b), cex = labelsize)
+# points(xprices[2], prices[2], pch = 16, col = "black", cex = 1.5)
+# text(xprices[2] + 5, prices[2] + 0.05, expression(b), cex = labelsize)
 
 # Label Regions
-text(125, 1.35, expression(C), cex = labelsize)
-text(50, 1, expression(B), cex = labelsize)
-text(50, 1.35, expression(E), cex = labelsize)
-text(50, 1.75, expression(A), cex = labelsize)
-text(125, 1, expression(D), cex = labelsize)
+# text(125, 1.35, expression(C), cex = labelsize)
+# text(50, 1, expression(B), cex = labelsize)
+# text(50, 1.35, expression(E), cex = labelsize)
+# text(50, 1.75, expression(A), cex = labelsize)
+# text(125, 1, expression(D), cex = labelsize)
 
+text(50, 1.8, expression("Pre-tax"), cex = labelsize)
+text(50, 1.65, expression("consumer surplus"), cex = labelsize)
+text(75, 0.9, expression("Pre-tax"), cex = labelsize)
+text(75, 0.75, expression("consumer expenditure"), cex = labelsize)
 
 
 

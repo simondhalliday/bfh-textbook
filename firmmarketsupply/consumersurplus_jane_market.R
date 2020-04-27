@@ -69,7 +69,7 @@ segments(5, 0, 5, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #Polygon for CS
 xpoly <- c(0, 5, 0)
 ypoly <- c(10, 10, 20)
-polygon(x = xpoly, y = ypoly, col = COL[4], density=NULL, border = NA)
+polygon(x = xpoly, y = ypoly, col = COLA[1], density=NULL, border = NA)
 
 #Polygon for CE
 xpoly3 <- c(0, 5, 5, 0, 0)

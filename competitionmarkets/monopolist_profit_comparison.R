@@ -90,7 +90,7 @@ text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", X)), xpd = TRUE, cex =
 text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(10.5, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize, xpd=TRUE)
+text(10.5, 4.5, expression(paste(ac == mc,phantom() == c)), cex = labelsize, xpd=TRUE)
 text(10.5, 2.8, expression(paste(p(x))), cex = labelsize)
 text(5.8, 2.8, expression(paste(mr(x))), cex = labelsize)
 

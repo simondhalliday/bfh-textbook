@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "firmmarketsupply/supply_curve_sum.pdf", width = 9, height = 7)
+pdf(file = "firmmarketsupply/supply_curve_sum_n3.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -75,8 +75,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 2, 10, ylims[2])
 ylabels <- c(NA, expression(paste(p[min])), expression(paste(p==10)), NA)
-ticksx <- c(0, 40, 80, xlims[2])
-xlabels <- c(NA, expression(paste(X[1]==40)), expression(paste(X[2]==80)), NA)
+# ticksx <- c(0, 40, 80, 120, xlims[2])
+# xlabels <- c(NA, expression(paste(X[1]==40)), expression(paste(X[2]==80)), expression(paste(X[2]==120)), NA)
+ticksx <- c(0, 40, 120, xlims[2])
+xlabels <- c(NA, expression(paste(X["1 firm"]==40)), expression(paste(X["3 firms"]==120)), NA)
+
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -84,12 +87,9 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, MarketMCost(xx1, c2 = 1/10), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, MarketMCost(xx1, c2 = 1/5), col = COLA[5], lwd = graphlinewidth)
-
-lines(xx10, MarketMCost(xx10), col = COLA[5], lwd = graphlinewidth)
-lines(xx11, MarketMCost_2(xx11), col = COLA[6], lwd = graphlinewidth)
-lines(xx12, MarketMCost_2(xx12), col = COLA[6], lwd = graphlinewidth)
+#lines(xx1, MarketMCost(xx1, c2 = 1/10), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, MarketMCost(xx1, c2 = 1/15), col = COLA[5], lwd = graphlinewidth)
 
 
 #Label the axes
@@ -97,18 +97,26 @@ text(0.5*xlims[2], -1.6, expression(paste("Quantity, ", X)), xpd = TRUE, cex = a
 text(-24, 0.5*ylims[2], expression(paste("Price per unit, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(73, 15.5, expression(paste(S[1])), cex = labelsize)
-text(127, 15.5, expression(paste(S[2])), cex = labelsize)
-Arrows(47, 11, 87, 11, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(77, 15.5, expression(paste(S["1 firm"])), cex = labelsize)
+#text(127, 15.5, expression(paste(S[2])), cex = labelsize)
+#text(128, 9.8, expression(paste(S[n == 3])), cex = labelsize)
+text(125, 11.4, expression(paste(S["3 firms"])), cex = labelsize)
 
+
+#Arrows(60, 13.5, 60, 8.5, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(60, 7.8, 60, 6.4, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(60, 13.5, 60, 6.4, col = "black", code = 2, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+segments(0, MarketMCost(x = 120, c2 = 1/15), 120, MarketMCost(x = 120, c2 = 1/15), lty = 2, col = "gray" , lwd = segmentlinewidth)
 segments(40, 0, 40, MarketMCost(x = 40, c2 = 1/5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, MarketMCost(x = 80, c2 = 1/10), 80, MarketMCost(x = 80, c2 = 1/10), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(80, 0, 80, MarketMCost(x = 80, c2 = 1/10), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(80, 0, 80, MarketMCost(x = 80, c2 = 1/10), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(120, 0, 120, MarketMCost(x = 120, c2 = 1/15), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label Points for comparison
 # text(40, -1, expression(paste(X[1]^{S})), xpd = TRUE, cex = labelsize)
 # text(80, -1, expression(paste(X[2]^{S})), xpd = TRUE, cex = labelsize)
 
-text(82, 12, expression(paste("With more firms\n the supply\n curve flattens")), cex = labelsize)
+text(82, 11, expression(paste("With more firms\n the supply\n curve flattens")), cex = labelsize)
 
 dev.off()

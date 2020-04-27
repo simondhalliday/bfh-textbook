@@ -1,10 +1,6 @@
 require(shape)
 require(plotrix)
 require(ggplot2)
-#pdf(file = "property_psp1_offerSTEP1.pdf", width = 9, height = 7)
-#pdf(file = "property_psp1_offerSTEP2.pdf", width = 9, height = 7)
-#pdf(file = "property_psp1_offerSTEP3.pdf", width = 9, height = 7)
-#pdf(file = "property_psp1_offerSTEP4.pdf", width = 9, height = 7)
 pdf(file = "indmarketdemand/elasticity_fig.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -26,7 +22,7 @@ ylims <- c(2, 8)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
-elasticity1 <- function(x, A, b ) {
+elasticity1 <- function(x, A = 5, b = 1) {
   A*x^(1/b)
 }
 
@@ -71,8 +67,8 @@ lines(xx4,yy4, col = COLB[4], lwd = graphlinewidth)
 
 points(1, 5, pch = 16, col = "black", cex = 1.5)
 
-legend(1.3, 8, 
-       legend=c("Rice in Japan  (0.2)", "Fish (1.5)","Coca-cola (3.8)","Expensive Alcoholic Drinks (4.7)"),
+legend(1.15, 8, 
+       legend=c(expression(paste("Rice in Japan, ", abs(eta) == 0.2)), expression(paste("Fish, ", abs(eta) == 1.5)),expression(paste("Coca-cola, ", abs(eta) == 3.8)), expression(paste("Expensive alcoholic drinks, ", abs(eta) == 4.7))),
        col=c(COL[3], COLB[2],COLA[3],COLB[4]), 
        lty=1, cex=labelsize, xpd =TRUE)
 

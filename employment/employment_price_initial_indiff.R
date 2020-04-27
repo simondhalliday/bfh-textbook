@@ -2,7 +2,10 @@ require(shape)
 pdf(file = "employment/employment_price_initial_indiff.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -85,13 +88,13 @@ ticksy <- c(0,  1, ylims[2])
 ylabels <- c(0,  expression(paste(bar(e) == 1) ), NA)
 ticksx <- c(0, xlims[2])
 xlabels <- c(0,  NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three indifference curves
-text(0.8, 0.05, expression(paste(u[1])))
-text(2.65, 0.05, expression(paste(u[2] == u[z], phantom() == 0)))
-text(3.8, 0.05, expression(paste(u[3])))
+text(0.8, 0.05, expression(paste(u[1])), cex = labelsize)
+text(2.8, 0.05, expression(paste(u[2] == u[z], phantom() == 0)), cex = labelsize - 0.05)
+text(3.8, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
 segments(0, 1, xlims[2], 1, lty = 2, col = "darkgray", lwd = 2)

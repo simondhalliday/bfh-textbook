@@ -84,7 +84,7 @@ COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318"
 # 
 # write.xlsx(data_final, 'preventative_healthcare.xlsx')
 
-data_final_1 <- read.xlsx('preventative_healthcare.xlsx')
+data_final_1 <- read.xlsx('indmarketdemand/preventative_healthcare.xlsx')
 
 colnames(data_final_1)[3] <- "product"
 
@@ -117,7 +117,7 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
-  theme(legend.position = c(0.77,0.78)) +
+  theme(legend.position = c(0.77,0.77)) +
   #guides(colour = guide_legend(override.aes=list(fill=NA),nrow = 2)) +
   labs(color = 'Healthcare Products') +
   theme(legend.title = element_blank()) +
@@ -125,7 +125,7 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   scale_color_manual(values = COLD) + 
   theme(axis.title = element_text(size = 24),
         axis.text.y = element_text(size = 14),
-        legend.text = element_text(size = 12),
+        legend.text = element_text(size = 13),
         axis.text.x = element_text(size = 14, angle = 45, vjust = 0.5),
         panel.grid.minor = element_blank()
   )

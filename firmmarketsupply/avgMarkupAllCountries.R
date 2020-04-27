@@ -21,10 +21,6 @@ markupRatioFunc <- function(p, c){
   (p - c) / c
 }
 
-avg <- function(x) {
-  c(mean = mean(x), median = median(x))
-}
-
 # Bowles Estimate ---------------------------------------------------------
 
 tax = 0.27
@@ -41,8 +37,8 @@ print(c_star)
 
 lopRi <- tibble(
   "drugID" = 1,
-  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "GBR", "FRA", "IND", "CHN", "ZAF", "gloFund"),
-  "cost_lopRi" = c(503, 349, 172, 149, 144, 97, 40, 17, 15, 9),
+  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "GBR", "FRA", "IND", "CHN", "ZAF"),
+  "cost_lopRi" = c(503, 349, 172, 149, 144, 97, 40, 17, 15),
 )
 
 ## Hydroxychloroquine (hyd)
@@ -104,7 +100,8 @@ toc <- tibble(
 genEst <- tibble(
   "drugID" = seq(1:7),
   "drugName" = c("Lopinavir/ritonavir", "Hydroxychloroquine", "Chloroquine", "Azithromycin", "Sofosbuvir/daclatasvir", "Pirfenidone", "Tocilizumab"),
-  "cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
+  #"cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
+  "cost_genEst" = c(3.92, 1.12, 0.28, 1.4, 5.46, 30.52, NA) # 1/day*14
 )
 
 ## Combine Dataframes
@@ -125,27 +122,36 @@ dfCost <- left_join(df, genEst, "drugID") %>%
 dfCost <- dfCost  %>% 
   cbind(markupRatio = round(markupRatioFunc(p = dfCost[['drugCostByCountry']], c = dfCost[['cost_genEst']]), digits = 2)) 
 
-# find averages 
-dfCostAvg <- as_tibble(cbind(drugID = unique(dfCost$drugID), 
-  do.call(rbind, tapply(dfCost$markupRatio, dfCost$drugID, avg))))
+# find averages
+df_mean <- aggregate(dfCost$markupRatio, list(dfCost$drugName), mean) %>%
+  dplyr::rename("mean" = "x") %>%
+  dplyr::rename("drugName" = "Group.1") 
+
+df_med <- aggregate(dfCost$markupRatio, list(dfCost$drugName), median) %>%
+  dplyr::rename("median" = "x") %>%
+  dplyr::rename("drugName" = "Group.1") 
+
+# join averages into df
+dfCostAvg <- left_join(df_mean, df_med, by = "drugName")
 
 # left join averages with dfCost by drugID
-dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugID") %>% 
+dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugName") %>% 
   gather(2:3, key = "avgType", value = "avgVal")
 
 # Visual ------------------------------------------------------------------
 
 # avg markup by drug across ALL countries
-
-drugNames <- c("Sofosbuvir/daclatasvir", "Azithromycin", "Lopinavir/ritonavir", "Chloroquine")
-drugNameDisease <- c("Sofosbuvir/daclatasvir \n (Hepatitis C)", 
-                     "Azithromycin \n (Antibiotic)", 
+drugNames <- c("Pirfenidone", "Lopinavir/ritonavir", 
+               "Chloroquine", "Azithromycin")
+drugNameDisease <- c("Pirfenidone \n (Pulmonary Fibrosis)", 
                      "Lopinavir/ritonavir \n (HIV-1)", 
-                     "Chloroquine \n (Malaria)")
+                     "Chloroquine \n (Malaria)",
+                     "Azithromycin \n (Antibiotic)")
 
 dfCostAvg %>% 
-  filter(drugID != 6) %>%
-  filter(drugName != "Hydroxychloroquine") %>% 
+  #filter(country != "USA_va") %>% 
+  filter(drugID != 5) %>% # sofo/dac (remove due to size discrep.)
+  filter(drugID != 2) %>% # hydrox (remove by request of S.B.)
   mutate(drugName = factor(drugName, levels = drugNames)) %>%
   ggplot(aes(x = factor(drugName), y = avgVal, fill = avgType)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -155,7 +161,8 @@ dfCostAvg %>%
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +
-  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), hjust = -0.25, size = 3, check_overlap = TRUE) +
+  geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), 
+            hjust = -0.25, size = 3, check_overlap = TRUE) +
   theme_bw() +
   theme(legend.title = element_blank(),
         panel.grid.minor = element_blank(),
@@ -164,24 +171,3 @@ dfCostAvg %>%
         legend.margin = margin(1, 1, 1, 1)) 
 
 ggsave("avgMarkupAllCountries.pdf", width = 6, height = 3, units = "in")
-
-# # markup by country
-# dfCostAvg %>% 
-#   filter(country == "USA_pharm") %>%
-#   ggplot(aes(x = factor(drugName), y = markupRatio, fill = drugName)) +
-#   geom_bar(stat = "identity", position = "dodge") + 
-#   coord_flip() +
-#   scale_fill_brewer(palette = "Set1") +
-#   theme_bw()
-# 
-# ggsave("markupUSA_pharm.pdf", width = 6, height = 3, units = "in")
-# 
-# dfCostAvg %>% 
-#   filter(country == "ZAF") %>%
-#   ggplot(aes(x = factor(drugName), y = markupRatio, fill = drugName)) +
-#   geom_bar(stat = "identity", position = "dodge") + 
-#   coord_flip() +
-#   scale_fill_brewer(palette = "Set1") +
-#   theme_bw()
-# 
-# ggsave("markupZAF.pdf", width = 6, height = 3, units = "in")

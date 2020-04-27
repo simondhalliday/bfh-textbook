@@ -1,11 +1,12 @@
-library(tidyverse)
 library(digitize)
 library(jpeg)
 library(scales)
 library(openxlsx)
 library(ggplot2)
+library(tidyverse)
+library(shape)
 
-pdf(file = "indmarketdemand/preventative_healthcare_demand1.pdf", width = 9, height = 7)
+pdf(file = "indmarketdemand/preventative_healthcare_demand.pdf", width = 9, height = 7)
 
 COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318", "#6a51a3", "#FB6AAA","#66FFB7")
 
@@ -182,9 +183,9 @@ print(p2)
 # 
 # print(p)
 
-ggsave(p2, filename = "preventative_healthcare_demand.pdf", 
-      path = "indmarketdemand",
-      width = 9, height = 7, units = "in")
+# ggsave(p2, filename = "preventative_healthcare_demand.pdf", 
+#       path = "indmarketdemand",
+#       width = 9, height = 7, units = "in")
 
 dev.off()
 

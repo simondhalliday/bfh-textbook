@@ -148,16 +148,24 @@ drugNameDisease <- c("Pirfenidone \n (Pulmonary Fibrosis)",
                      "Chloroquine \n (Malaria)",
                      "Azithromycin \n (Antibiotic)")
 
+# avg markup by drug across ALL countries
+drugNames <- c("Sofosbuvir/daclatasvir", "Lopinavir/ritonavir", 
+               "Chloroquine", "Azithromycin")
+drugNameDisease <- c("Sofosbuvir/daclatasvir \n (Hepatitis C)", 
+                     "Lopinavir/ritonavir \n (HIV-1)", 
+                     "Chloroquine \n (Malaria)",
+                     "Azithromycin \n (Antibiotic)")
+
 dfCostAvg %>% 
   #filter(country != "USA_va") %>% 
-  filter(drugID != 5) %>% # sofo/dac (remove due to size discrep.)
-  filter(drugID != 2) %>% # hydrox (remove by request of S.B.)
+  filter(drugID != 6) %>% # pirf (not manufactured at scale)
+  filter(drugID != 2) %>% # hydrox (not manufactured at scale)
   mutate(drugName = factor(drugName, levels = drugNames)) %>%
   ggplot(aes(x = factor(drugName), y = avgVal, fill = avgType)) +
   geom_bar(stat = "identity", position = "dodge") +
   # scale_x_discrete(labels = str_wrap(drugNameDisease, width = 15)) + # auto-wrap (cluttered)
   scale_x_discrete(label = drugNameDisease) +
-  scale_y_continuous(limits = c(0, 100)) +
+  scale_y_continuous(limits = c(0, 1000)) +
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +
@@ -170,4 +178,4 @@ dfCostAvg %>%
         legend.position = c(.875, .85),
         legend.margin = margin(1, 1, 1, 1)) 
 
-ggsave("avgMarkupAllCountries.pdf", width = 6, height = 3, units = "in")
+ggsave("firmmarketsupply/avgMarkupAllCountries.pdf", width = 6, height = 3, units = "in")

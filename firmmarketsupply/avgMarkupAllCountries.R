@@ -141,31 +141,21 @@ dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugName") %>%
 # Visual ------------------------------------------------------------------
 
 # avg markup by drug across ALL countries
-drugNames <- c("Pirfenidone", "Lopinavir/ritonavir", 
+drugNames <- c("Lopinavir/ritonavir", 
                "Chloroquine", "Azithromycin")
-drugNameDisease <- c("Pirfenidone \n (Pulmonary Fibrosis)", 
-                     "Lopinavir/ritonavir \n (HIV-1)", 
-                     "Chloroquine \n (Malaria)",
-                     "Azithromycin \n (Antibiotic)")
-
-# avg markup by drug across ALL countries
-drugNames <- c("Sofosbuvir/daclatasvir", "Lopinavir/ritonavir", 
-               "Chloroquine", "Azithromycin")
-drugNameDisease <- c("Sofosbuvir/daclatasvir \n (Hepatitis C)", 
-                     "Lopinavir/ritonavir \n (HIV-1)", 
+drugNameDisease <- c("Lopinavir/ritonavir \n (HIV-1)", 
                      "Chloroquine \n (Malaria)",
                      "Azithromycin \n (Antibiotic)")
 
 dfCostAvg %>% 
-  #filter(country != "USA_va") %>% 
   filter(drugID != 6) %>% # pirf (not manufactured at scale)
   filter(drugID != 2) %>% # hydrox (not manufactured at scale)
+  filter(drugID != 5) %>% # outlier
   mutate(drugName = factor(drugName, levels = drugNames)) %>%
   ggplot(aes(x = factor(drugName), y = avgVal, fill = avgType)) +
   geom_bar(stat = "identity", position = "dodge") +
-  # scale_x_discrete(labels = str_wrap(drugNameDisease, width = 15)) + # auto-wrap (cluttered)
   scale_x_discrete(label = drugNameDisease) +
-  scale_y_continuous(limits = c(0, 1000)) +
+  scale_y_continuous(limits = c(0, 55)) +
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +

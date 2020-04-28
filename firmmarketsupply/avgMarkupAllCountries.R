@@ -100,8 +100,8 @@ toc <- tibble(
 genEst <- tibble(
   "drugID" = seq(1:7),
   "drugName" = c("Lopinavir/ritonavir", "Hydroxychloroquine", "Chloroquine", "Azithromycin", "Sofosbuvir/daclatasvir", "Pirfenidone", "Tocilizumab"),
-  #"cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
-  "cost_genEst" = c(3.92, 1.12, 0.28, 1.4, 5.46, 30.52, NA) # 1/day*14
+  "cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
+  # "cost_genEst" = c(3.92, 1.12, 0.28, 1.4, 5.46, 30.52, NA) # 1/day*14
 )
 
 ## Combine Dataframes
@@ -114,6 +114,7 @@ dfCost <- left_join(df, genEst, "drugID") %>%
   gather(3:9, key = "drugKey", value = "drugCostByCountry") %>% 
   drop_na("drugCostByCountry") %>% 
   drop_na("cost_genEst") %>% 
+  filter(country != "USA_va") %>% # Remove USA VA
   select("drugID", "drugName", "country", "cost_genEst", "drugCostByCountry")
 
 # Markup ------------------------------------------------------------------

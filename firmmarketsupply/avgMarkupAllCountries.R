@@ -37,7 +37,7 @@ print(c_star)
 
 lopRi <- tibble(
   "drugID" = 1,
-  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "GBR", "FRA", "IND", "CHN", "ZAF"),
+  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "UK", "FRA", "IND", "CHN", "ZAF"),
   "cost_lopRi" = c(503, 349, 172, 149, 144, 97, 40, 17, 15),
 )
 
@@ -46,7 +46,7 @@ lopRi <- tibble(
 
 hyd <- tibble(
   "drugID" = 2,
-  "country" = c("CHN", "USA_pharm", "MYS", "France", "GBR", "SWE", "BGD", "TUR", "USA_va", "IND"),
+  "country" = c("CHN", "USA_pharm", "MYS", "France", "UK", "SWE", "BGD", "TUR", "USA_va", "IND"),
   "cost_hyd" = c(19, 18, 7, 5, 4, 3, 3, 3, 3, 2)
 )
 
@@ -55,7 +55,7 @@ hyd <- tibble(
 
 chl <- tibble(
   "drugID" = 3,
-  "country" = c("USA_pharm", "GBR", "CHN", "ZAF", "SWE", "MYS", "IND", "BGD"),
+  "country" = c("USA_pharm", "UK", "CHN", "ZAF", "SWE", "MYS", "IND", "BGD"),
   "cost_chl" = c(93, 8, 5, 5, 4, 2, 1, 0.2)
 )
 
@@ -64,7 +64,7 @@ chl <- tibble(
 
 azi <- tibble(
   "drugID" = 4,
-  "country" = c("USA_pharm", "FRA", "ZAF", "BRA", "USA_va", "SWE", "MYS", "GBR", "CHN", "BGD", "IND"),
+  "country" = c("USA_pharm", "FRA", "ZAF", "BRA", "USA_va", "SWE", "MYS", "UK", "CHN", "BGD", "IND"),
   "cost_avi" = c(63, 44, 35, 19, 17, 16, 11, 11, 7, 5, 5)
 )
 
@@ -73,7 +73,7 @@ azi <- tibble(
 
 sofDa <- tibble(
   "drugID" = 5,
-  "country" = c("USA_va", "GBR", "FRA", "BRA", "BGD", "IND", "PAK"),
+  "country" = c("USA_va", "UK", "FRA", "BRA", "BGD", "IND", "PAK"),
   "cost_sofDa" = c(18610, 7632, 4662, 4289, 166, 7, 6)
 )
 
@@ -82,7 +82,7 @@ sofDa <- tibble(
 
 pirf <- tibble(
   "drugID" = 6,
-  "country" = c("USA_pharm", "USA_va", "GBR", "ZAF", "FRA", "SWE", "TUR", "CHN", "BGD", "IND"),
+  "country" = c("USA_pharm", "USA_va", "UK", "ZAF", "FRA", "SWE", "TUR", "CHN", "BGD", "IND"),
   "cost_pirf" = c(9606, 6513, 2561, 2490, 2344, 2196, 1499, 1379, 124, 100)
 )
 
@@ -91,7 +91,7 @@ pirf <- tibble(
 
 toc <- tibble(
   "drugID" = 7,
-  "country" = c("USA_pharm", "CHN", "USA_va", "GBR", "IND", "BGD", "TUR", "EGY", "ZAF", "PAK"),
+  "country" = c("USA_pharm", "CHN", "USA_va", "UK", "IND", "BGD", "TUR", "EGY", "ZAF", "PAK"),
   "cost_toc" = c(3383, 1950, 1948, 914, 806, 690, 650, 606, 566, 510)
 )
 

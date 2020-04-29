@@ -37,7 +37,7 @@ print(c_star)
 
 lopRi <- tibble(
   "drugID" = 1,
-  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "GBR", "FRA", "IND", "CHN", "ZAF"),
+  "country" = c("USA_pharm", "USA_va", "SWE", "TUR", "UK", "FRA", "IND", "CHN", "ZAF"),
   "cost_lopRi" = c(503, 349, 172, 149, 144, 97, 40, 17, 15),
 )
 
@@ -46,7 +46,7 @@ lopRi <- tibble(
 
 hyd <- tibble(
   "drugID" = 2,
-  "country" = c("CHN", "USA_pharm", "MYS", "France", "GBR", "SWE", "BGD", "TUR", "USA_va", "IND"),
+  "country" = c("CHN", "USA_pharm", "MYS", "France", "UK", "SWE", "BGD", "TUR", "USA_va", "IND"),
   "cost_hyd" = c(19, 18, 7, 5, 4, 3, 3, 3, 3, 2)
 )
 
@@ -55,7 +55,7 @@ hyd <- tibble(
 
 chl <- tibble(
   "drugID" = 3,
-  "country" = c("USA_pharm", "GBR", "CHN", "ZAF", "SWE", "MYS", "IND", "BGD"),
+  "country" = c("USA_pharm", "UK", "CHN", "ZAF", "SWE", "MYS", "IND", "BGD"),
   "cost_chl" = c(93, 8, 5, 5, 4, 2, 1, 0.2)
 )
 
@@ -64,7 +64,7 @@ chl <- tibble(
 
 azi <- tibble(
   "drugID" = 4,
-  "country" = c("USA_pharm", "FRA", "ZAF", "BRA", "USA_va", "SWE", "MYS", "GBR", "CHN", "BGD", "IND"),
+  "country" = c("USA_pharm", "FRA", "ZAF", "BRA", "USA_va", "SWE", "MYS", "UK", "CHN", "BGD", "IND"),
   "cost_avi" = c(63, 44, 35, 19, 17, 16, 11, 11, 7, 5, 5)
 )
 
@@ -73,7 +73,7 @@ azi <- tibble(
 
 sofDa <- tibble(
   "drugID" = 5,
-  "country" = c("USA_va", "GBR", "FRA", "BRA", "BGD", "IND", "PAK"),
+  "country" = c("USA_va", "UK", "FRA", "BRA", "BGD", "IND", "PAK"),
   "cost_sofDa" = c(18610, 7632, 4662, 4289, 166, 7, 6)
 )
 
@@ -82,7 +82,7 @@ sofDa <- tibble(
 
 pirf <- tibble(
   "drugID" = 6,
-  "country" = c("USA_pharm", "USA_va", "GBR", "ZAF", "FRA", "SWE", "TUR", "CHN", "BGD", "IND"),
+  "country" = c("USA_pharm", "USA_va", "UK", "ZAF", "FRA", "SWE", "TUR", "CHN", "BGD", "IND"),
   "cost_pirf" = c(9606, 6513, 2561, 2490, 2344, 2196, 1499, 1379, 124, 100)
 )
 
@@ -91,7 +91,7 @@ pirf <- tibble(
 
 toc <- tibble(
   "drugID" = 7,
-  "country" = c("USA_pharm", "CHN", "USA_va", "GBR", "IND", "BGD", "TUR", "EGY", "ZAF", "PAK"),
+  "country" = c("USA_pharm", "CHN", "USA_va", "UK", "IND", "BGD", "TUR", "EGY", "ZAF", "PAK"),
   "cost_toc" = c(3383, 1950, 1948, 914, 806, 690, 650, 606, 566, 510)
 )
 
@@ -100,8 +100,8 @@ toc <- tibble(
 genEst <- tibble(
   "drugID" = seq(1:7),
   "drugName" = c("Lopinavir/ritonavir", "Hydroxychloroquine", "Chloroquine", "Azithromycin", "Sofosbuvir/daclatasvir", "Pirfenidone", "Tocilizumab"),
-  #"cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
-  "cost_genEst" = c(3.92, 1.12, 0.28, 1.4, 5.46, 30.52, NA) # 1/day*14
+  "cost_genEst" = c(4, 1, 0.3, 1.4, 5, 31, NA)
+  # "cost_genEst" = c(3.92, 1.12, 0.28, 1.4, 5.46, 30.52, NA) # 1/day*14
 )
 
 ## Combine Dataframes
@@ -114,6 +114,7 @@ dfCost <- left_join(df, genEst, "drugID") %>%
   gather(3:9, key = "drugKey", value = "drugCostByCountry") %>% 
   drop_na("drugCostByCountry") %>% 
   drop_na("cost_genEst") %>% 
+  filter(country != "USA_va") %>% # Remove USA VA
   select("drugID", "drugName", "country", "cost_genEst", "drugCostByCountry")
 
 # Markup ------------------------------------------------------------------
@@ -141,31 +142,21 @@ dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugName") %>%
 # Visual ------------------------------------------------------------------
 
 # avg markup by drug across ALL countries
-drugNames <- c("Pirfenidone", "Lopinavir/ritonavir", 
+drugNames <- c("Lopinavir/ritonavir", 
                "Chloroquine", "Azithromycin")
-drugNameDisease <- c("Pirfenidone \n (Pulmonary Fibrosis)", 
-                     "Lopinavir/ritonavir \n (HIV-1)", 
-                     "Chloroquine \n (Malaria)",
-                     "Azithromycin \n (Antibiotic)")
-
-# avg markup by drug across ALL countries
-drugNames <- c("Sofosbuvir/daclatasvir", "Lopinavir/ritonavir", 
-               "Chloroquine", "Azithromycin")
-drugNameDisease <- c("Sofosbuvir/daclatasvir \n (Hepatitis C)", 
-                     "Lopinavir/ritonavir \n (HIV-1)", 
+drugNameDisease <- c("Lopinavir/ritonavir \n (HIV-1)", 
                      "Chloroquine \n (Malaria)",
                      "Azithromycin \n (Antibiotic)")
 
 dfCostAvg %>% 
-  #filter(country != "USA_va") %>% 
   filter(drugID != 6) %>% # pirf (not manufactured at scale)
   filter(drugID != 2) %>% # hydrox (not manufactured at scale)
+  filter(drugID != 5) %>% # outlier
   mutate(drugName = factor(drugName, levels = drugNames)) %>%
   ggplot(aes(x = factor(drugName), y = avgVal, fill = avgType)) +
   geom_bar(stat = "identity", position = "dodge") +
-  # scale_x_discrete(labels = str_wrap(drugNameDisease, width = 15)) + # auto-wrap (cluttered)
   scale_x_discrete(label = drugNameDisease) +
-  scale_y_continuous(limits = c(0, 1000)) +
+  scale_y_continuous(limits = c(0, 55)) +
   scale_fill_brewer(name = "", labels = c("Mean", "Median"), palette = "Set1") +
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +

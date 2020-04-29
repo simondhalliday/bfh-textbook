@@ -20,7 +20,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(4, 4, 1, 1))
 
 uFn <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1 - alpha))
@@ -76,8 +76,8 @@ lines(xx4, trsline(xx4, constant = 8, slope = 1), col = "grey26", lty = 2, lwd =
 lines(xx5, trsline(xx5, constant = 4, slope = 0.25), col = "grey26", lty = 2, lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3.5, cex = axislabelsize)
-text(-1.5, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.1, expression(paste("Hours of labor, ", l)), xpd = TRUE, cex = axislabelsize) 
+text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(8.2, 1.25, expression("Cobb-Douglas"), cex = labelsize, xpd = TRUE)
@@ -90,7 +90,7 @@ text(4.5, 6, expression(paste(mrts(l,k) == frac(4,4), phantom()==1)), cex = labe
 Arrows(4, 5.6, 4, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(4.9, 8, expression(paste(mrts(l,k) == frac(8,2), phantom() == 4)), cex = labelsize)
-Arrows(3, 8, 2.5, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(3.3, 8, 2.3, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label feasible and infeasible

@@ -9,12 +9,14 @@ namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+arrwidth <- 1
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start =1, end = 0)
 
-par(mar =  c(6, 6, 2, 2))
+par(mar =  c(4, 4, 1, 1))
 
 xlims <- c(0, 12)
 ylims <- c(0, 12)
@@ -60,23 +62,29 @@ segments(4.5, 7.5, 4.5, ylims[2], lty = 1, col = COLA[3],  lwd = graphlinewidth)
 segments(4.5, 7.5, 7.5, 4.5, lty = 1, col = COLA[3],  lwd = graphlinewidth)
 
 #Segments to other points
-segments(0, 7.5, 4.5, 7.5, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(4.5, 0, 4.5, 7.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 7.5, 4.5, 7.5, lty = 2, col = Grays[20], lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, 7.5, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 #For k2
-segments(0, 4.5, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 4.5, 7.5, 4.5, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 #For l2
-segments(7.5, 0, 7.5, 4.5, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(7.5, 0, 7.5, 4.5, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3.3, cex = axislabelsize)
-text(-2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#For c
+segments(6, 0, 6, 6, lty = 2, col = Grays[20], lwd = segmentlinewidth)
+segments(0, 6, 6, 6, lty = 2, col = Grays[20], lwd = segmentlinewidth)
+
+
+#Axis titles
+text(0.5*xlims[2], -1.2, expression(paste("Hours of labor, ", l)), xpd = TRUE, cex = axislabelsize) 
+text(-1.3, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Reminder: slope of the ray (to calculate useful points)
 #4.5/7.5
 #Rays from Origin as arrows
-#Arrows(0, 0, 7.2, 4.32, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
-#Arrows(0, 0, 4.32, 7.2, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
+# Arrows(0, 0, 7.2, 4.32, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
+# Arrows(0, 0, 4.32, 7.2, col = "black", lty = 1, lwd = arrwidth, arr.type = "triangle", arr.lwd = 0.5)
 
 #For production technique a
 points(4.5, 7.5, pch = 16, col = "black", cex = 1.5)
@@ -88,7 +96,7 @@ text(7.75, 4.25, expression(b), cex = labelsize)
 
 #For production technique c
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6, 5.7, expression(c), cex = labelsize)
+text(5.7, 5.7, expression(c), cex = labelsize)
 
 
 
@@ -102,14 +110,14 @@ text(8, 7.0, expression(paste("a and b")), cex = labelsize)
 
 
 
-text(2, 6.6, expression(paste("Steeper ray:")), cex = labelsize)
-text(2.3, 6, expression(paste("more k-intensive")), cex = labelsize)
-text(2.3, 5.4, expression(paste("less l-intensive")), cex = labelsize)
+# text(2, 6.6, expression(paste("Steeper ray:")), cex = labelsize)
+# text(2.3, 6, expression(paste("more k-intensive")), cex = labelsize)
+# text(2.3, 5.4, expression(paste("less l-intensive")), cex = labelsize)
 
 
-text(6, 2.8, expression(paste("Flatter ray:")), cex = labelsize)
-text(6, 2.2, expression(paste("more l-intensive")), cex = labelsize)
-text(6, 1.6, expression(paste("less k-intensive")), cex = labelsize)
+# text(6, 2.8, expression(paste("Flatter ray:")), cex = labelsize)
+# text(6, 2.2, expression(paste("more l-intensive")), cex = labelsize)
+# text(6, 1.6, expression(paste("less k-intensive")), cex = labelsize)
 
 text(11, 4.75, expression(paste(underline(x) == 100)), cex = labelsize)
 

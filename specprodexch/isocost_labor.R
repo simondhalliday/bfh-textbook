@@ -88,9 +88,9 @@ mtext(expression(paste("Hours of labor, l")), side=1, line = 2.5, cex = axistitl
 text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, k")), xpd = TRUE, cex = axistitlesize, srt = 90) 
 
 #Label isoquants
-text(3.5, 17, expression(paste("Isoquant")), cex = labelsize)
+text(3.5, 17, expression(paste("Isoquant F")), cex = labelsize)
 text(3.5, 16.2, expression(paste(x[f](l[f],k[f]) == underline(x))), cex = labelsize)
-text(9.5, 17, expression(paste("Isoquant")), cex = labelsize)
+text(9.5, 17, expression(paste("Isoquant G")), cex = labelsize)
 text(9.5, 16.2, expression(paste(x[g](l[f],k[f]) == underline(x))), cex = labelsize)
 
 # Label Isocost H

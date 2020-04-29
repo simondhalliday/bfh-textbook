@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "specprodexch/isoquant_shaded.pdf", width = 8, height = 6)
+pdf(file = "specprodexch/isoquant_shaded.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 uFn <- function(x, y, alpha = 0.5){
   (x^alpha)*(y^(1 - alpha))
@@ -86,8 +86,9 @@ lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidt
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3.5, cex = axislabelsize)
-text(-1.3, 5, expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3.5, cex = axislabelsize)
+text(0.5*xlims[2], -1.1, expression(paste("Hours of labor, ", l)), xpd = TRUE, cex = axislabelsize) 
+text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 
@@ -109,11 +110,11 @@ Arrows(9, 3.25, 9, 2.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
 
 #Label feasible and infeasible
 text(3, 3, expression(paste(x = underline(x), " infeasible")), cex = labelsize)
-text(3, 2.3, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+text(3, 2.3, expression(paste("with ", (list(l, k)) )), cex = labelsize)
 
-text(8, 8.5, expression(paste("Production set:")), cex = labelsize)
+#text(8, 8.5, expression(paste("Production set:")), cex = labelsize)
 text(8, 7.9, expression(paste(x = underline(x), " feasible")), cex = labelsize)
-text(8, 7.3, expression(paste("with plan ", (list(x, l, k)) )), cex = labelsize)
+text(8, 7.3, expression(paste("with ", (list(l, k)) )), cex = labelsize)
 
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)

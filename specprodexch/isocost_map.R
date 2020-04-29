@@ -15,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(7, 7, 3, 3))
+par(mar =  c(5, 5, 1, 1))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -46,9 +46,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, 6, 9, 12, ylims[2])
-ylabels <- c(NA, expression(paste(k[1]==frac(c[1], r))), expression(paste(k[2]==frac(c[2], r))), expression(paste(k[3]==frac(c[3], r))), NA)
+ylabels <- c(NA, expression(paste(frac(c[1], p[k]))), expression(paste(frac(c[2], p[k]))), expression(paste(frac(c[3], p[k]))), NA)
 ticksx <- c(0, 6, 9, 12, xlims[2])
-xlabels <- c(NA, expression(paste(l[1]==c[1]/w)), expression(paste(l[2])==c[2]/w), expression(paste(l[3]==c[3]/w)), NA)
+xlabels <- c(NA, expression(paste(c[1]/w)), expression(paste(c[2]/w)), expression(paste(c[3]/w)), NA)
 
 
 
@@ -67,7 +67,7 @@ lines(xx1, isocost(xx1, c = 12, w = 1, r = 1), col = COLB[3], lwd = graphlinewid
 
 #Label the axes
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3.5, cex = axislabelsize)
-text(-2.2, 0.5*ylims[2], expression(paste("Amount of capital, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the price lines
 text(5.4, 1, expression(paste(c[1])), cex = labelsize)
@@ -77,7 +77,7 @@ text(11.4, 1, expression(paste(c[3])),cex = labelsize)
 
 #Add mrs = mrt at i
 text(7, 10.25, expression(paste("Marginal rate of transformation:")), cex = labelsize)
-text(7, 9.25, expression(paste(mrt(l,k)== frac(w,r))), cex = labelsize)
+text(7, 9.25, expression(paste(mrt(l,k)== frac(w,p[k]))), cex = labelsize)
 Arrows(7, 8.5, 7, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "specprodexch/production_technique.pdf", width = 9, height = 7)
+pdf(file = "specprodexch/production_technique.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -13,8 +13,9 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start =1, end = 0)
 
-par(mar =  c(5, 7, .5, .5))
+par(mar =  c(5, 5, .5, .5))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -73,68 +74,46 @@ segments(4, 6, xlims[2], 6, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(4, 6, 4, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
 #Segments to i
-segments(0, 6, 4, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(4, 0, 4, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 6, 4, 6, lty = 2, col = Grays[20], lwd = segmentlinewidth)
+segments(4, 0, 4, 6, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 #For k2
-segments(0, 8, 4, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 8, 6, 8, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 #For l2
-segments(6, 0, 6, 6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(6, 0, 6, 8, lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 
-
-mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#Axis titles
+text(0.5*xlims[2], -1.4, expression(paste("Hours of labor, ", l)), xpd = TRUE, cex = axislabelsize) 
+text(-1.4, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #For good production technique i
 points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(4.45, 6.45, expression(i), cex = labelsize)
+text(4.35, 6.35, expression(i), cex = labelsize)
 
-#For production technique a
+#For production technique f
 points(4, 8, pch = 16, col = "black", cex = 1.5)
-text(4.45, 8.45, expression(a), cex = labelsize)
+text(4.35, 8.35, expression(f), cex = labelsize)
 
-#For production technique b
+#For production technique g
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.45, 6.45, expression(b), cex = labelsize)
+text(6.35, 6.35, expression(g), cex = labelsize)
+
+#For production technique h
+points(6, 8, pch = 16, col = "black", cex = 1.5)
+text(6.35, 8.35, expression(h), cex = labelsize)
 
 
 text(10, 11, expression(paste("Feasible")), cex = labelsize)
-text(10, 10.4, expression(paste("production")), cex = labelsize)
-text(10, 9.8, expression(paste("techniques")), cex = labelsize)
+# text(10, 10.4, expression(paste("production")), cex = labelsize)
+# text(10, 9.8, expression(paste("techniques")), cex = labelsize)
 text(2, 4, expression(paste("Infeasible")), cex = labelsize)
-text(2, 3.4, expression(paste("production")), cex = labelsize)
-text(2, 2.8, expression(paste("techniques")), cex = labelsize)
-
-#text(7.3, 2.5, expression("Curve"))
-#Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label the iso-welfare functions for the HG, Aisha
-# text(3.8, 1.5, expression(u[1]^A))
-# text(4.6, 1.5, expression(u[2]^A))
-# text(5.5, 1.5, expression(u[3]^A))
-#text(6.6, 8.3, expression(u[4]^A))
-
-
-#Label the indifference curves for the HG, Betty
-# text(7.6, 17, expression(u[1]^B))
-# text(6.75, 17, expression(u[2]^B))
-# text(6, 17, expression(u[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
+# text(2, 3.4, expression(paste("production")), cex = labelsize)
+# text(2, 2.8, expression(paste("techniques")), cex = labelsize)
 
 #Label mrs function
 text(18, 2.5, expression(paste(mrs(x,y) == r[max] - bgroup("(",frac(r[max], x[max]),")")*x)))
 #Arrows(10, 7.5, 10, 5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label satiation
-#text(20, 3.5, expression(paste(x[max] == "Point")))
-#text(20, 3, expression(paste("of Satiation")))
-#Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-#Label highest willingness to pay
-#text(5, 10, expression("Consumer Surplus"))
-#text(5, 9, expression(paste(CS==frac(1, 2)*bgroup("(",r[max] - p,")")*x)))
-#Arrows(5, 8.5, 5, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

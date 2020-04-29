@@ -57,7 +57,7 @@ ylims <- c(0, 11)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(1.8, 2.75, 4.1)
+a <- c(1.8, 2.73, 4.1)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -77,7 +77,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 4.5, 4.9, 10, ylims[2])
 ylabels <- c(NA, expression(paste(y[d]) == 4.5), expression(paste(y[se]) == 4.9),expression(paste(bar(y)==10)), NA)
 ticksx <- c(xlims[1], 1.65, 3.4, 5, 6.67, xlims[2])
-xlabels <- c(0, expression(paste(x[d]) == 1.65), expression(paste(x[se])==3), expression(paste(bar(x)==5)), 6.67, NA)
+xlabels <- c(0, expression(paste(x[d]) == 1.65), expression(paste(x[se])==3.4), expression(paste(bar(x)==5)), 6.67, NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -116,7 +116,7 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-text(7.2, 0.7, expression(u[1]^A), cex = labelsize)
+text(7.2, 0.72, expression(u[1]^A), cex = labelsize)
 text(7.2, 1.35, expression(u[2]^A), cex = labelsize)
 text(7.2, 2.6, expression(u[3]^A), cex = labelsize)
 
@@ -134,7 +134,7 @@ points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = 
 
 #Label point s
 text(0.2, 10.2, expression(s), cex = labelsize)
-points(0.02, 10, pch = 16, col = "black", cex = 1.5)
+points(0.02, 10, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
 #Label the feasible frontier
 # text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)

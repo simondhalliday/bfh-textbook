@@ -37,7 +37,8 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(2, 4, 6)
 
-plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
+plot(0, 0, xlim = xlims, ylim = ylims, 
+     type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
      xaxt = "n", 
@@ -59,7 +60,7 @@ ticksx <- c(0, 1.8, 2.77, 6.66, xlims[2])
 xlabels <- c(NA, expression(paste(l[h])), expression(paste(l[i])), expression(paste(l[j])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, las = 1, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, cex.axis = axislabelsize, las = 2)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -89,10 +90,10 @@ text(9.5, 2.35, expression(paste("Labor-intensive ")), xpd = TRUE, cex = labelsi
 text(9.5, 1.85, expression(paste("technology B")), xpd = TRUE, cex = labelsize)
 text(9.5, 1.32, expression(paste(x^B*bgroup("(", list(l,k),")")) == underline(x)), xpd = TRUE, cex = labelsize)
 
-text(8, 9.7, expression(paste(trs^B*(list(l,k)) > trs^A*(list(l,k)))), cex = labelsize)
+text(8, 9.7, expression(paste(mrts^B*(list(l,k)) > mrts^A*(list(l,k)))), cex = labelsize)
 text(8, 8.5, expression(paste(frac(x[l]^B, x[k]^B) > frac(x[l]^A, x[k]^A))), cex = labelsize)
-text(8, 7.5, expression(paste("along the ray ", frac(k,l))), cex = labelsize)
-Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(8, 7.5, expression(paste("along the ray ", frac(k,l))), cex = labelsize)
+Arrows(5.5, 9.7, 3.4, 9.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
@@ -104,7 +105,7 @@ Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 
 #Ray from t he origin
-segments(0, 0, 3.1, ylims[2], lty = 2, col = "grey22" , lwd = segmentlinewidth)
+#segments(0, 0, 3.1, ylims[2], lty = 2, col = "grey22" , lwd = segmentlinewidth)
 
 # segments(0, 8, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
 #segments(2.9705, 0, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -140,9 +141,8 @@ segments(6.66, 0,
          6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), 
          lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), pch = 16, col = "black", cex = 1.5)
-text(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22) + 0.3, expression(paste(j)), cex = labelsize)
+text(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22) + 0.4, expression(paste(j)), cex = labelsize)
 
-Arrows(7, 8.6, 2.7, 8.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label isocosts
 text(0.4, 8.25, expression(paste(c[1]^{H*minute})), cex = labelsize)

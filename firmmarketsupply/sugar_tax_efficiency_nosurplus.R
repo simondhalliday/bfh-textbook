@@ -1,6 +1,6 @@
 require(shape)
 library(tidyverse)
-pdf(file = "firmmarketsupply/sugar_tax_efficiency_elastic1.pdf", width = 9, height = 7)
+pdf(file = "firmmarketsupply/sugar_tax_efficiency_nosurplus.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -60,13 +60,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-# ticksy <- c(0, NA,  Qs(xpre), NA, 20, ylims[2])
-# ylabels <- c(NA, NA, expression(paste(p[a])), NA, expression(paste(bar(p) )), NA)
-ticksy <- c(0, NA,  Qs(xpre), ylims[2])
-ylabels <- c(NA, NA, expression(paste(p[a])), NA)
-
-ticksx <- c(0, NA, xpre, xlims[2])
-xlabels <- c(NA, NA, expression(paste(X[a])),  NA)
+ticksy <- c(0, NA,  Qs(xpre), NA, 20, ylims[2])
+ylabels <- c(NA, NA, expression(paste(p[a])), NA, expression(paste(bar(p) )), NA)
+ticksx <- c(0, NA, xpre, 10, xlims[2])
+xlabels <- c(NA, NA, expression(paste(X[a])), expression(paste(frac(bar(p), beta ) )), NA)
 
 
 npts <- 500 
@@ -89,18 +86,18 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #polygon(x = xpoly2, y = ypoly2, col = COL[4], density=NULL, border = NA)
 
 # CS 
-xpoly3 <- c(0, 0, xpre)
-ypoly3 <- c(Qs(xpre), mrsA(0), Qs(xpre))
-polygon(x = xpoly3, y = ypoly3, col = COLA[1], density=NULL, border = NA)
+# xpoly3 <- c(0, 0, xpre)
+# ypoly3 <- c(Qs(xpre), mrsA(0), Qs(xpre))
+# polygon(x = xpoly3, y = ypoly3, col = COLA[1], density=NULL, border = NA)
 
 # PS
-xpoly4 <- c(0, 0, xpre, 0)
-ypoly4 <- c(Qs(xpre), Qs(0), Qs(xpre), Qs(xpre))
-polygon(x = xpoly4, y = ypoly4, col = COLB[1], density=NULL, border = NA)
+# xpoly4 <- c(0, 0, xpre, 0)
+# ypoly4 <- c(Qs(xpre), Qs(0), Qs(xpre), Qs(xpre))
+# polygon(x = xpoly4, y = ypoly4, col = COLB[1], density=NULL, border = NA)
 
-text(2, 7.5, expression(paste("Economic profit")), xpd = TRUE, cex = labelsize)
-text(2, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 
-
+# text(2, 7.5, expression(paste("Economic profit")), xpd = TRUE, cex = labelsize)
+# text(2, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 
+# 
 
 #Lines for mrs graph
 lines(xx1, mrsA(xx1), col = COLA[4], lwd = graphlinewidth)

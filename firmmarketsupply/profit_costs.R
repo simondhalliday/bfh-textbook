@@ -18,7 +18,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 10, 0.5, 0.5))
+par(mar =  c(4, 9, 0.5, 0.5))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -52,7 +52,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 4, AvgCost(x = 4), AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(mc == c[1])), expression(paste(ac, "(", x^m,")")), expression(paste(ar, "(", x^m,")", phantom() == p^m)), NA)
+ylabels <- c(NA, expression(paste(mc == c)), expression(paste(ac, "(", x^m,")")), expression(paste(ar, "(", x^m,")", phantom() == p^m)), NA)
 ticksx <- c(0, 4, xlims[2])
 xlabels <- c(NA, expression(paste(x^m)), NA)
 
@@ -78,13 +78,15 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -1, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
+#mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#text(-3, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.7, 0.5*ylims[2], expression(paste("Price, Revenue, and Costs ($) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 4.6, expression(paste(ac(x))), cex = labelsize)
-text(10.5, 3.5, expression(paste(mc(x))), cex = labelsize)
+text(10.5, 3.6, expression(paste(mc == c)), cex = labelsize)
 text(10.5, 0.8, expression(paste(ar(x))), cex = labelsize)
 text(4.75, 0.8, expression(paste(mr(x))), cex = labelsize)
 

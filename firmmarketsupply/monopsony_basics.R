@@ -73,6 +73,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start = 1, end = 0)
+
 
 ylims <- c(0, 14.1)
 xlims <- c(0.25, 1.05)
@@ -114,22 +116,30 @@ lines(xx1, MCL(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Employment, ", l)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Employment, ", l)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2] + 0.1, -1, expression(paste("Employment, ", l)), xpd = TRUE, cex = axislabelsize) 
 text(0.12, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
-segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, MRP(employment()), employment(), MRP(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = Grays[20], lwd = segmentlinewidth)
+segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = Grays[20], lwd = segmentlinewidth)
+segments(0, MRP(employment()), employment(), MRP(employment()), lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
 segments(0, ACL(0.845), xlims[2], ACL(0.845), lty = 1, col = COLA[3], lwd = segmentlinewidth)
-segments(0.845, 0, 0.845, ACL(0.845), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.845, 0, 0.845, ACL(0.845), lty = 2, col = Grays[20], lwd = segmentlinewidth)
 
-text(employment(), 9.5, expression(paste("Profit maximum at")), cex = annotatesize)
+text(employment(), 10, expression(paste("Wage-maker's")), cex = annotatesize)
+text(employment(), 9.5, expression(paste("profit maximum at")), cex = annotatesize)
 text(employment(), 9, expression(paste(mrp == mcl)), cex = annotatesize)
 Arrows(employment(), 8.8, employment(), MRP(employment()) + 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+
+text(0.95, 2, expression(paste("Wage-taker's")), cex = annotatesize)
+text(0.95, 1.5, expression(paste("profit maximum at")), cex = annotatesize)
+text(0.95, 1, expression(paste(mrp == acl, phantom()==w)), cex = annotatesize)
+Arrows(0.95, 2.2, 0.845 + 0.025, ACL(0.85) - 0.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = labelsize)
 
 ## add points
 
@@ -144,9 +154,9 @@ text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = labelsize)
 
 
 # add labels to graphs and polygon
-text(1.04, 13.5, "Average cost \n of labor \n (acl)", cex = annotatesize, xpd = TRUE)
+text(1.04, 13.5, "Average cost \n of labor \n (acl = w)", cex = annotatesize, xpd = TRUE)
 
-text(0.75, 13.4, "Marginal cost \n of labor \n (acl)", cex = annotatesize)
+text(0.75, 13.4, "Marginal cost \n of labor \n (mcl)", cex = annotatesize)
 
 text(0.4, 13.4, "Marginal revenue \n product \n (mrp)", cex = annotatesize)
 

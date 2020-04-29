@@ -14,6 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+Grays <- gray.colors(25, start =1, end = 0)
 
 par(mar =  c(4, 9, 1, 1))
 
@@ -106,11 +107,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 
 # Segments
-segments(xprices[1], 0, xprices[1], prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0,  prices[1], xprices[1],  prices[1], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(xprices[1], 0, xprices[1], prices[1], lty = 2, col = Grays[22] , lwd = segmentlinewidth)
+segments(0,  prices[1], xlims[2],  prices[1], lty = 2, col = Grays[22] , lwd = segmentlinewidth)
 
-segments(0, prices[2], xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, prices[2], xlims[2], prices[2], lty = 2, col = Grays[22] , lwd = segmentlinewidth)
+segments(xprices[2], 0, xprices[2], prices[2], lty = 2, col = Grays[22] , lwd = segmentlinewidth)
 
 # Demand Curve
 lines(xx1, cef(xx1), col = COLA[5], lwd = graphlinewidth)

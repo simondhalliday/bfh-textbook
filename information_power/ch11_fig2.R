@@ -60,8 +60,8 @@ text(0.65, 35, expression(paste("Distutility = ", frac(underline("u"), (1 - q)))
 segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = "darkgray")
 
 #Arrow to Slope of BRF
-Arrows(0.5, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.27, 13, expression(paste("Slope = " - u[q], " = ", frac(underline("u"), (1 - q)^2))), cex = labelsize)
+Arrows(0.45, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.3, 13, expression(paste("Slope = " - u[q])), cex = labelsize)
 
 #Text to indicate delta = 5
 text(0.2, 38, expression(paste("Disutility of effort")), cex = labelsize)

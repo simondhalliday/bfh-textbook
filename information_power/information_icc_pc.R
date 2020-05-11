@@ -45,7 +45,7 @@ npts <- 500
 npts2 <- 501
 #Specify the sequences of points for graphing. 
 xx1 <- seq(10, xlims[2], length.out = npts)
-xx2 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(1, xlims[2], length.out = npts)
 xx0 <- seq(5, xlims[2], length.out = npts)
 
 
@@ -103,7 +103,7 @@ segments(10, 0, 10, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a ray and a point for d.  
-segments(0, 0, 20, 1, lty = 1, lwd = 3, col = COLB[4])
+segments(2, 0.1, 20, 1, lty = 1, lwd = 3, col = COLB[4])
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 

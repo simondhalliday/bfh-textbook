@@ -38,7 +38,7 @@ npts <- 500
 npts2 <- 501
 #Specify the sequences of points for graphing. 
 xx1 <- seq(10, xlims[2], length.out = npts)
-xx2 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(1, xlims[2], length.out = npts)
 
 #Draw the lines for the graphs
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)

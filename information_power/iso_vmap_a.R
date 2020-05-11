@@ -135,14 +135,14 @@ text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(19, 0.05, expression(paste(v[3])), cex = annotatesize)
 text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
-text(21, 0.48, expression(paste("a")), cex = annotatesize)
+text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 
-segments(10, 0, 10, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(10, 0, 10, 0.175, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 0.6545, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = "darkgray", lwd = segmentlinewidth)
@@ -167,6 +167,12 @@ points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
 text(15, 0.2928934, expression(paste("d")), cex = annotatesize)
 
 points(17.889, 0.441, pch = 16, col = "black", cex = 1.5)
-text(19, 0.441, expression(paste("c")), cex = annotatesize)
+text(19, 0.441, expression(paste("e")), cex = annotatesize)
+
+# points same wage w incr/decr in effort
+points(20, 0.0955, pch = 16, col = "black", cex = 1.5)
+text(21, 0.0955, expression(paste("g")), cex = annotatesize)
+points(20, 0.6545, pch = 16, col = "black", cex = 1.5)
+text(19, 0.6545, expression(paste("f")), cex = annotatesize)
 
 dev.off()

@@ -44,7 +44,7 @@ isovlow2 <- function(p, delta = 5, v = 10){
   (-sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
 }
 
-isovhigh4 <- function(p, delta = 5, v = 15){
+isovhigh3 <- function(p, delta = 5, v = 15){
   (sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
 }
 
@@ -95,10 +95,10 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+#lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+#lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+#lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+#lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
@@ -114,24 +114,25 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 #Annotation of the three graphs and the NE
 
 text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
-text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
-text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
+#text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
+#text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
-text(21, 0.48, expression(paste("a")), cex = annotatesize)
+text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
+segments(0, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+
 segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(14.8, 0.9, expression(paste("Rent at")), cex = annotatesize)
-text(15, 0.85, expression(paste("point a")), cex = annotatesize)
+text(15, 0.85, expression(paste("point n")), cex = annotatesize)
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -150,7 +151,7 @@ text(9.5, 0.53, expression(paste("b")), cex = annotatesize)
 
 #Add a point for d
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
-points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
-text(15, 0.2928934, expression(paste("d")), cex = annotatesize)
+#points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
+#text(15, 0.2928934, expression(paste("d")), cex = annotatesize)
 
 dev.off()

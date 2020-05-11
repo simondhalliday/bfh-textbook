@@ -95,8 +95,8 @@ text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsiz
 points(12, 0.75, pch = 16, col = "black", cex = 1.5)
 
 #Arrow to Slope of BRF
-Arrows(10, 0.8, 12, 0.8, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
+Arrows(13, .9, 15, .9, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
 text(6.3, 0.9, expression(paste("Slope = -mrs = ", -frac(1, u[q]))), cex = labelsize)
-text(5, 0.8, expression(paste(" = ", frac((1-q)^2,  underline("u")))), cex = labelsize)
+#text(5, 0.8, expression(paste(" = ", frac((1-q)^2,  underline("u")))), cex = labelsize)
 dev.off()
 

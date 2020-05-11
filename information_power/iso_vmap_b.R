@@ -91,6 +91,20 @@ xx6 <- seq(14.14214, 15, length.out = npts2)
 xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
 
+#Customize ticks and labels for the plot
+ticksy <- c(0, 0.5, 1)
+ylabels <- c(0, expression(paste(frac(1,2))), 1)
+ticksx <- c(0, 5, 10, 20, 40)
+xlabels <- c(0, expression(paste(underline("u"))), expression(paste(p[0] == 2*underline("u"))), expression(paste(p == 4*underline("u"))) , 40)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+#Lines for the coordinates of the Nash equilbrium
+segments(0, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+
 #Draw the lines for the graphs
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
@@ -102,17 +116,7 @@ lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
-
-#Customize ticks and labels for the plot
-ticksy <- c(0, 0.5, 1)
-ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(underline("u"))), expression(paste(p[0] == 2*underline("u"))), expression(paste(p == 4*underline("u"))) , 40)
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 #Annotation of the three graphs and the NE
-
 text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
 #text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 #text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
@@ -120,13 +124,6 @@ text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
-
-#Lines for the coordinates of the Nash equilbrium
-segments(0, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-
-segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

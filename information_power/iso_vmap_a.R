@@ -107,19 +107,6 @@ xx8 <- seq(17.889, 21, length.out = npts2)
 xx9 <- seq(20, xlims[2], length.out = npts2)
 xx10 <- seq(xlims[1], 25, length.out = npts2)
 
-#Draw the lines for the graphs
-#lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
-#lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
-
 #Customize ticks and labels for the plot
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
@@ -140,12 +127,24 @@ text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-
 segments(10, 0, 10, 0.175, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(20, 0, 20, 0.6545, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+
+#Draw the lines for the graphs
+#lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+#lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

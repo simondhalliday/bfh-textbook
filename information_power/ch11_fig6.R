@@ -59,7 +59,7 @@ npts <- 500
 npts2 <- 501
 #Specify the sequences of points for graphing. 
 xx1 <- seq(10, xlims[2], length.out = npts)
-xx2 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(1, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
 xx5 <- seq(xlims[1], xlims[2], length.out = npts2)

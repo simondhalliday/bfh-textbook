@@ -65,9 +65,9 @@ text(6.9, 7.1, expression(paste("(cost = ", bar(c), ")")), cex = actionlabelsize
 
 text(1.8, 5, expression(paste("Principal")), cex = labelsize)
 text(1.3, 3.5, expression(paste("Terminate")), cex = actionlabelsize)
-text(1.3, 3.1, expression(t), cex = actionlabelsize)
+text(1.3, 3.1, expression(paste("(t)")), cex = actionlabelsize)
 text(5, 3.5, expression(paste("Don't terminate")), cex = actionlabelsize)
-text(5, 3.1, expression(1 - t), cex = actionlabelsize)
+text(5, 3.1, expression(paste("(1 - t)")), cex = actionlabelsize)
 
 #Payoffs 
 text(1, .6, expression(z - underline(c)), cex = actionlabelsize)

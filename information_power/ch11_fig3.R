@@ -76,8 +76,8 @@ lines(xx4, tangentLine(xx4), col = "darkgrey", lty = 2, lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1, 1.1)
 ylabels <- c(0, 1, NA)
-ticksx <- c(0, 40)
-xlabels <- c(0, 40)
+ticksx <- c(0, 6, 12, 18, 40)
+xlabels <- c(0, 6, 12, 18, 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 

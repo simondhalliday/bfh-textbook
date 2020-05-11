@@ -112,6 +112,7 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
+text(21, 0.48, expression(paste("n")), cex = annotatesize)
 
 #Add a point for f. referred to in the text
 points(26.2, 0.72, pch = 16, col = "black", cex = 1.2)

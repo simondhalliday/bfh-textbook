@@ -131,13 +131,6 @@ Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangl
 text(14.8, 0.9, expression(paste("Rent at")), cex = annotatesize)
 text(15, 0.85, expression(paste("point n")), cex = annotatesize)
 
-#Arrows and slope of iso-v label
-Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")), cex = annotatesize)
-text(32.3, 0.15, expression(paste(" = -mrs ")), cex = annotatesize)
-text(32, 0.06, expression(paste(" = " -frac(v[p], v[q]))), cex = annotatesize)
-
-
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 

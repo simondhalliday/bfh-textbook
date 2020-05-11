@@ -31,7 +31,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx1 <- seq(0, xlims[2], length.out = npts)
+xx1 <- seq(0, 6.67, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
@@ -77,25 +77,6 @@ Arrows(5, 5.6, 5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(8, 5.4, 8, 7.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(8, 4.6, 8, 1.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-
-#Annotation of the  graphs
-#text(0.65, 35, expression(paste("Distutility = ", frac(underline("u"), (1 - q)))), cex = labelsize)
-
-#Line for the absolute maximum quality
-#segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = "darkgray")
-
-#Arrow to Slope of BRF
-#Arrows(0.5, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-#text(0.27, 13, expression(paste("Slope = " - u[q], " = ", frac(underline("u"), (1 - q)^2))), cex = labelsize)
-
-#Text to indicate delta = 5
-#text(0.2, 38, expression(paste("Disutility of effort")), cex = labelsize)
-#text(0.2, 36, expression(paste("set to ", underline("u"), " = 5")), cex = labelsize)
-
-#Text for max quality
-#text(1.1, 38, expression(paste("Maximum")), cex = labelsize)
-#text(1.1, 36, expression(paste("level of")), cex = labelsize)
-#text(1.1, 34, expression(paste("quality, q")), cex = labelsize)
 
 
 dev.off()

@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "employment/employment_brf_margin.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.4
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -51,6 +53,7 @@ solowCondition <- function(w, delta = 5){
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
+grays <- gray.colors(25, start = 1, end = 0)
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 60)
 ylims <- c(0, 1)
@@ -99,8 +102,8 @@ ticksy <- c(0, 1)
 ylabels <- c(0, 1)
 ticksx <- c(0, 10,xlims[2])
 xlabels <- c(0, expression(paste(w == B/s)), NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 # text(5, 0.4, expression(paste("Slope of Iso-profit: ")))

@@ -3,12 +3,17 @@ require(plotrix)
 pdf(file = "employment/employment_wage_macro.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 WageFn <- function(H, delta = 5) {
   delta /(1 - H)
@@ -38,7 +43,7 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
+lines(xx1, WageFn(xx1), col = COL[1], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
@@ -47,11 +52,11 @@ ticksy <- c(0, 2.5, 5,  40)
 ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1.0, NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.72, 35, expression(paste("Wage Curve, ", w(H))))
+text(0.67, 35, expression(paste("Wage Curve, ", w(H))), cex = labelsize)
 
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
@@ -76,13 +81,13 @@ text(0.72, 35, expression(paste("Wage Curve, ", w(H))))
 #segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
+segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = grays[20])
+segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = grays[20])
 
 #Zero profit condition
 #text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.97, 6, expression(paste(B + underline(u), " (opportunity cost of work)")))
-text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
+text(0.95, 6, expression(paste(B + underline(u), " (opportunity cost of work)")),cex = labelsize,xpd =TRUE)
+text(0.95, 3.5, expression(paste(B, " (unemployment benefits)")),cex = labelsize, xpd =TRUE)
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

@@ -70,7 +70,7 @@ text(-0.1, 1, expression(paste(underline(u)+b)), cex = labelsize, xpd = TRUE)
 text(0.43, 1.5, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
 text(0.5, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)
 text(1.35, 4.5, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
-text(1.35, 1, expression(paste("Willingness to sell")), cex = labelsize, xpd = TRUE)
+text(1.35, 1, expression(paste("Willingness to work")), cex = labelsize, xpd = TRUE)
 text(1.47, 2.7, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)
 
 
@@ -87,7 +87,7 @@ Arrows(.38, 3.65, 0.38, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "triang
 
 #Axes labels
 text(0.5, -0.7, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 
-text(-0.1, 2.5, expression(paste("Wage and  price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
+text(-0.15, 2.5, expression(paste("Wage and  price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 
 

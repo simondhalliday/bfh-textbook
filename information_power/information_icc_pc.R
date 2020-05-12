@@ -14,6 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 isov <- function(p, delta = 5) {
   (p - delta)/p
@@ -48,12 +49,6 @@ xx1 <- seq(10, xlims[2], length.out = npts)
 xx2 <- seq(1, xlims[2], length.out = npts)
 xx0 <- seq(5, xlims[2], length.out = npts)
 
-
-#Draw the lines for the graphs
-lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = 3)
-lines(xx1, brfFn(xx1), col = COLA[3], lwd = 3)
-lines(xx2, solowCondition(xx2, delta = 5), col = COLB[2], lwd = 3)
-
 #Customize ticks and labels for the plot
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(q^N == q^C, phantom() == frac(1,2))), 1)
@@ -87,17 +82,14 @@ Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 #Lines for the coordinates of the Nash equilbrium
-segments(20, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(10, 0, 10, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(10, 0, 10, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-#Iso-profit slope annotation
-# text(25, 0.81, expression(paste("Slope = ", frac(1, 8*delta))))
-# Arrows(25, 0.79, 25, 0.66, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-
-#BRF Slope annotation
-# text(25, 0.41, expression(paste("Slope = ", frac(2*delta, p^2))))
-# Arrows(25, 0.43, 25, 0.56, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#Draw the lines for the graphs
+lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = 3)
+lines(xx1, brfFn(xx1), col = COLA[3], lwd = 3)
+lines(xx2, solowCondition(xx2, delta = 5), col = COLB[3], lwd = 3)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -107,10 +99,7 @@ segments(2, 0.1, 20, 1, lty = 1, lwd = 3, col = COLB[4])
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
-#Add a ray and a point for a. 
-# segments(0, 0, 20, 0.25, lty = 2, lwd = 3, col = "darkgray")
-# points(11.8, 0.15, pch = 16, col = "black", cex = 1.2)
-# text(11.3, 0.17, expression(paste("c")))
+
 
 dev.off()
 

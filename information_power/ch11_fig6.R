@@ -14,6 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 brfFn <- function(p, delta = 5) {
   1 - (2 * delta) / p
@@ -92,23 +93,23 @@ ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 10, 20, 40)
 xlabels <- c(0, expression(paste(2*underline("u"))), expression(paste(4*underline("u"))), 40)
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = annotatesize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = annotatesize)
 
 #Annotation of the three graphs and the NE
-text(31, 0.98, expression(paste("Isoprofit: ", q ," = ", frac(p, 8*underline("u")))), cex = annotatesize)
+text(31, 0.98, expression(paste("Isoprofit: ", q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.62, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.57, expression(paste("function")), cex = annotatesize)
-text(35, 0.48, expression(paste("q = ", 1 - frac(2*underline("u"), p))), cex = annotatesize)
+text(35, 0.48, expression(paste(q == 1 - frac(2*underline("u"), p))), cex = annotatesize)
 text(27.5, 0.1, expression(paste("Iso-v curve")), cex = annotatesize)
-text(27.5, 0.05, expression(paste("v = ", v[1])), cex = annotatesize)
+text(27.5, 0.05, expression(paste(v == v[1])), cex = annotatesize)
 text(37, 0.1, expression(paste("Iso-v curve")), cex = annotatesize)
-text(37, 0.05, expression(paste("v = ", v[2])), cex = annotatesize)
+text(37, 0.05, expression(paste(v == v[2])), cex = annotatesize)
 text(14, 0.52, expression(paste("Nash equilibrium")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(20, 0, 20, 0.65, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 0.65, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

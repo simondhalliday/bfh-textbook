@@ -15,13 +15,11 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
-COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-
+grays <- gray.colors(25, start = 1, end = 0)
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(p, delta = 5) {
@@ -127,11 +125,11 @@ text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(10, 0, 10, 0.175, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 0.6545, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
+segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
+segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)

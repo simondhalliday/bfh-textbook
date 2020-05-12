@@ -15,12 +15,11 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
-COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
@@ -100,15 +99,15 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(0, 0, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(10, 0, 10, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(10, 0, 10, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(20, 0, 20, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
+lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
@@ -137,7 +136,7 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a point for b
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
-text(9.5, 0.53, expression(paste("b")), cex = annotatesize)
+text(9.5, 0.53, expression(paste("c")), cex = annotatesize)
 
 #Add a point for d
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934

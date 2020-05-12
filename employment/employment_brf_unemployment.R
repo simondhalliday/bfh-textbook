@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "employment/employment_brf_unemployment.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -56,8 +58,10 @@ solowCondition <- function(w, delta = 5){
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(5, 5, 4, 2))
+
+par(mar =  c(7, 5, 4, 2))
 xlims <- c(0, 50)
 ylims <- c(0, 1)
 
@@ -76,15 +80,20 @@ npts <- 500
 npts2 <- 501
 #Customize ticks and labels for the plot
 ticksy <- c(0, brfFn(w = 18.2), brfFn(w = 38, s = 0.045), 1)
-ylabels <- c(0, expression(paste(e^{NH})), expression(paste(e^{NL})), 1)
+ylabels <- c(0, expression(paste(e^{NH[2]})), expression(paste(e^{NH[1]})), 1)
 ticksx <- c(0, 10, 18.2, 22.2, 38, 50)
-xlabels <- c(0, expression(paste(w == B/s^{H})), expression(paste(w^{NH})), expression(paste(w == B/s^{L})),expression(paste(w^{NL})), NA)
+xlabels <- c(0, expression(paste(w == B/s^{H[1]})), expression(paste(w^{NH[1]})),NA,expression(paste(w^{NH[2]})), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+#axis tick label
+expression(paste(w == B/s^{H[2]}))
+text(23.46, -0.055, expression(paste(w == B/s^{H[2]})), xpd = TRUE, cex = labelsize) 
 
-mtext(expression(paste("Wage, ", w)), side=1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Employee's effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
+
+mtext(expression(paste("Wage, ", w)), side=1, line = 3.5, cex = axislabelsize)
+text(-5.5, 0.5*ylims[2], expression(paste("Employee's effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Specify the sequences of points for graphing. 
@@ -111,8 +120,8 @@ lines(xx10, solowCondition(xx10, delta = 8.1), col = COLB[3], lwd = graphlinewid
 #lines(xx10, solowCondition(xx10, delta = 9.1), col = COLB[3], lwd = graphlinewidth)
 
 #Annotation of the three graphs and the NE
-text(18, 0.85, expression(paste("Slope: ", frac(e^H, w^H) == frac(1, c^H) )))
-text(38, 0.72, expression(paste("Slope: ", frac(e^{L}, w^{L}) == frac(1, c^{L}) )))
+text(17, 0.85, expression(paste("Slope: ", frac(e^H[1], w^H[1]) == frac(1, c^H[1]) )),cex = labelsize)
+text(37, 0.73, expression(paste("Slope: ", frac(e^{H[2]}, w^{H[2]}) == frac(1, c^{H[2]}) )),cex = labelsize)
 
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
@@ -120,11 +129,11 @@ text(38, 0.72, expression(paste("Slope: ", frac(e^{L}, w^{L}) == frac(1, c^{L}) 
 # text(22, 0.05, expression(paste(v[1])))
 # text(24.8, 0.05, expression(paste(v[2])))
 # text(35, 0.66, expression(paste("Employee's ICC, or")))
-text(44, 0.62, expression(paste("BRF")))
-text(44, 0.58, expression(paste(("low unemployment"))))
+text(45, 0.6, expression(paste("BRF")), cex = labelsize,xpd = TRUE)
+text(45, 0.56, expression(paste(("high employment"))),cex = labelsize, xpd = TRUE)
 
-text(44, 0.95, expression(paste("BRF")))
-text(44, 0.91, expression(paste(("high unemployment"))))
+text(44, 0.95, expression(paste("BRF")),cex = labelsize,xpd = TRUE)
+text(44, 0.91, expression(paste(("low employment"))),cex = labelsize,xpd = TRUE)
 
 # text(36, 0.94, expression(paste("Employee's PC")))
 # text(36, 0.9, expression(paste(v == z)))
@@ -134,10 +143,10 @@ text(44, 0.91, expression(paste(("high unemployment"))))
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
 #segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
 #segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = 2)
-segments(0, brfFn(w = 38, s = 0.045), 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(38, 0, 38, brfFn(w = 38, s = 0.045), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, brfFn(w = 38, s = 0.045), 38, brfFn(w = 38, s = 0.045), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(38, 0, 38, brfFn(w = 38, s = 0.045), lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(38, brfFn(w = 38, s = 0.045)  + 0.04, expression(n^L))
+text(38, brfFn(w = 38, s = 0.045)  + 0.04, expression(n^{H[2]}),cex = labelsize)
 # text(24.5, 0.48, expression(paste("Incomplete Contract")))
 # text(24.5, 0.43, expression(paste("Nash equilibrium")))
 
@@ -159,11 +168,11 @@ points(38, brfFn(w = 38, s = 0.045), pch = 16, col = "black", cex = 1.5)
 #Add a point for the NE
 #points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.2, 0, 18.2, brfFn(w = 18.2), lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, brfFn(w = 18.2), 18.2, brfFn(w = 18.2), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(18.2, 0, 18.2, brfFn(w = 18.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, brfFn(w = 18.2), 18.2, brfFn(w = 18.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 points(18.2, brfFn(w = 18.2), pch = 16, col = "black", cex = 1.5)
-text(18, brfFn(w = 18.2)  + 0.04, expression(n^H))
+text(18, brfFn(w = 18.2)  + 0.04, expression(n^H[1]), cex = labelsize)
 
 # points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 # text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))

@@ -14,31 +14,31 @@ isov <- function(w, delta = 5) {
 }
 
 isovhigh1 <- function(w, delta = 5, v = 5){
-  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 isovlow1 <- function(w, delta = 5, v = 5){
-  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 isovhigh2 <- function(w, delta = 5, v = 15){
-  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 isovlow2 <- function(w, delta = 5, v = 15){
-  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 isovhigh3 <- function(w, delta = 5, v = 20){
-  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 isovlow3 <- function(w, delta = 5, v = 20){
-  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/(2 * v )
 }
 
 brfFn <- function(w, delta = 5) {
-  1 - (2*delta) /w
+  1 - (2*delta) / w
 }
 
 #This is evaluated for p = 12; q = 12/(8*sqrt(12^2 - 4*delta1*v1)) - 1/8 for the slope
@@ -53,8 +53,13 @@ solowCondition <- function(w, delta = 5){
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
+# COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 5, 4, 2))
+
+par(mar =  c(5, 5, 1, 1))
 xlims <- c(0, 60)
 ylims <- c(0, 1)
 
@@ -66,8 +71,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      cex.lab = axislabelsize, 
      line = 2.5,
      bty = "n", 
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 
 npts <- 500 
@@ -86,92 +91,20 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 xx9 <- seq(xlims[1], xlims[2], length.out = npts2)
 
 #Draw the lines for the graphs
-#lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
-#lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
-#lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-#lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-#lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-#lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-#lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
-#lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1)
-#ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ylabels <- c(0, 1)
 ticksx <- c(0, 10,xlims[2])
-xlabels <- c(0, expression(paste(w == B/s)), NA)
+xlabels <- c(0, expression(paste(w == 2, underline(u))), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-#Annotation of the three graphs and the NE
-# text(5, 0.4, expression(paste("Slope of Iso-profit: ")))
-# text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))))
-# Arrows(6.8, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-
 # text(24.8, 0.05, expression(paste(v[N])))
 text(45, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize)
-text(45, 0.605, expression(paste("Best-response")), cex = labelsize)
-text(45, 0.55, expression(paste("function, ", e(hat(c)))), cex = labelsize)
-
-
-
-
-#Lines for the coordinates of the Nash equilbrium
-#segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-#segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-# segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-# segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-#segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-# text(19.5, 0.52, expression(n))
-# text(24.5, 0.48, expression(paste("Incomplete Contract")))
-# text(24.5, 0.43, expression(paste("Nash equilibrium")))
-
-#Arrows and rent label
-# 
-# Arrows(15, 0.8, 10.8, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-# text(14.8, 0.95, expression(paste("Rent at")))
-# text(14.8, 0.9, expression(paste("Incomplete Contract")))
-# text(14.8, 0.85, expression(paste("Nash Equilibrium")))
-
-#Arrows and slope of iso-v label
-# Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-# text(32, 0.2, expression(paste("Slope of iso-v")))
-# text(32.3, 0.15, expression(paste(" = -mrs ")))
-# text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
-
-
-
-#Add a point for the NE
-# points(20, 0.5, pch = 16, col = "black", cex = 1.5)
-
-#segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = 2)
-#segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
-#points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
-
-#Add a point for b & complete contract NE label
-#points(10, 0.5, pch = 16, col = "black", cex = 1.5)
-#text(10.5, 0.47, expression(b))
-# text(5, 0.58, expression(paste("Complete Contract")))
-# text(5, 0.53, expression(paste("Nash equilibrium")))
-
-#Add a point for c
-#Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
-#points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
-#text(20.8, 0.1839422, expression(c))
-# 
-# points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-# text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
-# points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-# text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
-
-#Add a point for f. referred to in the text
-#points(12, 0.82, pch = 16, col = "black", cex = 1.2)
-#text(12, 0.85, expression(paste("NE")))
-
-#Arrow to Pareto-improving Lens
-#Arrows(20, 0.8, 23.8, 0.68, col = "black", lty = 1, lwd = 3)
-#text(20, 0.82, expression(paste("Pareto-Improving Lens")))
+text(45, 0.605, expression(paste("best-response")), cex = labelsize)
+text(45, 0.55, expression(paste("function, ", e(w))), cex = labelsize)
 
 dev.off()

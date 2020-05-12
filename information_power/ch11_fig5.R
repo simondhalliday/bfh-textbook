@@ -57,11 +57,11 @@ mtext(expression(paste("Price, ", p)), side = 1, line = 2.5, cex = axislabelsize
 text(-4.5, 0.5*ylims[2], expression(paste("Quality, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotation of the three graphs and the NE
-text(32, 0.99, expression(paste("Isoprofit:")), cex = annotatesize)
-text(32, 0.92, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
+text(32, 0.92, expression(paste("Isoprofit")), cex = annotatesize)
+#text(32, 0.92, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.64, expression(paste("Best-response")), cex = annotatesize)
-text(35, 0.59, expression(paste("function:")), cex = annotatesize)
-text(35, 0.50, expression(paste(q == 1 - frac(2*underline("u"), p))), cex = annotatesize)
+text(35, 0.59, expression(paste("function")), cex = annotatesize)
+#text(35, 0.50, expression(paste(q == 1 - frac(2*underline("u"), p))), cex = annotatesize)
 text(16, 0.57, expression(paste("Nash")), cex = annotatesize)
 text(16, 0.52, expression(paste("equilibrium")), cex = annotatesize)
 

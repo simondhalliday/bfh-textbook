@@ -87,9 +87,10 @@ lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
 lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+#lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
+#lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[3], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
+
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[3], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
@@ -97,22 +98,23 @@ ticksy <- c(0, 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ylabels <- c(0, expression(paste(e^N)), 1)
 ticksx <- c(0, 10, 20, 40)
-xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^N)) , NA)
+xlabels <- c(0, expression(paste(underline(u))), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
 
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
-text(9.4, 0.05, expression(paste(v[0])), cex = labelsize)
-text(22, 0.05, expression(paste(v[1])), cex = labelsize)
-text(24.8, 0.05, expression(paste(v[2])),cex = labelsize)
+text(8.3, 0.05, expression(paste(v[0] == z)), cex = labelsize)
+#text(22, 0.05, expression(paste(v[1])), cex = labelsize)
+text(24.8, 0.05, expression(paste(v[1])),cex = labelsize)
 text(35, 0.66, expression(paste("Employee's")), cex = labelsize, xpd =TRUE)
-text(35, 0.62, expression(paste("Best Response Function")),cex = labelsize, xpd =TRUE)
+text(35, 0.62, expression(paste("best-response function")),cex = labelsize, xpd =TRUE)
 #text(35, 0.58, expression(paste(e(Delta, a))))
 text(36, 0.94, expression(paste("Employee's")),cex = labelsize)
-text(36, 0.9, expression(paste("Iso-v curves")),cex = labelsize)
+text(36, 0.9, expression(paste("iso-v curves")),cex = labelsize)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -122,16 +124,20 @@ segments(20, 0, 20, ylims[2], lty = 2, col = grays[20], lwd = 2)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = 2)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n),cex = labelsize)
-text(26.5, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
+text(26.5, 0.48, expression(paste("Incomplete contract")),cex = labelsize)
 text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
+
+#Lines for the coordinates of the Nash equilbrium
+segments(0, 0, 20, 0.5, lty = 2, col = grays[22], lwd = segmentlinewidth)
+lines(xx1, tangencyLine(xx1), col = grays[20], lwd = segmentlinewidth, lty = 2)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(15, 0.8, 13.2, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(16.25, 0.98, expression(paste("Rent at")),cex = labelsize)
-text(16.25, 0.93, expression(paste("Incomplete")),cex = labelsize)
-text(16.25, 0.88, expression(paste("Contract")),cex = labelsize)
-text(16.25, 0.83, expression(paste("Nash Equilibrium")),cex = labelsize)
+text(16.25, 0.93, expression(paste("incomplete")),cex = labelsize)
+text(16.25, 0.88, expression(paste("contract")),cex = labelsize)
+text(16.25, 0.83, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and slope of iso-v label
 Arrows(28, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -147,7 +153,7 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 segments(12.5, 0, 12.5, ylims[2], lty = 2, col = grays[20], lwd = 2)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
 points(12.5, isovhigh1(w = 12.5), pch = 16, col = "black", cex = 1.5)
-text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(a),cex = labelsize)
+text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(c),cex = labelsize)
 
 #Add a point for b & complete contract NE label
 #points(10, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -174,3 +180,4 @@ text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(a),cex = labelsize)
 #text(20, 0.82, expression(paste("Pareto-Improving Lens")))
 
 dev.off()
+

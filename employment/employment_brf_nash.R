@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "employment/employment_brf_nash.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -51,6 +53,7 @@ solowCondition <- function(w, delta = 5){
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
+grays <- gray.colors(25, start = 1, end = 0)
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
@@ -61,7 +64,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     line = 2.5,
+     line = 3,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -99,18 +102,18 @@ ticksy <- c(0,  0.5, 1)
 ylabels <- c(0,  expression(paste(e^N)), 1)
 ticksx <- c(0, 10, 20, 40)
 xlabels <- c(0, expression(paste(w == B/s)),  expression(paste(w^N)) , NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
-text(5, 0.4, expression(paste("Slope of Iso-profit: ")))
-text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))))
-Arrows(6.8, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(5.7, 0.42, expression(paste("Slope of Iso-profit: ")), cex = labelsize)
+text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))), cex = labelsize)
+Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-text(24.8, 0.05, expression(paste(v[N])))
-text(35, 0.66, expression(paste("Employee's ICC, or")))
-text(35, 0.62, expression(paste("Best Response Function")))
-text(35, 0.58, expression(paste(e(hat(c)))))
+text(25, 0.05, expression(paste(v[N])), cex = labelsize)
+text(37, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
+text(37, 0.6, expression(paste("Best Response Function")), cex = labelsize, xpd = TRUE)
+text(37, 0.55, expression(paste(e(hat(c)))), cex = labelsize, xpd = TRUE)
 
 
 
@@ -118,12 +121,12 @@ text(35, 0.58, expression(paste(e(hat(c)))))
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
 #segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(19.5, 0.52, expression(n))
-text(24.5, 0.48, expression(paste("Incomplete Contract")))
-text(24.5, 0.43, expression(paste("Nash equilibrium")))
+text(19.5, 0.52, expression(n), cex = labelsize)
+text(26.5, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
+text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and rent label
 # 
@@ -134,9 +137,9 @@ text(24.5, 0.43, expression(paste("Nash equilibrium")))
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = -mrs ")))
-text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
+text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
+text(32.3, 0.15, expression(paste(" = -mrs ")), cex = labelsize)
+text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))), cex = labelsize)
 
 
 
@@ -159,9 +162,9 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 #text(20.8, 0.1839422, expression(c))
 
 points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
+text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
+text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

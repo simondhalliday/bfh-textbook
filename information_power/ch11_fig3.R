@@ -42,6 +42,8 @@ tangentLine <- function(p){
 COL <- c("#bae4b3", "#74c476", "#238b45")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 par(mar =  c(3, 3, .5, .5))
 xlims <- c(0, 40)
@@ -71,7 +73,7 @@ xx4 <- seq(7, 17, 0.01)
 lines(xx1, indiffFn1(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, indiffFn2(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, indiffFn3(xx3), col = COLA[5], lwd = graphlinewidth)
-lines(xx4, tangentLine(xx4), col = "darkgrey", lty = 2, lwd = graphlinewidth)
+lines(xx4, tangentLine(xx4), col = grays[22], lty = 2, lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1, 1.1)
@@ -87,7 +89,7 @@ text(13, 0.05, expression(paste(u[2])), cex = labelsize)
 text(19, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
-segments(0, 1, 40, 1, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 1, 40, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #Annotating line of 100% quality
 text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsize)
 

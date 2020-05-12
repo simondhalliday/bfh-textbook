@@ -18,6 +18,11 @@ disutilityFn <- function(q, delta = 5) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+
 par(mar =  c(3, 3, .5, .5))
 xlims <- c(0, 1.2)
 ylims <- c(0, 40)
@@ -57,7 +62,7 @@ text(-0.115, 0.55*ylims[2], expression(paste("Disutility of providing quality, "
 text(0.65, 35, expression(paste("Disutility = ", frac(underline("u"), (1 - q)))), cex = labelsize)
 
 #Line for the absolute maximum quality
-segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = "darkgray")
+segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = grays[20])
 
 #Arrow to Slope of BRF
 Arrows(0.45, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

@@ -54,7 +54,7 @@ solowCondition <- function(w, delta = 5){
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
 grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 5, 4, 5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -106,14 +106,14 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
-text(5.7, 0.42, expression(paste("Slope of Iso-profit: ")), cex = labelsize)
+text(7, 0.42, expression(paste("Slope of Iso-profit: ")), cex = labelsize)
 text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))), cex = labelsize)
 Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 text(25, 0.05, expression(paste(v[N])), cex = labelsize)
-text(37, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
-text(37, 0.6, expression(paste("Best Response Function")), cex = labelsize, xpd = TRUE)
-text(37, 0.55, expression(paste(e(hat(c)))), cex = labelsize, xpd = TRUE)
+text(38, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
+text(38, 0.6, expression(paste("Best Response Function")), cex = labelsize, xpd = TRUE)
+text(38, 0.55, expression(paste(e(hat(c)))), cex = labelsize, xpd = TRUE)
 
 
 
@@ -125,8 +125,8 @@ segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.5, 0.52, expression(n), cex = labelsize)
-text(26.5, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
-text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
+text(27, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
+text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and rent label
 # 

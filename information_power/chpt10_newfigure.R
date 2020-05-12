@@ -18,7 +18,7 @@ disutilityFn <- function(t, cbar = 1.2, underbarc = 1, z = 0) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(3, 5, 3, 7))
+par(mar =  c(4, 6, 3, 16))
 xlims <- c(0, 1)
 ylims <- c(0,1)
 
@@ -51,33 +51,42 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Segments
-segments(0, 0.8, 1, 0.8, lty = 2, lwd = 1.5, col = "darkgray", xpd = TRUE)
-segments(0.25, 0, 0.25, 0.8, lty = 2, lwd = 1.5, col = "darkgray")
-segments(0, 0.2, 1,0.2,lty = 2, lwd = 1.5, col = "darkgray")
-segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = "darkgray")
+segments(0, 0.8, 1.1, 0.8, lty = 2, lwd = 1.5, col = "darkgray", xpd = TRUE)
+segments(0.25, 0, 0.25, 0.8, lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
+segments(0, 0.2, 1.1,0.2,lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
+segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
 
 #Axis tick labels
 #y
-text(-0.1, 0.2, expression(paste(bar(c)+(p^z-underline(c)))), cex = labelsize, xpd = TRUE)
-text(-0.05, 0.8, expression(paste(p^B)), cex = labelsize, xpd = TRUE)
+text(-0.15, 0.2, expression(paste(bar(c)+(p^z-underline(c)))), cex = labelsize, xpd = TRUE)
+text(-0.1, 0.8, expression(paste(p^B == 1)), cex = labelsize, xpd = TRUE)
 #x
 text(0.25, -0.07, expression(paste(underline(t))), cex = labelsize, xpd = TRUE)
 text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.35, .75, expression(paste(p^N,(t))), cex = labelsize, xpd = TRUE)
-text(0.35, .35, expression(paste("A's rent")), cex = labelsize, xpd = TRUE)
-text(.7, .6, expression(paste("P's profit")), cex = labelsize, xpd = TRUE)
-text(1.12, 0.5, expression(paste("Total surplus")), cex = labelsize, xpd = TRUE)
+text(0.4, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+z)), cex = labelsize, xpd = TRUE)
+text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
+text(.55, .65, expression(paste("Principle's profit")), cex = labelsize, xpd = TRUE)
+text(1.48, 0.5, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)
+text(1.35, 0.8, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
+text(1.35, 0.2, expression(paste("Willingness to work")), cex = labelsize, xpd = TRUE)
+
 
 #Arrows
-Arrows(0.32, 0.375, .32, .55, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.32, 0.315, .32, .23, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(.7, .63, 0.7, 0.76, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(.7, .57, 0.7, 0.32, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(1.12, 0.55, 1.12, 0.76, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
-Arrows(1.12, 0.45, 1.12, 0.24, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+Arrows(0.4, 0.375, .4, .45, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.4, 0.315, .4, .23, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(.4, .68, 0.4, 0.78, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(.4, .62, 0.4, 0.55, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
+#Brackets
+brackets(x1 = 1.12, y1 = 0.76, x2 = 1.12, y2 = 0.24, ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+
+
+#Axes labels
+text(0.5, -0.15, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 
+text(-0.2, 0.5, expression(paste("Wage and  price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 
 dev.off()

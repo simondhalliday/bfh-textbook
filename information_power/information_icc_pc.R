@@ -78,7 +78,6 @@ text(12, 0.92, expression(paste("Isoprofit")), cex = annotatesize)
 text(35, 0.55, expression(paste("Participation")), cex = annotatesize)
 text(35, 0.5, expression(paste("constraint")), cex = annotatesize)
 #text(35, 0.42, expression(paste(q == 1 - frac(underline("u"), p))), cex = annotatesize)
-Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -95,10 +94,11 @@ lines(xx2, solowCondition(xx2, delta = 5), col = COLB[3], lwd = graphlinewidth)
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 #Add a ray and a point for d.  
-segments(2, 0.1, 20, 1, lty = 1, lwd = 3, col = COLB[4])
+segments(2, 0.1, 20, 1, lty = 1, lwd = graphlinewidth, col = COLB[4])
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
+Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 dev.off()

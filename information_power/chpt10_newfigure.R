@@ -86,7 +86,7 @@ brackets(x1 = 1.12, y1 = 0.76, x2 = 1.12, y2 = 0.24, ticks = 0.5, curvature = 0.
 
 #Axes labels
 text(0.5, -0.15, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 
-text(-0.2, 0.5, expression(paste("Price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
+text(-0.2, 0.5, expression(paste("Price, p")), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 
 dev.off()

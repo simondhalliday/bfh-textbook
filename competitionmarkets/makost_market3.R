@@ -55,7 +55,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 1, 2, 3, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(p)^B)), expression(paste(p == bar(p)^{list(A, C)})), NA)
+ylabels <- c(NA, expression(paste(c)), expression(paste(bar(p)^B)), expression(paste(p == bar(p)^{list(A, C)})), NA)
 ticksx <- c(0, 1, 2, 3, xlims[2])
 xlabels <- c(NA, 1, 2, 3, NA)
 
@@ -85,7 +85,7 @@ mtext(expression(paste("Quantity, ", x)), side=1, line = 3, cex = axislabelsize)
 text(2.65, 0.6, expression("Demand of"), cex = labelsize)
 text(2.65, 0.4, expression("three buyers"), cex = labelsize)
 text(1.35, 3.7, expression("Single"), cex = labelsize)
-text(1.35, 3.5, expression("Seller's Supply"), cex = labelsize)
+text(1.35, 3.5, expression("seller's supply"), cex = labelsize)
 
 # text(0.27, 2.6, expression("Equilibrium Price"), cex = labelsize)
 # text(0.27, 2.4, expression("falls in this range"), cex = labelsize)

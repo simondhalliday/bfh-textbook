@@ -68,24 +68,26 @@ require(shape)
 # 
 # write.xlsx(data_final_1, 'incidence_of_non_competes_data.xlsx')
 
-incidence_of_non_competes <- read.xlsx('~/Documents/GitHub/bfh-textbook/employment/incidence_of_non_competes_data.xlsx')
+incidence_of_non_competes <- read.xlsx('employment/incidence_of_non_competes_data.xlsx')
 
 incidence_of_non_competes$group <- factor(incidence_of_non_competes$group)
 
-p1 <- ggplot(incidence_of_non_competes, aes(x=group, y=y)) +
-  geom_bar(stat = "identity", fill = "#386cb0", color="#386cb0", alpha = 0.7) + 
-  scale_x_discrete(limits=c("<HS","HS grad","<1 year of college",">1 year of college", "Associates", "BA", "MA", "Prof Degree", "Doctorate"), labels=c("<HS" = "<HS", "HS grad" = "HS grad",
-                            "<1 year of college" = "<1 year 
-of college", ">1 year of college" = ">1 year 
-of college", "Prof Degree" = "Prof \n Degree")) +
+p1 <- ggplot(incidence_of_non_competes, aes(x = group, y = y)) +
+  geom_bar(stat = "identity", fill = "#0868ac", color="#0868ac") + 
+  scale_x_discrete(limits=c("<HS","HS grad","<1 year of college",">1 year of college", "Associates", "BA", "MA", "Prof Degree", "Doctorate"), labels=c("<HS" = "<HS", "HS grad" = "HS grad", 
+                            "<1 year of college" = "<1 year of college", ">1 year of college" = ">1 year of college", "Prof Degree" = "Prof \n Degree")) +
   xlab("Education Level") +
   ylab("Incidence of Non-Competes") +
   scale_y_continuous(breaks = seq(0, 0.45, by = 0.05), labels = scales::percent_format(accuracy = 1)) +
+  coord_flip() +
   theme_bw() +
-  theme(axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12),  
-        axis.title.x = element_text(size = 13, vjust = -0.5),
-        axis.title.y = element_text(size = 13, vjust = 2))
+  theme(text = element_text(size = 19),
+        axis.text.y = element_text(size = 16),
+        axis.text.x = element_text(size = 16),
+        #axis.title = element_text(size = 24), 
+        axis.title.x = element_text(size = 19, vjust = -0.5),
+        axis.title.y = element_text(size = 19, vjust = 2),
+        panel.grid.minor = element_blank())
 
 print(p1)
 
@@ -94,7 +96,7 @@ print(p1)
 #Save plot to PDF
 ggsave(p1, filename = "incidence_of_non_competes.pdf", 
        path = "employment",
-       width = 7, height = 7, units = "in")
+       width = 9, height = 7, units = "in")
 
 
 dev.off()

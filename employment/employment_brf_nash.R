@@ -110,10 +110,10 @@ text(7, 0.42, expression(paste("Slope of Iso-profit: ")), cex = labelsize)
 text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))), cex = labelsize)
 Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-text(25, 0.05, expression(paste(v[N])), cex = labelsize)
+text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
 text(38, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
 text(38, 0.6, expression(paste("Best Response Function")), cex = labelsize, xpd = TRUE)
-text(38, 0.55, expression(paste(e(hat(c)))), cex = labelsize, xpd = TRUE)
+text(38, 0.55, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 
 
 
@@ -124,8 +124,8 @@ text(38, 0.55, expression(paste(e(hat(c)))), cex = labelsize, xpd = TRUE)
 segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(19.4, 0.52, expression(n), cex = labelsize)
-text(27, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
+text(19.3, 0.52, expression(n), cex = labelsize)
+text(27, 0.48, expression(paste("Incomplete contract")),cex = labelsize)
 text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and rent label
@@ -139,7 +139,7 @@ text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
 text(32.3, 0.15, expression(paste(" = -mrs ")), cex = labelsize)
-text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))), cex = labelsize)
+text(31.5, 0.06, expression(paste(" = " -frac(v[w], v[e]))), cex = labelsize)
 
 
 
@@ -164,7 +164,7 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.7, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
+text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

@@ -213,21 +213,21 @@ lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 # lines(xx2, Min(xx2), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Employment, ", n)), side = 1, line = 3, cex = axislabelsize)
 # text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.17, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.15, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
-segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, MRP(employment(min = 4.6)), employment(min = 4.6), MRP(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(employment(min = 4.6), 0, employment(min =  4.6), MCL(employment(min = 4.6)), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, MCL(employment()), employment(), MCL(employment()), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, MRP(employment(min = 4.6)), employment(min = 4.6), MRP(employment(min = 4.6)), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ACL(employment()), employment(), ACL(employment()), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(employment(min = 4.6), ACL(employment(min = 4.6)), employment(min = 4.6), MCL(employment(min =  4.6)), lty = 1, col = COLA[4], lwd = graphlinewidth)
 
 segments(0, ACL(employment(min = 4.6)), employment(min = 4.6), ACL(employment(min = 4.6)), col = COL[2],lwd = graphlinewidth)
-segments(employment(min = 4.6), ACL(employment(min = 4.6)), 1, ACL(employment(min = 4.6)), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(employment(min = 4.6), ACL(employment(min = 4.6)), 1, ACL(employment(min = 4.6)), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 # add points
@@ -238,17 +238,17 @@ points(employment(min=4.6), Min(employment(min=4.6)), pch = 16, col = "black", c
 points(employment(min = 4.6), MRP(employment(min = 4.6)), pch = 16, col = "black", cex = 1.5)
 
 # add labels
-text(1.01, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
-text(1.01, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
-text(1.01, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
+text(1.02, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
+text(1.02, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
+text(1.02, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
 
-text(0.79, 13.8, "Marginal cost", cex = axislabelsize)
-text(0.79, 13.3, "of labor", cex = axislabelsize)
-text(0.79, 12.8, "(mcl)", cex = axislabelsize)
+text(0.78, 13.8, "Marginal cost", cex = axislabelsize)
+text(0.78, 13.3, "of labor", cex = axislabelsize)
+text(0.78, 12.8, "(mcl)", cex = axislabelsize)
 
-text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
-text(0.38, 13.3, "product", cex = axislabelsize)
-text(0.38, 12.8, "(mrp)", cex = axislabelsize)
+text(0.39, 13.8, "Marginal revenue", cex = axislabelsize)
+text(0.39, 13.3, "product", cex = axislabelsize)
+text(0.39, 12.8, "(mrp)", cex = axislabelsize)
 
 text(employment()-0.01,ACL(employment())-0.5 , "b'", cex = axislabelsize)
 text(employment()-0.01,MCL(employment())+0.5 , "a'", cex = axislabelsize)

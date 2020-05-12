@@ -12,6 +12,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Parameters for figures
 u1 <- 4
@@ -97,7 +98,7 @@ text(2.8, 0.05, expression(paste(u[2] == u[z], phantom() == 0)), cex = labelsize
 text(3.8, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
-segments(0, 1, xlims[2], 1, lty = 2, col = "darkgray", lwd = 2)
+segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)
 #Annotating line of 100% quality
 #text(1.4, 1.025, expression(paste("Maximum level of effort, ", bar(e))))
 

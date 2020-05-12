@@ -65,7 +65,7 @@ text(0.25, -0.07, expression(paste(underline(t))), cex = labelsize, xpd = TRUE)
 text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.4, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+z)), cex = labelsize, xpd = TRUE)
+text(0.4, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+p^z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
 text(1.48, 0.5, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)

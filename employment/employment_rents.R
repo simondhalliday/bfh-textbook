@@ -8,17 +8,20 @@ library(pBrackets)
 pdf(file = "employment/employment_rents.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 4, 5))
+par(mar =  c(6, 6, 4, 5))
 
 PCFn <- function(delta, mu = 0.5) {
   delta/mu
@@ -52,8 +55,8 @@ ylabels <- c(NA, expression(paste(frac(B,s[1]))), NA, expression(paste(w)), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(NA, expression(paste(s[1])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, ticks = FALSE)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, ticks = FALSE, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 Arrows(0, 0, xlims[2], 0, col = "black", lty = 1, col = COLB[4] , arr.xpd = TRUE, arr.type = "triangle", arr.lwd = segmentlinewidth)
 
@@ -86,21 +89,21 @@ text(0.25, 0.6, expression("Rent when employed"), cex = labelsize)
 brackets(x1 = 0.51, y1 = 0.39, x2 = 0.51, y2 = 0.21,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = FALSE)
 
-text(0.6, 0.36, expression("Disutility"), cex = labelsize)
-text(0.6, 0.32, expression("of effort"), cex = labelsize)
-text(0.6, 0.28, expression("per unit"), cex = labelsize)
-text(0.6, 0.24, expression("of time"), cex = labelsize)
+text(0.62, 0.36, expression("Disutility"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.31, expression("of effort"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.26, expression("per unit"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.22, expression("of time"), cex = labelsize,xpd = TRUE)
 
 brackets(x1 = 0.51, y1 = 0.19, x2 = 0.51, y2 = 0.01,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = FALSE)
 
-text(0.6, 0.14, expression("Benefits"), cex = labelsize)
-text(0.6, 0.1, expression("per unit"), cex = labelsize)
-text(0.6, 0.065, expression("of time"), cex = labelsize)
+text(0.62, 0.14, expression("Benefits"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.08, expression("per unit"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.04, expression("of time"), cex = labelsize,xpd = TRUE)
 
 #Axis labels
-mtext(expression(paste("Expected spell of unemployment, ", s)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.07, 0.75*(ylims[2]), expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Expected spell of unemployment, ", s)), side = 1, line = 3, cex = axislabelsize, xpd = TRUE)
+text(-0.08, 0.65*(ylims[2]), expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Arrows for the rents
 Arrows(0, 0.8, 0.25, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
@@ -114,17 +117,17 @@ Arrows(0.5, 0.5, 0.5, 0.77, lty = 1, col = COLA[4] , arr.type = "triangle", arr.
 Arrows(0.5, 0.78, 0.6, 0.78, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 
 
-brackets(x1 = 0.63, y1 = 0.79, x2 = 0.63, y2 = 0.21,  ticks = 0.5, curvature = 0.5, type = 1, 
+brackets(x1 = 0.68, y1 = 0.79, x2 = 0.68, y2 = 0.21,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = FALSE)
 
-text(0.72, 0.53, expression(paste(hat(c), ", cost of")), cex = labelsize)
-text(0.72, 0.48, expression(paste("job loss")), cex = labelsize)
+text(0.79, 0.53, expression(paste(hat(c), ", cost of")), cex = labelsize,xpd = TRUE)
+text(0.79, 0.47, expression(paste("job loss")), cex = labelsize, xpd = TRUE)
 
 
-brackets(x1 = -0.025, y1 = 0.01, x2 = -0.025, y2 = 0.39,  ticks = 0.5, curvature = 0.5, type = 1, 
+brackets(x1 = -0.037, y1 = 0.01, x2 = -0.037, y2 = 0.39,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(-0.11, 0.2, expression(paste("Opportunity cost")), xpd = TRUE, cex = labelsize, srt = 90) 
-text(-0.09, 0.205, expression(paste("of work")), xpd = TRUE, cex = labelsize, srt = 90) 
+text(-0.13, 0.2, expression(paste("Opportunity cost")), xpd = TRUE, cex = labelsize, srt = 90) 
+text(-0.1, 0.205, expression(paste("of work")), xpd = TRUE, cex = labelsize, srt = 90) 
 
 
 # brackets(x1 = 0.63, y1 = 0.39, x2 = 0.63, y2 = 0.01,  ticks = 0.5, curvature = 0.5, type = 1, 

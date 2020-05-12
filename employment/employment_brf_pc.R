@@ -106,7 +106,7 @@ text(9.25, 0.05, expression(paste(v[1])),cex = labelsize, xpd = TRUE)
 text(22.5, 0.05, expression(paste(v[2])),cex = labelsize, xpd = TRUE)
 text(25.3, 0.05, expression(paste(v[3])),cex = labelsize, xpd = TRUE)
 text(37.5, 0.66, expression(paste("Employee's ICC, or")),cex = labelsize,xpd = TRUE)
-text(37.5, 0.61, expression(paste("Best Response Function")),cex = labelsize,xpd = TRUE)
+text(37.5, 0.61, expression(paste("Best-response function")),cex = labelsize,xpd = TRUE)
 text(37.5, 0.56, expression(paste(e(w))),cex = labelsize,xpd = TRUE)
 
 #Lines for the coordinates of the Nash equilbrium

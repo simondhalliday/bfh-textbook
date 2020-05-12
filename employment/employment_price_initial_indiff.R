@@ -96,7 +96,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 text(0.8, 0.05, expression(paste(u[1])), cex = labelsize)
 text(2.8, 0.075, expression(paste(u[2] == u[z])), cex = labelsize - 0.05)
 text(2.915, 0.035, expression(paste(phantom() == 0)), cex = labelsize - 0.05)
-text(3.8, 0.05, expression(paste(u[3])), cex = labelsize)
+text(3.9, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
 segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)

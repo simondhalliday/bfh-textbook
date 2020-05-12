@@ -2,17 +2,20 @@ require(shape)
 pdf(file = "employment/employment_mrp_effort.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(5, 6, 4, 2))
+par(mar =  c(6, 8, 4, 2))
 
 mrpL <- function(l, pmax = 20, s = 0.75) {
   pmax - s*l
@@ -47,8 +50,8 @@ ylabels <- c(NA, expression(paste(frac(w[1],e) == c[1])), expression(paste( frac
 ticksx <- c(0, (10-7)/0.75, (10-4)/0.75, (15-4)/0.75, xlims[2])
 xlabels <- c(NA, expression(paste(l^{n3})), expression(paste(l^{n1})), expression(paste(l^{n2})), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -58,24 +61,24 @@ lines(xx1, mrpL(xx1, pmax = 10), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, mrpL(xx1, pmax = 15), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Total labor used by the employer, ", l == eh)), side = 1, line = 2.5, cex = axislabelsize)
-text(-2.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", c == frac(w,e) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Total labor used by the employer, ", l == eh)), side = 1, line = 3, cex = axislabelsize)
+text(-3.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", c == frac(w,e) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Arrows(18, 4, 18, 6.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #text(16, 5.75, expression(paste("Change in ", mu)), cex = labelsize)
 
 
-text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize)
-text(19, 5, expression(paste(c[1] == frac(w[1],e))), cex = labelsize)
-text(16, 12.6, expression(paste("marginal cost")), cex = labelsize)
+text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize, xpd =TRUE)
+text(19, 5, expression(paste(c[1] == frac(w[1],e))), cex = labelsize, xpd =TRUE)
+text(16, 12.6, expression(paste("marginal cost")), cex = labelsize, xpd =TRUE)
 text(16, 12, expression(paste("of labor")), cex = labelsize)
 Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
 
-text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize)
+text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize, xpd =TRUE)
 text(11, 12.3, expression(paste("marginal")), cex = labelsize)
 text(11, 11.7, expression(paste("benefit")), cex = labelsize)
 Arrows(11, 11.3, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -105,6 +108,6 @@ text((10-4)/0.75 + 0.25, 4 + 0.6, expression(paste(n[1])), cex = labelsize)
 
 #Label Demand
 text(13, 1, expression(paste(mb[1])), cex = labelsize)
-text(19.5, 1, expression(paste(mb[2])), cex = labelsize)
+text(19.5, 1, expression(paste(mb[2])), cex = labelsize,xpd =TRUE)
 
 dev.off()

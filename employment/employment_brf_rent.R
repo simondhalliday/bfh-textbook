@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "employment/employment_brf_rent.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -48,6 +50,7 @@ tangencyLine <- function(w){
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
+grays <- gray.colors(25, start = 1, end = 0)
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
@@ -58,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     line = 2.5,
+     line = 3,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -95,56 +98,56 @@ ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(e^N)), 1)
 ticksx <- c(0, 10, 20, 40)
 xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^N)) , NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
-text(9.5, 0.05, expression(paste(v[0])))
-text(22, 0.05, expression(paste(v[1])))
-text(24.8, 0.05, expression(paste(v[2])))
-text(35, 0.66, expression(paste("Employee's")))
-text(35, 0.62, expression(paste("Best Response Function")))
+text(9.4, 0.05, expression(paste(v[0])), cex = labelsize)
+text(22, 0.05, expression(paste(v[1])), cex = labelsize)
+text(24.8, 0.05, expression(paste(v[2])),cex = labelsize)
+text(35, 0.66, expression(paste("Employee's")), cex = labelsize, xpd =TRUE)
+text(35, 0.62, expression(paste("Best Response Function")),cex = labelsize, xpd =TRUE)
 #text(35, 0.58, expression(paste(e(Delta, a))))
-text(36, 0.94, expression(paste("Employee's")))
-text(36, 0.9, expression(paste("Iso-v curves")))
+text(36, 0.94, expression(paste("Employee's")),cex = labelsize)
+text(36, 0.9, expression(paste("Iso-v curves")),cex = labelsize)
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-segments(20, 0, 20, ylims[2], lty = 2, col = "darkgray", lwd = 2)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = 2)
+segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = 2)
+segments(20, 0, 20, ylims[2], lty = 2, col = grays[20], lwd = 2)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = 2)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(19.5, 0.52, expression(n))
-text(24.5, 0.48, expression(paste("Incomplete Contract")))
-text(24.5, 0.43, expression(paste("Nash equilibrium")))
+text(19.5, 0.52, expression(n),cex = labelsize)
+text(26.5, 0.48, expression(paste("Incomplete Contract")),cex = labelsize)
+text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(15, 0.8, 13.2, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(16.25, 0.98, expression(paste("Rent at")))
-text(16.25, 0.93, expression(paste("Incomplete")))
-text(16.25, 0.88, expression(paste("Contract")))
-text(16.25, 0.83, expression(paste("Nash Equilibrium")))
+text(16.25, 0.98, expression(paste("Rent at")),cex = labelsize)
+text(16.25, 0.93, expression(paste("Incomplete")),cex = labelsize)
+text(16.25, 0.88, expression(paste("Contract")),cex = labelsize)
+text(16.25, 0.83, expression(paste("Nash Equilibrium")),cex = labelsize)
 
 #Arrows and slope of iso-v label
-Arrows(29.5, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")))
-text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
+Arrows(28, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(32, 0.2, expression(paste("Slope of iso-v")),cex = labelsize)
+text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")),cex = labelsize)
+text(32, 0.07, expression(paste(" = " -frac(v[w], v[e]))),cex = labelsize)
 
 
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(12.5, 0, 12.5, ylims[2], lty = 2, col = "darkgray", lwd = 2)
+segments(12.5, 0, 12.5, ylims[2], lty = 2, col = grays[20], lwd = 2)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
 points(12.5, isovhigh1(w = 12.5), pch = 16, col = "black", cex = 1.5)
-text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(a))
+text(12.5 - 0.5, isovhigh1(w = 12.5) + 0.025, expression(a),cex = labelsize)
 
 #Add a point for b & complete contract NE label
 #points(10, 0.5, pch = 16, col = "black", cex = 1.5)

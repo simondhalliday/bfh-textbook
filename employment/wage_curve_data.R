@@ -24,6 +24,10 @@ Emp1 %>%
   ylab("Total earnings (2013 $)") +
   xlab("Total employment (percentage)") +
   theme_bw() +
-  theme(panel.grid.minor = element_blank())
+  theme(panel.grid.minor = element_blank(),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),  
+        axis.title.x = element_text(size = 17),
+        axis.title.y = element_text(size = 17))
 
 dev.off()

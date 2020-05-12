@@ -81,7 +81,7 @@ text(10 + 0.75, 0.125 - 0.025, expression(paste(a)), cex = annotatesize)
 # text(16.8, 0.12, expression(paste("Slope = ", q[p])))
 
 #Arrow to Slope of isoprofit
-Arrows(12, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(14, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(8.5, 0.80, expression(paste("Slope = ", frac(q, p))), cex = annotatesize)
 
 dev.off()

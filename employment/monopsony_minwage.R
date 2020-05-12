@@ -62,13 +62,18 @@ Min <- function(n, min = 4.6){
 }
 
 #Set parameters for graphics
-axislabelsize <- 1.6
-graphlinewidth <- 2.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+
 
 ylims <- c(0, 14.1)
 xlims <- c(0.25, 1.05)
@@ -140,25 +145,25 @@ points(employment(), MRP(employment()), pch = 16, col = "black", cex = 1.5)
 points(0.845, ACL(0.845), pch = 16, col = "black", cex = 1.5)
 
 # label points
-text(employment() + 0.01, ACL(employment()) - 0.5 , "b", cex = axislabelsize)
-text(employment() - 0.01, MCL(employment()) + 0.3 , "a", cex = axislabelsize)
-text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = axislabelsize)
+text(employment() + 0.01, ACL(employment()) - 0.5 , "b", cex = labelsize)
+text(employment() - 0.01, MCL(employment()) + 0.3 , "a", cex = labelsize)
+text(0.845 + 0.01, ACL(0.85) - 0.4, "c", cex = labelsize)
 
 
 # add labels to graphs
 #text(1.03, 14.3, "Monopsony", cex = axislabelsize, xpd = TRUE)
-text(1.01, 13.8, "Average cost", cex = axislabelsize, xpd = TRUE)
-text(1.01, 13.3, "of labor", cex = axislabelsize, xpd = TRUE)
-text(1.01, 12.8, "(acl)", cex = axislabelsize, xpd = TRUE)
+text(1.01, 13.8, "Average cost", cex = labelsize, xpd = TRUE)
+text(1.01, 13.3, "of labor", cex = labelsize, xpd = TRUE)
+text(1.01, 12.8, "(acl)", cex = labelsize, xpd = TRUE)
 
 #text(0.77, 14.3, "Monopsony", cex = axislabelsize, xpd = TRUE)
-text(0.78, 13.8, "Marginal cost", cex = axislabelsize)
-text(0.78, 13.3, "of labor", cex = axislabelsize)
-text(0.78, 12.8, "(mcl)", cex = axislabelsize)
+text(0.78, 13.8, "Marginal cost", cex = labelsize)
+text(0.78, 13.3, "of labor", cex = labelsize)
+text(0.78, 12.8, "(mcl)", cex = labelsize)
 
-text(0.38, 13.8, "Marginal revenue", cex = axislabelsize)
-text(0.38, 13.3, "product", cex = axislabelsize)
-text(0.38, 12.8, "(mrp)", cex = axislabelsize)
+text(0.38, 13.8, "Marginal revenue", cex = labelsize)
+text(0.38, 13.3, "product", cex = labelsize)
+text(0.38, 12.8, "(mrp)", cex = labelsize)
 
 #text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
 #text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)

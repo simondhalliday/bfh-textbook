@@ -78,9 +78,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 9, 12, 18, ylims[2])
-ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN}, "= 12")), expression(paste( frac(bar(p) - c[1],2*beta) )),  NA)
+ylabels <- c(NA, expression(paste(x^{B},"* = 9")), expression(paste(x^{BN}, "= 12")), expression(paste( frac(bar(p) - c,2*beta) )),  NA)
 ticksx <- c(0, 9, 12, 13.5, 18, xlims[2])
-xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN}, "= 12")), expression(paste(x[O]^{A}, "= 13.5")), expression(paste(frac(bar(p) - c[1],2*beta))), NA)
+xlabels <- c(NA, expression(paste(x^{A},"* = 9")), expression(paste(x^{AN}, "= 12")), expression(paste(x[O]^{A}, "= 13.5")), expression(paste(frac(bar(p) - c,2*beta))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 text(x = c(0, 8, 11, 14.5, 18, 36, xlims[2]), par("usr")[3] - 0.4, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)

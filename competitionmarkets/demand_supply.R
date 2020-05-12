@@ -14,7 +14,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
-par(mar =  c(5, 7, 1, 1))
+par(mar =  c(5, 7, 0.5, 0.5))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -77,7 +77,7 @@ polygon(x = xpoly2, y = ypoly2, col = COLA[1], density = NULL, border = NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-text(25, 6, expression(paste("Producer surplus")), xpd = TRUE, cex = labelsize)
+text(25, 6, expression(paste("Economic Profit")), xpd = TRUE, cex = labelsize)
 #text(25, 5, expression(paste("(Economic profit)")), xpd = TRUE, cex = labelsize) 
 text(25, 11.5, expression(paste("Consumer surplus")), xpd = TRUE, cex = labelsize) 
 
@@ -92,7 +92,7 @@ points(75, 7.5, pch = 16, col = "black", cex = 1.5)
 #Label axes
 mtext(expression(paste("Market quantity, ", X)), side = 1, line = 3, cex = axislabelsize)
 #mtext(expression(paste("Market output of the good, ", X)), side = 1, line = 3, cex = axislabelsize)
-text(-20, 0.5*ylims[2], expression(paste("Price per unit of X, ", p[X])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-21, 0.5*ylims[2], expression(paste("Price per unit, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 text(103, 12, expression("Sellers' supply"), cex = labelsize)
 text(103, 6, expression(paste("Buyers' demand")), cex = labelsize)

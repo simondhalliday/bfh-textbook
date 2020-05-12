@@ -14,8 +14,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+Grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(8, 10, 1, 1))
+par(mar =  c(6, 10.5, 1, 1))
 
 Demand <- function(x, rmax = 20, xmax = 12, n = 10) {
   rmax - (rmax/(n*xmax))*x
@@ -45,8 +46,6 @@ ylims <- c(0, 22)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(46.08, 55, 64)
-b <- c(46.08, 55, 64)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -62,12 +61,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 6, 7.5, Demand(x = 60), 20, ylims[2])
+ticksy <- c(0, Supply(x = 60), 7.5, Demand(x = 60), 20, ylims[2])
 #ylabels <- c(NA, expression(paste(p^L)), expression(paste(p,"*")), expression(paste(wtp(X^{SL}))), expression(paste(bar(p))), NA)
-ylabels <- c(NA, expression(paste(p^L) == 6), expression(paste(p,"*") == 7.5), expression(paste(wtp(X^{SL}) == 10)), expression(paste(bar(p) == 20)), NA)
+ylabels <- c(NA, expression(paste(p^L) == 6), expression(paste(p^c) == 7.5), expression(paste(wtp(X^{SL}) == 10)), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0,  60, 75, 84, 120, xlims[2])
 #xlabels <- c(NA, expression(paste(X^{SL})), expression(paste(X,"*")), expression(paste(X^{DL})), expression(paste(bar(p)/beta)), NA)
-xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X^{"*"} == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
+xlabels <- c(NA, expression(paste(X^{SL} == 60)), expression(paste(X^{c} == 75)), expression(paste(X^{DL} ==84)), expression(paste(bar(p)/beta == 120)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 text(x = c(0, 52, 71, 90, 115, xlims[2]), par("usr")[3] - 0.5, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
@@ -86,18 +85,20 @@ lines(xx2, Supply(xx2), col = COLB[4], lty = 2, lwd = segmentlinewidth)
 #Label axes
 #mtext(expression(paste("Market quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -3.5, expression(paste("Market quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-35, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-37, 0.55*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-# segments(0, 7.5, 75, 7.5, lty = 2, "gray" , lwd = segmentlinewidth)
-# segments(75, 0, 75, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 7.5, 75, 7.5, lty = 2, Grays[20] , lwd = segmentlinewidth)
+# segments(75, 0, 75, 7.5, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
 points(75, 7.5, pch = 16, col = "black", cex = 1.5)
 text(75, 8.25, expression(c), cex = labelsize)
 
-segments(0, Supply(x = 60), 84, Demand(x = 84), lty = 2, "gray" , lwd = segmentlinewidth)
-segments(60, 0, 60, Demand(x = 60), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, Demand(x = 60), 60, Demand(x = 60), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(84, 0, 84, Demand(x = 84), lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(0, Supply(x = 60), 84, Demand(x = 84), lty = 2, Grays[20] , lwd = segmentlinewidth)
+segments(0, Supply(x = 60), xlims[2], Demand(x = 84), lty = 2, Grays[20] , lwd = segmentlinewidth)
+segments(60, 0, 60, Demand(x = 60), lty = 2, col = Grays[20] , lwd = segmentlinewidth)
+segments(0, Demand(x = 60), 60, Demand(x = 60), lty = 2, col = Grays[20] , lwd = segmentlinewidth)
+
+segments(84, 0, 84, Demand(x = 84), lty = 2, col = Grays[20] , lwd = segmentlinewidth)
 points(60, Supply(x = 60), pch = 16, col = "black", cex = 1.5)
 points(84, Demand(x = 84), pch = 16, col = "black", cex = 1.5)
 points(60, Demand(x = 60), pch = 16, col = "black", cex = 1.5)

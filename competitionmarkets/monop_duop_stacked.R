@@ -206,7 +206,7 @@ text(3.7, 4.7, expression("profit"), cex = labelsize)
 ticksy <- c(0, 4, AvgRevenue(xA = 8/3, xB = 8/3), MRevenue(xA = 0, xB = 2.667), AvgRevenue(xA = 0), ylims[2])
 ylabels <- c(NA, expression(paste(c)), expression(paste(p^N)), expression(paste(bar(p) - beta*x^B )), expression(paste(bar(p))), NA)
 ticksx <- c(0, 8/3, 2*8/3, mrxInt(xB = 2.667) + 8/3,  12, xlims[2])
-xlabels2 <- c(NA, expression(paste(frac(bar(p) - beta*x^B,2*beta ))), expression(paste(frac(bar(p),beta))), NA )
+xlabels2 <- c(NA, NA, expression(paste(frac(bar(p),beta))), NA )
 #xlabels2 <- c(NA, expression(paste(x^{AN})), expression(paste(frac(bar(p) - beta*x^B,2*beta ))), expression(paste(frac(bar(p),beta))), NA )
 ticksy2 <- c(ylims[1], ylims[2])
 

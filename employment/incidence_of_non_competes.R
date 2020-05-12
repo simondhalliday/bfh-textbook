@@ -85,8 +85,8 @@ p1 <- ggplot(incidence_of_non_competes, aes(x = group, y = y)) +
         axis.text.y = element_text(size = 16),
         axis.text.x = element_text(size = 16),
         #axis.title = element_text(size = 24), 
-        axis.title.x = element_text(size = 19, vjust = -0.5),
-        axis.title.y = element_text(size = 19, vjust = 2),
+        axis.title.x = element_text(size = 20, vjust = -0.5),
+        axis.title.y = element_text(size = 20, vjust = 2),
         panel.grid.minor = element_blank())
 
 print(p1)

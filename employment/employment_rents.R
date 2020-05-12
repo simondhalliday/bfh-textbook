@@ -74,7 +74,7 @@ polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
 xpoly2 <- c(0, 0.5, 0.5, 0, 0)
 ypoly2 <- c(0.2, 0.2, 0.4, 0.4, 0.2)
-polygon(x = xpoly2, y = ypoly2, col="lightgrey", density=NULL, border = NA)
+polygon(x = xpoly2, y = ypoly2, col="gray", density=NULL, border = NA)
 
 xpoly3 <- c(0, 0.5, 0.5, 0, 0)
 ypoly3 <- c(0.4, 0.4, 0.8, 0.8, 0.4)

@@ -87,9 +87,9 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(10, 0, 10, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
-lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = 3)
-lines(xx1, brfFn(xx1), col = COLA[3], lwd = 3)
-lines(xx2, solowCondition(xx2, delta = 5), col = COLB[3], lwd = 3)
+lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COLA[3], lwd = graphlinewidth)
+lines(xx2, solowCondition(xx2, delta = 5), col = COLB[3], lwd = graphlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

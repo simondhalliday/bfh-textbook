@@ -70,7 +70,7 @@ text(5, 3.5, expression(paste("Don't terminate")), cex = actionlabelsize)
 text(5, 3.1, expression(paste("(1 - t)")), cex = actionlabelsize)
 
 #Payoffs 
-text(1, .6, expression(z - underline(c)), cex = actionlabelsize)
+text(1, .6, expression(p^z - underline(c)), cex = actionlabelsize)
 text(5, .6, expression(p - underline(c)), cex = actionlabelsize)
 text(9, .6, expression(p - bar(c)), cex = actionlabelsize)
 

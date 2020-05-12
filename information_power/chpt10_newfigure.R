@@ -67,7 +67,7 @@ text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 #Text annotations
 text(0.4, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
-text(.55, .65, expression(paste("Principle's profit")), cex = labelsize, xpd = TRUE)
+text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
 text(1.48, 0.5, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)
 text(1.35, 0.8, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
 text(1.35, 0.2, expression(paste("Willingness to work")), cex = labelsize, xpd = TRUE)
@@ -86,7 +86,7 @@ brackets(x1 = 1.12, y1 = 0.76, x2 = 1.12, y2 = 0.24, ticks = 0.5, curvature = 0.
 
 #Axes labels
 text(0.5, -0.15, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 
-text(-0.2, 0.5, expression(paste("Wage and  price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
+text(-0.2, 0.5, expression(paste("Price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 
 dev.off()

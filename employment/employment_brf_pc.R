@@ -50,7 +50,8 @@ tangencyLine <- function(w){
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
-par(mar =  c(5, 5, 4, 2))
+grays <- gray.colors(25, start = 1, end = 0)
+par(mar =  c(5, 5, 4, 5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -60,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     line = 2.5,
+     line = 3,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -82,7 +83,7 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = "#beaed4", lwd = 4)
+lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
@@ -97,32 +98,32 @@ ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
 ylabels <- c(0, expression(paste(e^g)), expression(paste(e^N)), 1)
 ticksx <- c(0, 10, 18.4, 20, 40)
 xlabels <- c(0, expression(paste(w == B/s)), expression(paste(w^g)), expression(paste(w^N)) , NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 #text(5, 0.3, expression(paste("Iso-profit: ", frac(q, p) ," = ", frac(1, 8*delta))))
 #text(35, 0.62, expression(paste("BRF: q = ", 1 - frac(2*delta, p))))
 #text(3.9, 0.05, expression(paste(v[0],  " = z")))
 #text(9.5, 0.05, expression(paste(v[1])))
-text(22, 0.05, expression(paste(v[1])))
-text(24.8, 0.05, expression(paste(v[2])))
-text(35, 0.66, expression(paste("Employee's ICC, or")))
-text(35, 0.62, expression(paste("Best Response Function")))
-text(35, 0.58, expression(paste(e(hat(c), a))))
-text(36, 0.94, expression(paste("Employee's PC")))
-text(36, 0.9, expression(paste(v == z)))
+text(22, 0.05, expression(paste(v[1])),cex = labelsize,xpd = TRUE)
+text(24.8, 0.05, expression(paste(v[2])),cex = labelsize, xpd = TRUE)
+text(37.5, 0.66, expression(paste("Employee's ICC, or")),cex = labelsize,xpd = TRUE)
+text(37.5, 0.61, expression(paste("Best Response Function")),cex = labelsize,xpd = TRUE)
+text(37.5, 0.56, expression(paste(e(hat(c), a))),cex = labelsize,xpd = TRUE)
+text(36, 0.94, expression(paste("Employee's PC")),cex = labelsize, xpd = TRUE)
+text(36, 0.9, expression(paste(v == z)),cex = labelsizes,xpd = TRUE)
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(20, 0, 20, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(19.5, 0.52, expression(n))
-text(24.5, 0.48, expression(paste("Incomplete Contract")))
-text(24.5, 0.43, expression(paste("Nash equilibrium")))
+text(19.5, 0.52, expression(n), cex = labelsize)
+text(27, 0.48, expression(paste("Incomplete Contract")), cex = labelsize)
+text(27, 0.43, expression(paste("Nash equilibrium")), cex = labelsize)
 
 #Arrows and rent label
 # Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -133,20 +134,20 @@ text(24.5, 0.43, expression(paste("Nash equilibrium")))
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")))
-text(32.3, 0.15, expression(paste(" = -mrs ")))
-text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))))
+text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
+text(32.3, 0.15, expression(paste(" = -mrs ")), cex = labelsize)
+text(32, 0.08, expression(paste(" = " -frac(v[w], v[e]))),cex = labelsize)
 
 
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-segments(18.4, 0, 18.4, 0.75, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(18.4, 0, 18.4, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
 #points(18.5, brfFn(18.5), pch = 16, col = "black", cex = 1.5)
-text(18, brfFn(18.4) + 0.02, expression(g))
+text(18, brfFn(18.4) + 0.02, expression(g), cex = labelsize)
 
 
 #Add a point for b & complete contract NE label
@@ -158,12 +159,12 @@ text(18, brfFn(18.4) + 0.02, expression(g))
 #Add a point for c
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
 points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
-text(20.8, 0.1839422, expression(c))
+text(20.8, 0.1839422, expression(c), cex = labelsize)
 
 points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f))
+text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f),cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b))
+text(22 + 0.5, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b),cex = labelsize)
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

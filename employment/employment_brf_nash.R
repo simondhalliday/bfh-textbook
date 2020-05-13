@@ -112,7 +112,7 @@ Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "tria
 
 text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
 text(38, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
-text(38, 0.6, expression(paste("Best Response Function")), cex = labelsize, xpd = TRUE)
+text(38, 0.6, expression(paste("Best-response function")), cex = labelsize, xpd = TRUE)
 text(38, 0.55, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 
 

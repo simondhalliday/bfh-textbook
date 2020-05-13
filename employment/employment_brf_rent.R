@@ -129,7 +129,7 @@ text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(0, 0, 20, 0.5, lty = 2, col = grays[22], lwd = segmentlinewidth)
-lines(xx1, tangencyLine(xx1), col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0, 0, 20, 0.82, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -143,7 +143,7 @@ text(16.25, 0.83, expression(paste("Nash equilibrium")),cex = labelsize)
 Arrows(28, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")),cex = labelsize)
 text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")),cex = labelsize)
-text(32, 0.07, expression(paste(" = " -frac(v[w], v[e]))),cex = labelsize)
+text(32, 0.06, expression(paste(" = " -frac(v[w], v[e]))),cex = labelsize)
 
 
 

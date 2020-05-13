@@ -27,7 +27,7 @@ Emp1 %>%
   theme(panel.grid.minor = element_blank(),
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12),  
-        axis.title.x = element_text(size = 17),
-        axis.title.y = element_text(size = 17))
+        axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15))
 
 dev.off()

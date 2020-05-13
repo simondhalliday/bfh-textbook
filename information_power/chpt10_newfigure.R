@@ -70,7 +70,7 @@ text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
 text(1.48, 0.5, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)
 text(1.35, 0.8, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
-text(1.35, 0.2, expression(paste("Willingness to work")), cex = labelsize, xpd = TRUE)
+text(1.35, 0.2, expression(paste("Willingness to sell")), cex = labelsize, xpd = TRUE)
 
 
 #Arrows

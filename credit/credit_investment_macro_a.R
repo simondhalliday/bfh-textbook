@@ -1,9 +1,9 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
-#Title: Coordination, Conflict and Competition: A Text in Microeconomics
+#' Graph Designer: Scott Cohn
+#' Authors: Bowles and Halliday
+#' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "credit/credit_investment_macro.pdf", width = 8, height = 6)
+pdf(file = "credit/credit_investment_macro_a.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -67,8 +67,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksy <- c(ylims[1], 0.5, ylims[2])
-ylabels <- c(NA, expression(paste(f == frac(1,2))),  NA)
+ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
+ylabels <- c(NA, expression(paste(f == frac(1,2))), 1)
 ticksx <- c(xlims[1], 0.39, 0.59, xlims[2])
 xlabels <- c(NA, expression(paste(delta[1]^{W})), expression(paste(delta[0]^{W})), NA)
 
@@ -79,9 +79,9 @@ npts <- 503
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the graphs
-lines(xx1, brfFn(xx1, k = 0.28), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.75), col = COLA[4], lwd = graphlinewidth)
+# lines(xx1, brfFn(xx1, k = 0.28), col = COLA[4], lwd = graphlinewidth)
+# lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
+# lines(xx1, brfFn(xx1, k = 0.75), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = segmentlinewidth, lty = 2)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, isoreturnFn(xx1, pi = 0.5), col = COLB[4], lwd = graphlinewidth)
@@ -106,30 +106,22 @@ text(0.59 + 0.025, brfFn(0.59, k = 0.75) - 0.03, expression(paste(a)), cex = lab
 #segments(.7, -1, 0.7, brfFn(delta = 0.7, k = 0.28), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.7, brfFn(0.7, k = 0.28), pch = 16, col = "black", cex = 1.5)
 
+# ZPC
 text(1.4, 0.91, expression(paste(pi[1] == 1 + rho[1])), cex = labelsize)
 text(1.4, 0.78, expression(paste(pi[0] == 1 + rho[0])), cex = labelsize)
 
-
-text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
-text(1.1, 1.02, expression(paste("now marginal borrower")), cex = labelsize, xpd = TRUE)
-Arrows(1.1, 0.98, 1.1, 0.92, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-text(1.1, 0.5, expression(paste("BRF of")), cex = labelsize)
-text(1.1, 0.44, expression(paste("wealthy borrower")), cex = labelsize)
-Arrows(1.1, 0.53, 1.1, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-
-text(0.6, 0.91, expression(paste("BRF of previously")), cex = labelsize)
-text(0.6, 0.85, expression(paste("marginal borrower")), cex = labelsize)
-Arrows(0.6, 0.82, 0.6, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-
-text(0.12, 0.44, expression(paste("zpc")), cex = labelsize)
-text(0.12, 0.38, expression(paste("after")), cex = labelsize)
-Arrows(0.17, 0.43, 0.27, 0.43, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.12, 0.26, expression(paste("zpc")), cex = labelsize)
-text(0.12, 0.2, expression(paste("before")), cex = labelsize)
-Arrows(0.17, 0.25, 0.3, 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
+# text(1.1, 1.02, expression(paste("now marginal borrower")), cex = labelsize, xpd = TRUE)
+# Arrows(1.1, 0.98, 1.1, 0.92, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# 
+# text(1.1, 0.5, expression(paste("BRF of")), cex = labelsize)
+# text(1.1, 0.44, expression(paste("wealthy borrower")), cex = labelsize)
+# Arrows(1.1, 0.53, 1.1, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# 
+# 
+# text(0.6, 0.91, expression(paste("BRF of previously")), cex = labelsize)
+# text(0.6, 0.85, expression(paste("marginal borrower")), cex = labelsize)
+# Arrows(0.6, 0.82, 0.6, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.49, 0.15, expression(paste("Policy")), cex = labelsize)
 text(0.49, 0.09, expression(paste("Change")), cex = labelsize)

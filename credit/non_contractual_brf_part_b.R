@@ -115,14 +115,13 @@ contour(d1, f1,
         yaxs="i",
         add = TRUE)
 
-segments(0.5, 0, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.5, 0.65, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, ylow(delta = 0.5), 0.5, ylow(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(0.34, brfFn(delta = 0.34) - 0.15, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0.655, brfFn(delta = 0.655) - 0.15, 0.655, brfFn(delta = 0.655) + 0.15, lty = 2, col = grays[20]  , lwd = segmentlinewidth)
-
-#segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0.34,0, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.655, brfFn(delta = 0.655) - 0.15, 0.655, brfFn(delta = 0.655) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 # 
 # segments(8, 0, 8,indiffA(x = 8)  , lty = 2, col = "gray" , lwd = segmentlinewidth)

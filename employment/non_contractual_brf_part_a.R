@@ -79,10 +79,19 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
 text(-0.05, 0.58, expression(paste(f^d)), cex = labelsize, xpd =TRUE)
 text(-0.07, 0.66, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
-text(-0.07, 0.76, expression(paste(f*(delta^n) )), cex = labelsize, xpd =TRUE)
-text(-0.105, 0.84, expression(paste(frac(3,4) == f*(delta^n))), cex = labelsize, xpd =TRUE)
+text(-0.105, 0.76, expression(paste(frac(3,4) == f*(delta^n) )), cex = labelsize, xpd =TRUE)
+text(-0.07, 0.84, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
 text(-0.07, 0.93, expression(paste(f*(delta^H) )), cex = labelsize, xpd =TRUE)
 text(-0.05, 1.05, expression(paste(f^e)), cex = labelsize, xpd =TRUE)
+# y-labels with numeric values
+# text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
+# text(-0.05, 0.58, expression(paste(0.57 == f^d)), cex = labelsize, xpd =TRUE)
+# text(-0.07, 0.66, expression(paste(0.67 == f*(delta^L) )), cex = labelsize, xpd =TRUE)
+# text(-0.105, 0.76, expression(paste(frac(3,4) == f*(delta^n))), cex = labelsize, xpd =TRUE)
+# text(-0.07, 0.84, expression(paste(0.83 == f*(delta^n) )), cex = labelsize, xpd =TRUE)
+# text(-0.07, 0.93, expression(paste(0.93 == f*(delta^H) )), cex = labelsize, xpd =TRUE)
+# text(-0.05, 1.05, expression(paste(1.05f^e)), cex = labelsize, xpd =TRUE)
+
 
 npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -110,7 +119,7 @@ segments(0.5, 0, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segme
 segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, ylow(delta = 0.5), 0.5, ylow(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(0.34, brfFn(delta = 0.34) - 0.15, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.34,0, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0.655, brfFn(delta = 0.655) - 0.15, 0.655, brfFn(delta = 0.655) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)

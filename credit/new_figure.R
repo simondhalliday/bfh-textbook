@@ -58,7 +58,7 @@ ylims <- c(0, 1.05)
 npts <- 501 
 d1 <- seq(xlims[1], xlims[2], length.out = npts)
 f1 <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(0.0625, 0.09, 0.12)
+a <- c(0.0625, 0.125, 0.14)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -73,9 +73,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], brfFn(delta = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(f^{NE})), NA)
+ylabels <- c(NA, NA, NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(NA, expression(paste(delta^{NE})), NA)
+xlabels <- c(NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -93,7 +93,7 @@ xx2 <- seq(0, 1, length.out = npts)
 #Draw the graphs
 #lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, PCFn(xx1), col = COLA[2], lwd = graphlinewidth)
-#lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
@@ -119,9 +119,13 @@ segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20
 #points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
-#points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
+points(0.5, brfFn(delta = 0.5), pch = 16, col = "black", cex = 1.5)
+points(0.25, 0.5, pch = 16, col = "black", cex = 1.5)
+points(0.165, 0.25, pch = 16, col = "black", cex = 1.5)
 
-text(0.2, 0.85, expression(paste(y == y^{N})), cex = labelsize)
+
+
+text(0.2, 0.98, expression(paste(y == y^{N})), cex = labelsize)
 
 #text(0.62, 1.05, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
 #text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
@@ -133,7 +137,7 @@ text(0.2, 0.85, expression(paste(y == y^{N})), cex = labelsize)
 
 
 #text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
-#text(0.87, 0.53, expression(paste(pi == pi^{NE})), cex = labelsize, xpd = TRUE)
+text(0.87, 0.8, expression(paste(pi)), cex = labelsize, xpd = TRUE)
 #Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)

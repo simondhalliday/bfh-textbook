@@ -189,14 +189,19 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 ticksx2 <- c(xlims[1], employment(), employment(min = 4.6), 1)
 xlabels2 <- c(NA, expression(paste(n[M])), expression(paste(n[underline("w")])), 1)
 ticksy2 <- c(ylims[1], ACL(employment()), ACL(employment(min = 4.6)), MRP(employment(min = 4.6)), MCL(employment()), ylims[2])
-ylabels2 <- c(0, expression(paste("w"["M"])),expression(paste(underline("w")["M"])), expression(paste("mrp"[underline("w")])), expression(paste("mrp"["M"])), NA)
+ylabels2 <- c(0, NA, expression(paste(underline("w")["M"])), NA, expression(paste("mrp"["M"])), NA)
+
+
+text(0.22, ACL(employment()) - 0.15, expression(paste("w"["M"])), xpd = TRUE, cex = axislabelsize) 
+text(0.205, MRP(employment(min = 4.6)) + 0.15, expression(paste("mrp"[underline("w")])), xpd = TRUE, cex = axislabelsize) 
+
 
 #Axis Lines
 axis(1, at = ticksx2, pos = 0, labels = xlabels2, las = 1, cex.axis = axislabelsize)
@@ -216,7 +221,6 @@ lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 mtext(expression(paste("Employment, ", n)), side = 1, line = 3, cex = axislabelsize)
 # text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.15, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
 
 #add segments
 segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = grays[20], lwd = segmentlinewidth)

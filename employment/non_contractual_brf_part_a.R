@@ -115,7 +115,7 @@ contour(d1, f1,
         yaxs="i",
         add = TRUE)
 
-segments(0.5, 0, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.5, 0.65, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, ylow(delta = 0.5), 0.5, ylow(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 

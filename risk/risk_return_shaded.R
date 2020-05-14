@@ -2,18 +2,21 @@ require(ggplot2)
 require(shape)
 pdf(file = "risk/risk_return_shaded.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 5, 0.5, 0.5))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -38,22 +41,16 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      #yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 
-#Customize ticks and labels for the plot
-# ticksy <- seq(ylims[1], ylims[2], 3)
-# ylabels <- seq(ylims[1], ylims[2], 3)
-# ticksx <- seq(xlims[1], xlims[2], 5)
-# xlabels <- seq(xlims[1], xlims[2], 5)
 ticksy <- c(0,  riskreturn(g = 12) ,ylims[2])
 ylabels <- c(NA, expression(paste(hat(y) )), NA)
 ticksx <- c(0,  12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[hat(y)])), NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+
 mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
@@ -72,8 +69,8 @@ polygon(x = c(xpoly2[1], xlims[2], rev(xpoly2)),
         col=COLA[1], density=NULL, border = NA)
 
 
-text(9.5, 10, expression(paste("Risk-return schedule, ", omega = g(Delta) )), cex = axislabelsize)
-Arrows(9.5, 10.5, 9.5, 12.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(10, 10, expression(paste("Risk-return schedule, ", omega = g(Delta) )), cex = axislabelsize)
+Arrows(10, 10.5, 10, 12.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(11, 3, expression(paste("Feasible combinations ")), cex = axislabelsize)
 text(11, 2, expression(paste("of risk and expected income")), cex = axislabelsize)
@@ -90,7 +87,8 @@ lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #Add points a, b, c and c
 #points(5.6, 9.5, pch = 16, col = "black", cex = 1.5)
 
-
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 dev.off()
 

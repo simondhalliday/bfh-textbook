@@ -3,17 +3,21 @@ require(shape)
 library(pBrackets)
 pdf(file = "risk/eb_risk_qql_initial.pdf", width = 8, height = 8)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(4, 5, 4, 5))
+par(mar =  c(5, 6, 5, 6))
 
 uA <- function(x, y, alpha = 300) {
   y - alpha*(x)^2
@@ -72,19 +76,17 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      xaxs="i", 
      yaxs="i")
 
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-<<<<<<< HEAD
-text(-0.1, 0.5*ylims[2], expression(paste("W's Expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
-=======
-text(-0.1, 0.5*ylims[2], expression(paste("W's Expected Income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
->>>>>>> 2ff99091e7de34ef777063709a2472775832d60c
-text(0.5*xlims[2], -100, expression(paste("W's Risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
+
+text(-0.15, 0.5*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+
+text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
 
@@ -111,8 +113,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 ticksy <- seq(from = ylims[1], to = ylims[2], by = 100)
 #ylabels <- seq(from = ylims[1], to = ylims[2], by = 100)
@@ -144,12 +146,11 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*xlims[2], -100, expression(paste("N's Risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
-<<<<<<< HEAD
-=======
+text(0.4*xlims[2], -100, expression(paste("N's risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
+
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
->>>>>>> 2ff99091e7de34ef777063709a2472775832d60c
-text(-0.1, 0.5*ylims[2], expression(paste("N's Expected Income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+text(-0.15, 0.5*ylims[2], expression(paste("N's expected income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
 arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -170,12 +171,12 @@ contour(x, y,
 
 
 #Label indiffs for N
-text(0.85, 220, expression(u[1]^N))
-text(0.85, 410, expression(u[2]^N))
+text(0.85, 210, expression(u[1]^N), cex = labelsize)
+text(0.85, 400, expression(u[2]^N), cex = labelsize)
 
 #Label the indiffs for B
-text(0.7, 290, expression(u[1]^W))
-text(0.7, 110, expression(u[2]^W))
+text(0.7, 280, expression(u[1]^W), cex = labelsize)
+text(0.7, 100, expression(u[2]^W), cex = labelsize)
 
 #Point for seeing where the indifference curves intersect on the LHS
 #segments(0.4, ylims[1], 0.4, ylims[2], col = COL[2] , lwd = segmentlinewidth, lty = 2)
@@ -183,28 +184,28 @@ text(0.7, 110, expression(u[2]^W))
 #segments(0, 0, xlims[2], 0, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(1, ylims[2]/3, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(1 - 0.025, ylims[2]/3 + 20, expression(z))
+text(1 - 0.025, ylims[2]/3 + 20, expression(z), cex = labelsize)
 
 points(0.4, indiffA(0.4), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(0.4, indiffA(0.4) - 20, expression(b))
+text(0.4, indiffA(0.4) - 30, expression(b), cex = labelsize)
 
 points(0.7, indiffA(0.7), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(0.7, indiffA(0.7) - 20, expression(c))
+text(0.7, indiffA(0.7) - 30, expression(c), cex = labelsize)
 
 
 #Label point f. 
 points(4, -3.75, pch = 16, col = "black", cex = 1.5)
-text(3.9, -3.5, expression(paste(f)))
+text(3.9, -3.5, expression(paste(f)), cex = labelsize)
 
-text(0.5, 200, expression(paste("Pareto-improving")))
-text(0.5, 170, expression(paste("lens")))
+text(0.5, 210, expression(paste("Pareto-improving")), cex = labelsize)
+text(0.5, 170, expression(paste("lens")), cex = labelsize)
 # 
 # 
 points(4, -8.25, pch = 16, col = "black", cex = 1.5)
-text(4.1, -8.75, expression(paste(g)))
+text(4.1, -8.75, expression(paste(g)), cex = labelsize)
 
-axis(side = 1, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 
 

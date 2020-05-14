@@ -82,8 +82,8 @@ xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-#lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx0, isov(xx0, delta = 5), col = COL[4], lwd = graphlinewidth)
+#lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
 lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[3], lwd = graphlinewidth)
@@ -129,7 +129,7 @@ text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(0, 0, 20, 0.5, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(0, 0, 20, 0.82, lty = 2, col = grays[22], lwd = segmentlinewidth)
+lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

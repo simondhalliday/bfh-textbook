@@ -4,16 +4,22 @@ require(pBrackets)
 pdf(file = "employment/employment_macro_inequality_wage.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 WageFn <- function(H, delta = 5) {
-  delta /(1 - H)
+  delta / (1 - H)
 }
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
@@ -31,8 +37,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      cex.lab = axislabelsize, 
      line = 2.5,
      bty = "n", 
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 text(-0.1, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -8, expression(paste("Number of workers, ", n)), xpd = TRUE, cex = axislabelsize) 
@@ -63,7 +69,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 text(0.74, 35, expression(paste("Wage Curve ", w^N*(H))))
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
-segments(0.8, 0, 0.8, WageFn(0.8), lty = 2, lwd = segmentlinewidth, col = "darkgray")
+segments(0.8, 0, 0.8, WageFn(0.8), lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Arrows(0.85, 6, 0.85, WageFn(0.8) - 1, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle")
 #text(0.99,  5 + 0.5*(WageFn(0.8) - 5), expression(paste("Employment Rent")))
@@ -91,10 +97,6 @@ text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE)
 text(0.98, WageFn(0.8) + 5, expression(paste("Competition condition")))
 text(0.98, WageFn(0.8) + 3, expression(paste("determines")))
 text(0.98, WageFn(0.8) + 1, expression(paste("the wage, ", w^C == w[0])))
-#text(0.97, 6, expression(paste(B + delta/t)))
-#text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
-#text(1.08, 36, expression(paste("level of")))
-#text(1.08, 34, expression(paste("employment, ", bar(H))))
 
 
 dev.off()

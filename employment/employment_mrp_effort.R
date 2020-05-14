@@ -1,4 +1,5 @@
 require(shape)
+library(pBrackets)
 pdf(file = "employment/employment_mrp_effort.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -15,7 +16,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(6, 8, 4, 2))
+par(mar =  c(5, 8, 1, 1))
 
 mrpL <- function(l, pmax = 20, s = 0.75) {
   pmax - s*l
@@ -38,17 +39,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = 0, to = ylims[2], by = 2)
-# ylabels <- seq(from = 0, to = ylims[2], by = 2)
-# ticksx <- seq(from = 0, to = xlims[2], by = 2)
-# xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 4, 7, ylims[2])
-ylabels <- c(NA, expression(paste(frac(w[1],e) == c[1])), expression(paste( frac(w[2],e) == c[2] )), NA)
-ticksx <- c(0, (10-7)/0.75, (10-4)/0.75, (15-4)/0.75, xlims[2])
-xlabels <- c(NA, expression(paste(l^{n3})), expression(paste(l^{n1})), expression(paste(l^{n2})), NA)
+
+ticksy <- c(0, 4, ylims[2])
+ylabels <- c(NA, expression(paste(frac(w^N,e^N) == c)),  NA)
+ticksx <- c(0, (10 - 4)/0.75, (15 - 4)/0.75, xlims[2])
+xlabels <- c(NA, expression(paste(l[1]^{N})), expression(paste(l[2]^{N})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -69,45 +67,39 @@ text(-3.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", c == frac
 #text(16, 5.75, expression(paste("Change in ", mu)), cex = labelsize)
 
 
-text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize, xpd =TRUE)
-text(19, 5, expression(paste(c[1] == frac(w[1],e))), cex = labelsize, xpd =TRUE)
-text(16, 12.6, expression(paste("marginal cost")), cex = labelsize, xpd =TRUE)
-text(16, 12, expression(paste("of labor")), cex = labelsize)
-Arrows(16, 11.6, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize, xpd =TRUE)
+text(19, 5, expression(paste(c == frac(w,e))), cex = labelsize, xpd =TRUE)
+text(16, 12.4, expression(paste("Marginal cost")), cex = labelsize, xpd =TRUE)
+text(16, 11.7, expression(paste("of labor")), cex = labelsize)
+Arrows(16, 11, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
+# Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
 
-text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize, xpd =TRUE)
-text(11, 12.3, expression(paste("marginal")), cex = labelsize)
-text(11, 11.7, expression(paste("benefit")), cex = labelsize)
-Arrows(11, 11.3, 11, 2.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize, xpd =TRUE)
+text(11.5, 3.5, expression(paste("Marginal")), cex = labelsize)
+text(11.5, 2.8, expression(paste("benefit")), cex = labelsize)
+Arrows(11.75, 2.4, 11.75, 1.75, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-segments(0, 7, xlims[2], 7, lty = 2, col = COLB[4] , lwd = segmentlinewidth)
+#segments(0, 7, xlims[2], 7, lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3], lwd = segmentlinewidth)
 segments((15-4)/0.75, 0, 11/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments((10-7)/0.75, 0, (10-7)/0.75, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
+#segments((10-7)/0.75, 0, (10-7)/0.75, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments((10-4)/0.75, 0, (10-4)/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
 points((15-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
-text((15-4)/0.75 + 0.25, 4 + 0.6, expression(paste(n[2])), cex = labelsize)
-points((10-7)/0.75, 7, pch = 16, col = "black", cex = 1.5)
-text((10-7)/0.75 + 0.25, 7 + 0.6, expression(paste(n[3])), cex = labelsize)
+text((15-4)/0.75 + 0.5, 4 + 0.6, expression(paste(n[2])), cex = labelsize)
 points((10-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
-text((10-4)/0.75 + 0.25, 4 + 0.6, expression(paste(n[1])), cex = labelsize)
+text((10-4)/0.75 - 0.5, 4 - 0.6, expression(paste(n[1])), cex = labelsize)
 
-
-
-# text(80, 12.5, expression(paste("Excess Supply at ", p^H)), cex = labelsize)
-# 
-# Arrows(62, 5.5, 82, 5.5, col = "black", lty = 1, code = 3, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# text(72, 4.75, expression(paste("Excess")), cex = labelsize)
-# text(72, 3.75, expression(paste("Demand")), cex = labelsize)
-# text(72, 2.75, expression(paste("at ", p^L)), cex = labelsize)
-
+# bracket
+text(11.5, 6.6, expression(paste("Marginal revenue")), cex = labelsize)
+text(11.5, 6, expression(paste("product")), cex = labelsize)
+brackets(x1 = (10 - 4)/0.75, y1 = 4.5, x2 =  (15 - 4)/0.75, y2 = 4.5,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
 
 #Label Demand
-text(13, 1, expression(paste(mb[1])), cex = labelsize)
-text(19.5, 1, expression(paste(mb[2])), cex = labelsize,xpd =TRUE)
+text(13.1, 1, expression(paste(mb[1])), cex = labelsize)
+text(19.6, 1, expression(paste(mb[2])), cex = labelsize,xpd =TRUE)
 
 dev.off()

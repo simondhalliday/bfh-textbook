@@ -1,4 +1,4 @@
-#Graph Designer: Simon Halliday, Scott Cohn
+#Graph Designer: Harriet Brookes-Gray
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -149,6 +149,9 @@ text(0.84, 0.88, expression(paste(pi == zpc)), cex = labelsize, xpd = TRUE)
 text(0.84, 0.78, expression(paste(pi[3])), cex = labelsize, xpd = TRUE)
 text(0.84, 0.7, expression(paste(pi[2])), cex = labelsize, xpd = TRUE)
 
+Arrows(0.05, 0.85, 0.45, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.25, 1, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.25, 0.93, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
 
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier

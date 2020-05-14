@@ -178,10 +178,6 @@ text(0.85, 400, expression(u[2]^N), cex = labelsize)
 text(0.7, 280, expression(u[1]^W), cex = labelsize)
 text(0.7, 100, expression(u[2]^W), cex = labelsize)
 
-#Point for seeing where the indifference curves intersect on the LHS
-#segments(0.4, ylims[1], 0.4, ylims[2], col = COL[2] , lwd = segmentlinewidth, lty = 2)
-#segments(4, ylims[1], 4, ylims[2], col = COL[2] , lwd = segmentlinewidth, lty = 2)
-#segments(0, 0, xlims[2], 0, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(1, ylims[2]/3, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(1 - 0.025, ylims[2]/3 + 20, expression(z), cex = labelsize)

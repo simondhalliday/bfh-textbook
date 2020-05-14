@@ -6,17 +6,19 @@ library(shape)
 pdf(file = "risk/indiff_map_scale.pdf", width = 8, height = 8)
 
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-a <- c(2, 4, 6)
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 
@@ -57,8 +59,8 @@ xlabels <- c(NA, NA)
 ticksy <- c(ylims[1], ylims[2])
 ylabels <- c(NA, NA)
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
+axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

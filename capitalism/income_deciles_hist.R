@@ -32,20 +32,20 @@ IneqNL1$IncomeType <- factor(IneqNL1$IncomeType, levels = c('ValuesMI', 'ValuesD
 
 plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  scale_fill_manual(values = c("#a50f15","#386cb0"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
+  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
   xlab("Population Decile of the Netherlands") + 
   ylab("Share of Market Income") +
   theme_bw() + 
   ylim(0,0.4) + 
   scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
                             "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100")) + 
-  theme(legend.position = c(0.2, 0.85),
-        legend.title = element_text(size = 12),
-    axis.title.y = element_text(size = 12, vjust = 1),
-        legend.text=element_text(size=12),
-        axis.text.x = element_text(size = 11),
-        axis.text.y = element_text(size = 12),
-        axis.title.x = element_text(size = 12, vjust = -1))
+  theme(legend.position = c(0.15, 0.9),
+        legend.title = element_text(size = 16),
+        axis.title.y = element_text(size = 18, vjust = 1),
+        legend.text=element_text(size = 16),
+        axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15),
+        axis.title.x = element_text(size = 18))
 plot1
 
 # IneqNL2 <- IneqNL %>% 
@@ -77,20 +77,20 @@ IneqUS1$IncomeType <- factor(IneqUS1$IncomeType, levels = c('ValuesMI', 'ValuesD
 
 plot2 <- ggplot(IneqUS1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  scale_fill_manual(values = c("#a50f15","#386cb0"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
+  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
   xlab("Population Decile of the USA") + 
   ylab("Share of Market Income") +
   theme_bw() + 
   ylim(0,0.4) + 
   scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
                             "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100")) + 
-  theme(legend.position = c(0.2, 0.85),
-        legend.title = element_text(size = 12),
-        axis.title.y = element_text(size = 12, vjust = 1),
-        legend.text=element_text(size=12),
-        axis.text.x = element_text(size = 11),
-        axis.text.y = element_text(size = 12),
-        axis.title.x = element_text(size = 12, vjust = -1))
+  theme(legend.position = c(0.15, 0.9),
+        legend.title = element_text(size = 16),
+        axis.title.y = element_text(size = 18, vjust = 1),
+        legend.text=element_text(size = 16),
+        axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15),
+        axis.title.x = element_text(size = 18))
 
 plot2
 

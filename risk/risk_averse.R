@@ -1,4 +1,4 @@
-#Graph Designer(s): Simon Halliday & Riley Boeth '17
+#Graph Designer(s): Simon Halliday, Riley Boeth '17, Scott Cohn
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -6,18 +6,22 @@ library(shape)
 library(pBrackets)
 pdf(file = "risk/risk_averse_labeled.pdf", width = 10, height = 8)
 
-#Set parameters for graphics
+# Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.8
-graphlinewidth <- 3
-segmentlinewidth <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(5, 6, 2, 3))
 
 #Concave utility of wealth function
 
@@ -40,8 +44,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
@@ -52,8 +56,8 @@ ticksx <- c(0, 3, 10, 22, 36, xlims[2])
 xlabels <- c(NA, expression(paste(y^{a})), expression(paste(y^b)), expression(paste(y^c)), expression(paste(y^d)), NA)
 
 
-axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -79,31 +83,23 @@ segments(3, ConcaveU(3), 36, ConcaveU(36), lty = 1, col = COLB[4], lwd = graphli
 #Label 4 points on line
 #Point a
 text(3.8, ConcaveU(3)-.12, expression(paste(a)), cex = labelsize)
-segments(3, ConcaveU(3), 3, 0, lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(3, ConcaveU(3), 3, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(3, ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 
 #Point c
 text(22.8, ConcaveU(22)-.1, expression(paste(c)), cex = labelsize)
-segments(22, ConcaveU(22), 22, 0, lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(22, ConcaveU(22), 22, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(22, ConcaveU(22), pch = 16, col = "black", cex = 1.5)
 
 #Point b
 text(10.8, ConcaveU(10)-.1, expression(paste(b)), cex = labelsize)
-segments(10, ConcaveU(10), 10, 0, lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(10, ConcaveU(10), 10, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(10, ConcaveU(10), pch = 16, col = "black", cex = 1.5)
 
 #Point d 
 text(36.8, ConcaveU(36)-.1, expression(paste(d)), cex = labelsize)
-segments(36, ConcaveU(36), 36, 0, lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(36, ConcaveU(36), 36, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
-
-#Label y-sub,x-sub,etc. on axes
-
-#SH: removed these because I could add them to x-axis; y-axis labels cannot be added as usual
-#text(36, -.9, expression(paste(y + Delta*y[1])), xpd = TRUE, cex = labelsize)
-#text(13, -.9, expression(paste(y[ce])),  xpd = TRUE,  cex = labelsize)
-#text(2, -.9, expression(paste(y - Delta*y[2])),  xpd = TRUE,  cex = labelsize)
-#text(23.18, -.9, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
 
 #Very risk averse
 text(5, ConcaveU(5)+0.6, expression(paste("very risk")),  xpd = TRUE,  cex = labelsize)

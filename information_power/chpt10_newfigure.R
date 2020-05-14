@@ -18,7 +18,7 @@ disutilityFn <- function(t, cbar = 1.2, underbarc = 1, z = 0) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(4, 6, 3, 13))
+par(mar =  c(4, 6, 3, 10))
 xlims <- c(0, 1)
 ylims <- c(0,1)
 
@@ -68,11 +68,14 @@ text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 text(0.45, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+p^z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
-text(1.32, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)
-text(1.32, 0.5, expression(paste("economic")), cex = labelsize, xpd = TRUE)
-text(1.32, 0.45, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
-text(1.35, 0.8, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
-text(1.35, 0.2, expression(paste("Willingness to sell")), cex = labelsize, xpd = TRUE)
+text(1.3, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)
+text(1.3, 0.5, expression(paste("economic")), cex = labelsize, xpd = TRUE)
+text(1.3, 0.45, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.8, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.74, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
+
+text(1.25, 0.2, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.13, expression(paste("to sell")), cex = labelsize, xpd = TRUE)
 
 
 #Arrows

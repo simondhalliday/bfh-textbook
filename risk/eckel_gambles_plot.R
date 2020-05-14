@@ -7,15 +7,16 @@ lottery <- read_csv("risk/eckel_gamble.csv")
 
 lottery <- 
   lottery %>% 
-  mutate(Lottery = factor(Lottery, labels = c("L1", "L2", "L3", "L4", "L5", "L6")))
+  mutate(Lottery = factor(Gamble, labels = c("L1", "L2", "L3", "L4", "L5", "L6")))
 
 gamble_plot <- lottery %>% ggplot(aes(x = Lottery, y = Value, fill = Gender)) +
   geom_bar(stat = "identity", position = "dodge") +
-  scale_fill_manual(values = c(COLA[3], COLB[3])) +
+  scale_fill_manual(values = c("#1F78B4","#E31A1C")) +
   theme_bw() + 
-  theme(axis.title = element_text(size = 18),
+  theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 18),
-        legend.text = element_text(size = 16),
+        legend.position = c(0.15, 0.9),
+        legend.text = element_text(size = 17),
         legend.title = element_text(size = 18)) +
   labs(y = "Proportion")
   

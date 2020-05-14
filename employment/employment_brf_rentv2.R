@@ -116,7 +116,7 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth
 
 text(3.4, 0.05, expression(paste(v[0] == z)), cex = labelsize)
 #text(22, 0.05, expression(paste(v[1])), cex = labelsize)
-text(24.8, 0.05, expression(paste(v[1])),cex = labelsize)
+text(24.8, 0.05, expression(paste(v[4])),cex = labelsize)
 text(35, 0.64, expression(paste("Employee's")), cex = labelsize, xpd =TRUE)
 text(35, 0.60, expression(paste("best-response function")),cex = labelsize, xpd =TRUE)
 #text(35, 0.58, expression(paste(e(Delta, a))))
@@ -127,10 +127,8 @@ text(19.3, 0.52, expression(n),cex = labelsize)
 text(26.5, 0.48, expression(paste("Incomplete contract")),cex = labelsize)
 text(26.5, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
-text(15, 0.98, expression(paste("Rent at")),cex = labelsize)
-text(15, 0.93, expression(paste("incomplete")),cex = labelsize)
-text(15, 0.88, expression(paste("contract")),cex = labelsize)
-text(15, 0.83, expression(paste("Nash equilibrium")),cex = labelsize)
+text(15, 0.89, expression(paste("Rent at incomplete contract")),cex = labelsize)
+text(15, 0.84, expression(paste("Nash equilibrium")),cex = labelsize)
 Arrows(13, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(14, 0.8, 11, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 

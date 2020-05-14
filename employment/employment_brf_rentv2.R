@@ -116,7 +116,7 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth
 
 text(3.4, 0.05, expression(paste(v[0] == z)), cex = labelsize)
 #text(22, 0.05, expression(paste(v[1])), cex = labelsize)
-text(24.8, 0.05, expression(paste(v[4])),cex = labelsize)
+text(25, 0.05, expression(paste(v[4])),cex = labelsize)
 text(35, 0.64, expression(paste("Employee's")), cex = labelsize, xpd =TRUE)
 text(35, 0.60, expression(paste("best-response function")),cex = labelsize, xpd =TRUE)
 #text(35, 0.58, expression(paste(e(Delta, a))))

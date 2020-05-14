@@ -19,7 +19,7 @@ Fn <- function(t, ubar = 0.5, b = 0, k = 0.5) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(4, 5, 3, 16))
+par(mar =  c(4, 5, 3, 10))
 xlims <- c(0, 1)
 ylims <- c(0,5)
 
@@ -69,9 +69,14 @@ text(-0.1, 1, expression(paste(underline(u)+b)), cex = labelsize, xpd = TRUE)
 #text(1.15, 4.5, expression(paste(gamma[p])), cex = labelsize, xpd = TRUE)
 text(0.43, 1.5, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
 text(0.5, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)
-text(1.35, 4.5, expression(paste("Willingness to pay")), cex = labelsize, xpd = TRUE)
-text(1.35, 1, expression(paste("Willingness to work")), cex = labelsize, xpd = TRUE)
-text(1.47, 2.7, expression(paste("Total economic surplus")), cex = labelsize, xpd = TRUE)
+text(1.3, 3, expression(paste("Total")), cex = labelsize, xpd = TRUE)
+text(1.3, 2.7, expression(paste("economic")), cex = labelsize, xpd = TRUE)
+text(1.3, 2.4, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
+text(1.25, 4.5, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 4.3, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
+
+text(1.25, 1, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.83, expression(paste("to work")), cex = labelsize, xpd = TRUE)
 
 
 #Brackets

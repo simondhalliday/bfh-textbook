@@ -69,17 +69,19 @@ text(-3.5, 0.5*ylims[2], expression(paste("Wage per unit of effort, ", c == frac
 
 #text(18.3, 7.4, expression(paste(c[2], " (higher B)")), cex = labelsize, xpd =TRUE)
 text(19, 5, expression(paste(c == frac(w,e))), cex = labelsize, xpd =TRUE)
-text(16, 12.4, expression(paste("Marginal cost")), cex = labelsize, xpd =TRUE)
-text(16, 11.7, expression(paste("of labor")), cex = labelsize)
-Arrows(16, 11, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(16, 8.4, expression(paste("Marginal cost")), cex = labelsize, xpd =TRUE)
+text(16, 7.7, expression(paste("of labor")), cex = labelsize)
+Arrows(16, 7, 16, 4.4, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Arrows(2, 9, 6.8, 9, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # text(3.5, 10, expression(paste("Increase in ", frac(dy, dl))), cex = labelsize)
 
 #text(9.3, 12, expression(paste(frac(dy, dl)==phantom())), cex = labelsize, xpd =TRUE)
-text(11.5, 3.5, expression(paste("Marginal")), cex = labelsize)
-text(11.5, 2.8, expression(paste("benefit")), cex = labelsize)
-Arrows(11.75, 2.4, 11.75, 1.75, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.5, 7.5, expression(paste("Marginal")), cex = labelsize)
+text(1.5, 6.8, expression(paste("benefit")), cex = labelsize)
+text(1.5, 6.1, expression(phantom() == phantom()), cex = labelsize)
+text(3, 5.4, expression(paste("Marginal revenue")), cex = labelsize)
+text(1.5, 4.7, expression(paste("product")), cex = labelsize)
 
 #segments(0, 7, xlims[2], 7, lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3], lwd = segmentlinewidth)
@@ -92,10 +94,10 @@ points((10-4)/0.75, 4, pch = 16, col = "black", cex = 1.5)
 text((10-4)/0.75 - 0.5, 4 - 0.6, expression(paste(n[1])), cex = labelsize)
 
 # bracket
-text(11.5, 6.6, expression(paste("Marginal revenue")), cex = labelsize)
-text(11.5, 6, expression(paste("product")), cex = labelsize)
-brackets(x1 = (10 - 4)/0.75, y1 = 4.5, x2 =  (15 - 4)/0.75, y2 = 4.5,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+# text(11.5, 6.6, expression(paste("Marginal revenue")), cex = labelsize)
+# text(11.5, 6, expression(paste("product")), cex = labelsize)
+# brackets(x1 = (10 - 4)/0.75, y1 = 4.5, x2 =  (15 - 4)/0.75, y2 = 4.5,  ticks = 0.5, curvature = 0.5, type = 1, 
+#          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
 
 #Label Demand

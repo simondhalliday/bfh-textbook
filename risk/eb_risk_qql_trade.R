@@ -199,7 +199,7 @@ text(4.1, -8.75, expression(paste(g)), cex = annotatesize)
 
 #Initial Allocations
 
-text(0.3, 105, expression(paste("Slope = ", p[s])), cex = annotatesize)
+text(0.3, 105, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
 
 #Braces for labels
 brackets(x1 = 1, y1 = -10, x2 = 0.48, y2 = -10,

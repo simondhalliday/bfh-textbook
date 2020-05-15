@@ -111,7 +111,7 @@ text(25.3, 0.05, expression(paste(v[3])),cex = labelsize, xpd = TRUE)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)

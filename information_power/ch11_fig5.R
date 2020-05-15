@@ -42,7 +42,7 @@ xx1 <- seq(10, xlims[2], length.out = npts)
 xx2 <- seq(1, xlims[2], length.out = npts)
 
 #Draw the lines for the graphs
-lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 lines(xx2, solowCondition(xx2, delta = 5), col = COLB[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot

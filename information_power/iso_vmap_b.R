@@ -62,7 +62,6 @@ tangencyLine <- function(p){
 }
 
 
-COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
 par(mar =  c(4, 4, .5, .5))
 
 xlims <- c(0, 40)
@@ -107,7 +106,7 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #Draw the lines for the graphs
 lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)

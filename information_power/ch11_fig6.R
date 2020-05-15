@@ -80,7 +80,7 @@ yy1 <- isovhigh(xx3, delta = 5, v = 20)
 polygon(c(xx3, xx3[416]), c(yy1, yy1[416]), col = COL[4], density = NULL, border = NA)
 
 #Draw the lines for the graphs
-lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 lines(xx3, isovhigh(xx3, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
 lines(xx4, isovlow(xx4, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
 lines(xx2, solowCondition(xx2, delta = 5), col = COLB[4], lwd = graphlinewidth)

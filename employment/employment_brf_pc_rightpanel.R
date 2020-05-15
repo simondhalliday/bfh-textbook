@@ -107,7 +107,7 @@ text(22.5, 0.05, expression(paste(v[2])),cex = labelsize, xpd = TRUE)
 text(25.3, 0.05, expression(paste(v[3])),cex = labelsize, xpd = TRUE)
 text(37.5, 0.66, expression(paste("Employee's")),cex = labelsize,xpd = TRUE)
 text(37.5, 0.61, expression(paste("best-response function")),cex = labelsize,xpd = TRUE)
-text(37.5, 0.56, expression(paste(e(w))),cex = labelsize,xpd = TRUE)
+text(37.5, 0.55, expression(paste(e(w) == 1 - frac(2*underline(u),w))),cex = labelsize,xpd = TRUE)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
@@ -121,10 +121,10 @@ text(27, 0.43, expression(paste("Nash equilibrium")), cex = labelsize)
 
 
 #Arrows and slope of iso-v label
-Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
-text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize)
+#Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
+#text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
+#text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize)
 
 
 

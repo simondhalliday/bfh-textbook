@@ -99,8 +99,10 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 ticksy <- c(0, NA, 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ylabels <- c(0, NA, expression(paste(e^N == frac(1,2))), 1)
-ticksx <- c(0, 10, 18.4, 20, 40)
-xlabels <- c(0, expression(paste(w == 2, underline(u))), expression(paste(w^g)), expression(paste(w^N)) , NA)
+ticksx <- c(0, 10, NA, 20, 40)
+xlabels <- c(0, expression(paste(w == 2, underline(u))), NA, expression(paste(w^N)) , NA)
+#ticksx <- c(0, 10, 18.4, 20, 40)
+#xlabels <- c(0, expression(paste(w == 2, underline(u))), expression(paste(w^g)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
@@ -135,7 +137,7 @@ text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 
-segments(18.4, 0, 18.4, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(18.4, 0, 18.4, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 #points(18.4, brfFn(w = 18.4), pch = 16, col = "black", cex = 1.5)
 #text(17.5, brfFn(18.4) + 0.02, expression(g), cex = labelsize)

@@ -109,7 +109,7 @@ xx10 <- seq(xlims[1], 25, length.out = npts2)
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 10, 20, 40)
-xlabels <- c(0, expression(paste(p[0] == 2*underline("u"))), expression(paste(p == 4*underline("u"))) , 40)
+xlabels <- c(0, expression(paste(10 == 2*underline("u"))), expression(paste(20 == 4*underline("u"))) , 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 

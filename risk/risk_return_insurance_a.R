@@ -108,9 +108,9 @@ text(1.6, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(b)), cex =
           x2 = 5.8, y2 = insurance(1.6, intercept = 7.4),  
           ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
          col = "black", lwd = 1.5, lty = 1, xpd = TRUE)
-text(7, 8.7, expression(paste(p[s]%.%i==phantom())), xpd = TRUE, cex = labelsize)
-text(8.7, 9.1, expression(paste("Insurance")), xpd = TRUE, cex = labelsize)
-text(8.7, 8.3, expression(paste("premium")), xpd = TRUE, cex = labelsize)
+text(7.2, 8.7, expression(paste(p[s]%.%i==phantom())), xpd = TRUE, cex = labelsize)
+text(8.9, 9.1, expression(paste("Insurance")), xpd = TRUE, cex = labelsize)
+text(8.9, 8.3, expression(paste("premium")), xpd = TRUE, cex = labelsize)
 
 
 

@@ -9,6 +9,12 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
 }
@@ -88,12 +94,12 @@ text(-7,0.5*ylims[2], expression(paste("Effort, ", e)), xpd = TRUE, cex = axisla
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
 #lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, NA, 0.5, 1)

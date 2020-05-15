@@ -135,8 +135,8 @@ Arrows(14, 0.8, 11, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle"
 
 Arrows(28, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")),cex = labelsize)
-text(32.3, 0.15, expression(paste(" = -mrs(w,e) ")),cex = labelsize)
-text(32, 0.06, expression(paste(" = " -frac(v[w], v[e]))),cex = labelsize)
+text(32.3, 0.15, expression(paste(phantom() == "-mrs(w,e) ")),cex = labelsize)
+text(32, 0.06, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize)
 
 
 

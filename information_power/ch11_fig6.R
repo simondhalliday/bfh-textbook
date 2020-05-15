@@ -101,11 +101,9 @@ text(34, 0.96, expression(paste("Isoprofit")), cex = annotatesize)
 #text(31, 0.98, expression(paste("Isoprofit: ", q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.62, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.57, expression(paste("function")), cex = annotatesize)
-#text(35, 0.48, expression(paste(q == 1 - frac(2*underline("u"), p))), cex = annotatesize)
-text(27.5, 0.1, expression(paste("Iso-v curve")), cex = annotatesize)
-text(27.5, 0.05, expression(paste(v == v[1])), cex = annotatesize)
-text(37, 0.1, expression(paste("Iso-v curve")), cex = annotatesize)
-text(37, 0.05, expression(paste(v == v[2])), cex = annotatesize)
+
+text(25.5, 0.05, expression(paste(v[4])), cex = annotatesize)
+text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
 text(14, 0.52, expression(paste("Nash equilibrium")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
@@ -123,6 +121,14 @@ text(26.7, 0.7, expression(paste("f")), cex = annotatesize)
 #Arrow to Pareto-improving Lens
 Arrows(20, 0.68, 23.8, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(12, 0.68, expression(paste("Pareto-improving lens")), cex = annotatesize)
+
+# better for P
+Arrows(11.5, 0.35, 13.5, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(6, 0.3, expression(paste("Better for principal")), cex = annotatesize)
+
+# better for A
+Arrows(32, 0.25, 38, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(35, 0.3, expression(paste("Better for agent")), cex = annotatesize)
 
 dev.off()
 

@@ -126,7 +126,7 @@ text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(20, 0, 20, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
 #segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
@@ -151,8 +151,8 @@ text(32.3, 0.15, expression(paste(" = -mrs ")), cex = annotatesize)
 text(32, 0.06, expression(paste(" = " -frac(v[p], v[q]))), cex = annotatesize)
 
 
-Arrows(15, 0.85, 23, 0.85,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(19, 0.9, expression(paste("Better for agent")), cex = annotatesize)
+Arrows(27, 0.45, 32, 0.45,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(30, 0.5, expression(paste("Better for agent")), cex = annotatesize)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

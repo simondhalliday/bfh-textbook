@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-
+grays <- gray.colors(25, start = 1, end = 0)
 
 solowCondition <- function(p, delta = 5, slope = 8){
   (p*(1/(slope*delta)))
@@ -59,8 +59,8 @@ text(37, 0.98, expression(paste(pi[2])), cex = annotatesize)
 text(39, 0.525, expression(paste(pi[1])), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(0, 0.5, 20, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
-segments(10, 0, 10, 0.5, lty = 2, col = "darkgray", lwd = segmentlinewidth)
+segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(10, 0, 10, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -80,8 +80,12 @@ text(10 + 0.75, 0.125 - 0.025, expression(paste(a)), cex = annotatesize)
 # text(16.8, 0.12, expression(paste("Slope = ", q[p])))
 
 #Arrow to Slope of isoprofit
-Arrows(12, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(8.5, 0.80, expression(paste("Slope", phantom() == frac(q, p))), cex = annotatesize)
+Arrows(26, 0.80, 30, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(22, 0.80, expression(paste("Slope", phantom() == frac(q, p))), cex = annotatesize)
+
+
+Arrows(20, 0.15, 25, 0.22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(22, 0.10, expression(paste("Better for principal")), cex = annotatesize)
 
 dev.off()
 

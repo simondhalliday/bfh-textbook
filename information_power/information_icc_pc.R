@@ -67,8 +67,8 @@ text(26, 0.29, expression(paste("function")), cex = annotatesize)
 Arrows(25, 0.38, 25, 0.57, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
-text(16, 0.57, expression(paste("Nash")), cex = annotatesize)
-text(16, 0.52, expression(paste("equilibrium")), cex = annotatesize)
+# text(16, 0.57, expression(paste("Nash")), cex = annotatesize)
+# text(16, 0.52, expression(paste("equilibrium")), cex = annotatesize)
 text(20.6, 0.48, expression(paste("n")), cex = annotatesize)
 
 
@@ -93,8 +93,8 @@ lines(xx2, solowCondition(xx2, delta = 5), col = COLB[3], lwd = graphlinewidth)
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
-#Add a ray and a point for d.  
-segments(2, 0.1, 20, 1, lty = 1, lwd = graphlinewidth, col = COLB[4])
+#Add a ray and a point for c  
+segments(1, 0.05, 20, 1, lty = 1, lwd = graphlinewidth, col = COLB[4])
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 

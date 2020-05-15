@@ -18,6 +18,8 @@ disutilityFn <- function(t, cbar = 1.2, underbarc = 1, z = 0) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
+grays <- gray.colors(25, start = 1, end = 0)
+
 par(mar =  c(4, 6, 3, 10))
 xlims <- c(0, 1)
 ylims <- c(0,1)
@@ -51,10 +53,10 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Segments
-segments(0, 0.8, 1.1, 0.8, lty = 2, lwd = 1.5, col = "darkgray", xpd = TRUE)
-segments(0.25, 0, 0.25, 0.8, lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
-segments(0, 0.2, 1.1,0.2,lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
-segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = "darkgray",xpd = TRUE)
+segments(0, 0.8, 1.1, 0.8, lty = 2, lwd = 1.5, col = grays[20], xpd = TRUE)
+segments(0.25, 0, 0.25, 0.8, lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
+segments(0, 0.2, 1.1,0.2,lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
+segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
 
 #Axis tick labels
 #y
@@ -65,7 +67,7 @@ text(0.25, -0.07, expression(paste(underline(t))), cex = labelsize, xpd = TRUE)
 text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.45, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+p^z)), cex = labelsize, xpd = TRUE)
+text(0.375, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+p^z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
 text(1.3, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)

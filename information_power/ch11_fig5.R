@@ -75,7 +75,7 @@ text(25, 0.81, expression(paste("Slope", phantom() == frac(q,p), phantom() == fr
 Arrows(25, 0.79, 25, 0.66, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #BRF Slope annotation
-text(25, 0.41, expression(paste("Slope", phantom() == q[p] == frac(2*underline("u"), p^2))), cex = annotatesize)
+text(25, 0.41, expression(paste("Slope", phantom() == q[p], phantom() == frac(2*underline("u"), p^2))), cex = annotatesize)
 Arrows(25, 0.43, 25, 0.56, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Add a point for the NE

@@ -51,13 +51,13 @@ tangencyLine <- function(w){
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
 grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 5, 1, 5))
+par(mar =  c(5, 7, 1, 5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Wage, ", w)),
-     ylab = expression(paste("Effort, ", e)),
+     ylab = expression(paste("")),
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -95,11 +95,18 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, expression(paste(e^g)), expression(paste(e^N)), 1)
+ylabels <- c(0, NA, NA, 1)
 ticksx <- c(0, 10, 18.4, 20, 40)
 xlabels <- c(0, expression(paste(w == 2, underline(u))), expression(paste(w^g)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
+
+#y-axis label
+text(-7,0.5*ylims[2], expression(paste("Effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+#y-axis tick label
+text(-4.5,brfFn(w = 18.4), expression(paste(e^g)), xpd = TRUE, cex = labelsize) 
+text(-3.2,0.52, expression(paste(e^N == frac(1,2))), xpd = TRUE, cex = labelsize) 
 
 #Annotation of the three graphs and the NE
 text(9.25, 0.05, expression(paste(v[1])),cex = labelsize, xpd = TRUE)

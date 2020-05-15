@@ -84,7 +84,7 @@ text(3, 5.4, expression(paste("Marginal revenue")), cex = labelsize)
 text(1.5, 4.7, expression(paste("product")), cex = labelsize)
 
 #segments(0, 7, xlims[2], 7, lty = 2, col = COLB[4] , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3], lwd = segmentlinewidth)
+segments(0, 4, xlims[2], 4, lty = 1, col = COLB[3], lwd = graphlinewidth)
 segments((15-4)/0.75, 0, 11/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewidth)
 #segments((10-7)/0.75, 0, (10-7)/0.75, 7, lty = 2, col = "gray", lwd = segmentlinewidth)
 segments((10-4)/0.75, 0, (10-4)/0.75, 4, lty = 2, col = "gray", lwd = segmentlinewidth)

@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_brf_pc.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_brf_pc_rightpanel.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -51,13 +51,13 @@ tangencyLine <- function(w){
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
 grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 5, 1, 5))
+par(mar =  c(5, 7, 1, 5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("Wage, ", w)),
-     ylab = expression(paste("Effort, ", e)),
+     ylab = expression(paste("")),
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
@@ -95,19 +95,26 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0, expression(paste(e^g)), expression(paste(e^N)), 1)
+ylabels <- c(0, NA, NA, 1)
 ticksx <- c(0, 10, 18.4, 20, 40)
 xlabels <- c(0, expression(paste(w == 2, underline(u))), expression(paste(w^g)), expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
+#y-axis label
+text(-7,0.5*ylims[2], expression(paste("Effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+#y-axis tick label
+text(-4.5,brfFn(w = 18.4), expression(paste(e^g)), xpd = TRUE, cex = labelsize) 
+text(-3.2,0.52, expression(paste(e^N == frac(1,2))), xpd = TRUE, cex = labelsize) 
+
 #Annotation of the three graphs and the NE
 text(9.25, 0.05, expression(paste(v[1])),cex = labelsize, xpd = TRUE)
 text(22.5, 0.05, expression(paste(v[2])),cex = labelsize, xpd = TRUE)
 text(25.3, 0.05, expression(paste(v[3])),cex = labelsize, xpd = TRUE)
-text(37.5, 0.66, expression(paste("Employee's ICC, or")),cex = labelsize,xpd = TRUE)
-text(37.5, 0.61, expression(paste("Best-response function")),cex = labelsize,xpd = TRUE)
-text(37.5, 0.56, expression(paste(e(w))),cex = labelsize,xpd = TRUE)
+text(37.5, 0.66, expression(paste("Employee's")),cex = labelsize,xpd = TRUE)
+text(37.5, 0.61, expression(paste("best-response function")),cex = labelsize,xpd = TRUE)
+text(37.5, 0.54, expression(paste(e(w) == 1 - frac(2*underline(u),w))),cex = labelsize,xpd = TRUE)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
@@ -121,10 +128,10 @@ text(27, 0.43, expression(paste("Nash equilibrium")), cex = labelsize)
 
 
 #Arrows and slope of iso-v label
-Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
-text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize)
+#Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
+#text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
+#text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize)
 
 
 

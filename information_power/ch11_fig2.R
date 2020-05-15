@@ -66,8 +66,8 @@ text(0.65, 35, expression(paste("Disutility = ", frac(underline("u"), (1 - q))))
 segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = grays[20])
 
 #Arrow to Slope of BRF
-Arrows(0.45, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.3, 13, expression(paste("Slope = " - u[q])), cex = labelsize)
+Arrows(0.45, 16, 0.62, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.3, 16, expression(paste("Slope = " - u[q])), cex = labelsize)
 
 #tangent lines
 segments(0.7459, 18, 0.8559, 32, lty = 2, col = grays[22], lwd = segmentlinewidth)
@@ -76,6 +76,11 @@ segments(0.3, 5.8, 0.7, 14.3, lty = 2, col = grays[22], lwd = segmentlinewidth)
 #Points for differing levels of q
 points(0.8, 25, pch = 16, col = "black", cex = 1.5)
 points(0.5, 10, pch = 16, col = "black", cex = 1.5)
+
+#tangent point lables
+text(0.785, 25.6, expression(paste(j)), cex = labelsize)
+text(0.48, 11, expression(paste(k)), cex = labelsize)
+
 
 #Text to indicate delta = 5
 #text(0.2, 38, expression(paste("Disutility of effort")), cex = labelsize)

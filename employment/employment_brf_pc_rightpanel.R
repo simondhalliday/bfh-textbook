@@ -47,6 +47,10 @@ tangencyLine <- function(w){
   (w*(0.05))
 }
 
+COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
@@ -85,12 +89,12 @@ xx8 <- seq(xlims[1], 25, length.out = npts2)
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = 3, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[5], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[5], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[6], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[6], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, brfFn(w = 18.4), 0.5, 1)

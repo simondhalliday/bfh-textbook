@@ -6,19 +6,21 @@ require(shape)
 library(pBrackets)
 pdf(file = "risk/tax_transfers_insurance.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-a <- c(2, 4, 6)
-
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
+a <- c(2, 4, 6)
 par(mar =  c(4, 6, .5, .5))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
@@ -50,8 +52,8 @@ ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), expression(y[f]), exp
 ticksx <- c(0, 8.74, xlims[2])
 xlabels <- c(NA, expression(Delta[h]), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
@@ -59,7 +61,7 @@ text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Exp
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-segments(8.74, 0, 8.74, 18, col = "grey", lwd = segmentlinewidth, lty = 2)
+segments(8.74, 0, 8.74, 18, col = grays[20], lwd = segmentlinewidth, lty = 2)
 
 lines(xx1, indiff(xx1, intercept = 4, slope = 0.09), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)

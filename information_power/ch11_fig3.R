@@ -90,16 +90,12 @@ text(19, 0.05, expression(paste(u[3])), cex = labelsize)
 #Line for the max quality, q = 1 
 segments(0, 1, 40, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-segments(13.1, 0.45, 17.2, 0.8, col = grays[22], lty = 2, lwd = graphlinewidth)
-segments(18.4, 0.25, 20, 0.55, col = grays[22], lty = 2, lwd = graphlinewidth)
-
 #Annotating line of 100% quality
 text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsize)
 
 #Add a point for the tangency
 points(12, 0.75, pch = 16, col = "black", cex = 1.5)
-points(15, 0.6, pch = 16, col = "black", cex = 1.5)
-points(19.3, 0.4, pch = 16, col = "black", cex = 1.5)
+
 
 
 #Arrow to Slope of BRF

@@ -51,6 +51,7 @@ ticksy <- c(0, 5, 40)
 ylabels <- c(0, expression(underline(u) == 5), 40)
 ticksx <- c(0, 1, 1.1)
 xlabels <- c(0, 1.0, NA)
+
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -67,6 +68,14 @@ segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = grays[20])
 #Arrow to Slope of BRF
 Arrows(0.45, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(0.3, 13, expression(paste("Slope = " - u[q])), cex = labelsize)
+
+#tangent lines
+segments(0.7459, 18, 0.8559, 32, lty = 2, col = grays[22], lwd = segmentlinewidth)
+segments(0.3, 5.8, 0.7, 14.3, lty = 2, col = grays[22], lwd = segmentlinewidth)
+
+#Points for differing levels of q
+points(0.8, 25, pch = 16, col = "black", cex = 1.5)
+points(0.5, 10, pch = 16, col = "black", cex = 1.5)
 
 #Text to indicate delta = 5
 #text(0.2, 38, expression(paste("Disutility of effort")), cex = labelsize)

@@ -57,7 +57,8 @@ mtext(expression(paste("Price, ", p)), side = 1, line = 2.5, cex = axislabelsize
 text(-4.5, 0.5*ylims[2], expression(paste("Quality, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotation of the three graphs and the NE
-text(32, 0.92, expression(paste("Isoprofit")), cex = annotatesize)
+text(32, 0.97, expression(paste("Incomplete contract")), cex = annotatesize)
+text(32, 0.92, expression(paste("isoprofit")), cex = annotatesize)
 #text(32, 0.92, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.64, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.59, expression(paste("function")), cex = annotatesize)
@@ -74,7 +75,7 @@ text(25, 0.81, expression(paste("Slope", phantom() == frac(q,p), phantom() == fr
 Arrows(25, 0.79, 25, 0.66, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #BRF Slope annotation
-text(25, 0.41, expression(paste("Slope = ", frac(2*underline("u"), p^2))), cex = annotatesize)
+text(25, 0.41, expression(paste("Slope = ", q[p] == frac(2*underline("u"), p^2))), cex = annotatesize)
 Arrows(25, 0.43, 25, 0.56, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Add a point for the NE

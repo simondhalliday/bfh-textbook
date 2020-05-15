@@ -102,7 +102,7 @@ points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 
 
 text(-2.7, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
-text(-4.2, ConcaveU(9.7) + 2, expression(paste(u(y[0]) == v(L) )),  xpd = TRUE, cex = labelsize)
+text(-4.2, ConcaveU(9.7) + 2, expression(paste(u(y[0]) == v(L), phantom() == phantom() )),  xpd = TRUE, cex = labelsize)
 text(-4.2, ConcaveU(9.7), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
 text(-5.5, ConcaveU(9.7) - 2, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 #text(-1.8, ConcaveU(9.7) - 3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)

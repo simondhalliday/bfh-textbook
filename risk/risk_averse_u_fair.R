@@ -20,7 +20,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 12, 1, 1))
+par(mar =  c(4, 12, 1, 1))
 
 #Concave utility of wealth function
 
@@ -65,7 +65,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-10, 0.5*ylims[2], expression(paste("Utility, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-12, 0.5*ylims[2], expression(paste("Utility, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, ConcaveU(xx1), col = COLA[5], lwd = graphlinewidth)
 
@@ -102,10 +102,10 @@ points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 
 
 text(-2.7, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
-text(-1.95, ConcaveU(9.7) + 1.7, expression(paste(u(y[0]) == phantom() )),  xpd = TRUE, cex = labelsize)
-text(-3.1, ConcaveU(9.7), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.3, ConcaveU(9.7) - 1.5, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
-text(-1.8, ConcaveU(9.7) - 3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
+text(-4.2, ConcaveU(9.7) + 2, expression(paste(u(y[0]) == v(L) )),  xpd = TRUE, cex = labelsize)
+text(-4.2, ConcaveU(9.7), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
+text(-5.5, ConcaveU(9.7) - 2, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
+#text(-1.8, ConcaveU(9.7) - 3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
 text(-2.7, ConcaveU(2), expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 text(-1.5, ConcaveU(19), expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 

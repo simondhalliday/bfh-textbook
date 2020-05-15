@@ -60,14 +60,14 @@ text(0.5*xlims[2], -3.5, expression(paste("Quality, ", q)), xpd = TRUE, cex = ax
 text(-0.115, 0.55*ylims[2], expression(paste("Disutility of providing quality, ", u)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotation of the  graphs
-text(0.65, 35, expression(paste("Disutility = ", frac(underline("u"), (1 - q)))), cex = labelsize)
+text(0.65, 35, expression(paste("Disutility", phantom() == frac(underline("u"), (1 - q)))), cex = labelsize)
 
 #Line for the absolute maximum quality
 segments(1, 0, 1, 42, lty = 2, lwd = 1.5, col = grays[20])
 
 #Arrow to Slope of BRF
 Arrows(0.45, 16, 0.62, 16, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.3, 16, expression(paste("Slope = " - u[q])), cex = labelsize)
+text(0.3, 16, expression(paste("Slope", phantom() == - u[q])), cex = labelsize)
 
 #tangent lines
 segments(0.7459, 18, 0.8559, 32, lty = 2, col = grays[22], lwd = segmentlinewidth)

@@ -107,7 +107,7 @@ text(22.5, 0.05, expression(paste(v[2])),cex = labelsize, xpd = TRUE)
 text(25.3, 0.05, expression(paste(v[3])),cex = labelsize, xpd = TRUE)
 text(37.5, 0.66, expression(paste("Employee's")),cex = labelsize,xpd = TRUE)
 text(37.5, 0.61, expression(paste("best-response function")),cex = labelsize,xpd = TRUE)
-text(37.5, 0.55, expression(paste(e(w) == 1 - frac(2*underline(u),w))),cex = labelsize,xpd = TRUE)
+text(37.5, 0.54, expression(paste(e(w) == 1 - frac(2*underline(u),w))),cex = labelsize,xpd = TRUE)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)

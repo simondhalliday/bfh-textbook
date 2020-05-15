@@ -69,14 +69,14 @@ polygon(x = c(xpoly2[1], xlims[2], rev(xpoly2)),
         col=COLA[1], density=NULL, border = NA)
 
 
-text(10, 10, expression(paste("Risk-return schedule, ", omega = g(Delta) )), cex = axislabelsize)
+text(10, 10, expression(paste("Risk-return schedule, ", omega = g(Delta) )), cex = labelsize)
 Arrows(10, 10.5, 10, 12.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(11, 3, expression(paste("Feasible combinations ")), cex = axislabelsize)
-text(11, 2, expression(paste("of risk and expected income")), cex = axislabelsize)
+text(11, 3, expression(paste("Feasible combinations ")), cex = labelsize)
+text(11, 2, expression(paste("of risk and expected income")), cex = labelsize)
 
-text(4, 17, expression(paste("Infeasible combinations ")), cex = axislabelsize)
-text(4, 16, expression(paste("of risk and expected income")), cex = axislabelsize)
+text(4, 17, expression(paste("Infeasible combinations ")), cex = labelsize)
+text(4, 16, expression(paste("of risk and expected income")), cex = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

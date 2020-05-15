@@ -123,7 +123,7 @@ text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(33, 0.5, expression(paste(q == 1 - frac(2*underline(u),p))), cex = annotatesize)
-text(33, 0.4, expression(paste("Slope = ", q[p] == frac(2*underline(u),p^2))), cex = annotatesize)
+text(33, 0.4, expression(paste("Slope", phantom()==phantom(), q[p] == frac(2*underline(u),p^2))), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium

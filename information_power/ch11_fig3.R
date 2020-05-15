@@ -74,7 +74,6 @@ lines(xx1, indiffFn1(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, indiffFn2(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, indiffFn3(xx3), col = COLA[5], lwd = graphlinewidth)
 lines(xx4, tangentLine(xx4), col = grays[22], lty = 2, lwd = graphlinewidth)
-
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1, 1.1)
 ylabels <- c(0, 1, NA)
@@ -90,11 +89,18 @@ text(19, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
 segments(0, 1, 40, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
+
+segments(13.1, 0.45, 17.2, 0.8, col = grays[22], lty = 2, lwd = graphlinewidth)
+segments(18.4, 0.25, 20, 0.55, col = grays[22], lty = 2, lwd = graphlinewidth)
+
 #Annotating line of 100% quality
 text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsize)
 
 #Add a point for the tangency
 points(12, 0.75, pch = 16, col = "black", cex = 1.5)
+points(15, 0.6, pch = 16, col = "black", cex = 1.5)
+points(19.3, 0.4, pch = 16, col = "black", cex = 1.5)
+
 
 #Arrow to Slope of BRF
 Arrows(9.5, .83, 13, .83, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")

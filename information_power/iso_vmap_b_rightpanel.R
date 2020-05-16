@@ -129,7 +129,7 @@ text(33, 0.4, expression(paste("Slope", phantom()==phantom(), q[p] == frac(2*und
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
+#segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
 segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)

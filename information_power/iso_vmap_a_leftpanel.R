@@ -147,8 +147,8 @@ lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = COLA[4], lwd = graphlinewid
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")), cex = annotatesize)
-text(32.3, 0.15, expression(paste(" = -mrs ")), cex = annotatesize)
-text(32, 0.06, expression(paste(" = " -frac(v[p], v[q]))), cex = annotatesize)
+text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = annotatesize)
+text(32, 0.06, expression(paste(phantom() == -frac(v[p], v[q]))), cex = annotatesize)
 
 
 Arrows(27, 0.45, 32, 0.45,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

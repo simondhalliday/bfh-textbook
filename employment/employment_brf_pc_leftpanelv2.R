@@ -77,8 +77,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      ylab = "",
      xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
 
-mtext(expression(paste("Price, ", p)), side=1, line = 2.5, cex = axislabelsize)
-text(-5.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Quality, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Wage, ", w)), side=1, line = 2.5, cex = axislabelsize)
+text(-5.7, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Effort, ", e)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 

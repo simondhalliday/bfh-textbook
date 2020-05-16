@@ -114,11 +114,11 @@ xx9 <- seq(20, xlims[2], length.out = npts2)
 xx10 <- seq(xlims[1], 25, length.out = npts2)
 
 #Lines for the coordinates of the Nash equilbrium
-segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
+#segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
+#segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
+#segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
@@ -162,7 +162,7 @@ text(38, 0.54, expression(paste(e(w) == 1 - frac(2*underline(u),w))),cex = label
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
-segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(10, 0, 10, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)

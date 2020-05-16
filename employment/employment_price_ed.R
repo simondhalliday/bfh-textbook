@@ -113,18 +113,20 @@ text(4, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 #Label the feasible frontier
 text(2, 0.75, expression("Better for"), cex = labelsize)
 text(2, 0.7, expression("employer"), cex = labelsize)
+Arrows(1.8, 0.78, 1, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 text(8, 0.25, expression("Better for"), cex = labelsize)
 text(8, 0.2, expression("employee"), cex = labelsize)
+Arrows(8.8, 0.225, 10, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 text(3.5, 0.97, expression(paste("Slope of isoprofit")), cex = labelsize)
-text(3.5, 0.89, expression(paste(-mrt(p,e) == frac(de,dp),phantom()==frac(e, p))), cex = labelsize)
+text(3.5, 0.89, expression(paste(-mrt(p,e) == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
 Arrows(5.3, 0.89, 6.8, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(8.5, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==frac(e, p),phantom() == mrt(p,e))), cex = labelsize, xpd = TRUE)
-Arrows(6, 0.5, 4.5, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.5, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt(p,e))), cex = labelsize, xpd = TRUE)
+Arrows(5.9, 0.5, 4.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

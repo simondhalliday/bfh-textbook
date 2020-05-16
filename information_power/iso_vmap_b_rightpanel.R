@@ -117,7 +117,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 
-# text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
+text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
 text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(19, 0.05, expression(paste(v[3])), cex = annotatesize)
@@ -136,7 +136,7 @@ segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segment
 segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
-#lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
 lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)

@@ -121,7 +121,7 @@ text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(20, 0, 20, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(20, 0, 20, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
 #segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
@@ -162,7 +162,7 @@ text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 
-#segments(18.4, 0, 18.4, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(18, 0, 18, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(18, brfFn(w = 18), pch = 16, col = "black", cex = 1.5)
 text(17.5, brfFn(18) + 0.02, expression(g), cex = labelsize)

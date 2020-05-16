@@ -19,7 +19,7 @@ lss$date <- as.yearmon(lss$date, "%Y-%m")
 
 lss %>% ggplot() + 
   geom_point(aes(x = date, y = log_OPH)) +
-  geom_vline(xintercept = as.numeric(as.yearmon("2007-07"))) +
+  geom_vline(xintercept = as.numeric(as.yearmon("2009-07"))) +
   geom_vline(xintercept = as.numeric(as.yearmon("2007-12"))) +
   labs(x = "Date", y = "log OPH") +
   theme_bw() +

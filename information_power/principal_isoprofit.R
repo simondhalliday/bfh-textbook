@@ -54,9 +54,12 @@ text(-4, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Quality, ", q))
 
 
 #Annotation of the three graphs and the NE
-text(18, 0.98, expression(paste(pi[3])), cex = annotatesize)
-text(37, 0.98, expression(paste(pi[2])), cex = annotatesize)
-text(39, 0.525, expression(paste(pi[1])), cex = annotatesize)
+# text(18, 0.98, expression(paste(pi[3])), cex = annotatesize)
+# text(37, 0.98, expression(paste(pi[2])), cex = annotatesize)
+# text(39, 0.525, expression(paste(pi[1])), cex = annotatesize)
+text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
+text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
+text(39, 0.525, expression(paste(c[3])), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -83,9 +86,15 @@ text(10 + 0.75, 0.125 - 0.025, expression(paste(a)), cex = annotatesize)
 Arrows(26, 0.80, 30, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(22, 0.80, expression(paste("Slope", phantom() == frac(q, p))), cex = annotatesize)
 
+text(8, 0.75, expression("Better for"), cex = labelsize)
+text(8, 0.7, expression("principal"), cex = labelsize)
+Arrows(8, 0.78, 5, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-Arrows(20, 0.15, 25, 0.22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(22, 0.10, expression(paste("Better for principal")), cex = annotatesize)
+
+#Arrows(20, 0.15, 25, 0.22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(22, 0.10, expression(paste("Better for principal")), cex = annotatesize)
+
+
 
 dev.off()
 

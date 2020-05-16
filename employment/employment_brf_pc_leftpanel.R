@@ -27,20 +27,29 @@ isovlow1 <- function(w, delta = 5, v = 5){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh2 <- function(w, delta = 5, v = 15){
+isovhigh2 <- function(w, delta = 5, v = 10){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow2 <- function(w, delta = 5, v = 15){
+isovlow2 <- function(w, delta = 5, v = 10){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh3 <- function(w, delta = 5, v = 20){
+isovhigh3 <- function(w, delta = 5, v = 15){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow3 <- function(w, delta = 5, v = 20){
+isovlow3 <- function(w, delta = 5, v = 15){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
+}
+
+
+isovhigh4 <- function(p, delta = 5, v = 15){
+  (sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
+}
+
+isovlow4 <- function(p, delta = 5, v = 15){
+  (-sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
 }
 
 brfFn <- function(w, delta = 5) {

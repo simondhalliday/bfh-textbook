@@ -21,25 +21,28 @@ isovlow1 <- function(w, delta = 5, v = 5){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh2 <- function(w, delta = 5, v = 15){
+isovhigh2 <- function(w, delta = 5, v = 10){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow2 <- function(w, delta = 5, v = 15){
+
+isovlow2 <- function(w, delta = 5, v = 10){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh3 <- function(w, delta = 5, v = 20){
+isovhigh3 <- function(w, delta = 5, v = 15){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow3 <- function(w, delta = 5, v = 20){
+isovlow3 <- function(w, delta = 5, v = 15){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
 brfFn <- function(w, delta = 5) {
   1 - (2*delta) /w
 }
+
+
 
 #This is evaluated for p = 12; q = 12/(8*sqrt(12^2 - 4*delta1*v1)) - 1/8 for the slope
 #At p = 12; q = (-sqrt(12^2 - 4*v1*delta1) - 12 + 2*v1)/(2*v1) = 0.799

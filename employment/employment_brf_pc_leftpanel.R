@@ -27,29 +27,20 @@ isovlow1 <- function(w, delta = 5, v = 5){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh2 <- function(w, delta = 5, v = 10){
+isovhigh2 <- function(w, delta = 5, v = 15){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow2 <- function(w, delta = 5, v = 10){
+isovlow2 <- function(w, delta = 5, v = 15){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovhigh3 <- function(w, delta = 5, v = 15){
+isovhigh3 <- function(w, delta = 5, v = 20){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow3 <- function(w, delta = 5, v = 15){
+isovlow3 <- function(w, delta = 5, v = 20){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
-}
-
-
-isovhigh4 <- function(p, delta = 5, v = 15){
-  (sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
-}
-
-isovlow4 <- function(p, delta = 5, v = 15){
-  (-sqrt(p^2 - 4 * delta * v) - p + 2*v)/( 2 * v )
 }
 
 brfFn <- function(w, delta = 5) {
@@ -108,7 +99,7 @@ lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, NA, 0.5, 1)

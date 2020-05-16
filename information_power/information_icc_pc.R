@@ -59,7 +59,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 text(31, 0.98, expression(paste("Incomplete contract")), cex = annotatesize)
-text(31, 0.92, expression(paste("isoprofit")), cex = annotatesize)
+text(31, 0.92, expression(paste("isocost, ", c[2])), cex = annotatesize)
 #text(31, 0.85, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(26, 0.34, expression(paste("Best-response")), cex = annotatesize)
 text(26, 0.29, expression(paste("function")), cex = annotatesize)
@@ -73,7 +73,7 @@ text(20.6, 0.48, expression(paste("n")), cex = annotatesize)
 
 
 text(12, 0.98, expression(paste("Complete contract")), cex = annotatesize)
-text(12, 0.92, expression(paste("Isoprofit")), cex = annotatesize)
+text(12, 0.92, expression(paste("isocost, ", c[1])), cex = annotatesize)
 #text(12, 0.85, expression(paste(q == frac(p, 4*underline("u")))), cex = annotatesize)
 text(35, 0.55, expression(paste("Participation")), cex = annotatesize)
 text(35, 0.5, expression(paste("constraint")), cex = annotatesize)
@@ -99,6 +99,11 @@ points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
 Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
+
+#text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
+#text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
+#text(39, 0.525, expression(paste(c[3])), cex = annotatesize)
 
 
 dev.off()

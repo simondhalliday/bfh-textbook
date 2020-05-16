@@ -148,6 +148,9 @@ segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(19.5, 0.52, expression(n), cex = labelsize)
 #text(27, 0.48, expression(paste("Incomplete contract")), cex = labelsize)
 #text(27, 0.43, expression(paste("Nash equilibrium")), cex = labelsize)
+points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
+text(15, 0.2928934, expression(paste("d")), cex = annotatesize)
+segments(14.14214, 0, 14.14214, 0.45, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 #Arrows and slope of iso-v label
@@ -165,14 +168,14 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 segments(18, 0, 18, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(18, brfFn(w = 18), pch = 16, col = "black", cex = 1.5)
-text(17.5, brfFn(18) + 0.02, expression(g), cex = labelsize)
+text(17.5, brfFn(18) + 0.02, expression(e), cex = labelsize)
 
 
 
 #Add a point for h
 #Figure out q for p = 14.14214: q = 1 - 2delta/p = 1 - (2*5)/14.14214 =  0.2928934
 points(20, 0.0839422, pch = 16, col = "black", cex = 1.5)
-text(20.8, 0.0939422, expression(h), cex = labelsize)
+text(20.8, 0.0939422, expression(g), cex = labelsize)
 
 points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f),cex = labelsize)

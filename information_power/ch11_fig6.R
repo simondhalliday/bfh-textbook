@@ -97,14 +97,14 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = annotatesize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = annotatesize)
 
 #Annotation of the three graphs and the NE
-text(34, 0.96, expression(paste("Isoprofit")), cex = annotatesize)
+text(35, 0.96, expression(paste("Isocost")), cex = annotatesize)
 #text(31, 0.98, expression(paste("Isoprofit: ", q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.62, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.57, expression(paste("function")), cex = annotatesize)
 
 text(25.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
-text(14, 0.52, expression(paste("Nash equilibrium")), cex = annotatesize)
+text(14.5, 0.52, expression(paste("Nash equilibrium")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(20, 0, 20, 0.65, lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -123,8 +123,9 @@ Arrows(20, 0.68, 23.8, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triang
 text(12, 0.68, expression(paste("Pareto-improving lens")), cex = annotatesize)
 
 # better for P
-Arrows(11.5, 0.35, 13.5, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(6, 0.3, expression(paste("Better for principal")), cex = annotatesize)
+text(8, 0.85, expression("Better for"), cex = labelsize)
+text(8, 0.8, expression("principal"), cex = labelsize)
+Arrows(8, 0.88, 5, 0.99, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # better for A
 Arrows(32, 0.25, 38, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

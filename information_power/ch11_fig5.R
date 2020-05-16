@@ -58,7 +58,7 @@ text(-4.5, 0.5*ylims[2], expression(paste("Quality, ", q)), xpd = TRUE, cex = ax
 
 #Annotation of the three graphs and the NE
 text(32, 0.97, expression(paste("Incomplete contract")), cex = annotatesize)
-text(32, 0.92, expression(paste("isoprofit")), cex = annotatesize)
+text(32, 0.92, expression(paste("isocost")), cex = annotatesize)
 #text(32, 0.92, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.64, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.59, expression(paste("function")), cex = annotatesize)
@@ -70,7 +70,7 @@ text(16, 0.52, expression(paste("equilibrium")), cex = annotatesize)
 segments(20, 0, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-#Iso-profit slope annotation
+#Iso-cost slope annotation
 text(25, 0.81, expression(paste("Slope", phantom() == frac(q,p), phantom() == frac(1, 8*underline("u")))), cex = annotatesize)
 Arrows(25, 0.79, 25, 0.66, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 

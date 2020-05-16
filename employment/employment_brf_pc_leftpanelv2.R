@@ -150,7 +150,7 @@ text(19.5, 0.52, expression(n), cex = labelsize)
 #text(27, 0.43, expression(paste("Nash equilibrium")), cex = labelsize)
 points(14.14214, 0.2928934, pch = 16, col = "black", cex = 1.5)
 text(15, 0.2928934, expression(paste("d")), cex = annotatesize)
-segments(14.14214, 0.2, 14.14214, 0.45, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(14.14214, 0.2, 14.14214, 0.45, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 Arrows(27, 0.45, 32, 0.45,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(30, 0.5, expression(paste("Better for employee")), cex = annotatesize)
@@ -167,7 +167,7 @@ text(32, 0.08, expression(paste(phantom() == -frac(v[w], v[e]))),cex = labelsize
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 
-segments(18, 0.2, 18, 0.65, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(18, 0.2, 18, 0.65, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(18, brfFn(w = 18), pch = 16, col = "black", cex = 1.5)
 text(17.5, brfFn(18) + 0.02, expression(e), cex = labelsize)

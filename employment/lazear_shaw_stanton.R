@@ -27,7 +27,7 @@ lss %>% ggplot() +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.21, label = "Recession", size = 6) +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.2, label = "begins Dec 2007", size = 6) + 
   annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.21, label = "Recession", size = 6) +
-  annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.2, label = "ends Jul 2007", size = 6) + 
+  annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.2, label = "ends Jul 2009", size = 6) + 
   labs(x = "Date (months)", y = "Monthly mean log worker productivity") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),

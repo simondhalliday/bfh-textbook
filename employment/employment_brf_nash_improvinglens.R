@@ -52,7 +52,7 @@ solowCondition <- function(w, delta = 5){
 }
 
 
-COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
+COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32", "#ffff99")
 grays <- gray.colors(25, start = 1, end = 0)
 par(mar =  c(5, 5, 4, 5))
 xlims <- c(0, 40)
@@ -87,7 +87,7 @@ xx9 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
 yy1 <- isovhigh(xx7, delta = 5, v = 20)
 
 
-polygon(c(xx7, xx7[416]), c(yy1, yy1[400]), col = COL[3], density = NULL, border = NA)
+polygon(c(xx7, xx7[340]), c(yy1, yy1[340]), col = COL[9], density = NULL, border = NA)
 
 #Draw the lines for the graphs
 #lines(xx0, isov(xx0, delta = 5), col = COL[3], lwd = graphlinewidth)

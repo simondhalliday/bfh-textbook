@@ -3,6 +3,9 @@
 #' https://www.journals.uchicago.edu/doi/10.1086/682406
 #' Lezear Shaw Stanton
 
+# TODO Change colors of vertical lines and points
+# TODO Increase size of text 
+
 library("tidyverse")
 library("ggplot2")
 library("scales")
@@ -25,3 +28,4 @@ lss %>% ggplot() +
   theme_bw() +
   theme(panel.grid.minor = element_blank())
 
+ggsave("employment/lazear_shaw_stanton.pdf", width = 9, height = 6, units = "in")

@@ -23,8 +23,12 @@ COL <- c("#1F78B4","#E31A1C")
 lss %>% ggplot() + 
   geom_vline(xintercept = as.numeric(as.yearmon("2009-07")), color = COL[2], lwd = 1) +
   geom_vline(xintercept = as.numeric(as.yearmon("2007-12")), color = COL[2], lwd = 1) +
-  geom_point(aes(x = date, y = log_OPH), color = COL[1], cex = 2) +
-  labs(x = "Date", y = "log OPH") +
+  geom_point(aes(x = date, y = log_OPH), color = COL[1], cex = 2.5) +
+  annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.21, label = "Recession", size = 6) +
+  annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.2, label = "begins Dec 2007", size = 6) + 
+  annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.21, label = "Recession", size = 6) +
+  annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.2, label = "ends Jul 2007", size = 6) + 
+  labs(x = "Date (months)", y = "Monthly mean log worker productivity") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         axis.text.x = element_text(size = 17),

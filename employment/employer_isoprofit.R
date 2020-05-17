@@ -52,9 +52,9 @@ text(-4, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Effort, ", e)),
 
 
 #Annotation of the three graphs and the NE
-text(18, 0.98, expression(paste(pi[3])), cex = labelsize)
-text(38, 0.98, expression(paste(pi[2])), cex = labelsize)
-text(38, 0.45, expression(paste(pi[1])), cex = labelsize)
+text(18, 0.98, expression(paste(c[1])), cex = labelsize)
+text(38, 0.99, expression(paste(c[2])), cex = labelsize)
+text(38, 0.44, expression(paste(c[3])), cex = labelsize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20])
@@ -79,7 +79,7 @@ text(10 + 0.5, 0.125 - 0.025, expression(paste(a)), cex = labelsize)
 
 #Arrow to Slope of isoprofit
 Arrows(12, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(8.2, 0.90, expression(paste("Slope of isoprofit")), cex = labelsize)
+text(8.2, 0.90, expression(paste("Slope of isocost")), cex = labelsize)
 text(8.2, 0.80, expression(paste(frac(1, c(e,w) ) == frac(e, w))), cex = labelsize)
 
 dev.off()

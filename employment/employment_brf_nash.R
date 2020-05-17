@@ -106,7 +106,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
-text(7, 0.42, expression(paste("Slope of isoprofit: ")), cex = labelsize)
+text(7, 0.42, expression(paste("Slope of isocost: ")), cex = labelsize)
 text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))), cex = labelsize)
 Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 

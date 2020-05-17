@@ -13,11 +13,11 @@ segmentlinewidth <- 1.5
 isov <- function(w, delta = 5) {
 }
 
-isovhigh1 <- function(w, delta = 5, v = 5){
+isovhigh1 <- function(w, delta = 5, v = 30){
   (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-isovlow1 <- function(w, delta = 5, v = 5){
+isovlow1 <- function(w, delta = 5, v = 30){
   (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
@@ -79,8 +79,8 @@ xx2 <- seq(5, 15, length.out = npts)
 xx3 <- seq(10, xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 10, length.out = npts2)
 #For below, I solved sqrt(p^2 - 200) - p + 200/p = 0, getting p = 10*sqrt(2) = 14.14214
-xx5 <- seq( 18.43909, xlims[2], length.out = npts2)
-xx6 <- seq( 18.43909, 25, length.out = npts2)
+xx5 <- seq(18.43909, xlims[2], length.out = npts2)
+xx6 <- seq(18.43909, 41, length.out = npts2)
 xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
 xx9 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
@@ -100,6 +100,8 @@ lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx6, isovlow2(xx6, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COL[6], lwd = graphlinewidth)
+lines(xx5, isovhigh1(xx5, v = 30, delta = 5), col = COL[6], lwd = graphlinewidth, lty = 2)
+lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[6], lwd = graphlinewidth, lty = 2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  0.5, 1)
@@ -166,8 +168,8 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 #points(20, 0.1839422, pch = 16, col = "black", cex = 1.5)
 #text(20.8, 0.1839422, expression(c))
 
-points(22, isovhigh3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
-text(22 + 0.5, isovhigh3(22, v = 20, delta = 5) - 0.02, expression(f), cex = labelsize)
+points(26.2, 0.72, pch = 16, col = "black", cex = 1.5)
+text(26.2 + 0.5, 0.72 - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
 

@@ -28,7 +28,7 @@ solowCondition <- function(p, delta = 5){
   (p*(1/(8*delta)))
 }
 
-par(mar =  c(4, 8, 1, 1))
+par(mar =  c(4, 8, 0.5, 0.5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -58,13 +58,14 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
-text(31, 0.98, expression(paste("Incomplete contract")), cex = annotatesize)
-text(31, 0.92, expression(paste("isocost, ", c[2])), cex = annotatesize)
+text(31.8, 0.98, expression(paste("Incomplete contract")), cex = annotatesize)
+text(31.8, 0.93, expression(paste("isocost, ", c[2])), cex = annotatesize)
 #text(31, 0.85, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(26, 0.34, expression(paste("Best-response")), cex = annotatesize)
-text(26, 0.29, expression(paste("function")), cex = annotatesize)
+text(26, 0.3, expression(paste("function")), cex = annotatesize)
+text(26, 0.25, expression(paste("(ICC)")), cex = annotatesize)
 #text(25, 0.21, expression(paste(q == 1 - frac(2*underline("u"), p))), cex = annotatesize)
-Arrows(25, 0.38, 25, 0.57, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(26, 0.36, 26, 0.59, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 # text(16, 0.57, expression(paste("Nash")), cex = annotatesize)
@@ -72,11 +73,11 @@ Arrows(25, 0.38, 25, 0.57, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 text(20.6, 0.48, expression(paste("n")), cex = annotatesize)
 
 
-text(12, 0.98, expression(paste("Complete contract")), cex = annotatesize)
-text(12, 0.92, expression(paste("isocost, ", c[1])), cex = annotatesize)
+text(13, 0.98, expression(paste("Complete contract")), cex = annotatesize)
+text(13, 0.93, expression(paste("isocost, ", c[1])), cex = annotatesize)
 #text(12, 0.85, expression(paste(q == frac(p, 4*underline("u")))), cex = annotatesize)
-text(35, 0.55, expression(paste("Participation")), cex = annotatesize)
-text(35, 0.5, expression(paste("constraint")), cex = annotatesize)
+text(37, 0.55, expression(paste("Participation")), cex = annotatesize)
+text(37, 0.51, expression(paste("constraint")), cex = annotatesize)
 #text(35, 0.42, expression(paste(q == 1 - frac(underline("u"), p))), cex = annotatesize)
 
 
@@ -98,7 +99,7 @@ segments(1, 0.05, 20, 1, lty = 1, lwd = graphlinewidth, col = COLB[4])
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
 text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
-Arrows(35, 0.58, 35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(37, 0.58, 37, 0.84, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)

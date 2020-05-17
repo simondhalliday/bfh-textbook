@@ -1,10 +1,8 @@
-#' Scott Cohn
-#' Bowles Halliday 
+#' Graph Designer: Scott Cohn
+#' Authors: Bowles and Halliday
+#' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 #' https://www.journals.uchicago.edu/doi/10.1086/682406
 #' Lezear Shaw Stanton
-
-# TODO Change colors of vertical lines and points
-# TODO Increase size of text 
 
 library("tidyverse")
 library("ggplot2")
@@ -20,12 +18,18 @@ lss <- lazear_shaw_stanton %>% rename(
 
 lss$date <- as.yearmon(lss$date, "%Y-%m")
 
+COL <- c("#1F78B4","#E31A1C")
+
 lss %>% ggplot() + 
-  geom_point(aes(x = date, y = log_OPH)) +
-  geom_vline(xintercept = as.numeric(as.yearmon("2009-07"))) +
-  geom_vline(xintercept = as.numeric(as.yearmon("2007-12"))) +
+  geom_vline(xintercept = as.numeric(as.yearmon("2009-07")), color = COL[2], lwd = 1) +
+  geom_vline(xintercept = as.numeric(as.yearmon("2007-12")), color = COL[2], lwd = 1) +
+  geom_point(aes(x = date, y = log_OPH), color = COL[1], cex = 2) +
   labs(x = "Date", y = "log OPH") +
   theme_bw() +
-  theme(panel.grid.minor = element_blank())
+  theme(panel.grid.minor = element_blank(),
+        axis.text.x = element_text(size = 17),
+        axis.text.y = element_text(size = 17),  
+        axis.title.x = element_text(size = 19),
+        axis.title.y = element_text(size = 19))
 
 ggsave("employment/lazear_shaw_stanton.pdf", width = 9, height = 6, units = "in")

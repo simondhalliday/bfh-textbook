@@ -103,7 +103,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 # text(24.8, 0.05, expression(paste(v[N])))
-text(45, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize)
+text(45, 0.66, expression(paste("Employee's")), cex = labelsize)
 text(45, 0.605, expression(paste("best-response")), cex = labelsize)
 text(45, 0.55, expression(paste("function, ", e(w))), cex = labelsize)
 

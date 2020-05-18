@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "information_power/ch11_fig3.pdf", width = 9, height = 7)
+pdf(file = "information_power/ch11_fig3v2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -19,15 +19,15 @@ delta1 <- 2
 delta2 <- 2
 delta3 <- 2
 
-indiffFn1 <- function(p, u1 = 4, delta1 = 2) {
+indiffFn1 <- function(p, u1 = 4, delta1 = 5) {
   1 - (delta1) / (p - u1)
 }
 
-indiffFn2 <- function(p, u2 = 10, delta2 = 2) {
+indiffFn2 <- function(p, u2 = 10, delta2 = 5) {
   1 - (delta2) / (p - u2)
 }
 
-indiffFn3 <- function(p, u3 = 16, delta3 = 2) {
+indiffFn3 <- function(p, u3 = 16, delta3 = 5) {
   1 - (delta3) / (p - u3)
 }
 

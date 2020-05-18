@@ -57,8 +57,9 @@ mtext(expression(paste("Price, ", p)), side = 1, line = 2.5, cex = axislabelsize
 text(-4.5, 0.5*ylims[2], expression(paste("Quality, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Annotation of the three graphs and the NE
-text(32, 0.97, expression(paste("Incomplete contract")), cex = annotatesize)
-text(32, 0.92, expression(paste("isocost")), cex = annotatesize)
+t#ext(32, 0.97, expression(paste("Incomplete contract")), cex = annotatesize)
+text(36, 1, expression(paste("Isocost")), cex = annotatesize)
+text(35.5, 0.93, expression(paste(c[2])), cex = annotatesize)
 #text(32, 0.92, expression(paste(q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.64, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.59, expression(paste("function")), cex = annotatesize)

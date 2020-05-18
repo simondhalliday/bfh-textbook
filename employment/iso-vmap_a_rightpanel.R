@@ -1,10 +1,10 @@
-#' Graph Designer: Scott Cohn
+#' Graph Designer: Scott Cohn and Harriet Brookes Gray
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(ggplot2)
 require(shape)
-pdf(file = "information_power/iso_vmap_a.pdf", width = 9, height = 7)
+pdf(file = "information_power/iso_vmap_a_rightpanel.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8

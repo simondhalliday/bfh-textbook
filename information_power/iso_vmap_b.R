@@ -104,7 +104,7 @@ segments(20, 0, 20, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
-lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
+#lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
@@ -115,13 +115,15 @@ lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidt
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
 #Annotation of the three graphs and the NE
-text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
+text(3.4, 0.05, expression(paste(v[0] == 0)), cex = annotatesize)
 #text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 #text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(21, 0.48, expression(paste("n")), cex = annotatesize)
-text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
+text(35, 0.63, expression(paste("Best-response")), cex = annotatesize)
+text(35, 0.58, expression(paste("function (ICC)")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
+text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

@@ -23,15 +23,15 @@ a1 <- 2
 a2 <- 2
 a3 <- 2
 
-indiffFn1 <- function(y, u1 = 4.5, a1 = 5) {
+indiffFn1 <- function(y, u1 = 4.5, a1 = 2) {
   1 - (a1) / (y - u1)
 }
 
-indiffFn2 <- function(y, u2 = 10.5, a2 = 5) {
+indiffFn2 <- function(y, u2 = 10.5, a2 = 2) {
   1 - (a2) / (y - u2)
 }
 
-indiffFn3 <- function(y, u3 = 16.5, a3 = 5) {
+indiffFn3 <- function(y, u3 = 16.5, a3 = 2) {
   1 - (a3) / (y - u3)
 }
 
@@ -46,11 +46,6 @@ PCFn <- function(delta, mu = 16) {
 tangentLine <- function(w){
   0.375 + (1/32)*w
 }
-
-solowCondition <- function(w, delta = 5){
-  (w*(1/(8*delta)))
-}
-
 
 par(mar =  c(5, 5, 1, 1))
 xlims <- c(0, 12)
@@ -88,7 +83,6 @@ lines(xx5, indiffFn1(xx5, u1 = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx5, indiffFn1(xx5, u1 = -1.5), col = COLA[4], lwd = graphlinewidth)
 lines(xx3, indiffFn1(xx3, u1 = 1.5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx6, prodFn2(xx6), col = COLB[4], lwd = graphlinewidth)
-lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)

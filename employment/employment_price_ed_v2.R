@@ -54,7 +54,7 @@ solowCondition <- function(w, delta = 5){
 
 par(mar =  c(5, 5, 4, 6))
 xlims <- c(0, 40)
-ylims <- c(0, 1.05)
+ylims <- c(0, 1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",

@@ -42,8 +42,8 @@ lines(xx2, solowCondition(xx2, delta = 5), col = COLB[4], lwd = graphlinewidth)
 lines(xx2, solowCondition(xx2, delta = 5, slope = 16), col = COLB[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 0.125, 0.25, 0.5, 1)
-ylabels <- c(0, expression(paste(frac(1,8))),expression(paste(frac(1,4))),expression(paste(frac(1,2))), 1)
+ticksy <- c(0, NA, 0.25, 0.5, 1)
+ylabels <- c(0, NA,expression(paste(frac(1,4))),expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 10, 20, 40)
 xlabels <- c(0, 10, 20, 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = annotatesize)
@@ -65,7 +65,7 @@ text(39, 0.525, expression(paste(c[3])), cex = annotatesize)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(10, 0, 10, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.25, 10, 0.25, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 0.125, 10, 0.125, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(0, 0.125, 10, 0.125, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

@@ -81,12 +81,13 @@ xx4 <- seq(7, 17, 0.01)
 xx5 <- seq(5, xlims[2], length.out = npts)
 xx6 <- seq(11.9, xlims[2], length.out = npts)
 xx7 <- seq(xlims[1], 20, length.out = npts)
+xx9 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
 
 
 #Draw the lines for the graphs
 lines(xx5, PCFn(xx5, mu = 8), col = COLB[4], lwd = graphlinewidth)
 lines(xx6, indiffFn1(xx6, u1 = 11.9), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, indiffFn1(xx5, u1 = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, indiffFn1(xx5, u1 = 5), col = COLA[4], lwd = graphlinewidth) #u1
 lines(xx3, indiffFn1(xx3, u1 =20), col = COLA[4], lwd = graphlinewidth)
 #lines(xx6, prodFn2(xx6), col = COLB[4], lwd = graphlinewidth)
 lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)

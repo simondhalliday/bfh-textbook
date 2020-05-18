@@ -97,10 +97,10 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = annotatesize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = annotatesize)
 
 #Annotation of the three graphs and the NE
-text(35, 0.96, expression(paste("Isocost")), cex = annotatesize)
+text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(31, 0.98, expression(paste("Isoprofit: ", q == frac(p, 8*underline("u")))), cex = annotatesize)
 text(35, 0.62, expression(paste("Best-response")), cex = annotatesize)
-text(35, 0.57, expression(paste("function")), cex = annotatesize)
+text(35, 0.57, expression(paste("function (ICC)")), cex = annotatesize)
 
 text(25.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)

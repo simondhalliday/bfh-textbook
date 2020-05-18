@@ -122,6 +122,7 @@ text(38, 0.66, expression(paste("Best-response")), cex = labelsize, xpd = TRUE)
 text(38, 0.6, expression(paste("function (ICC)")), cex = labelsize, xpd = TRUE)
 text(38, 0.53, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 text(32, 0.05, expression(paste(v[5])), cex = annotatesize)
+text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 
 
 

@@ -62,8 +62,7 @@ tangencyLine <- function(p){
 }
 
 
-COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32")
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(4, 4, 4, 3.5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -106,7 +105,7 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #Draw the lines for the graphs
 lines(xx2, tangencyLine(xx2), col = grays[20], lwd = segmentlinewidth, lty = 2)
 lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
@@ -117,8 +116,8 @@ lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth
 text(3.4, 0.05, expression(paste(v[0] == z)), cex = labelsize)
 #text(22, 0.05, expression(paste(v[1])), cex = labelsize)
 text(25, 0.05, expression(paste(v[4])),cex = labelsize)
-text(35, 0.64, expression(paste("Employee's")), cex = labelsize, xpd =TRUE)
-text(35, 0.60, expression(paste("best-response function")),cex = labelsize, xpd =TRUE)
+text(37, 0.62, expression(paste("Employee's best-response")), cex = labelsize, xpd =TRUE)
+text(37, 0.57, expression(paste("function (ICC)")),cex = labelsize, xpd =TRUE)
 #text(35, 0.58, expression(paste(e(Delta, a))))
 text(36, 0.94, expression(paste("Employee's")),cex = labelsize)
 text(36, 0.9, expression(paste("iso-v curves")),cex = labelsize)

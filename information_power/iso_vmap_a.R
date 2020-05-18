@@ -123,6 +123,7 @@ text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
+text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)

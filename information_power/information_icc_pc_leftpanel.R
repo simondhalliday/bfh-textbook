@@ -28,7 +28,7 @@ solowCondition <- function(p, delta = 5){
   (p*(1/(8*delta)))
 }
 
-par(mar =  c(4, 6, 0.5, 0.5))
+par(mar =  c(4, 6, 0.5, 1))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 

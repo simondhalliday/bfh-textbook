@@ -75,7 +75,7 @@ polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLB[1
 
 npts <- 500 
 xx1 <- seq(u1 + a1 + 0.1, xlims[2], length.out = npts)
-xx2 <- seq(u2 + a2 + 0.1, xlims[2], length.out = npts)
+xx2 <- seq(u2 + a2xlims[2] + 0.1, xlims[2], length.out = npts)
 xx3 <- seq(20, xlims[2], length.out = npts)
 xx4 <- seq(7, 17, 0.01)
 xx5 <- seq(5, xlims[2], length.out = npts)

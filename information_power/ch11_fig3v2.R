@@ -15,9 +15,9 @@ segmentlinewidth <- 1.5
 u1 <- 4
 u2 <- 10
 u3 <- 16
-delta1 <- 2
-delta2 <- 2
-delta3 <- 2
+delta1 <- 5
+delta2 <- 5
+delta3 <- 5
 
 indiffFn1 <- function(p, u1 = 4, delta1 = 5) {
   1 - (delta1) / (p - u1)
@@ -64,7 +64,7 @@ npts <- 500
 xx1 <- seq(u1 + delta1, xlims[2], length.out = npts)
 xx2 <- seq(u2 + delta2, xlims[2], length.out = npts)
 xx3 <- seq(u3 + delta3, xlims[2], length.out = npts)
-xx4 <- seq(7, 17, 0.01)
+xx4 <- seq(10, 8, 0.01)
 
 
 
@@ -73,19 +73,21 @@ xx4 <- seq(7, 17, 0.01)
 lines(xx1, indiffFn1(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, indiffFn2(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, indiffFn3(xx3), col = COLA[5], lwd = graphlinewidth)
-lines(xx4, tangentLine(xx4), col = grays[22], lty = 2, lwd = graphlinewidth)
+#lines(xx4, tangentLine(xx4), col = grays[22], lty = 2, lwd = graphlinewidth)
+segments(11.6, 0.45, 21.4, 0.75, lty = 2, col = grays[22], lwd = graphlinewidth)
+
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1, 1.1)
 ylabels <- c(0, 1, NA)
-ticksx <- c(0, 6, 12, 18, 40)
-xlabels <- c(0, 6, 12, 18, 40)
+ticksx <- c(0, 9, 15, 21, 40)
+xlabels <- c(0, 9, 15, 21, 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three indifference curves
-text(7, 0.05, expression(paste(u[1])), cex = labelsize)
-text(13, 0.05, expression(paste(u[2])), cex = labelsize)
-text(19, 0.05, expression(paste(u[3])), cex = labelsize)
+text(10.2, 0.05, expression(paste(u[1])), cex = labelsize)
+text(16.2, 0.05, expression(paste(u[2])), cex = labelsize)
+text(22.2, 0.05, expression(paste(u[3])), cex = labelsize)
 
 #Line for the max quality, q = 1 
 segments(0, 1, 40, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -94,14 +96,14 @@ segments(0, 1, 40, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsize)
 
 #Add a point for the tangency
-points(12, 0.75, pch = 16, col = "black", cex = 1.5)
+points(16.5, 0.6, pch = 16, col = "black", cex = 1.5)
 
 
 
 #Arrow to Slope of BRF
-Arrows(9.5, .83, 13, .83, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
-text(6.3, 0.9, expression(paste("Slope", phantom() == phantom(), "-mrs",phantom() == phantom())), cex = labelsize)
-text(6.3, 0.8, expression(paste(frac((1-q)^2, underline(u)))), cex = labelsize)
+Arrows(13.7, .68, 18, .68, col = "black", lty = 1, lwd = 1.5, arr.type = "triangle")
+text(11, 0.75, expression(paste("Slope", phantom() == phantom(), "-mrs",phantom() == phantom())), cex = labelsize)
+text(11, 0.65, expression(paste(frac((1-q)^2, underline(u)))), cex = labelsize)
 #text(5, 0.8, expression(paste(" = ", frac((1-q)^2,  underline("u")))), cex = labelsize)
 dev.off()
 

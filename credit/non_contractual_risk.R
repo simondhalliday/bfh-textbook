@@ -91,7 +91,7 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 
 
 #Draw the graphs
-lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 lines(xx1, PCFn(xx1), col = COLA[2], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 

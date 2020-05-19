@@ -73,7 +73,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], isoreturnFn(0.25), brfFn(delta = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(f^{c})), expression(paste(f^{n})), NA)
+ylabels <- c(NA, expression(paste(f^{C})), expression(paste(f^{N})), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(NA, expression(paste(delta)), NA)
 
@@ -139,9 +139,9 @@ Arrows(0.75, 0.49, 0.75, 0.7, col = "black", lty = 1, lwd = 2, arr.type = "trian
 
 
 #text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
-text(0.95, 0.825, expression(paste(pi == pi^{n})), cex = labelsize, xpd = TRUE)
+text(0.95, 0.825, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
 #Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.95, 0.7, expression(paste(pi == pi^{c})), cex = labelsize, xpd = TRUE)
+text(0.95, 0.7, expression(paste(pi == pi^{C})), cex = labelsize, xpd = TRUE)
 
 # text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
 # text(0.3, 0.07, expression(paste("lens")), cex = labelsize)

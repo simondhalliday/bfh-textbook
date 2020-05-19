@@ -99,10 +99,10 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the three indifference curves
-text(11.3, 0.05, expression(paste(u[2])), cex = labelsize-0.05)
+text(11.3, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
 text(6.3, 0.05, expression(paste(u[0])), cex = labelsize-0.05)
 #text(11, 0.06, expression(paste(phantom() == 0)), cex = labelsize-0.05)
-text(16.3, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
+text(16.3, 0.05, expression(paste(u[2])), cex = labelsize-0.05)
 
 #Line for the max quality, q = 1 
 segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)

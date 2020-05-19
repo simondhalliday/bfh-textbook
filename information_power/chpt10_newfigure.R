@@ -76,7 +76,7 @@ text(1.3, 0.45, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.8, expression(paste("P's Willingness")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.74, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
 
-text(1.25, 0.2, expression(paste("A' Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.2, expression(paste("A's Willingness")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.14, expression(paste("to sell")), cex = labelsize, xpd = TRUE)
 
 

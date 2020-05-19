@@ -20,9 +20,9 @@ disutilityFn <- function(t, cbar = 1.2, underbarc = 1, z = 0) {
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(4, 6, 3, 10))
+par(mar =  c(4, 6, 1, 10))
 xlims <- c(0, 1)
-ylims <- c(0,1)
+ylims <- c(0, 1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -33,7 +33,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx1 <- seq(0, 1, length.out = npts)
+xx1 <- seq(0.2, 1, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
@@ -53,9 +53,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Segments
-segments(0, 0.8, 1.1, 0.8, lty = 2, lwd = 1.5, col = grays[20], xpd = TRUE)
+segments(0, 0.8, 1.08, 0.8, lty = 2, lwd = 1.5, col = grays[20], xpd = TRUE)
 segments(0.25, 0, 0.25, 0.8, lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
-segments(0, 0.2, 1.1,0.2,lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
+segments(0, 0.2, 1.08, 0.2,lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
 segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
 
 #Axis tick labels
@@ -73,11 +73,11 @@ text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = T
 text(1.3, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)
 text(1.3, 0.5, expression(paste("economic")), cex = labelsize, xpd = TRUE)
 text(1.3, 0.45, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
-text(1.25, 0.8, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.8, expression(paste("P's Willingness")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.74, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
 
-text(1.25, 0.2, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
-text(1.25, 0.13, expression(paste("to sell")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.2, expression(paste("A' Willingness")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.14, expression(paste("to sell")), cex = labelsize, xpd = TRUE)
 
 
 #Arrows

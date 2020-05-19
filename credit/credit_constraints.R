@@ -24,30 +24,34 @@ grays <- gray.colors(25, start = 1, end = 0)
 Income_range1 <- c("<40,000", "<40,000", "<40,000", "<40,000")
 Race1 <- c("White", "Black", "Hispanic", "Overall")
 Denied1 <- c(40,58,41,43)
+Approved1 <- c(52, 32, 51,49)
 Denied_Approved_less1 <- c(48,68,49,51)
 Approved_less1 <- c(8, 10, 8, 8)
-data1 <- cbind(Income_range1, Race1, Denied1, Denied_Approved_less1, Approved_less1)
+data1 <- cbind(Income_range1, Race1, Approved1, Denied1, Denied_Approved_less1, Approved_less1)
 
 Income_range2 <- c("40,000-100,000", "40,000-100,000", "40,000-100,000", "40,000-100,000")
 Race2 <- c("White", "Black", "Hispanic", "Overall")
 Denied2 <- c(17,41,30,22)
+Approved2 <- c(78,43,61,71)
 Denied_Approved_less2 <- c(22,57,39,29)
 Approved_less2 <- c(5,16,9,7)
-data2 <- cbind(Income_range2, Race2, Denied2, Denied_Approved_less2, Approved_less2)
+data2 <- cbind(Income_range2, Race2, Approved2, Denied2, Denied_Approved_less2, Approved_less2)
 
 Income_range3 <- c(">100,000", ">100,000", ">100,000", ">100,000")
 Race3 <- c("White", "Black", "Hispanic", "Overall")
 Denied3 <- c(7,19,17,9)
+Approved3 <- c(90,69,78,87)
 Denied_Approved_less3 <- c(10,31,22,13)
 Approved_less3 <- c(3,12,5,4)
-data3 <- cbind(Income_range3, Race3, Denied3, Denied_Approved_less3, Approved_less3)
+data3 <- cbind(Income_range3, Race3, Approved3, Denied3, Denied_Approved_less3, Approved_less3)
 
 Income_range4 <- c("All", "All", "All", "All")
 Race4 <- c("White", "Black", "Hispanic", "Overall")
 Denied4 <- c(19,44,32,24)
+Approved4 <- c(76,43,60,69)
 Denied_Approved_less4 <- c(24,57,40,31)
 Approved_less4 <- c(5,13,8,7)
-data4 <- cbind(Income_range4, Race4, Denied4, Denied_Approved_less4, Approved_less4)
+data4 <- cbind(Income_range4, Race4, Approved4, Denied4, Denied_Approved_less4, Approved_less4)
 
 credit_outcomes_mat <- rbind(data1,data2,data3,data4) 
 
@@ -56,10 +60,11 @@ credit_outcomes_df <- as.data.frame(credit_outcomes_mat)
 credit_outcomes_df <- credit_outcomes_df %>%
   rename("income_range" = "Income_range1", 
          "race" = "Race1", 
+         "approved" = "Approved1",
          "denied" = "Denied1", 
          "denied_approved_less" = "Denied_Approved_less1", 
          "approved_less" = "Approved_less1") %>%
-  gather(type, percent, c(denied, denied_approved_less, approved_less)) 
+  gather(type, percent, c(denied, approved, denied_approved_less, approved_less)) 
 
 credit_outcomes_df$percent <- as.numeric(credit_outcomes_df$percent)
 
@@ -67,11 +72,31 @@ credit_outcomes_df$percent <- as.numeric(credit_outcomes_df$percent)
 
 data_credit1 <- credit_outcomes_df %>%
   filter(race != "Overall") %>%
-  filter(income_range != "All")
+  filter(income_range != "All") %>%
+  filter(type != "denied_approved_less") %>%
+  filter(type != "approved")
+
+data_credit1$income_range <- factor(data_credit1$income_range, levels = c("<40,000", "40,000-100,000", ">100,000"))
 
 plot1 <- ggplot(data_credit1, aes(x=income_range, y = percent)) + 
   geom_bar(stat="identity", position = "dodge", aes(fill = type))
 
 plot1
+
+# plot2
+
+data_credit2 <- credit_outcomes_df %>%
+  filter(race != "Overall") %>%
+  filter(income_range != "All") %>%
+  filter(type != "denied_approved_less")
+
+data_credit2$income_range <- factor(data_credit2$income_range, levels = c("<40,000", "40,000-100,000", ">100,000"))
+data_credit2$type <- factor(data_credit2$type, levels = c("approved","denied", "approved_less"))
+
+plot2 <- ggplot(data_credit2, aes(x=income_range, y = percent)) + 
+  geom_bar(stat="identity", position = "dodge", aes(fill = type))
+
+plot2
+
 
 #dev.off()

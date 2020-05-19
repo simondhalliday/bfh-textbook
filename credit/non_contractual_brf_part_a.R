@@ -67,7 +67,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 0.1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 0.1)
 #ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), brfFn(delta = 0.5), brfFn(delta = 0.65), yhigh(delta = 0.5), ylims[2])
-ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), NA, brfFn(delta = 0.5), NA, NA, ylims[2])
+#ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), NA, brfFn(delta = 0.5), NA, NA, ylims[2])
+ticksy <- c(ylims[1], NA, NA, ylow(delta = 0.5), brfFn(delta = 0.5), NA, yhigh(delta = 0.5), ylims[2])
+
 ylabels <- c(NA, NA, NA, NA,NA,NA, NA, NA)
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 ticksx <- c(xlims[1], 0.34, 0.5, 0.65, xlims[2])
@@ -77,13 +79,13 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
-text(-0.08, 0.45, expression(paste(f == frac(1,2))), cex = labelsize, xpd =TRUE)
+#text(-0.08, 0.45, expression(paste(f == frac(1,2))), cex = labelsize, xpd =TRUE)
 text(-0.05, 0.575, expression(paste(f[d])), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.665, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
 text(-0.105, 0.753, expression(paste(f*(delta^n) ==frac(3,4) )), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.832, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.93, expression(paste(f*(delta^H) )), cex = labelsize, xpd =TRUE)
-text(-0.05, 1.05, expression(paste(f[e])), cex = labelsize, xpd =TRUE)
+text(-0.05, yhigh(delta = 0.5), expression(paste(f[e])), cex = labelsize, xpd =TRUE)
 # y-labels with numeric values
 # text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
 # text(-0.05, 0.58, expression(paste(0.57 == f^d)), cex = labelsize, xpd =TRUE)
@@ -116,8 +118,8 @@ contour(d1, f1,
         yaxs="i",
         add = TRUE)
 
-segments(0.5, 0.65, 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-#segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.5, 0.65, 0.5, yhigh(delta = 0.5) - 0.05, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, ylow(delta = 0.5), 0.5, ylow(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 segments(0.34,0, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)

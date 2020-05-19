@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 8, 3, 2))
+par(mar =  c(4, 9, 2, 1))
 
 brfFn <- function(delta, mu = 1) {
   .5 + (delta / (2 * mu)) 
@@ -155,8 +155,8 @@ text(0.6, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + del
 Arrows(0.45, 0.26, 0.45, 0.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.83, 0.45, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
-text(0.83, 0.4, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
+text(0.82, 0.45, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
+text(0.82, 0.4, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
 Arrows(0.7, 0.35, 0.95, 0.35, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

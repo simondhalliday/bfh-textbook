@@ -150,7 +150,7 @@ points(0.655, brfFn(delta = 0.655), pch = 16, col = "black", cex = 1.5)
 # text(0.4, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
 # Arrows(0.4, 0.24, 0.4, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.85, 0.68, expression(paste("A's Best-response")), cex = labelsize, xpd  = TRUE)
+text(0.85, 0.68, expression(paste("A's best-response")), cex = labelsize, xpd  = TRUE)
 text(0.85, 0.63, expression(paste("function")), cex = labelsize, xpd  = TRUE)
 
 text(0.86, 0.5, expression(paste(phantom() == frac(1,2) + frac(delta, 2*q))), cex = labelsize, xpd  = TRUE)

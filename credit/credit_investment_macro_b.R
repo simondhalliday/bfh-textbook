@@ -79,9 +79,9 @@ npts <- 503
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the graphs
-lines(xx1, brfFn(xx1, k = 0.28), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.75), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0.28), col = COL[2], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0.5), col = COL[2], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0.75), col = COL[2], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = segmentlinewidth, lty = 2)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, isoreturnFn(xx1, pi = 0.5), col = COLB[4], lwd = graphlinewidth)

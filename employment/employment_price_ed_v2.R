@@ -67,8 +67,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-xpoly1 <- seq(from = xlims[1] + 0.2, to = 8, length.out = 500)
-ypoly1 <- PCFn(xpoly1, mu = 8)
+xpoly1 <- seq(from = xlims[1] + 0.2, to = 40, length.out = 500)
+ypoly1 <- PCFn(xpoly1, mu = 20)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLB[1], density=NULL, border = NA)
 
 
@@ -85,7 +85,7 @@ xx7 <- seq(xlims[1], 20, length.out = npts)
 lines(xx5, indiffFn1(xx5, u1 = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx7, solowCondition(xx7, delta = 5), col = COLB[4], lwd = graphlinewidth)
 
-lines(xx5, PCFn(xx5, mu = 8), col = COLB[4], lwd = graphlinewidth)
+#lines(xx5, PCFn(xx5, mu = 8), col = COLB[4], lwd = graphlinewidth)
 lines(xx6, indiffFn1(xx6, u1 = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx3, indiffFn1(xx3, u1 =10), col = COLA[4], lwd = graphlinewidth)
 #lines(xx6, prodFn2(xx6), col = COLB[4], lwd = graphlinewidth)
@@ -93,7 +93,7 @@ lines(xx3, indiffFn1(xx3, u1 =10), col = COLA[4], lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)
 ylabels <- c(0, expression(paste(e^C)), expression(paste(bar(e) == 1) ), NA)
-ticksx <- c(0, 4, xlims[2])
+ticksx <- c(0, 10, xlims[2])
 xlabels <- c(0, expression(paste(p^C)), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
@@ -110,29 +110,29 @@ segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)
 #text(1.4, 1.025, expression(paste("Maximum level of effort, ", bar(e))))
 
 #Add a point for the tangency
-segments(4, 0, 4, PCFn(delta = 4, mu = 8), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, PCFn(delta = 4, mu = 8), 4, PCFn(delta = 4, mu = 8), lty = 2, col = grays[22], lwd = segmentlinewidth)
-points(4, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
-text(4, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
+segments(10, 0, 10, PCFn(delta = 4, mu = 8), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, PCFn(delta = 4, mu = 8), 10, PCFn(delta = 4, mu = 8), lty = 2, col = grays[22], lwd = segmentlinewidth)
+points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+text(9, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
 
 #Label the feasible frontier
-#text(2, 0.75, expression("Better for"), cex = labelsize)
-#text(2, 0.7, expression("employer"), cex = labelsize)
-#Arrows(1.8, 0.78, 1, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 0.7, expression("Better for"), cex = labelsize)
+text(4, 0.65, expression("employer"), cex = labelsize)
+Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-#text(8, 0.25, expression("Better for"), cex = labelsize)
-#text(8, 0.2, expression("employee"), cex = labelsize)
-#Arrows(8.8, 0.225, 10, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(25, 0.25, expression("Better for"), cex = labelsize)
+text(25, 0.2, expression("employee"), cex = labelsize)
+Arrows(29, 0.225, 35, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-#text(3.5, 0.97, expression(paste("Slope of isoprofit")), cex = labelsize)
-#text(3.5, 0.89, expression(paste(-mrt(p,e) == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
-#Arrows(5.3, 0.89, 6.8, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(10, 0.97, expression(paste("Slope of isoprofit")), cex = labelsize)
+text(10, 0.89, expression(paste(-mrt(p,e) == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
+Arrows(16, 0.97, 18, 0.97, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-#text(8.5, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt(p,e))), cex = labelsize, xpd = TRUE)
-#Arrows(5.9, 0.5, 4.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(33, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt(p,e))), cex = labelsize, xpd = TRUE)
+Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

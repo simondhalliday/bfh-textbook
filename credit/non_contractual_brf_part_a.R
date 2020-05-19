@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 8, 3, 2))
+par(mar =  c(4, 8, 3, 2))
 
 brfFn <- function(delta, mu = 1) {
   .5 + (delta / (2 * mu)) 
@@ -76,11 +76,11 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
-text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
-text(-0.05, 0.58, expression(paste(f[d])), cex = labelsize, xpd =TRUE)
-text(-0.07, 0.66, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
-text(-0.105, 0.76, expression(paste(frac(3,4) == f*(delta^n) )), cex = labelsize, xpd =TRUE)
-text(-0.07, 0.84, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
+text(-0.08, 0.5, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
+text(-0.05, 0.575, expression(paste(f[d])), cex = labelsize, xpd =TRUE)
+text(-0.07, 0.665, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
+text(-0.105, 0.753, expression(paste(frac(3,4) == f*(delta^n) )), cex = labelsize, xpd =TRUE)
+text(-0.07, 0.832, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
 text(-0.07, 0.93, expression(paste(f*(delta^H) )), cex = labelsize, xpd =TRUE)
 text(-0.05, 1.05, expression(paste(f[e])), cex = labelsize, xpd =TRUE)
 # y-labels with numeric values

@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(4, 8, 1, 1))
 
 brfFn <- function(delta, mu = 1, k = 1) {
   .5 + (delta / (2 * mu)) * (1 - k)
@@ -68,7 +68,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], 0.5, 0.75, ylims[2])
-ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f^{0} == frac(3,4))), NA)
+ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f(delta^{0}) == frac(3,4))), NA)
 ticksx <- c(xlims[1], 0.64, 1, 1.5, xlims[2])
 xlabels <- c(NA, expression(paste(delta^{L})),expression(paste(delta^{0})), expression(paste(delta^{H})), NA)
 
@@ -88,7 +88,7 @@ lines(xx1, isoreturnFn(xx1, pi = 0.375), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.3, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.45, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0, 0.75, xlims[2], 0.75, lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -108,24 +108,24 @@ points(0.64, brfFn(0.64, k = 0.666), pch = 16, col = "black", cex = 1.5)
 text(0.64 + 0.04, brfFn(0.64, k = 0.666) - 0.03, expression(paste(a)), cex = labelsize)
 
 
-text(0.55, 1, expression(paste("Excluded borrower's BRF")), cex = labelsize, xpd = TRUE)
+text(0.53, 1, expression(paste("Excluded borrower's BRF")), cex = labelsize, xpd = TRUE)
 text(0.55, 0.94, expression(paste(f(delta, k < k^0))), cex = labelsize)
 
-text(1.53, 1, expression(paste("Marginal borrower's BRF")), cex = labelsize, xpd = TRUE)
+text(1.51, 1, expression(paste("Marginal borrower's BRF")), cex = labelsize, xpd = TRUE)
 text(1.45, 0.94, expression(paste(f(delta, k == k^0))), cex = labelsize)
 
 
-text(1.75, 0.51, expression(paste("BRF for borrower")), cex = labelsize, xpd = TRUE)
-text(1.75, 0.45, expression(paste("with more than")), cex = labelsize, xpd = TRUE)
-text(1.745, 0.39, expression(paste("minimum collateral")), cex = labelsize, xpd = TRUE)
-text(1.75, 0.32, expression(paste(f(delta, k > k^0))), cex = labelsize, xpd = TRUE)
+text(1.725, 0.51, expression(paste("BRF for borrower")), cex = labelsize, xpd = TRUE)
+text(1.725, 0.45, expression(paste("with more than")), cex = labelsize, xpd = TRUE)
+text(1.725, 0.39, expression(paste("minimum collateral")), cex = labelsize, xpd = TRUE)
+text(1.725, 0.32, expression(paste(f(delta, k > k^0))), cex = labelsize, xpd = TRUE)
 Arrows(1.75, 0.55, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.825, 0.43, expression(paste(pi > 1 + rho)), cex = labelsize)
 
 text(0.19, 0.37, expression(paste("Zero profit")), cex = labelsize)
 text(0.19, 0.31, expression(paste("condition")), cex = labelsize)
-text(0.19, 0.25, expression(paste(pi == 1 + rho)), cex = labelsize)
+text(0.1725, 0.25, expression(paste(pi[0] == 1 + rho)), cex = labelsize)
 
 
 dev.off()

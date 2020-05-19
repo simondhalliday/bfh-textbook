@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 brfFn <- function(delta, q = 1) {
   .5 + (delta / (2 * q)) 
@@ -101,7 +101,7 @@ lines(xx1, isoreturnFn(xx1, pi = 0.18), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.5, cex = axislabelsize)
 text(-0.12, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

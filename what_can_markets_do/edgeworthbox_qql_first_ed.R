@@ -202,7 +202,7 @@ segments(8.48, 0, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(x = 8.48, y = 0.92, pch = 16, col = "black", cex = 1.5)
-text(8.3, 0.8, expression(paste(e)), cex = annotatesize)
+text(8.3, 0.8, expression(paste(z)), cex = annotatesize)
 
 
 

@@ -157,7 +157,7 @@ contour(x, y,
 segments(5, 2.5, 5, 4.5, lty = 1, col = COL[2] , lwd = graphlinewidth)
 segments(5, 5.5, 5, 7.5, lty = 1, col = COL[2] , lwd = graphlinewidth)
 
-segments(5, 0, 5, 2.5, col = grays[20] , lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 2.5, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 7.5, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 4.5, 5, 5.5, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 

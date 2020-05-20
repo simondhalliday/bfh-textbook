@@ -103,7 +103,7 @@ text(9.6, 0.53, expression(paste("c")), cex = annotatesize)
 
 Arrows(36, 0.58, 36, 0.83, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-text(3.4, 0.03, expression(paste(v[0] == 0)), cex = annotatesize)
+text(3.4, 0.03, expression(paste(u[0] == 0)), cex = annotatesize)
 
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
 #text(37, 0.98, expression(paste(c[2])), cex = annotatesize)

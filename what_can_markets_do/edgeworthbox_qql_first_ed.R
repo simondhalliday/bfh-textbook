@@ -172,11 +172,11 @@ Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.65, 0.6, expression(v[1]^A), cex = annotatesize)
-text(9.65, 2.8, expression(v[2]^A), cex = annotatesize)
+text(9.65, 0.7, expression(v[1]^A), cex = annotatesize)
+text(9.65, 2.85, expression(v[2]^A), cex = annotatesize)
 
 #Label the indifference curves for the HG, Betty
-text(1, 9, expression(v[1]^B), cex = annotatesize)
+text(1, 8.9, expression(v[1]^B), cex = annotatesize)
 text(1, 6.8, expression(v[2]^B), cex = annotatesize)
 #text(2.6, 8.1, expression(v[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))

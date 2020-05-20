@@ -124,7 +124,10 @@ text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(33, 0.61, expression(paste("Best-response")), cex = annotatesize)
 text(33, 0.56, expression(paste("function (ICC)")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
-text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
+text(4.5, 0.4, expression(paste("Participation ")), cex = annotatesize)
+text(4.5, 0.35, expression(paste("constraint")), cex = annotatesize)
+text(4.5, 0.3, expression(paste("(PC)")), cex = annotatesize)
+
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)

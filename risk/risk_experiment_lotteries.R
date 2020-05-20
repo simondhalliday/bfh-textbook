@@ -6,11 +6,14 @@ pdf(file = "risk/risk_experiment_lotteries.pdf", width = 7, height = 7)
 axislabelsize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
-framewidth <- 1.2
+framewidth <- 2
 textsize <- 1.5
 symbolsize <- 5
 
-COLS <- c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#990000")
+# COLS <- c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#990000") # reds
+COLS <- c("#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594") # blues
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+
 par(mar = c(0, 0, 0, 0))
 openplotmat()
 rx <- 0.13
@@ -61,7 +64,7 @@ textellipse(mid = pos[2,] + c(-0.22, 0),
             rady = 0.05, 
             lab = c("L6"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, 
             shadow.col = FALSE)
 
@@ -89,7 +92,7 @@ textellipse(mid = pos[3,] + c(0.22, 0),
             rady = 0.05, 
             lab = c("L1"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, shadow.col = FALSE)
 
 #Midline
@@ -128,7 +131,7 @@ textellipse(mid = pos[5,] + c(-0.07, 0),
             rady = 0.05, 
             lab = c("L5"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, shadow.col = FALSE)
 
 ##Lottery 2
@@ -155,7 +158,7 @@ textellipse(mid = pos[8,] + c(0.07, 0),
             rady = 0.05, 
             lab = c("L2"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, shadow.col = FALSE)
 
 
@@ -167,7 +170,7 @@ textellipse(mid = pos[10,] + c(-0.025, 0),
           lab = c("$6   $42"),
           lwd = framewidth, 
           cex = textsize, 
-          lcol = COLS[3],
+          lcol = COLS[4],
           shadow.col = FALSE)
 
 textellipse(mid = pos[10,] + c(-0.22, 0), 
@@ -175,7 +178,7 @@ textellipse(mid = pos[10,] + c(-0.22, 0),
             rady = 0.05, 
             lab = c("L4"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, shadow.col = FALSE)
 
 
@@ -186,7 +189,7 @@ textrect(mid = pos[10,] + c(-0.025, 0),
          lab = c(""),  
          lwd = framewidth, 
          cex = textsize, 
-         lcol = COLS[3],
+         lcol = COLS[4],
          shadow.col = FALSE)
 
 #Lottery 3
@@ -194,7 +197,7 @@ textellipse(mid = pos[11,] + c(0.025, 0),
           radx = rx, rady = ry, 
           lab = c("$10   $34"),
           lwd = framewidth, 
-          lcol = COLS[4],
+          lcol = COLS[3],
           cex = textsize, shadow.col = FALSE)
 
 textellipse(mid = pos[11,] + c(0.22, 0), 
@@ -202,7 +205,7 @@ textellipse(mid = pos[11,] + c(0.22, 0),
             rady = 0.05, 
             lab = c("L3"),
             lwd = framewidth, 
-            lcol = "darkgrey",
+            lcol = grays[20],
             cex = textsize, shadow.col = FALSE)
 
 
@@ -213,7 +216,7 @@ textrect(mid = pos[11,] + c(0.025, 0),
          lab = c(""),  
          lwd = framewidth, 
          cex = textsize, 
-         lcol = COLS[4],
+         lcol = COLS[3],
          shadow.col = FALSE)
 
 

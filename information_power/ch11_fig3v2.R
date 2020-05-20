@@ -97,6 +97,8 @@ text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsiz
 
 #Add a point for the tangency
 points(14.3, 0.65, pch = 16, col = "black", cex = 1.5)
+points(15, 0.65, pch = 16, col = "black", cex = 1.5)
+points(17, 0.65, pch = 16, col = "black", cex = 1.5)
 
 
 

@@ -11,7 +11,8 @@ textsize <- 1.5
 symbolsize <- 5
 
 # COLS <- c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#990000") # reds
-COLS <- c("#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594") # blues
+# COLS <- c("#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594") # blues
+COLS <- c("#3b7fb6", "#3849bf", "#8131cd", "#cc2cd5", "#e32473", "#ec1f1d") # blue to red
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar = c(0, 0, 0, 0))

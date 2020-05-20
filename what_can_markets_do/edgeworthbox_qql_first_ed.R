@@ -157,7 +157,7 @@ contour(x, y,
 ) 
 
 segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 3.95, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
@@ -189,7 +189,7 @@ text(1, 6.8, expression(v[2]^B), cex = annotatesize)
 points(5, 3.95, pch = 16, col = "black", cex = 1.5)
 text(4.8, 3.8, expression(paste(f)), cex = annotatesize)
 
-segments(5, 4.4, 10, 4.4, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(5, 4.4, 10, 4.4, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 points(5, 4.4, pch = 16, col = "black", cex = 1.5)
 text(5.2, 4.6, expression(paste(n)), cex = annotatesize)
 

@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(6, 6, 1, 1))
 
 return <- function(f, mu = 5){
   mu*f*(1 - f)
@@ -61,9 +61,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], return(f = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(y,"*")), NA)
+ylabels <- c(NA, expression(paste(y[a] == 1.25)), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(NA, expression(paste(f,"*")), NA)
+xlabels <- c(0, NA, 1)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -79,8 +79,11 @@ xx5 <- seq(7, 9, length.out = npts)
 lines(xx1, return(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Risk, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.08, 0.5*(ylims[2]), expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Risk, ", f)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*(xlims[2]), -0.3, expression(paste("Risk, ", f)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -0.1, expression(paste(f[a] == frac(1, 2))), xpd = TRUE, cex = labelsize) 
+
+text(-0.1, 0.45*(ylims[2]), expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0.5, 0, 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, return(0.5), 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)

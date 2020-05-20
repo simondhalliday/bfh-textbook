@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 brfFn <- function(delta, q = 1) {
   .5 + (delta / (2 * q)) 
@@ -72,8 +72,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksy <- c(ylims[1],0.5, 0.67, 0.8, ylims[2])
-ylabels <- c(NA, NA, NA, NA,NA)
+ticksy <- c(ylims[1],0.5, 0.64, 0.75, ylims[2])
+ylabels <- c(NA, expression(paste(f[j])), expression(paste(f[i])), expression(paste(f[h])),NA)
 ticksx <- c(xlims[1], 0.25, 0.36, 0.5, xlims[2])
 xlabels <- c(NA, NA, NA, NA, NA, NA)
 
@@ -101,7 +101,7 @@ lines(xx1, isoreturnFn(xx1, pi = 0.18), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.5, cex = axislabelsize)
 text(-0.12, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -138,20 +138,20 @@ text(0.48, 0.55, expression(paste(j)), cex = labelsize, xpd = TRUE)
 text(0.48, 0.67, expression(paste(i)), cex = labelsize, xpd = TRUE)
 text(0.48, 0.8, expression(paste(h)), cex = labelsize, xpd = TRUE)
 
-text(-0.05, 0.5, expression(paste(f[j])), cex = labelsize, xpd = TRUE)
-text(-0.05, 0.67, expression(paste(f[i])), cex = labelsize, xpd = TRUE)
-text(-0.05, 0.8, expression(paste(f[h])), cex = labelsize, xpd = TRUE)
+#text(-0.05, 0.5, expression(paste(f[j])), cex = labelsize, xpd = TRUE)
+#text(-0.05, 0.67, expression(paste(f[i])), cex = labelsize, xpd = TRUE)
+#text(-0.05, 0.8, expression(paste(f[h])), cex = labelsize, xpd = TRUE)
 text(0.25, -0.07, expression(paste(delta[e])), cex = labelsize, xpd = TRUE)
 text(0.36, -0.07, expression(paste(delta[k])), cex = labelsize, xpd = TRUE)
 text(0.5, -0.07, expression(paste(delta[j])), cex = labelsize, xpd = TRUE)
 
-text(0.84, 0.88, expression(paste(pi == zpc)), cex = labelsize, xpd = TRUE)
-text(0.84, 0.78, expression(paste(pi[3])), cex = labelsize, xpd = TRUE)
+text(0.84, 0.88, expression(paste(pi[0] == zpc)), cex = labelsize, xpd = TRUE)
+text(0.84, 0.78, expression(paste(pi[1])), cex = labelsize, xpd = TRUE)
 text(0.84, 0.7, expression(paste(pi[2])), cex = labelsize, xpd = TRUE)
 
-Arrows(0.05, 0.85, 0.45, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.25, 1, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
-text(0.25, 0.93, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
+Arrows(0.56, 0.18, 0.89, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.73, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.73, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
 
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier

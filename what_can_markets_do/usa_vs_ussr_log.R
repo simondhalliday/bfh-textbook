@@ -89,8 +89,8 @@ CWPlot <-
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.1, 0.85),
-        legend.text = element_text(size = 14),
-        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 14),
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 16))
 

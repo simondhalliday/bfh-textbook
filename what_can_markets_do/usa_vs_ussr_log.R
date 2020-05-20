@@ -44,10 +44,12 @@ CWPlot <-
   ColdWar %>% 
   ggplot(aes(x = date, y = trans_pcgdp, group = country)) +
   geom_line(aes(color = country)) +
-  scale_color_discrete("Country") +
+  scale_colour_brewer(palette = "Set1") + 
+  # scale_color_discrete("Country") +
   scale_x_continuous(breaks = round(seq(min(ColdWar$date), max(ColdWar$date), by = 10),1)) +
   ylab("Natural Log of Per Capita GDP (1990 International $)") +
   xlab("Year") +
+  labs(color = "Country") + 
   annotate("text", x = 1928, y = 7.75, label = "First 5-year") +
   annotate("text", x = 1928, y = 7.6, label = "plan") +
   geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.232512),
@@ -84,7 +86,13 @@ CWPlot <-
   #             size = 0.7, arrow = arrow(type = "closed",
   #                                       length = unit(0.25, "cm"),
   #                                       angle = 25)) +
-  theme_bw() 
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.1, 0.85),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 12),
+        axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16))
 
 pdf(file = "what_can_markets_do/usa_vs_ussr_log.pdf", width = 8, height = 6)
 print(CWPlot)

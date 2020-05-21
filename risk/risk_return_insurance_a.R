@@ -140,7 +140,7 @@ text(3, 15.4, expression(paste("but does not ")), cex = labelsize, xpd = TRUE)
 text(3, 14.7, expression(paste("maximize, utility ")), cex = labelsize, xpd = TRUE)
 
 #Label risk return schedule
-text(14.8, 14, expression(paste(g(Delta))), cex = labelsize, xpd = TRUE)
+text(14.8, 14, expression(paste(f(Delta))), cex = labelsize, xpd = TRUE)
 
 #Label value functions
 text(10, 17, expression(u[1]), cex = labelsize)

@@ -137,7 +137,7 @@ text(25 - 0.8, avgwealth(25) - 0.75, expression(paste(R)), cex = labelsize)
 
 text(34, avgwealth(30)+1.5, expression(paste("Average wealth")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.75, expression(paste(hat(y) == g(Delta))), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.75, expression(paste(hat(y) == f(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 text(16, 37, expression(paste("Inequality-averse")), xpd = TRUE, cex = labelsize)

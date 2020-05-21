@@ -77,7 +77,7 @@ segments(12, 0, 12, riskreturn(g = 12) , lty = 2, col = grays[20], lwd = segment
 
 
 #Label risk return schedule
-text(14, 12.7, expression(paste(g(Delta))), cex = labelsize)
+text(14, 12.7, expression(paste(f(Delta))), cex = labelsize)
 
 
 #Label value functions

@@ -92,7 +92,7 @@ text(9.5 + 0.25, riskreturn(g = 9.5) - 0.3, expression(b), cex = labelsize)
 
 
 #Label risk return schedule
-text(14, 12.7, expression(paste(hat(y) == g(Delta))), cex = labelsize)
+text(14, 12.7, expression(paste(hat(y) == f(Delta))), cex = labelsize)
 
 #Label value functions
 text(10.6, 17, expression(u[1]), cex = labelsize)

@@ -9,8 +9,12 @@ library(pBrackets)
 pdf(file = "employment/real_wage_profit.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-graphlinewidth <- 3
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -56,33 +60,33 @@ ticksy <- c(0, 20, 30, 40)
 ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma[0])), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1.0, NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(1.05, 19, expression(paste("Competition Condition")))
+text(1, 19, expression(paste("Competition Condition")), cex = labelsize)
 
 
-text(1.05, 31, expression(paste("Output per worker, ", gamma)))
+text(1.05, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize)
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Arrow to Slope of BRF
 #Arrows(0.2, 19, 0.2, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.325, 18, expression(paste("If the ", w<w^c, " new firms will"  )))
-text(0.325, 16, expression(paste("be able to make economic")))
-text(0.325, 14, expression(paste("profits and the number of")))
-text(0.325, 12, expression(paste("firms will grow")))
-Arrows(0.55, 15, 0.8, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.325, 18, expression(paste("If the ", w<w^c, " new firms will"  )), cex = labelsize)
+text(0.325, 16, expression(paste("be able to make economic")), cex = labelsize)
+text(0.325, 14, expression(paste("profits and the number of")), cex = labelsize)
+text(0.325, 12, expression(paste("firms will grow")), cex = labelsize)
+Arrows(0.63, 15, 0.9, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 
 # Arrows(0.6, 19, 0.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.6, 26, expression(paste("If the ", w>w^c,  " profits will")))
-text(0.6, 24, expression(paste("be insufficient and firms")))
-text(0.6, 22, expression(paste("will leave")))
-Arrows(0.4, 25, 0.15, 25, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.42, 28, expression(paste("If the ", w>w^c,  " profits will")), cex = labelsize)
+text(0.42, 26, expression(paste("be insufficient and firms")), cex = labelsize)
+text(0.42, 24, expression(paste("will leave")), cex = labelsize)
+Arrows(0.15, 26, 0.03, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -116,11 +120,11 @@ brackets(x1 = 1.3, y1 = 20.1, x2 = 1.3, y2 = 29.9,  ticks = 0.5, curvature = 0.5
 brackets(x1 = 1.3, y1 = 0.1, x2 = 1.3, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 
-text(1.45, 17, expression(paste("Output")))
-text(1.45, 15, expression(paste("per")))
-text(1.45, 13, expression(paste("worker")))
-text(1.1, 10, expression(paste("Real wage")))
-text(1.025, 25, expression(paste("Proft per worker hour")))
+text(1.47, 17, expression(paste("Output")), cex = labelsize, xpd = TRUE)
+text(1.47, 15, expression(paste("per")), cex = labelsize, xpd = TRUE)
+text(1.47, 13, expression(paste("worker")), cex = labelsize, xpd = TRUE)
+text(1.07, 10, expression(paste("Real wage")), cex = labelsize)
+text(0.95, 25, expression(paste("Proft per worker hour")), cex = labelsize)
 
 
 dev.off()

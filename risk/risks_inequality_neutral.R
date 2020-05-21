@@ -115,7 +115,7 @@ text(38, 28.8, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 text(34, avgwealth(30)+1.5, expression(paste("Average income")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(bar(y) == g(Delta) )), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.5, expression(paste(bar(y) == f(Delta) )), xpd = TRUE, cex = labelsize)
 
 text(30, 31, expression(paste("Inequality-neutral")), xpd = TRUE, cex = labelsize)
 text(30, 29.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)

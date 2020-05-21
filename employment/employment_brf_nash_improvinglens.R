@@ -144,9 +144,9 @@ text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 text(7.8, 0.07, expression(paste(v[0] == u[0])), cex = labelsize)
 text(8.2, 0.03, expression(paste(phantom() == 0)), cex = labelsize)
 
-text(38, 0.38, expression("Better for"), cex = labelsize, xpd = TRUE)
-text(38, 0.33, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(41, 0.35, 45, 0.35, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+text(38, 0.4, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(38, 0.35, expression("worker"), cex = labelsize, xpd = TRUE)
+Arrows(41, 0.37, 45, 0.37, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -197,8 +197,8 @@ text(26.2 + 0.5, 0.72 - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
 
-points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
-text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
+#points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+#text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
 
 #Label the feasible frontier

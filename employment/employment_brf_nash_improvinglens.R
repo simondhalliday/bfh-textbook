@@ -110,7 +110,7 @@ lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 lines(xx0, isov(xx0, delta = 5), col = COL[6], lwd = graphlinewidth)
 
 lines(xx9, solowCondition2(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
-lines(xx10, solowCondition1(xx10, delta = 5), col = COLB[4], lwd = graphlinewidth)
+#lines(xx10, solowCondition1(xx10, delta = 5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 #lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
@@ -130,9 +130,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of  the three graphs and the NE
-text(6, 0.85, expression(paste("Slope of cost: ")), cex = labelsize)
-text(6, 0.76, expression(paste( frac(e, w) == frac(Delta*e, Delta*w))), cex = labelsize)
-Arrows(9, 0.77, 14, 0.77,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(22, 0.92, expression(paste("Slope of isocost, ", frac(e, w))), cex = labelsize, xpd = TRUE)
+#text(25, 0.92, expression(paste(frac(e, w))), cex = labelsize)
+Arrows(29, 0.92, 34, 0.92,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
 text(38, 0.66, expression(paste("Best-response")), cex = labelsize, xpd = TRUE)
@@ -140,9 +140,13 @@ text(38, 0.6, expression(paste("function (ICC)")), cex = labelsize, xpd = TRUE)
 text(38, 0.53, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
-text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
-text(7.8, 0.05, expression(paste(v[0] == u[0])), cex = labelsize)
-text(8.2, 0.02, expression(paste(phantom() == 0)), cex = labelsize)
+#text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
+text(7.8, 0.07, expression(paste(v[0] == u[0])), cex = labelsize)
+text(8.2, 0.03, expression(paste(phantom() == 0)), cex = labelsize)
+
+text(38, 0.38, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(38, 0.33, expression("worker"), cex = labelsize, xpd = TRUE)
+Arrows(41, 0.35, 45, 0.35, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -163,10 +167,10 @@ text(19.3, 0.53, expression(n), cex = labelsize)
 # text(14.8, 0.85, expression(paste("Nash Equilibrium")))
 
 #Arrows and slope of iso-v label
-Arrows(34, 0.3, 30, 0.3,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(37, 0.35, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
-text(37, 0.3, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(37, 0.22, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize)
+Arrows(36, 0.17, 32, 0.17,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(38.5, 0.23, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
+text(38.5, 0.17, expression(paste(phantom() == "-mrs ")), cex = labelsize, xpd = TRUE)
+text(38.5, 0.09, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize, xpd = TRUE)
 
 
 
@@ -196,6 +200,11 @@ text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labe
 points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
 text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
+
+#Label the feasible frontier
+text(4, 0.7, expression("Better for"), cex = labelsize)
+text(4, 0.65, expression("employer"), cex = labelsize)
+Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

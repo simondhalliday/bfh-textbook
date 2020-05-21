@@ -68,9 +68,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], 0.5, 0.75, ylims[2])
-ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f(delta^{0}) == frac(3,4))), NA)
+ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f(delta[2]) == frac(3,4))), NA)
 ticksx <- c(xlims[1], 0.64, 1, 1.5, xlims[2])
-xlabels <- c(NA, expression(paste(delta^{L})),expression(paste(delta^{0})), expression(paste(delta^{H})), NA)
+xlabels <- c(NA, expression(paste(delta[1])),expression(paste(delta[2])), expression(paste(delta[3])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -79,9 +79,9 @@ npts <- 503
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the graphs
-lines(xx1, brfFn(xx1, k = 0), col = COL[2], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.5), col = COL[2], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1, k = 0.666), col = COL[2], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0.666), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.375), col = COLB[4], lwd = graphlinewidth)
 
@@ -109,16 +109,16 @@ text(0.64 + 0.04, brfFn(0.64, k = 0.666) - 0.03, expression(paste(a)), cex = lab
 
 
 text(0.53, 1, expression(paste("Excluded borrower's BRF")), cex = labelsize, xpd = TRUE)
-text(0.55, 0.94, expression(paste(f(delta, k < k^0))), cex = labelsize)
+text(0.55, 0.94, expression(paste(f(delta, k[1] < k^0))), cex = labelsize)
 
 text(1.51, 1, expression(paste("Marginal borrower's BRF")), cex = labelsize, xpd = TRUE)
-text(1.45, 0.94, expression(paste(f(delta, k == k^0))), cex = labelsize)
+text(1.45, 0.94, expression(paste(f(delta, k[2] == k^0))), cex = labelsize)
 
 
 text(1.725, 0.51, expression(paste("BRF for borrower")), cex = labelsize, xpd = TRUE)
 text(1.725, 0.45, expression(paste("with more than")), cex = labelsize, xpd = TRUE)
 text(1.725, 0.39, expression(paste("minimum collateral")), cex = labelsize, xpd = TRUE)
-text(1.725, 0.32, expression(paste(f(delta, k > k^0))), cex = labelsize, xpd = TRUE)
+text(1.725, 0.32, expression(paste(f(delta, k[3] > k^0))), cex = labelsize, xpd = TRUE)
 Arrows(1.75, 0.55, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.825, 0.43, expression(paste(pi > 1 + rho)), cex = labelsize)

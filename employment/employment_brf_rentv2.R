@@ -113,7 +113,7 @@ lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
 lines(xx7, isovhigh3(xx7, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 lines(xx8, isovlow3(xx8, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
-text(3.4, 0.05, expression(paste(v[0] == z)), cex = labelsize)
+text(3.4, 0.05, expression(paste(v[0] == 0)), cex = labelsize)
 #text(22, 0.05, expression(paste(v[1])), cex = labelsize)
 text(25, 0.05, expression(paste(v[4])),cex = labelsize)
 text(37, 0.62, expression(paste("Employee's best-response")), cex = labelsize, xpd =TRUE)

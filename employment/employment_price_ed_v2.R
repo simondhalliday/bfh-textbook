@@ -100,7 +100,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the three indifference curves
 text(11.3, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
-text(6.3, 0.05, expression(paste(u[0])), cex = labelsize-0.05)
+text(7.2, 0.05, expression(paste(u[0] == 0)), cex = labelsize-0.05)
 #text(11, 0.06, expression(paste(phantom() == 0)), cex = labelsize-0.05)
 text(16.3, 0.05, expression(paste(u[2])), cex = labelsize-0.05)
 
@@ -122,17 +122,25 @@ text(4, 0.65, expression("employer"), cex = labelsize)
 Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(25, 0.25, expression("Better for"), cex = labelsize)
-text(25, 0.2, expression("employee"), cex = labelsize)
-Arrows(29, 0.225, 35, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(35, 0.25, expression("Better for"), cex = labelsize)
+text(35, 0.2, expression("employee"), cex = labelsize)
+Arrows(39, 0.225, 43, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
-text(10, 0.97, expression(paste("Slope of isoprofit")), cex = labelsize)
-text(10, 0.89, expression(paste(-mrt(p,e) == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
+text(10, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
+text(10, 0.89, expression(paste(-mrt == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
 Arrows(16, 0.97, 18, 0.97, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(33, 0.5, expression(paste(mrs(p,e) == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt(p,e))), cex = labelsize, xpd = TRUE)
+text(30, 0.5, expression(paste(mrs == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt)), cex = labelsize, xpd = TRUE)
 Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+Arrows(21, 0.25, 18, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(24, 0.3, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
+text(24, 0.25, expression(paste(phantom() == "-mrs ")), cex = labelsize)
+text(24, 0.15, expression(paste(phantom() ==-frac((1-e)^2, underline(u)))), cex = labelsize)
+#text(24, 0.05, expression(paste(phantom() == -frac((1-e)^2, underline(u)))), cex = labelsize)
+
+
 
 
 dev.off()

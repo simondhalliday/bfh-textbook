@@ -110,7 +110,7 @@ text(12, avgwealth(12) + 0.75, expression(paste(P)), cex = labelsize)
 
 text(34, avgwealth(30)+1, expression(paste("Average income")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(bar(y) == g(Delta) )), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.5, expression(paste(bar(y) == f(Delta) )), xpd = TRUE, cex = labelsize)
 
 
 

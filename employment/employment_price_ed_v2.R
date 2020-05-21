@@ -67,9 +67,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 
-xpoly1 <- seq(from = xlims[1] + 0.2, to = 40, length.out = 500)
-ypoly1 <- PCFn(xpoly1, mu = 20)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLB[1], density=NULL, border = NA)
+#xpoly1 <- seq(from = xlims[1] + 0.2, to = 40, length.out = 500)
+#ypoly1 <- PCFn(xpoly1, mu = 20)
+#polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLB[1], density=NULL, border = NA)
 
 
 npts <- 500 
@@ -94,7 +94,7 @@ lines(xx3, indiffFn1(xx3, u1 =10), col = COLA[4], lwd = graphlinewidth)
 ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)
 ylabels <- c(0, expression(paste(e^C)), expression(paste(bar(e) == 1) ), NA)
 ticksx <- c(0, 10, xlims[2])
-xlabels <- c(0, expression(paste(p^C)), NA)
+xlabels <- c(0, expression(paste(p^C) == 10), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
@@ -103,6 +103,7 @@ text(11.3, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
 text(7.2, 0.05, expression(paste(u[0] == 0)), cex = labelsize-0.05)
 #text(11, 0.06, expression(paste(phantom() == 0)), cex = labelsize-0.05)
 text(16.3, 0.05, expression(paste(u[2])), cex = labelsize-0.05)
+text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
 
 #Line for the max quality, q = 1 
 segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)
@@ -127,15 +128,15 @@ text(37, 0.3, expression("employee"), cex = labelsize, xpd = TRUE)
 Arrows(41, 0.33, 45, 0.33, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
-text(10, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
-text(10, 0.89, expression(paste(-mrt == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
-Arrows(16, 0.97, 18, 0.97, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.5, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
+text(8.5, 0.89, expression(paste(-mrt ==frac(e, p))), cex = labelsize)
+Arrows(12, 0.9, 16, 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(30, 0.5, expression(paste(mrs == frac(u[p],u[e]),phantom()==-frac(e, p),phantom() == mrt)), cex = labelsize, xpd = TRUE)
 Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(21, 0.25, 18, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(24, 0.3, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
+text(24, 0.3, expression(paste("Slope of iso-u")), cex = labelsize, xpd =TRUE)
 text(24, 0.25, expression(paste(phantom() == "-mrs ")), cex = labelsize)
 text(22.8, 0.15, expression(paste(phantom() == frac(1, u[e]))), cex = labelsize)
 text(27.5, 0.16, expression(paste(phantom() ==frac((1-e)^2, underline(u)))), cex = labelsize)

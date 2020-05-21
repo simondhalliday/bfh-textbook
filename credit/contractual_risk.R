@@ -77,9 +77,9 @@ polygon(x = xpoly1, y = ypoly1, col = COLB[1], density = NULL, border = NA)
 
 #Draw the graphs
 lines(xx1, PCFn(xx1), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.075), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.075), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 
 
 #Label the feasible frontier
@@ -101,9 +101,9 @@ text(0.34, 0.89, expression(paste(f == frac(delta, q))), cex = labelsize)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Isoprofit")), cex = labelsize)
-text(0.53, 0.83, expression(paste(pi[1] == pi^L)), cex = labelsize)
-text(0.53, 0.73, expression(paste(pi[2] == pi,"*")), cex = labelsize)
-text(0.53, 0.63, expression(paste(pi[3] == pi^H)), cex = labelsize)
+text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
+text(0.53, 0.73, expression(paste(pi[1])), cex = labelsize)
+text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
 
 segments(0, isoreturnFn(0.25), 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0.25, 0, 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)

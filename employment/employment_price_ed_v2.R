@@ -122,9 +122,9 @@ text(4, 0.65, expression("employer"), cex = labelsize)
 Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(35, 0.25, expression("Better for"), cex = labelsize)
-text(35, 0.2, expression("employee"), cex = labelsize)
-Arrows(39, 0.225, 43, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+text(37, 0.35, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(37, 0.3, expression("employee"), cex = labelsize, xpd = TRUE)
+Arrows(41, 0.33, 45, 0.33, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 text(10, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
@@ -137,7 +137,8 @@ Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 Arrows(21, 0.25, 18, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(24, 0.3, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
 text(24, 0.25, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(24, 0.15, expression(paste(phantom() ==-frac((1-e)^2, underline(u)))), cex = labelsize)
+text(22.8, 0.15, expression(paste(phantom() == frac(1, u[e]))), cex = labelsize)
+text(27.5, 0.16, expression(paste(phantom() ==frac((1-e)^2, underline(u)))), cex = labelsize)
 #text(24, 0.05, expression(paste(phantom() == -frac((1-e)^2, underline(u)))), cex = labelsize)
 
 

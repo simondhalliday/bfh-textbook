@@ -52,8 +52,12 @@ tangencyLine <- function(w){
   (w*(0.05))
 }
 
-solowCondition <- function(w, delta = 5){
+solowCondition2 <- function(w, delta = 5){
   (w*(1/(8*delta)))
+}
+
+solowCondition1 <- function(w, delta = 5, slope = 4){
+  (w*(1/(slope*delta)))
 }
 
 
@@ -96,6 +100,7 @@ xx7 <- seq(20, xlims[2], length.out = npts2)
 xx8 <- seq(xlims[1], 25, length.out = npts2)
 xx9 <- seq(xlims[1] + 0.5, xlims[2], length.out = npts2)
 yy1 <- isovhigh(xx7, delta = 5, v = 20)
+xx10 <- seq(xlims[1], 20, length.out = npts)
 
 
 polygon(c(xx7, xx7[340]), c(yy1, yy1[340]), col = COL[9], density = NULL, border = NA)
@@ -104,7 +109,8 @@ polygon(c(xx7, xx7[340]), c(yy1, yy1[340]), col = COL[9], density = NULL, border
 lines(xx1, brfFn(xx1), col = "#beaed4", lwd = graphlinewidth)
 lines(xx0, isov(xx0, delta = 5), col = COL[6], lwd = graphlinewidth)
 
-lines(xx9, solowCondition(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
+lines(xx9, solowCondition2(xx9, delta = 5), col = COLB[4], lwd = graphlinewidth)
+lines(xx10, solowCondition1(xx10, delta = 5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 #lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COL[4], lwd = graphlinewidth)
 #lines(xx5, isovhigh2(xx5, v = 17, delta = 5), col = COL[5], lwd = graphlinewidth)
@@ -124,10 +130,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of  the three graphs and the NE
-text(3.5, 0.42, expression(paste("Slope of ")), cex = labelsize)
-text(3.5, 0.38, expression(paste("isocost:")), cex = labelsize)
-text(3.5, 0.3, expression(paste( frac(e, w) == frac(Delta*e, Delta*w))), cex = labelsize)
-Arrows(6.3, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(6, 0.85, expression(paste("Slope of cost: ")), cex = labelsize)
+text(6, 0.76, expression(paste( frac(e, w) == frac(Delta*e, Delta*w))), cex = labelsize)
+Arrows(9, 0.77, 14, 0.77,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
 text(38, 0.66, expression(paste("Best-response")), cex = labelsize, xpd = TRUE)
@@ -135,10 +140,9 @@ text(38, 0.6, expression(paste("function (ICC)")), cex = labelsize, xpd = TRUE)
 text(38, 0.53, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
+text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
 text(7.8, 0.05, expression(paste(v[0] == u[0])), cex = labelsize)
 text(8.2, 0.02, expression(paste(phantom() == 0)), cex = labelsize)
-
-
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -147,7 +151,7 @@ text(8.2, 0.02, expression(paste(phantom() == 0)), cex = labelsize)
 segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
-text(21, 0.48, expression(n), cex = labelsize)
+text(19.3, 0.53, expression(n), cex = labelsize)
 #text(13.8, 0.57, expression(paste("Incomplete contract")),cex = labelsize)
 #text(14.2, 0.52, expression(paste("Nash equilibrium")),cex = labelsize)
 
@@ -188,6 +192,10 @@ points(26.2, 0.72, pch = 16, col = "black", cex = 1.5)
 text(26.2 + 0.5, 0.72 - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
+
+points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
+
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

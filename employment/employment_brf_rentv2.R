@@ -145,6 +145,7 @@ points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 #segments(12.5, 0, 12.5, ylims[2], lty = 2, col = grays[20], lwd = 2)
 #segments(0, brfFn(w = 18.4), 18.4, brfFn(w = 18.4), lty = 2, col = "darkgray", lwd = 2)
 points(10, 0.5, pch = 16, col = "black", cex = 1.5)
+
 text(9.2, 0.53, expression(c),cex = labelsize)
 
 

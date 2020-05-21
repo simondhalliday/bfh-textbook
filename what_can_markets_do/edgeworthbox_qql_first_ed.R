@@ -4,7 +4,6 @@ library(pBrackets)
 pdf(file = "what_can_markets_do/edgeworthbox_qql_first_ed.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-#Set parameters for graphics
 axislabelsize <- 1.8
 labelsize <- 1.5
 namesize <- 1.8

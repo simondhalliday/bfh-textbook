@@ -21,8 +21,14 @@ lss$date <- as.yearmon(lss$date, "%Y-%m")
 COL <- c("#1F78B4","#E31A1C")
 
 lss %>% ggplot() + 
-  geom_vline(xintercept = as.numeric(as.yearmon("2009-07")), color = COL[2], lwd = 1) +
-  geom_vline(xintercept = as.numeric(as.yearmon("2007-12")), color = COL[2], lwd = 1) +
+  #geom_vline(xintercept = as.numeric(as.yearmon("2009-07")), color = COL[2], lwd = 1) +
+  #geom_vline(xintercept = as.numeric(as.yearmon("2007-12")), color = COL[2], lwd = 1) +
+  geom_rect(data = data.frame(xmin = as.numeric(as.yearmon("2007-12")),
+                              xmax = as.numeric(as.yearmon("2009-07")),
+                              ymin = -Inf,
+                              ymax = Inf),
+            aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+            fill = "grey", alpha = 0.4) +
   geom_point(aes(x = date, y = log_OPH), color = COL[1], cex = 2.5) +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.21, label = "Recession", size = 6) +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.2, label = "begins Dec 2007", size = 6) + 

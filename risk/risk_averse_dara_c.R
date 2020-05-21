@@ -2,6 +2,8 @@
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
+# TODO Add points and labels 
+
 library("shape")
 
 pdf(file = "risk/risk_averse_dara_c.pdf", width = 9, height = 7)
@@ -26,11 +28,11 @@ xlims <- c(0, 10)
 ylims <- c(0, 40)
 
 
-u <- function(y, delta, a = 1.5, b = 0.1, c = 2){
+u <- function(y, delta, a = 3.5, b = 0.1, c = 2){
   y^a - b * delta^c
 }
 
-indiff <- function(u, delta, a = 1.5, b = 0.1, c = 2){
+indiff <- function(u, delta, a = 1.5, b = 0.5, c = 4){
   (u + b * delta^c )^(1/a)
 }
 
@@ -67,9 +69,13 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      yaxs = "i"
 )
 
+y1 <- indiff(5, 0.5*xlims[2], c = 2.7)
+y2 <- indiff(64, 0.5*xlims[2], c = 2.7) - 4
+y3 <- indiff(156, 0.5*xlims[2], c = 2.7)
+
 ticksx <- c(0, 0.5*xlims[2], xlims[2])
 xlabels <- c(NA, expression(paste(Delta)), NA)
-ticksy <- c(0, 6.5, 16, 29, ylims[2])
+ticksy <- c(0, y1, y2, y3, ylims[2])
 ylabels <- c(NA, expression(paste(hat(y)^{L})), expression(paste(hat(y)^{M})), expression(paste(hat(y)^{H})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -85,12 +91,21 @@ xx2 <- seq(2, 10, length.out = npts)
 
 
 
-for (u in c(19, 60, 170) ) {
+for (u in c(5, 64, 156) ) {
   lines(xx1, indiff(u, xx1, c = 2.7), col = COLB[4], lwd = graphlinewidth, lty = 1)  
 }
 
+# vertical delta segment
+segments(0.5*xlims[2], 0, 0.5*xlims[2], ylims[2], col = grays[20], lwd = segmentlinewidth, lty = 2)
 
+# horizontal segments
+segments(0, y1, 0.5*xlims[2], y1, col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0, y2, indiff(5, 0.75*xlims[2], c = 2.7), y2, col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0, y3, 0.5*xlims[2], y3, col = grays[20], lwd = segmentlinewidth, lty = 2)
 
-
+# label indiff
+text(0.95*xlims[2], 0.98*ylims[2], expression(paste(u[1])), cex = labelsize)
+text(0.85*xlims[2], 0.98*ylims[2], expression(paste(u[2])), cex = labelsize)
+text(0.625*xlims[2], 0.98*ylims[2], expression(paste(u[3])), cex = labelsize)
 
 dev.off() 

@@ -62,8 +62,8 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-5.5, 0.5*ylims[2], expression(paste("Utility, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Income, y")), side = 1, line = 3, cex = axislabelsize)
+text(-6, 0.5*ylims[2], expression(paste("Utility, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, ConcaveU(xx1), col = COLA[5], lwd = graphlinewidth)
 

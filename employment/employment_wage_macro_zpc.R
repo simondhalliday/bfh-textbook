@@ -3,7 +3,10 @@ require(plotrix)
 pdf(file = "employment/employment_wage_macro_zpc.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -56,12 +59,12 @@ ticksy <- c(0, 20, 30, 40)
 ylabels <- c(0, expression(paste(bar(Delta) )), expression(paste(gamma[0])), NA)
 ticksx <- c(0, 0.75, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
 
 #Annotation of the  graphs
-text(0.99, 38, expression(paste("Wage Curve, ", w(H))))
-text(0.65, 38, expression(paste("Labor Supply, ", H,"*")))
+text(1.04, 38, expression(paste("Wage Curve, ", w(H))), cex = labelsize, xpd = TRUE)
+text(0.6, 38, expression(paste("Labor Supply, ", H,"*")), cex = labelsize,  xpd = TRUE)
 
 segments(0.75, 0, 0.75, ylims[2], lty = 1, lwd = graphlinewidth, col = COL[2])
 
@@ -75,11 +78,11 @@ segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 # Gamma
 segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[3])
-text(1.05, 31, expression(paste("Output per worker, ", gamma)))
+text(1.02, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize,  xpd = TRUE)
 
 
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
-text(0.74, 21, expression(paste("n")))
+text(0.74, 21, expression(paste("n")), cex = labelsize)
 
 
 #Unemployment benefits & a
@@ -87,10 +90,10 @@ text(0.74, 21, expression(paste("n")))
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Competition condition ", w == bar(Delta)) ))
-text(0.25, 23, expression(paste("Firms leaving")))
-text(0.25, 17, expression(paste("Firms entering")))
-text(0.25, 4, expression(paste("No production")))
+text(1.02, 21, expression(paste("Competition condition ", w == bar(Delta))), cex = labelsize, xpd = TRUE)
+text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
+text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
+text(0.25, 4, expression(paste("No production")), cex = labelsize)
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
@@ -99,7 +102,7 @@ text(0.25, 4, expression(paste("No production")))
 
 
 # Arrows 
-text(0.55, 25, expression(paste("Profits")))
+text(0.57, 25, expression(paste("Profits")), cex = labelsize)
 Arrows(0.5, 22, 0.5, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 Arrows(0.5, 28, 0.5, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 

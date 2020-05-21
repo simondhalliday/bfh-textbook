@@ -4,16 +4,20 @@ library(pBrackets)
 pdf(file = "what_can_markets_do/edgeworthbox_simulation_path1.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(6, 4, 4, 4))
+par(mar =  c(6, 5, 5, 5))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -100,12 +104,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
 
 
-ticksy <- seq(from = 0, to = 400, by = 40)
-ylabels <- seq(from = 0, to = 400, by = 40)
+ticksy <- seq(from = 0, to = 400, by = 50)
+ylabels <- seq(from = 0, to = 400, by = 50)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = axislabelsize)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -117,14 +121,14 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-mtext("A's Good, x", side=1, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext("A's Good, x", side=1, line = 3.3, cex = axislabelsize)
+text(-1.1, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-1.1, 272, -1.1, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(1, 10, length.out = npts)
 #lines(xx2, WalrasP(xx2), col = "gray", lwd = segmentlinewidth)
@@ -143,14 +147,15 @@ xx2 <- seq(1, 10, length.out = npts)
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = "purple" , lwd = segmentlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = "purple" , lwd = segmentlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = "purple", lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = COL[2], lwd = segmentlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = COL[2] , lwd = segmentlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
-text(2, 44, expression("Pareto Efficient Curve"))
-Arrows(3.1, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2, 44, expression("Pareto-efficient"), cex = annotatesize)
+text(2, 29, expression("curve"), cex = annotatesize)
+Arrows(3.3, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A path
 Arrows(9, 5, 8.25, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.3, arr.length = 0.3)
@@ -160,10 +165,10 @@ Arrows(5.75, 95, 5.45, 112, col = "black", lty = 1, lwd = 2, arr.type = "triangl
 Arrows(5.28, 122, 5.1, 145, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.3, arr.length = 0.3)
 
 #Trades
-points(8.1, 17, pch = 1, col = "black", cex = 1)
-points(6.55, 62, pch = 1, col = "black", cex = 1)
-points(5.82, 93, pch = 1, col = "black", cex = 1)
-points(5.34, 119, pch = 1, col = "black", cex = 1)
+points(8.1, 17, pch = 1, col = "black", cex = 1.5)
+points(6.55, 62, pch = 1, col = "black", cex = 1.5)
+points(5.82, 93, pch = 1, col = "black", cex = 1.5)
+points(5.34, 119, pch = 1, col = "black", cex = 1.5)
 
 
 # #Label the walrasian P
@@ -172,8 +177,8 @@ points(5.34, 119, pch = 1, col = "black", cex = 1)
 # text(2.25, 5, expression(slope == -p[n] ))
 # 
 # #Label the iso-welfare functions for the HG, Aisha
-text(7.5, 11, expression(u[e]^A))
-text(7.5, 78, expression(u[L]^A))
+text(6, 50, expression(u[e]^A), cex = labelsize)
+text(6, 130, expression(u[L]^A), cex = labelsize)
 #text(8.2, 185, expression(u[3]^A))
 # 
 # #Label the indifference curves for the HG, Betty
@@ -188,14 +193,14 @@ text(7.5, 78, expression(u[L]^A))
 
 #Label point L.
 points(5, 158, pch = 16, col = "black", cex = 1.5)
-text(5.2, 160, expression(paste(L)))
+text(5.2, 168, expression(paste(L)), cex = labelsize)
 # 
 # #Initial Allocations
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 11, expression(paste(e)))
+text(9, 11, expression(paste(z)), cex = labelsize)
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
-text(4.9, 190, expression(paste(n)))
+text(5.2, 210, expression(paste(n)), cex = labelsize)
 
 
 
@@ -232,14 +237,14 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
-mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = axislabelsize)
+mtext("B's Good, x", side = 3, line = 3, cex = axislabelsize)
+text(-0.9, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -50, 9, -50, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.9, 275, -0.9, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

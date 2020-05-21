@@ -1,15 +1,25 @@
-# text(4.75, 7.5, expression(w))
-#require(ggplot2)
-require(shape)
+#' Graph Designer: Simon Halliday, Scott Cohn
+#' Authors: Bowles and Halliday
+#' Title: Coordination, Conflict and Competition: A Text in Microeconomics
+
+library("shape")
+
 pdf(file = "what_can_markets_do/property_walras_baseline.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+
 
 uA <- function(xA, yA, alpha = 0.5){
   ((xA)^alpha)*((yA)^(1 - alpha))

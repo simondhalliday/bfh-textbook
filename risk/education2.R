@@ -2,13 +2,18 @@ source("risk/education.R")
 # the second plot
 pdf(file = "risk/education2.pdf", width = 10, height = 10)
 
+
+indiff <- function(delta, u = 2, alpha = 0.2, beta = 2){
+        u + alpha * delta^beta
+}
+
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.5
-graphlinewidth <- 2
-segmentlinewidth <- 1.5
+graphlinewidth <- 2.2
+segmentlinewidth <- 1.7
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -24,8 +29,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n",
      yaxt = "n",
      bty = "n",
-     xaxs="i",
-     yaxs="i"
+     xaxs = "i",
+     yaxs = "i"
 )
 
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
@@ -79,16 +84,18 @@ text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
 text(deltaR-0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
 
 #Arrow for tax
-Arrows(deltaR + 0.3, yR + 0.3, deltaR + 0.3, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
-text(deltaR + 0.55, (yR + yRprime)/2 + 0.5, expression(paste("Tax")), cex = labelsize)
+brackets(deltaR + 0.3, yRprime - 0.3, deltaR + 0.3, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
+#Arrows(deltaR + 0.3, yR + 0.3, deltaR + 0.3, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+text(deltaR + 1, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
 text(deltaT + 0.1, yT - 0.3, expression(f), cex = labelsize)
 
 
 #Arrow for reduced risk
 Arrows(deltaT + 0.2, 0.3, deltaR - 0.1, 0.3, code = 1, col = "black", lty = 1, arr.type = "triangle")
 #text(deltaT + 1, 1.6, expression(paste("Taxation")), cex = labelsize)
-text(deltaT + 1, 1.1, expression(paste("Tax reduces")), cex = labelsize)
-text(deltaT + 1, 0.6, expression(paste("risk exposure")), cex = labelsize)
+text(deltaT + 1, 1.3, expression(paste("Tax reduces")), cex = labelsize)
+text(deltaT + 1, 0.7, expression(paste("risk exposure")), cex = labelsize)
 
 
 dev.off()

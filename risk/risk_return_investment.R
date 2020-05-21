@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
 par(mar =  c(5, 7, 4.5, 1))
@@ -74,7 +74,9 @@ xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-mtext(expression(paste("Degree of risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+# mtext(expression(paste("Degree of risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -2.5, expression(paste("Degree of risk, ", Delta)), xpd = TRUE, cex = axislabelsize) 
+
 text(xlims[1] - 2.4, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
@@ -116,15 +118,15 @@ text(7.3, 19.5, expression(u[2]), cex = labelsize)
 # text(14, 17.5, expression(u[3]), cex = labelsize)
 
 
-text(4, 22.7, expression(paste("Risk-averse")), xpd = TRUE, cex = labelsize) 
-text(4, 21.8, expression(paste("investor's")), xpd = TRUE, cex = labelsize) 
-text(4, 21.0, expression(paste("highest feasible")), xpd = TRUE, cex = labelsize) 
-text(4, 20.1, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
+text(4, 22.7 - 1, expression(paste("Risk-averse")), xpd = TRUE, cex = labelsize) 
+text(4, 21.8 - 1, expression(paste("investor's")), xpd = TRUE, cex = labelsize) 
+text(4, 21.0 - 1, expression(paste("highest feasible")), xpd = TRUE, cex = labelsize) 
+text(4, 20.1 - 1, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 
-text(13, 22.7, expression(paste("Risk-averse")), xpd = TRUE, cex = labelsize) 
-text(13, 21.8, expression(paste("investor's")), xpd = TRUE, cex = labelsize) 
-text(13, 21.0, expression(paste("fallback")), xpd = TRUE, cex = labelsize) 
-text(13, 20.1, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
+text(13, 22.7 - 1, expression(paste("Risk-averse")), xpd = TRUE, cex = labelsize) 
+text(13, 21.8 - 1, expression(paste("investor's")), xpd = TRUE, cex = labelsize) 
+text(13, 21.0 - 1, expression(paste("fallback")), xpd = TRUE, cex = labelsize) 
+text(13, 20.1 - 1, expression(paste("indifference curve")), xpd = TRUE, cex = labelsize) 
 
 
 

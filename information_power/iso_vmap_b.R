@@ -123,7 +123,9 @@ text(21, 0.48, expression(paste("n")), cex = annotatesize)
 text(35, 0.63, expression(paste("Best-response")), cex = annotatesize)
 text(35, 0.58, expression(paste("function (ICC)")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
-text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
+text(4.5, 0.4, expression(paste("Participation ")), cex = annotatesize)
+text(4.5, 0.35, expression(paste("constraint")), cex = annotatesize)
+text(4.5, 0.3, expression(paste("(PC)")), cex = annotatesize)
 
 #Arrows and rent label
 Arrows(15, 0.8, 19.3, 0.8,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

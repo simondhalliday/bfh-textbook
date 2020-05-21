@@ -35,8 +35,8 @@ indiffFn3 <- function(p, u3 = 15, delta3 = 5) {
 #From that we get the derivative and substitute in the relevant values
 #for delta, u and p; that is we get a slope of 1/32
 #But we also need the intercept; 0.375 above, or q/2 as it stood
-tangentLine <- function(p){
-  0.375 + (1/32)*p
+tangentLine <- function(m, x, b){
+  m*x + b
 }
 
 COL <- c("#bae4b3", "#74c476", "#238b45")
@@ -64,8 +64,8 @@ npts <- 500
 xx1 <- seq(u1 + delta1, xlims[2], length.out = npts)
 xx2 <- seq(u2 + delta2, xlims[2], length.out = npts)
 xx3 <- seq(u3 + delta3, xlims[2], length.out = npts)
-xx4 <- seq(10, 8, 0.01)
-
+xx4 <- seq(14.2, 23, 0.01)
+xx5 <- seq(25, 33, 0.01)
 
 
 
@@ -73,8 +73,10 @@ xx4 <- seq(10, 8, 0.01)
 lines(xx1, indiffFn1(xx1), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, indiffFn2(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx3, indiffFn3(xx3), col = COLA[5], lwd = graphlinewidth)
-#lines(xx4, tangentLine(xx4), col = grays[22], lty = 2, lwd = graphlinewidth)
 segments(9.5, 0.53, 19.5, 0.78, lty = 2, col = grays[22], lwd = graphlinewidth)
+lines(xx4, tangentLine(x = xx4, m = 0.025, b = 0.17), col = grays[22], lty = 2, lwd = graphlinewidth)
+lines(xx5, tangentLine(x = xx5, m = 0.0247, b = -0.07), col = grays[22], lty = 2, lwd = graphlinewidth)
+# segments(9.5, 0.53, 19.5, 0.78, lty = 2, col = grays[22], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 1, 1.1)
@@ -97,6 +99,8 @@ text(20, 1.025, expression(paste("Maximum level of quality, q")), cex = labelsiz
 
 #Add a point for the tangency
 points(14.3, 0.65, pch = 16, col = "black", cex = 1.5)
+points(19.2, 0.65, pch = 16, col = "black", cex = 1.5)
+points(29.2, 0.65, pch = 16, col = "black", cex = 1.5)
 
 
 

@@ -35,11 +35,11 @@ deltaT  <-  deltaRprime * (1 - tau) # risk with free education paying with tax
 
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.5
-graphlinewidth <- 2
-segmentlinewidth <- 1.5
+graphlinewidth <- 2.2
+segmentlinewidth <- 1.7
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -79,8 +79,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n",
      yaxt = "n",
      bty = "n",
-     xaxs="i",
-     yaxs="i"
+     xaxs = "i",
+     yaxs = "i"
 )
 
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
@@ -123,16 +123,18 @@ points(deltaRprime, yRprime, pch = 16, col = "black", cex = 1.5)
 
 #Label 5 points on line
 
-text(1.6, 1.2, expression(paste(u[0])), cex = labelsize)
-text(1.6, 5.2, expression(paste(u[1])), cex = labelsize)
-text(1.6, 7.8, expression(paste(u[2])), cex = labelsize)
-text(1.6, 9.8, expression(paste(u[3])), cex = labelsize)
+text(1.6, 1.2 - 0.1, expression(paste(u[0])), cex = labelsize)
+text(1.6, 5.2 - 0.1, expression(paste(u[1])), cex = labelsize)
+text(1.6, 7.8 - 0.1, expression(paste(u[2])), cex = labelsize)
+text(1.6, 9.8 - 0.1, expression(paste(u[3])), cex = labelsize)
 
 text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
-text(deltaR-0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
+text(deltaR - 0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
 
 #Arrow for cost
-Arrows(deltaR + 0.2, yR + 0.3, deltaR + 0.2, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
-text(deltaR + 0.55, (yR + yRprime)/2 + 0.5, expression(paste("Cost")), cex = labelsize)
+#Arrows(deltaR + 0.2, yR + 0.3, deltaR + 0.2, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+brackets(deltaR + 0.2, yRprime - 0.3, deltaR + 0.2, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
+text(deltaR + 1, (yR + yRprime)/2, expression(paste("Cost")), cex = labelsize)
 
 dev.off()

@@ -108,7 +108,7 @@ text(retmax + 0.3, riskreturn(g = retmax) - 0.65, expression(m), cex = labelsize
 
 
 # #Label risk return schedule
-text(13, 14.2, expression(paste(y(Delta))), cex = labelsize)
+text(13, 14.2, expression(paste(hat(y)(Delta))), cex = labelsize)
 text(13, 13.3, expression(paste("Risk-return")), cex = labelsize)
 text(13, 12.5, expression(paste("schedule")), cex = labelsize)
 # 

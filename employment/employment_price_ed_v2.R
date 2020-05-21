@@ -124,7 +124,7 @@ Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 
 text(37, 0.35, expression("Better for"), cex = labelsize, xpd = TRUE)
-text(37, 0.3, expression("employee"), cex = labelsize, xpd = TRUE)
+text(37, 0.3, expression("worker"), cex = labelsize, xpd = TRUE)
 Arrows(41, 0.33, 45, 0.33, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 

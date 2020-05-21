@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
 par(mar =  c(4, 6, .5, .5))
@@ -31,6 +31,10 @@ indiff <- function(g, intercept = 4, slope = 0.09){
 
 insur <- function(g, intercept = 3, slope = 0.36){
   intercept  + slope*g
+}
+
+tangentline <- function(b, m, x) {
+  m*x + b
 }
 
 #Plot command 
@@ -47,8 +51,8 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 
-ticksy <- c(0, 4, 9, 13, ylims[2])
-ylabels <- c(NA, expression(y[f]), expression(y[h]), expression(y[i]), NA)
+ticksy <- c(0, 4, 7, 9, 13, ylims[2])
+ylabels <- c(NA, expression(y[f]), expression(y[g]), expression(y[h]), expression(y[i]), NA)
 ticksx <- c(0, 8.74, xlims[2])
 xlabels <- c(NA, expression(Delta[h]), NA)
 
@@ -60,11 +64,22 @@ text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Exp
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+eps <- 2
+xx2 <- seq(8.74 - eps, 8.74 + eps, length.out = npts)
 
+# delta H
 segments(8.74, 0, 8.74, 18, col = grays[20], lwd = segmentlinewidth, lty = 2)
 
+# tan lines
+lines(xx2, tangentline(x = xx2, m = 0.18*8.74 + 0.15, b = -2.875), col = grays[22], lwd = segmentlinewidth, lty = 2)
+lines(xx2, tangentline(x = xx2, m = 0.16*8.74 + 0.15, b = 0.875), col = grays[22], lwd = segmentlinewidth, lty = 2)
+lines(xx2, tangentline(x = xx2, m = 0.15*8.74 + 0.15, b = 3.25), col = grays[22], lwd = segmentlinewidth, lty = 2)
+lines(xx2, tangentline(x = xx2, m = 0.08*8.74 + 0.15, b = 9.95), col = grays[22], lwd = segmentlinewidth, lty = 2)
+
+
+# indiff curves
 lines(xx1, indiff(xx1, intercept = 4, slope = 0.09), col = COLA[4], lwd = graphlinewidth, lty = 1)
-#lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 9, slope = 0.075), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiff(xx1, intercept = 9.2, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graphlinewidth, lty = 1)
@@ -78,8 +93,8 @@ lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graph
 
 # Points
 
-points(8.74, 3, pch = 16, col = "black", cex = 1.5) # e
-points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # f
+#points(8.74, 3, pch = 16, col = "black", cex = 1.5) # e
+#points(8.74, 9.53, pch = 16, col = "black", cex = 1.5) # f
 #points(8.74, 14.187, pch = 16, col = "black", cex = 1.5) # g
 points(8.74, 16.01, pch = 16, col = "black", cex = 1.5) # h
 #points(8.74, 16.626, pch = 16, col = "black", cex = 1.5) # h
@@ -87,10 +102,15 @@ points(8.74, 17.367, pch = 16, col = "black", cex = 1.5) # i
 #points(3.333, 5.5, pch = 16, col = "black", cex = 1.5) # f'
 #points(7, 11.97, pch = 16, col = "black", cex = 1.5) # g'
 
+points(8.74, 12.18588, pch = 16, col = "black", cex = 1.5)
+points(8.74, 14.42201, pch = 16, col = "black", cex = 1.5)
+text(9, 12, expression(j), cex = labelsize) # j
+text(9, 14, expression(k), cex = labelsize) # k
+
 # Points Labels
 
-text(9, 2.5, expression(e), cex = labelsize)
-text(9, 9, expression(f), cex = labelsize)
+#text(9, 2.5, expression(e), cex = labelsize)
+#text(9, 9, expression(f), cex = labelsize)
 #text(9, 13.65, expression(g), cex = labelsize)
 text(9, 15.5, expression(h), cex = labelsize)
 # text(9, 16.3, expression(d), cex = labelsize)
@@ -99,12 +119,13 @@ text(9, 17, expression(i), cex = labelsize)
 #text(3.5, 4.9, expression(paste(f,"'")), cex = labelsize)
 #text(7.25, 11.5, expression(paste(g,"'")), cex = labelsize)
 
+
 # Label value functions
 
 text(.5, 4.55, expression(u[1]), cex = labelsize)
-#text(.5, 7.55, expression(u[2]), cex = labelsize)
-text(.5, 9.55, expression(u[2]), cex = labelsize) # if using u[3] w int = 9.2, 9.55 --> 9.75
-text(.5, 13.55, expression(u[3]), cex = labelsize)
+text(.5, 7.55, expression(u[2]), cex = labelsize)
+text(.5, 9.55, expression(u[3]), cex = labelsize) # if using u[3] w int = 9.2, 9.55 --> 9.75
+text(.5, 13.55, expression(u[4]), cex = labelsize)
 
 
 dev.off()

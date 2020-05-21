@@ -72,11 +72,11 @@ xx5 <- seq(7, 9, length.out = npts)
 #Draw the polygon for feasibility
 xpoly1 <- c(0.01, xx1, 0.01, 0.01)
 ypoly1 <- c(0.01, PCFn(xx1), ylims[2], 0.01)
-polygon(x = xpoly1, y = ypoly1, col = COLB[1], density = NULL, border = NA)
+polygon(x = xpoly1, y = ypoly1, col = COLA[1], density = NULL, border = NA)
 
 
 #Draw the graphs
-lines(xx1, PCFn(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, PCFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.075), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
@@ -96,8 +96,8 @@ text(0.5*(xlims[2]), -0.15, expression(paste("Interest factor, ", delta)), xpd =
 
 
 #Label participation constraint
-text(0.3, 0.97, expression(paste("Borrower's participation constraint")), cex = labelsize)
-text(0.34, 0.89, expression(paste(f == frac(delta, q))), cex = labelsize)
+text(0.27, 0.96, expression(paste("Participation constraint,")), cex = labelsize)
+text(0.42, 0.96, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Isoprofit")), cex = labelsize)

@@ -126,7 +126,7 @@ text(14, 15.7, expression(paste("contract")), cex = labelsize, xpd = TRUE)
 
 
 #Label risk return schedule
-text(14.8, 13.8, expression(paste(g(Delta))), cex = labelsize, xpd = TRUE)
+text(14.8, 13.8, expression(paste(f(Delta))), cex = labelsize, xpd = TRUE)
 
 
 #Label value functions

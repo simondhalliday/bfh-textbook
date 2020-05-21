@@ -59,8 +59,8 @@ ticksy <- c(0, 20, 30, 40)
 ylabels <- c(0, expression(paste(bar(Delta) )), expression(paste(gamma[0])), NA)
 ticksx <- c(0, 0.75, xlims[2])
 xlabels <- c(0, expression(paste(H,"*")), NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
 text(1.04, 38, expression(paste("Wage Curve, ", w(H))), cex = labelsize, xpd = TRUE)

@@ -3,6 +3,7 @@
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 # TODO Add points and labels 
+# TODO Add tangets at points
 
 library("shape")
 

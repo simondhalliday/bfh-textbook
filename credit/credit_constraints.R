@@ -2,9 +2,12 @@
 #Authors: Bowles, Foley and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-library(tidyverse)
+library(scales)
+library(openxlsx)
 library(ggplot2)
-pdf(file = "credit/credit_constraints.pdf", width = 8, height = 6)
+library(tidyverse)
+library(shape)
+pdf(file = "credit/credit_constraints.pdf", width = 15, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -85,24 +88,44 @@ grays <- gray.colors(25, start = 1, end = 0)
 
 # plot2 - 6 horizontal bars. 
 
-x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
-y <- c(51,29, 13, 37, 30, 52)
+# x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
+# y <- c(51,29, 13, 37, 30, 52)
+# mat <- cbind(x, y)
+# data <- as.data.frame(mat)
+# data$y <- as.numeric(data$y)
+
+x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means")
+y <- c(0.51, 0.29, 0.13, 0.37, .30)
 mat <- cbind(x, y)
 data <- as.data.frame(mat)
-data$y <- as.numeric(data$y)
+data$y <- as.numeric(as.character(data$y))
+
 
 #data$x <- factor(data$x, levels = c("<40,000", "40,000-100,000", "100,000<", "Can't cover $400 sudden expenses with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates"))
 
-data$x <- factor(data$x, levels = c("Borrowing at credit card rates","Cannot cover emergency expenses by any means", "Cannot cover $400 sudden expense with cash, savings or credit card", "100,000<", "40,000-100,000","<40,000"))
+data$x <- factor(data$x, levels = c("Cannot cover emergency expenses by any means", "Cannot cover $400 sudden expense with cash, savings or credit card", "100,000<", "40,000-100,000","<40,000"))
+
+labels <- c(
+"If these adults lose their primary source of income,\n they can not cover three months of expenses by any means.", 
+"When faced with a hypothetical expense of $400, \n these adults would be unable to cover it exclusively using cash, \n savings or a credit card paid off in the next statement.", 
+"Credit applicants in the income range of >$100,000 \n denied credit or approved for less than requested.", 
+"Credit applicants in the income range of $40,000-$100,000 \n denied credit or approved for less than requested.",
+"Credit applicants in the income range of <$40,000 \n denied credit or approved for less than requested.")
 
 
-plot2 <- 
-  data %>% 
-  ggplot(aes(x = x, y = y)) + 
-  geom_bar(stat = "identity") + 
+plot2 <- data %>% 
+ggplot(aes(x = x, y = y)) + 
+  geom_bar(stat = "identity", colour="#CD2825", fill = "#CD2825") + 
+  scale_x_discrete(labels = labels) + 
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent_format(accuracy = 5L))  +
+  #scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent) + 
   xlab("") +
-  ylab("") +
+  ylab("Percent") +
   theme_bw() + 
+  theme(axis.title = element_text(size = 15),
+        axis.text.y = element_text(size = 14),
+        panel.grid.minor = element_blank()
+  ) + 
   #theme(legend.position = c(0.8,0.85),
         #legend.text.align = 0,
         #axis.title = element_text(size = 20),

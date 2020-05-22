@@ -52,9 +52,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], HWealthQ(n = 0.3), 5, LWealthQ(n = 0.3), ylims[2])
-ylabels <- c(NA, expression(paste(q^k*(n^0))), expression(paste(q,"*")), expression(paste(q^0*(n^0))), NA)
+ylabels <- c(NA, expression(paste(q^k*(n^0))), expression(paste(q[i])), expression(paste(q^0*(n^0))), NA)
 ticksx <- c(xlims[1], 0.3, 0.5, xlims[2])
-xlabels <- c(NA, expression(paste(n^{0})),expression(paste(n,"*")), NA)
+xlabels <- c(NA, expression(paste(n^{0})),expression(paste(n[i])), NA)
 ticksy2 <- c(ylims[1], ylims[2])
 ylabels2 <- c(NA, NA)
 
@@ -70,8 +70,8 @@ lines(xx1, LWealthQ(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, HWealthQ(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Proportion of low wealth projects funded, ", n)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.18, 0.5*(ylims[2]), expression(paste("Quality of project, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Fraction of low wealth projects funded, ", n)), side = 1, line = 2.8, cex = axislabelsize)
+text(-0.19, 0.5*(ylims[2]), expression(paste("Quality of project, ", q)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 segments(0.3, 0, 0.3, LWealthQ(n = 0.3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -81,6 +81,9 @@ text(0.3 + 0.02, LWealthQ(n = 0.3) + 0.35, expression(paste(a)), cex = labelsize
 segments(0, HWealthQ(n = 0.3), 0.3, HWealthQ(n = 0.3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(0.3, HWealthQ(n = 0.3), pch = 16, col = "black", cex = 1.5)
 text(0.3 + 0.02, HWealthQ(n = 0.3) - 0.35, expression(paste(b)), cex = labelsize)
+
+points(0.5, 5, pch = 16, col = "black", cex = 1.5)
+text(0.5, 5.5, expression(paste(i)), cex = labelsize)
 
 text(0.15, 1.2, expression(paste("Low wealth")), cex = labelsize)
 text(0.15, 0.6, expression(paste("projects funded")), cex = labelsize)

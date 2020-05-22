@@ -61,7 +61,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], return(f = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(y[a] == 1.25)), NA)
+#ylabels <- c(NA, expression(paste(hat(y)[a] == 1.25)), NA)
+ylabels <- c(NA, expression(paste(y[a] == frac(q,4))), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(0, NA, 1)
 
@@ -83,7 +84,7 @@ lines(xx1, return(xx1), col = COLA[5], lwd = graphlinewidth)
 text(0.5*(xlims[2]), -0.3, expression(paste("Risk, ", f)), xpd = TRUE, cex = axislabelsize) 
 text(0.5*(xlims[2]), -0.1, expression(paste(f[a] == frac(1, 2))), xpd = TRUE, cex = labelsize) 
 
-text(-0.1, 0.45*(ylims[2]), expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.1, 0.45*(ylims[2]), expression(paste("Expected income, ", y )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 segments(0.5, 0, 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, return(0.5), 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)

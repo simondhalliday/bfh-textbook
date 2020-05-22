@@ -28,7 +28,7 @@ lss %>% ggplot() +
                               ymin = -Inf,
                               ymax = Inf),
             aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
-            fill = "grey", alpha = 0.4) +
+            fill = "#E31A1C", alpha = 0.2) +
   geom_point(aes(x = date, y = log_OPH), color = COL[1], cex = 2.5) +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.21, label = "Recession", size = 6) +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.2, label = "begins Dec 2007", size = 6) + 

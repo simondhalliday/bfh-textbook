@@ -88,10 +88,12 @@ text(-1, 0.5*ylims[2], expression(paste("Expected wealth, ", hat(y))), xpd = TRU
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-xx2 <- seq(2, 10, length.out = npts)
+xx2 <- seq(0.5*xlims[2] - 1.5, 0.5*xlims[2] + 1.25, length.out = npts)
 
+# tangent lines
+lines(xx2, tangentline(x = xx2, m = 3.97626, b = -7.500294), col = grays[22], lwd = segmentlinewidth, lty = 2)
 
-
+# util curves
 for (u in c(5, 64, 156) ) {
   lines(xx1, indiff(u, xx1, c = 2.7), col = COLB[4], lwd = graphlinewidth, lty = 1)  
 }
@@ -103,6 +105,18 @@ segments(0.5*xlims[2], 0, 0.5*xlims[2], ylims[2], col = grays[20], lwd = segment
 segments(0, y1, 0.5*xlims[2], y1, col = grays[20], lwd = segmentlinewidth, lty = 2)
 segments(0, y2, indiff(5, 0.75*xlims[2], c = 2.7), y2, col = grays[20], lwd = segmentlinewidth, lty = 2)
 segments(0, y3, 0.5*xlims[2], y3, col = grays[20], lwd = segmentlinewidth, lty = 2)
+
+# points
+points(0.5*xlims[2], y1, pch = 16, col = "black", cex = 1.5)
+points(0.325*xlims[2], y2, pch = 16, col = "black", cex = 1.5)
+points(0.625*xlims[2], y2, pch = 16, col = "black", cex = 1.5)
+points(0.5*xlims[2], y3, pch = 16, col = "black", cex = 1.5)
+
+# label points
+text(0.5*xlims[2] + 0.25, y1 - 1, expression(paste(g)), cex = labelsize)
+text(0.325*xlims[2], y2 + 1.5, expression(paste(h)), cex = labelsize)
+text(0.625*xlims[2], y2 + 1.5, expression(paste("h'")), cex = labelsize)
+text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste("g'")), cex = labelsize)
 
 # label indiff
 text(0.95*xlims[2], 0.98*ylims[2], expression(paste(u[1])), cex = labelsize)

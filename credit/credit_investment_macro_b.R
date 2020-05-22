@@ -70,7 +70,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
 ylabels <- c(NA, expression(paste(f == frac(1,2))),  1)
 ticksx <- c(xlims[1], 0.39, 0.59, xlims[2])
-xlabels <- c(NA, expression(paste(delta[1]^{W})), expression(paste(delta[0]^{W})), NA)
+xlabels <- c(NA, expression(paste(delta[0]^{W})), expression(paste(delta[1]^{W})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -91,24 +91,32 @@ lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
 text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)
-text(0.39 + 0.025, brfFn(0.39, k = 0.75) - 0.03, expression(paste(b)), cex = labelsize)
+#segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)
+#text(0.39 + 0.025, brfFn(0.39, k = 0.75) - 0.03, expression(paste(b)), cex = labelsize)
 
 #segments(1, -1, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(1, brfFn(1, k = 0.5), pch = 16, col = "black", cex = 1.5)
 # text(1, brfFn(1, k = 0.5) + 0.04, expression(paste(n)), cex = labelsize)
 
-segments(.59, -1, 0.59, brfFn(delta = 0.59, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-points(0.59, brfFn(0.59, k = 0.75), pch = 16, col = "black", cex = 1.5)
-text(0.59 + 0.025, brfFn(0.59, k = 0.75) - 0.03, expression(paste(a)), cex = labelsize)
+#segments(.59, -1, 0.59, brfFn(delta = 0.59, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#points(0.59, brfFn(0.59, k = 0.75), pch = 16, col = "black", cex = 1.5)
+#text(0.59 + 0.025, brfFn(0.59, k = 0.75) - 0.03, expression(paste(a)), cex = labelsize)
 
 #segments(.7, -1, 0.7, brfFn(delta = 0.7, k = 0.28), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.7, brfFn(0.7, k = 0.28), pch = 16, col = "black", cex = 1.5)
 
+
+points(0.7, 0.75, pch = 16, col = "black", cex = 1.5)
+text(0.7, 0.78, expression(paste(n[0])), cex = labelsize)
+
+points(1, 0.75, pch = 16, col = "black", cex = 1.5)
+text(1, 0.78, expression(paste(n[1])), cex = labelsize)
+
+
 # ZPC
-text(1.4, 0.91, expression(paste(pi[1] == 1 + rho[1])), cex = labelsize)
-text(1.4, 0.78, expression(paste(pi[0] == 1 + rho[0])), cex = labelsize)
+text(1.4, 0.91, expression(paste(pi[0] == 1 + rho[0])), cex = labelsize, xpd = TRUE)
+text(1.4, 0.78, expression(paste(pi[1] == 1 + rho[1])), cex = labelsize, xpd = TRUE)
 
 
 text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
@@ -131,9 +139,10 @@ Arrows(0.6, 0.82, 0.6, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triang
 #text(0.12, 0.2, expression(paste("before")), cex = labelsize)
 #Arrows(0.17, 0.25, 0.3, 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.49, 0.15, expression(paste("Policy")), cex = labelsize)
-text(0.49, 0.09, expression(paste("Change")), cex = labelsize)
-Arrows(0.58, 0.05, 0.42, 0.05, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.49, 0.15, expression(paste("Policy")), cex = labelsize)
+#text(0.49, 0.09, expression(paste("Change")), cex = labelsize)
+#Arrows(0.58, 0.05, 0.42, 0.05, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.4, 0.4, 0.33, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

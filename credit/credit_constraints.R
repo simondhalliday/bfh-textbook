@@ -108,9 +108,9 @@ data$x <- factor(data$x, levels = c("Cannot cover emergency expenses by any mean
 labels <- c(
 "If these adults lose their primary source of income,\n they can not cover three months of expenses by any means.", 
 "When faced with a hypothetical expense of $400, \n these adults would be unable to cover it exclusively using cash, \n savings or a credit card paid off in the next statement.", 
-"Credit applicants in the income range of >$100,000 \n denied credit or approved for less than requested.", 
-"Credit applicants in the income range of $40,000-$100,000 \n denied credit or approved for less than requested.",
-"Credit applicants in the income range of <$40,000 \n denied credit or approved for less than requested.")
+"Credit applicants in the income range of >$100,000 a year \n denied credit or approved for less than requested.", 
+"Credit applicants in the income range of $40,000-$100,000 a year \n denied credit or approved for less than requested.",
+"Credit applicants in the income range of <$40,000 a year \n denied credit or approved for less than requested.")
 
 
 plot2 <- data %>% 

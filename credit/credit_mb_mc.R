@@ -74,7 +74,7 @@ points(1, mc(1), pch = 16, col = "black", cex = 1.5)
 points(0.85, mc(0.85), pch = 16, col = "black", cex = 1.5)
 points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
 
-text(1 + 0.025, mc(1) - 0.05, expression(paste(c)), cex = labelsize)
+text(1 + 0.025, mc(1) - 0.05, expression(paste(e)), cex = labelsize)
 text(0.85 + 0.025, mc(0.85) - 0.05, expression(paste(n)), cex = labelsize)
 text(0.65 + 0.025, mc(0.65) - 0.05, expression(paste(b)), cex = labelsize)
 

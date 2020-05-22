@@ -63,7 +63,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-text(-5.25, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest Rate, Profit Rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5.25, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest rate, Profit rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]) - 12.5, -2.5, expression(paste("Firm A")), xpd = TRUE, cex = axislabelsize) 
 text(0.5*(xlims[2]) + 12.5, -2.5, expression(paste("Firm B")), xpd = TRUE, cex = axislabelsize) 
 
@@ -95,14 +95,14 @@ segments(0, 25, xlims[2], 25, col = grays[20], lty = 2, lwd = segmentlinewidth)
 
 # Labels --- Fig A
 
-text(11.25, 31, expression(paste("Expected Profit Rate")), cex = labelsize, xpd = TRUE)
+text(11.25, 31, expression(paste("Expected profit rate")), cex = labelsize, xpd = TRUE)
 text(9, 27.5, expression(paste("Project 1")), cex = labelsize, xpd = TRUE)
 text(19, 22.5, expression(paste("Project 2")), cex = labelsize)
 text(19, 6, expression(paste("Project 3")), cex = labelsize)
 
 # Labels --- Fig B
 
-text(36.22, 22, expression(paste("Expected Profit Rate")), cex = labelsize)
+text(36.22, 22, expression(paste("Expected profit rate")), cex = labelsize)
 text(34, 18.5, expression(paste("Project 1")), cex = labelsize, xpd = TRUE)
 text(43.6, 15, expression(paste("Project 2")), cex = labelsize, xpd = TRUE)
 text(43.6, 11.5, expression(paste("Project 3")), cex = labelsize, xpd = TRUE)

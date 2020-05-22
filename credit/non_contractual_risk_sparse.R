@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(4, 6, 2, 1))
 
 brfFn <- function(delta, q = 1) {
   .5 + (delta / (2 * q)) 
@@ -75,10 +75,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], brfFn(delta = 0.5), ylims[2])
 ylabels <- c(NA, expression(paste(f^{N} == frac(3,4))), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(NA, expression(paste(delta^{n})), NA)
+xlabels <- c(NA, NA, NA)
+#xlabels <- c(NA, expression(paste(delta^{N} == frac(q,2))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(0.5, -0.07, expression(paste(delta^{N} == frac(q,2))), xpd = TRUE, cex = labelsize) 
+
 
 npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -96,8 +100,8 @@ lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.12, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
+text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(d1, f1,
@@ -133,7 +137,7 @@ text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = lab
 
 
 text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
-text(0.87, 0.53, expression(paste(pi == pi^{n})), cex = labelsize, xpd = TRUE)
+text(0.87, 0.53, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
 Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)

@@ -51,10 +51,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], isoreturnFn(delta= 0.25), ylims[2])
-ylabels <- c(NA, expression(paste(f,"*", phantom()==frac(1,2))), NA)
+ylabels <- c(NA, expression(paste(f^C, phantom()==frac(1,2))), NA)
 ticksx <- c(xlims[1], 0.25, xlims[2])
 xlabels <- c(NA, NA, NA)
-text(0.25, -0.06, expression(paste(delta,"*", phantom()==frac(q, 2))), xpd = TRUE, cex = labelsize) 
+text(0.25, -0.06, expression(paste(delta^C, phantom()==frac(q, 2))), xpd = TRUE, cex = labelsize) 
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -83,8 +83,8 @@ lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 
 
 #Label the feasible frontier
-text(0.14, 0.75, expression("Feasible combinations"), cex = labelsize)
-text(0.14, 0.7, expression("of risk and interest"), cex = labelsize)
+text(0.14, 0.82, expression("Feasible combinations"), cex = labelsize)
+text(0.14, 0.77,  expression("of risk and interest"), cex = labelsize)
 # text(3.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -100,14 +100,14 @@ text(0.27, 0.96, expression(paste("Participation constraint,")), cex = labelsize
 text(0.42, 0.96, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
 
 #Label Iso-profit
-text(0.53, 0.9, expression(paste("Isoprofit")), cex = labelsize)
+text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
 text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
 text(0.53, 0.73, expression(paste(pi[1])), cex = labelsize)
 text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
 
 segments(0, isoreturnFn(0.25), 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0.25, 0, 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-text(0.25, isoreturnFn(0.25) + 0.05, expression(paste(a)), cex = labelsize)
+text(0.25, isoreturnFn(0.25) + 0.05, expression(paste(c)), cex = labelsize)
 points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
 
 

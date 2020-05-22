@@ -7,7 +7,7 @@ library(openxlsx)
 library(ggplot2)
 library(tidyverse)
 library(shape)
-pdf(file = "credit/credit_constraints.pdf", width = 15, height = 6)
+pdf(file = "credit/credit_constraints.pdf", width = 18, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -122,8 +122,9 @@ ggplot(aes(x = x, y = y)) +
   xlab("") +
   ylab("Percent") +
   theme_bw() + 
-  theme(axis.title = element_text(size = 15),
-        axis.text.y = element_text(size = 14),
+  theme(axis.title = element_text(size = 18),
+        axis.text.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
         panel.grid.minor = element_blank()
   ) + 
   #theme(legend.position = c(0.8,0.85),

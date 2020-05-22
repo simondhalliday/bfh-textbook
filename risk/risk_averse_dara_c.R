@@ -24,7 +24,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 8, 1, 1))
 xlims <- c(0, 10)
 ylims <- c(0, 40)
 
@@ -74,17 +74,17 @@ y1 <- indiff(5, 0.5*xlims[2], c = 2.7)
 y2 <- indiff(64, 0.5*xlims[2], c = 2.7) - 4
 y3 <- indiff(156, 0.5*xlims[2], c = 2.7)
 
-ticksx <- c(0, 0.5*xlims[2], xlims[2])
-xlabels <- c(NA, expression(paste(Delta)), NA)
+ticksx <- c(0, 0.325*xlims[2], 0.5*xlims[2], 0.625*xlims[2], xlims[2])
+xlabels <- c(NA, expression(paste(Delta[f])), expression(paste(Delta[e] == Delta[h])), expression(paste(Delta[g])), NA)
 ticksy <- c(0, y1, y2, y3, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)^{L})), expression(paste(hat(y)^{M})), expression(paste(hat(y)^{H})), NA)
+ylabels <- c(NA, expression(paste(hat(y)^{e})), expression(paste(hat(y)^{f} == hat(y)^{g})), expression(paste(hat(y)^{h})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Difference in wealth (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Expected wealth, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Expected wealth, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -92,6 +92,7 @@ xx2 <- seq(0.5*xlims[2] - 1.5, 0.5*xlims[2] + 1.25, length.out = npts)
 
 # tangent lines
 lines(xx2, tangentline(x = xx2, m = 3.97626, b = -7.500294), col = grays[22], lwd = segmentlinewidth, lty = 2)
+lines(xx2, tangentline(x = xx2, m = 2.39591, b = 21.5975), col = grays[22], lwd = segmentlinewidth, lty = 2)
 
 # util curves
 for (u in c(5, 64, 156) ) {
@@ -113,10 +114,10 @@ points(0.625*xlims[2], y2, pch = 16, col = "black", cex = 1.5)
 points(0.5*xlims[2], y3, pch = 16, col = "black", cex = 1.5)
 
 # label points
-text(0.5*xlims[2] + 0.25, y1 - 1, expression(paste(g)), cex = labelsize)
-text(0.325*xlims[2], y2 + 1.5, expression(paste(h)), cex = labelsize)
-text(0.625*xlims[2], y2 + 1.5, expression(paste("h'")), cex = labelsize)
-text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste("g'")), cex = labelsize)
+text(0.5*xlims[2] + 0.25, y1 - 1, expression(paste(e)), cex = labelsize)
+text(0.325*xlims[2], y2 + 1.5, expression(paste(f)), cex = labelsize)
+text(0.625*xlims[2], y2 + 1.5, expression(paste(g)), cex = labelsize)
+text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste(h)), cex = labelsize)
 
 # label indiff
 text(0.95*xlims[2], 0.98*ylims[2], expression(paste(u[1])), cex = labelsize)

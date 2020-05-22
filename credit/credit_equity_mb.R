@@ -48,9 +48,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, mc(f = 0.65), mc(f = 0.85), 2, ylims[2])
-ylabels <- c(0, expression(paste(delta[2])), expression(paste(delta[1])), expression(paste(q)), NA)
+ylabels <- c(0, expression(paste(delta[1])), expression(paste(delta[2])), expression(paste(q)), NA)
 ticksx <- c(0, 0.5, 0.65, 0.85, 1, xlims[2])
-xlabels <- c(NA, 0.5, expression(paste(f*(delta[2]) )), expression(paste(f*(delta[1]) )), 1.0, NA)
+xlabels <- c(NA, 0.5, expression(paste(f*(delta[1]) )), expression(paste(f*(delta[2]) )), 1.0, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -91,7 +91,7 @@ points(1, mc(1), pch = 16, col = "black", cex = 1.5)
 points(0.85, mc(0.85), pch = 16, col = "black", cex = 1.5)
 points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
 
-text(1 + 0.025, mc(1) - 0.1, expression(paste(c)), cex = labelsize)
+text(1 + 0.025, mc(1) - 0.1, expression(paste(e)), cex = labelsize)
 text(0.85 + 0.025, mc(0.85) - 0.1, expression(paste(b)), cex = labelsize)
 text(0.65 + 0.025, mc(0.65) - 0.1, expression(paste(a)), cex = labelsize)
 

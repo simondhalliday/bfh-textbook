@@ -73,7 +73,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], brfFn(delta = 0.5), ylims[2])
-ylabels <- c(NA, expression(paste(f^{n})), NA)
+ylabels <- c(NA, expression(paste(f^{N} == frac(3,4))), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
 xlabels <- c(NA, expression(paste(delta^{n})), NA)
 

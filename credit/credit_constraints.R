@@ -94,8 +94,8 @@ grays <- gray.colors(25, start = 1, end = 0)
 # data <- as.data.frame(mat)
 # data$y <- as.numeric(data$y)
 
-x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means")
-y <- c(0.51, 0.29, 0.13, 0.37, .30)
+x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
+y <- c(0.51, 0.29, 0.13, 0.37, .30, 0.52)
 mat <- cbind(x, y)
 data <- as.data.frame(mat)
 data$y <- as.numeric(as.character(data$y))
@@ -103,9 +103,9 @@ data$y <- as.numeric(as.character(data$y))
 
 #data$x <- factor(data$x, levels = c("<40,000", "40,000-100,000", "100,000<", "Can't cover $400 sudden expenses with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates"))
 
-data$x <- factor(data$x, levels = c("Cannot cover emergency expenses by any means", "Cannot cover $400 sudden expense with cash, savings or credit card", "100,000<", "40,000-100,000","<40,000"))
+data$x <- factor(data$x, levels = c("Borrowing at credit card rates", "Cannot cover emergency expenses by any means", "Cannot cover $400 sudden expense with cash, savings or credit card", "100,000<", "40,000-100,000","<40,000"))
 
-labels <- c(
+labels <- c("Fraction of households borrowing at \n credit card interest rates (between 16 and 20%)",
 "If these adults lose their primary source of income,\n they can not cover three months of expenses by any means.", 
 "When faced with a hypothetical expense of $400, \n these adults would be unable to cover it exclusively using cash, \n savings or a credit card paid off in the next statement.", 
 "Credit applicants in the income range of >$100,000 a year \n denied credit or approved for less than requested.", 

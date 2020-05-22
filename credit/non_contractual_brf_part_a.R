@@ -73,19 +73,19 @@ ticksy <- c(ylims[1], NA, NA, ylow(delta = 0.5), brfFn(delta = 0.5), NA, yhigh(d
 ylabels <- c(NA, NA, NA, NA,NA,NA, NA, NA)
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 ticksx <- c(xlims[1], 0.34, 0.5, 0.65, xlims[2])
-xlabels <- c(NA,  expression(paste(delta^L)), expression(paste(delta^n)), expression(paste(delta^H)), NA)
+xlabels <- c(NA,  expression(paste(delta^b)), expression(paste(delta^N)), expression(paste(delta^e)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 #text(-0.08, 0.45, expression(paste(f == frac(1,2))), cex = labelsize, xpd =TRUE)
-text(-0.05, 0.575, expression(paste(f[d])), cex = labelsize, xpd =TRUE)
+text(-0.05, 0.575, expression(paste(f[h])), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.665, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
-text(-0.105, 0.753, expression(paste(f*(delta^n) ==frac(3,4) )), cex = labelsize, xpd =TRUE)
+text(-0.105, 0.753, expression(paste(f*(delta^N) ==frac(3,4) )), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.832, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.93, expression(paste(f*(delta^H) )), cex = labelsize, xpd =TRUE)
-text(-0.05, yhigh(delta = 0.5), expression(paste(f[e])), cex = labelsize, xpd =TRUE)
+text(-0.05, yhigh(delta = 0.5), expression(paste(f[g])), cex = labelsize, xpd =TRUE)
 # y-labels with numeric values
 # text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
 # text(-0.05, 0.58, expression(paste(0.57 == f^d)), cex = labelsize, xpd =TRUE)
@@ -135,12 +135,12 @@ text(0.5+ 0.025, brfFn(delta = 0.5) - 0.02, expression(paste(n)), cex = labelsiz
 points(0.5, brfFn(delta = 0.5), pch = 16, col = "black", cex = 1.5)
 text(0.34+ 0.025, brfFn(delta = 0.34) - 0.02, expression(paste(b)), cex = labelsize)
 points(0.34, brfFn(delta = 0.34), pch = 16, col = "black", cex = 1.5)
-text(0.65+ 0.02, brfFn(delta = 0.65) - 0.02, expression(paste(c)), cex = labelsize)
+text(0.65+ 0.02, brfFn(delta = 0.65) - 0.02, expression(paste(e)), cex = labelsize)
 points(0.65, brfFn(delta = 0.65), pch = 16, col = "black", cex = 1.5)
 
-text(0.5+ 0.02, ylow(delta = 0.5) - 0.02, expression(paste(d)), cex = labelsize)
+text(0.5+ 0.02, ylow(delta = 0.5) - 0.02, expression(paste(h)), cex = labelsize)
 points(0.5, ylow(delta = 0.5), pch = 16, col = "black", cex = 1.5)
-text(0.5+ 0.02, yhigh(delta = 0.5) - 0.025, expression(paste(e)), cex = labelsize)
+text(0.5+ 0.02, yhigh(delta = 0.5) - 0.028, expression(paste(g)), cex = labelsize)
 points(0.5, yhigh(delta = 0.5), pch = 16, col = "black", cex = 1.5)
 
 

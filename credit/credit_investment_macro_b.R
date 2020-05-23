@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 brfFn <- function(delta, q = 1, k = 1) {
   .5 + (delta / (2 * q)) * (1 - k)
@@ -69,8 +69,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
 ylabels <- c(NA, expression(paste(f == frac(1,2))),  1)
-ticksx <- c(xlims[1], 0.39, 0.59, xlims[2])
-xlabels <- c(NA, expression(paste(delta[0]^{W})), expression(paste(delta[1]^{W})), NA)
+ticksx <- c(xlims[1], 0.7, 1, xlims[2])
+#xlabels <- c(NA, expression(paste(delta[0]^{W})), expression(paste(delta[1]^{W})), NA)
+xlabels <- c(NA, NA, NA, NA)
+
+text(0.7, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
+text(1, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
+
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -88,14 +93,14 @@ lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
 text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)
 #text(0.39 + 0.025, brfFn(0.39, k = 0.75) - 0.03, expression(paste(b)), cex = labelsize)
 
-#segments(1, -1, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(1, -1, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(1, brfFn(1, k = 0.5), pch = 16, col = "black", cex = 1.5)
 # text(1, brfFn(1, k = 0.5) + 0.04, expression(paste(n)), cex = labelsize)
 
@@ -103,8 +108,9 @@ text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f
 #points(0.59, brfFn(0.59, k = 0.75), pch = 16, col = "black", cex = 1.5)
 #text(0.59 + 0.025, brfFn(0.59, k = 0.75) - 0.03, expression(paste(a)), cex = labelsize)
 
-#segments(.7, -1, 0.7, brfFn(delta = 0.7, k = 0.28), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(.7, -1, 0.7, brfFn(delta = 0.7, k = 0.28), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.7, brfFn(0.7, k = 0.28), pch = 16, col = "black", cex = 1.5)
+
 
 
 points(0.7, 0.75, pch = 16, col = "black", cex = 1.5)

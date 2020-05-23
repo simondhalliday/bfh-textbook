@@ -63,7 +63,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-text(-5.25, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest rate, Profit rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5.25, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest rate, profit rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]) - 12.5, -2.5, expression(paste("Firm A")), xpd = TRUE, cex = axislabelsize) 
 text(0.5*(xlims[2]) + 12.5, -2.5, expression(paste("Firm B")), xpd = TRUE, cex = axislabelsize) 
 

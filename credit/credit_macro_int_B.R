@@ -23,7 +23,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
 
-par(mar =  c(6, 6, 2, 2))
+par(mar =  c(6, 6, 6, 2))
 
 xlims <- c(0, 45)
 ylims <- c(0, 30)
@@ -56,8 +56,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-text(-5.1, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest Rate, Profit Rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*(xlims[2]), -4.5, expression(paste("Aggregate Economy: Both Firms")), xpd = TRUE, cex = axislabelsize) 
+text(-5.1, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest rate, profit rate")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -4.5, expression(paste("Aggregate economy: Both firms")), xpd = TRUE, cex = axislabelsize) 
 
 
 # I_A RECT
@@ -86,12 +86,23 @@ segments(0, 10, xlims[2], 10, col = grays[20], lty = 2, lwd = segmentlinewidth)
 segments(0, 25, xlims[2], 25, col = grays[20], lty = 2, lwd = segmentlinewidth)
 
 # Labels
-text(32, 17.5, expression(paste("Fall in Interest Rate")), cex = labelsize)
+text(32, 17.5, expression(paste("Fall in interest rate")), cex = labelsize)
 Arrows(39, 11, 39, 24, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(39, 23, 39, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(17.5, -2, expression(paste("Increase in Investment")), cex = labelsize, xpd = TRUE)
+text(17.5, -2, expression(paste("Increase in investment")), cex = labelsize, xpd = TRUE)
 Arrows(6, -1, 29, -1, col = "black", code = 3, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+
+Arrows(3, 34, 3, 30, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+text(3, 36.5, expression(paste("Firm A's project 1")), cex = labelsize, xpd = TRUE)
+text(3, 35, expression(paste("funded at 5% rate")), cex = labelsize, xpd = TRUE)
+
+#Brackets
+brackets(x1 = 5.5, y1 = 29, x2 = 35.5, y2 = 29,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(21, 34, expression(paste("5 other projects funded")), cex = labelsize, xpd = TRUE)
+text(21, 32, expression(paste("with a decreased interest rate")), cex = labelsize, xpd = TRUE)
 
 
 dev.off()

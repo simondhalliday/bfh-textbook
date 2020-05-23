@@ -98,7 +98,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, 1, length.out = npts)
 
 #Draw the graphs
-lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3, cex = axislabelsize)

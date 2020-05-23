@@ -136,6 +136,13 @@ points(0.34, brfFn(delta = 0.34), pch = 16, col = "black", cex = 1.5)
 text(0.65 + 0.02, brfFn(delta = 0.65) - 0.02, expression(paste(e)), cex = labelsize)
 points(0.655, brfFn(delta = 0.655), pch = 16, col = "black", cex = 1.5)
 
+
+#points(0.32, 0.58, pch = 16, col = "black", cex = 1.5)
+#text(0.33, 0.56, expression(paste(g)), cex = labelsize)
+
+#points(0.32, 0.93, pch = 16, col = "black", cex = 1.5)
+#text(0.33, 0.56, expression(paste(g)), cex = labelsize)
+
 # text(0.5+ 0.02, ylow(delta = 0.5) - 0.02, expression(paste(d)), cex = labelsize)
 # points(0.5, ylow(delta = 0.5), pch = 16, col = "black", cex = 1.5)
 # text(0.5+ 0.02, yhigh(delta = 0.5) - 0.025, expression(paste(e)), cex = labelsize)

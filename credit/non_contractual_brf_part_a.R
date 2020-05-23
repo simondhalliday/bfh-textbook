@@ -157,9 +157,9 @@ text(0.6, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + del
 Arrows(0.45, 0.26, 0.45, 0.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.82, 0.45, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
-text(0.82, 0.4, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
-Arrows(0.7, 0.35, 0.95, 0.35, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.82, 0.5, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
+text(0.82, 0.45, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
+Arrows(0.95, 0.4, 0.7, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(0.85, 0.68, expression(paste("A's Best Response")), cex = labelsize, xpd  = TRUE)

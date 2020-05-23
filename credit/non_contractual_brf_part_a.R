@@ -19,7 +19,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 9, 2, 1))
+par(mar =  c(4, 5, 1, 1))
 
 brfFn <- function(delta, mu = 1) {
   .5 + (delta / (2 * mu)) 
@@ -68,24 +68,26 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # xlabels <- seq(from = 0, to = xlims[2], by = 0.1)
 #ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), brfFn(delta = 0.5), brfFn(delta = 0.65), yhigh(delta = 0.5), ylims[2])
 #ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), NA, brfFn(delta = 0.5), NA, NA, ylims[2])
-ticksy <- c(ylims[1], NA, NA, ylow(delta = 0.5), brfFn(delta = 0.5), NA, yhigh(delta = 0.5), ylims[2])
+ticksy <- c(ylims[1], NA, NA, ylow(delta = 0.34, ybar = 0.0625), brfFn(delta = 0.34), NA, yhigh(delta = 0.34, ybar = 0.0625), ylims[2])
 
 ylabels <- c(NA, NA, NA, NA,NA,NA, NA, NA)
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 ticksx <- c(xlims[1], 0.34, 0.5, 0.65, xlims[2])
-xlabels <- c(NA,  expression(paste(delta^b)), expression(paste(delta^N)), expression(paste(delta^e)), NA)
+xlabels <- c(NA,  expression(paste(delta[b])), expression(paste(delta^N)), expression(paste(delta[e])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 #text(-0.08, 0.45, expression(paste(f == frac(1,2))), cex = labelsize, xpd =TRUE)
-text(-0.05, 0.575, expression(paste(f[h])), cex = labelsize, xpd =TRUE)
+
+text(-0.05, ylow(delta = 0.34, ybar = 0.0625), expression(paste(f[h])), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.665, expression(paste(f*(delta^L) )), cex = labelsize, xpd =TRUE)
-text(-0.105, 0.753, expression(paste(f*(delta^N) ==frac(3,4) )), cex = labelsize, xpd =TRUE)
+#text(-0.105, 0.753, expression(paste(f*(delta^N) ==frac(3,4) )), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.832, expression(paste(f*(delta^n))), cex = labelsize, xpd =TRUE)
 #text(-0.07, 0.93, expression(paste(f*(delta^H) )), cex = labelsize, xpd =TRUE)
-text(-0.05, yhigh(delta = 0.5), expression(paste(f[g])), cex = labelsize, xpd =TRUE)
+text(-0.05, brfFn(delta = 0.34), expression(paste(f[b])), cex = labelsize, xpd =TRUE)
+text(-0.05, yhigh(delta = 0.34, ybar = 0.0625), expression(paste(f[g])), cex = labelsize, xpd =TRUE)
 # y-labels with numeric values
 # text(-0.0905, 0.48, expression(paste(frac(1,2) == f)), cex = labelsize, xpd =TRUE)
 # text(-0.05, 0.58, expression(paste(0.57 == f^d)), cex = labelsize, xpd =TRUE)
@@ -105,7 +107,7 @@ xx2 <- seq(0, 1, length.out = npts)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3, cex = axislabelsize)
-text(-0.24, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Contour lines
 contour(d1, f1,
@@ -119,10 +121,10 @@ contour(d1, f1,
         add = TRUE)
 
 segments(0.5, 0.65, 0.5, yhigh(delta = 0.5) - 0.05, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, yhigh(delta = 0.5), 0.5, yhigh(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, ylow(delta = 0.5), 0.5, ylow(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, yhigh(delta = 0.34, ybar = 0.0625), 0.34, yhigh(delta = 0.34, ybar = 0.0625), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, ylow(delta = 0.34, ybar = 0.0625), 0.34, ylow(delta = 0.34, ybar = 0.0625), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(0.34,0, 0.34, brfFn(delta = 0.34) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.34, 0, 0.34, ylims[2], lty = 1, col = COLB[3], lwd = segmentlinewidth)
 segments(0.655, brfFn(delta = 0.655) - 0.15, 0.655, brfFn(delta = 0.655) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -135,13 +137,15 @@ text(0.5+ 0.025, brfFn(delta = 0.5) - 0.02, expression(paste(n)), cex = labelsiz
 points(0.5, brfFn(delta = 0.5), pch = 16, col = "black", cex = 1.5)
 text(0.34+ 0.025, brfFn(delta = 0.34) - 0.02, expression(paste(b)), cex = labelsize)
 points(0.34, brfFn(delta = 0.34), pch = 16, col = "black", cex = 1.5)
-text(0.65+ 0.02, brfFn(delta = 0.65) - 0.02, expression(paste(e)), cex = labelsize)
-points(0.65, brfFn(delta = 0.65), pch = 16, col = "black", cex = 1.5)
+text(0.65 + 0.02, brfFn(delta = 0.65) - 0.02, expression(paste(e)), cex = labelsize)
+points(0.655, brfFn(delta = 0.655), pch = 16, col = "black", cex = 1.5)
 
-text(0.5+ 0.02, ylow(delta = 0.5) - 0.02, expression(paste(h)), cex = labelsize)
-points(0.5, ylow(delta = 0.5), pch = 16, col = "black", cex = 1.5)
-text(0.5+ 0.02, yhigh(delta = 0.5) - 0.028, expression(paste(g)), cex = labelsize)
-points(0.5, yhigh(delta = 0.5), pch = 16, col = "black", cex = 1.5)
+#Points g and h on the Nash iso-expected income
+#but on the lower delta for delta[b]
+text(0.34 - 0.02, ylow(delta = 0.34, ybar = 0.0625) + 0.03, expression(paste(h)), cex = labelsize)
+points(0.34, ylow(delta = 0.34, ybar = 0.0625), pch = 16, col = "black", cex = 1.5)
+text(0.34 - 0.02, yhigh(delta = 0.34, ybar = 0.0625) - 0.028, expression(paste(g)), cex = labelsize)
+points(0.34, yhigh(delta = 0.34, ybar = 0.0625), pch = 16, col = "black", cex = 1.5)
 
 
 
@@ -149,17 +153,17 @@ text(0.7, 1.01, expression(paste("Iso-expected income curves")), cex = labelsize
 #text(0.3, 1.01, expression(paste(y[1] == y^L)), cex = labelsize)
 #text(0.3, 0.88, expression(paste(y[2] == y^{NE})), cex = labelsize)
 #text(0.2, 0.75, expression(paste(y[3] == y^H)), cex = labelsize)
-text(0.18, 0.99, expression(paste(y[1])), cex = labelsize)
-text(0.18, 0.885, expression(paste(y[2])), cex = labelsize)
-text(0.18, 0.8, expression(paste(y[3])), cex = labelsize)
-text(0.45, 0.22, expression(Slope), cex = labelsize)
-text(0.6, 0.14, expression(paste(-mrs(delta, f) == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
-Arrows(0.45, 0.26, 0.45, 0.45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.29, 0.29, expression(paste(y[1])), cex = labelsize)
+text(0.225, 0.36, expression(paste(y[2])), cex = labelsize)
+text(0.18, 0.4, expression(paste(y[3])), cex = labelsize)
+text(0.55, 0.24, expression(paste("Slope", phantom() == -mrs(delta, f))), cex = labelsize)
+text(0.61, 0.14, expression(paste(phantom() == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
+Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.82, 0.5, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
-text(0.82, 0.45, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
-Arrows(0.95, 0.4, 0.7, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.82, 0.6, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
+text(0.82, 0.55, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
+Arrows(0.95, 0.5, 0.7, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(0.85, 0.68, expression(paste("A's Best Response")), cex = labelsize, xpd  = TRUE)

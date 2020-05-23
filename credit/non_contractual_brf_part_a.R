@@ -48,7 +48,7 @@ ylims <- c(0, 1.05)
 npts <- 501 
 d1 <- seq(xlims[1], xlims[2], length.out = npts)
 f1 <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(0.03, 0.0625, 0.11)
+a <- c(0.03, 0.0625, 0.109)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -120,14 +120,14 @@ contour(d1, f1,
         yaxs="i",
         add = TRUE)
 
-segments(0.5, 0.65, 0.5, yhigh(delta = 0.5) - 0.05, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.5, 0.63, 0.5, yhigh(delta = 0.5) - 0.05, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, yhigh(delta = 0.34, ybar = 0.0625), 0.34, yhigh(delta = 0.34, ybar = 0.0625), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, ylow(delta = 0.34, ybar = 0.0625), 0.34, ylow(delta = 0.34, ybar = 0.0625), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 segments(0.34, 0, 0.34, ylims[2], lty = 1, col = COLB[3], lwd = segmentlinewidth)
-segments(0.655, brfFn(delta = 0.655) - 0.15, 0.655, brfFn(delta = 0.655) + 0.15, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.655, brfFn(delta = 0.655) - 0.12, 0.655, brfFn(delta = 0.655) + 0.12, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-#segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 0, 1, 1, lty = 1, col = COLA[3] , lwd = segmentlinewidth)
 
 # 
 # segments(8, 0, 8,indiffA(x = 8)  , lty = 2, col = "gray" , lwd = segmentlinewidth)
@@ -149,13 +149,16 @@ points(0.34, yhigh(delta = 0.34, ybar = 0.0625), pch = 16, col = "black", cex = 
 
 
 
-text(0.7, 1.01, expression(paste("Iso-expected income curves")), cex = labelsize)
+text(0.53, 1.02, expression(paste("Iso-expected")), cex = labelsize)
+text(0.53, 0.97, expression(paste("income curves")), cex = labelsize)
 #text(0.3, 1.01, expression(paste(y[1] == y^L)), cex = labelsize)
 #text(0.3, 0.88, expression(paste(y[2] == y^{NE})), cex = labelsize)
 #text(0.2, 0.75, expression(paste(y[3] == y^H)), cex = labelsize)
-text(0.29, 0.29, expression(paste(y[1])), cex = labelsize)
-text(0.225, 0.36, expression(paste(y[2])), cex = labelsize)
-text(0.18, 0.4, expression(paste(y[3])), cex = labelsize)
+
+text(0.6, 0.55, expression(paste(y[0])), cex = labelsize)
+text(0.45, 0.55, expression(paste(y[1])), cex = labelsize)
+text(0.38, 0.55, expression(paste(y[2])), cex = labelsize)
+text(0.28, 0.55, expression(paste(y[3])), cex = labelsize)
 text(0.55, 0.24, expression(paste("Slope", phantom() == -mrs(delta, f))), cex = labelsize)
 text(0.61, 0.14, expression(paste(phantom() == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
 Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -164,6 +167,10 @@ Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "tria
 text(0.82, 0.6, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
 text(0.82, 0.55, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
 Arrows(0.95, 0.5, 0.7, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(0.85, 1.02, expression(paste("Participation")), cex = labelsize)
+text(0.85, 0.97, expression(paste("Constraint")), cex = labelsize)
+
 
 
 #text(0.85, 0.68, expression(paste("A's Best Response")), cex = labelsize, xpd  = TRUE)

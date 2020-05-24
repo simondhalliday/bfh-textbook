@@ -7,7 +7,7 @@ library(openxlsx)
 library(ggplot2)
 library(tidyverse)
 library(shape)
-pdf(file = "indmarketdemand/uber_price_elasticities_bars.pdf", width = 15, height = 6)
+
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -29,6 +29,7 @@ Elasticity <- c(0.66, 0.33, 0.61, 0.52)
 Uber_elasticity_mat <- cbind(City, Elasticity)
 Uber_elasticity_data <- as.data.frame(Uber_elasticity_mat)
 
+pdf(file = "indmarketdemand/uber_price_elasticities_bars.pdf", width = 15, height = 6)
 
 plot2 <- Uber_elasticity_data %>% 
   ggplot(aes(x = City, y = Elasticity)) + 
@@ -51,13 +52,13 @@ plot2 <- Uber_elasticity_data %>%
   #legend.text = element_text(size = 18),
   #legend.title = element_text(size = 18),
   #axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
-  #geom_text(
-  # aes(x = group5, y = utility5, label = utility5, group = type5),
-# col = "black",
-# hjust = -0.5, size = 4,
-# position = position_dodge(width = 1),
-# inherit.aes = TRUE
-#) +
+  geom_text(
+  aes(x = City, y = Elasticity, label = Elasticity),
+  col = "black",
+  hjust = -0.5, size = 4,
+  position = position_dodge(width = 1),
+  inherit.aes = TRUE
+ ) +
 #ylim(0, 160) +
 coord_flip()
 plot2

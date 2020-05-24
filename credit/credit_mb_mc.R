@@ -22,7 +22,7 @@ mc <- function(f, q = 2) {
   -q + 2*q*f
 }
 
-xlims <- c(0, 1.15)
+xlims <- c(0, 1.05)
 ylims <- c(0, 3)
 
 npts <- 501 
@@ -39,13 +39,36 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- c(-2, 0, mc(f = 0.65), mc(f = 0.85), 2, ylims[2])
-ylabels <- c(expression(paste(-q)), 0, expression(paste(delta^L)), expression(paste(delta^N)), expression(paste(delta == q)), NA)
-ticksx <- c(0, 0.5, 0.65, 0.85, 1, xlims[2])
-xlabels <- c(NA, 0.5, expression(paste(f*(delta^{L}) )), expression(paste(f*(delta^{N}) )), 1.0, NA)
+flevels <- c(ylow(delta = 0.34, ybar = 0.0625), #point h
+             0.5,
+             brfFn(delta = 0.34), #point b
+             brfFn(delta = 0.5), #point n
+             brfFn(delta = 0.655), #point e
+             yhigh(delta = 0.34, ybar = 0.0625) #point g
+             )
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+ticksy <- c(0, mc(f = flevels[3]), mc(f = flevels[4]), mc(f = flevels[5]), ylims[2])
+ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta^N)), expression(paste(delta == q)), NA)
+ticksx <- c(0, flevels, 1, xlims[2])
+xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f^{N} )), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
+
+
+
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(x = c(0, 
+           ylow(delta = 0.34, ybar = 0.0625) - 0.02, 
+           0.5,
+           brfFn(delta = 0.34), 
+           brfFn(delta = 0.5), 
+           brfFn(delta = 0.655),
+           yhigh(delta = 0.34, ybar = 0.0625), 
+           1, 
+           xlims2[2]
+           ), 
+     par("usr")[3] - 0.05, cex = labelsize,
+     labels = xlabels, srt = 0, pos = 1, xpd = TRUE)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -63,15 +86,31 @@ text(0.25, 2.1, expression(paste(mb == q, phantom() == delta )), cex = labelsize
 text(0.25, 1.5, expression(paste(mb^N == delta^N )), cex = labelsize)
 text(0.25, 0.7, expression(paste(mb^L == delta^L )), cex = labelsize)
 
-segments(0.65, 0, 0.65, mc(f = 0.65), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, mc(f = 0.65), xlims[2], mc(f = 0.65), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
-segments(0.85, 0, 0.85, mc(f = 0.85), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, mc(f = 0.85), xlims[2], mc(f = 0.85), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
-segments(1, 0, 1, mc(f = 1), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, mc(f = 1), xlims[2], mc(f = 1), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+#Point h on delta = delta^b
+segments(flevels[1], 0, flevels[1], mc(f = flevels[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
+#point b
+segments(flevels[3], 0, flevels[3], mc(f = flevels[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, mc(f = flevels[3]), xlims[2], mc(f = flevels[3]), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+
+#point n
+segments(0, mc(f = flevels[4]), xlims[2], mc(f = flevels[4]), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+segments(flevels[4], 0, flevels[4], mc(f = flevels[4]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
+#point e
+segments(0, mc(f = flevels[5]), xlims[2], mc(f = flevels[5]), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+segments(flevels[5], 0, flevels[5], mc(f = flevels[5]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
+#Point h on delta = delta^b
+segments(flevels[6], 0, flevels[6], mc(f = flevels[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
+
+#segments(0, mc(f = flevels[3]), xlims[2], mc(f = flevels[3]), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
+#segments(1, 0, 1, mc(f = 1), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(0, mc(f = 1), xlims[2], mc(f = 1), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
 
 points(1, mc(1), pch = 16, col = "black", cex = 1.5)
-points(0.85, mc(0.85), pch = 16, col = "black", cex = 1.5)
+points(flevels[3], mc(flevels[3]), pch = 16, col = "black", cex = 1.5)
 points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
 
 # points(0.58, mc(f = 0.85), pch = 16, col = "black", cex = 1.5)

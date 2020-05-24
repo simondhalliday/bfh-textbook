@@ -57,7 +57,7 @@ ylims <- c(0, 1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Price, ", p)),
+     xlab = expression(paste("Payment, ", p)),
      ylab = expression(paste("Effort, ", e)),
      xaxt = "n", 
      yaxt = "n",
@@ -100,6 +100,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the three indifference curves
 text(11.3, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
+text(7.2, 0.1, expression("PC:"), cex = labelsize-0.05)
 text(7.2, 0.05, expression(paste(u[0] == 0)), cex = labelsize-0.05)
 #text(11, 0.06, expression(paste(phantom() == 0)), cex = labelsize-0.05)
 text(16.3, 0.05, expression(paste(u[2])), cex = labelsize-0.05)
@@ -125,7 +126,7 @@ Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 text(37, 0.35, expression("Better for"), cex = labelsize, xpd = TRUE)
 text(37, 0.3, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(41, 0.33, 45, 0.33, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(41, 0.33, 45, 0.21, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 text(8.5, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
@@ -138,8 +139,8 @@ Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 Arrows(21, 0.25, 18, 0.25,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(24, 0.3, expression(paste("Slope of iso-u")), cex = labelsize, xpd =TRUE)
 text(24, 0.25, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(22.8, 0.15, expression(paste(phantom() == frac(1, u[e]))), cex = labelsize)
-text(27.5, 0.16, expression(paste(phantom() ==frac((1-e)^2, underline(u)))), cex = labelsize)
+text(22.8, 0.15, expression(paste(phantom() == frac(u[p], u[e]))), cex = labelsize)
+#text(27.5, 0.16, expression(paste(phantom() ==frac((1-e)^2, underline(u)))), cex = labelsize)
 #text(24, 0.05, expression(paste(phantom() == -frac((1-e)^2, underline(u)))), cex = labelsize)
 
 

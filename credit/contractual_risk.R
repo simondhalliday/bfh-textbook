@@ -31,7 +31,7 @@ isoreturnFn <- function(delta, pi=0.125) {
 }
 
 xlims <- c(0, 0.6)
-ylims <- c(0, 1)
+ylims <- c(0, 1.05)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -83,8 +83,12 @@ lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 
 
 #Label the feasible frontier
-text(0.14, 0.82, expression("Feasible combinations"), cex = labelsize)
-text(0.14, 0.77,  expression("of risk and interest"), cex = labelsize)
+text(0.14, 0.82, expression("Lower interest factor"), cex = labelsize)
+text(0.14, 0.77,  expression("better for borrower"), cex = labelsize)
+Arrows(0.23, 0.72, 0.05, 0.72, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+#text(0.14, 0.82, expression("Feasible combinations"), cex = labelsize)
+#text(0.14, 0.77,  expression("of risk and interest"), cex = labelsize)
 # text(3.2, 0.5, expression("(production possibilities frontier)"), cex = labelsize)
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -94,15 +98,20 @@ text(-0.09, 0.5*(ylims[2]), expression(paste("Risk, ", f)), xpd = TRUE, cex = ax
 text(0.5*(xlims[2]), -0.15, expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
 
 
+Arrows(0.38, 0.18, 0.58, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
+
+
 
 #Label participation constraint
-text(0.27, 0.96, expression(paste("Participation constraint,")), cex = labelsize)
-text(0.42, 0.96, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
+text(0.26, 0.94, expression(paste("Participation constraint,")), cex = labelsize)
+text(0.41, 0.94, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
 text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
-text(0.53, 0.73, expression(paste(pi[1])), cex = labelsize)
+text(0.53, 0.73, expression(paste(pi[1] == pi^C)), cex = labelsize)
 text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
 
 segments(0, isoreturnFn(0.25), 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)

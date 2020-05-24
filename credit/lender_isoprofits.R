@@ -35,6 +35,9 @@ isoreturnFn <- function(delta, pi=0.125) {
   1 - (pi)/delta
 }
 
+deltaFn <- function(f, pi=0.125) {
+  pi/ (1 - f)
+}
 
 yFn <- function(d1, f1, q = 1){
   q*f1*(1 - f1) - d1*(1 - f1)
@@ -52,7 +55,7 @@ yhigh <- function(delta, q = 1, ybar = 0.0625){
   (sqrt(delta^2 - 2*delta*q + q^2 - 4*q*ybar) + delta + q)/(2*q)
 }
 
-xlims <- c(0, 1)
+xlims <- c(0, 0.6)
 ylims <- c(0, 1.05)
 
 npts <- 501 
@@ -72,10 +75,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksy <- c(ylims[1],0.5, 0.64, 0.75, ylims[2])
-ylabels <- c(NA, expression(paste(f[j])), expression(paste(f[i])), expression(paste(f[h])),NA)
-ticksx <- c(xlims[1], 0.25, 0.36, 0.5, xlims[2])
-xlabels <- c(NA, NA, NA, NA, NA, NA)
+ticksy <- c(ylims[1], isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.075), isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.125), isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.175), ylims[2])
+ylabels <- c(NA, expression(paste(f[i])), expression(paste(f^C)), expression(paste(f[k])),NA)
+ticksx <- c(xlims[1], deltaFn(f = 0.5, pi = 0.075), deltaFn(f = 0.5), deltaFn(f = 0.5, pi = 0.175), xlims[2])
+xlabels <- c(NA, expression(paste(delta[e])),  expression(paste(delta^C)), expression(paste(delta[j])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -96,13 +99,24 @@ xx2 <- seq(0, 1, length.out = npts)
 # lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 # lines(xx1, isoreturnFn(xx1 - 0.2), col = COLB[4], lwd = graphlinewidth)
 # lines(0, isoreturnFn(xx2 - 0.4), col = COLB[4], lwd = graphlinewidth)
+xx1 <- seq(0.01, xlims[2], length.out = npts)
+xx2 <- seq(0, xlims[2], length.out = npts)
+xx3 <- seq(1.5, 2.5, length.out = npts)
+xx4 <- seq(3, 5, length.out = npts)
+xx5 <- seq(7, 9, length.out = npts)
+
+
+
+
+#Draw the graphs
+#lines(xx1, PCFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.18), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.075), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.5, cex = axislabelsize)
-text(-0.12, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.06, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #contour(d1, f1,
@@ -117,41 +131,56 @@ text(-0.12, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", 
 
 
 #segments(0.5, 0, 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, 0.5, 1, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0.5, 0, 0.5, 1, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0.36, 0, 0.36, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0.25, 0, 0.25, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, 0.75, 0.5, 0.75, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, 0.64, 0.5, 0.64, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, isoreturnFn(delta = 0.25, pi = 0.125), deltaFn(f = 0.5, pi = 0.175), isoreturnFn(delta = 0.25, pi = 0.125), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(deltaFn(f = 0.5), 0, deltaFn(f = 0.5), isoreturnFn(delta = 0.25, pi = 0.075) , lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(deltaFn(f = 0.5, pi = 0.175), 0, deltaFn(f = 0.5, pi = 0.175), 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(deltaFn(f = 0.5, pi = 0.075), 0, deltaFn(f = 0.5, pi = 0.075), 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.175), deltaFn(f = 0.5), isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.175), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.075), deltaFn(f = 0.5), isoreturnFn(delta = deltaFn(f = 0.5), pi = 0.075), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 
-points(0.5, 0.5, pch = 16, col = "black", cex = 1.5)
-points(0.25, 0.5, pch = 16, col = "black", cex = 1.5)
-points(0.36, 0.5, pch = 16, col = "black", cex = 1.5)
-points(0.5, 0.64, pch = 16, col = "black", cex = 1.5)
-points(0.5, 0.75, pch = 16, col = "black", cex = 1.5)
+#Label 3 points on the same vertical delta^C
+points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
+text(0.25 - 0.01, isoreturnFn(0.25) + 0.03, expression(paste(c)), cex = labelsize)
+
+points(0.25, isoreturnFn(0.25, pi = 0.075), pch = 16, col = "black", cex = 1.5)
+text(0.25 - 0.01, isoreturnFn(0.25, pi = 0.075) + 0.03, expression(paste(i)), cex = labelsize)
+
+points(0.25, isoreturnFn(0.25, pi = 0.175), pch = 16, col = "black", cex = 1.5)
+text(0.25 - 0.01, isoreturnFn(0.25, pi = 0.175) + 0.03, expression(paste(k)), cex = labelsize)
+
+#label 2 points on the same horizontal as f^C
+#Use deltaFn to find the x coordinate
+points(deltaFn(f = 0.5, pi = 0.075), 0.5, pch = 16, col = "black", cex = 1.5)
+text(deltaFn(f = 0.5, pi = 0.075) - 0.01, 0.5 + 0.03, expression(paste(e)), cex = labelsize)
+
+points(deltaFn(f = 0.5, pi = 0.175), 0.5, pch = 16, col = "black", cex = 1.5)
+text(deltaFn(f = 0.5, pi = 0.175) - 0.01, 0.5 + 0.03, expression(paste(j)), cex = labelsize)
 
 
-text(0.23, 0.55, expression(paste(e)), cex = labelsize, xpd = TRUE)
-text(0.35, 0.55, expression(paste(k)), cex = labelsize, xpd = TRUE)
-text(0.48, 0.55, expression(paste(j)), cex = labelsize, xpd = TRUE)
-text(0.48, 0.67, expression(paste(i)), cex = labelsize, xpd = TRUE)
-text(0.48, 0.8, expression(paste(h)), cex = labelsize, xpd = TRUE)
+# text(0.23, 0.55, expression(paste(e)), cex = labelsize, xpd = TRUE)
+# text(0.35, 0.55, expression(paste(k)), cex = labelsize, xpd = TRUE)
+# text(0.48, 0.55, expression(paste(j)), cex = labelsize, xpd = TRUE)
+# text(0.48, 0.67, expression(paste(i)), cex = labelsize, xpd = TRUE)
+# text(0.48, 0.8, expression(paste(h)), cex = labelsize, xpd = TRUE)
 
 #text(-0.05, 0.5, expression(paste(f[j])), cex = labelsize, xpd = TRUE)
 #text(-0.05, 0.67, expression(paste(f[i])), cex = labelsize, xpd = TRUE)
 #text(-0.05, 0.8, expression(paste(f[h])), cex = labelsize, xpd = TRUE)
-text(0.25, -0.07, expression(paste(delta[e])), cex = labelsize, xpd = TRUE)
-text(0.36, -0.07, expression(paste(delta[k])), cex = labelsize, xpd = TRUE)
-text(0.5, -0.07, expression(paste(delta[j])), cex = labelsize, xpd = TRUE)
 
 text(0.84, 0.88, expression(paste(pi[0] == zpc)), cex = labelsize, xpd = TRUE)
 text(0.84, 0.78, expression(paste(pi[1])), cex = labelsize, xpd = TRUE)
 text(0.84, 0.7, expression(paste(pi[2])), cex = labelsize, xpd = TRUE)
 
-Arrows(0.56, 0.18, 0.89, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.73, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
-text(0.73, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
+Arrows(0.38, 0.18, 0.58, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
+
+text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
+text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
+text(0.53, 0.73, expression(paste(pi[1])), cex = labelsize)
+text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
+
 
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier

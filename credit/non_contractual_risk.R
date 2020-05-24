@@ -123,7 +123,7 @@ points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
 points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
 
-text(0.2, 0.87, expression(paste(y == y^{n})), cex = labelsize)
+text(0.2, 0.87, expression(paste(y == y^{N})), cex = labelsize)
 
 text(0.62, 1.05, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
 text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)

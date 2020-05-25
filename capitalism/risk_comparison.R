@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "capitalism/risk_comparison.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 a <- c(2, 4, 6)
@@ -13,6 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(0, 15)
@@ -61,12 +64,12 @@ xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
 ticksy <- c(0, 3.7, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.5), ylims[2])
 ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), expression(paste(y^A0)), expression(paste(y^A1)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 3, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.7, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -79,16 +82,16 @@ lines(xx1, indiffA2(xx1, intercept = 3.7, slope2 = 0.08), col = COLB[5], lwd = g
 lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
 #Add points a, b, c and d
-segments(6.3, 0, 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, riskreturn(g = 6.3, int1 = 12), 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(6.3, 0, 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 6.3, int1 = 12), 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(6.3, riskreturn(g = 6.3, int1 = 12), pch = 16, col = "black", cex = 1.5)
 
 #text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(A), cex = labelsize)
 # 
 
 
-segments(7.5, 0, 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, riskreturn(g = 7.5, int1 = 15) , 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(7.5, 0, 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 7.5, int1 = 15) , 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 #text(7 + 0.25, riskreturn(g = 7.5, int1 = 15) - 1, expression(B), cex = labelsize)
 
@@ -104,12 +107,12 @@ points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 
 
 #Label risk return schedule
-text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = labelsize)
+text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = labelsize, xpd = TRUE)
 
-text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
+text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd = TRUE)
 
-Arrows(12, riskreturn(int1 = 15, g = 12) - 0.6, 12, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
-text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize)
+Arrows(12.5, riskreturn(int1 = 15, g = 12) - 0.6, 12.5, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
+text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize, xpd = TRUE)
 # text(13.5, 9.7, expression(paste(m)), cex = labelsize)
 
 #Label value functions

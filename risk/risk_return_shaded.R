@@ -69,7 +69,7 @@ polygon(x = c(xpoly2[1], xlims[2], rev(xpoly2)),
         col=COLA[1], density=NULL, border = NA)
 
 
-text(10, 10, expression(paste("Risk-return schedule, ", omega = f(Delta) )), cex = labelsize)
+text(10, 10, expression(paste("Risk-return schedule, ", omega = hat(y)(Delta) )), cex = labelsize)
 Arrows(10, 10.5, 10, 12.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(11, 3, expression(paste("Feasible combinations ")), cex = labelsize)

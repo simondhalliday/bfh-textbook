@@ -69,6 +69,8 @@ xx5 <- seq(xlims[1], 25, length.out = npts)
 text(-1.2, 0.5*ylims[2], expression(paste("Taxes paid, ", hat(T), ", and transfers received, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 lines(xx5, seg(m = 1, x = xx5, b = 0), col = COLA[4], lwd = graphlinewidth)
 
+mtext(expression(paste("Income, ", y)), side = 1, line = 3, cex = axislabelsize)
+
 # Segments
 segments(15, 0, 15, 15, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 15, 25, 15, lty = 1, col = COLB[4], lwd = graphlinewidth)

@@ -3,10 +3,12 @@ require(shape)
 pdf(file = "capitalism/risk_contrast.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 a <- c(2, 4, 6)
 
 
@@ -14,8 +16,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-
-par(mar =  c(5, 5, 4, 2))
+grays <- gray.colors(25, start = 1, end = 0)
+par(mar =  c(5, 6, 4, 2))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -62,12 +64,12 @@ xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(Delta[B])), NA)
 ticksy <- c(0, 4.4, 7.1, riskreturn(5.6), riskreturn(7.5), riskreturn(g = 12), ylims[2])
 ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(bar(w)[B])), expression(paste(y[A])), expression(paste(y[B])), expression(paste(bar(Delta)^"max")), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 3, cex = axislabelsize)
+text(-2, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -82,21 +84,21 @@ lines(xx1, indiffA2(xx1, intercept = 7.1), col = COLB[5], lwd = graphlinewidth, 
 #lines(xx1, indiffA2(xx1, intercept = 10), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
 #Add points a, b, c and c
-segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
 text(5.6 + 0.25, riskreturn(g = 5.6) - 0.05, expression(a), cex = labelsize)
 
 
-segments(7.5, 0, 7.5, riskreturn(g = 7.5) , lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, riskreturn(g = 7.5) , 7.5, riskreturn(g = 7.5) , lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(7.5, 0, 7.5, riskreturn(g = 7.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 7.5) , 7.5, riskreturn(g = 7.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(7.5, riskreturn(g = 7.5) , pch = 16, col = "black", cex = 1.5)
-text(7.5 + 0.25, riskreturn(g = 7.5) - 0.2, expression(b), cex = labelsize)
+text(7.5 + 0.25, riskreturn(g = 7.5) - 0.3, expression(b), cex = labelsize)
 
 
-segments(12, 0, 12, riskreturn(g = 12) , lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, riskreturn(g = 12) , 12, riskreturn(g = 12) , lty = 2, col = "gray", lwd = segmentlinewidth)
-text(12 + 0.25, riskreturn(g = 12) - 0.3, expression(c), cex = labelsize)
+segments(12, 0, 12, riskreturn(g = 12) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 12) , 12, riskreturn(g = 12) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+text(12 + 0.25, riskreturn(g = 12) - 0.4, expression(c), cex = labelsize)
 points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
 
 
@@ -108,12 +110,12 @@ points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
 
 
 #Label risk return schedule
-text(14, riskreturn(g = 14) - 1, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize)
+text(14, riskreturn(g = 14) - 1, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd =  TRUE)
 
 #Label value functions
 #text(13.2, 17, expression(u[1]^B), cex = labelsize)
-text(12.7, 17, expression(u[2]), cex = labelsize)
-text(10.1, 17, expression(u[1]), cex = labelsize)
+text(12.3, 17, expression(u[2]), cex = labelsize)
+text(9.7, 17, expression(u[1]), cex = labelsize)
 #text(8.2, 17, expression(u[2]^A), cex = labelsize)
 
 

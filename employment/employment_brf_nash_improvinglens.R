@@ -141,12 +141,13 @@ text(38, 0.53, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
+text(7.8, 0.12, expression("PC:"), cex = labelsize-0.05)
 text(7.8, 0.07, expression(paste(v[0] == u[0])), cex = labelsize)
 text(8.2, 0.03, expression(paste(phantom() == 0)), cex = labelsize)
 
 text(38, 0.4, expression("Better for"), cex = labelsize, xpd = TRUE)
 text(38, 0.35, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(41, 0.37, 45, 0.37, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(41, 0.33, 45, 0.24, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -158,6 +159,10 @@ segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(19.3, 0.53, expression(n), cex = labelsize)
 #text(13.8, 0.57, expression(paste("Incomplete contract")),cex = labelsize)
 #text(14.2, 0.52, expression(paste("Nash equilibrium")),cex = labelsize)
+
+text(28.5, 0.5, expression(paste(mrs == frac(v[w],u[v]),phantom()==-frac(e, w),phantom() == mrt)), cex = labelsize, xpd = TRUE)
+Arrows(22, 0.5, 21, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 
 #Arrows and rent label
 # 
@@ -172,7 +177,8 @@ text(38.5, 0.23, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE
 text(38.5, 0.17, expression(paste(phantom() == "-mrs ")), cex = labelsize, xpd = TRUE)
 text(38.5, 0.09, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize, xpd = TRUE)
 
-
+points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+text(9, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

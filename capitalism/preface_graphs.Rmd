@@ -1,0 +1,65 @@
+---
+title: "Hockey Stick"
+author: "Simon Halliday"
+date: "2015-November -27"
+output: html_document
+---
+
+
+```{r requirements, messages = FALSE}
+library(tidyr)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(ggthemes)
+```
+
+
+Import the data: 
+```{r}
+GDP <- read.csv("/Users/shalliday/Google Drive/simondhalliday.github.io/bfh-textbook/preface/GDPData.csv")
+```
+
+It's reading the GDP data as factors because of the commas. We need to extract them as numeric. 
+
+```{r data wrangling}
+GDP2 <- 
+  GDP %>%
+  mutate(China = extract_numeric(China.GDP.per.capita), Britain = extract_numeric(Britain.GDP.per.capita), Italy = extract_numeric(Italy.GDP.per.capita), Japan = extract_numeric(Japan.GDP.per.capita), India = extract_numeric(India.GDP.per.capita)) 
+GDP3 <- 
+  GDP2 %>%
+  select(Year, China, Britain, Italy, Japan, India) %>% 
+  gather(country, gdp, China:India)
+```
+
+Plot the data: 
+```{r}
+history <- data.frame(year = c(1334, 1350, 1680, 1776, 1793, 1867, 1989), event = c("Ibn Battuta Visits India", "Bubonic Plague Strikes Europe", "Haiti & Cuba Richer than US Colonies", "Adam Smith's Wealth of Nations Published", "India Colonized by British", "Marx publishes Capital", "End of Soviet Rule; Market Reforms in China & Russia"), country = c("India", "Italy", "Britain", "Britain", "India", "Britain", "China"))
+plotGDP <- GDP3 %>% 
+  ggplot(aes(x = Year, y = gdp, color = country)) +
+  geom_line() + 
+  theme_bw()
+plotGDP + 
+  geom_vline(data = history, mapping = aes(xintercept = year), lty = 2, color="gray") +
+  geom_text(data = history, mapping = aes(x = year, y = 10000, label = event), color = 
+              "black", size = 4, angle = 90, vjust = 1, hjust = 0)
+```
+
+
+```{r}
+pdf(file = "bfh-textbook/preface/gdp.pdf", width = 9, height = 7)
+history <- data.frame(year = c(1320, 1350, 1680, 1776, 1799, 1867, 1991), event = c("Ibn Battuta Visits India", "Bubonic Plague Strikes Europe", "Haiti & Cuba Richer than US Colonies", "Adam Smith's publishes 'The Wealth of Nations'", "India Colonized by British", "Karl Marx publishes 'Capital'", "End of Soviet Rule"), country = c("India", "Italy", "Britain", "Britain", "India", "Britain", "China"))
+plotGDP <- GDP3 %>% 
+  ggplot(aes(x = Year, y = gdp, color = country)) +
+  geom_line() + 
+  theme_bw() +
+  ylab("PPP GDP per capita in 1990 USD")
+plotGDP + 
+  geom_vline(data = history, mapping = aes(xintercept = year), lty = 2, color="gray") +
+  geom_text(data = history, mapping = aes(x = year, y = 10000, label = event), color = 
+              "black", size = 4, angle = 90, vjust = 1, hjust = 0)
+
+
+dev.off()
+```
+

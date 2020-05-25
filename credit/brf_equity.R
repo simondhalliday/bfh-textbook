@@ -99,7 +99,7 @@ segments(0, brfFn(delta = 0.6, k = 0.6), 0.6, brfFn(delta = 0.6, k = 0.6), lty =
 segments(0.6, 0, 0.6, brfFn(delta = 0.6, k = 0.6), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(0.6, brfFn(0.6, k = 0.6), pch = 16, col = "black", cex = 1.5)
 
-segments(0.6, 0.6, 0.6, brfFn(delta = 0.6, k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.6, 0.64, 0.6, brfFn(delta = 0.6, k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, brfFn(delta = 0.6, k = 0), 0.6, brfFn(delta = 0.6, k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(0.6, brfFn(0.6, k = 0), pch = 16, col = "black", cex = 1.5)
 
@@ -109,7 +109,7 @@ text(0.65, brfFn(delta = 0.6, k = 0.6) - 0.03, expression(paste(w)), cex = label
 text(2, 0.8, expression(paste(f(delta)== frac(1,2) + frac(delta(1-k),2*q))), cex = labelsize, xpd = TRUE)
 text(2, 0.7, expression(paste("Borrower's best response")), cex = labelsize,xpd = TRUE)
 text(2, 0.65, expression(paste("with equity, ")), cex = labelsize, xpd = TRUE)
-text(2.35, 0.65, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
+text(2.37, 0.65, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
 
 
 text(1.3, 1, expression(paste(f(delta)== frac(1,2) + frac(delta,2*q))), cex = labelsize, xpd = TRUE)

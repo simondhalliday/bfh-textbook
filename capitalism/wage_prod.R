@@ -41,7 +41,8 @@ wage_prod_plot <-
     y = index,
     group = measure,
     color = measure
-  )) +
+  ),
+  size = 0.8) +
   ylim(0, 810) +
   scale_color_manual(values = c(COLA[4], COLB[4]),
                      labels = c("Productivity", "Real Wages")) +
@@ -54,6 +55,10 @@ wage_prod_plot <-
     text = element_text(size = 20),
     legend.title = element_blank(),
     legend.position = c(0.85, 0.1),
+    axis.title.x = element_text(size = 18, vjust = -1),
+    axis.title.y = element_text(size = 18, vjust = 1),
+    axis.text.x = element_text(size = 17, angle = 90, color = "black"),
+    axis.text.y = element_text(size = 17, color = "black"),  
     legend.background = element_rect(
       linetype = 1,
       size = 0.25,
@@ -61,12 +66,12 @@ wage_prod_plot <-
     )
   ) 
 
+
 #wage_prod_plot + 
   #annotate("rect", xmin=c(1900, 12.9), xmax=c(1950, 14), ymin=c(-100, -100) , ymax=c(850,850), alpha=0.2,fill="gray")
   #annotate("text", x = 1960, y = 600, label = "Golden Age")
 
-<<<<<<< HEAD
-=======
+
 bracketsGrob <- function(...){
   l <- list(...)
   e <- new.env()
@@ -81,7 +86,6 @@ b1 <- bracketsGrob(0.01, 0.82, 0.445, 0.82, h=0.05, lwd=2, col="black")
 b2 <- bracketsGrob(0.449, .82, 0.99, .82, h=0.05,  lwd=2, col="black")
 
 
->>>>>>> c51b59dcbca0bb26d2c5233d36262f386e141bc9
 wage_prod_plot <- 
   wage_prod_plot + 
   annotation_custom(b1)+ 

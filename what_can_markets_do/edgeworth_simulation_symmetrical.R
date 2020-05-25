@@ -149,9 +149,9 @@ contour(x, y,
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = COLA[4] , lwd = segmentlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = COLA[4] , lwd = segmentlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = COLA[4], lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = "purple" , lwd = segmentlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = "purple" , lwd = segmentlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = "purple", lwd = segmentlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC

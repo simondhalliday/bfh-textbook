@@ -84,11 +84,11 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
-text(8, avgwealth(8)+1.5, expression(paste(A)), cex = labelsize)
+text(8, avgwealth(8)+1, expression(paste(A)), cex = labelsize)
 segments(8, 0, 8, avgwealth(8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, avgwealth(8), 8, avgwealth(8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(8, avgwealth(8), pch = 16, col = "black", cex = 1.5)
@@ -117,9 +117,9 @@ text(16, indiffA(16)+12.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize
 
 #Label average wealth curve and indifference curves generally
 
-text(23.75, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
-text(23.5, avgwealth(30)+1, expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(23.5, avgwealth(30)-1, expression(paste(y == g(Delta))), xpd = TRUE, cex = labelsize)
+text(24.5, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
+text(24.5, avgwealth(30)+1, expression(paste("function")), xpd = TRUE, cex = labelsize)
+text(24.5, avgwealth(30)-1, expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(25, 35, expression(paste("Very")), xpd = TRUE, cex = labelsize)
 text(25, 33.5, expression(paste("High risk aversion")), xpd = TRUE, cex = labelsize)
@@ -128,7 +128,7 @@ text(25, 32, expression(paste("indifference curves")), xpd = TRUE, cex = labelsi
 # Label Max
 segments(19.72, 0, 19.72, 22.718, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
-text(20.5, 24.3, expression(paste("A'")), xpd = TRUE, cex = labelsize)
+text(19.9, 23.9, expression(paste("A'")), xpd = TRUE, cex = labelsize)
 
 
 

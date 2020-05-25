@@ -85,7 +85,7 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Inequality of income, ", Delta , " (difference between rich and poor)")), side = 1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Average income, ",bar(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("Expected income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -110,7 +110,7 @@ text(12, avgwealth(12) + 0.75, expression(paste(P)), cex = labelsize)
 
 text(34, avgwealth(30)+1, expression(paste("Average income")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(bar(y) == f(Delta) )), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.5, expression(paste(hat(y)(Delta) )), xpd = TRUE, cex = labelsize)
 
 
 

@@ -2,9 +2,6 @@
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-# TODO Add points and labels 
-# TODO Add tangets at points
-
 library("shape")
 
 pdf(file = "risk/risk_averse_dara_c.pdf", width = 9, height = 7)

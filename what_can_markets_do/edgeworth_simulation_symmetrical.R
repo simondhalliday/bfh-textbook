@@ -3,15 +3,19 @@ library(extrafont)
 library(pBrackets)
 pdf(file = "what_can_markets_do/edgeworthbox_simulation_symmetrical.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(4, 4, 4, 4))
 
@@ -67,8 +71,8 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxt = "n", 
      cex.lab = 1.3, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 #Pareto-improving lens
 xpoly1 <- seq(from = 1, to = 9, length.out = 500)
 ypoly1 <- indiffA(xpoly1)
@@ -84,8 +88,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 #Pareto-improving lens
 xpoly1 <- seq(from = 1, to = 9, length.out = 500)
@@ -113,8 +117,8 @@ contour(x, y,
         col = COLA[3],
         lwd = graphlinewidth,
         levels = a, 
-        xaxs="i", 
-        yaxs="i", 
+        xaxs = "i", 
+        yaxs = "i", 
         add = TRUE) 
 
 #mtext(expression(paste("A's good x, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
@@ -125,8 +129,8 @@ text(-0.8, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(1, 10, length.out = npts)
 #lines(xx2, WalrasP(xx2), col = "gray", lwd = segmentlinewidth)
@@ -145,14 +149,14 @@ contour(x, y,
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = "purple" , lwd = segmentlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = "purple" , lwd = segmentlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = "purple", lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = COLA[4] , lwd = segmentlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = COLA[4] , lwd = segmentlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = COLA[4], lwd = segmentlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
-text(2, 44, expression("Pareto Efficient Curve"))
-Arrows(3.2, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2, 44, expression("Pareto-efficient Curve"), cex = labelsize)
+Arrows(3.8, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # 
 # #Label the walrasian P
@@ -161,30 +165,30 @@ Arrows(3.2, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 # text(2.25, 5, expression(slope == -p[n] ))
 # 
 # #Label the iso-welfare functions for the HG, Aisha
-text(8.2, 25, expression(u[1]^A))
-text(8.2, 105, expression(u[2]^A))
-text(8.2, 185, expression(u[3]^A))
+text(8.2, 25, expression(u[1]^A), cex = labelsize)
+text(8.2, 105, expression(u[2]^A), cex = labelsize)
+text(8.2, 185, expression(u[3]^A), cex = labelsize)
 # 
 # #Label the indifference curves for the HG, Betty
-text(1.8, 375, expression(u[1]^B))
-text(1.8, 295, expression(u[2]^B))
-text(1.8, 215, expression(u[3]^B))
+text(1.8, 370, expression(u[1]^B), cex = labelsize)
+text(1.8, 290, expression(u[2]^B), cex = labelsize)
+text(1.8, 210, expression(u[3]^B), cex = labelsize)
 
 # 
 #Label point f.
 points(5, 120, pch = 16, col = "black", cex = 1.5)
-text(4.8, 110, expression(paste(f)))
+text(4.8, 110, expression(paste(f)), cex = labelsize)
 
 #Label point g.
 points(5, 280, pch = 16, col = "black", cex = 1.5)
-text(5.2, 290, expression(paste(g)))
+text(5.2, 290, expression(paste(g)), cex = labelsize)
 # 
 # #Initial Allocations
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 10, expression(paste(z)))
+text(9, 10, expression(paste(z)), cex = labelsize)
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
-text(4.9, 190, expression(paste(n)))
+text(4.9, 190, expression(paste(n)), cex = labelsize)
 
 
 
@@ -217,20 +221,20 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxt = "n", 
      cex.lab = 1.3, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex = labelsize)
 
 #mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -45, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
 text(-0.8, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 260, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.2, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

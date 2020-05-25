@@ -7,15 +7,18 @@ pdf(file = "capitalism/risks_feasible_very.pdf", width = 10, height = 8)
 
 
 #Set parameters for graphics
-axislabelsize <- 1.7
-labelsize <- 1.7
-graphlinewidth <- 3
-segmentlinewidth <- 2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(6, 6, 4, 4))
@@ -86,8 +89,8 @@ text(-3, 0.5*ylims[2], expression(paste("Expected income, ", y)), xpd = TRUE, ce
 #Label various points on line
 
 text(8, avgwealth(8)+1.5, expression(paste(A)), cex = labelsize)
-segments(8, 0, 8, avgwealth(8), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, avgwealth(8), 8, avgwealth(8), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(8, 0, 8, avgwealth(8), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, avgwealth(8), 8, avgwealth(8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(8, avgwealth(8), pch = 16, col = "black", cex = 1.5)
 # 
 # segments(25, 0, 25, avgwealth(25), lty = 2, col = "gray", lwd = segmentlinewidth)
@@ -123,7 +126,7 @@ text(25, 33.5, expression(paste("High risk aversion")), xpd = TRUE, cex = labels
 text(25, 32, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
 
 # Label Max
-segments(19.72, 0, 19.72, 22.718, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(19.72, 0, 19.72, 22.718, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
 text(20.5, 24.3, expression(paste("A'")), xpd = TRUE, cex = labelsize)
 

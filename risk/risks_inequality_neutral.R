@@ -63,7 +63,7 @@ xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), exp
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
 #ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(11), avgwealth(20), 28, ylims[2])
-ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2] == bar(y) )), expression(paste(y[3])), NA)
+ylabels <- c(NA, expression(paste(y[1])), expression(paste(y[2] == hat(y) )), expression(paste(y[3])), NA)
 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -80,8 +80,8 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Inequality of income, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-4.5, 0.5*ylims[2], expression(paste("Average income, ",bar(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Inequality of income, ", Delta)), side = 1, line = 3, cex = axislabelsize)
+text(-4.5, 0.5*ylims[2], expression(paste("Expected income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 
@@ -115,7 +115,7 @@ text(38, 28.8, expression(paste(u[3])),  xpd = TRUE, cex = labelsize)
 
 text(34, avgwealth(30)+1.5, expression(paste("Average income")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.5, expression(paste(bar(y) == f(Delta) )), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.5, expression(paste(hat(y)(Delta) )), xpd = TRUE, cex = labelsize)
 
 text(30, 31, expression(paste("Inequality-neutral")), xpd = TRUE, cex = labelsize)
 text(30, 29.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)

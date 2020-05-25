@@ -50,20 +50,20 @@ wage_prod_plot <-
        y = "Index (1949 = 100)") +
   theme_bw() +
   theme(
-    panel.grid.minor.x = element_blank(),
-    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    #panel.grid.major.x = element_blank(),
     text = element_text(size = 20),
     legend.title = element_blank(),
     legend.position = c(0.85, 0.1),
-    axis.title.x = element_text(size = 18, vjust = -1),
-    axis.title.y = element_text(size = 18, vjust = 1),
-    axis.text.x = element_text(size = 17, angle = 90, color = "black"),
-    axis.text.y = element_text(size = 17, color = "black"),  
-    legend.background = element_rect(
-      linetype = 1,
-      size = 0.25,
-      color = 1
-    )
+    axis.title.x = element_text(size = 20, vjust = -1),
+    axis.title.y = element_text(size = 20, vjust = 1),
+    axis.text.x = element_text(size = 17, color = "black"),
+    axis.text.y = element_text(size = 17, color = "black")#,  
+    # legend.background = element_rect(
+    #   linetype = 1,
+    #   size = 0.25,
+    #   color = 1
+    # )
   ) 
 
 

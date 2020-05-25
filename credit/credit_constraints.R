@@ -1,5 +1,5 @@
 #Graph Designer: Harriet Brookes Gray 
-#Authors: Bowles, Foley and Halliday
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(scales)
@@ -7,7 +7,7 @@ library(openxlsx)
 library(ggplot2)
 library(tidyverse)
 library(shape)
-pdf(file = "credit/credit_constraints.pdf", width = 18, height = 6)
+#pdf(file = "credit/credit_constraints.pdf", width = 18, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -20,7 +20,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
 # #Data 
@@ -115,14 +115,14 @@ labels <- c("Fraction of households borrowing at \n credit card interest rates (
 
 plot2 <- data %>% 
 ggplot(aes(x = x, y = y)) + 
-  geom_bar(stat = "identity", colour="#CD2825", fill = "#CD2825") + 
+  geom_bar(stat = "identity", colour = "#2f82b8", fill = "#2f82b8") + 
   scale_x_discrete(labels = labels) + 
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent_format(accuracy = 5L))  +
   #scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent) + 
   xlab("") +
   ylab("Percent") +
   theme_bw() + 
-  theme(axis.title = element_text(size = 18),
+  theme(axis.title = element_text(size = 24),
         axis.text.y = element_text(size = 20),
         axis.text.x = element_text(size = 20),
         panel.grid.minor = element_blank()
@@ -145,10 +145,8 @@ ggplot(aes(x = x, y = y)) +
   #) +
   #ylim(0, 160) +
   coord_flip()
-plot2
 
 
 
+ggsave("credit/credit_constraints.pdf", width = 18, height = 6, units = "in")
 
-
-dev.off()

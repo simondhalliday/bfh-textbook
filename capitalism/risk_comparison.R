@@ -65,7 +65,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Risk, ", Delta)), side = 1, line = 3, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

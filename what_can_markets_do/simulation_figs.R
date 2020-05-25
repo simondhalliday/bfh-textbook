@@ -41,16 +41,17 @@ Pareto <-
 
 Pareto <- 
   Pareto %>%
-  mutate(mrs = 100 + 10*x2, 
-         wealth = mrs*x2 + y2)
-
-Pareto <- 
-  Pareto %>%
   group_by(trader) %>%
   mutate(x1 = lag(x), 
          y1 = lag(y),
          trade = as.numeric(trade)) %>%
   rename(x2 = x, y2 = y)
+
+
+Pareto <- 
+  Pareto %>%
+  mutate(mrs = 100 + 10*x2, 
+         wealth = mrs*x2 + y2)
 
 FinalP <- 
   Pareto %>% 
@@ -111,10 +112,13 @@ FinalP %>%
                  binwidth = 10) + 
   ylab("Density") + 
   xlab("Wealth") + 
-  scale_fill_discrete("Trader Type",
-                      breaks = c("A", "B"),
-                      labels = c("Type A", "Type B")) +
-  theme_bw()
+  scale_fill_manual("Trader Type",
+                    breaks = c("A", "B"),
+                    labels = c("Type A", "Type B"),
+                    values = c("#e41a1c", "#377eba")) +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 9))
 dev.off()
 
 
@@ -126,10 +130,13 @@ FinalP %>%
                  binwidth = 10) + 
   ylab("Density") + 
   xlab("Utility") + 
-  scale_fill_discrete("Trader Type", 
-                      breaks = c("A", "B"),
-                      labels = c("Type A", "Type B")) + 
-  theme_bw()
+  scale_fill_manual("Trader Type",
+                    breaks = c("A", "B"),
+                    labels = c("Type A", "Type B"),
+                    values = c("#e41a1c", "#377eba")) +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 9))
 dev.off()
 
 pdf(file = "what_can_markets_do/utility_distribution_facet.pdf", width = 5, height = 4)

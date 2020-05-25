@@ -23,7 +23,7 @@ mc <- function(f, q = 2) {
 }
 
 xlims <- c(0, 1.05)
-ylims <- c(0, 3)
+ylims <- c(0, 2.05)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -48,7 +48,7 @@ flevels <- c(ylow(delta = 0.34, ybar = 0.0625), #point h
              )
 
 ticksy <- c(0, mc(f = flevels[3]), mc(f = flevels[4]), mc(f = flevels[5]), ylims[2])
-ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta^N)), expression(paste(delta == q)), NA)
+ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta^N)), expression(paste(delta[e])), NA)
 ticksx <- c(0, flevels, 1, xlims[2])
 xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f^{N} )), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
 
@@ -79,12 +79,12 @@ lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
 text(-0.18, 0.5*(ylims[2] + ylims[1]), expression(paste("Interest factor, ", delta )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*(xlims[2]), -0.35, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
-text(0.9, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
-text(0.25, 2.1, expression(paste(mb == q, phantom() == delta )), cex = labelsize)
-text(0.25, 1.5, expression(paste(mb^N == delta^N )), cex = labelsize)
-text(0.25, 0.7, expression(paste(mb^L == delta^L )), cex = labelsize)
+text(0.8, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.25, mc(flevels[5]) + 0.07, expression(paste(mb[e] == delta[e] )), cex = labelsize)
+text(0.25, mc(flevels[4]) + 0.07, expression(paste(mb^N == delta^N )), cex = labelsize)
+text(0.25, mc(flevels[3]) + 0.07, expression(paste(mb[b] == delta[b] )), cex = labelsize)
 
 #Point h on delta = delta^b
 segments(flevels[1], 0, flevels[1], mc(f = flevels[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -109,9 +109,13 @@ segments(flevels[6], 0, flevels[6], mc(f = flevels[3]), lty = 2, col = grays[20]
 #segments(1, 0, 1, mc(f = 1), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #segments(0, mc(f = 1), xlims[2], mc(f = 1), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
 
-points(1, mc(1), pch = 16, col = "black", cex = 1.5)
+points(flevels[1], mc(flevels[3]), pch = 16, col = "black", cex = 1.5)
 points(flevels[3], mc(flevels[3]), pch = 16, col = "black", cex = 1.5)
-points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
+points(flevels[6], mc(flevels[3]), pch = 16, col = "black", cex = 1.5)
+
+
+points(flevels[4], mc(flevels[4]), pch = 16, col = "black", cex = 1.5)
+points(flevels[5], mc(flevels[5]), pch = 16, col = "black", cex = 1.5)
 
 # points(0.58, mc(f = 0.85), pch = 16, col = "black", cex = 1.5)
 # points(0.93, mc(f = 0.85), pch = 16, col = "black", cex = 1.5)
@@ -120,8 +124,11 @@ points(0.65, mc(0.65), pch = 16, col = "black", cex = 1.5)
 
 
 
-text(1 + 0.025, mc(1) - 0.05, expression(paste(e)), cex = labelsize)
-text(0.85 + 0.025, mc(0.85) - 0.05, expression(paste(n)), cex = labelsize)
-text(0.65 + 0.025, mc(0.65) - 0.05, expression(paste(b)), cex = labelsize)
+text(flevels[5] + 0.025, mc(flevels[5]) - 0.05, expression(paste(e)), cex = labelsize)
+text(flevels[4] + 0.025, mc(flevels[4]) - 0.05, expression(paste(n)), cex = labelsize)
+text(flevels[3] + 0.025, mc(flevels[3]) - 0.05, expression(paste(b)), cex = labelsize)
+text(flevels[1] + 0.025, mc(flevels[3]) - 0.05, expression(paste(h)), cex = labelsize)
+text(flevels[6] + 0.025, mc(flevels[3]) - 0.05, expression(paste(g)), cex = labelsize)
+
 
 dev.off()

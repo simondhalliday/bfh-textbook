@@ -84,9 +84,9 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(29-1.5, avgwealth(29)-2, expression(paste(y == g(Delta))), xpd = TRUE, cex = labelsize)
+text(29-1.5, avgwealth(29), expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
 
 #Label various points on line
 
@@ -151,7 +151,7 @@ text(15, 33.2, expression(paste("indifference curves")), xpd = TRUE, cex = label
 
 segments(19.72, 0, 19.72, 22.718, lty = 2, col = "gray", lwd = segmentlinewidth)
 points(19.72, 22.718, pch = 16, col = "black", cex = 1.5)
-text(20.5, 24.3, expression(paste("B'")), xpd = TRUE, cex = labelsize)
+text(20, 23.8, expression(paste("B'")), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

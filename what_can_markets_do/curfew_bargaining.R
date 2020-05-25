@@ -80,7 +80,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 xx5 <- seq(xlims[1], 0.75*xlims[2], length.out = npts)
 
 #Axis labels and draw linear utility functions
-text(6, -0.75, expression(paste("Curfew, x")), xpd = TRUE, cex = axislabelsize, srt = 0) 
+text(6, -0.75, expression(paste("Curfew, T")), xpd = TRUE, cex = axislabelsize, srt = 0) 
 #text(, side = 1, line = 2, cex = axislabelsize)
 text(xlims[1] - 1, 0.5*ylims[2], expression(paste("Disutility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

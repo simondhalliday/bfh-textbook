@@ -114,7 +114,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = COLA[4],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -139,7 +139,7 @@ xx2 <- seq(1, 10, length.out = npts)
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = COLB[4],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE
@@ -155,7 +155,7 @@ segments(5, 280, 5, ylims[2], col = "purple", lwd = segmentlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
-text(2, 44, expression("Pareto-efficient Curve"), cex = labelsize)
+text(2, 44, expression("Pareto-efficient curve"), cex = labelsize)
 Arrows(3.8, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # 

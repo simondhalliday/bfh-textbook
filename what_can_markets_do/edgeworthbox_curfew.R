@@ -3,15 +3,19 @@ library(extrafont)
 library(pBrackets)
 pdf(file = "what_can_markets_do/edgeworthbox_curfew.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
+COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(6, 4, 4, 5))
 
@@ -63,8 +67,8 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxt = "n", 
      cex.lab = 1.3, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = -12, labels = NA)
@@ -100,8 +104,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
 ticksy <- seq(from = -12, to = 12, by = 1)
 ylabels <- seq(from = -12, to = 12, by = 1)
@@ -127,8 +131,8 @@ contour(x, y,
         col = COLA[3],
         lwd = graphlinewidth,
         levels = a, 
-        xaxs="i", 
-        yaxs="i", 
+        xaxs = "i", 
+        yaxs = "i", 
         add = TRUE) 
 
 text(0.5*xlims[2], -14, expression(paste("The curfew, x")), xpd = TRUE, cex = axislabelsize) 
@@ -143,7 +147,7 @@ text(-0.6, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = ax
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)
-#lines(xx1, WalrasP(xx1, intercept = 11), col = "gray", lwd = segmentlinewidth)
+#lines(xx1, WalrasP(xx1, intercept = 11), col = grays[20], lwd = segmentlinewidth)
 #lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
 #lines(xx1, WalrasP(xx1, intercept = 10.9, slope = 8.2/7), col = "purple", lwd = segmentlinewidth, lty = 1)
 
@@ -171,12 +175,12 @@ contour(x, y,
 # 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(9.65, 0.6, expression(v[1]^A))
-text(9.65, 2.8, expression(v[2]^A))
+text(9.65, 0.6, expression(v[1]^A), cex = labelsize)
+text(9.65, 2.8, expression(v[2]^A), cex = labelsize)
 
 #Label the indifference curves for the HG, Betty
-text(1, 9, expression(v[1]^B))
-text(1, 6.8, expression(v[2]^B))
+text(1, 9, expression(v[1]^B), cex = labelsize)
+text(1, 6.8, expression(v[2]^B), cex = labelsize)
 #text(2.6, 8.1, expression(v[3]^B))
 #text(3.4, 6.9, expression(v[4]^B))
 
@@ -187,15 +191,15 @@ segments(4, ylims[1], 4, ylims[2], col = COL[2] , lwd = segmentlinewidth, lty = 
 segments(0, 0, xlims[2], 0, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(7, 0, pch = 16, col = "black", cex = 1.5)
-text(6.9, 0.5, expression(e))
+text(6.9, 0.5, expression(e), cex = labelsize)
 
 points(4, 0, pch = 16, col = "black", cex = 1.5)
-text(3.9, 0.5, expression(i))
+text(3.9, 0.5, expression(i), cex = labelsize)
 
 
 #Label point i. 
 points(4, -3.75, pch = 16, col = "black", cex = 1.5)
-text(3.9, -3.5, expression(paste(f)))
+text(3.9, -3.5, expression(paste(f)), cex = labelsize)
 
 # segments(5, 4.4, 10, 4.4, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # points(5, 4.4, pch = 16, col = "black", cex = 1.5)
@@ -203,7 +207,7 @@ text(3.9, -3.5, expression(paste(f)))
 # 
 # 
 points(4, -8.25, pch = 16, col = "black", cex = 1.5)
-text(4.1, -8.75, expression(paste(g)))
+text(4.1, -8.75, expression(paste(g)), cex = labelsize)
 
 #Initial Allocations
 # segments(8.48, 0, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)

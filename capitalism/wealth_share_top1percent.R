@@ -32,22 +32,23 @@ wealth_share3 <- wealth_share2 %>%
 wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group = Country, color = Country)) +
   geom_line() +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
-  ylab("Wealth Share of the Top 1%") + 
+  labs(y = "Wealth Share of the Top 1%", color = "Country") + 
   scale_y_continuous(breaks = seq(0, 0.7, by = 0.1), labels = scales::percent_format(accuracy = 1), limits = c(0,0.7)) +
   scale_x_continuous(breaks = seq(1740, 2010, by = 30)) +
+  scale_color_brewer(palette = "Set2") +
   theme_bw() + 
-  theme(legend.position=c(0.88,0.83), 
-        legend.title=element_blank(), 
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.88,0.83), 
+        legend.title = element_blank(), 
         axis.title.y = element_text(size = 17, vjust = 1),
-        legend.text=element_text(size=14),
+        legend.text = element_text(size = 14),
         axis.text.x = element_text(size = 14, angle = 90, color = "black"),
         axis.text.y = element_text(size = 14, color = "black"),  
-        axis.title.x = element_text(size = 17, vjust = -1)) +
-  scale_color_manual(values = COLD)
+        axis.title.x = element_text(size = 17, vjust = -1)) 
+  
   
 
-
-print(wealth_share_plot)
+#print(wealth_share_plot)
 
 #Save plot to PDF
 ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf", 
@@ -55,5 +56,5 @@ ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf",
        width = 9, height = 7, units = "in")
 
 
-dev.off()
+# dev.off()
 

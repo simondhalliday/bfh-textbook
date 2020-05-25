@@ -86,7 +86,7 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Inequality of income, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Inequality of income, ", Delta)), side = 1, line = 3, cex = axislabelsize)
 text(-4, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
@@ -135,9 +135,9 @@ text(25 - 0.8, avgwealth(25) - 0.75, expression(paste(R)), cex = labelsize)
 
 #Label average wealth curve and indifference curves generally
 
-text(34, avgwealth(30)+1.5, expression(paste("Average wealth")), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)+1.5, expression(paste("Average income")), xpd = TRUE, cex = labelsize)
 text(34, avgwealth(30), expression(paste("function")), xpd = TRUE, cex = labelsize)
-text(34, avgwealth(30)-1.75, expression(paste(hat(y) == f(Delta))), xpd = TRUE, cex = labelsize)
+text(34, avgwealth(30)-1.75, expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
 text(16, 37, expression(paste("Inequality-averse")), xpd = TRUE, cex = labelsize)

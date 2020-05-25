@@ -110,7 +110,7 @@ text(29, avgwealth(20) - 1, expression(paste(u[2])),  xpd = TRUE, cex = labelsiz
 text(29, avgwealth(20) - 6, expression(paste(u[1])),  xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-text(20, 32, expression(paste("Risk neutral")), xpd = TRUE, cex = labelsize)
+text(20, 32, expression(paste("Risk-neutral")), xpd = TRUE, cex = labelsize)
 text(20, 30.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
 
 

@@ -4,7 +4,7 @@
 
 library("shape")
 
-pdf(file = "what_can_markets_do/property_walras_baseline_2.pdf", width = 9, height = 7)
+pdf(file = "what_can_markets_do/property_walras_baseline.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -134,14 +134,14 @@ xx4 <- seq(1, 9.5, length.out = npts)
 
 #Draw the lines for the graphs
 
-# lines(xx1, indiffcurveA2(xx1, U = uA(5, 5)), col = COLA[3], lwd = graphlinewidth)
-# lines(xx1, indiffcurveA2(xx1, U = uA(2.5, 7.5)), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1, U = uA(5, 5)), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1, U = uA(2.5, 7.5)), col = COLA[3], lwd = graphlinewidth)
 # 
 lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
 # 
 # 
-# lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = COLB[2], lwd = graphlinewidth)
-# lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = COLB[2], lwd = graphlinewidth)
 # 
 # 
 lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphlinewidth)
@@ -157,23 +157,23 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #Add arrows:
-arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 # #Annotation of the three graphs and the NE
-# text(1.45, 14.5, expression(u[1]^A))
-# text(1.9, 14.5, expression(u[2]^A))
-# 
-# points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
-# text(2.7, 7.75, expression(h))
-# 
-# points(5, 5, pch = 16, col = "black", cex = 1.5)
-# text(5.2, 5.25, expression(i))
-# 
-text(9.25, 5.75, expression("Price line"), cex = labelsize)
-text(9.25, 5.25, expression(paste("slope ", phantom() == -p[i])), cex = labelsize)
-Arrows(9.25, 5, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.05, 14.5, expression(u[1]^A), cex = labelsize)
+text(2, 14.5, expression(u[2]^A), cex = labelsize)
+
+points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
+text(2.7, 7.8, expression(h), cex = labelsize)
+
+points(5, 5, pch = 16, col = "black", cex = 1.5)
+text(5.2, 5.25, expression(i), cex = labelsize)
+
+text(9, 6.85, expression("Price line"), cex = labelsize)
+text(9, 6.25, expression(paste("slope ", phantom() == -p[i])), cex = labelsize)
+Arrows(9.25, 5.75, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 # #Label B's offer curve
 text(1.5, 2.5, expression("B's Offer Curve"), cex = labelsize)
@@ -233,8 +233,8 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
 
 
 #Label B's indifference curves
-# text(9.1, 5.1, expression(u[1]^B))
-# text(9.1, 6.6, expression(u[2]^B))
+text(9.1, 5.0, expression(u[1]^B), cex = labelsize)
+text(9.1, 6.8, expression(u[2]^B), cex = labelsize)
 
 
 #Add a point for the initial endowment

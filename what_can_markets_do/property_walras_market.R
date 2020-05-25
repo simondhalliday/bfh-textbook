@@ -4,7 +4,7 @@
 
 library("shape")
 
-pdf(file = "what_can_markets_do/property_walras_market_2.pdf", width = 9, height = 7)
+pdf(file = "what_can_markets_do/property_walras_market.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8

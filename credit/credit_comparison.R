@@ -97,7 +97,7 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, PCFn(xx1), col = COLA[2], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.2), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 
 
@@ -119,12 +119,13 @@ contour(d1, f1,
 
 segments(0.5, 0, 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 0.5, 0.5, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
-points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
-text(0.25 - 0.015, isoreturnFn(0.25) + 0.03, expression(paste(c)), cex = labelsize)
+points(0.5, 0.5, pch = 16, col = "black", cex = 1.5)
+text(0.5 + 0.015, 0.5 + 0.04, expression(paste(c)), cex = labelsize)
 
 
 text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)

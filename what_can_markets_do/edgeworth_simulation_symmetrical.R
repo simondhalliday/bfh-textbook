@@ -17,7 +17,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4.5, 4.5, 4.5, 4.5))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -108,8 +108,8 @@ ticksy <- seq(from = 0, to = 400, by = 40)
 ylabels <- seq(from = 0, to = 400, by = 40)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -123,8 +123,8 @@ contour(x, y,
 
 #mtext(expression(paste("A's good x, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 
-text(0.5*xlims[2], -40, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.8, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -42, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -149,9 +149,9 @@ contour(x, y,
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = "purple" , lwd = segmentlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = "purple" , lwd = segmentlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = "purple", lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = COL[2] , lwd = graphlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = COL[2]  , lwd = graphlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = COL[2] , lwd = graphlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
@@ -225,12 +225,12 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs = "i")
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex = labelsize)
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -45, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-0.8, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(0.5*xlims[2], -49, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

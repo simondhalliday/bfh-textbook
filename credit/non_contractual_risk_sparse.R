@@ -127,8 +127,15 @@ points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 
 #text(0.2, 0.85, expression(paste(y == y^{n})), cex = labelsize)
 
-text(0.62, 1.05, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
-text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
+text(0.5, 1.05, expression(paste("A's best-response function, ")), cex = labelsize, xpd = TRUE)
+text(0.81, 1.05, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize, xpd =TRUE)
+
+
+text(0.5, 0.95, expression(paste("Slope")), cex = labelsize, xpd = TRUE)
+text(0.6, 0.95, expression(paste(phantom()== frac(1,2*q))), cex = labelsize)
+
+Arrows(0.68, 0.95, 0.83, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 
 #text(0.64, 0.4, expression(paste("A's participation")), cex = labelsize)
 #text(0.64, 0.34, expression(paste("constraint")), cex = labelsize)
@@ -136,8 +143,9 @@ text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = lab
 #Arrows(0.64, 0.44, 0.64, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
-text(0.87, 0.53, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
+text(0.8, 0.6, expression(paste("P's isoprofit curve, ", pi == pi^{N})), cex = labelsize, xpd = TRUE)
+text(0.8, 0.5, expression(paste("Slope", phantom() == frac(1-f,delta))), cex = labelsize, xpd = TRUE)
+#text(0.7, 0.53, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
 Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)

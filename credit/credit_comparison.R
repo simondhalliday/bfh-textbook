@@ -106,15 +106,15 @@ mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex =
 text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-contour(d1, f1,
-        outer(d1, f1, yFn),
-        drawlabels = FALSE,
-        col = COLA[3],
-        lwd = graphlinewidth,
-        levels = a,
-        xaxs = "i",
-        yaxs = "i",
-        add = TRUE)
+#contour(d1, f1,
+        # outer(d1, f1, yFn),
+        # drawlabels = FALSE,
+        # col = COLA[3],
+        # lwd = graphlinewidth,
+        # levels = a,
+        # xaxs = "i",
+        # yaxs = "i",
+        # add = TRUE)
 
 
 segments(0.5, 0, 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -128,27 +128,27 @@ points(0.5, 0.5, pch = 16, col = "black", cex = 1.5)
 text(0.5 + 0.015, 0.5 + 0.04, expression(paste(c)), cex = labelsize)
 
 
-text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
-points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
+#text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
+#points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
 
-text(0.2, 0.87, expression(paste(y == y^{N})), cex = labelsize)
+#text(0.2, 0.87, expression(paste(y == y^{N})), cex = labelsize)
 
 text(0.62, 1.05, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
 text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
 
-text(0.64, 0.4, expression(paste("A's participation")), cex = labelsize)
-text(0.64, 0.34, expression(paste("constraint")), cex = labelsize)
-text(0.64, 0.22, expression(paste(f == frac(delta, q))), cex = labelsize)
-Arrows(0.64, 0.44, 0.64, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.66, 0.4, expression(paste("A's participation")), cex = labelsize)
+text(0.66, 0.34, expression(paste("constraint")), cex = labelsize)
+text(0.66, 0.22, expression(paste(f == frac(delta, q))), cex = labelsize)
+Arrows(0.66, 0.44, 0.66, 0.63, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
 text(0.87, 0.53, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
 Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
-text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
-Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
+#text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
+#Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

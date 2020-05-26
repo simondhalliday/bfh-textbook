@@ -123,31 +123,29 @@ lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[6], lwd = graphlinewidth,
 #Customize ticks and labels for the plot
 ticksy <- c(0,  0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ylabels <- c(0,  expression(paste(e^N)), 1)
+ylabels <- c(0,  expression(paste(e^N)), 1 )
 ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(underline(u))) ,expression(paste(w == 2*underline(u))),  expression(paste(w^N)) , NA)
+xlabels <- c(0, expression(paste(underline(u) == 5)) ,expression(paste(w == 2*underline(u))),  expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of  the three graphs and the NE
-text(22, 0.92, expression(paste("Slope of isocost, ", frac(e, w))), cex = labelsize, xpd = TRUE)
+text(22, 0.97, expression(paste("Slope of isocost, ", frac(e, w))), cex = labelsize, xpd = TRUE)
 #text(25, 0.92, expression(paste(frac(e, w))), cex = labelsize)
-Arrows(29, 0.92, 34, 0.92,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(29, 0.97, 34, 0.97,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
-text(38, 0.66, expression(paste("Best-response")), cex = labelsize, xpd = TRUE)
-text(38, 0.6, expression(paste("function (ICC)")), cex = labelsize, xpd = TRUE)
-text(38, 0.53, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
-text(35, 0.05, expression(paste(v[5])), cex = annotatesize)
+text(38, 0.66, expression(paste("Slope of best-response")), cex = labelsize, xpd = TRUE)
+text(38, 0.6, expression(paste("function (ICC):")), cex = labelsize, xpd = TRUE)
+text(38, 0.53, expression(paste(frac(Delta*e,Delta*w))), cex = labelsize, xpd = TRUE)
+text(35, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
-text(7.8, 0.12, expression("PC:"), cex = labelsize-0.05)
-text(7.8, 0.07, expression(paste(v[0] == u[0])), cex = labelsize)
-text(8.2, 0.03, expression(paste(phantom() == 0)), cex = labelsize)
+text(4, 0.38, expression("Participation"), cex = labelsize-0.05)
+text(4, 0.32, expression("constraint:"), cex = labelsize-0.05)
+text(4, 0.26, expression(paste(v[0] == u[0])), cex = labelsize)
+text(4.4, 0.2, expression(paste(phantom() == 0)), cex = labelsize)
 
-text(38, 0.4, expression("Better for"), cex = labelsize, xpd = TRUE)
-text(38, 0.35, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(41, 0.33, 45, 0.24, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -160,8 +158,8 @@ text(19.3, 0.53, expression(n), cex = labelsize)
 #text(13.8, 0.57, expression(paste("Incomplete contract")),cex = labelsize)
 #text(14.2, 0.52, expression(paste("Nash equilibrium")),cex = labelsize)
 
-text(28.5, 0.5, expression(paste(mrs == frac(v[w],u[v]),phantom()==-frac(e, w),phantom() == mrt)), cex = labelsize, xpd = TRUE)
-Arrows(22, 0.5, 21, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(29, 0.5, expression(paste("foc: ", frac(Delta*e,Delta*w),phantom()==frac(e, w))), cex = labelsize, xpd = TRUE)
+Arrows(25.5, 0.5, 20.9, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Arrows and rent label
@@ -211,6 +209,11 @@ text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labe
 text(4, 0.7, expression("Better for"), cex = labelsize)
 text(4, 0.65, expression("employer"), cex = labelsize)
 Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(7, 0.9, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(7, 0.85, expression("worker"), cex = labelsize, xpd = TRUE)
+Arrows(10, 0.88, 14, 0.88, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
 
 #Add a point for f. referred to in the text
 #points(12, 0.82, pch = 16, col = "black", cex = 1.2)

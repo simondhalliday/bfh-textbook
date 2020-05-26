@@ -87,10 +87,10 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, 1, length.out = npts)
 xx3 <- seq(0.01, xlims[2], length.out = npts)
 
-xpoly1 <- seq(from = 0.168, to = 0.5, length.out = 500)
-ypoly1 <- ylow(xpoly1)
-ypoly2 <- isoreturnFn(xpoly1)
-polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
+#xpoly1 <- seq(from = 0.168, to = 0.5, length.out = 500)
+#ypoly1 <- ylow(xpoly1)
+#ypoly2 <- isoreturnFn(xpoly1)
+#polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
 
 
 #Draw the graphs

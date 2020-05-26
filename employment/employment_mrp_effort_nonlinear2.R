@@ -24,14 +24,14 @@ grays <- gray.colors(25, start = 1, end = 0)
 
 
 ylims <- c(0, 80)
-xlims <- c(0, 2200)
+xlims <- c(0, 2500)
 npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 
 # ----
 # first plot: competitive vs monopsony
-pdf(file = "employment/employment_mrp_effort_nonlinear.pdf", width = 12, height = 10)
+pdf(file = "employment/employment_mrp_effort_nonlinear2.pdf", width = 12, height = 10)
 par(mar =  c(5, 7, 3, 3))
 
 #Notice the plot starts at x = 0.2 not 0
@@ -51,10 +51,10 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksy <- seq(from = 0, to = ylims[2], by = 2)
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 
-ticksx <- c(xlims[1], 500, 1000, xlims[2])
-xlabels <- c(NA, expression(paste(italic(l[1]^{N}) == 500)), expression(paste(italic(l[2]^{N}) == 1000)),NA)
-ticksy <- c(ylims[1], 40, ylims[2])
-ylabels <- c(NA, expression(paste(c[italic(l)]== 40)), NA)
+ticksx <- c(xlims[1], 1000, 2000, xlims[2])
+xlabels <- c(NA, expression(paste(h[1]^{N}==1000)),expression(paste(h[2]^{N}==2000)), NA)
+ticksy <- c(ylims[1], 20, ylims[2])
+ylabels <- c(NA, expression(paste(w^N == 20)),NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize*0.8)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = axislabelsize*0.8)
@@ -68,35 +68,33 @@ lines(xx2, MRP2(xx2), lty = 2, col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Total labor used by the employer, ", italic(l) == e^N*h)), side = 1, line = 2.5, cex = axislabelsize)
-text(-250, 0.5*ylims[2], expression(paste("Marginal cost of labor, ", c[italic(l)], ", marginal revenue product of labor, ", r[italic(l)] )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Total hours hired by the employer, ", h)), side = 1, line = 2.5, cex = axislabelsize)
+text(-250, 0.5*ylims[2], expression(paste("Wage, ", w^N, ", marginal revenue product of hours, ", r[italic(l)]*e^N )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
-segments(0, 40, 1880, 40, lty = 1, col = COLB[3], lwd = graphlinewidth)
-segments(500, 0, 500, 40, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(1000, 0, 1000, 40, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, 20, 2150, 20, lty = 1, col = COLB[3], lwd = graphlinewidth)
+segments(1000, 0, 1000, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2000, 0, 2000, 20, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 ## add points
 
-points(500, 40, pch = 16, col = "black", cex = 1.5)
-points(1000, 40, pch = 16, col = "black", cex = 1.5)
+points(1000, 20, pch = 16, col = "black", cex = 1.5)
+points(2000, 20, pch = 16, col = "black", cex = 1.5)
 
 # label points
-text(500 + 10, 43, expression(paste(n[1])), cex = labelsize)
-text(1000 , 43, expression(paste(n[2])), cex = labelsize)
+text(1000 + 10, 22, expression(paste(n[1])), cex = labelsize)
+text(2000 , 22, expression(paste(n[2])), cex = labelsize)
 
 
 
 # add labels to graphs
-text(2100, 11, expression(paste(mrp,italic(l)[1])), cex = labelsize)
-text(2100, 21, expression(paste(mrp,italic(l)[2])), cex = labelsize)
-text(1900, 45, expression(paste("Marginal cost of labor:")), cex = labelsize)
-text(2000, 40, expression(paste(c[italic(l)] == frac(w^N,e^N))), cex = labelsize)
+text(2380, 7, expression(paste(mrph[1])), cex = labelsize)
+text(2380, 15, expression(paste(mrph[2])), cex = labelsize)
+text(2320, 20.2, expression(paste(Wage == w^N)), cex = labelsize)
 
-text(685, 78, expression(paste("Marginal revenue product of labor:")), cex = labelsize)
-text(685, 75, expression(paste(mrp,italic(l) == r[italic(l)])), cex = labelsize)
-
+text(745, 78, expression(paste("Marginal revenue product of hours:")), cex = labelsize)
+text(745, 75, expression(paste(mrph == r[italic(l)]*e^N)), cex = labelsize)
 
 #text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
 #text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)

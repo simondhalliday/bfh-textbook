@@ -7,8 +7,11 @@ library(plotrix)
 pdf(file = "risk/inequality_households.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
 labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 

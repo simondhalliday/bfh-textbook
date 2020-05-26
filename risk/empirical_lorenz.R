@@ -64,7 +64,10 @@ Lorenz2 <-
                               type=c("Disposable income","Market income")), 
             aes(x, y, label = label), inherit.aes = FALSE) +
   theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank(), 
+        axis.title = element_text(size = 18),
+        axis.text.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20))
 Lorenz2  
 
 

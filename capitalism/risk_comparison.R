@@ -15,9 +15,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 0.5, 1))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -49,16 +49,12 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      #yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 
 #Customize ticks and labels for the plot
-# ticksy <- seq(ylims[1], ylims[2], 3)
-# ylabels <- seq(ylims[1], ylims[2], 3)
-# ticksx <- seq(xlims[1], xlims[2], 5)
-# xlabels <- seq(xlims[1], xlims[2], 5)
 ticksx <- c(0, 6.3, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
 ticksy <- c(0, 3.7, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.5), ylims[2])
@@ -74,17 +70,10 @@ text(-1.7, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-lines(xx1, riskreturn(xx1, int1 = 12), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, riskreturn(xx1, int1 = 15), col = COLA[4], lwd = graphlinewidth, lty = 1)
-#lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
-#lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 3.7, slope2 = 0.08), col = COLB[5], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
 #Add points a, b, c and d
 segments(6.3, 0, 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, riskreturn(g = 6.3, int1 = 12), 6.3, riskreturn(g = 6.3, int1 = 12), lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(6.3, riskreturn(g = 6.3, int1 = 12), pch = 16, col = "black", cex = 1.5)
 
 #text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(A), cex = labelsize)
 # 
@@ -92,7 +81,6 @@ points(6.3, riskreturn(g = 6.3, int1 = 12), pch = 16, col = "black", cex = 1.5)
 
 segments(7.5, 0, 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, riskreturn(g = 7.5, int1 = 15) , 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 #text(7 + 0.25, riskreturn(g = 7.5, int1 = 15) - 1, expression(B), cex = labelsize)
 
 #Segment for next best wage offer
@@ -103,7 +91,20 @@ points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 # 
 # points(12, riskreturn(int1 = 5.7, g = 12), pch = 16, col = "black", cex = 1.5)
 
+#Segment for next best wage offer
+segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[3], lwd = segmentlinewidth)
+text(12.75, 5, expression(paste("Wage from work, ", w,"*")), cex = labelsize)
 
+lines(xx1, riskreturn(xx1, int1 = 12), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, riskreturn(xx1, int1 = 15), col = COLA[4], lwd = graphlinewidth, lty = 1)
+#lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
+#lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 3.7, slope2 = 0.08), col = COLB[5], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[5], lwd = graphlinewidth, lty = 1)
+
+# points
+points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
+points(6.3, riskreturn(g = 6.3, int1 = 12), pch = 16, col = "black", cex = 1.5)
 
 
 #Label risk return schedule
@@ -122,9 +123,6 @@ text(11.8, 17, expression(u[1]^A), cex = labelsize)
 text(10.1, 17, expression(u[2]^A), cex = labelsize)
 
 
-#Segment for next best wage offer
-segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[3], lwd = segmentlinewidth)
-text(12.75, 5, expression(paste("Wage from work, ", w,"*")), cex = labelsize)
 
 
 dev.off()

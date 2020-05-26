@@ -5,8 +5,11 @@ library(pBrackets)
 pdf(file = "capitalism/wage_share_unemployment.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -55,14 +58,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(1.0)))
 ticksx <- c(xlims[1], 0.78467, 0.83, 0.85, xlims[2])
-xlabels <- c(0, 78, 83, 85, 90)
+xlabels <- c(0, 78, 83, NA, 90)
 ticksy2 <- c(0,1)
 
-text(0.86, -0.05, expression(paste(85)), xpd = TRUE, cex = 1) 
+text(0.87, -0.047, expression(paste(85)), xpd = TRUE, cex = labelsize) 
+text(0.83, -0.047, expression(paste(83)), xpd = TRUE, cex = labelsize) 
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
-axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1)
+axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -98,9 +102,9 @@ lines(xx1, WageFn(xx1, delta = 9), col = COLA[4], lty = 2, lwd = graphlinewidth)
 
 #Line of equality
 
-segments(0.785, 0, 0.785, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0.83, 0, 0.83, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0.85, 0, 0.85, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.785, 0, 0.785, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0.83, 0, 0.83, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0.85, 0, 0.85, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 segments(0, 0.76, 1, 0.76, lty = 1, col = COLB[4], lwd = segmentlinewidth)
 segments(0, 0.6, 1, 0.6, lty = 1, col = COLB[4], lwd = segmentlinewidth)

@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(4.5, 6, 1, 1))
 
 brfFn <- function(delta, q = 1) {
   .5 + (delta / (2 * q)) 
@@ -81,6 +81,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 text(0.5, -0.07, expression(paste(delta^{N} == frac(q,2))), xpd = TRUE, cex = labelsize) 
+text(0.59, -0.06, expression(paste(phantom() == delta^{C})), xpd = TRUE, cex = labelsize) 
+
 
 npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -102,7 +104,7 @@ lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.4, cex = axislabelsize)
 text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -125,7 +127,7 @@ segments(0, 0.5, 0.5, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 points(0.5, 0.5, pch = 16, col = "black", cex = 1.5)
-text(0.5 + 0.015, 0.5 + 0.04, expression(paste(c)), cex = labelsize)
+text(0.5 + 0.019, 0.5 - 0.03, expression(paste(c)), cex = labelsize)
 
 
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
@@ -133,12 +135,12 @@ text(0.5 + 0.015, 0.5 + 0.04, expression(paste(c)), cex = labelsize)
 
 #text(0.2, 0.87, expression(paste(y == y^{N})), cex = labelsize)
 
-text(0.62, 1.05, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
-text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
+text(0.62, 1.02, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
+text(0.62, 0.92, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
 
 text(0.66, 0.4, expression(paste("A's participation")), cex = labelsize)
 text(0.66, 0.34, expression(paste("constraint")), cex = labelsize)
-text(0.66, 0.22, expression(paste(f == frac(delta, q))), cex = labelsize)
+text(0.66, 0.25, expression(paste(f == frac(delta, q))), cex = labelsize)
 Arrows(0.66, 0.44, 0.66, 0.63, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -151,5 +153,10 @@ text(0.96, 0.77, expression(paste(pi^{C})), cex = labelsize, xpd = TRUE)
 #text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
 #Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+brackets(x1 = 0.51, y1 = 0.74,
+         x2 = 0.51, y2 = 0.52, 
+         ticks = 0.5, curvature = 0.5, type = 1,
+         col = "black", lwd = 2, lty = 1, h = 0.02, xpd = TRUE)
 
+text(0.575, 0.64, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
 dev.off()

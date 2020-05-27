@@ -57,7 +57,15 @@ plotGDP <- GDP3 %>%
 plotGDP + 
   geom_vline(data = history, mapping = aes(xintercept = year), lty = 2, color="gray") +
   geom_text(data = history, mapping = aes(x = year, y = 10000, label = event), color = 
-              "black", size = 4, angle = 90, vjust = 1, hjust = 0)
+              "black", size = 4, angle = 90, vjust = 1, hjust = 0) + 
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.88, 0.83), 
+        legend.title = element_text(size = 15), 
+        axis.title.y = element_text(size = 17, vjust = 1),
+        legend.text = element_text(size = 14),
+        axis.text.x = element_text(size = 14, color = "black"),
+        axis.text.y = element_text(size = 14, color = "black"),  
+        axis.title.x = element_text(size = 17, vjust = -1))
 
 
 dev.off()

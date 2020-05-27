@@ -5,7 +5,6 @@ library(countrycode)
 
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 
-pdf(file = "capitalism/employment_union_coverage.pdf", width = 9, height = 7)
 UnionCoverage <- read.csv("employment/union_coverage.csv")
 UnionCoverage <- 
   UnionCoverage %>% 
@@ -20,19 +19,20 @@ UnionCoverage$Country <-
 u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) + 
   geom_bar(stat = "identity", 
               aes(fill = Coverage), 
-              fill = COLA[4],
+              fill = "#4DAF4A",
               show.legend = FALSE) + 
   #scale_fill_manual(guide = "legend") + #This is so I can supress the legend
-  ylab("Percentage of workers covered by collective bargaining, %") + 
+  labs(y = "Percentage of workers covered by collective bargaining, %") + 
   theme_bw() +
-  theme(axis.title = element_text(size = 20),
+  theme(panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 20),
         axis.text.y = element_text(size = 13),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 14),
-        axis.text.x  = element_text(angle = 45, vjust = 0.5, size = 13 )
+        axis.text.x  = element_text(angle = 0, vjust = 0.5, size = 15 )
         ) + 
   coord_flip()
 
-print(u1)
-dev.off()
+ggsave("capitalism/employment_union_coverage.pdf", width = 9, height = 7, units = "in")
+
 

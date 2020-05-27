@@ -3,13 +3,18 @@ require(plotrix)
 pdf(file = "employment/employment_unions_bad.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 WageFn <- function(H, delta = 5) {
   delta /(1 - H)
@@ -51,14 +56,14 @@ ticksy <- c(0, 2.5, 5, 10, 20,  40)
 ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.5, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[1],"*")),expression(paste(H[0],"*")), 1.0, NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.98, 35, expression(paste("Wage Curve, ", w[0]^N*(H))))
+text(0.98, 35, expression(paste("Wage Curve, ", w[0]^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
-segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
+segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = grays[22])
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -70,7 +75,7 @@ segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
-text(0.74, 21, expression(paste(n[0])))
+text(0.74, 21, expression(paste(n[0])), cex = labelsize)
 
 
 #Union raises the wage function
@@ -79,24 +84,24 @@ lines(xx1, WageFn(xx1, delta = 10), col = COL[1], lwd = graphlinewidth)
 #segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
 #text(0.97, 11, expression(paste(B + a[1])))
 
-text(0.66, 35, expression(paste(w[1]^N*(H))))
+text(0.66, 35, expression(paste(w[1]^N*(H))), cex = labelsize)
 
 Arrows(0.8, 26, 0.65, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.75, 30, expression(paste("Union raises")))
-text(0.75, 28, expression(paste("wage curve")))
+text(0.75, 30, expression(paste("Union raises")), cex = labelsize)
+text(0.75, 28, expression(paste("wage curve")), cex = labelsize)
 # 
-segments(0.5, 0, 0.5, 20, lty = 2, lwd = 2, col = "darkgray")
+segments(0.5, 0, 0.5, 20, lty = 2, lwd = 2, col = grays[22])
 points(0.5, 20, pch = 16, col = "black", cex = 1.5)
-text(0.49, 21, expression(paste(n[1])))
+text(0.49, 21, expression(paste(n[1])), cex = labelsize)
 #text(1.02, 26, expression(paste(zpc[1], ", ", w == w[1])))
 
 
 #Unemployment benefits & a
 #segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
+segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = grays[22])
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Competition Condition, ", w^C == w[0])))
+text(1.02, 21, expression(paste("Competition Condition, ", w^C == w[0])), cex = labelsize)
 #text(0.97, 6, expression(paste(B + a[0])))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 9))
+par(mar =  c(4, 6, 1, 3))
 
 brfFn <- function(delta, mu = 1, k = 1) {
   .5 + (delta / (2 * mu)) * (1 - k)
@@ -106,15 +106,15 @@ points(0.6, brfFn(0.6, k = 0), pch = 16, col = "black", cex = 1.5)
 text(0.65, brfFn(delta = 0.6, k = 0) - 0.03, expression(paste(p)), cex = labelsize)
 text(0.65, brfFn(delta = 0.6, k = 0.6) - 0.03, expression(paste(w)), cex = labelsize)
 
-text(2, 0.8, expression(paste(f(delta)== frac(1,2) + frac(delta(1-k),2*q))), cex = labelsize, xpd = TRUE)
-text(2, 0.7, expression(paste("Borrower's best response")), cex = labelsize,xpd = TRUE)
-text(2, 0.65, expression(paste("with equity, ")), cex = labelsize, xpd = TRUE)
-text(2.37, 0.65, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
+text(1.7, 0.62, expression(paste(f(delta)== frac(1,2) + frac(delta(1-k),2*q))), cex = labelsize, xpd = TRUE)
+text(1.73, 0.77, expression(paste("BRF without")), cex = labelsize,xpd = TRUE)
+text(1.64, 0.72, expression(paste("equity, ")), cex = labelsize, xpd = TRUE)
+text(1.84, 0.72, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
 
 
-text(1.3, 1, expression(paste(f(delta)== frac(1,2) + frac(delta,2*q))), cex = labelsize, xpd = TRUE)
-text(2.15, 1, expression(paste(",Borrower's best response")), cex = labelsize, xpd = TRUE)
-text(2.15, 0.95, expression(paste("without equity, ", k == 0)), cex = labelsize, xpd = TRUE)
+text(1.25, 0.9, expression(paste(f(delta)== frac(1,2) + frac(delta,2*q))), cex = labelsize, xpd = TRUE)
+text(1.27, 1, expression(paste("BRF without")), cex = labelsize, xpd = TRUE)
+text(1.72, 0.995, expression(paste("equity, ", k == 0)), cex = labelsize, xpd = TRUE)
 
 #segments(1, 0, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(1, brfFn(1, k = 0.5), pch = 16, col = "black", cex = 1.5)

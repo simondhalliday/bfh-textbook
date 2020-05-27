@@ -14,7 +14,7 @@ COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318"
 
 #Cleaning the wealth share data. Source: CORE
 income_share_gathered <- income_share %>% 
-  gather(Country,income_share, c("Australia", "Argentina", "Canada", "China", "India", "South Africa", "United Kingdom", "United States") )
+  gather(Country, income_share, c("Australia", "Argentina", "Canada", "China", "India", "South Africa", "United Kingdom", "United States") )
 
 income_share1 <- income_share_gathered[-c(1, 105, 209, 313, 417, 521, 625, 729), ]
 
@@ -34,16 +34,17 @@ income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decima
   ylab("Income Share of the Top 1%") +
   scale_y_continuous(breaks = seq(0, 0.3, by = 0.05), labels = scales::percent_format(accuracy = 1), limits = c(0,0.3)) +
   scale_x_continuous(breaks = seq(1910, 2015, by = 10)) +
+  scale_color_brewer(palette = "Set1") +
   theme_bw() +
-  theme(legend.position="top",
-        legend.title=element_blank(),
-        axis.title.y = element_text(size = 12.5, vjust = 1),
-        legend.text=element_text(size=12.5),
-        axis.text.x = element_text(size = 12.5, angle = 90, color = "black"),
-        axis.text.y = element_text(size = 12.5, color = "black"),
-        axis.title.x = element_text(size = 12.5, vjust = -1)) + 
-  scale_color_manual(values = COLD)
-
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.825, 0.81),
+        legend.title = element_blank(),
+        axis.title.y = element_text(size = 19, vjust = 1),
+        axis.title.x = element_text(size = 19, vjust = -1),
+        legend.text = element_text(size = 12.5),
+        axis.text.x = element_text(size = 17, angle = 0, color = "black"),
+        axis.text.y = element_text(size = 17, color = "black")
+        ) 
 
 print(income_share_plot)
 
@@ -53,5 +54,5 @@ ggsave(income_share_plot, filename = "income_share_top_1percent.pdf",
        width = 9, height = 7, units = "in")
 
 
-dev.off()
+
 

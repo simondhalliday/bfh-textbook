@@ -41,7 +41,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 text(-0.1, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*xlims[2], -8, expression(paste("Number of workers, ", n)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -11, expression(paste("Number of workers, ", n)), xpd = TRUE, cex = axislabelsize) 
 
 
 npts <- 500 
@@ -62,11 +62,11 @@ ticksy <- c(0, WageFn(0.8),  40)
 ylabels <- c(0, expression(paste(w[0])), NA)
 ticksx <- c(0, 0.8, 0.9, xlims[2])
 xlabels <- c(0, 80, 90, NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.74, 35, expression(paste("Wage Curve ", w^N*(H))))
+text(0.7, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.8, 0, 0.8, WageFn(0.8), lty = 2, lwd = segmentlinewidth, col = grays[20])
@@ -79,24 +79,24 @@ segments(0, WageFn(0.8), 0.8, WageFn(0.8), lty = 1, lwd = graphlinewidth, col = 
 segments(0.8, WageFn(0.8), 1.2, WageFn(0.8), lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 points(0.8, WageFn(0.8), pch = 16, col = "black", cex = 1.5)
-text(0.79, WageFn(0.8) + 1, expression(paste("n")))
+text(0.79, WageFn(0.8) + 1, expression(paste("n")), cex = labelsize)
 
 
 brackets(x1 = 0.795, y1 = -3.5, x2 = 0, y2 = -3.5,  
          ticks = 0.5, curvature = 0.5, type = 1, h = 1,  
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.4, -5.5, expression(paste("employed")), xpd = TRUE)
+text(0.4, -5.5, expression(paste("employed")), xpd = TRUE, cex = labelsize)
 
 brackets(x1 = 0.895, y1 = -3.5, x2 = 0.805, y2 = -3.5,  
          ticks = 0.5, curvature = 0.5, type = 1, h = 1,
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE)
+text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE, cex = labelsize)
 
 
 #Zero profit condition
-text(0.98, WageFn(0.8) + 5, expression(paste("Competition condition")))
-text(0.98, WageFn(0.8) + 3, expression(paste("determines")))
-text(0.98, WageFn(0.8) + 1, expression(paste("the wage, ", w^C == w[0])))
+text(0.99, WageFn(0.8) + 5.6, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
+text(0.99, WageFn(0.8) + 3.6, expression(paste("condition determines")), cex = labelsize, xpd = TRUE)
+text(0.98, WageFn(0.8) + 1.3, expression(paste("the wage, ", w^C == w[0])), cex = labelsize, xpd = TRUE)
 
 
 dev.off()

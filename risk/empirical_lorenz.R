@@ -13,10 +13,13 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 Ineq <- read_excel("risk/lorenz_curve_data.xlsx")
 
+colnames(Ineq)[5] <- "Cumulative population proportion1"
+colnames(Ineq)[9] <- "Cumulative population proportion2"
+
 IneqSel <- 
   Ineq %>%
-  select(-c(`Market Income (100)`, `Disposable Income (100)`, tbeqhMarket, tbeqhdhi, `Cumulative population proportion__1`, CountryPerc)) %>%
-  rename(cumprop = `Cumulative population proportion`, markety = `Market Income`, dispy = `Disposable Income`)
+  select(-c(`Market Income (100)`, `Disposable Income (100)`, tbeqhMarket, tbeqhdhi, `Cumulative population proportion1`, CountryPerc)) %>%
+  rename(cumprop = `Cumulative population proportion2`, markety = `Market Income`, dispy = `Disposable Income`)
   
 
 IneqNar <- 
@@ -44,7 +47,7 @@ Lorenz1 <-
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +
   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
-  theme(panel.spacing.x = unit(1.5, "lines"))
+  theme(panel.spacing.x = unit(2, "lines"), title = element_text(size = 17))
 Lorenz1
 
 Lorenz2 <- 
@@ -54,20 +57,21 @@ Lorenz2 <-
   geom_text(data = data.frame(x = 0.25, y = 0.75, 
                               label=c("Gini = 0.25", "Gini = 0.47"), 
                               type=c("Disposable income","Market income")), 
-            aes(x, y, label = label), inherit.aes = FALSE) +
+            aes(x, y, label = label), inherit.aes = FALSE, size = 5) +
   geom_text(data = data.frame(x = 0.5, y = 0.4, 
                               label=c("A'", "A"), 
                               type=c("Disposable income","Market income")), 
-            aes(x, y, label = label), inherit.aes = FALSE) +
+            aes(x, y, label = label), inherit.aes = FALSE, size = 5) +
   geom_text(data = data.frame(x = 0.8, y = 0.2, 
                               label=c("B'", "B"), 
                               type=c("Disposable income","Market income")), 
-            aes(x, y, label = label), inherit.aes = FALSE) +
+            aes(x, y, label = label), inherit.aes = FALSE, size =5) +
   theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
-        axis.title = element_text(size = 18),
-        axis.text.y = element_text(size = 20),
-        axis.text.x = element_text(size = 20))
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 19),
+        axis.text.y = element_text(size = 13),
+        axis.text.x = element_text(size = 13),
+        strip.text = element_text(size=17))
 Lorenz2  
 
 

@@ -59,7 +59,9 @@ solowCondition2 <- function(w, delta = 5){
 solowCondition1 <- function(w, delta = 5, slope = 4){
   (w*(1/(slope*delta)))
 }
-
+PCFn <- function(delta, mu = 16) {
+  delta/mu
+}
 
 COL <- c("#f7fcf5", "#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#005a32", "#ffff99")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
@@ -130,19 +132,21 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of  the three graphs and the NE
-text(22, 0.97, expression(paste("Slope of isocost, ", frac(e, w))), cex = labelsize, xpd = TRUE)
+text(25, 0.97, expression(paste("Slope: ", frac(e, w))), cex = labelsize, xpd = TRUE)
 #text(25, 0.92, expression(paste(frac(e, w))), cex = labelsize)
 Arrows(29, 0.97, 34, 0.97,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
-text(38, 0.66, expression(paste("Slope of best-response")), cex = labelsize, xpd = TRUE)
-text(38, 0.6, expression(paste("function (ICC):")), cex = labelsize, xpd = TRUE)
-text(38, 0.53, expression(paste(frac(Delta*e,Delta*w))), cex = labelsize, xpd = TRUE)
+text(23, 0.05, expression(paste(v[N])), cex = labelsize)
+Arrows(34, 0.65, 30, 0.65, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(14.6, 0.05, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
+#text(37, 0.77, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
+#text(38, 0.6, expression(paste("function (ICC):")), cex = labelsize, xpd = TRUE)
+text(38, 0.65, expression(paste("Slope: ", frac(Delta*e,Delta*w))), cex = labelsize, xpd = TRUE)
 text(35, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
-text(4, 0.38, expression("Participation"), cex = labelsize-0.05)
-text(4, 0.32, expression("constraint:"), cex = labelsize-0.05)
+#text(4, 0.38, expression("Participation"), cex = labelsize-0.05)
+text(4, 0.32, expression("PC:"), cex = labelsize-0.05)
 text(4, 0.26, expression(paste(v[0] == u[0])), cex = labelsize)
 text(4.4, 0.2, expression(paste(phantom() == 0)), cex = labelsize)
 
@@ -158,8 +162,8 @@ text(19.3, 0.53, expression(n), cex = labelsize)
 #text(13.8, 0.57, expression(paste("Incomplete contract")),cex = labelsize)
 #text(14.2, 0.52, expression(paste("Nash equilibrium")),cex = labelsize)
 
-text(29, 0.5, expression(paste("foc: ", frac(Delta*e,Delta*w),phantom()==frac(e, w))), cex = labelsize, xpd = TRUE)
-Arrows(25.5, 0.5, 20.9, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(26.7, 0.5, expression(paste("foc: ", "  ", frac(Delta*e,Delta*w),phantom()==frac(e, w))), cex = labelsize, xpd = TRUE)
+Arrows(22.5, 0.5, 20.9, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Arrows and rent label
@@ -170,13 +174,13 @@ Arrows(25.5, 0.5, 20.9, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triang
 # text(14.8, 0.85, expression(paste("Nash Equilibrium")))
 
 #Arrows and slope of iso-v label
-Arrows(36, 0.17, 32, 0.17,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(38.5, 0.23, expression(paste("Slope of iso-v")), cex = labelsize, xpd =TRUE)
-text(38.5, 0.17, expression(paste(phantom() == "-mrs ")), cex = labelsize, xpd = TRUE)
-text(38.5, 0.09, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize, xpd = TRUE)
+Arrows(31, 0.30, 29, 0.30,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(35, 0.30, expression(paste("Slope: ", -frac(v[w], v[e]))), cex = labelsize, xpd =TRUE)
+#text(38.5, 0.17, expression(paste(phantom() == "-mrs ")), cex = labelsize, xpd = TRUE)
+#text(36, 0.22, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize, xpd = TRUE)
 
-points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
-text(9, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
+#points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+#text(9, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)
@@ -201,8 +205,8 @@ text(26.2 + 0.5, 0.72 - 0.02, expression(f), cex = labelsize)
 points(22, isovlow3(22, v = 20, delta = 5), pch = 16, col = "black", cex = 1.5)
 text(22 + 0.8, isovlow3(22, v = 20, delta = 5) + 0.02, expression(b), cex = labelsize)
 
-#points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
-#text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
+points(10, PCFn(delta = 4, mu = 8), pch = 16, col = "black", cex = labelsize)
+text(9.5, PCFn(delta = 4, mu = 8) + 0.03, expression(paste(c)),cex = labelsize)
 
 
 #Label the feasible frontier
@@ -210,9 +214,9 @@ text(4, 0.7, expression("Better for"), cex = labelsize)
 text(4, 0.65, expression("employer"), cex = labelsize)
 Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(7, 0.9, expression("Better for"), cex = labelsize, xpd = TRUE)
-text(7, 0.85, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(10, 0.88, 14, 0.88, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+text(27, 0.10, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(27, 0.05, expression("worker"), cex = labelsize, xpd = TRUE)
+Arrows(30, 0.074, 32.4, 0.074, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Add a point for f. referred to in the text

@@ -5,15 +5,20 @@ library(pBrackets)
 pdf(file = "capitalism/lorenz_wage_effects.pdf", width = 10, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 2, 2))
@@ -52,11 +57,11 @@ ticksx <- c(xlims[1], 0.05, 0.07, 0.9, xlims[2])
 xlabels <- c(NA, 5, 7, 90,  100)
 ticksy2 <- c(0,1)
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1)
-axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1)
+axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1, cex.axis = labelsize)
 
-text(0.08, -0.046, expression(paste(7)), xpd = TRUE, cex = 1) 
+text(0.07, -0.042, expression(paste(7)), xpd = TRUE, cex = labelsize) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -69,8 +74,8 @@ xx4 <- seq(-11, 0, length.out = npts)
 text(-0.08, 0.5*ylims[2], expression(paste("Cumulative income, (%)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -0.1, expression(paste("Cumulative population, (%)")), xpd = TRUE, cex = axislabelsize) 
 
-text(0.18, 0.7, expression(paste("Reduced")))
-text(0.18, 0.66, expression(paste("wage share")))
+text(0.18, 0.7, expression(paste("Reduced")), cex = labelsize)
+text(0.18, 0.66, expression(paste("wage share")), cex = labelsize)
 Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
@@ -98,15 +103,17 @@ segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
 segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[5], lwd = graphlinewidth)
 segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[5], lwd = graphlinewidth)
 
-text(0.76, 0.47, expression(paste("New")), cex = labelsize)
+text(0.76, 0.46, expression(paste("New")), cex = labelsize)
 text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
-text(0.76, 0.39, expression(paste("curve")), cex = labelsize)
+text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
 
 # text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
 # text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
 
-text(0.825, 0.66, expression(paste("Old")), cex = labelsize)
-text(0.825, 0.62, expression(paste("Lorenz Curve")), cex = labelsize)
+text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
+text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
+text(0.85, 0.62, expression(paste("Curve")), cex = labelsize)
+
 
 
 
@@ -114,14 +121,14 @@ text(0.825, 0.62, expression(paste("Lorenz Curve")), cex = labelsize)
 
 #Line of equality
 segments(0, 0, 1, 1, lty = 1, col = COLB[5], lwd = graphlinewidth)
-text(0.8, 0.9, expression(paste("Line of")), cex = labelsize)
-text(0.8, 0.86, expression(paste("equality")), cex = labelsize)
+text(0.8, 0.91, expression(paste("Line of")), cex = labelsize)
+text(0.8, 0.87, expression(paste("equality")), cex = labelsize)
 
-segments(0.9, 0, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 0.6, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.9, 0, 0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.6, 0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-segments(0.9, 0, 0.9, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 0.76, 0.9, 0.76, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.9, 0, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 #Label areas A and B

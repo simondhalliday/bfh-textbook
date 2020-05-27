@@ -94,7 +94,7 @@ lines(xx3, indiffFn1(xx3, u1 =10), col = COLA[4], lwd = graphlinewidth)
 ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)
 ylabels <- c(0, expression(paste(e^C)), 1 , NA)
 ticksx <- c(0, 5, 10, xlims[2])
-xlabels <- c(0, expression(paste(underline(u) == 5)), expression(paste(p^C) == 10), NA)
+xlabels <- c(0, expression(paste(5 == underline(u))), expression(paste(p^C) == 10), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 

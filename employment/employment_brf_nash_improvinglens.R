@@ -125,7 +125,7 @@ ticksy <- c(0,  0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ylabels <- c(0,  expression(paste(e^N)), 1 )
 ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(underline(u) == 5)) ,expression(paste(w == 2*underline(u))),  expression(paste(w^N)) , NA)
+xlabels <- c(0, expression(paste(5 == underline(u))) ,expression(paste(w == 2*underline(u))),  expression(paste(w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 

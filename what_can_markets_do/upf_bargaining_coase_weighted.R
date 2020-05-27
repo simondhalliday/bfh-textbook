@@ -2,8 +2,10 @@ require(shape)
 pdf(file = "what_can_markets_do/upf_bargaining_coase_weighted.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -11,6 +13,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(5, 5, 4, 2))
 xlims <- c(-30, 12)
@@ -71,9 +74,9 @@ npts <- 500
 xx1 <- seq(xlims[1], -18, length.out = npts)
 xx2 <- seq(-18, -9, length.out = npts)
 xx3 <- seq(-9, xlims[2], length.out = npts)
-lines(xx1, upf(xx1), col = COLA[5], lwd = segmentlinewidth, lty = 2)
+lines(xx1, upf(xx1), col = COLA[5], lwd = graphlinewidth, lty = 2)
 lines(xx2, upf(xx2), col = COLA[5], lwd = graphlinewidth)
-lines(xx3, upf(xx3), col = COLA[5], lwd = segmentlinewidth, lty = 2)
+lines(xx3, upf(xx3), col = COLA[5], lwd = graphlinewidth, lty = 2)
 
 
 
@@ -83,40 +86,40 @@ text(-15.8, -9, expression(paste("bargaining set")), cex = labelsize)
 Arrows(-15.8, -6, -15.8, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Label the UPF
-text(-10, 18, expression(paste("Utility possibilities frontier, or")), cex = labelsize)
-text(-10, 16, expression(paste("bargaining frontier")), cex = labelsize)
+text(-9, 18, expression(paste("Utility possibilities frontier, or")), cex = labelsize)
+text(-9, 16, expression(paste("bargaining frontier")), cex = labelsize)
 Arrows(-10, 15, -10, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Lines for Fallback positions
-segments(-18, 0, -18, ylims[2], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-text(-21, 4, expression(paste("A's fallback")), cex = labelsize)
+segments(-18, 0, -18, ylims[2], lty = 2, col = grays[22], lwd = segmentlinewidth)
+text(-21.5, 4, expression(paste("A's fallback")), cex = labelsize)
 text(-21, 1.5, expression(paste(u[e]^A == -18)), cex = labelsize)
 
-text(8, 4, expression(paste("B's fallback")), cex = labelsize)
+text(8, 5, expression(paste("B's fallback")), cex = labelsize)
 text(8, 2, expression(paste(u[e]^B == 0)), cex = labelsize)
 
 #Add points
 
 points(0, -9, pch = 16, col = "black", cex = 1.5)
-text(0.5, -8, expression(paste(e*minute)))
+text(0.65, -7.6, expression(paste(e*minute)), cex = labelsize)
 
 
 points(-9, 0, pch = 16, col = "black", cex = 1.5)
-text(-8.5, 1, expression(paste(f)))
+text(-8.5, 1, expression(paste(f)), cex = labelsize)
 
 points(-18, 9, pch = 16, col = "black", cex = 1.5)
-text(-17, 10, expression(paste(g)))
+text(-17, 10, expression(paste(g)), cex = labelsize)
 
 points(-13.5, 4.5, pch = 16, col = "black", cex = 1.5)
-text(-12.8, 5.7, expression(paste(n)))
+text(-12.8, 5.7, expression(paste(n)), cex = labelsize)
 
 points(-18, 0, pch = 16, col = "black", cex = 1.5)
-text(-19, -1, expression(paste(e)))
+text(-19, -1, expression(paste(e)), cex = labelsize)
 
 
 
 points(-4.5, -4.5, pch = 16, col = "black", cex = 1.5)
-text(-5.5, -5.5, expression(paste(i)))
+text(-5.5, -5.5, expression(paste(i)), cex = labelsize)
 
 
 

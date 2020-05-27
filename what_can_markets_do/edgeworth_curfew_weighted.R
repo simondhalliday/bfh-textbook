@@ -74,7 +74,7 @@ axis(side = 3, at = ticksx, pos = -24, labels = NA, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels2, las = 0, cex.axis = labelsize)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.15*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.85, 0.15*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 
 
@@ -132,9 +132,9 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*xlims[2], -30, expression(paste("The curfew, x")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -32, expression(paste("The curfew, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.65*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:
@@ -162,7 +162,8 @@ contour(x, y,
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
-text(6, -18, expression("Pareto-efficient curve"))
+text(6.2, -17, expression("Pareto-efficient"), cex = labelsize)
+text(6.2, -18.8, expression("curve"), cex = labelsize)
 Arrows(5, -18, 4.2, -18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the walrasian P
@@ -172,18 +173,18 @@ Arrows(5, -18, 4.2, -18, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 # 
 
 #Label the indifference curves for A
-text(0.5, -19.2, expression(u[1]^A), cex = labelsize)
-text(0.5, -14.8, expression(u[2]^A), cex = labelsize)
-text(0.5, -10.2, expression(u[3]^A), cex = labelsize)
-text(0.5, -5.8, expression(u[4]^A), cex = labelsize)
-text(0.5, 1.6, expression(u[5]^A), cex = labelsize)
+text(0.3, -19.4, expression(u[1]^A), cex = labelsize)
+text(0.3, -15, expression(u[2]^A), cex = labelsize)
+text(0.3, -10.6, expression(u[3]^A), cex = labelsize)
+text(0.3, -6.3, expression(u[4]^A), cex = labelsize)
+text(0.3, 2, expression(u[5]^A), cex = labelsize)
 
 #Label the indifference curves for B
-text(7.5, 19.2, expression(u[1]^B), cex = labelsize)
-text(7.5, 5.8, expression(u[2]^B), cex = labelsize)
-text(7.5, -1.8, expression(u[3]^B), cex = labelsize)
-text(7.5, -6.2, expression(u[4]^B), cex = labelsize)
-text(7.5, -10.4, expression(u[5]^B), cex = labelsize)
+text(7.5, 19.5, expression(u[1]^B), cex = labelsize)
+text(7.5, 6, expression(u[2]^B), cex = labelsize)
+text(7.5, -2, expression(u[3]^B), cex = labelsize)
+text(7.5, -6.5, expression(u[4]^B), cex = labelsize)
+text(7.5, -11, expression(u[5]^B), cex = labelsize)
 
 
 #Point for seeing where the indifference curves intersect on the LHS
@@ -196,15 +197,15 @@ segments(4, -5, 4, ylims[2], col = COL[2] , lwd = graphlinewidth, lty = 2)
 segments(0, 0, xlims[2], 0, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 
 points(7, 0, pch = 16, col = "black", cex = 1.5)
-text(6.9, 1, expression(e), cex = labelsize)
+text(6.9, 1.3, expression(e), cex = labelsize)
 
 points(4, 0, pch = 16, col = "black", cex = 1.5)
-text(3.9, 1, expression(i), cex = labelsize)
+text(3.85, 1, expression(i), cex = labelsize)
 
 
 #Label point i. 
 points(4, -4.5, pch = 16, col = "black", cex = 1.5)
-text(3.9, -3, expression(paste(f)), cex = labelsize)
+text(3.85, -3, expression(paste(f)), cex = labelsize)
 
 segments(0, -4.5, 4, -4.5, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 points(4, -9, pch = 16, col = "black", cex = 1.5)
@@ -227,7 +228,7 @@ brackets(x1 = -0.5, y1 = -9, x2 = -0.5, y2 = 0,
 # segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
 points(x = 1, y = 0, pch = 16, col = "black", cex = 1.5)
-text(0.9, 1, expression(paste(e*minute)), cex = labelsize)
+text(0.9, 1.3, expression(paste(e*minute)), cex = labelsize)
 
 
 
@@ -242,8 +243,8 @@ text(0.9, 1, expression(paste(e*minute)), cex = labelsize)
 # brackets(x1 = 10.2, y1 = 4.4, x2 = 10.2, y2 = 0.9,  
 #          ticks = 0.5, curvature = 0.5, type = 1, 
 #          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(-1.3, -4.5, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 90, cex = labelsize)
-text(-1.1, -5, expression(paste("A pays B")), xpd = TRUE, srt = 90, cex = labelsize)
+text(-1.5, -4.5, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 90, cex = labelsize)
+text(-1.2, -5, expression(paste("A pays B")), xpd = TRUE, srt = 90, cex = labelsize)
 
 
 dev.off()

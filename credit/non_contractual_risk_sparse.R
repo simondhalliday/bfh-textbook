@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 6, 2, 1))
@@ -99,6 +99,11 @@ lines(xx1, brfFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, PCFn(xx1), col = COLA[2], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
 
+lines(xx1, isoreturnFn(xx1, pi = .25), col = COLB[4], lwd = graphlinewidth)
+
+# PC
+#segments(0, 0, xlims[2], xlims[2])
+
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
 text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
@@ -122,14 +127,18 @@ segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 
+text(0.5 + 0.015, isoreturnFn(0.5, pi = 0.25) + 0.04, expression(paste(c)), cex = labelsize)
+points(0.5, isoreturnFn(0.5, pi = 0.25), pch = 16, col = "black", cex = 1.5)
+
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
 #points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
 
 #text(0.2, 0.85, expression(paste(y == y^{n})), cex = labelsize)
 
-text(0.5, 1.05, expression(paste("A's best-response function, ")), cex = labelsize, xpd = TRUE)
+text(0.45, 1.05, expression(paste("A's best-response function (ICC), ")), cex = labelsize, xpd = TRUE)
 text(0.81, 1.05, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize, xpd =TRUE)
 
+# text(0.1, 0.6, expression(paste("ICC")), cex = labelsize, xpd = TRUE)
 
 text(0.5, 0.95, expression(paste("Slope")), cex = labelsize, xpd = TRUE)
 text(0.6, 0.95, expression(paste(phantom()== frac(1,2*q))), cex = labelsize)
@@ -143,14 +152,17 @@ Arrows(0.68, 0.95, 0.83, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "tria
 #Arrows(0.64, 0.44, 0.64, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.8, 0.6, expression(paste("P's isoprofit curve, ", pi == pi^{N})), cex = labelsize, xpd = TRUE)
-text(0.8, 0.5, expression(paste("Slope", phantom() == frac(1-f,delta))), cex = labelsize, xpd = TRUE)
+text(0.8, 0.5, expression(paste("P's isoprofit curve, ", pi == pi^{N})), cex = labelsize, xpd = TRUE)
+text(0.8, 0.4, expression(paste("Slope", phantom() == frac(1-f,delta))), cex = labelsize, xpd = TRUE)
 #text(0.7, 0.53, expression(paste(pi == pi^{N})), cex = labelsize, xpd = TRUE)
-Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.87, 0.53, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
 #text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
 #Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(0.065, 0.05, expression(paste(pi^N == pi[0])), cex = labelsize)
+text(0.23, 0.04, expression(paste(pi[1])), cex = labelsize)
 
 
 dev.off()

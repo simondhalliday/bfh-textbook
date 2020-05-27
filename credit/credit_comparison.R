@@ -3,6 +3,8 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
+library(pBrackets)
+
 pdf(file = "credit/credit_comparison.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
@@ -18,7 +20,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4.5, 6, 1, 1))
@@ -135,18 +137,18 @@ text(0.5 + 0.019, 0.5 - 0.03, expression(paste(c)), cex = labelsize)
 
 #text(0.2, 0.87, expression(paste(y == y^{N})), cex = labelsize)
 
-text(0.62, 1.02, expression(paste("A's best-response function")), cex = labelsize, xpd = TRUE)
+text(0.62, 1.02, expression(paste("A's best-response function (ICC)")), cex = labelsize, xpd = TRUE)
 text(0.62, 0.92, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
 
 text(0.66, 0.4, expression(paste("A's participation")), cex = labelsize)
-text(0.66, 0.34, expression(paste("constraint")), cex = labelsize)
+text(0.66, 0.34, expression(paste("constraint (PC)")), cex = labelsize)
 text(0.66, 0.25, expression(paste(f == frac(delta, q))), cex = labelsize)
 Arrows(0.66, 0.44, 0.66, 0.63, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
-text(0.96, 0.9, expression(paste(pi^{N})), cex = labelsize, xpd = TRUE)
-text(0.96, 0.77, expression(paste(pi^{C})), cex = labelsize, xpd = TRUE)
+text(0.96, 0.91, expression(paste(pi^{N})), cex = labelsize, xpd = TRUE)
+text(0.96, 0.78, expression(paste(pi^{C})), cex = labelsize, xpd = TRUE)
 #Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)

@@ -74,9 +74,9 @@ npts <- 500
 xx1 <- seq(xlims[1], -18, length.out = npts)
 xx2 <- seq(-18, -9, length.out = npts)
 xx3 <- seq(-9, xlims[2], length.out = npts)
-lines(xx1, upf(xx1), col = COLA[5], lwd = graphlinewidth, lty = 2)
+lines(xx1, upf(xx1), col = COLA[5], lwd = segmentlinewidth, lty = 2)
 lines(xx2, upf(xx2), col = COLA[5], lwd = graphlinewidth)
-lines(xx3, upf(xx3), col = COLA[5], lwd = graphlinewidth, lty = 2)
+lines(xx3, upf(xx3), col = COLA[5], lwd = segmentlinewidth, lty = 2)
 
 
 

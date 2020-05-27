@@ -89,8 +89,8 @@ text(2000 , 22, expression(paste(n[2])), cex = labelsize)
 
 
 # add labels to graphs
-text(2380, 7, expression(paste(mrph[1])), cex = labelsize)
-text(2380, 15, expression(paste(mrph[2])), cex = labelsize)
+text(400, 65, expression(paste(mrph[1])), cex = labelsize)
+text(720, 65, expression(paste(mrph[2])), cex = labelsize)
 text(2320, 20.2, expression(paste(Wage == w^N)), cex = labelsize)
 
 text(745, 78, expression(paste("Marginal revenue product of hours:")), cex = labelsize)

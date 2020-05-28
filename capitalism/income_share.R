@@ -37,11 +37,11 @@ income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decima
   scale_color_brewer(palette = "Set1") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
-        legend.position = c(0.825, 0.81),
+        legend.position = c(0.82, 0.82),
         legend.title = element_blank(),
-        axis.title.y = element_text(size = 19, vjust = 1),
-        axis.title.x = element_text(size = 19, vjust = -1),
-        legend.text = element_text(size = 12.5),
+        axis.title.y = element_text(size = 21, vjust = 1),
+        axis.title.x = element_text(size = 21, vjust = -1),
+        legend.text = element_text(size = 14),
         axis.text.x = element_text(size = 17, angle = 0, color = "black"),
         axis.text.y = element_text(size = 17, color = "black")
         ) 

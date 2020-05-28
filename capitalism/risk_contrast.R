@@ -16,8 +16,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 6, 4, 2))
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+
+par(mar =  c(5, 6, 1, 1))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -87,13 +88,13 @@ lines(xx1, indiffA2(xx1, intercept = 7.1), col = COLB[5], lwd = graphlinewidth, 
 segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 + 0.25, riskreturn(g = 5.6) - 0.05, expression(a), cex = labelsize)
+text(5.6 + 0.35, riskreturn(g = 5.6) - 0.05, expression(a), cex = labelsize)
 
 
 segments(7.5, 0, 7.5, riskreturn(g = 7.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, riskreturn(g = 7.5) , 7.5, riskreturn(g = 7.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(7.5, riskreturn(g = 7.5) , pch = 16, col = "black", cex = 1.5)
-text(7.5 + 0.25, riskreturn(g = 7.5) - 0.3, expression(b), cex = labelsize)
+text(7.5 + 0.35, riskreturn(g = 7.5) - 0.3, expression(b), cex = labelsize)
 
 
 segments(12, 0, 12, riskreturn(g = 12) , lty = 2, col = grays[20], lwd = segmentlinewidth)

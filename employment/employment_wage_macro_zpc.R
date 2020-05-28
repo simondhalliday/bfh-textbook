@@ -90,7 +90,9 @@ text(0.74, 21, expression(paste("n")), cex = labelsize)
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Competition condition ", w == bar(Delta))), cex = labelsize, xpd = TRUE)
+text(0.99, 23.5, expression(paste("Competition condition")), cex = labelsize, xpd = TRUE)
+text(1.02, 21.25, expression(paste(w == bar(Delta))), cex = labelsize, xpd = TRUE)
+
 text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
 text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
 text(0.25, 4, expression(paste("No production")), cex = labelsize)

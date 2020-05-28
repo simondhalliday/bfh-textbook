@@ -1,5 +1,6 @@
 library(ggplot2)
 library(ggrepel)
+library(scales)
 library(RColorBrewer)
 
 #Import data

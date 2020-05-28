@@ -1,22 +1,26 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-require(shape)
+library(shape)
 pdf(file = "public_mechanism/markets_competition_monopolist_external.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 2, 2))
+par(mar =  c(4, 6, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -45,13 +49,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 3, 5, AvgRevenue(x = 4.5), AvgRevenue(3.5),  ylims[2])
 ylabels <- c(NA, expression(paste(p^{CP})), expression(paste(p^{CS})), expression(paste(p^{MP})), expression(paste(p^{MS})), NA)
 ticksx <- c(0, 3.5, 4.5, 7, 9, xlims[2])
@@ -97,26 +97,26 @@ text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, 
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 #text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
-text(10.65, 0.5, expression(paste(demand)), cex = labelsize)
+text(10.5, 0.5, expression(paste("Demand")), cex = labelsize)
 
-text(11, 5.75, expression(paste("social")), cex = labelsize)
+text(11, 5.75, expression(paste("Social")), cex = labelsize)
 text(11, 5.25, expression(paste("mc")), cex = labelsize)
 
-text(11, 2.75, expression(paste("private")), cex = labelsize)
-text(11, 2.25, expression(paste("mc")), cex = labelsize)
+text(11, 2.7, expression(paste("Private")), cex = labelsize)
+text(11, 2.2, expression(paste("mc")), cex = labelsize)
 
 #Labels cost and profit areas
 #text(2, 0.5*AvgCost(x = 4), expression("Total Costs"), cex = labelsize)
 #text(2, 6, expression("Profit"), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 3.5), 3.5, AvgRevenue(x = 3.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AvgRevenue(x = 4.5), 4.5, AvgRevenue(x = 4.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 3.5), 3.5, AvgRevenue(x = 3.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4.5), 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(3.5, 0, 3.5, AvgRevenue(x = 3.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4.5, 0, 4.5, AvgRevenue(x = 4.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(7, 0, 7, AvgRevenue(x = 7), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, 5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(3.5, 0, 3.5, AvgRevenue(x = 3.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(7, 0, 7, AvgRevenue(x = 7), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(9, 0, 9, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Price lines
 segments(0, 3, xlims[2], 3, lty = 1, col = COL[1] , lwd = graphlinewidth)

@@ -1,22 +1,26 @@
-#Graph Designer: Simon Halliday
-#Authors: Bowles, Foley and Halliday
+#Graph Designer: Simon Halliday + Scott Cohn
+#Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-require(shape)
+library(shape)
 pdf(file = "what_can_markets_do/markets_competition_monopolist_external.pdf", width = 9, height = 7)
 
-#Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+# Set parameters for graphics
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 7, 4, 4))
+par(mar =  c(6, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -45,14 +49,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
-     xaxs="i", 
-     yaxs="i")
+     xaxs = "i", 
+     yaxs = "i")
 
-
-# ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
-# ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
-# xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 3, 6, AvgRevenue(x = 4.5), 9, ylims[2])
 ylabels <- c(NA, expression(paste(p^{CP})), expression(paste(p^{CS})), expression(paste(p^{MP})), expression(paste(p^{MS})), NA)
 ticksx <- c(0, 3, 4.5, 6, 9, xlims[2])
@@ -93,19 +92,20 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
+# mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.8, expression(paste("Quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
 
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
 #text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
-text(7.1, 1, expression(paste("marginal revenue")), cex = labelsize)
-text(10.65, 0.5, expression(paste(demand)), cex = labelsize)
+text(7.1, 1.5, expression(paste("Marginal revenue")), cex = labelsize)
+text(10.5, 0.5, expression(paste("Demand")), cex = labelsize)
 
-text(11, 6.75, expression(paste("marginal social cost")), cex = labelsize)
+text(11, 6.95, expression(paste("Marginal social cost")), cex = labelsize, xpd = TRUE)
 text(11, 6.25, expression(paste("msc")), cex = labelsize)
 
-text(11, 3.7, expression(paste("marginal private cost")), cex = labelsize)
+text(11, 3.95, expression(paste("Marginal private cost")), cex = labelsize, xpd = TRUE)
 text(11, 3.25, expression(paste("mpc")), cex = labelsize)
 
 #Labels cost and profit areas
@@ -113,13 +113,13 @@ text(11, 3.25, expression(paste("mpc")), cex = labelsize)
 #text(2, 6, expression("Profit"), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 3), 3, AvgRevenue(x = 3), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AvgRevenue(x = 4.5), 4.5, AvgRevenue(x = 4.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 3), 3, AvgRevenue(x = 3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4.5), 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(3, 0, 3, AvgRevenue(x = 3), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4.5, 0, 4.5, AvgRevenue(x = 4.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, AvgRevenue(x = 6), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, AvgRevenue(x = 9), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(3, 0, 3, AvgRevenue(x = 3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6, 0, 6, AvgRevenue(x = 6), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(9, 0, 9, AvgRevenue(x = 9), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 3, xlims[2], 3, lty = 1, col = COL[1] , lwd = graphlinewidth)
 segments(0, 6, xlims[2], 6, lty = 1, col = COL[3] , lwd = graphlinewidth)
 
@@ -139,8 +139,8 @@ text(5.2, 4.5, expression(D), cex = labelsize)
 #labels for intersections between msc, mpc and AR and MR
 text(4.3, 2.7, expression(b), cex = labelsize)
 text(8.8, 2.7, expression(a), cex = labelsize)
-text(6.2, 6.2, expression(e), cex = labelsize)
-text(2.7, 6.2, expression(c), cex = labelsize)
+text(6.3, 6.3, expression(e), cex = labelsize)
+text(2.6, 6.3, expression(c), cex = labelsize)
 points(9, 3, pch = 16, col = "black", cex = 1.3)
 points(6, 6, pch = 16, col = "black", cex = 1.3)
 points(3, 6, pch = 16, col = "black", cex = 1.3)

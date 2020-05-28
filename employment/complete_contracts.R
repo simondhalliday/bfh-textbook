@@ -67,16 +67,18 @@ text(0.22, -0.25, expression(paste(underline(t)*j)), cex = labelsize, xpd = TRUE
 text(0.35, 5, expression(paste(w== frac(underline(u),tj) + B)), cex = labelsize, xpd = TRUE)
 text(-0.1, 1, expression(paste(underline(u)+B)), cex = labelsize, xpd = TRUE)
 #text(1.15, 4.5, expression(paste(gamma[p])), cex = labelsize, xpd = TRUE)
-text(0.43, 1.5, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
-text(0.5, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)
+text(0.43, 1.55, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
+text(0.44, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)
+
 text(1.3, 3, expression(paste("Total")), cex = labelsize, xpd = TRUE)
 text(1.3, 2.7, expression(paste("economic")), cex = labelsize, xpd = TRUE)
 text(1.3, 2.4, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
+
 text(1.25, 4.5, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
-text(1.25, 4.3, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
+text(1.25, 4.2, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
 
 text(1.25, 1, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
-text(1.25, 0.83, expression(paste("to work")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.7, expression(paste("to work")), cex = labelsize, xpd = TRUE)
 
 
 #Brackets
@@ -85,10 +87,10 @@ brackets(x1 = 1.05, y1 = 4.4, x2 = 1.05, y2 = 1.1,  ticks = 0.5, curvature = 0.5
 
 
 # #Arrows
-Arrows(0.38, 1.7, .38, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.38, 1.42, 0.38, 1.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(.38, 3.9, 0.38, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(.38, 3.65, 0.38, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.38, 1.7, .38, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.38, 1.42, 0.38, 1.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.38, 3.9, 0.38, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.38, 3.65, 0.38, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Axes labels
 text(0.5, -0.7, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 

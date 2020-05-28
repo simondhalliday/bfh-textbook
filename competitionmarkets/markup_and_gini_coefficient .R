@@ -56,18 +56,18 @@ plot1 <- doubleYScale(obj2, obj1, add.ylab2 = TRUE)
 print(plot1)
 
 
-pdf(file = "capitalism/markup_and_gini.pdf", width = 10, height = 8)
+pdf(file = "capitalism/markup_and_gini.pdf", width = 8, height = 8)
 
 obj1 <- xyplot(markup ~ year, data = markup_data2,
-               xlab=list("Year", fontsize = 15),
-               ylab = list("Markup Ratio", fontsize = 15),
-               ylab.right = list("Gini Coefficient", fontsize = 15),
+               xlab=list("Year", fontsize = 18),
+               ylab = list("Markup Ratio", fontsize = 18),
+               ylab.right = list("Gini Coefficient", fontsize = 18),
                par.settings = simpleTheme(col = 1),
                type = "l",
                col = c("#0868ac"),
                lty=1,
                scales=list(x=list(rot=90,tick.number=15,
-                                  cex=1.5,axs="r"), y=list(cex=3)),
+                                  cex=1.5,axs="r"), y=list(cex=1.5)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
                           text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
@@ -76,7 +76,7 @@ obj1 <- xyplot(markup ~ year, data = markup_data2,
 obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col="#FF801D",
                lty=1,
                scales=list(x=list(rot=90,tick.number=15,
-                                  cex=2,axs="r"), y=list(cex=3)))
+                                  cex=2,axs="r"), y=list(cex=1.5)))
 
 doubleYScale(obj1, obj2)
 

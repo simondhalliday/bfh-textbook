@@ -39,9 +39,9 @@ declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_sha
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.825, 0.81),
         legend.title = element_blank(),
-        axis.title.y = element_text(size = 19, vjust = 1),
-        axis.title.x = element_text(size = 19, vjust = -1),
-        legend.text = element_text(size = 12.5),
+        axis.title.y = element_text(size = 21, vjust = 1),
+        axis.title.x = element_text(size = 21, vjust = -1),
+        legend.text = element_text(size = 14),
         axis.text.x = element_text(size = 17, angle = 0, color = "black"),
         axis.text.y = element_text(size = 17, color = "black")
   ) 

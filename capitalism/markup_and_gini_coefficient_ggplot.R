@@ -44,9 +44,9 @@ p1 <- p +
   labs(color = "") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 12),
-        legend.text = element_text(size = 12))
+        axis.title = element_text(size = 18),
+        axis.text = element_text(size = 14),
+        legend.text = element_text(size = 14))
 p1
 # Save
 ggsave(p, "markup_and_gini_coefficient.pdf", width = 6, height = 6, units = "in")

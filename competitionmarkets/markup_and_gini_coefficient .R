@@ -47,7 +47,7 @@ key = list(type = c("l"),
            text = list(label = c("Gini"), cex = 1.2), points = list(col= c("#0868ac"), pch = 1:5), column = 2,
            space = "top")
 
-obj1 <- xyplot(gini_index ~ Year, gini_data, type = "l", ylab = "Gini", par.settings = simpleTheme(col = 1),
+obj1 <- xyplot(gini ~ year, gini_data, type = "l", ylab = "Gini", par.settings = simpleTheme(col = 1),
                col = c("#0868ac"),key = list(type = c("l"),
                                                                                                       text = list(label = c("Gini", "Markup")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
                                                                                                       space = "right"))
@@ -56,6 +56,7 @@ plot1 <- doubleYScale(obj2, obj1, add.ylab2 = TRUE)
 print(plot1)
 
 
+pdf(file = "capitalism/markup_and_gini.pdf", width = 10, height = 8)
 
 obj1 <- xyplot(markup ~ year, data = markup_data2,
                xlab=list("Year", fontsize = 13),

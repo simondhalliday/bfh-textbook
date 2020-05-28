@@ -21,7 +21,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 7, 1, 2))
+par(mar =  c(6, 7, 1, 2))
 
 PCFn <- function(delta, mu = 0.5) {
   delta/mu
@@ -52,7 +52,7 @@ ticksx <- c(xlims[1], 0.1, 0.4, xlims[2])
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 0.2, 0.6, 0.8, ylims[2])
 ylabels <- c(NA, NA, NA, expression(paste(w^N)), NA)
-xlabels <- c(NA, NA, NA)
+xlabels <- c(NA, expression(paste("Week 2")), expression(paste("Week 28")), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, ticks = FALSE, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -111,11 +111,11 @@ text(0.6, -0.1 , expression(paste("Time in weeks")), xpd = TRUE, cex = axislabel
 text(-0.08, 0.85*(ylims[2]), expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Spell of unemployment
-brackets(x1 = 0.4, y1 = -0.025, x2 = 0.1, y2 = -0.025,  
+brackets(x1 = 0.4, y1 = -0.1, x2 = 0.1, y2 = -0.1,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
-text(0.25, -0.1, expression(paste("Spell of unemployment, ", s[1])), cex = labelsize, xpd = TRUE)
+text(0.25, -0.18, expression(paste("Spell of unemployment, s", phantom() == 26, " weeks")), cex = labelsize, xpd = TRUE)
 
 Arrows(0, 0.2, 0.5, 0.2, lty = 1, col = "black" , arr.type = "0", arr.lwd = segmentlinewidth)
 

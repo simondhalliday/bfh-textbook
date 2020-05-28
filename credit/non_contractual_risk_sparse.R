@@ -127,7 +127,7 @@ segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 
-text(0.5 + 0.015, isoreturnFn(0.5, pi = 0.25) + 0.04, expression(paste(c)), cex = labelsize)
+# text(0.5 + 0.015, isoreturnFn(0.5, pi = 0.25) + 0.04, expression(paste(c)), cex = labelsize)
 points(0.5, isoreturnFn(0.5, pi = 0.25), pch = 16, col = "black", cex = 1.5)
 
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)

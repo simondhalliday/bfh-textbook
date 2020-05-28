@@ -67,13 +67,13 @@ xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
 #Draw the polygon for feasibility
-#xpoly1 <- c(0, 0.5, 0.5, 0, 0)
-#ypoly1 <- c(0, 0, 0.2, 0.2, 0)
-#polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+xpoly1 <- c(0.1, 0.4, 0.4, 0.1, 0.1)
+ypoly1 <- c(0, 0, 0.2, 0.2, 0)
+polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
-#xpoly2 <- c(0, 0.5, 0.5, 0, 0)
-#ypoly2 <- c(0.2, 0.2, 0.6, 0.6, 0.3)
-#polygon(x = xpoly2, y = ypoly2, col="gray", density=NULL, border = NA)
+xpoly2 <- c(0.1, 0.4, 0.4, 0.1, 0.1)
+ypoly2 <- c(0.2, 0.2, 0.6, 0.6, 0.3)
+polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 
 xpoly3 <- c(0, 0.5, 0.5, 0, 0)
 ypoly3 <- c(0.6, 0.6, 0.8, 0.8, 0.4)

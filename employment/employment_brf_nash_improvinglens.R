@@ -127,7 +127,7 @@ ticksy <- c(0,  0.5, 1)
 #ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ylabels <- c(0,  expression(paste(e^N)), 1 )
 ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(5 == underline(u))) ,expression(paste(w == 2*underline(u))),  expression(paste(w^N)) , NA)
+xlabels <- c(0, expression(paste(5 == underline(u))) ,expression(paste(10 == 2*underline(u))),  expression(paste(20 == w^N)) , NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -146,16 +146,16 @@ text(35, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
 #text(4, 0.38, expression("Participation"), cex = labelsize-0.05)
-text(4, 0.32, expression("PC:"), cex = labelsize-0.05)
-text(4, 0.26, expression(paste(v[0] == u[0])), cex = labelsize)
-text(4.4, 0.2, expression(paste(phantom() == 0)), cex = labelsize)
+text(3.5, 0.35, expression("PC:"), cex = labelsize-0.05)
+text(3.5, 0.29, expression(paste(v[0] == u[0],phantom() == 0)), cex = labelsize)
+#text(4.4, 0.23, expression(paste(phantom() == 0)), cex = labelsize)
 
 
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(5, 0, 5, 1, lty = 2, col = "darkgray", lwd = 3)
 #segments(10, 0, 10, 0.2, lty = 2, col = "darkgray", lwd = 2)
-segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(20, 0, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.3, 0.53, expression(n), cex = labelsize)
@@ -216,7 +216,7 @@ Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 text(27, 0.10, expression("Better for"), cex = labelsize, xpd = TRUE)
 text(27, 0.05, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(30, 0.074, 32.4, 0.074, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(29.5, 0.04, 32, 0.04, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Add a point for f. referred to in the text

@@ -21,7 +21,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 7, 1, 1))
+par(mar =  c(4, 7, 1, 2))
 
 PCFn <- function(delta, mu = 0.5) {
   delta/mu
@@ -48,11 +48,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 1)
 # ylabels <- seq(from = 0, to = ylims[2], by = 1)
-#ticksx <- seq(from = 0, to = xlims[2], by = 1)
+ticksx <- c(xlims[1], 0.1, 0.4, xlims[2])
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksy <- c(ylims[1], 0.2, 0.6, 0.8, ylims[2])
 ylabels <- c(NA, NA, NA, expression(paste(w^N)), NA)
-xlabels <- c(NA, expression(paste(s[1])), NA)
+xlabels <- c(NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, ticks = FALSE, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -67,17 +67,17 @@ xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
 #Draw the polygon for feasibility
-xpoly1 <- c(0, 0.5, 0.5, 0, 0)
-ypoly1 <- c(0, 0, 0.2, 0.2, 0)
-polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+#xpoly1 <- c(0, 0.5, 0.5, 0, 0)
+#ypoly1 <- c(0, 0, 0.2, 0.2, 0)
+#polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
-xpoly2 <- c(0, 0.5, 0.5, 0, 0)
-ypoly2 <- c(0.2, 0.2, 0.6, 0.6, 0.3)
-polygon(x = xpoly2, y = ypoly2, col="gray", density=NULL, border = NA)
+#xpoly2 <- c(0, 0.5, 0.5, 0, 0)
+#ypoly2 <- c(0.2, 0.2, 0.6, 0.6, 0.3)
+#polygon(x = xpoly2, y = ypoly2, col="gray", density=NULL, border = NA)
 
 xpoly3 <- c(0, 0.5, 0.5, 0, 0)
 ypoly3 <- c(0.6, 0.6, 0.8, 0.8, 0.4)
-polygon(x = xpoly3, y = ypoly3, col=COLB[1], density=NULL, border = NA)
+polygon(x = xpoly3, y = ypoly3, col="gray", density=NULL, border = NA)
 
 #Label the feasible frontier
 text(0.25, 0.4, expression("Employment rent"), cex = labelsize)
@@ -87,6 +87,13 @@ text(0.25, 0.4, expression("Employment rent"), cex = labelsize)
 #Braces for labels
 brackets(x1 = 0.51, y1 = 0.59, x2 = 0.51, y2 = 0.21,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = FALSE)
+
+brackets(x1 = 0.51, y1 = 0.8, x2 = 0.51, y2 = 0.6,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = FALSE)
+
+text(0.64, 0.7, expression(u(e^N)), cex = labelsize,xpd = TRUE)
+text(0.64, 0.65, expression("disutility of worker"), cex = labelsize,xpd = TRUE)
+
 
 text(0.63, 0.45, expression("Per period"), cex = labelsize,xpd = TRUE)
 text(0.63, 0.41, expression("employment"), cex = labelsize,xpd = TRUE)
@@ -104,33 +111,33 @@ text(0.6, -0.1 , expression(paste("Time in weeks")), xpd = TRUE, cex = axislabel
 text(-0.08, 0.85*(ylims[2]), expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Spell of unemployment
-brackets(x1 = 0.49, y1 = -0.02, x2 = 0.01, y2 = -0.02,  
+brackets(x1 = 0.4, y1 = -0.025, x2 = 0.1, y2 = -0.025,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
 text(0.25, -0.1, expression(paste("Spell of unemployment, ", s[1])), cex = labelsize, xpd = TRUE)
 
-Arrows(0, 0.2, 0.5, 0.2, lty = 1, col = COLA[4] , arr.type = "0", arr.lwd = segmentlinewidth)
+Arrows(0, 0.2, 0.5, 0.2, lty = 1, col = "black" , arr.type = "0", arr.lwd = segmentlinewidth)
 
 #Arrows for the rents
 #Arrows(0, 0.8, 0.49, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 #Arrows(0.26, 0.8, 0.49, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0, 0.8, 0.5, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0, 0.8, 0.49, 0.8, lty = 1, col = "black", arr.type = "triangle", arr.lwd = segmentlinewidth)
 
-Arrows(0, 0.6, 0.06, 0.6, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0.1, 0.6, 0.1, 0.4, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0.1, 0.6, 0.1, 0.2, lty = 1, col = COLB[4] , arr.type = "0", arr.lwd = segmentlinewidth)
-Arrows(0.3, 0.6, 0.45, 0.6, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0.4, 0.23, 0.4, 0.41, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0.4, 0.6, 0.4, 0.2, lty = 1, col = COLB[4] , arr.type = "0", arr.lwd = segmentlinewidth)
+Arrows(0, 0.6, 0.06, 0.6, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.1, 0.6, 0.1, 0.4, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.1, 0.6, 0.1, 0.2, lty = 1, col = COLA[4] , arr.type = "0", arr.lwd = segmentlinewidth)
+Arrows(0.3, 0.6, 0.45, 0.6, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.4, 0.23, 0.4, 0.41, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.4, 0.6, 0.4, 0.2, lty = 1, col = COLA[4] , arr.type = "0", arr.lwd = segmentlinewidth)
 
 Arrows(0, 0.6, 0.5, 0.6, lty = 1, col = COLB[4] , arr.type = "0", arr.lwd = segmentlinewidth)
 
 Arrows(0.1, 0.6, 0.2, 0.6, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 Arrows(0.2, 0.6, 0.35, 0.6, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 
-Arrows(0.1, 0.2, 0.2, 0.2, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0.2, 0.2, 0.385, 0.2, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.1, 0.2, 0.2, 0.2, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
+Arrows(0.2, 0.2, 0.385, 0.2, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 
 
 text(-0.07, 0.6, expression("per period"), cex = labelsize,xpd = TRUE)
@@ -141,6 +148,13 @@ text(-0.07, 0.5, expression("the job"), cex = labelsize,xpd = TRUE)
 text(-0.07, 0.2, expression("per period"), cex = labelsize,xpd = TRUE)
 text(-0.07, 0.15, expression("reservation"), cex = labelsize,xpd = TRUE)
 text(-0.07, 0.1, expression("wage"), cex = labelsize,xpd = TRUE)
+
+text(0.62, 0.18, expression("B reservation wage"), cex = labelsize,xpd = TRUE)
+text(0.62, 0.13, expression("fallback option"), cex = labelsize,xpd = TRUE)
+
+segments(0.1, 0, 0.1, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0.4, 0, 0.4, 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+
 
 #Arrows(0, 0.2, 0.25, 0.2, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 #Arrows(0.5, 0.2, 0.5, 0.49, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)

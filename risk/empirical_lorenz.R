@@ -47,7 +47,7 @@ Lorenz1 <-
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +
   #ggtitle("Lorenz Curves and Gini Coefficient for the Netherlands (2010)") +
-  theme(panel.spacing.x = unit(2, "lines"), title = element_text(size = 17))
+  theme(panel.spacing.x = unit(2, "lines"), title = element_text(size = 14))
 Lorenz1
 
 Lorenz2 <- 
@@ -68,10 +68,10 @@ Lorenz2 <-
             aes(x, y, label = label), inherit.aes = FALSE, size =5) +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 19),
-        axis.text.y = element_text(size = 13),
-        axis.text.x = element_text(size = 13),
-        strip.text = element_text(size=17))
+        axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 11),
+        axis.text.x = element_text(size = 11),
+        strip.text = element_text(size=14))
 Lorenz2  
 
 

@@ -26,7 +26,7 @@ WageFn <- function(H, delta = 5) {
 }
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(8, 6, 2, 6))
+par(mar =  c(5, 6, 2, 2))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -59,11 +59,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(1.0)))
 ticksx <- c(xlims[1], 0.78467, 0.83, 0.85, xlims[2])
-xlabels <- c(0, 78, 83, NA, 90)
+xlabels <- c(0, 78, NA, NA, 90)
 ticksy2 <- c(0,1)
 
-text(0.87, -0.047, expression(paste(85)), xpd = TRUE, cex = labelsize) 
-text(0.83, -0.047, expression(paste(83)), xpd = TRUE, cex = labelsize) 
+text(0.87, -0.043, expression(paste(85)), xpd = TRUE, cex = labelsize) 
+text(0.83, -0.043, expression(paste(83)), xpd = TRUE, cex = labelsize) 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

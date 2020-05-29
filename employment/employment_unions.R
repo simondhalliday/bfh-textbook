@@ -50,17 +50,21 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 20, 25,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t)), expression(paste(w[0])), expression(paste(w[2])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), expression(paste(w[0])), expression(paste(w[2])), NA)
 ticksx <- c(0, 0.75, 0.8, 1, xlims[2])
-xlabels <- c(0, expression(paste(H[0],"*")), expression(paste(H[2],"*")), 1.0, NA)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+#xlabels <- c(0, expression(paste(H[0],"*")), expression(paste(H[2],"*")), 1.0, NA)
+xlabels <- c(0, expression(paste(H[0],"*")), NA, 1.0, NA)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+#x-axis tick label 
+text(0.82, -2, expression(paste(H[2],"*")), cex = labelsize,xpd = TRUE)
 
 #Annotation of the  graphs
-text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))))
+text(0.68, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
-segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
+segments(0.75, 0, 0.75, 20, lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)
 
 #Arrows(0.85, 15, 0.85, 24, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.85, 15, 0.85, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -72,7 +76,7 @@ segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
-text(0.74, 21, expression(paste(n[0])))
+text(0.73, 21.5, expression(paste(n[0])), cex = labelsize)
 
 
 #Union Zero profit condition 
@@ -80,22 +84,24 @@ segments(0, 25, 0.8, 25, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.8, 25, 1.2, 25, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 
-Arrows(0.2, 20.5, 0.2, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.37, 22.5, expression(paste("Union raises productivity, ", gamma)))
+Arrows(0.1, 20.5, 0.1, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.37, 22.5, expression(paste("Union raises productivity, ", gamma)), cex = labelsize)
 
-segments(0.8, 0, 0.8, 25, lty = 2, lwd = 2, col = "darkgray")
+segments(0.8, 0, 0.8, 25, lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(0.8, 25, pch = 16, col = "black", cex = 1.5)
-text(0.79, 26, expression(paste(n[2])))
-text(1.02, 26, expression(paste("Competition condition, ", w^C == w[2])))
+text(0.78, 26.5, expression(paste(n[2])), cex = labelsize)
+text(1.02, 27.8, expression(paste("Competition")), cex = labelsize)
+text(1.02, 26, expression(paste("condition, ", w^C == w[2])), cex = labelsize)
+
 
 
 #Unemployment benefits & a
 #segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = "darkgray")
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
+segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Zero profit condition
-text(1.02, 22, expression(paste("Initial")))
-text(1.02, 21, expression(paste("competition condition, ", w^C == w[0])))
+text(1.02, 23.3, expression(paste("Initial competition")), cex = labelsize)
+text(1.02, 21.3, expression(paste("condition, ", w^C == w[0])), cex = labelsize)
 #text(0.97, 6, expression(paste(B + a)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

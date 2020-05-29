@@ -50,7 +50,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 pointbx <- 9.7
-pointcx <- 19
+pointcx <- 25
 
 ticksy <- c(0, ConcaveU(2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(36), ylims[2])
 ylabels <- c(NA, expression(paste(u(y - delta[2]))), expression(paste(v(L^underline(p)))), expression(paste(v(L^{bar(p)}))), expression(paste(u(y + delta[1]))), NA)
@@ -102,7 +102,7 @@ text(pointcx - 1.5, 37.2 , expression(paste("means a v(L) closer to good")), cex
 text(pointcx - 1.5, 35.5 , expression(paste("outcome utility ", u(y + delta[1]))), cex = labelsize)
 Arrows(pointcx, 34.5, pointcx, 32.2, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(pointcx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("a")), cex = labelsize)
+text(pointcx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("d")), cex = labelsize)
 segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(pointcx, 0, pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pch = 16, col = "black", cex = 1.5)

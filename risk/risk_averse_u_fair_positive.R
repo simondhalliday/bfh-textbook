@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "risk/risk_averse_u_fair.pdf", width = 10, height = 8)
+pdf(file = "risk/risk_averse_u_fair_positive.pdf", width = 10, height = 8)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -25,7 +25,7 @@ par(mar =  c(4, 12, 1, 1))
 #Concave utility of wealth function
 
 ConcaveU <- function(x){
-  (1600 - (x - 40)^2)^(1/2)
+  (1700 - (x - 40)^2)^(1/2)
 }
 
 #Add limits on axes and levels of utility for each indifference curve

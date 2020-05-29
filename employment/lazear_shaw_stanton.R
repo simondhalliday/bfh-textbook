@@ -9,7 +9,7 @@ library("ggplot2")
 library("scales")
 library("zoo")
 
-lazear_shaw_stanton <- read_csv("Downloads/lazear_shaw_stanton.csv", col_names = FALSE)
+lazear_shaw_stanton <- read_csv("~/Downloads/lazear_shaw_stanton.csv", col_names = FALSE)
 
 lss <- lazear_shaw_stanton %>% rename(
   date = X1,
@@ -34,12 +34,12 @@ lss %>% ggplot() +
   annotate("text", x = as.numeric(as.yearmon("2008-06")), y = 2.2, label = "begins Dec 2007", size = 6) + 
   annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.21, label = "Recession", size = 6) +
   annotate("text", x = as.numeric(as.yearmon("2009-12")), y = 2.2, label = "ends Jul 2009", size = 6) + 
-  labs(x = "Date (months)", y = "Mean log worker productivity") +
+  labs(x = "Date (months)", y = "Worker productivity") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         axis.text.x = element_text(size = 17),
         axis.text.y = element_text(size = 17),  
-        axis.title.x = element_text(size = 19),
-        axis.title.y = element_text(size = 19))
+        axis.title.x = element_text(size = 22),
+        axis.title.y = element_text(size = 22))
 
 ggsave("employment/lazear_shaw_stanton.pdf", width = 9, height = 6, units = "in")

@@ -20,7 +20,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 12, 1, 1))
+par(mar =  c(4, 12, 1, 3))
 
 #Linear utility of wealth equation
 
@@ -30,7 +30,7 @@ LinearU <- function(x,y) {
 
 
 #Add limits on axes and levels of utility for each indifference curve
-ylims <- c(0, 40)
+ylims <- c(0, 43)
 xlims <- c(0, 40)
 
 npts <- 501 
@@ -50,9 +50,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksx <- c(0, 4, 20, 30, xlims[2])
+ticksx <- c(0, 2, 9.7, 19, 36, xlims[2])
 xlabels <- c(NA, NA, NA, NA, NA)
-ticksy <- c(0, 11, 27, 36, xlims[2])
+ticksy <- c(0, 9, 16.7, 26, ylims[2])
 ylabels <- c(NA, NA, NA, NA, NA)
 
 axis(1,at = ticksx,  pos = 0, labels = FALSE)
@@ -72,35 +72,44 @@ lines(xx1, LinearU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label 3 points on line
 
-text(4, 12.2, expression(paste("a")), cex = labelsize)
-segments(4, 0, 4, 11, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 11, 4, 11, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(4, 11, pch = 16, col = "black", cex = 1.5)
+text(2, 10.2, expression(paste("a")), cex = labelsize)
+segments(2, 0, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 9, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(2, 9, pch = 16, col = "black", cex = 1.5)
 
-text(20, 28.2, expression(paste("b")), cex = labelsize)
-segments(20, 0, 20, 27, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 27, 20, 27, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(20, 27, pch = 16, col = "black", cex = 1.5)
+text(9.7, 17.9, expression(paste("b")), cex = labelsize)
+segments(9.7, 0, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 16.7, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(9.7, 16.7, pch = 16, col = "black", cex = 1.5)
 
-text(30, 38, expression(paste("c")), cex = labelsize)
-segments(30, 0, 30, 37, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 37, 30, 37, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(30, 37, pch = 16, col = "black", cex = 1.5)
+text(19, 27, expression(paste("c")), cex = labelsize)
+segments(19, 0, 19, 26, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 26, 19, 26, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(19, 26, pch = 16, col = "black", cex = 1.5)
 
+text(36, 44, expression(paste("d")), cex = labelsize)
+segments(36, 0, 36, 43, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 43, 36, 43, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(36, 43, pch = 16, col = "black", cex = 1.5)
 #Label y-sub,x-sub,etc. on axes
 
-text(30, -1.5, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
-text(20, -1.5, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
-text(4, -1.5, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
+text(36, -1.5, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
+text(19, -1.5, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
+text(2, -1.5, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
 
 
-text(-3.5, 36, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
+text(-3.5, 43, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
 
 text(-5, 29, expression(paste(u(y[0]) == v(L), phantom() == phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.5, 27, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-5, 25, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-4.5, 26, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
+text(-5, 23, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 
-text(-3.5, 11, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-3.5, 9, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
+
+#Labels
+text(5.5, 9, expression(paste(y^B == y - delta[2 ])),  xpd = TRUE,  cex = labelsize)
+text(39.7, 43, expression(paste(y^G == y + delta[1])),  xpd = TRUE,  cex = labelsize)
+
 
 
 dev.off()

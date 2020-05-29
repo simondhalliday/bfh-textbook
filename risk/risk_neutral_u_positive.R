@@ -50,7 +50,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksx <- c(0, 2, 9.7, 19, 36, xlims[2])
+ticksx <- c(0, 2, NA, 19, 36, xlims[2])
 xlabels <- c(NA, NA, NA, NA, NA)
 ticksy <- c(0, 9, 16.7, 26, ylims[2])
 ylabels <- c(NA, NA, NA, NA, NA)
@@ -77,10 +77,10 @@ segments(2, 0, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 9, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(2, 9, pch = 16, col = "black", cex = 1.5)
 
-text(9.7, 17.9, expression(paste("c")), cex = labelsize)
-segments(9.7, 0, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 16.7, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(9.7, 16.7, pch = 16, col = "black", cex = 1.5)
+# text(9.7, 17.9, expression(paste("c")), cex = labelsize)
+# segments(9.7, 0, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, 16.7, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
+# points(9.7, 16.7, pch = 16, col = "black", cex = 1.5)
 
 text(19, 27, expression(paste("a")), cex = labelsize)
 segments(19, 0, 19, 26, lty = 2, col = grays[20], lwd = segmentlinewidth)

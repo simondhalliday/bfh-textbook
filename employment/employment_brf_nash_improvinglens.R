@@ -138,7 +138,7 @@ Arrows(29, 0.97, 34, 0.97,  col = "black", lty = 1, lwd = 2, arr.type = "triangl
 
 text(23, 0.05, expression(paste(v[N])), cex = labelsize)
 Arrows(34, 0.65, 30, 0.65, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(14.6, 0.05, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
+text(15.1, 0.1, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
 #text(37, 0.77, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
 #text(38, 0.6, expression(paste("function (ICC):")), cex = labelsize, xpd = TRUE)
 text(38, 0.65, expression(paste("Slope: ", frac(Delta*e,Delta*w))), cex = labelsize, xpd = TRUE)

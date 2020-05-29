@@ -49,8 +49,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-pointbx <- 10
-pointcx <- 25
+pointbx <- 9.7
+pointcx <- 19
 
 ticksy <- c(0, ConcaveU(2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), ConcaveU(36), ylims[2])
 ylabels <- c(NA, expression(paste(u(y - delta[2]))), expression(paste(v(L^underline(p)))), expression(paste(v(L^{bar(p)}))), expression(paste(u(y + delta[1]))), NA)
@@ -81,7 +81,7 @@ segments(2, ConcaveU(2), 36, ConcaveU(36), lty = 1, col = COLB[4] , lwd = graphl
 
 #Label points on line
 
-text(2.7, ConcaveU(2) - 0.5, expression(paste("a")), cex = labelsize)
+text(2.7, ConcaveU(2) - 0.5, expression(paste("b")), cex = labelsize)
 segments(2, 0, 2, ConcaveU(2), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ConcaveU(2), 2, ConcaveU(2), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
@@ -92,7 +92,7 @@ text(pointbx, 28.4 , expression(paste("Low probability, ", underline(p),",")), c
 text(pointbx, 26.7 , expression(paste("means a v(L) closer to bad")), cex = labelsize)
 text(pointbx, 25 , expression(paste("outcome utility ", u(y - delta[2]))), cex = labelsize)
 Arrows(pointbx, 24, pointbx, 20.3, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(pointbx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("b")), cex = labelsize)
+text(pointbx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("c")), cex = labelsize)
 segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(pointbx, 0, pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pch = 16, col = "black", cex = 1.5)
@@ -102,13 +102,13 @@ text(pointcx - 1.5, 37.2 , expression(paste("means a v(L) closer to good")), cex
 text(pointcx - 1.5, 35.5 , expression(paste("outcome utility ", u(y + delta[1]))), cex = labelsize)
 Arrows(pointcx, 34.5, pointcx, 32.2, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(pointcx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("c")), cex = labelsize)
+text(pointcx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("a")), cex = labelsize)
 segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(pointcx, 0, pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pch = 16, col = "black", cex = 1.5)
 
 
-text(36.8, ConcaveU(36) - 0.9, expression(paste("d")), cex = labelsize)
+text(36.8, ConcaveU(36) - 0.9, expression(paste("g")), cex = labelsize)
 segments(36, 0, 36, ConcaveU(36), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ConcaveU(36), 36, ConcaveU(36), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)

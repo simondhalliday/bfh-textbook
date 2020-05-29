@@ -72,30 +72,30 @@ lines(xx1, LinearU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label 3 points on line
 
-text(2, 10.2, expression(paste("a")), cex = labelsize)
+text(2, 10.2, expression(paste("b")), cex = labelsize)
 segments(2, 0, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 9, 2, 9, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(2, 9, pch = 16, col = "black", cex = 1.5)
 
-text(9.7, 17.9, expression(paste("b")), cex = labelsize)
+text(9.7, 17.9, expression(paste("c")), cex = labelsize)
 segments(9.7, 0, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 16.7, 9.7, 16.7, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(9.7, 16.7, pch = 16, col = "black", cex = 1.5)
 
-text(19, 27, expression(paste("c")), cex = labelsize)
+text(19, 27, expression(paste("a")), cex = labelsize)
 segments(19, 0, 19, 26, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 26, 19, 26, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(19, 26, pch = 16, col = "black", cex = 1.5)
 
-text(36, 44, expression(paste("d")), cex = labelsize)
+text(36, 44, expression(paste("g")), cex = labelsize)
 segments(36, 0, 36, 43, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 43, 36, 43, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(36, 43, pch = 16, col = "black", cex = 1.5)
 #Label y-sub,x-sub,etc. on axes
 
-text(36, -1.5, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
+text(36, -1.5, expression(paste(y^G == y +  delta[1])), xpd = TRUE, cex = labelsize)
 text(19, -1.5, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
-text(2, -1.5, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
+text(2.4, -1.5, expression(paste(y^B == y - delta[2])),  xpd = TRUE,  cex = labelsize)
 
 
 text(-3.5, 43, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
@@ -105,10 +105,6 @@ text(-4.5, 26, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, 
 text(-5, 23, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 
 text(-3.5, 9, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
-
-#Labels
-text(5.5, 9, expression(paste(y^B == y - delta[2 ])),  xpd = TRUE,  cex = labelsize)
-text(39.7, 43, expression(paste(y^G == y + delta[1])),  xpd = TRUE,  cex = labelsize)
 
 
 

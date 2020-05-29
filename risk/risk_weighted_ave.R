@@ -82,8 +82,8 @@ segments(2, ConcaveU(2), 36, ConcaveU(36), lty = 1, col = COLB[4] , lwd = graphl
 #Label points on line
 
 text(2.7, ConcaveU(2) - 0.5, expression(paste("b")), cex = labelsize)
-segments(2, 0, 2, ConcaveU(2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ConcaveU(2), 2, ConcaveU(2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(2, 0, 2, ConcaveU(2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ConcaveU(2), 2, ConcaveU(2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
 
@@ -93,8 +93,8 @@ text(pointbx, 26.7 , expression(paste("means a v(L) closer to bad")), cex = labe
 text(pointbx, 25 , expression(paste("outcome utility ", u(y - delta[2]))), cex = labelsize)
 Arrows(pointbx, 24, pointbx, 20.3, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(pointbx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("c")), cex = labelsize)
-segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(pointbx, 0, pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(pointbx, 0, pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(pointbx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointbx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pch = 16, col = "black", cex = 1.5)
 
 text(pointcx - 1.5, 38.9 , expression(paste("High probability, ", bar(p), "," )), cex = labelsize)
@@ -103,14 +103,14 @@ text(pointcx - 1.5, 35.5 , expression(paste("outcome utility ", u(y + delta[1]))
 Arrows(pointcx, 34.5, pointcx, 32.2, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(pointcx + 1, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2) - 0.5, expression(paste("d")), cex = labelsize)
-segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(pointcx, 0, pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(pointcx, 0, pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(pointcx, ConcaveU(2) - (ConcaveU(36) - ConcaveU(2))/(36 - 2)*2 + pointcx*(ConcaveU(36) - ConcaveU(2))/(36 - 2), pch = 16, col = "black", cex = 1.5)
 
 
 text(36.8, ConcaveU(36) - 0.9, expression(paste("g")), cex = labelsize)
-segments(36, 0, 36, ConcaveU(36), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ConcaveU(36), 36, ConcaveU(36), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(36, 0, 36, ConcaveU(36), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ConcaveU(36), 36, ConcaveU(36), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 
 

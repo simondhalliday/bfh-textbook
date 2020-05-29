@@ -64,7 +64,8 @@ text(0.22, -0.25, expression(paste(underline(t)*j)), cex = labelsize, xpd = TRUE
 #text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.35, 5, expression(paste(w== frac(underline(u),tj) + B)), cex = labelsize, xpd = TRUE)
+text(0.425, 5.1, expression(paste("No shirking condition, ")), cex = labelsize, xpd = TRUE)
+text(0.74, 5.1, expression(paste(w^N== frac(underline(u),tj) + B)), cex = labelsize, xpd = TRUE)
 text(-0.1, 1, expression(paste(underline(u)+B)), cex = labelsize, xpd = TRUE)
 #text(1.15, 4.5, expression(paste(gamma[p])), cex = labelsize, xpd = TRUE)
 text(0.43, 1.55, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)

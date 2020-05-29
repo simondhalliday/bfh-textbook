@@ -10,7 +10,10 @@ Devplot <-
   theme_bw() + 
   ylab("Average GDP per capita growth, 1980-2012, %") + 
   xlab("Long-term average inequality in disposable income") + 
-  scale_x_continuous(expand = c(0, .05)) #+ 
+  scale_x_continuous(expand = c(0, .05)) + 
+  theme(panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 21),
+        axis.text = element_text(size = 18))
 #scale_y_continuous(expand = c(0, ))
 Devplot
 

@@ -14,7 +14,7 @@ p <-
   scale_x_continuous(expand = c(0, .01)) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 19),
-        axis.text = element_text(size = 17))
+        axis.title = element_text(size = 21),
+        axis.text = element_text(size = 18))
 
 ggsave(file = "capitalism/ineq_gdp_oecd.pdf", width = 9, height = 7, units = "in")

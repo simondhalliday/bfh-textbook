@@ -51,14 +51,19 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)[t])), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.67, 35, expression(paste("Wage Curve, ", w(H))), cex = labelsize)
+text(0.67, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
+
+#Labor supply
+segments(1, 0, 1, 42, lty = 2, lwd = segmentlinewidth, col = grays[20])
+text(1.07, 38, expression(paste("Labor")), cex = labelsize)
+text(1.07, 36, expression(paste("supply")), cex = labelsize)
 
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
@@ -83,13 +88,13 @@ text(0.67, 35, expression(paste("Wage Curve, ", w(H))), cex = labelsize)
 #segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Unemployment benefits & a
-segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = grays[20])
-segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = grays[20])
+#segments(0, 5, 1.2, 5, lty = 2, lwd = 2, col = grays[20])
+#segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = grays[20])
 
 #Zero profit condition
 #text(1.02, 21, expression(paste("Zero profit condition, ", w == w[0])))
-text(0.95, 6, expression(paste(B + underline(u), " (opportunity cost of work)")),cex = labelsize,xpd =TRUE)
-text(0.95, 3.5, expression(paste(B, " (unemployment benefits)")),cex = labelsize, xpd =TRUE)
+#text(0.95, 6, expression(paste(B + underline(u)[t], " (opportunity cost of work)")),cex = labelsize,xpd =TRUE)
+#text(0.95, 3.5, expression(paste(B, " (unemployment benefits)")),cex = labelsize, xpd =TRUE)
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 

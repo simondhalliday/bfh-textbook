@@ -25,7 +25,7 @@ par(mar =  c(4, 12, 1, 1))
 #Linear utility of wealth equation
 
 LinearU <- function(x,y) {
-  x
+  x + 7
 }
 
 
@@ -50,9 +50,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksx <- c(0, 4, 20, 36, xlims[2])
+ticksx <- c(0, 4, 20, 30, xlims[2])
 xlabels <- c(NA, NA, NA, NA, NA)
-ticksy <- c(0, 4, 20, 36, xlims[2])
+ticksy <- c(0, 11, 27, 36, xlims[2])
 ylabels <- c(NA, NA, NA, NA, NA)
 
 axis(1,at = ticksx,  pos = 0, labels = FALSE)
@@ -72,35 +72,35 @@ lines(xx1, LinearU(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label 3 points on line
 
-text(4, 5.5, expression(paste("a")), cex = labelsize)
-segments(4, 0, 4, 4, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 4, 4, 4, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(4, 4, pch = 16, col = "black", cex = 1.5)
+text(4, 12.2, expression(paste("a")), cex = labelsize)
+segments(4, 0, 4, 11, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 11, 4, 11, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(4, 11, pch = 16, col = "black", cex = 1.5)
 
-text(20, 21.5, expression(paste("b")), cex = labelsize)
-segments(20, 0, 20, 20, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 20, 20, 20, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(20, 20, pch = 16, col = "black", cex = 1.5)
+text(20, 28.2, expression(paste("b")), cex = labelsize)
+segments(20, 0, 20, 27, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 27, 20, 27, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(20, 27, pch = 16, col = "black", cex = 1.5)
 
-text(36, 37.5, expression(paste("c")), cex = labelsize)
-segments(36, 0, 36, 36, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 36, 36, 36, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(36, 36, pch = 16, col = "black", cex = 1.5)
+text(30, 38, expression(paste("c")), cex = labelsize)
+segments(30, 0, 30, 37, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 37, 30, 37, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(30, 37, pch = 16, col = "black", cex = 1.5)
 
 #Label y-sub,x-sub,etc. on axes
 
-text(36, -1.5, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
+text(30, -1.5, expression(paste(y +  delta[1])), xpd = TRUE, cex = labelsize)
 text(20, -1.5, expression(paste(y)),  xpd = TRUE,  cex = labelsize)
 text(4, -1.5, expression(paste(y - delta[2])),  xpd = TRUE,  cex = labelsize)
 
 
 text(-3.5, 36, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
 
-text(-5, 22, expression(paste(u(y[0]) == v(L), phantom() == phantom())),  xpd = TRUE, cex = labelsize)
-text(-4.5, 20, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-5, 18, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-5, 29, expression(paste(u(y[0]) == v(L), phantom() == phantom())),  xpd = TRUE, cex = labelsize)
+text(-4.5, 27, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
+text(-5, 25, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 
-text(-3.5, 4, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-3.5, 11, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 
 
 dev.off()

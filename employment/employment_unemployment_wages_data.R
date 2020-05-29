@@ -33,18 +33,18 @@ u1 +
   # annotate("text", x = 2.5, y = 3.75, label = "High", color = COL[3], size = 6) +
   # annotate("text", x = 2.5, y = 3.5, label = "Performers", color = COL[3], size = 6) +
   # annotate("segment", x = 1, xend = 9, y = 0.5, yend = 4.5, color = COL[3], lty = 2) + 
-  annotate("text", x = 14, y = 1.25, label = "Low", color = COL[1], size = 6) + 
-  annotate("text", x = 14, y = 1, label = "Performers", color = COL[1], size = 6) + 
-  annotate("segment", x = 2.5, xend = 13, y = 0.2, yend = 3.5, color = grays[20], lty = 2) + 
-  annotate("text", x = 10, y = 3.75, label = "Average", color = COL[2], size = 6) + 
-  annotate("text", x = 10, y = 3.5, label = "Performers", color = COL[2], size = 6) + 
+  annotate("text", x = 14, y = 1.25, label = "Low", color = COL[1], size = 6) +
+  annotate("text", x = 14, y = 1, label = "Performers", color = COL[1], size = 6) +
+  annotate("segment", x = 2.5, xend = 13, y = 0.2, yend = 3.5, color = grays[20], lty = 2) +
+  annotate("text", x = 10, y = 3.75, label = "Average", color = COL[2], size = 6) +
+  annotate("text", x = 10, y = 3.5, label = "Performers", color = COL[2], size = 6) +
   annotate("text", x = 2.5, y = 3.75, label = "High", color = COL[3], size = 6) +
   annotate("text", x = 2.5, y = 3.5, label = "Performers", color = COL[3], size = 6) +
-  annotate("segment", x = 1, xend = 9, y = 0.5, yend = 4.5, color = grays[20], lty = 2) + 
+  annotate("segment", x = 1, xend = 9, y = 0.5, yend = 4.5, color = grays[20], lty = 2) +
   geom_text_repel(aes(label = Country), size = 5, show.legend = FALSE, color = "black") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
-        legend.position = c(0.9, 0.9),
+        legend.position = "none",
         axis.title = element_text(size = 19), 
         axis.text = element_text(size = 16), 
         legend.title = element_text(size = 16), 

@@ -25,7 +25,7 @@ par(mar =  c(4, 12, 1, 1))
 #Concave utility of wealth function
 
 ConcaveU <- function(x){
-  (1600 - (x - 40)^2)^(1/2)
+  (1700 - (x - 40)^2)^(1/2)
 }
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -52,7 +52,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, ConcaveU(2), ConcaveU(36), ylims[2])
 ylabels <- c(NA, NA, NA, ylims[2])
 ticksx <- c(0, 2, 9.7, 19, 36, xlims[2])
-xlabels <- c(NA, expression(paste(y - delta[2])), expression(paste(y[0])), expression(paste(y)), expression(paste(y + delta[1])), NA)
+#xlabels <- c(NA, expression(paste(y^B == y - delta[2])), expression(paste(y[0])), expression(paste(y)), expression(paste(y^G == y + delta[1])), NA)
+xlabels <- c(NA, NA, expression(paste(y[0])), expression(paste(y)), expression(paste(y^G == y + delta[1])), NA)
+
+
+text(2.3, -1.3, expression(paste(y^B == y - delta[2])), xpd = TRUE, cex = labelsize)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1, cex.axis = labelsize)
@@ -76,13 +80,13 @@ segments(2, ConcaveU(2), 36, ConcaveU(36), lty = 1, col = COLB[4] , lwd = graphl
 
 #Label 5 points on line
 
-text(2.7, ConcaveU(2)-.5, expression(paste("a")), cex = labelsize)
+text(2.7, ConcaveU(2)-.5, expression(paste("b")), cex = labelsize)
 segments(2, 0, 2, ConcaveU(2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, ConcaveU(2), 2, ConcaveU(2), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
 
-text(19+1, ConcaveU(19)-.5, expression(paste("c")), cex = labelsize)
+text(19+1, ConcaveU(19)-.5, expression(paste("a")), cex = labelsize)
 segments(19, 0, 19, ConcaveU(19), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, ConcaveU(19), 19, ConcaveU(19), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(19, ConcaveU(19), pch = 16, col = "black", cex = 1.5)
@@ -91,11 +95,11 @@ text(19.8, ConcaveU(9.7)-.5, expression(paste("e")), cex = labelsize)
 segments(0, ConcaveU(9.7), 19, ConcaveU(9.7), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(19, ConcaveU(9.7), pch = 16, col = "black", cex = 1.5)
 
-text(9.7 + 0.8, ConcaveU(9.7)-.75, expression(paste("b")), cex = labelsize)
+text(9.7 + 0.8, ConcaveU(9.7)-.75, expression(paste("c")), cex = labelsize)
 segments(9.7, 0, 9.7, ConcaveU(9.7), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(9.7, ConcaveU(9.7), pch = 16, col = "black", cex = 1.5)
 
-text(36.8, ConcaveU(36)-.9, expression(paste("d")), cex = labelsize)
+text(36.8, ConcaveU(36)-.9, expression(paste("g")), cex = labelsize)
 segments(36, 0, 36, ConcaveU(36), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, ConcaveU(36), 36, ConcaveU(36), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)

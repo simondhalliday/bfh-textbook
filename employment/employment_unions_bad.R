@@ -22,7 +22,7 @@ WageFn <- function(H, delta = 5) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 4, 4))
 xlims <- c(0, 1.2)
 ylims <- c(0, 40)
 
@@ -47,20 +47,21 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-lines(xx1, WageFn(xx1), col = COL[1], lwd = 4)
+lines(xx1, WageFn(xx1), col = COL[1], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5, 10, 20,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
+#ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u[0]))), expression(paste(B+underline(u[1]))), expression(paste(w[0])), NA)
 ticksx <- c(0, 0.5, 0.75, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[1],"*")),expression(paste(H[0],"*")), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.98, 35, expression(paste("Wage Curve, ", w[0]^N*(H))), cex = labelsize)
+text(1.06, 35, expression(paste("Wage Curve, ", w[0]^N*(H))), cex = labelsize,xpd = TRUE)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = grays[22])
@@ -71,11 +72,11 @@ segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = grays[22])
 #text(0.98, 15, expression(paste("decreases with union")))
 
 #Original Zero profit condition 
-segments(0, 20, 0.75, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
+segments(0, 20, 0.75, 20, lty = 1, lwd = segmentlinewidth, col = COLB[3])
 segments(0.75, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
-text(0.74, 21, expression(paste(n[0])), cex = labelsize)
+text(0.73, 21.5, expression(paste(n[0])), cex = labelsize)
 
 
 #Union raises the wage function
@@ -84,15 +85,15 @@ lines(xx1, WageFn(xx1, delta = 10), col = COL[1], lwd = graphlinewidth)
 #segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
 #text(0.97, 11, expression(paste(B + a[1])))
 
-text(0.66, 35, expression(paste(w[1]^N*(H))), cex = labelsize)
+text(0.64, 35, expression(paste(w[1]^N*(H))), cex = labelsize)
 
-Arrows(0.8, 26, 0.65, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.75, 30, expression(paste("Union raises")), cex = labelsize)
-text(0.75, 28, expression(paste("wage curve")), cex = labelsize)
+Arrows(0.865, 39, 0.765, 39, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.8, 43, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
+text(0.8, 41, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
 # 
 segments(0.5, 0, 0.5, 20, lty = 2, lwd = 2, col = grays[22])
 points(0.5, 20, pch = 16, col = "black", cex = 1.5)
-text(0.49, 21, expression(paste(n[1])), cex = labelsize)
+text(0.48, 21.5, expression(paste(n[1])), cex = labelsize)
 #text(1.02, 26, expression(paste(zpc[1], ", ", w == w[1])))
 
 
@@ -101,7 +102,7 @@ text(0.49, 21, expression(paste(n[1])), cex = labelsize)
 segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = grays[22])
 
 #Zero profit condition
-text(1.02, 21, expression(paste("Competition Condition, ", w^C == w[0])), cex = labelsize)
+text(1.06, 21, expression(paste("Competition Condition, ", w^C == w[0])), cex = labelsize, xpd = TRUE)
 #text(0.97, 6, expression(paste(B + a[0])))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

@@ -56,17 +56,18 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(bar(Delta) )), expression(paste(gamma[0])), NA)
+ylabels <- c(0, expression(paste(w^C)), expression(paste(gamma[0])), NA)
 ticksx <- c(0, 0.75, xlims[2])
-xlabels <- c(0, expression(paste(H,"*")), NA)
+xlabels <- c(0, expression(paste(H^N)), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(1.04, 38, expression(paste("Wage Curve, ", w(H))), cex = labelsize, xpd = TRUE)
-text(0.6, 38, expression(paste("Labor Supply, ", H,"*")), cex = labelsize,  xpd = TRUE)
+text(1.05, 38, expression(paste("Wage curve, ", w^N,(H))), cex = labelsize, xpd = TRUE)
+#text(0.75, 38, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
+text(0.95, 10, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
 
-segments(0.75, 0, 0.75, ylims[2], lty = 1, lwd = graphlinewidth, col = COL[2])
+segments(0.75, 0, 0.75, ylims[2], lty = 2, lwd = graphlinewidth, col = grays[20])
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -82,7 +83,7 @@ text(1.02, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize,
 
 
 points(0.75, 20, pch = 16, col = "black", cex = 1.5)
-text(0.74, 21, expression(paste("n")), cex = labelsize)
+text(0.73, 21, expression(paste("n")), cex = labelsize)
 
 
 #Unemployment benefits & a
@@ -90,12 +91,12 @@ text(0.74, 21, expression(paste("n")), cex = labelsize)
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(0.99, 23.5, expression(paste("Competition condition")), cex = labelsize, xpd = TRUE)
-text(1.02, 21.25, expression(paste(w == bar(Delta))), cex = labelsize, xpd = TRUE)
+text(0.99, 21, expression(paste("Competition condition")), cex = labelsize, xpd = TRUE)
+#text(1.02, 21.25, expression(paste(w == bar(Delta))), cex = labelsize, xpd = TRUE)
 
 text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
 text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
-text(0.25, 4, expression(paste("No production")), cex = labelsize)
+text(1.05, 4, expression(paste("No production")), cex = labelsize)
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))

@@ -58,7 +58,7 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
 ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma[0])), NA)
-ticksx <- c(0, 1, xlims[2])
+ticksx <- c(0, 1.305, xlims[2])
 xlabels <- c(0, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

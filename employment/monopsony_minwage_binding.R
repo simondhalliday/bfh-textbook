@@ -40,7 +40,7 @@ costRevSol <- function(h, constant = 7, ubar = 3, B = 2, t = 0.8){
 
 #uniroot(costRevSol(x, constant = 7, ubar = 3, B = 2, t = 0.8), lower = 0.01, upper = 1)
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 4, 2))
 
 xlims <- c(0, 1.05)
 ylims <- c(0, 40)
@@ -57,24 +57,31 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 npts <- 500 
 npts2 <- 501
+
+#Guesses at intersections
+LPoints <- c(0.465, 0.56) 
+BPoints <- c(0.37, 0.53, 0.78)
+
 #Specify the sequences of points for graphing. 
-xx1 <- seq(xlims[1], 1, length.out = npts)
-xx2 <- seq(xlims[1], xlims[2], length.out = npts)
-xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
-xx4 <- seq(xlims[1], 25, length.out = npts2)
+xx1 <- seq(xlims[1], BPoints[2], length.out = npts)
+xx2 <- seq(BPoints[2], 1, length.out = npts)
+xx3 <- seq(xlims[1], BPoints[3], length.out = npts)
+xx4 <- seq(BPoints[3], 1, length.out = npts)
+xx5 <- seq(xlims[1], 1, length.out = npts)
+
 
 #Draw the lines for the graphs
-lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, Mch(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, MRP(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx3, WageFn(xx3), col = COLA[4], lwd = graphlinewidth, lty = 2)
+lines(xx4, WageFn(xx4), col = COLA[4], lwd = graphlinewidth, lty = 2)
+lines(xx1, Mch(xx1), col = COLA[5], lwd = graphlinewidth, lty = 2)
+lines(xx2, Mch(xx2), col = COLA[5], lwd = graphlinewidth, lty = 1)
+lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
-#Guesses at intersections
-LPoints <- c(0.465, 0.56) 
-BPoints <- c(0.37, 0.53)
+
 
 
 #Customize ticks and labels for the plot
@@ -87,12 +94,12 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Axis labels 
 text(0.5*xlims[2], -4.5,  expression(paste("Hours of employment as a fraction of labor supply, ", h)), xpd = TRUE, cex = axislabelsize) 
-text(-0.1, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.13, 0.5*ylims[2], expression(paste("Wages, costs, and revenues ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Annotation of the  graphs
-text(0.85, 43, expression(paste("Wage curve")), cex = labelsize, xpd = TRUE)
-text(0.85, 41, expression(paste(ac(h) == w^N*(h))), cex = labelsize, xpd = TRUE)
+text(0.86, 43, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
+text(0.86, 41, expression(paste(ac(h))), cex = labelsize, xpd = TRUE)
 
 text(0.62, 43, expression(paste("Marginal cost")), cex = labelsize, xpd = TRUE)
 text(0.62, 41, expression(paste(mc(h))), cex = labelsize, xpd = TRUE)
@@ -147,11 +154,7 @@ LPoints <- c(0.465, 0.56)
 #segments(0, 12.5, 1, 12.5, lty = 2, lwd = graphlinewidth, col = COLB[3])
 
 
-BPoints <- c(0.37, 0.53)
-#Binding minimum wage
-segments(0, 19, 1, 19, lty = 1, lwd = graphlinewidth, col = COL[2])
-points(BPoints[1], MRP(BPoints[1]), pch = 16, col = "black", cex = 1.5)
-text(BPoints[1], MRP(BPoints[1]) + 1.5, expression(paste(b)), cex = labelsize)
+#BPoints <- c(0.37, 0.53)
 
 
 # points(BPoints[2], Mch(BPoints[2]), pch = 16, col = "black", cex = 1.5)
@@ -162,7 +165,15 @@ text(BPoints[1], MRP(BPoints[1]) + 1.5, expression(paste(b)), cex = labelsize)
 #segments(0, Mch(LPoints[1]), LPoints[1], Mch(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 segments(LPoints[1], 0 , LPoints[1], Mch(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 segments(0, WageFn(LPoints[1]), LPoints[1], WageFn(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
-#segments(LPoints[2], 0, LPoints[2], MRP(LPoints[2]), lty = 2, lwd = segmentlinewidth, col = grays[20])
+
+segments(BPoints[1], 0, BPoints[1], MRP(BPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
+
+#Binding minimum wage
+segments(0, 19, BPoints[2], 19, lty = 1, lwd = graphlinewidth, col = COL[2])
+segments(BPoints[2], 19, 1, 19, lty = 2, lwd = graphlinewidth, col = COL[2])
+points(BPoints[1], MRP(BPoints[1]), pch = 16, col = "black", cex = 1.5)
+text(BPoints[1], MRP(BPoints[1]) + 1.5, expression(paste(b)), cex = labelsize)
+
 
 points(LPoints[1], Mch(LPoints[1]), pch = 16, col = "black", cex = 1.5)
 text(LPoints[1] - 0.03, MRP(LPoints[1]), expression(paste(a)), cex = labelsize)
@@ -171,14 +182,22 @@ text(LPoints[1] - 0.03, MRP(LPoints[1]), expression(paste(a)), cex = labelsize)
 points(LPoints[1], WageFn(LPoints[1]), pch = 16, col = "black", cex = 1.5)
 text(LPoints[1] + 0.02, WageFn(LPoints[1]) - 1, expression(paste(m)), cex = labelsize)
 
-points(LPoints[2], MRP(LPoints[2]), pch = 16, col = "black", cex = 1.5)
-text(LPoints[2] + 0.01, MRP(LPoints[2]) + 1, expression(paste(c)), cex = labelsize)
+# points(LPoints[2], MRP(LPoints[2]), pch = 16, col = "black", cex = 1.5)
+# text(LPoints[2] + 0.01, MRP(LPoints[2]) + 1, expression(paste(c)), cex = labelsize)
 
 
 #Arrow to Slope of mrp = mcl
-# Arrows(LPoints[1], Mch(LPoints[1]) + 10, LPoints[1], Mch(LPoints[1]) + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
 # text(LPoints[1], Mch(LPoints[1]) + 15, expression(paste("Profit maximum at")), cex = labelsize)
 # text(LPoints[1], Mch(LPoints[1]) + 12, expression(paste(mrp(h) == mc(h) )), cex = labelsize)
+
+#Arrows for effects of min wage
+Arrows(LPoints[1] - 0.01, -1, BPoints[1] + 0.02, -1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+Arrows(-0.05, WageFn(LPoints[1]) + 1.5, - 0.05, MRP(BPoints[1]) - 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+
+
+text(0.15, MRP(BPoints[1]) + 3, expression(paste("Binding minimum")), cex = labelsize)
+text(0.15, MRP(BPoints[1]) + 1, expression(paste("wage, ", w[b])), cex = labelsize)
 
 
 dev.off()

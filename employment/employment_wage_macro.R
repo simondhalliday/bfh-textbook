@@ -18,18 +18,18 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 
-WageFn <- function(H, delta = 5) {
-  delta /(1 - H)
+WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
+  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
 }
 
-par(mar =  c(7, 5, 4, 2))
+par(mar =  c(7, 4, 4, 2))
 
 xlims <- c(0, 1.2)
 ylims <- c(0, 40)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
-     ylab = expression(paste("Wage, ", w)),
+     ylab = expression(paste("")),
      xaxt = "n", 
      yaxt = "n",
      cex.lab = axislabelsize, 
@@ -51,25 +51,31 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 2.5, 5,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)[t])), NA)
+ticksy <- c(0, 2.5, 5.75,  40)
+ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), NA)
 ticksx <- c(0, 0.6, 1, xlims[2])
-xlabels <- c(0, NA, 1.0, NA)
+xlabels <- c(0, 0.6, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
-#Annotation of the  graphs
-text(0.67, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
-text(0.55, -9, expression(paste("Total hours of employment as a proportion of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
+#Axis labels
+text(-.1, 20, expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
+text(0.55, -10, expression(paste("Total hours of employment as a proportion of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
+#Annotation of the  graphs
+text(0.7, 35, expression(paste("Wage Curve, ", w^N,(h))), cex = labelsize)
 
 #Labor supply
 segments(1, 0, 1, 42, lty = 2, lwd = segmentlinewidth, col = grays[20])
 text(1.07, 38, expression(paste("Labor")), cex = labelsize)
 text(1.07, 36, expression(paste("supply")), cex = labelsize)
 
-points(0.6, 12.5, pch = 16, col = "black", cex = 1.5)
-segments(0.6, 0, 0.6, 12.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
+points(0.6, 11.357, pch = 16, col = "black", cex = 1.5)
+segments(0.6, 0, 0.6, 11.357, lty = 2, lwd = segmentlinewidth, col = grays[20])
+
+
+text(0.3, -6, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
+text(0.8, -6, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
 
 
 

@@ -18,13 +18,13 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
 
-WageFn <- function(H, delta = 5) {
-  delta / (1 - H)
+WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
+  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
 }
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(8, 5, 4, 2))
+par(mar =  c(8, 5, 2, 3))
 xlims <- c(0, 1.1)
 ylims <- c(0, 40)
 
@@ -40,8 +40,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-text(-0.1, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*xlims[2], -11, expression(paste("Number of workers, ", n)), xpd = TRUE, cex = axislabelsize) 
+text(-0.12, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -10, expression(paste("Number of workers, ", n)), xpd = TRUE, cex = axislabelsize) 
 
 
 npts <- 500 
@@ -66,7 +66,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.7, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
+text(0.72, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.8, 0, 0.8, WageFn(0.8), lty = 2, lwd = segmentlinewidth, col = grays[20])
@@ -85,18 +85,18 @@ text(0.79, WageFn(0.8) + 1, expression(paste("n")), cex = labelsize)
 brackets(x1 = 0.795, y1 = -3.5, x2 = 0, y2 = -3.5,  
          ticks = 0.5, curvature = 0.5, type = 1, h = 1,  
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.4, -5.5, expression(paste("employed")), xpd = TRUE, cex = labelsize)
+text(0.4, -5.7, expression(paste("employed")), xpd = TRUE, cex = labelsize)
 
 brackets(x1 = 0.895, y1 = -3.5, x2 = 0.805, y2 = -3.5,  
          ticks = 0.5, curvature = 0.5, type = 1, h = 1,
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.85, -5.5, expression(paste("unemployed")), xpd = TRUE, cex = labelsize)
+text(0.85, -5.7, expression(paste("unemployed")), xpd = TRUE, cex = labelsize)
 
 
 #Zero profit condition
-text(0.99, WageFn(0.8) + 5.6, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
-text(0.99, WageFn(0.8) + 3.6, expression(paste("condition determines")), cex = labelsize, xpd = TRUE)
-text(0.98, WageFn(0.8) + 1.3, expression(paste("the wage, ", w^C == w[0])), cex = labelsize, xpd = TRUE)
+text(1.01, WageFn(0.8) + 5.6, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
+text(1.01, WageFn(0.8) + 3.6, expression(paste("condition determines")), cex = labelsize, xpd = TRUE)
+text(1, WageFn(0.8) + 1.3, expression(paste("the wage, ", w^C == w[0])), cex = labelsize, xpd = TRUE)
 
 
 dev.off()

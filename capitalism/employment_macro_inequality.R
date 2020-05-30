@@ -11,9 +11,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-WageFn <- function(H, delta = 5) {
-  delta /(1 - H)
+WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
+  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
 }
+
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")

@@ -218,9 +218,9 @@ lines(xx2, MRP(xx2), col = COLB[3], lwd = graphlinewidth)
 # lines(xx2, Min(xx2), col = COL[2],lwd = graphlinewidth)
 
 #Axis labels
-mtext(expression(paste("Employment, ", n)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Total labor used by the employer, ", italic(l) == e^N*h)), side = 1, line = 3, cex = axislabelsize)
 # text(-0.1, 0.5*ylims[2], expression(paste("Marginal revenue and marginal cost, ", list(mrp, mcl) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.15, 0.5*ylims[2], expression(paste("Costs, the wage, and marginal revenue product, ", list(mcl, acl, w, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.15, 0.5*ylims[2], expression(paste("Marginal cost of labor, ", c[italic(l)], ", marginal revenue product of labor, ", r[italic(l)])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #add segments
 segments(employment(), 0, employment(), MRP(employment()), lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -294,8 +294,8 @@ lines(xx1, ACL(xx1, s = 1), col = COLA[3], lwd = graphlinewidth, lty= 2)
 lines(xx1, MCL(xx1, s = 1), col = COLB[3], lwd = graphlinewidth,lty = 2)
 
 #Axis labels
-mtext(expression(paste("Employment, ", n)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("Marginal cost, average cost, and marginal revenue product, ", list(mcl, acl, mrp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Total labor used by the employer, ", italic(l) == e^N*h)), side = 1, line = 2.5, cex = axislabelsize)
+text(-0.1, 0.5*ylims[2], expression(paste("Marginal cost of labor, ", c[italic(l)], ", marginal revenue product of labor, ", r[italic(l)] )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments

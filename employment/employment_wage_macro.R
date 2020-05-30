@@ -1,5 +1,6 @@
 require(shape)
 require(plotrix)
+library(pBrackets)
 pdf(file = "employment/employment_wage_macro.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -21,13 +22,13 @@ WageFn <- function(H, delta = 5) {
   delta /(1 - H)
 }
 
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(7, 5, 4, 2))
 
 xlims <- c(0, 1.2)
 ylims <- c(0, 40)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Total hours of employment as a proportion of labor supply, ", H)),
+     xlab = expression(paste("")),
      ylab = expression(paste("Wage, ", w)),
      xaxt = "n", 
      yaxt = "n",
@@ -52,19 +53,33 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #Customize ticks and labels for the plot
 ticksy <- c(0, 2.5, 5,  40)
 ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)[t])), NA)
-ticksx <- c(0, 1, xlims[2])
-xlabels <- c(0, 1.0, NA)
+ticksx <- c(0, 0.6, 1, xlims[2])
+xlabels <- c(0, NA, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the  graphs
 text(0.67, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
+text(0.55, -9, expression(paste("Total hours of employment as a proportion of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
+
 
 #Labor supply
 segments(1, 0, 1, 42, lty = 2, lwd = segmentlinewidth, col = grays[20])
 text(1.07, 38, expression(paste("Labor")), cex = labelsize)
 text(1.07, 36, expression(paste("supply")), cex = labelsize)
 
+points(0.6, 12.5, pch = 16, col = "black", cex = 1.5)
+segments(0.6, 0, 0.6, 12.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
+
+
+
+brackets(x1 = 0.59, y1 = -4, x2 = 0, y2 = -4,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+
+brackets(x1 = 1, y1 = -4, x2 = 0.61, y2 = -4,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")

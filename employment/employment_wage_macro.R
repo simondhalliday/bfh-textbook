@@ -51,39 +51,46 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 2.5, 5.75,  40)
-ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), NA)
-ticksx <- c(0, 0.6, 1, xlims[2])
-xlabels <- c(0, 0.6, 1.0, NA)
+ticksy <- c(0, 5,  40)
+ylabels <- c(0, expression(paste(B+underline(u))), NA)
+ticksx <- c(0, 0.7, 1, xlims[2])
+xlabels <- c(0, 0.7, 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Axis labels
 text(-.1, 20, expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
-text(0.55, -10, expression(paste("Total hours of employment as a proportion of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
+text(0.55, -10, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
 #Annotation of the  graphs
 text(0.7, 35, expression(paste("Wage Curve, ", w^N,(h))), cex = labelsize)
+segments(0, 5, 1, 5, lty = 2, lwd = segmentlinewidth, col = grays[20])
+
 
 #Labor supply
 segments(1, 0, 1, 42, lty = 2, lwd = segmentlinewidth, col = grays[20])
 text(1.07, 38, expression(paste("Labor")), cex = labelsize)
 text(1.07, 36, expression(paste("supply")), cex = labelsize)
 
-points(0.6, 11.357, pch = 16, col = "black", cex = 1.5)
-segments(0.6, 0, 0.6, 11.357, lty = 2, lwd = segmentlinewidth, col = grays[20])
+points(0.7, 14.5, pch = 16, col = "black", cex = 1.5)
+segments(0.7, 0, 0.7, 14.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
-
+#Labels
 text(0.3, -6, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
 text(0.8, -6, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
+text(0.61, 7.6, expression(paste("Rent")), cex = labelsize,  xpd =TRUE)
+
+#Arrows
+Arrows(0.55, 7, 0.55, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.55, 7, 0.55, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
-
-brackets(x1 = 0.59, y1 = -4, x2 = 0, y2 = -4,  
+#Brackets
+brackets(x1 = 0.69, y1 = -4, x2 = 0, y2 = -4,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
-brackets(x1 = 1, y1 = -4, x2 = 0.61, y2 = -4,  
+brackets(x1 = 1, y1 = -4, x2 = 0.71, y2 = -4,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 #Line for the absolute maximum quality

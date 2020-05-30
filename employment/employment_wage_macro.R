@@ -63,7 +63,7 @@ text(-.1, 20, expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, s
 text(0.55, -10, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
 #Annotation of the  graphs
-text(0.7, 35, expression(paste("Wage Curve, ", w^N,(h))), cex = labelsize)
+text(0.7, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
 segments(0, 5, 1, 5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 
@@ -76,8 +76,8 @@ points(0.7, 14.5, pch = 16, col = "black", cex = 1.5)
 segments(0.7, 0, 0.7, 14.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Labels
-text(0.3, -6, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
-text(0.8, -6, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
+text(0.35, -6, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
+text(0.85, -6, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
 text(0.61, 7.6, expression(paste("Rent")), cex = labelsize,  xpd =TRUE)
 
 #Arrows

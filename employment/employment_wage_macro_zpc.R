@@ -61,7 +61,7 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(w^C)), expression(paste(gamma[0])), NA)
+ylabels <- c(0, expression(paste(w^C)), expression(paste(gamma)), NA)
 ticksx <- c(0, 0.7917, xlims[2])
 xlabels <- c(0, expression(paste(H^N)), NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

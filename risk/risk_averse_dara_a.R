@@ -50,8 +50,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksy <- c(0, ConcaveU(2), ConcaveU(11), ConcaveU(24.5), ConcaveU(33.5), ylims[2])
-ylabels <- c(NA, expression(paste(u(y^{a}) )), expression(paste(u(y^b))), expression(paste(u(y^c))), expression(paste(u(y^d))), NA)
+ticksy <- c(0, ConcaveU(3), ConcaveU(10), ConcaveU(22), ConcaveU(29), ylims[2])
+ylabels <- c(NA, expression(paste(u(y^{a}) )), expression(paste(u(y^b))), expression(paste(u(y^b^minute))), expression(paste(u(y^a^minute))), NA)
 
 # ticksx <- c(0, 3, 10, 22, 36, xlims[2])
 ticksx <- c(0, 16, xlims[2])
@@ -93,7 +93,7 @@ text(3.8, ConcaveU(3) - .12, expression(paste(a)), cex = labelsize)
 points(3, ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 
 #Point c
-text(22.8, ConcaveU(22) - .1, expression(paste(c)), cex = labelsize)
+text(22.8, ConcaveU(22) - .1, expression(paste(b*minute)), cex = labelsize)
 # segments(22, ConcaveU(22), 22, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(22, ConcaveU(22), pch = 16, col = "black", cex = 1.5)
 
@@ -103,7 +103,7 @@ text(10.8, ConcaveU(10) - .1, expression(paste(b)), cex = labelsize)
 points(10, ConcaveU(10), pch = 16, col = "black", cex = 1.5)
 
 #Point d 
-text(29.8, ConcaveU(29) - .1, expression(paste(d)), cex = labelsize)
+text(29.8, ConcaveU(29) - .1, expression(paste(a*minute)), cex = labelsize)
 # segments(36, ConcaveU(36), 36, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(29, ConcaveU(29), pch = 16, col = "black", cex = 1.5)
 

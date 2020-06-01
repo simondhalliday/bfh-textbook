@@ -22,7 +22,7 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
   B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
 }
 
-par(mar =  c(7, 4, 2, 7))
+par(mar =  c(7, 6, 1, 7))
 
 xlims <- c(0, 1.05)
 ylims <- c(0, 40)
@@ -52,14 +52,14 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 5, WageFn(h = 0.7), 40)
-ylabels <- c(0, expression(paste(B+underline(u))), expression(paste(w[a])), NA)
+ylabels <- c(0, expression(paste(B+underline(u))), expression(paste(w[a]^N*(H[a]))), NA)
 ticksx <- c(0, 0.7, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[a])), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Axis labels
-text(-.08, 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
+text(-.16,  1 + 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
 text(0.55, -8, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
 #Annotation of the  graphs

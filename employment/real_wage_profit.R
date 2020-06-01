@@ -26,14 +26,14 @@ WageFn <- function(H, delta = 5) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(5, 5, 4, 2))
-xlims <- c(0, 1.5)
+par(mar =  c(5, 5, 1, 12))
+xlims <- c(0, 1)
 ylims <- c(0, 40)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("Total Hours of Employment, ", H)),
-     ylab = expression(paste("Real wage, w, and labor productivity")),
+     xlab = "",
+     ylab = "",
      xaxt = "n", 
      yaxt = "n",
      cex.lab = axislabelsize, 
@@ -57,36 +57,44 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma[0])), NA)
-ticksx <- c(0, 1.305, xlims[2])
-xlabels <- c(0, 1.0, NA)
+ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma)), NA)
+ticksx <- c(0, 1, xlims[2])
+xlabels <- c(0, 1, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
+#Axis labels
+text(0.59, -5, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize, xpd = TRUE)
+text(-0.125, 20, expression(paste("Wage, w, and productivity, ", gamma)), cex = axislabelsize, xpd = TRUE, srt = 90)
+
+
 #Annotation of the  graphs
-text(1, 19, expression(paste("Competition Condition")), cex = labelsize)
+text(0.85, 19, expression(paste("Competition")), cex = labelsize)
+text(0.85, 17, expression(paste("condition, ", w^C)), cex = labelsize)
 
 
-text(1.05, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize)
+text(0.8, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize, xpd = TRUE)
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Arrow to Slope of BRF
 #Arrows(0.2, 19, 0.2, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.325, 18, expression(paste("If the ", w<w^c, " new firms will"  )), cex = labelsize)
-text(0.325, 16, expression(paste("be able to make economic")), cex = labelsize)
-text(0.325, 14, expression(paste("profits and the number of")), cex = labelsize)
-text(0.325, 12, expression(paste("firms will grow")), cex = labelsize)
-Arrows(0.63, 15, 0.9, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(0.325, 18, expression(paste("If the ", w<w^c, " new firms will"  )), cex = labelsize)
+# text(0.325, 16, expression(paste("be able to make economic")), cex = labelsize)
+# text(0.325, 14, expression(paste("profits and the number of")), cex = labelsize)
+# text(0.325, 12, expression(paste("firms will grow")), cex = labelsize)
+text(0.325, 17, expression(paste("Firms entering")), cex = labelsize)
+Arrows(0.2, 15, 0.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 
 # Arrows(0.6, 19, 0.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.42, 28, expression(paste("If the ", w>w^c,  " profits will")), cex = labelsize)
-text(0.42, 26, expression(paste("be insufficient and firms")), cex = labelsize)
-text(0.42, 24, expression(paste("will leave")), cex = labelsize)
-Arrows(0.15, 26, 0.03, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(0.42, 28, expression(paste("If the ", w>w^c,  " profits will")), cex = labelsize)
+# text(0.42, 26, expression(paste("be insufficient and firms")), cex = labelsize)
+# text(0.42, 24, expression(paste("will leave")), cex = labelsize)
+text(0.32, 24, expression(paste("Firms exiting")), cex = labelsize)
+Arrows(0.45, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -99,8 +107,8 @@ Arrows(0.15, 26, 0.03, 26, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 #Zero profit condition 
-segments(0, 20, xlims[2] - 0.2, 20, lty = 1, lwd = 2, col = COLB[2])
-segments(0, 30, xlims[2] - 0.2, 30, lty = 2, lwd = 2, col = COLA[2])
+segments(0, 20, xlims[2], 20, lty = 1, lwd = 2, col = COLB[2])
+segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[2])
 # segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Unemployment benefits & a
@@ -113,18 +121,28 @@ segments(0, 30, xlims[2] - 0.2, 30, lty = 2, lwd = 2, col = COLA[2])
 # text(0.97, 3.5, expression(paste(b, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
-brackets(x1 = 1.31, y1 = 29.9, x2 = 1.31, y2 = 0.1,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
-brackets(x1 = 1.3, y1 = 20.1, x2 = 1.3, y2 = 29.9,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
-brackets(x1 = 1.3, y1 = 0.1, x2 = 1.3, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.1)
 
-text(1.47, 17, expression(paste("Output")), cex = labelsize, xpd = TRUE)
-text(1.47, 15, expression(paste("per")), cex = labelsize, xpd = TRUE)
-text(1.47, 13, expression(paste("worker")), cex = labelsize, xpd = TRUE)
-text(1.07, 10, expression(paste("Real wage")), cex = labelsize)
-text(0.95, 25, expression(paste("Proft per worker hour")), cex = labelsize)
+#Profits
+brackets(x1 = 1.26, y1 = 29.9, x2 = 1.26, y2 = 0.1,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.03)
+
+brackets(x1 = 1.01, y1 = 29.9, x2 = 1.01, y2 = 20.1,  ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.03)
+
+brackets(x1 = 1.01, y1 = 19.9, x2 = 1.01, y2 = 0.1,  ticks = 0.5, 
+         curvature = 0.5, type = 1, 
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.03)
+
+
+text(1.35, 17, expression(paste("Output")), cex = labelsize, xpd = TRUE)
+text(1.35, 15, expression(paste("per")), cex = labelsize, xpd = TRUE)
+text(1.35, 13, expression(paste("worker")), cex = labelsize, xpd = TRUE)
+text(1.35, 11, expression(paste(gamma)), cex = labelsize, xpd = TRUE)
+
+text(1.14, 11, expression(paste("Real")), cex = labelsize, xpd = TRUE)
+text(1.14, 9, expression(paste("wage, ",  w^C)), cex = labelsize, xpd = TRUE)
+text(1.15, 25, expression(paste("Profit per")), cex = labelsize, xpd = TRUE)
+text(1.15, 23, expression(paste("worker hour")), cex = labelsize, xpd = TRUE)
 
 
 dev.off()

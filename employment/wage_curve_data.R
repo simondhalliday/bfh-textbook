@@ -13,7 +13,7 @@ Emp1 <-
   mutate_each(funs(gsub(",", "", .)), earnings) %>%
   mutate_each(funs(as.numeric(.)), earnings)
 
-pdf(file = "employment/wage_curve_data.pdf", width = 7, height = 4)
+pdf(file = "employment/wage_curve_data.pdf", width = 7, height = 5)
 
 Emp1 %>% 
   ggplot(aes(x = totemp, y = earnings)) +
@@ -22,12 +22,12 @@ Emp1 %>%
   ylim(42000, 49000) + 
   xlim(80, 100) +
   ylab("Total earnings (2013 $)") +
-  xlab("Total hours of employment as a proportion of labor supply, H") +
+  xlab("Hours of employment as a fraction of labor supply, H") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         axis.text.x = element_text(size = 12),
         axis.text.y = element_text(size = 12),  
-        axis.title.x = element_text(size = 15),
-        axis.title.y = element_text(size = 15))
-
+        axis.title.x = element_text(size = 17),
+        axis.title.y = element_text(size = 17)
+        )
 dev.off()

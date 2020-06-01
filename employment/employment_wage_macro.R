@@ -22,9 +22,9 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
   B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
 }
 
-par(mar =  c(7, 4, 4, 2))
+par(mar =  c(7, 4, 2, 7))
 
-xlims <- c(0, 1.2)
+xlims <- c(0, 1.05)
 ylims <- c(0, 40)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -51,16 +51,16 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 5,  40)
-ylabels <- c(0, expression(paste(B+underline(u))), NA)
+ticksy <- c(0, 5, WageFn(h = 0.7), 40)
+ylabels <- c(0, expression(paste(B+underline(u))), expression(paste(w[a])), NA)
 ticksx <- c(0, 0.7, 1, xlims[2])
-xlabels <- c(0, 0.7, 1.0, NA)
+xlabels <- c(0, expression(paste(H[a])), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Axis labels
-text(-.1, 20, expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
-text(0.55, -10, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
+text(-.08, 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
+text(0.55, -8, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
 #Annotation of the  graphs
 text(0.7, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
@@ -69,30 +69,52 @@ segments(0, 5, 1, 5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Labor supply
 segments(1, 0, 1, 42, lty = 2, lwd = segmentlinewidth, col = grays[20])
-text(1.07, 38, expression(paste("Labor")), cex = labelsize)
-text(1.07, 36, expression(paste("supply")), cex = labelsize)
+text(1.07, 39, expression(paste("Labor")), cex = labelsize, xpd = TRUE)
+text(1.07, 37, expression(paste("supply")), cex = labelsize, xpd = TRUE)
 
-points(0.7, 14.5, pch = 16, col = "black", cex = 1.5)
 segments(0.7, 0, 0.7, 14.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
+segments(0, WageFn(0.7), 1, 14.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
+points(0.7, 14.5, pch = 16, col = "black", cex = 1.5)
+text(0.7, 14.5 + 1.5, expression(paste(a)), cex = labelsize)
+
 
 #Labels
-text(0.35, -6, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
-text(0.85, -6, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
-text(0.61, 7.6, expression(paste("Rent")), cex = labelsize,  xpd =TRUE)
+text(0.35, -4, expression(paste("Employed")), cex = labelsize,  xpd =TRUE)
+text(0.85, -4, expression(paste("Unemployed")), cex = labelsize,  xpd =TRUE)
+
+text(1.1, 10, expression(paste("Rent")), cex = labelsize,  xpd =TRUE)
+text(1.15, 3.5, expression(paste("Willingness")), cex = labelsize,  xpd =TRUE)
+text(1.15, 1.5, expression(paste("to sell")), cex = labelsize,  xpd =TRUE)
 
 #Arrows
-Arrows(0.55, 7, 0.55, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.55, 7, 0.55, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# Arrows(0.55, 7, 0.55, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# Arrows(0.55, 7, 0.55, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #Brackets
-brackets(x1 = 0.69, y1 = -4, x2 = 0, y2 = -4,  
+#Employed
+brackets(x1 = 0.67, y1 = -1, x2 = 0.02, y2 = -1,  
          ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+         col = "black", lwd = 2, h = 2,
+         lty = 1, xpd = TRUE)
+#Unemployed
+brackets(x1 = 0.98, y1 = -1, x2 = 0.73, y2 = -1,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, h = 2,
+         lty = 1, xpd = TRUE)
+#Rent
+brackets(x1 = 1.02, y1 = 14.8, x2 = 1.02, y2 = 5.2,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, h = 0.03,
+         lty = 1, xpd = TRUE)
 
-brackets(x1 = 1, y1 = -4, x2 = 0.71, y2 = -4,  
+#Willingness to sell
+brackets(x1 = 1.02, y1 = 4.8, x2 = 1.02, y2 = 0.2,  
          ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+         col = "black", lwd = 2, h = 0.03,
+         lty = 1, xpd = TRUE)
+
+
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")

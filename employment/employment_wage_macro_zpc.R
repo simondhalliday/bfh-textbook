@@ -21,8 +21,8 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(5, 5, 4, 2))
-xlims <- c(0, 1.2)
+par(mar =  c(5, 5, 4, 8))
+xlims <- c(0, 1.001)
 ylims <- c(0, 40)
 
 
@@ -40,7 +40,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx1 <- seq(xlims[1], 0.9, length.out = npts)
+xx1 <- seq(xlims[1], 0.99, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
@@ -63,16 +63,18 @@ lines(xx1, WageFn(xx1), col = COLA[4], lwd = graphlinewidth)
 ticksy <- c(0, 20, 30, 40)
 ylabels <- c(0, expression(paste(w^C)), expression(paste(gamma)), NA)
 ticksx <- c(0, 0.7917, xlims[2])
-xlabels <- c(0, expression(paste(H^N)), NA)
+xlabels <- c(0, expression(paste(H^N)), 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(1.07, 38, expression(paste("Wage curve, ", w^N,(H))), cex = labelsize, xpd = TRUE)
+text(0.96, 43, expression(paste("Wage curve")), cex = labelsize, xpd = TRUE)
+text(0.96, 41, expression(paste(w^N*(H))), cex = labelsize, xpd = TRUE)
 #text(0.75, 38, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
-text(0.985, 10, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
+text(0.71, 43, expression(paste("Employment")), cex = labelsize,  xpd = TRUE)
+text(0.71, 41, expression(paste("level, ", H^N)), cex = labelsize,  xpd = TRUE)
 
-segments(0.7917, 0, 0.7917, ylims[2], lty = 2, lwd = graphlinewidth, col = grays[20])
+segments(0.7917, 0, 0.7917, ylims[2], lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -83,7 +85,13 @@ segments(0, 20, 0.7917, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.7917, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 # Gamma
 segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[3])
-text(1.05, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize,  xpd = TRUE)
+text(1.11, 33, expression(paste("Output per")), cex = labelsize,  xpd = TRUE)
+text(1.11, 31, expression(paste("worker, ", gamma)), cex = labelsize,  xpd = TRUE)
+
+# Supply of labor
+segments(xlims[2], 0, xlims[2], ylims[2], lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)
+text(1.11, 6, expression(paste("Supply of")), cex = labelsize,  xpd = TRUE)
+text(1.11, 4, expression(paste("labor, ", H == 1)), cex = labelsize,  xpd = TRUE)
 
 
 points(0.7917, 20, pch = 16, col = "black", cex = 1.5)
@@ -95,23 +103,26 @@ text(0.77, 21, expression(paste("n")), cex = labelsize)
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = 2, col = "darkgray")
 
 #Zero profit condition
-text(1, 21, expression(paste("Competition condition")), cex = labelsize, xpd = TRUE)
+text(1.12, 19, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
+text(1.12, 17, expression(paste("condition, ", w^C)), cex = labelsize, xpd = TRUE)
 #text(1.02, 21.25, expression(paste(w == bar(Delta))), cex = labelsize, xpd = TRUE)
 
 text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
 text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
-text(1.05, 4, expression(paste("No production")), cex = labelsize)
+text(0.25, 4, expression(paste("No")), cex = labelsize)
+text(0.25, 2, expression(paste("production")), cex = labelsize)
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 
-
-# Arrows 
-text(0.57, 25, expression(paste("Profits")), cex = labelsize)
-Arrows(0.5, 22, 0.5, 28, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-Arrows(0.5, 28, 0.5, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#Profits
+brackets(x1 = 1.02, y1 = 29.8, x2 = 1.02, y2 = 20.2,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, h = 0.03,
+         lty = 1, xpd = TRUE)
+text(1.14, 25, expression(paste("Profits, ", pi^E)), cex = labelsize, xpd = TRUE)
 
 # text(0.55, 15, expression(paste("Wages")))
 # Arrows(0.5, 18, 0.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

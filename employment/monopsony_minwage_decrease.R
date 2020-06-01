@@ -1,6 +1,6 @@
 require(shape)
 require(plotrix)
-pdf(file = "employment/monopsony_minwage_binding.pdf", width = 9, height = 7)
+pdf(file = "employment/monopsony_minwage_decrease.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -71,10 +71,10 @@ xx5 <- seq(xlims[1], 1, length.out = npts)
 
 
 #Draw the lines for the graphs
-lines(xx3, WageFn(xx3), col = COLA[4], lwd = graphlinewidth, lty = 2)
-lines(xx4, WageFn(xx4), col = COLA[4], lwd = graphlinewidth, lty = 2)
-lines(xx1, Mch(xx1), col = COLA[5], lwd = graphlinewidth, lty = 2)
-lines(xx2, Mch(xx2), col = COLA[5], lwd = graphlinewidth, lty = 1)
+lines(xx3, WageFn(xx3), col = grays[21], lwd = graphlinewidth, lty = 2)
+lines(xx4, WageFn(xx4), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, Mch(xx1), col = grays[21], lwd = graphlinewidth, lty = 2)
+lines(xx2, Mch(xx2), col = grays[21], lwd = graphlinewidth, lty = 2)
 lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
 
@@ -85,12 +85,17 @@ lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
 
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 5, MRP(BPoints[1]), WageFn(LPoints[1]), 40)
-ylabels <- c(0, expression(paste(B+underline(u))), expression(paste(w[d])), expression(paste(w^M)), NA)
-ticksx <- c(0, BPoints[1], LPoints[1], 1, xlims[2])
-xlabels <- c(0, expression(paste(h[d])), expression(paste(h^M)),  1.0, NA)
+ticksy <- c(0, MRP(BPoints[1]), WageFn(LPoints[1]), 40)
+ylabels <- c(0, NA, expression(paste(w^M)), NA)
+ticksx <- c(0, BPoints[1], LPoints[1], BPoints[3], 1, xlims[2])
+xlabels <- c(0, expression(paste(h[d])), expression(paste(h^M)), expression(paste(h[g])),  1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
+
+
+text(-0.035, 19 + 0.75,  expression(paste(w[d]^min)), xpd = TRUE, cex = labelsize) 
+
+
 
 #Axis labels 
 text(0.5*xlims[2], -4.5,  expression(paste("Hours of employment as a fraction of local labor supply, ", h)), xpd = TRUE, cex = axislabelsize) 
@@ -99,13 +104,13 @@ text(-0.13, 0.5*ylims[2], expression(paste("Wages, costs, and revenues ($)")), x
 
 #Annotation of the  graphs
 text(0.86, 43, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
-text(0.86, 41, expression(paste(ac(h))), cex = labelsize, xpd = TRUE)
+text(0.86, 41, expression(paste(ach)), cex = labelsize, xpd = TRUE)
 
 text(0.62, 43, expression(paste("Marginal cost")), cex = labelsize, xpd = TRUE)
-text(0.62, 41, expression(paste(mc(h))), cex = labelsize, xpd = TRUE)
+text(0.62, 41, expression(paste(mch)), cex = labelsize, xpd = TRUE)
 
 text(0.2, 43, expression(paste("Marginal revenue product")), cex = labelsize, xpd = TRUE)
-text(0.2, 41, expression(paste(mrp(h))), cex = labelsize, xpd = TRUE)
+text(0.2, 41, expression(paste(mrph)), cex = labelsize, xpd = TRUE)
 
 
 
@@ -147,14 +152,15 @@ text(1.04, 41, expression(paste("supply")), cex = labelsize, xpd = TRUE)
 #text(1.08, 36, expression(paste("level of")))
 #text(1.08, 34, expression(paste("employment, ", bar(H))))
 
-#Guesses at intersections
-LPoints <- c(0.465, 0.56) 
 
 #Fixed wage comparison
 #segments(0, 12.5, 1, 12.5, lty = 2, lwd = graphlinewidth, col = COLB[3])
 
 
-#BPoints <- c(0.37, 0.53)
+
+#Guesses at intersections
+# LPoints <- c(0.465, 0.56) 
+# BPoints <- c(0.37, 0.53)
 
 
 # points(BPoints[2], Mch(BPoints[2]), pch = 16, col = "black", cex = 1.5)
@@ -171,8 +177,22 @@ segments(BPoints[1], 0, BPoints[1], MRP(BPoints[1]), lty = 2, lwd = segmentlinew
 #Binding minimum wage
 segments(0, 19, BPoints[3], 19, lty = 1, lwd = graphlinewidth, col = COL[2])
 segments(BPoints[3], 19, 1, 19, lty = 2, lwd = graphlinewidth, col = COL[2])
+
+#Green part of min wage
+segments(0, 19 - 0.3, BPoints[3], WageFn(BPoints[3]) - 0.3, lty = 2, lwd = graphlinewidth, col = COLA[4])
+
 points(BPoints[1], MRP(BPoints[1]), pch = 16, col = "black", cex = 1.5)
 text(BPoints[1], MRP(BPoints[1]) + 1.5, expression(paste(d)), cex = labelsize)
+
+segments(BPoints[3], 0, BPoints[3], WageFn(BPoints[3]), lty = 2, lwd = segmentlinewidth, col = grays[20])
+points(BPoints[3], WageFn(BPoints[3]), pch = 16, col = "black", cex = 1.5)
+text(BPoints[3] + 0.02, WageFn(BPoints[3]) - 1.2, expression(paste(g)), cex = labelsize)
+
+
+#Arrow to mrp = mcl
+Arrows(BPoints[1], MRP(BPoints[1]) + 11, BPoints[1], MRP(BPoints[1]) + 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(BPoints[1] + 0.02, MRP(BPoints[1]) + 15, expression(paste("Profit maximum at")), cex = labelsize)
+text(BPoints[1] + 0.02, MRP(BPoints[1]) + 12, expression(paste(mrph == mch,phantom() == w[d]^min)), cex = labelsize)
 
 
 points(LPoints[1], Mch(LPoints[1]), pch = 16, col = "black", cex = 1.5)
@@ -196,8 +216,8 @@ Arrows(LPoints[1] - 0.01, -1, BPoints[1] + 0.02, -1, col = "black", lty = 1, lwd
 Arrows(-0.05, WageFn(LPoints[1]) + 1.5, - 0.05, MRP(BPoints[1]) - 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
 
-text(0.15, MRP(BPoints[1]) + 3, expression(paste("Minimum")), cex = labelsize)
-text(0.15, MRP(BPoints[1]) + 1, expression(paste("wage, ", w[d])), cex = labelsize)
+text(0.15, MRP(BPoints[1]) + 3.6, expression(paste("Minimum")), cex = labelsize)
+text(0.15, MRP(BPoints[1]) + 1.6, expression(paste("wage, ", w[d]^min)), cex = labelsize)
 
 
 dev.off()

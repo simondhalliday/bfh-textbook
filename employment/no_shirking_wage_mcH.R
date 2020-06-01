@@ -40,7 +40,7 @@ costRevSol <- function(h, constant = 7, ubar = 3, B = 2, t = 0.8){
 
 #uniroot(costRevSol(x, constant = 7, ubar = 3, B = 2, t = 0.8), lower = 0.01, upper = 1)
   
-par(mar =  c(5, 5, 4, 2))
+par(mar =  c(5, 6, 4, 2))
 
 xlims <- c(0, 1.05)
 ylims <- c(0, 40)
@@ -77,27 +77,27 @@ LPoints <- c(0.465, 0.56)
 
 
 #Customize ticks and labels for the plot
-ticksy <- c(0, 5, WageFn(LPoints[1]), MRP(LPoints[2]), 40)
-ylabels <- c(0, expression(paste(B+underline(u))), expression(paste(w^M)), expression(paste(w^C)), NA)
+ticksy <- c(0, WageFn(LPoints[1]), MRP(LPoints[2]), 40)
+ylabels <- c(0,  expression(paste(w^M)), expression(paste(w^N)), NA)
 ticksx <- c(0, LPoints, 1, xlims[2])
-xlabels <- c(0, expression(paste(h^M)), expression(paste(h^C)), 1.0, NA)
+xlabels <- c(0, expression(paste(h^M)), expression(paste(h^N)), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Axis labels 
-text(0.5*xlims[2], -4.5,  expression(paste("Hours of employment as a fraction of labor supply, ", h)), xpd = TRUE, cex = axislabelsize) 
-text(-0.1, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -4.5,  expression(paste("Hours of employment as a fraction of local labor supply, ", h)), xpd = TRUE, cex = axislabelsize) 
+text(-0.13, 0.5*ylims[2], expression(paste("Wages, costs, and revenues ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Annotation of the  graphs
-text(0.85, 43, expression(paste("Wage curve")), cex = labelsize, xpd = TRUE)
-text(0.85, 41, expression(paste(ac(h) == w^N*(h))), cex = labelsize, xpd = TRUE)
+text(0.85, 43, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
+text(0.85, 41, expression(paste(ach)), cex = labelsize, xpd = TRUE)
 
 text(0.62, 43, expression(paste("Marginal cost")), cex = labelsize, xpd = TRUE)
-text(0.62, 41, expression(paste(mc(h))), cex = labelsize, xpd = TRUE)
+text(0.62, 41, expression(paste(mch)), cex = labelsize, xpd = TRUE)
 
 text(0.2, 43, expression(paste("Marginal revenue product")), cex = labelsize, xpd = TRUE)
-text(0.2, 41, expression(paste(mrp(h))), cex = labelsize, xpd = TRUE)
+text(0.2, 41, expression(paste(mrph)), cex = labelsize, xpd = TRUE)
 
 
 
@@ -159,13 +159,13 @@ points(LPoints[1], WageFn(LPoints[1]), pch = 16, col = "black", cex = 1.5)
 text(LPoints[1] + 0.02, WageFn(LPoints[1]) - 1, expression(paste(m)), cex = labelsize)
 
 points(LPoints[2], MRP(LPoints[2]), pch = 16, col = "black", cex = 1.5)
-text(LPoints[2] + 0.01, MRP(LPoints[2]) + 1, expression(paste(c)), cex = labelsize)
+text(LPoints[2] + 0.01, MRP(LPoints[2]) + 1, expression(paste(n)), cex = labelsize)
 
 
 #Arrow to Slope of mrp = mcl
 Arrows(LPoints[1], Mch(LPoints[1]) + 10, LPoints[1], Mch(LPoints[1]) + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(LPoints[1], Mch(LPoints[1]) + 15, expression(paste("Profit maximum at")), cex = labelsize)
-text(LPoints[1], Mch(LPoints[1]) + 12, expression(paste(mrp(h) == mc(h) )), cex = labelsize)
+text(LPoints[1], Mch(LPoints[1]) + 12, expression(paste(mrph == mch )), cex = labelsize)
 
 
 dev.off()

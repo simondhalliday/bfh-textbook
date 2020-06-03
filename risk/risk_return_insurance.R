@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.5), ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)^n)), expression(paste(hat(y)[i]^{c2})), expression(paste(hat(y)[i]^{c1})), NA)
+ylabels <- c(NA, expression(paste(hat(y)^n)), expression(paste(hat(y)[s]^{2})), expression(paste(hat(y)[s]^{1})), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i]^{c2})), expression(paste(Delta^n)), expression(paste(Delta[i]^{c1})), NA)
+xlabels <- c(NA, expression(paste(Delta[s]^{2})), expression(paste(Delta^n)), expression(paste(Delta[s]^{1})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -101,7 +101,7 @@ brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1,
          x2 = 10.7, y2 = insurance(1.8),  
          ticks = 0.5, curvature = 0.5, type = 1, h = 0.5,
          col = "black", lwd = 1.5, lty = 1, xpd = TRUE)
-text(12.1, 12.1, expression(paste(p[s]%.%i == phantom())), xpd = TRUE, cex = labelsize)
+text(12.1, 12.1, expression(paste(p[s]%.%s == phantom())), xpd = TRUE, cex = labelsize)
 text(13.8, 12.4, expression(paste("Insurance")), xpd = TRUE, cex = labelsize)
 text(13.8, 11.6, expression(paste("premium")), xpd = TRUE, cex = labelsize)
 
@@ -117,7 +117,7 @@ Arrows(10.4, .5, 2, 0.5,
        arr.lwd = 0.5, code = 2)
 text(3.7, 2.4, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
 text(3.7, 1.7, expression(paste("risk exposure due")), cex = labelsize, xpd = TRUE)
-text(3.7, 1, expression(paste("to insurance, i")), cex = labelsize, xpd = TRUE)
+text(3.7, 1, expression(paste("to insurance, s")), cex = labelsize, xpd = TRUE)
 
 
 text(14, 16.4, expression(paste("Insurance")), cex = labelsize, xpd = TRUE)

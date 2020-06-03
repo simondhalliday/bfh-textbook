@@ -32,9 +32,9 @@ IneqNL1$IncomeType <- factor(IneqNL1$IncomeType, levels = c('ValuesMI', 'ValuesD
 
 plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
-  xlab("Population Decile of the Netherlands") + 
-  ylab("Share of Market Income") +
+  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income type", labels = c("Market income", "Disposable income")) +
+  xlab("Population decile of the Netherlands") + 
+  ylab("Share of market income") +
   theme_bw() + 
   ylim(0,0.4) + 
   scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
@@ -46,23 +46,9 @@ plot1 <- ggplot(IneqNL1, aes(x = Percentile, y = value, group = IncomeType, fill
         axis.text.x = element_text(size = 15),
         axis.text.y = element_text(size = 15),
         axis.title.x = element_text(size = 18))
-plot1
 
-# IneqNL2 <- IneqNL %>% 
-#   mutate(Diff = `Disposable Income` - lag(`Disposable Income`)) %>%
-#   mutate(Values = ifelse(is.na(Diff), `Disposable Income`, Diff))
-# 
-# 
-# plot2 <- ggplot(IneqNL2, aes(x = Percentile, y = Values)) + 
-#   geom_bar(stat = "identity", position = "dodge", fill = "#386cb0", color="#386cb0") + 
-#   xlab("Population Decile") + 
-#   ylab("Share of Disposable Income") +
-#   theme_bw() + 
-#   scale_x_discrete(labels=c("9" = "0 - 10", "19" = "11-20",
-#                             "29" = "21-30", "39" = "31-40", "49" = "41-50","59" = "51-60", "69" = "61-70", "79" = "71-80", "89" = "81-90", "99" = "91-100"))
-# 
-# 
-# plot2
+
+
 IneqUS <- df[-c(1:10), ]
 
 
@@ -77,9 +63,9 @@ IneqUS1$IncomeType <- factor(IneqUS1$IncomeType, levels = c('ValuesMI', 'ValuesD
 
 plot2 <- ggplot(IneqUS1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income Type", labels = c("Market Income", "Disposable Income")) +
-  xlab("Population Decile of the USA") + 
-  ylab("Share of Market Income") +
+  scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income type", labels = c("Market income", "Disposable income")) +
+  xlab("Population decile of the USA") + 
+  ylab("Share of market income") +
   theme_bw() + 
   ylim(0,0.4) + 
   scale_x_discrete(labels=c("9" = "0-10", "19" = "11-20",
@@ -92,7 +78,6 @@ plot2 <- ggplot(IneqUS1, aes(x = Percentile, y = value, group = IncomeType, fill
         axis.text.y = element_text(size = 15),
         axis.title.x = element_text(size = 18))
 
-plot2
 
 
 ggsave(plot1, filename = "income_decile_NL.pdf",
@@ -104,5 +89,5 @@ ggsave(plot2, filename = "income_decile_US.pdf",
        width = 9, height = 7, units = "in")
 
 
-dev.off()
+
 

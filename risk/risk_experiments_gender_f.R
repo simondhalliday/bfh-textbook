@@ -55,7 +55,9 @@ xlabels <- c(NA, 12, 24, 36, 48, 56, NA)
 
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = labelsize)
-mtext(expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], 13.5, expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), xpd = TRUE, cex = axislabelsize)
+
 text(xlims[1] - 5.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected payoff, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 axis.break(axis = 2, bgcol="white", breakcol="black",

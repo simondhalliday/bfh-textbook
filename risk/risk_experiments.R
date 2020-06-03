@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
 par(mar =  c(5, 5, 1, 1))
@@ -53,7 +53,9 @@ xlabels <- c(NA, 12, 24, 36, 48, 56, NA)
 
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = labelsize)
-mtext(expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+
+
+text(0.5*xlims[2], 13.5, expression(paste("Difference in payoff (good versus bad outcome), ", Delta, ", risk")), xpd = TRUE, cex = axislabelsize)
 text(xlims[1] - 5.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected payoff, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 axis.break(axis = 2, bgcol="white", breakcol="black",

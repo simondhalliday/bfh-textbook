@@ -14,10 +14,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 6, 0.5, 0.5))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -36,10 +36,6 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      xlab = expression(paste("")),
      ylab = expression(paste("")), 
      axes = FALSE,
-     # xlab = expression(paste("Bob's Payoff, ", u^B)),
-     # ylab = expression(paste("Alfredo's Payoff, ", u^A)),
-     #xaxt = "n", 
-     #yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
      xaxs = "i", 
@@ -51,7 +47,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksy <- c(0,  2, 5.6, 9, riskreturn(g = 5.6), riskreturn(g = 12) ,ylims[2])
 ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y) )), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[y])), NA)
+xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
 text(xlims[1] - 0.5, 8.75, expression(paste(c[3])), cex = labelsize, xpd = TRUE)
 text(xlims[1] - 0.5, riskreturn(g = 5.6) + 0.25, expression(paste(hat(y)[i])), cex = labelsize, xpd = TRUE)
@@ -76,19 +72,19 @@ segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[
 
 #Add points a, b, c and c
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(i), cex = labelsize)
+text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(a), cex = labelsize)
 
 
 points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
-text(12 + 0.25, riskreturn(g = 12) - 0.3, expression(d), cex = labelsize)
+text(12, riskreturn(g = 12) + 0.5, expression(m), cex = labelsize)
 
 
 points(1.8, riskreturn(g = 1.8) , pch = 16, col = "black", cex = 1.5)
-text(1.8 + 0.25, riskreturn(g = 1.8) - 0.3, expression(a), cex = labelsize)
+text(1.8 + 0.25, riskreturn(g = 1.8) - 0.3, expression(c), cex = labelsize)
 
 
 points(9.5, riskreturn(g = 9.5) , pch = 16, col = "black", cex = 1.5)
-text(9.5 + 0.25, riskreturn(g = 9.5) - 0.3, expression(b), cex = labelsize)
+text(9.5 + 0.25, riskreturn(g = 9.5) - 0.3, expression(d), cex = labelsize)
 
 
 #Label risk return schedule

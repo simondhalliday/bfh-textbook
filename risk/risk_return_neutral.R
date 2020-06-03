@@ -14,10 +14,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
-par(mar =  c(5, 6, 4, 2))
+par(mar =  c(5, 6, 0.5, 0.5))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -53,7 +53,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12), 17, ylims[2])
 ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(c) == c[2],phantom() == hat(y))), expression(paste(c[3])), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[i])), expression(paste(Delta[y])), NA)
+xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -87,11 +87,11 @@ text(2, 16.5, expression(u[3]), cex = labelsize)
 
 
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(paste(a*minute)), cex = labelsize)
+text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(paste(a)), cex = labelsize)
 
 
 points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
-text(12, riskreturn(g = 12) + 0.6, expression(paste(i*minute)), cex = labelsize)
+text(12, riskreturn(g = 12) + 0.6, expression(paste(m)), cex = labelsize)
 
 
 dev.off()

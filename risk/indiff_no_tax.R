@@ -58,15 +58,11 @@ ticksy <- c(ylims[1], 3, ylims[2])
 ylabels <- c(NA, expression(paste(underline(y)(1 - phi))), NA)
 #expression(paste("y"))
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 
 # Shade above and below tax line
 polygon(c(0, xx1, xlims[2]), c(3, 0, indiffA(xx1, ua = 3, slope = 1/3)), border = FALSE, col = COLB[1])
 polygon(c(0, xx1, xlims[2]), c(0, indiffA(xx1, ua = 3, slope = 1/3), 0), border = FALSE, col = COLA[1])
 polygon(c(0, 0, 7), c(3, ylims[2], ylims[2]), border = FALSE, col = COLB[1])
-
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -109,6 +105,9 @@ text(7.76636, indiffA(7.26636, ua = 16.2) - 0.5, expression(paste("g'")), xpd = 
 
 points(10.0797, indiffA(10.0797, ua = 28.4), pch = 16, col = "black", cex = 1.5,xpd = TRUE)
 text(10.5797, indiffA(10.0797, ua = 28.4) - 0.5, expression(paste("h")), xpd = TRUE, cex = labelsize)
+
+axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 

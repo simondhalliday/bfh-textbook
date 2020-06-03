@@ -17,7 +17,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 12, 1, 1))
@@ -58,8 +58,8 @@ xlabels <- c(NA, NA, expression(paste(y[0])), expression(paste(y)), expression(p
 
 text(2.3, -1.3, expression(paste(y^B == y - delta[2])), xpd = TRUE, cex = labelsize)
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2,at = ticksy,  pos = 0, labels = FALSE, las = 1, cex.axis = labelsize)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = FALSE, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -105,12 +105,12 @@ segments(0, ConcaveU(36), 36, ConcaveU(36), lty = 2, col = grays[20], lwd = segm
 points(36, ConcaveU(36), pch = 16, col = "black", cex = 1.5)
 
 
-text(-2.7, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
+text(-3.2, ConcaveU(36), expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
 text(-4.2, ConcaveU(9.7) + 2, expression(paste(u(y[0]) == v(L), phantom() == phantom() )),  xpd = TRUE, cex = labelsize)
 text(-4.2, ConcaveU(9.7), expression(paste(p%.%u(y +  delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
 text(-5.5, ConcaveU(9.7) - 2, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 #text(-1.8, ConcaveU(9.7) - 3, expression(paste(phantom() == v(L))),  xpd = TRUE, cex = labelsize)
-text(-2.7, ConcaveU(2), expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
+text(-3.2, ConcaveU(2), expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 text(-1.5, ConcaveU(19), expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 
 #Add risk premium distance arrow and label

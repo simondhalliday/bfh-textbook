@@ -17,7 +17,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 12, 1, 1))
@@ -98,7 +98,7 @@ text(-3.5, 36, expression(paste(u(y + delta[1]))), xpd = TRUE, cex = labelsize)
 
 text(-5, 22, expression(paste(u(y[0]) == v(L), phantom() == phantom())),  xpd = TRUE, cex = labelsize)
 text(-4.5, 20, expression(paste(p%.%u(y + delta[1]) + phantom())),  xpd = TRUE, cex = labelsize)
-text(-5, 18, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
+text(-5.2, 18, expression(paste((1 - p)%.%u(y - delta[2]))),  xpd = TRUE, cex = labelsize)
 
 text(-3.5, 4, expression(paste(u(y - delta[2]))),  xpd = TRUE,  cex = labelsize)
 

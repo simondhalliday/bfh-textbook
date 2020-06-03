@@ -36,7 +36,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
 # xlabels <- seq(from = 0, to = xlims[2],by = 2)
 ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(y[0])), expression(paste(y[1] == z)), expression(paste(y[2])), expression(paste(y[3])), expression(paste(y[d] == y[f])), expression(paste(y[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == z)), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d] == hat(y)[f])), expression(paste(hat(y)[e])), NA)
 # ticksy <- seq(from = 0, to = ylims[2], by = 3)
 # ylabels <- seq(from = 0, to = ylims[2], by = 3)
 ticksx <- c(0, deltaT, 7, ylims[2])

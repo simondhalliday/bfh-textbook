@@ -9,17 +9,17 @@ indiff <- function(delta, u = 2, alpha = 0.2, beta = 2){
 
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.8
+labelsize <- 1.5
 namesize <- 1.8
 annotatesize <- 1.5
-graphlinewidth <- 2.2
-segmentlinewidth <- 1.7
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 1))
@@ -46,8 +46,8 @@ mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabels
 text(-1.5, 0.5*ylims[2] - 0.1, expression(paste("Expected Income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)
+axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 # the point (y0,delta0) and the indifference curve through it
 lines(xx1, indiff(xx1, u = U(y0 - 4, delta0), alpha =  0.225), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, indiff(xx1, u = U(y0, delta0)), col = COLA[4], lwd = graphlinewidth)

@@ -17,7 +17,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 6, 1, 1))
@@ -54,16 +54,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i"
 )
 
-#x and y limits with plain axes without ticks/numbers to match previous graph
 
-#ticksx <- seq(from = 0, to = xlims[2]+1, by = 4)
-#xlabels <- seq(from = 0, to = xlims[2], by = 1)
 ticksx <- c(xlims[1], 12, 20, 25, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^P)), expression(paste(bar(Delta) )), expression(paste(Delta^R)), NA)
-#ticksy <- seq(from = 0, to = ylims[2]+1, by = 4)
-#ylabels <- seq(from = 0, to = ylims[2], by = 1)
 ticksy <- c(ylims[1], avgwealth(12), avgwealth(20), avgwealth(25), ylims[2])
-ylabels <- c(NA, expression(paste(y^P)), expression(paste(bar(y) )), expression(paste(y^R)), NA)
+ylabels <- c(NA, expression(paste(hat(y)^P)), expression(paste(bar(y) )), expression(paste(hat(y)^R)), NA)
 
 
 
@@ -76,16 +71,12 @@ xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
-
-# lines(xx1, indiffA(xx1, ua = 2), col = COLB[4], lwd = graphlinewidth)
-# lines(xx1, indiffA(xx1, ua = 8.2), col = COLB[4], lwd = graphlinewidth)
-# lines(xx1, indiffA(xx1, ua = 14.4), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Inequality of income, ", Delta , " (difference between rich and poor)")), side = 1, line = 2.5, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("Expected income, ",hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label various points on line
 

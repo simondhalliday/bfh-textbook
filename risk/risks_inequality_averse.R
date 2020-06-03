@@ -19,7 +19,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 6, 1, 1))
@@ -65,7 +65,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0,  12, 15, 20, 25, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^P)),  expression(paste(Delta^e)), expression(paste(bar(Delta) )), expression(paste(Delta^R)),  NA)
 ticksy <- c(0, 21 - 12, 21, 21 + 12, ylims[2])
-ylabels <- c(NA, expression(paste(y^P[e])), expression(paste(y^e)), expression(paste(y^R[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)^P[e])), expression(paste(hat(y)^e)), expression(paste(hat(y)^R[e])), NA)
 
 
 

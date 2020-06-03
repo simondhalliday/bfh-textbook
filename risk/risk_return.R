@@ -50,7 +50,7 @@ ticksx <- c(0, 5.6, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
 text(xlims[1] - 0.5, 8.75, expression(paste(c[3])), cex = labelsize, xpd = TRUE)
-text(xlims[1] - 0.5, riskreturn(g = 5.6) + 0.25, expression(paste(hat(y)[i])), cex = labelsize, xpd = TRUE)
+text(xlims[1] - 0.5, riskreturn(g = 5.6) + 0.25, expression(paste(hat(y)[a])), cex = labelsize, xpd = TRUE)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

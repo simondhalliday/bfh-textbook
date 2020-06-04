@@ -71,7 +71,7 @@ text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE,
 
 # label yhat
 text(6.5, -0.2, expression(paste(hat(y)^{L})), xpd = TRUE, cex = labelsize)
-segments(6.5, 0, 6.5, ConcaveU(6.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(6.5, 0, 6.5, ConcaveU(6.5) - 0.2, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 text(29, -0.2, expression(paste(hat(y)^{H})), xpd = TRUE, cex = labelsize)
 segments(29, 0, 29, ConcaveU(29), lty = 2, col = grays[20], lwd = segmentlinewidth)

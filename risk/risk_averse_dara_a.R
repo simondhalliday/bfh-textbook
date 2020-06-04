@@ -73,7 +73,7 @@ text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE,
 
 # label yhat^m
 text(16, -0.2, expression(paste(hat(y)^{m})), xpd = TRUE, cex = labelsize)
-segments(16, 0, 16, ConcaveU(16), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(16, 0, 16, ConcaveU(16) - 0.05, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 # indiff

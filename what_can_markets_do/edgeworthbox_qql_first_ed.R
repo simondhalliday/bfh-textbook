@@ -110,9 +110,9 @@ axis(1, at = ticksx, pos = 0, labels = NA)
 axis(2, at = ticksy, pos = 0, labels = NA, las = 0)
 
 #Pareto-improving lens
-xpoly1 <- seq(from = 1.4, to = 8.6, length.out = 500)
+xpoly1 <- seq(from = 1.475, to = 8.6, length.out = 600)
 ypoly1 <- indiffA(xpoly1)
-ypoly2 <- WalrasP(xpoly1, slope = 8.2/7, intercept = 10.9)
+ypoly2 <- WalrasP(xpoly1, slope = 8.2/7, intercept = 10.95)
 polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
 
 # ypoly3 <- indiffB(xpoly1)

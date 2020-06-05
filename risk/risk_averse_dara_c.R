@@ -72,9 +72,9 @@ y2 <- indiff(64, 0.5*xlims[2], c = 2.7) - 4
 y3 <- indiff(156, 0.5*xlims[2], c = 2.7)
 
 ticksx <- c(0, 0.325*xlims[2], 0.5*xlims[2], 0.625*xlims[2], xlims[2])
-xlabels <- c(NA, expression(paste(Delta[f])), expression(paste(Delta[e] == Delta[h])), expression(paste(Delta[g])), NA)
+xlabels <- c(NA, expression(paste(Delta[c])), expression(paste(Delta[e] == Delta[f])), expression(paste(Delta[d])), NA)
 ticksy <- c(0, y1, y2, y3, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[e])), expression(paste(hat(y)[f] == hat(y)[g])), expression(paste(hat(y)[h])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[e])), expression(paste(hat(y)[c] == hat(y)[d])), expression(paste(hat(y)[f])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -112,9 +112,9 @@ points(0.5*xlims[2], y3, pch = 16, col = "black", cex = 1.5)
 
 # label points
 text(0.5*xlims[2] + 0.25, y1 - 1, expression(paste(e)), cex = labelsize)
-text(0.325*xlims[2], y2 + 1.5, expression(paste(f)), cex = labelsize)
-text(0.625*xlims[2], y2 + 1.5, expression(paste(g)), cex = labelsize)
-text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste(h)), cex = labelsize)
+text(0.325*xlims[2], y2 + 1.5, expression(paste(c)), cex = labelsize)
+text(0.625*xlims[2], y2 + 1.5, expression(paste(d)), cex = labelsize)
+text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste(f)), cex = labelsize)
 
 # label indiff
 text(0.95*xlims[2], 0.98*ylims[2], expression(paste(u[1])), cex = labelsize)

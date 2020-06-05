@@ -1,4 +1,4 @@
-#' Graph Designer(s): Simon Halliday,  Scott Cohn
+#' Graph Designer(s): Simon Halliday, Scott Cohn
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 2, 3))
+par(mar =  c(5, 7, 1, 1))
 
 #Concave utility of wealth function
 
@@ -50,8 +50,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksy <- c(0, ConcaveU(3), ConcaveU(10), ConcaveU(22), ConcaveU(29), ylims[2])
-ylabels <- c(NA, expression(paste(u(y^{a}) )), expression(paste(u(y^b))), expression(paste(u(y^b^minute))), expression(paste(u(y^a^minute))), NA)
+ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(10), 2*ConcaveU(3), ConcaveU(22), ConcaveU(30), ylims[2])
+ylabels <- c(NA, expression(paste(u(y^{d^B}))), NA, NA, expression(v(L)[c]), expression(paste(u(y^c^G))), expression(paste(u(y^d^G))), NA)
 
 # ticksx <- c(0, 3, 10, 22, 36, xlims[2])
 ticksx <- c(0, 16, xlims[2])
@@ -68,54 +68,55 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.55*xlims[2], -0.3, expression(paste("Income, y")), xpd = TRUE, cex = axislabelsize) 
 
-# label yhat^m
-text(16, -0.2, expression(paste(hat(y)^{m})), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(10) + 0.03, expression(paste(u(y^{c^B}))), xpd = TRUE, cex = labelsize)
+text(-2.5, 1.6275*ConcaveU(3) - 0.03, expression(v(L)[d]), xpd = TRUE, cex = labelsize)
+
+# label yhat on x
+text(16, -0.2, expression(paste(hat(y)[c] == hat(y)[d])), xpd = TRUE, cex = labelsize)
 segments(16, 0, 16, ConcaveU(16) - 0.05, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 # indiff
 lines(xx1, ConcaveU(xx1), col = COLA[5], lwd = graphlinewidth)
 
-#Points B to C
+#Points cB to cG
+# segments(10, ConcaveU(10), 22, ConcaveU(22), lty = 2, col = COLB[4], lwd = graphlinewidth)
 segments(10, ConcaveU(10), 22, ConcaveU(22), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
-#Point A to D
-segments(3, ConcaveU(3), 29, ConcaveU(29), lty = 2, col = COLB[4], lwd = graphlinewidth)
-
+#Point dB to dG
+# segments(3, ConcaveU(3), 29, ConcaveU(29), lty = 2, col = COLB[4], lwd = graphlinewidth)
+segments(2, ConcaveU(2), 30, ConcaveU(30), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
 #Label 4 points on line
-#Point a
-text(3.8, ConcaveU(3) - .12, expression(paste(a)), cex = labelsize)
+#Point dB
+text(2.8, ConcaveU(3) - .4, expression(paste(d^B)), cex = labelsize)
 # segments(3, ConcaveU(3), 3, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(3, ConcaveU(3), pch = 16, col = "black", cex = 1.5)
+points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
-#Point c
-text(22.8, ConcaveU(22) - .1, expression(paste(b*minute)), cex = labelsize)
+#Point cG
+text(22.8, ConcaveU(22) - .1, expression(paste(c^G)), cex = labelsize)
 # segments(22, ConcaveU(22), 22, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(22, ConcaveU(22), pch = 16, col = "black", cex = 1.5)
 
-#Point b
-text(10.8, ConcaveU(10) - .1, expression(paste(b)), cex = labelsize)
+#Point cB
+text(10 - 0.8, ConcaveU(10) + .1, expression(paste(c^B)), cex = labelsize)
 # segments(10, ConcaveU(10), 10, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(10, ConcaveU(10), pch = 16, col = "black", cex = 1.5)
 
-#Point d 
-text(29.8, ConcaveU(29) - .1, expression(paste(a*minute)), cex = labelsize)
+#Point dG
+text(29.8, ConcaveU(29) - .1, expression(paste(d^G)), cex = labelsize)
 # segments(36, ConcaveU(36), 36, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(29, ConcaveU(29), pch = 16, col = "black", cex = 1.5)
+points(30, ConcaveU(30), pch = 16, col = "black", cex = 1.5)
 
-# #Very risk averse
-# text(5, ConcaveU(5) + 0.6, expression(paste("very risk")),  xpd = TRUE,  cex = labelsize)
-# text(5, ConcaveU(5) + 0.4, expression(paste("averse")),  xpd = TRUE,  cex = labelsize)
-# #Risk averse
-# text(18, ConcaveU(18) + 0.4, expression(paste("risk")),  xpd = TRUE,  cex = labelsize)
-# text(18, ConcaveU(18) + 0.2, expression(paste("averse")),  xpd = TRUE,  cex = labelsize)
-# #Risk neutral
-# text(39, ConcaveU(39) + 0.4, expression(paste("almost risk")),  xpd = TRUE,  cex = labelsize)
-# text(39, ConcaveU(39) + 0.2, expression(paste("neutral")),  xpd = TRUE,  cex = labelsize)
+segments(0, 2*ConcaveU(3), 16, 2*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(16, 2*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
+
+segments(0, 1.6275*ConcaveU(3), 16, 1.6275*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(16, 1.6275*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 
 text(xlims[2] - 2, ConcaveU(xlims[2] - 2) + 0.2, expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 

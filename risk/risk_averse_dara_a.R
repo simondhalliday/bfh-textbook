@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(10), 2*ConcaveU(3), ConcaveU(22), ConcaveU(30), ylims[2])
-ylabels <- c(NA, expression(paste(u(y^{d^B}))), NA, NA, expression(v(L)[c]), expression(paste(u(y^c^G))), expression(paste(u(y^d^G))), NA)
+ylabels <- c(NA, expression(paste(u(y[{d^B}] ))), NA, NA, expression(v(L[c]) ), expression(paste(u(y[c^G] ))), expression(paste(u(y[d^G] ))), NA)
 
 # ticksx <- c(0, 3, 10, 22, 36, xlims[2])
 ticksx <- c(0, 16, xlims[2])
@@ -72,8 +72,8 @@ xx4 <- seq(-11, 0, length.out = npts)
 text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.55*xlims[2], -0.3, expression(paste("Income, y")), xpd = TRUE, cex = axislabelsize) 
 
-text(-2.5, ConcaveU(10) + 0.03, expression(paste(u(y^{c^B}))), xpd = TRUE, cex = labelsize)
-text(-2.5, 1.6275*ConcaveU(3) - 0.03, expression(v(L)[d]), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(10) + 0.03, expression(paste(u(y[{c^B}]))), xpd = TRUE, cex = labelsize)
+text(-2.5, 1.6275*ConcaveU(3) - 0.03, expression(v(L[d])), xpd = TRUE, cex = labelsize)
 
 # label yhat on x
 text(16, -0.2, expression(paste(hat(y)[c] == hat(y)[d])), xpd = TRUE, cex = labelsize)

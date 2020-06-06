@@ -74,16 +74,6 @@ xx4 <- seq(BPoints[3], 1, length.out = npts)
 xx5 <- seq(xlims[1], 1, length.out = npts)
 
 
-#Draw the lines for the graphs
-lines(xx3, WageFn(xx3), col = COLA[6], lwd = graphlinewidth, lty = 2)
-lines(xx4, WageFn(xx4), col = COLA[6], lwd = graphlinewidth, lty = 1)
-lines(xx1, Mch(xx1), col = COLA[3], lwd = graphlinewidth, lty = 2)
-lines(xx2, Mch(xx2), col = COLA[3], lwd = graphlinewidth, lty = 2)
-lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
-#lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
-
-#lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
-#lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 
 
@@ -105,6 +95,17 @@ polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 xpoly3 <- c(0, 0, BPoints[1], BPoints[1])
 ypoly3 <- c(19, WageFn(LPoints[1]), WageFn(LPoints[1]), 19)
 polygon(x = xpoly3, y = ypoly3, col=COLA[2], density=NULL, border = NA)
+
+#Draw the lines for the graphs
+lines(xx3, WageFn(xx3), col = COLA[6], lwd = graphlinewidth, lty = 2)
+lines(xx4, WageFn(xx4), col = COLA[6], lwd = graphlinewidth, lty = 1)
+lines(xx1, Mch(xx1), col = COLA[3], lwd = graphlinewidth, lty = 2)
+lines(xx2, Mch(xx2), col = COLA[3], lwd = graphlinewidth, lty = 2)
+lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
+#lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
+
+#lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
+#lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

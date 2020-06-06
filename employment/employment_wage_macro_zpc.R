@@ -107,10 +107,24 @@ text(1.12, 19, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
 text(1.12, 17, expression(paste("condition, ", w^C)), cex = labelsize, xpd = TRUE)
 #text(1.02, 21.25, expression(paste(w == bar(Delta))), cex = labelsize, xpd = TRUE)
 
-text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
-text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
-text(0.25, 4, expression(paste("No")), cex = labelsize)
-text(0.25, 2, expression(paste("production")), cex = labelsize)
+# text(0.25, 23, expression(paste("Firms leaving")), cex = labelsize)
+# text(0.25, 17, expression(paste("Firms entering")), cex = labelsize)
+
+text(0.325, 17, expression(paste("Firms entering")), cex = labelsize)
+Arrows(0.2, 15, 0.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
+
+
+# Arrows(0.6, 19, 0.6, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(0.42, 28, expression(paste("If the ", w>w^c,  " profits will")), cex = labelsize)
+# text(0.42, 26, expression(paste("be insufficient and firms")), cex = labelsize)
+# text(0.42, 24, expression(paste("will leave")), cex = labelsize)
+text(0.32, 24, expression(paste("Firms exiting")), cex = labelsize)
+Arrows(0.43, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
+
+text(0.32, 4, expression(paste("No")), cex = labelsize)
+text(0.32, 2, expression(paste("production")), cex = labelsize)
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))

@@ -71,10 +71,10 @@ xx5 <- seq(xlims[1], 1, length.out = npts)
 
 
 #Draw the lines for the graphs
-lines(xx3, WageFn(xx3), col = grays[21], lwd = graphlinewidth, lty = 2)
-lines(xx4, WageFn(xx4), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, Mch(xx1), col = grays[21], lwd = graphlinewidth, lty = 2)
-lines(xx2, Mch(xx2), col = grays[21], lwd = graphlinewidth, lty = 2)
+lines(xx3, WageFn(xx3), col = COLA[6], lwd = graphlinewidth, lty = 2)
+lines(xx4, WageFn(xx4), col = COLA[6], lwd = graphlinewidth, lty = 1)
+lines(xx1, Mch(xx1), col = COLA[3], lwd = graphlinewidth, lty = 2)
+lines(xx2, Mch(xx2), col = COLA[3], lwd = graphlinewidth, lty = 2)
 lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
 
@@ -175,14 +175,17 @@ segments(0, WageFn(LPoints[1]), LPoints[1], WageFn(LPoints[1]), lty = 2, lwd = s
 segments(BPoints[1], 0, BPoints[1], MRP(BPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Binding minimum wage
-segments(0, 19, BPoints[3], 19, lty = 1, lwd = graphlinewidth, col = COL[2])
-segments(BPoints[3], 19, 1, 19, lty = 2, lwd = graphlinewidth, col = COL[2])
+segments(0, 19, BPoints[3], 19, lty = 1, lwd = graphlinewidth + 0.2, col = COL[2])
+segments(BPoints[3], 19, 1, 19, lty = 2, lwd = graphlinewidth + 0.2, col = COL[2])
 
 #Green part of min wage
-segments(0, 19 - 0.3, BPoints[3], WageFn(BPoints[3]) - 0.3, lty = 2, lwd = graphlinewidth, col = COLA[4])
+segments(0, 19 - 0.3, BPoints[3], WageFn(BPoints[3]) - 0.3, lty = 1, lwd = graphlinewidth, col = COLA[4])
 
 points(BPoints[1], MRP(BPoints[1]), pch = 16, col = "black", cex = 1.5)
 text(BPoints[1], MRP(BPoints[1]) + 1.5, expression(paste(d)), cex = labelsize)
+# Arrows(BPoints[1] + 0.02, MRP(BPoints[1]) - 0.7, BPoints[1] + 0.02, 0 + 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# Arrows(BPoints[1] - 0.02, MRP(BPoints[1]) - 0.7, 0+ 0.02, MRP(BPoints[1]) - 0.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
 
 segments(BPoints[3], 0, BPoints[3], WageFn(BPoints[3]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(BPoints[3], WageFn(BPoints[3]), pch = 16, col = "black", cex = 1.5)

@@ -57,7 +57,7 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 30, 40)
-ylabels <- c(0, expression(paste(w^c)),  expression(paste(gamma)), NA)
+ylabels <- c(0, expression(paste(w^C)),  expression(paste(gamma)), NA)
 ticksx <- c(0, 1, xlims[2])
 xlabels <- c(0, 1, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -85,7 +85,7 @@ text(0.8, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize, 
 # text(0.325, 14, expression(paste("profits and the number of")), cex = labelsize)
 # text(0.325, 12, expression(paste("firms will grow")), cex = labelsize)
 text(0.325, 17, expression(paste("Firms entering")), cex = labelsize)
-Arrows(0.2, 15, 0.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.18, 15, 0.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 
@@ -94,7 +94,7 @@ Arrows(0.2, 15, 0.5, 15, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 # text(0.42, 26, expression(paste("be insufficient and firms")), cex = labelsize)
 # text(0.42, 24, expression(paste("will leave")), cex = labelsize)
 text(0.32, 24, expression(paste("Firms exiting")), cex = labelsize)
-Arrows(0.45, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(0.44, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

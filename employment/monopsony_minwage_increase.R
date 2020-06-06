@@ -72,10 +72,10 @@ xx5 <- seq(xlims[1], 1, length.out = npts)
 
 
 #Draw the lines for the graphs
-lines(xx3, WageFn(xx3), col = grays[21], lwd = graphlinewidth, lty = 2)
-lines(xx4, WageFn(xx4), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, Mch(xx1), col = grays[21], lwd = graphlinewidth, lty = 2)
-lines(xx2, Mch(xx2), col = COLA[5], lwd = graphlinewidth, lty = 1)
+lines(xx3, WageFn(xx3), col = COLA[6], lwd = graphlinewidth, lty = 2)
+lines(xx4, WageFn(xx4), col = COLA[6], lwd = graphlinewidth, lty = 1)
+lines(xx1, Mch(xx1), col = COLA[3], lwd = graphlinewidth, lty = 2)
+lines(xx2, Mch(xx2), col = COLA[3], lwd = graphlinewidth, lty = 1)
 lines(xx5, MRP(xx5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, mrp2(xx1), col = COLB[4], lwd = graphlinewidth)
 
@@ -150,9 +150,12 @@ IPoints <- c(0.415, 0.54, 0.66)
 segments(0, 13, IPoints[3], 13, lty = 1, lwd = graphlinewidth, col = COL[2])
 segments(IPoints[3], 13, 1, 13, lty = 2, lwd = graphlinewidth, col = COL[2])
 
+#Green part of min wage
+segments(0, 13 - 0.3, IPoints[3], WageFn(IPoints[3]) - 0.3, lty = 1, lwd = graphlinewidth, col = COLA[4])
+
 #Segment of discontinuous mch
-segments(IPoints[3], 13, IPoints[3], Mch(IPoints[3]), lty = 2, lwd = graphlinewidth, col = COLA[4])
-segments(0, 13 - 0.3, IPoints[3], WageFn(IPoints[3]) - 0.3, lty = 2, lwd = graphlinewidth, col = COLA[4])
+segments(IPoints[3], 13, IPoints[3], Mch(IPoints[3]), lty = 2, lwd = graphlinewidth, col = COLA[3])
+
 
 segments(IPoints[2], 0, IPoints[2], MRP(IPoints[2]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(IPoints[2], MRP(IPoints[2]), pch = 16, col = "black", cex = 1.5)

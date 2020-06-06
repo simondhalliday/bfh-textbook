@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7, 1, 1))
+par(mar =  c(6, 7, 1, 1))
 
 #Concave utility of wealth function
 
@@ -52,8 +52,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(0, ConcaveU(5.15), 2.05*ConcaveU(2), ConcaveU(14.15), ConcaveU(24.5), 3.075*ConcaveU(2), ConcaveU(33.5), ylims[2])
 ylabels <- c(NA, expression(paste(u(y[{e^B}] ) )), expression(v(L[e]) ), expression(paste(u(y[e^G] ))), NA, expression(v(L[f]) ), NA, NA)
-ticksx <- c(0, 9.65, 29, xlims[2])
-xlabels <- c(NA, NA, NA, NA) # labels are under axis title labels
+ticksx <- c(0, 5.15, 9.65, 14.15, 24.5, 29, 33.5, xlims[2])
+xlabels <- c(NA, expression(y[{e^B}]), NA, expression(y[{e^G}]), expression(y[{f^B}]), NA, expression(y[{f^G}]), NA) # labels are under axis title labels
 
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -83,28 +83,30 @@ segments(29, 0, 29, ConcaveU(29), lty = 2, col = grays[20], lwd = segmentlinewid
 lines(xx1, ConcaveU(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Points eB to eG
-# segments(2, ConcaveU(2), 11, ConcaveU(11), lty = 2, col = COLB[4], lwd = graphlinewidth)
 segments(5.15, ConcaveU(5.15), 14.15, ConcaveU(14.15), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
 #Point fB to fG
-# segments(24.5, ConcaveU(24.5), 33.5, ConcaveU(33.5), lty = 2, col = COLB[4], lwd = graphlinewidth)
 segments(24.5, ConcaveU(24.5), 33.5, ConcaveU(33.5), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
 #Label 4 points on line
 #Point eB
-text(5.8, ConcaveU(5.15) - .12, expression(paste(e^B)), cex = labelsize)
+text(6, ConcaveU(5.15) - .12, expression(paste(e^B)), cex = labelsize)
+segments(5.15, ConcaveU(5.15), 5.15, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(5.15, ConcaveU(5.15), pch = 16, col = "black", cex = 1.5)
 
 #Point eG
-text(14.8, ConcaveU(14.15) - .1, expression(paste(e^G)), cex = labelsize)
+text(15, ConcaveU(14.15) - .1, expression(paste(e^G)), cex = labelsize)
+segments(14.15, ConcaveU(14.15), 14.15, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(14.15, ConcaveU(14.15), pch = 16, col = "black", cex = 1.5)
 
 #Point fB
 text(24.5 + 0.8, ConcaveU(24.5) - .1, expression(paste(f^B)), cex = labelsize)
+segments(24.5, ConcaveU(24.5), 24.5, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(24.5, ConcaveU(24.5), pch = 16, col = "black", cex = 1.5)
 
 #Point fG
 text(33.5 + 0.8, ConcaveU(33.5) - .1, expression(paste(f^G)), cex = labelsize)
+segments(33.5, ConcaveU(33.5), 33.5, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(33.5, ConcaveU(33.5), pch = 16, col = "black", cex = 1.5)
 
 text(xlims[2] - 2, ConcaveU(xlims[2] - 2) + 0.2, expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
@@ -117,5 +119,14 @@ points(29, 3.075*ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
 # points(13, 1.725*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 # segments(13 - 4.5, ConcaveU(6), 13 + 4.5, ConcaveU(17.5), lty = 2, col = COLB[4], lwd = graphlinewidth)
+
+# delta e
+text(9.65, -0.6, expression(paste(Delta[e] == Delta[f])),  xpd = TRUE,  cex = labelsize)
+brackets(14.15, -0.3, 5.15, -0.3, h = 0.15, lwd = segmentlinewidth, xpd = TRUE)
+
+# delta f
+text(29, -0.6, expression(paste(Delta[f] == Delta[e])),  xpd = TRUE,  cex = labelsize)
+brackets(33.5, -0.3, 24.5, -0.3, h = 0.15, lwd = segmentlinewidth, xpd = TRUE)
+
 
 dev.off()

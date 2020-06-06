@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7, 1, 1))
+par(mar =  c(6, 7, 1, 1))
 
 #Concave utility of wealth function
 
@@ -50,13 +50,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(10), 2*ConcaveU(3), ConcaveU(22), ConcaveU(30), ylims[2])
+ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(13), 2*ConcaveU(3), ConcaveU(19), ConcaveU(30), ylims[2])
 ylabels <- c(NA, expression(paste(u(y[{d^B}] ))), NA, NA, expression(v(L[c]) ), expression(paste(u(y[c^G] ))), expression(paste(u(y[d^G] ))), NA)
 
 # ticksx <- c(0, 3, 10, 22, 36, xlims[2])
-ticksx <- c(0, 16, xlims[2])
+ticksx <- c(0, 2, 13, 16, 19, 30, xlims[2])
 # xlabels <- c(NA, expression(paste(y^{a})), expression(paste(y^b)), expression(paste(y^c)), expression(paste(y^d)), NA)
-xlabels <- c(NA, NA, NA)
+xlabels <- c(NA, expression(paste(y[{d^B}])), expression(paste(y[{c^B}])), NA,
+             expression(paste(y[{c^G}])), expression(paste(y[{d^G}])), NA)
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -70,9 +71,9 @@ xx4 <- seq(-11, 0, length.out = npts)
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
 text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.55*xlims[2], -0.3, expression(paste("Income, y")), xpd = TRUE, cex = axislabelsize) 
+text(0.9*xlims[2], -0.3, expression(paste("Income, y")), xpd = TRUE, cex = axislabelsize) 
 
-text(-2.5, ConcaveU(10) + 0.03, expression(paste(u(y[{c^B}]))), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(13) - 0.05, expression(paste(u(y[{c^B}]))), xpd = TRUE, cex = labelsize)
 text(-2.5, 1.6275*ConcaveU(3) - 0.03, expression(v(L[d])), xpd = TRUE, cex = labelsize)
 
 # label yhat on x
@@ -85,7 +86,7 @@ lines(xx1, ConcaveU(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Points cB to cG
 # segments(10, ConcaveU(10), 22, ConcaveU(22), lty = 2, col = COLB[4], lwd = graphlinewidth)
-segments(10, ConcaveU(10), 22, ConcaveU(22), lty = 2, col = COLB[4], lwd = graphlinewidth)
+segments(13, ConcaveU(13), 19, ConcaveU(19), lty = 2, col = COLB[4], lwd = graphlinewidth)
 
 #Point dB to dG
 # segments(3, ConcaveU(3), 29, ConcaveU(29), lty = 2, col = COLB[4], lwd = graphlinewidth)
@@ -94,22 +95,22 @@ segments(2, ConcaveU(2), 30, ConcaveU(30), lty = 2, col = COLB[4], lwd = graphli
 #Label 4 points on line
 #Point dB
 text(2.8, ConcaveU(3) - .4, expression(paste(d^B)), cex = labelsize)
-# segments(3, ConcaveU(3), 3, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(2, ConcaveU(2), 2, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(2, ConcaveU(2), pch = 16, col = "black", cex = 1.5)
 
 #Point cG
-text(22.8, ConcaveU(22) - .1, expression(paste(c^G)), cex = labelsize)
-# segments(22, ConcaveU(22), 22, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(22, ConcaveU(22), pch = 16, col = "black", cex = 1.5)
+text(19.8, ConcaveU(19) + .15, expression(paste(c^G)), cex = labelsize)
+segments(19, ConcaveU(19), 19, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(19, ConcaveU(19), pch = 16, col = "black", cex = 1.5)
 
 #Point cB
-text(10 - 0.8, ConcaveU(10) + .1, expression(paste(c^B)), cex = labelsize)
-# segments(10, ConcaveU(10), 10, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(10, ConcaveU(10), pch = 16, col = "black", cex = 1.5)
+text(13 - 1, ConcaveU(13) + .05, expression(paste(c^B)), cex = labelsize)
+segments(13, ConcaveU(13), 13, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(13, ConcaveU(13), pch = 16, col = "black", cex = 1.5)
 
 #Point dG
-text(29.8, ConcaveU(29) - .1, expression(paste(d^G)), cex = labelsize)
-# segments(36, ConcaveU(36), 36, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
+text(29.8, ConcaveU(29) + .15, expression(paste(d^G)), cex = labelsize)
+segments(30, ConcaveU(30), 30, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(30, ConcaveU(30), pch = 16, col = "black", cex = 1.5)
 
 segments(0, 2*ConcaveU(3), 16, 2*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -120,5 +121,12 @@ points(16, 1.6275*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 
 text(xlims[2] - 2, ConcaveU(xlims[2] - 2) + 0.2, expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 
+# delta c
+text(15, 0.3, expression(paste(Delta[c])),  xpd = TRUE,  cex = labelsize)
+brackets(13, 0.1, 19, 0.1, h = 0.15, lwd = segmentlinewidth, xpd = TRUE)
+
+# delta d
+text(16, -0.6, expression(paste(Delta[d])),  xpd = TRUE,  cex = labelsize)
+brackets(30, -0.3, 2, -0.3, h = 0.15, lwd = segmentlinewidth, xpd = TRUE)
 
 dev.off()

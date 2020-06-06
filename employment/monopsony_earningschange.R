@@ -179,12 +179,15 @@ text(0.15, MRP(BPoints[1]) + 1.6, expression(paste("wage, ", w[d]^min)), cex = l
 text(0.1, 14, expression(paste("Increase")), cex = labelsize)
 text(0.1, 12, expression(paste("in earnings")), cex = labelsize)
 
-text(0.1, 4, expression(paste("Earnings in")), cex = labelsize)
-text(0.1, 2, expression(paste("both cases")), cex = labelsize)
+text(0.15, 4, expression(paste("Earnings shared")), cex = labelsize)
+text(0.15, 2, expression(paste("by both cases")), cex = labelsize)
 
-text(0.475, 4, expression(paste("Decrease")), cex = labelsize)
-text(0.475, 2, expression(paste("in earnings")), cex = labelsize)
+# text(0.475, 4, expression(paste("Decrease")), cex = labelsize)
+# text(0.475, 2, expression(paste("in earnings")), cex = labelsize)
 
+text(0.6, 4, expression(paste("Decrease")), cex = labelsize)
+text(0.6, 2, expression(paste("in earnings")), cex = labelsize)
+Arrows(LPoints[1] + 0.04, 3, BPoints[1] + 0.05, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
 dev.off()
 

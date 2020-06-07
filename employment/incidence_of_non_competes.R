@@ -72,11 +72,19 @@ incidence_of_non_competes <- read.xlsx('employment/incidence_of_non_competes_dat
 
 incidence_of_non_competes$group <- factor(incidence_of_non_competes$group)
 
-p1 <- ggplot(incidence_of_non_competes, aes(x = group, y = y)) +
+# p1 <- ggplot(incidence_of_non_competes, aes(x = group, y = y)) +
+#   geom_bar(stat = "identity", fill = "#0868ac", color="#0868ac") + 
+#   scale_x_discrete(limits=c("<HS","HS grad","<1 year of college",">1 year of college", "Associates", "BA", "MA", "Prof Degree", "Doctorate"), labels=c("<HS" = "<HS", "HS grad" = "HS grad", 
+#                             "<1 year of college" = "<1 year of college", ">1 year of college" = ">1 year of college", "Prof Degree" = "Prof \n Degree")) +
+incid_filter <- incidence_of_non_competes %>%
+  filter(group %in% c("<HS", "HS grad", "BA", "Prof Degree"))
+
+p0 <- ggplot(incid_filter, aes(x = group, y = y)) +
   geom_bar(stat = "identity", fill = "#0868ac", color="#0868ac") + 
-  scale_x_discrete(limits=c("<HS","HS grad","<1 year of college",">1 year of college", "Associates", "BA", "MA", "Prof Degree", "Doctorate"), labels=c("<HS" = "<HS", "HS grad" = "HS grad", 
-                            "<1 year of college" = "<1 year of college", ">1 year of college" = ">1 year of college", "Prof Degree" = "Prof \n Degree")) +
-  xlab("Education Level") +
+  scale_x_discrete(limits=c("<HS","HS grad", "BA", "Prof Degree"), 
+                   labels=c("<HS" = "<HS", "HS grad" = "HS grad", "BA" = "University\n graduate", "Prof Degree" = "Professional\n Degree")) 
+  
+p1 <- p0 + xlab("Education Level") +
   ylab("Incidence of Non-Competes") +
   scale_y_continuous(breaks = seq(0, 0.45, by = 0.05), labels = scales::percent_format(accuracy = 1)) +
   coord_flip() +

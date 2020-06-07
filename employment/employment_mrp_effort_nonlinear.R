@@ -31,7 +31,7 @@ y <- seq(ylims[1], ylims[2], length.out = npts)
 
 # ----
 # first plot: competitive vs monopsony
-pdf(file = "employment/employment_mrp_effort_nonlinear.pdf", width = 12, height = 10)
+pdf(file = "employment/employment_mrp_effort_nonlinear.pdf", width = 10, height = 8)
 par(mar =  c(5, 7, 3, 3))
 
 #Notice the plot starts at x = 0.2 not 0
@@ -54,7 +54,7 @@ plot(xlims[1], 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(xlims[1], 500, 1000, xlims[2])
 xlabels <- c(NA, expression(paste(italic(l[1]^{N}) == 500)), expression(paste(italic(l[2]^{N}) == 1000)),NA)
 ticksy <- c(ylims[1], 40, ylims[2])
-ylabels <- c(NA, expression(paste(c[italic(l)]== 40)), NA)
+ylabels <- c(NA, expression(paste(c[italic(l)]^N== 40)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize*0.8)
 axis(2, at = ticksy, pos = xlims[1], labels = ylabels, las = 1, cex.axis = axislabelsize*0.8)
@@ -68,8 +68,9 @@ lines(xx2, MRP2(xx2), lty = 2, col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Total labor used by the employer, ", italic(l) == e^N*h)), side = 1, line = 2.5, cex = axislabelsize)
-text(-250, 0.5*ylims[2], expression(paste("Marginal cost of labor, ", c[italic(l)], ", marginal revenue product of labor, ", r[italic(l)] )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Labor used by the employer, ", italic(l) == e^N*h)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -8, expression(paste("Labor used by the employer, ", italic(l) == e^N*h)), xpd = TRUE, cex = axislabelsize) 
+text(-300, 0.5*ylims[2], expression(paste("Marginal cost & marginal revenue product of labor, ", list(c[italic(l)], r[italic(l)] ))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
@@ -91,11 +92,12 @@ text(1000 , 43, expression(paste(n[2])), cex = labelsize)
 # add labels to graphs
 text(2100, 11, expression(paste(mrp,italic(l)[1])), cex = labelsize)
 text(2100, 21, expression(paste(mrp,italic(l)[2])), cex = labelsize)
-text(1900, 45, expression(paste("Marginal cost of labor:")), cex = labelsize)
-text(2000, 40, expression(paste(c[italic(l)] == frac(w^N,e^N))), cex = labelsize)
+text(2000, 49, expression(paste("Marginal cost")), cex = labelsize)
+text(2000, 46, expression(paste("of labor")), cex = labelsize)
+text(2000, 40, expression(paste(c[italic(l)]^N == frac(w^N,e^N))), cex = labelsize)
 
-text(685, 78, expression(paste("Marginal revenue product of labor:")), cex = labelsize)
-text(685, 75, expression(paste(mrp,italic(l) == r[italic(l)])), cex = labelsize)
+text(600, 85, expression(paste("Marginal revenue product of labor")), cex = labelsize, xpd = TRUE)
+text(600, 81, expression(paste(mrp,italic(l) == r[italic(l)])), cex = labelsize, xpd = TRUE)
 
 
 #text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)

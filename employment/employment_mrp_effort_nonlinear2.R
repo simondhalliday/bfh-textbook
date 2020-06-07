@@ -31,7 +31,7 @@ y <- seq(ylims[1], ylims[2], length.out = npts)
 
 # ----
 # first plot: competitive vs monopsony
-pdf(file = "employment/employment_mrp_effort_nonlinear2.pdf", width = 12, height = 10)
+pdf(file = "employment/employment_mrp_effort_nonlinear2.pdf", width = 10, height = 8)
 par(mar =  c(5, 7, 3, 3))
 
 #Notice the plot starts at x = 0.2 not 0
@@ -68,8 +68,9 @@ lines(xx2, MRP2(xx2), lty = 2, col = COLA[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Total hours hired by the employer, ", h)), side = 1, line = 2.5, cex = axislabelsize)
-text(-310, 0.5*ylims[2], expression(paste("Wage, ", w^N, ", marginal revenue product of hours, ", r[italic(l)]*e^N )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Total hours hired by the employer, ", h)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -8, expression(paste("Total hours hired by the employer, ", italic(l) == e^N*h)), xpd = TRUE, cex = axislabelsize) 
+text(-360, 0.5*ylims[2], expression(paste("Wage, ", w^N, ", marginal revenue product of hours, ", r[italic(l)]*e^N )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #add segments
@@ -89,12 +90,12 @@ text(2000 , 22, expression(paste(n[2])), cex = labelsize)
 
 
 # add labels to graphs
-text(400, 65, expression(paste(mrph[1])), cex = labelsize)
-text(720, 65, expression(paste(mrph[2])), cex = labelsize)
-text(2320, 20.2, expression(paste(Wage == w^N)), cex = labelsize)
+text(430, 65, expression(paste(mrph[1])), cex = labelsize)
+text(740, 65, expression(paste(mrph[2])), cex = labelsize)
+text(2310, 22, expression(paste(Wage == w^N)), cex = labelsize)
 
-text(745, 78, expression(paste("Marginal revenue product of hours:")), cex = labelsize)
-text(745, 75, expression(paste(mrph == r[italic(l)]*e^N)), cex = labelsize)
+text(700, 85, expression(paste("Marginal revenue product of hours")), cex = labelsize, xpd = TRUE)
+text(700, 81, expression(paste(mrph == r[italic(l)]*e^N)), cex = labelsize, xpd = TRUE)
 
 #text(0.58, ACL(0.85) - 1.1, "Minimum wage", cex = axislabelsize)
 #text(0.58, ACL(0.85) - 1.6, "not binding", cex = axislabelsize)

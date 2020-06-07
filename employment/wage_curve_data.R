@@ -1,7 +1,4 @@
-library(tidyr)
-library(dplyr)
-library(readr)
-library(ggplot2)
+library(tidyverse)
 library(mosaic)
 
 Emp1 <- read.csv("employment/machin_data.csv")

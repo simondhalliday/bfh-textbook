@@ -64,9 +64,10 @@ text(0.22, -0.25, expression(paste(underline(t)*j)), cex = labelsize, xpd = TRUE
 #text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.425, 5.1, expression(paste("No shirking condition, ")), cex = labelsize, xpd = TRUE)
-text(0.74, 5.1, expression(paste(w^N== frac(underline(u),tj) + B)), cex = labelsize, xpd = TRUE)
-text(-0.1, 1, expression(paste(underline(u)+B)), cex = labelsize, xpd = TRUE)
+text(0.42, 5.45, expression(paste("No-shirking condition")), cex = labelsize, xpd = TRUE)
+#B + \uline{u} + \frac{\uline{u}(1 - tj)}{tj} 
+text(0.42, 5, expression(paste(w^N== B + underline(u) + frac(underline(u)*(1 - t*j) , t*j))), cex = labelsize, xpd = TRUE)
+text(-0.1, 1, expression(paste(B + underline(u))), cex = labelsize, xpd = TRUE)
 #text(1.15, 4.5, expression(paste(gamma[p])), cex = labelsize, xpd = TRUE)
 text(0.43, 1.55, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
 text(0.44, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)

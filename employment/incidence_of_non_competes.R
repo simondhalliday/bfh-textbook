@@ -82,7 +82,7 @@ incid_filter <- incidence_of_non_competes %>%
 p0 <- ggplot(incid_filter, aes(x = group, y = y)) +
   geom_bar(stat = "identity", fill = "#0868ac", color="#0868ac") + 
   scale_x_discrete(limits=c("<HS","HS grad", "BA", "Prof Degree"), 
-                   labels=c("<HS" = "<HS", "HS grad" = "HS grad", "BA" = "University\n graduate", "Prof Degree" = "Professional\n Degree")) 
+                   labels=c("<HS" = "<HS", "Less than\n high school" = "High school\n graduate", "BA" = "University\n graduate", "Prof Degree" = "Professional\n degree")) 
   
 p1 <- p0 + xlab("Education Level") +
   ylab("Incidence of Non-Competes") +

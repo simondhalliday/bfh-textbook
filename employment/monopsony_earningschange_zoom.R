@@ -122,14 +122,14 @@ text(-0.08, 0.5*ylims[2], expression(paste("Wages, costs, and revenues ($)")), x
 
 
 #Annotation of the  graphs
-text(0.86, 43, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
-text(0.86, 41, expression(paste(ach)), cex = labelsize, xpd = TRUE)
+#text(0.86, 43, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
+text(0.625, 13, expression(paste(ach)), cex = labelsize, xpd = TRUE)
 
-text(0.62, 43, expression(paste("Marginal cost")), cex = labelsize, xpd = TRUE)
-text(0.62, 41, expression(paste(mch)), cex = labelsize, xpd = TRUE)
+#text(0.62, 43, expression(paste("Marginal cost")), cex = labelsize, xpd = TRUE)
+text(0.56, 24, expression(paste(mch)), cex = labelsize, xpd = TRUE)
 
-text(0.2, 43, expression(paste("Marginal revenue product")), cex = labelsize, xpd = TRUE)
-text(0.2, 41, expression(paste(mrph)), cex = labelsize, xpd = TRUE)
+#text(0.2, 43, expression(paste("Marginal revenue product")), cex = labelsize, xpd = TRUE)
+text(0.26, 24, expression(paste(mrph)), cex = labelsize, xpd = TRUE)
 
 
 

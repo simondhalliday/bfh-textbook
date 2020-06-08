@@ -23,7 +23,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4.5, 6, 1, 1))
+par(mar =  c(4.5, 6, 1, 2))
 
 brfFn <- function(delta, q = 1) {
   .5 + (delta / (2 * q)) 
@@ -76,14 +76,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.5), ylims[2])
 ylabels <- c(NA, expression(paste(f^{C} == frac(1,2))),expression(paste(f^{N} == frac(3,4))), NA)
-ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(NA, NA, NA)
+ticksx <- c(xlims[1], 0.5, 0.75, xlims[2])
+xlabels <- c(NA, NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 text(0.5, -0.07, expression(paste(delta^{N} == frac(q,2))), xpd = TRUE, cex = labelsize) 
 text(0.59, -0.06, expression(paste(phantom() == delta^{C})), xpd = TRUE, cex = labelsize) 
+text(0.75, -0.07, expression(paste(delta[g])), xpd = TRUE, cex = labelsize) 
 
 
 npts <- 503 
@@ -122,14 +123,20 @@ text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", 
 
 
 segments(0.5, 0, 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 0.5, 0.5, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, brfFn(delta = 0.5), 0.75, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 0.5, 0.5, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.75, 0, 0.75, PCFn(delta = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 points(0.5, 0.5, pch = 16, col = "black", cex = 1.5)
 text(0.5 + 0.019, 0.5 - 0.03, expression(paste(c)), cex = labelsize)
+
+
+points(0.75, PCFn(0.75), pch = 16, col = "black", cex = 1.5)
+text(0.75 + 0.019, PCFn(0.75) - 0.03, expression(paste(g)), cex = labelsize)
 
 
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
@@ -140,10 +147,10 @@ text(0.5 + 0.019, 0.5 - 0.03, expression(paste(c)), cex = labelsize)
 text(0.62, 1.02, expression(paste("A's best-response function (ICC)")), cex = labelsize, xpd = TRUE)
 text(0.62, 0.92, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = labelsize)
 
-text(0.66, 0.4, expression(paste("A's participation")), cex = labelsize)
-text(0.66, 0.34, expression(paste("constraint (PC)")), cex = labelsize)
-text(0.66, 0.25, expression(paste(f == frac(delta, q))), cex = labelsize)
-Arrows(0.66, 0.44, 0.66, 0.63, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(0.92, 0.4, expression(paste("A's participation")), cex = labelsize, xpd = TRUE)
+text(0.92, 0.34, expression(paste("constraint (PC)")), cex = labelsize, xpd = TRUE)
+text(0.92, 0.25, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
+Arrows(0.83, 0.44, 0.83, 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)
@@ -155,10 +162,21 @@ text(0.96, 0.78, expression(paste(pi^{C})), cex = labelsize, xpd = TRUE)
 #text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
 #Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-brackets(x1 = 0.51, y1 = 0.74,
-         x2 = 0.51, y2 = 0.52, 
+# brackets(x1 = 0.51, y1 = 0.74,
+#          x2 = 0.51, y2 = 0.52, 
+#          ticks = 0.5, curvature = 0.5, type = 1,
+#          col = "black", lwd = 2, lty = 1, h = 0.02, xpd = TRUE)
+# 
+# text(0.575, 0.64, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
+
+brackets(x1 = 0.74, y1 = 0.45,
+         x2 = 0.51, y2 = 0.45,
          ticks = 0.5, curvature = 0.5, type = 1,
          col = "black", lwd = 2, lty = 1, h = 0.02, xpd = TRUE)
 
-text(0.575, 0.64, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
+text(0.625, 0.4, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
+
+
+
+
 dev.off()

@@ -164,9 +164,9 @@ text(0.61, 0.14, expression(paste(phantom() == frac(1 - f, q*(1 - 2*f) + delta))
 Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(0.82, 0.6, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
-text(0.82, 0.55, expression(paste("better for borrower")), cex = labelsize,xpd = TRUE)
-Arrows(0.95, 0.5, 0.7, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.82, 0.6, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
+text(0.175, 0.65, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
+Arrows(0.3, 0.6, 0.05, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.85, 1.02, expression(paste("Participation")), cex = labelsize)
 text(0.85, 0.97, expression(paste("constraint")), cex = labelsize)

@@ -153,17 +153,17 @@ text(0.62, 0.95, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = lab
 #Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.34, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
-text(0.34, 0.07, expression(paste("lens")), cex = labelsize)
+text(0.34, 0.08, expression(paste("lens")), cex = labelsize)
 Arrows(0.3, 0.18, 0.3, 0.43, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # ff
 Arrows(0.7, 0.18, 0.9, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.8, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.8, 0.28, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.8, 0.23, expression(paste('better for lender')), cex = labelsize, xpd = TRUE)
 
-text(0.20, 0.78, expression("More expected income"), cex = labelsize)
-text(0.18, 0.73,  expression("better for borrower"), cex = labelsize)
-Arrows(0.23, 0.68, 0.05, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.20, 0.78, expression("More expected income"), cex = labelsize)
+text(0.18, 0.7,  expression("Better for borrower"), cex = labelsize)
+Arrows(0.23, 0.65, 0.05, 0.65, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #Arrows(0.23, 0.68, 0.05, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 6, 1, 1))
@@ -172,7 +172,7 @@ text(0.84, 0.88, expression(paste(pi[0] == zpc)), cex = labelsize, xpd = TRUE)
 text(0.84, 0.78, expression(paste(pi[1])), cex = labelsize, xpd = TRUE)
 text(0.84, 0.7, expression(paste(pi[2])), cex = labelsize, xpd = TRUE)
 
-Arrows(0.38, 0.18, 0.58, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.38, 0.18, 0.58, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
 

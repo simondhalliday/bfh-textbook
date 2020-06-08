@@ -98,7 +98,7 @@ text(-0.09, 0.5*(ylims[2]), expression(paste("Risk, ", f)), xpd = TRUE, cex = ax
 text(0.5*(xlims[2]), -0.15, expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
 
 
-Arrows(0.38, 0.18, 0.58, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.38, 0.18, 0.58, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
 

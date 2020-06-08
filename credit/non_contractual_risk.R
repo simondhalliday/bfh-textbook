@@ -157,7 +157,7 @@ text(0.34, 0.07, expression(paste("lens")), cex = labelsize)
 Arrows(0.3, 0.18, 0.3, 0.43, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # ff
-Arrows(0.7, 0.18, 0.9, 0.18, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.7, 0.18, 0.9, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(0.8, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.8, 0.23, expression(paste('better for lender')), cex = labelsize, xpd = TRUE)
 

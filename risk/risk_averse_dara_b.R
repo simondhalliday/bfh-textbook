@@ -8,7 +8,7 @@ pdf(file = "risk/risk_averse_dara_b.pdf", width = 10, height = 8)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.725
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -67,10 +67,10 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5.5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(-2.5, ConcaveU(33.5) + 0.05, expression(paste(u(y[f^G] ))), xpd = TRUE, cex = labelsize)
-text(-2.5, ConcaveU(24.5) - 0.05, expression(paste(u(y[f^B] ))), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(33.5) + 0.07, expression(paste(u(y[f^G] ))), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(24.5) - 0.07, expression(paste(u(y[f^B] ))), xpd = TRUE, cex = labelsize)
 
 # label yhat
 text(9.65, -0.2, expression(paste(hat(y)[e])), xpd = TRUE, cex = labelsize)

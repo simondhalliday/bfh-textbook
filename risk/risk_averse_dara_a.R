@@ -8,7 +8,7 @@ pdf(file = "risk/risk_averse_dara_a.pdf", width = 10, height = 8)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.725
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -50,8 +50,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
-ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(13), 2*ConcaveU(3), ConcaveU(19), ConcaveU(30), ylims[2])
-ylabels <- c(NA, expression(paste(u(y[{d^B}] ))), NA, NA, expression(v(L[c]) ), expression(paste(u(y[c^G] ))), expression(paste(u(y[d^G] ))), NA)
+ticksy <- c(0, ConcaveU(2), 1.6275*ConcaveU(3), ConcaveU(13), 2.03*ConcaveU(3), ConcaveU(19), ConcaveU(30), ylims[2])
+ylabels <- c(NA, expression(paste(u(y[{d^B}] ))), NA, NA, expression(v(L[c]) ), NA, expression(paste(u(y[d^G] ))), NA)
 
 # ticksx <- c(0, 3, 10, 22, 36, xlims[2])
 ticksx <- c(0, 2, 13, 16, 19, 30, xlims[2])
@@ -70,11 +70,12 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Income, y")), side = 1, line = 2.5, cex = axislabelsize)
-text(-5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5.5, 0.5*ylims[2], expression(paste("Utility of income, u(y)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.9*xlims[2], -0.3, expression(paste("Income, y")), xpd = TRUE, cex = axislabelsize) 
 
 text(-2.5, ConcaveU(13) - 0.05, expression(paste(u(y[{c^B}]))), xpd = TRUE, cex = labelsize)
 text(-2.5, 1.6275*ConcaveU(3) - 0.03, expression(v(L[d])), xpd = TRUE, cex = labelsize)
+text(-2.5, ConcaveU(19) + 0.045, expression(paste(u(y[c^G] ))), xpd = TRUE, cex = labelsize)
 
 # label yhat on x
 text(16, -0.2, expression(paste(hat(y)[c] == hat(y)[d])), xpd = TRUE, cex = labelsize)
@@ -113,8 +114,8 @@ text(29.8, ConcaveU(29) + .15, expression(paste(d^G)), cex = labelsize)
 segments(30, ConcaveU(30), 30, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(30, ConcaveU(30), pch = 16, col = "black", cex = 1.5)
 
-segments(0, 2*ConcaveU(3), 16, 2*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(16, 2*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
+segments(0, 2.03*ConcaveU(3), 16, 2.03*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(16, 2.03*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
 
 segments(0, 1.6275*ConcaveU(3), 16, 1.6275*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(16, 1.6275*ConcaveU(3), pch = 16, col = "black", cex = 1.5)

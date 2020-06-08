@@ -8,7 +8,7 @@ pdf(file = "risk/risk_averse_dara_c.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.725
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -80,8 +80,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
-mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.45*xlims[2], -5, expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), xpd = TRUE, cex = axislabelsize) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

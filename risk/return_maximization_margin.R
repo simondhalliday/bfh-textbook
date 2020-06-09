@@ -3,12 +3,12 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "credit/return_maximization.pdf", width = 8, height = 6)
+pdf(file = "risk/return_maximization_margin.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 pointsize <- 1.8
 axislabelsize <- 1.8
-labelsize <- 1.5
+labelsize <- 1.75
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2

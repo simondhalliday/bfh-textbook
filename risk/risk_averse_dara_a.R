@@ -114,11 +114,14 @@ text(29.8, ConcaveU(29) + .15, expression(paste(d^G)), cex = labelsize)
 segments(30, ConcaveU(30), 30, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(30, ConcaveU(30), pch = 16, col = "black", cex = 1.5)
 
+# Point Lc
 segments(0, 2.03*ConcaveU(3), 16, 2.03*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(16, 2.03*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
+text(16 + 0.8, 2.03*ConcaveU(3) - 0.15, expression(paste(L[c])), cex = labelsize)
 
 segments(0, 1.6275*ConcaveU(3), 16, 1.6275*ConcaveU(3), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(16, 1.6275*ConcaveU(3), pch = 16, col = "black", cex = 1.5)
+text(16 + 0.8, 1.6275*ConcaveU(3) - 0.15, expression(paste(L[d])), cex = labelsize)
 
 text(xlims[2] - 2, ConcaveU(xlims[2] - 2) + 0.2, expression(paste(u(y))),  xpd = TRUE,  cex = labelsize)
 

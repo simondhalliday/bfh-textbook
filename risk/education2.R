@@ -1,6 +1,6 @@
-source("risk/education.R")
+source("risk/education1.R")
 # the second plot
-pdf(file = "risk/education2.pdf", width = 10, height = 10)
+pdf(file = "risk/education2.pdf", width = 9, height = 7)
 
 
 indiff <- function(delta, u = 2, alpha = 0.2, beta = 2){
@@ -15,14 +15,16 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
+#Edited the margins to cater for the larger LHS labels
+par(mar =  c(4, 8, 1, 1))
+
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-#Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 8, 1, 1))
+
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = "",
      ylab = "",
@@ -43,7 +45,7 @@ ticksx <- c(0, deltaT, 7, ylims[2])
 xlabels <- c(NA, expression(paste(Delta[f])), expression(paste(Delta[d] == Delta[e])), NA)
 
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2] - 0.1, expression(paste("Expected Income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2] - 0.1, expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -75,27 +77,33 @@ points(deltaT, yT, pch = 16, col = "black", cex = 1.5)
 
 #Label 5 points on line
 
-text(1.6, 1.2, expression(paste(u[0])), cex = labelsize)
-text(1.6, 5.2, expression(paste(u[1])), cex = labelsize)
-text(1.6, 7.8, expression(paste(u[2])), cex = labelsize)
-text(1.6, 9.8, expression(paste(u[3])), cex = labelsize)
+text(1.6, 1.2 - 0.1, expression(paste(u[0])), cex = labelsize)
+text(1.6, 5.2 - 0.1, expression(paste(u[1])), cex = labelsize)
+text(1.6, 7.8 - 0.1, expression(paste(u[2])), cex = labelsize)
+text(1.6, 9.8 - 0.1, expression(paste(u[3])), cex = labelsize)
 
 text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
 text(deltaR-0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
 
-#Arrow for tax
-brackets(deltaR + 0.3, yRprime - 0.3, deltaR + 0.3, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+
+#Arrow for cost
+brackets(deltaR + 0.2, yRprime - 0.3, deltaR + 0.2, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
-#Arrows(deltaR + 0.3, yR + 0.3, deltaR + 0.3, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
-text(deltaR + 1, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
+text(deltaR + 1.25, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
+
+# #Arrow for tax
+# brackets(deltaR + 0.3, yRprime - 0.3, deltaR + 0.3, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+#          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
+# #Arrows(deltaR + 0.3, yR + 0.3, deltaR + 0.3, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
+# text(deltaR + 1, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
 text(deltaT + 0.1, yT - 0.3, expression(f), cex = labelsize)
 
 
 #Arrow for reduced risk
 Arrows(deltaT + 0.2, 0.3, deltaR - 0.1, 0.3, code = 1, col = "black", lty = 1, arr.type = "triangle")
 #text(deltaT + 1, 1.6, expression(paste("Taxation")), cex = labelsize)
-text(deltaT + 1, 1.3, expression(paste("Tax reduces")), cex = labelsize)
-text(deltaT + 1, 0.7, expression(paste("risk exposure")), cex = labelsize)
+text(deltaT + 1, 1.5, expression(paste("Tax reduces")), cex = labelsize)
+text(deltaT + 1, 0.8, expression(paste("risk exposure")), cex = labelsize)
 
 
 dev.off()

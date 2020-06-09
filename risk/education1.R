@@ -66,7 +66,7 @@ y <- seq(ylims[1], ylims[2], length.out = npts)
 npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # the first plot
-pdf(file = "risk/education1.pdf", width = 10, height = 10)
+pdf(file = "risk/education1.pdf", width = 9, height = 7)
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 1))
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",

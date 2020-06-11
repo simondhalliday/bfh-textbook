@@ -86,7 +86,6 @@ indiffcurveBneg2 <- function(x, U = 6.33, A = 1, a = 0.5) {
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
 
-
 par(mar =  c(4, 5.2, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
@@ -135,7 +134,7 @@ ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
 arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
@@ -147,11 +146,11 @@ text(2, 14, expression(u[w]^A), cex = labelsize)
 # 
 
 # #Label B's offer curve
-text(1.5, 3, expression("B's Offer Curve"), cex = labelsize)
+text(2, 2.6, expression("B's Offer Curve"), cex = labelsize)
 Arrows(1.5, 3.3, 1.5, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 # # Price Line
-text(8, 13, expression(paste("A's Offer Curve")), cex = labelsize)
+text(8.3, 13, expression(paste("A's Offer Curve")), cex = labelsize)
 Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -187,14 +186,13 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = axislabelsize) 
 text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
-
+arrows(-0.9, 11, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(7, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {

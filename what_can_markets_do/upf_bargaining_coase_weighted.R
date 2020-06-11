@@ -41,6 +41,11 @@ plot(40, 40, xlim = xlims, ylim = ylims,
 )
 
 
+#Rent polygon
+xrent <- c(-18, -18, -9, -18)
+yrent <- c(0, 9, 0, 0)
+polygon(xrent, yrent, col = COL[4], density = NULL, border = NA)
+
 #Customize ticks and labels for the plot
 # ticksy <- seq(ylims[1], ylims[2], 1)
 # ylabels <- seq(ylims[1], ylims[2], 1)
@@ -58,25 +63,20 @@ text(2, ylims[2] - 2, expression(paste("B's utility, ", u^B)), xpd = TRUE, cex =
 
 
 #Label 2.25 and 4.5
-text(1, 4.5, expression(paste(4.5)), xpd = TRUE, cex = labelsize) 
-text(1, 9, expression(paste(9)), xpd = TRUE, cex = labelsize) 
-text(1.5, -4.5 , expression(paste(-4.5)), xpd = TRUE, cex = labelsize) 
-text(1.5, -9 , expression(paste(-9)), xpd = TRUE, cex = labelsize) 
+text(-2, 4.5, expression(paste(4.5)), xpd = TRUE, cex = labelsize) 
+text(-1.5, 9, expression(paste(9)), xpd = TRUE, cex = labelsize) 
+text(-2.5, -4.5 , expression(paste(-4.5)), xpd = TRUE, cex = labelsize) 
+text(-1.5, -9 , expression(paste(-9)), xpd = TRUE, cex = labelsize) 
 #text(-4.5, 0.5 , expression(paste(-4.5)), xpd = TRUE, cex = labelsize) 
 
-
-#Rent polygon
-xrent <- c(-18, -18, -9, -18)
-yrent <- c(0, 9, 0, 0)
-polygon(xrent, yrent, col = COL[4], density = NULL, border = NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], -18, length.out = npts)
 xx2 <- seq(-18, -9, length.out = npts)
 xx3 <- seq(-9, xlims[2], length.out = npts)
-lines(xx1, upf(xx1), col = COLA[5], lwd = segmentlinewidth, lty = 2)
-lines(xx2, upf(xx2), col = COLA[5], lwd = graphlinewidth)
-lines(xx3, upf(xx3), col = COLA[5], lwd = segmentlinewidth, lty = 2)
+lines(xx1, upf(xx1), col = COLA[4], lwd = segmentlinewidth, lty = 2)
+lines(xx2, upf(xx2), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, upf(xx3), col = COLA[4], lwd = segmentlinewidth, lty = 2)
 
 
 
@@ -91,17 +91,17 @@ text(-9, 16, expression(paste("bargaining frontier")), cex = labelsize)
 Arrows(-10, 15, -10, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Lines for Fallback positions
-segments(-18, 0, -18, ylims[2], lty = 2, col = grays[22], lwd = segmentlinewidth)
+segments(-18, 0, -18, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(-21.5, 4, expression(paste("A's fallback")), cex = labelsize)
-text(-21, 1.5, expression(paste(u[e]^A == -18)), cex = labelsize)
+text(-21, 1.55, expression(paste(u[z]^A == -18)), cex = labelsize)
 
 text(8, 5, expression(paste("B's fallback")), cex = labelsize)
-text(8, 2, expression(paste(u[e]^B == 0)), cex = labelsize)
+text(8, 2, expression(paste(u[z]^B == 0)), cex = labelsize)
 
 #Add points
 
 points(0, -9, pch = 16, col = "black", cex = 1.5)
-text(0.65, -7.6, expression(paste(e*minute)), cex = labelsize)
+text(0.65, -7.6, expression(paste(z*minute)), cex = labelsize)
 
 
 points(-9, 0, pch = 16, col = "black", cex = 1.5)
@@ -114,7 +114,7 @@ points(-13.5, 4.5, pch = 16, col = "black", cex = 1.5)
 text(-12.8, 5.7, expression(paste(n)), cex = labelsize)
 
 points(-18, 0, pch = 16, col = "black", cex = 1.5)
-text(-19, -1, expression(paste(e)), cex = labelsize)
+text(-19, -1, expression(paste(z)), cex = labelsize)
 
 
 

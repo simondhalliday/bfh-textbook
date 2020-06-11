@@ -15,9 +15,9 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(6, 5, 5, 5))
+par(mar =  c(5, 5, 5, 5))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -108,8 +108,8 @@ ticksy <- seq(from = 0, to = 400, by = 50)
 ylabels <- seq(from = 0, to = 400, by = 50)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = axislabelsize)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -121,8 +121,8 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-mtext("A's Good, x", side=1, line = 3.3, cex = axislabelsize)
-text(-1.1, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext("A's good, x", side=1, line = 3.3, cex = axislabelsize)
+text(-1.1, 0.5*ylims[2], expression(paste("A's money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -154,7 +154,7 @@ segments(5, 280, 5, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
 # 
 # #Label the PEC
 text(2, 44, expression("Pareto-efficient"), cex = annotatesize)
-text(2, 29, expression("curve"), cex = annotatesize)
+text(2, 27, expression("curve"), cex = annotatesize)
 Arrows(3.3, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A path
@@ -177,7 +177,7 @@ points(5.34, 119, pch = 1, col = "black", cex = 1.5)
 # text(2.25, 5, expression(slope == -p[n] ))
 # 
 # #Label the iso-welfare functions for the HG, Aisha
-text(6, 50, expression(u[e]^A), cex = labelsize)
+text(6, 50, expression(u[z]^A), cex = labelsize)
 text(6, 130, expression(u[L]^A), cex = labelsize)
 #text(8.2, 185, expression(u[3]^A))
 # 
@@ -196,8 +196,8 @@ points(5, 158, pch = 16, col = "black", cex = 1.5)
 text(5.2, 168, expression(paste(L)), cex = labelsize)
 # 
 # #Initial Allocations
-points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 11, expression(paste(z)), cex = labelsize)
+points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(9.2, 11.2, expression(paste(z)), cex = labelsize, xpd = TRUE)
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
 text(5.2, 210, expression(paste(n)), cex = labelsize)
@@ -237,10 +237,10 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = axislabelsize)
-mtext("B's Good, x", side = 3, line = 3, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+mtext("B's good, x", side = 3, line = 3, cex = axislabelsize)
+text(-0.9, 0.5*ylims[2], expression(paste("B's money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.9, 275, -0.9, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 par(mar =  c(5, 5, 5, 5))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
@@ -101,8 +101,6 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ypoly1 <- indiffA(xpoly1)
 # ypoly2 <- WalrasP(xpoly1)
 # polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
-points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 12, expression(paste(z)), cex = annotatesize)
 
 
 ticksy <- seq(from = 0, to = 400, by = 50)
@@ -110,7 +108,7 @@ ylabels <- seq(from = 0, to = 400, by = 50)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 a2 <- c(uA(8.1, 43), uA(6.55, 99), uA(5.8, 170), uA(5.34, 255)) 
 
@@ -170,7 +168,7 @@ segments(5, 280, 5, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
 # 
 # #Label the PEC
 text(2, 44, expression("Pareto-efficient"), cex = annotatesize)
-text(2, 30, expression("curve"), cex = annotatesize)
+text(2, 28, expression("curve"), cex = annotatesize)
 Arrows(3.3, 44, 4.8, 44, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #A path
@@ -186,7 +184,10 @@ points(6.55, 99, pch = 1, col = "black", cex = 1.5)
 points(5.8, 170, pch = 1, col = "black", cex = 1.5)
 points(5.34, 255, pch = 1, col = "black", cex = 1.5)
 points(5, 365, pch = 16, col = "black", cex = 1.5)
-text(5.2, 370, expression(paste(H)), cex = annotatesize)
+text(5.3, 370, expression(paste(H)), cex = annotatesize)
+
+points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(9.1, 12.4, expression(paste(z)), cex = annotatesize, xpd = TRUE)
 
 # #Label the walrasian P
 # 
@@ -252,7 +253,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 #mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
 
 text(0.5*xlims[2], -55, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
@@ -264,7 +265,7 @@ arrows(6.5, -55, 9, -55, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
-text(4.9, 190, expression(paste(n)), cex = annotatesize)
+text(4.8, 190, expression(paste(n)), cex = annotatesize)
 
 dev.off()
 

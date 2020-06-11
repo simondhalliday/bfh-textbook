@@ -109,12 +109,12 @@ ylabels <- seq(from = 0, to = 400, by = 40)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[4],
+        col = COLA[3],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -139,7 +139,7 @@ xx2 <- seq(1, 10, length.out = npts)
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[4],
+        col = COLB[3],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE
@@ -183,12 +183,13 @@ text(4.8, 110, expression(paste(f)), cex = labelsize)
 points(5, 280, pch = 16, col = "black", cex = 1.5)
 text(5.2, 290, expression(paste(g)), cex = labelsize)
 # 
-# #Initial Allocations
-points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5)
-text(9, 10, expression(paste(z)), cex = labelsize)
 
 points(x = 5, y = 200, pch = 16, col = "black", cex = 1.5)
 text(4.9, 190, expression(paste(n)), cex = labelsize)
+
+# #Initial Allocations
+points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(9.2, 10.2, expression(paste(z)), cex = labelsize)
 
 
 
@@ -226,7 +227,8 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+
 
 #mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -49, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 

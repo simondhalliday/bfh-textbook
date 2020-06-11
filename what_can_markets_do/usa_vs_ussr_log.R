@@ -52,31 +52,31 @@ CWPlot <-
   labs(color = "Country") + 
   annotate("text", x = 1928, y = 7.75, label = "First 5-year") +
   annotate("text", x = 1928, y = 7.6, label = "plan") +
-  geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.232512),
-               size = 0.7, arrow = arrow(type = "closed", 
+  geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.3),
+               size = 0.6, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                          angle = 25)) +
   annotate("text", x = 1933, y = 9.13, label = "Great") +
   annotate("text", x = 1933, y = 9, label = "depression") +
   geom_segment(aes(x = 1933, y = 8.9, xend = 1933, yend = 8.571550), 
-                size = 0.7, arrow = arrow(type = "closed", 
+                size = 0.6, arrow = arrow(type = "closed", 
                                         length = unit(0.25, "cm"), 
                                          angle = 25)) +
-  annotate("text", x = 1945, y = 9.8, label = "WWII Ends") +
-  geom_segment(aes(x = 1945, y = 9.7, xend = 1945, yend = 9.388083), 
-                size = 0.7, arrow = arrow(type = "closed", 
+  annotate("text", x = 1945, y = 9.8, label = "WWII ends") +
+  geom_segment(aes(x = 1945, y = 9.7, xend = 1945, yend = 9.4), 
+                size = 0.6, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                           angle = 25)) +
-  annotate("text", x = 1959, y = 9.65, label = "Kitchen Debate") +
+  annotate("text", x = 1959, y = 9.65, label = "Kitchen debate") +
   geom_segment(aes(x = 1959, y = 9.55, xend = 1959, yend = 9.346359), 
-               size = 0.7, arrow = arrow(type = "closed", 
+               size = 0.6, arrow = arrow(type = "closed", 
                                           length = unit(0.25, "cm"), 
                                         angle = 25)) +
   annotate("text", x = 1997, y = 9.16, label = "Central") +
-  annotate("text", x = 1997, y = 9.05, label = "Planning") +
-  annotate("text", x = 1997, y = 8.92, label = "Ends") +
-  geom_segment(aes(x = 1993, y = 8.95, xend = 1991, yend = 8.787963),
-               size = 0.7, arrow = arrow(type = "closed",
+  annotate("text", x = 1997, y = 9.05, label = "planning") +
+  annotate("text", x = 1997, y = 8.92, label = "ends") +
+  geom_segment(aes(x = 1993, y = 8.95, xend = 1991, yend = 8.8),
+               size = 0.6, arrow = arrow(type = "closed",
                                          length = unit(0.25, "cm"),
                                          angle = 25)) +
   # annotate("text", x = 2008, y = 10.8, label = "Global") +

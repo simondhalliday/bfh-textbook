@@ -156,7 +156,7 @@ contour(x, y,
 ) 
 
 segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(5, 0, 5, 3.95, col = grays[20] , lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
@@ -170,15 +170,6 @@ text(4, 9.2, expression(slope == -p[w]), cex = annotatesize)
 Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-#Label the iso-welfare functions for the HG, Aisha
-text(9.65, 0.7, expression(v[1]^A), cex = annotatesize)
-text(9.65, 2.85, expression(v[2]^A), cex = annotatesize)
-
-#Label the indifference curves for the HG, Betty
-text(1, 8.9, expression(v[1]^B), cex = annotatesize)
-text(1, 6.8, expression(v[2]^B), cex = annotatesize)
-#text(2.6, 8.1, expression(v[3]^B))
-#text(3.4, 6.9, expression(v[4]^B))
 
 #Point for seeing where the indifference curves intersect on the LHS
 #points(1.5, 9.1, pch = 16, col = "black", cex = 1.5)
@@ -202,6 +193,16 @@ segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 points(x = 8.48, y = 0.92, pch = 16, col = "black", cex = 1.5)
 text(8.3, 0.8, expression(paste(z)), cex = annotatesize)
+
+#Label the iso-welfare functions for the HG, Aisha
+text(9.65, 0.7, expression(u[1]^A), cex = annotatesize)
+text(9.65, 2.85, expression(u[2]^A), cex = annotatesize)
+
+#Label the indifference curves for the HG, Betty
+text(1, 8.9, expression(u[1]^B), cex = annotatesize)
+text(1, 6.8, expression(u[2]^B), cex = annotatesize)
+#text(2.6, 8.1, expression(v[3]^B))
+#text(3.4, 6.9, expression(v[4]^B))
 
 
 

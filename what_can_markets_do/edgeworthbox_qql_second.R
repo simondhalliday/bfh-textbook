@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
 par(mar =  c(4, 4, 4, 5))
@@ -173,8 +173,8 @@ Arrows(4, 9, 4, 7.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(7, 0.5, expression(u[1]^A), cex = annotatesize)
-text(7, 3.5, expression(u[2]^A), cex = annotatesize)
+text(7, 0.4, expression(u[1]^A), cex = annotatesize)
+text(7, 3.4, expression(u[2]^A), cex = annotatesize)
 
 #Label the indifference curves for the HG, Betty
 text(1, 9.5, expression(u[1]^B), cex = annotatesize)
@@ -199,10 +199,10 @@ segments(xlims[2], 0.35, 8.15, 0.35, col = grays[20] , lwd = segmentlinewidth, l
 segments(xlims[2], 3.35, 8.15, 3.35, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 
 points(x = 8.15, y = 0.35, pch = 16, col = "black", cex = 1.5)
-text(8.3, 0.6, expression(paste(z[0])), cex = annotatesize)
+text(8.35, 0.6, expression(paste(z[0])), cex = annotatesize)
 
 points(x = 8.15, y = 3.35, pch = 16, col = "black", cex = 1.5)
-text(8.3, 3.6, expression(paste(z[1])), cex = annotatesize)
+text(8.35, 3.6, expression(paste(z[1])), cex = annotatesize)
 
 #Braces for labels
 # brackets(x1 = 8.9, y1 = -0.3, x2 = 5, y2 = -0.3,  

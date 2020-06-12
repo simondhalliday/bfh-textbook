@@ -89,9 +89,9 @@ plotGDP <- GDP3 %>%
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.1, 0.85),
         legend.text = element_text(size = 12),
-        legend.title = element_text(size = 15),
-        axis.text = element_text(size = 15),
-        axis.title = element_text(size = 17))
+        legend.title = element_text(size = 14),
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 16))
 
 ggsave("capitalism/gdp.pdf", height = 7, width = 9, units = "in")
 

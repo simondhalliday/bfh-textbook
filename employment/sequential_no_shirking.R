@@ -112,8 +112,8 @@ text(3.7, 2.7, expression(paste( (1-j) )), cex = actionlabelsize)
 
 #Payoffs 
 text(1, .6, expression(B), cex = actionlabelsize)
-text(4, .6, expression(w), cex = actionlabelsize)
-text(6, .6, expression(w - underline(u)), cex = actionlabelsize)
+text(4, .6, expression(w - underline(u)), cex = actionlabelsize)
+text(6, .6, expression(w), cex = actionlabelsize)
 text(9, .6, expression(paste(w - underline(u))), cex = actionlabelsize)
 
 dev.off()

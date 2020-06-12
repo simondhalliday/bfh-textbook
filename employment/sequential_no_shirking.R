@@ -73,8 +73,8 @@ points(4, 1, pch = 16, col = "black", cex = nodesize)
 points(6, 1, pch = 16, col = "black", cex = nodesize)
 points(9, 1, pch = 16, col = "black", cex = nodesize)
 
-text(-0.25, 11, expression(paste("Employer:")), cex = actionlabelsize, xpd = TRUE)
-text(5, 11, expression(paste("Sets no-shirking effort, ", bar(e), ", termination probability, ", t)), cex = actionlabelsize, xpd = TRUE)
+text(-0.45, 11, expression(paste("Employer:")), cex = actionlabelsize, xpd = TRUE)
+text(5, 11, expression(paste("Sets no-shirking effort, ", underline(e), ", termination probability, ", t)), cex = actionlabelsize, xpd = TRUE)
 text(5, 10.55, expression(paste("and wage, ", w)), cex = actionlabelsize, xpd = TRUE)
 
 text(0, 8.5, expression(paste("Worker's choice:")), cex = actionlabelsize, xpd = TRUE)
@@ -86,18 +86,17 @@ text(3.6, 8.1, expression(paste(e == 0)), cex = actionlabelsize)
 text(6.1, 8.5, expression(paste("Works")), cex = actionlabelsize)
 text(6.1, 8.1, expression(paste(e == underline(e))), cex = actionlabelsize)
 
-text(-0.25, 6.15, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
+text(-0.575, 6.15, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
 
-text(2.5, 6.15, expression(paste("Worker is")), cex = actionlabelsize)
-text(2.5, 5.7, expression(paste("terminated")), cex = actionlabelsize)
+text(2.2, 6.15-0.5, expression(paste("Worker is")), cex = actionlabelsize)
+text(2.2, 5.7-0.5, expression(paste("terminated")), cex = actionlabelsize)
+text(2.2, 5.25-0.5, expression(paste((t))), cex = actionlabelsize)
 
-text(4.5, 6.15, expression(paste("Worker")), cex = actionlabelsize)
-text(4.5, 5.7, expression(paste("keeps job")), cex = actionlabelsize)
+text(4.7, 6.15-0.5, expression(paste("Worker")), cex = actionlabelsize)
+text(4.7, 5.7-0.5, expression(paste("keeps job")), cex = actionlabelsize)
+text(4.7, 5.25-0.5, expression(paste( (1-t) )), cex = actionlabelsize)
 
-text(2.5, 5.25, expression(paste((t))), cex = actionlabelsize)
-text(4.5, 5.25, expression(paste( (1-t) )), cex = actionlabelsize)
-
-text(-0.25, 3.55, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
+text(-0.575, 3.55, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
 
 text(1.3, 3.55, expression(paste("Remains")), cex = actionlabelsize)
 text(1.3, 3.1, expression(paste("jobless")), cex = actionlabelsize)

@@ -142,7 +142,7 @@ arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 
-text(2, 14, expression(u[w]^A), cex = labelsize)
+text(2, 14, expression(u[n]^A), cex = labelsize)
 # 
 
 # #Label B's offer curve
@@ -156,13 +156,13 @@ Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 
 # Walrasian Price Line
 text(8.3, 7.8, expression(paste("Walrasian Price Line")), cex = labelsize)
-text(8.3, 7, expression(paste("Slope", phantom() == -p[w])), cex = labelsize)
+text(8.3, 7, expression(paste("Slope", phantom() == -p^N)), cex = labelsize)
 Arrows(8.5, 6.5, 8.5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 # #Add a point for the initial endowment
 points(4.8275, 7.25, pch = 16, col = "black", cex = 1.5)
-text(5, 7.75, expression(w), cex = labelsize)
+text(5, 7.75, expression(n), cex = labelsize)
 
 #Set up second axes and labels
 
@@ -217,7 +217,7 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
 
 #Label B's indifference curves
 
-text(9.1, 5.2, expression(u[w]^B), cex = labelsize)
+text(9.1, 5.2, expression(u[n]^B), cex = labelsize)
 
 
 #Add a point for the initial endowment

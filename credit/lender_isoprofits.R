@@ -168,18 +168,18 @@ text(deltaFn(f = 0.5, pi = 0.175) - 0.01, 0.5 + 0.03, expression(paste(j)), cex 
 #text(-0.05, 0.67, expression(paste(f[i])), cex = labelsize, xpd = TRUE)
 #text(-0.05, 0.8, expression(paste(f[h])), cex = labelsize, xpd = TRUE)
 
-text(0.84, 0.88, expression(paste(pi[0] == zpc)), cex = labelsize, xpd = TRUE)
-text(0.84, 0.78, expression(paste(pi[1])), cex = labelsize, xpd = TRUE)
-text(0.84, 0.7, expression(paste(pi[2])), cex = labelsize, xpd = TRUE)
+text(0.84, 0.88, expression(paste(hat(pi)[0] == zpc)), cex = labelsize, xpd = TRUE)
+text(0.84, 0.78, expression(paste(hat(pi)[1])), cex = labelsize, xpd = TRUE)
+text(0.84, 0.7, expression(paste(hat(pi)[2])), cex = labelsize, xpd = TRUE)
 
 Arrows(0.36, 0.45, 0.46, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.46, 0.25, expression(paste('Better for lender')), cex = labelsize, xpd = TRUE)
 
 text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
-text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
-text(0.53, 0.73, expression(paste(pi[1])), cex = labelsize)
-text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
+text(0.53, 0.82, expression(paste(hat(pi)[0])), cex = labelsize)
+text(0.53, 0.72, expression(paste(hat(pi)[1])), cex = labelsize)
+text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)
 
 
 

@@ -114,9 +114,9 @@ text(0.26, 0.9, expression(paste("Slope" == frac(1, q))), cex = labelsize)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
-text(0.53, 0.83, expression(paste(pi[0])), cex = labelsize)
-text(0.53, 0.73, expression(paste(pi[1] == pi^C)), cex = labelsize)
-text(0.53, 0.63, expression(paste(pi[2])), cex = labelsize)
+text(0.53, 0.82, expression(paste(hat(pi)[0])), cex = labelsize)
+text(0.53, 0.72, expression(paste(hat(pi)[1] == hat(pi)^C)), cex = labelsize)
+text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)
 
 segments(0, isoreturnFn(0.25), 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0.25, 0, 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)

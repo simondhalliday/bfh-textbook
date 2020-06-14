@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 1))
@@ -121,11 +121,11 @@ text(1.725, 0.39, expression(paste("minimum collateral")), cex = labelsize, xpd 
 text(1.725, 0.32, expression(paste(f(delta, k[3] > k^0))), cex = labelsize, xpd = TRUE)
 Arrows(1.75, 0.55, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.825, 0.43, expression(paste(pi > 1 + rho)), cex = labelsize)
+text(0.825, 0.425, expression(paste(hat(pi) > 1 + rho)), cex = labelsize)
 
 text(0.19, 0.37, expression(paste("Zero profit")), cex = labelsize)
 text(0.19, 0.31, expression(paste("condition")), cex = labelsize)
-text(0.1725, 0.25, expression(paste(pi[0] == 1 + rho)), cex = labelsize)
+text(0.168, 0.25, expression(paste(hat(pi)[0] == 1 + rho)), cex = labelsize)
 
 
 dev.off()

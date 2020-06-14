@@ -122,11 +122,6 @@ text(1.04, 41, expression(paste("supply")), cex = labelsize, xpd = TRUE)
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
 
-#Arrow to Slope of BRF
-#Arrows(0.5, 13, 0.58, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-#text(0.35, 13, expression(paste("Slope = " - u[q], " = ", frac(delta, (1 - q)^2))))
-
-
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #text(0.92, 12.5, expression(paste("Employment Rent")))
@@ -173,7 +168,7 @@ text(IPoints[3] + 0.01, WageFn(IPoints[3]) - 1.2, expression(paste(j)), cex = la
 #Segment to original monopsony outcome
 #segments(0, Mch(LPoints[1]), LPoints[1], Mch(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 segments(LPoints[1], 0 , LPoints[1], Mch(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
-#segments(0, WageFn(LPoints[1]), LPoints[1], WageFn(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
+segments(0, WageFn(LPoints[1]), LPoints[1], WageFn(LPoints[1]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Point where min wage intersects mc(h)
 # points(IPoints[1], Mch(IPoints[1]), pch = 16, col = "black", cex = 1.5)

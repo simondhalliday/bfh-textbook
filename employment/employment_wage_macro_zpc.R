@@ -123,8 +123,8 @@ text(0.32, 24, expression(paste("Firms exiting")), cex = labelsize)
 Arrows(0.43, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 
-text(0.32, 4, expression(paste("No")), cex = labelsize)
-text(0.32, 2, expression(paste("production")), cex = labelsize)
+text(0.6, 7, expression(paste("No")), cex = labelsize)
+text(0.6, 5, expression(paste("production")), cex = labelsize)
 
 #text(0.97, 6, expression(paste(B + a/t)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))

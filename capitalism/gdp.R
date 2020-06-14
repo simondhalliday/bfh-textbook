@@ -1,4 +1,4 @@
-#' Graph Designer(s): Simon Halliday,  Scott Cohn
+#' Graph Designer(s): Simon Halliday, Scott Cohn
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -11,13 +11,20 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 # Wrangle -----------------------------------------------------------------
 
+# GDP2 <- 
+#   GDPData %>%
+#   mutate(China = parse_number(`China GDP per capita`), 
+#          Britain = parse_number(`Britain GDP per capita`), 
+#          Italy = parse_number(`Italy GDP per capita`), 
+#          Japan = parse_number(`Japan GDP per capita`), 
+#          India = parse_number(`India GDP per capita`)) 
 GDP2 <- 
   GDPData %>%
-  mutate(China = parse_number(`China GDP per capita`), 
-         Britain = parse_number(`Britain GDP per capita`), 
-         Italy = parse_number(`Italy GDP per capita`), 
-         Japan = parse_number(`Japan GDP per capita`), 
-         India = parse_number(`India GDP per capita`)) 
+  rename("China" = "China GDP per capita", 
+         "Britain" = "Britain GDP per capita", 
+         "Italy" = "Italy GDP per capita", 
+         "Japan" = "Japan GDP per capita", 
+         "India" = "India GDP per capita") 
 
 GDP3 <- 
   GDP2 %>%
@@ -35,35 +42,56 @@ history <- data.frame(year = c(1334, 1350, 1680, 1776, 1793, 1867, 1989),
                       country = c("India", "Italy", "Britain", 
                                   "Britain", "India", "Britain", "China"))
 
-
 # Plot --------------------------------------------------------------------
 
 plotGDP <- GDP3 %>% 
   ggplot(aes(x = Year, y = gdp, color = country)) +
-  #geom_vline(data = history, mapping = aes(xintercept = year), lty = 2, color = grays[20]) + 
   geom_line() + 
   scale_color_brewer(palette = "Set1") + 
   labs(x = "Year", y = "GDP per capita", color = "Country") +
-  # annotate(geom = "segment", x = 1334, xend = 1334, y = 0, yend = 5000, color = grays[20], lwd = 0.8) +
-  # annotate(geom = "text", x = 1260, y = 5000, label = "Ibn Battuta \nVisits India") +
-  # annotate(geom = "segment", x = 1350, xend = 1350, y = 0, yend = 5000, color = grays[20], lwd = 0.8) +
-  # annotate(geom = "text", x = 1450, y = 5000, label = "Bubonic Plague \nStrikes Europe") +
-  # annotate(geom = "segment", x = 1680, xend = 1680, y = 0, yend = 6000, color = grays[20], lwd = 0.8) +
-  # annotate(geom = "text", x = 1600, y = 7000, label = "Haiti & Cuba \nRicher than \nUS Colonies") +
-  # annotate(geom = "segment", x = 1776, xend = 1776, y = 0, yend = 6000, color = grays[20], lwd = 0.8) +
-  # annotate(geom = "text", x = 1776, y = 11000, label = "Adam Smith's \nWealth of Nations \nPublished") +
+  # annotate(geom = "text", x = 1280, y = 5000, label = "Ibn Battuta \nvisits India \n(1334)") +
+  # annotate(
+  #   geom = "curve", x = 1280, y = 3500, xend = 1334, yend = 1000, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1430, y = 5000, label = "Bubonic plague \nstrikes Europe \n(1350)") +
+  # annotate(
+  #   geom = "curve", x = 1430, y = 3500, xend = 1350, yend = 1000, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1550, y = 8500, label = "Haiti & Cuba \nricher than \nUS colonies \n(1680)") +
+  # annotate(
+  #   geom = "curve", x = 1550, y = 6200, xend = 1680, yend = 1000, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1680, y = 13000, label = "Adam Smith's \nWealth of Nations \npublished \n(1776)") +
+  # annotate(
+  #   geom = "curve", x = 1680, y = 11000, xend = 1776, yend = 2000, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1800, y = 9000, label = "India \ncolonized \nby British \n(1793)") +
+  # annotate(
+  #   geom = "curve", x = 1800, y = 6700, xend = 1793, yend = 1000, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1880, y = 13000, label = "Marx \npublishes \nCapital \n(1867)") +
+  # annotate(
+  #   geom = "curve", x = 1880, y = 10700, xend = 1880, yend = 3700, 
+  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # annotate(geom = "text", x = 1900, y = 17000, label = "End of Soviet rule; \nmarket reforms in \nChina & Russia \n(1989)") +
+  # annotate(
+  #   geom = "curve", x = 1920, y = 15000, xend = 1989, yend = 3700, 
+  #   curvature = -0.1, arrow = arrow(length = unit(2, "mm"))
+  # ) +
+  # xlim(1250, max(GDP3$Year)) + 
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.1, 0.85),
         legend.text = element_text(size = 12),
-        legend.title = element_text(size = 15),
-        axis.text = element_text(size = 15),
-        axis.title = element_text(size = 17))
-
-plotGDP +
- geom_vline(data = history, mapping = aes(xintercept = year), lty = 2, color = "gray") +
- geom_text(data = history, mapping = aes(x = year, y = 5000, label = event), color =
-              "black", size = 4, angle = 90, vjust = 1, hjust = 0)
+        legend.title = element_text(size = 14),
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 16))
 
 ggsave("capitalism/gdp.pdf", height = 7, width = 9, units = "in")
 

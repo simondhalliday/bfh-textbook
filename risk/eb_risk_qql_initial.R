@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(5, 6, 5, 6))
 
@@ -86,13 +86,16 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = label
 
 text(-0.15, 0.5*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
-text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
+#text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -125, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
 
 #Add arrows for W:
-arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(0.7, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(0.7, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.13, 780, -0.13, 900, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(0.78, -120, 0.9, -120, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 priceLine <- function(x, slope = 275, intercept = 2*ylims[2]/3) {
@@ -146,16 +149,18 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.4*xlims[2], -100, expression(paste("N's risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -100, expression(paste("N's risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 
 text(-0.15, 0.5*ylims[2], expression(paste("N's expected income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
-arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(0.63, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
-
+# arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(0.63, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.13, 780, -0.13, 900, xpd = TRUE, length=0.1,angle=40,lwd=3)
+#arrows(0.78, -120, 0.9, -120, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(0.68, -100, 0.85, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)

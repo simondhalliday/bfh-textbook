@@ -14,7 +14,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(7, 9, 6, 6))
 
@@ -81,7 +81,7 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = lab
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.17, 0.5*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.17, 0.55*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 text(0.5*xlims[2], -150, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -99,8 +99,10 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, priceLine(xx1), col = "gray", lwd = segmentlinewidth)
 
 #Add arrows:
-arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(0.72, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(0.72, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.15, 850, -0.15, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(0.8, -145, 0.9, -145, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 
@@ -121,7 +123,7 @@ ticksy <- c(ylims[1],
             ylims[2]/3,ylims[2])
 ylabels <- c(0, expression(paste(y[z]^N - p(1-Delta[i]^N))), expression(paste(y[z]^N)), 1000)
 ticksx <- c(0, 0.45, 1)
-xlabels <- c(0, expression(paste(Delta[i]^N)), 1)
+xlabels <- c(0, expression(paste(Delta[i]^N)), NA)
 
 
 axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -141,13 +143,15 @@ contour(x, y,
         yaxs = "i", 
         add = TRUE) 
 
+text(1.025, -50, expression(1), cex = labelsize, xpd = TRUE)
+
 text(0.5*xlims[2], -170, expression(paste("N's risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 text(-0.19, 0.55*ylims[2], expression(paste("N's expected income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
-arrows(-0.12, 740, -0.12, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(0.7, -150, 0.9, -150, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.17, 840, -0.17, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(0.68, -175, 0.9, -175, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

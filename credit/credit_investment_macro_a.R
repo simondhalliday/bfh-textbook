@@ -18,10 +18,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 brfFn <- function(delta, q = 1, k = 1) {
   .5 + (delta / (2 * q)) * (1 - k)
@@ -88,7 +88,7 @@ lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 
 
 #Axis labels
-mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
 text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -125,7 +125,7 @@ text(1.4, 0.78, expression(paste(pi[1] == 1 + rho[1])), cex = labelsize, xpd = T
 
 #text(0.49, 0.15, expression(paste("Policy")), cex = labelsize)
 #text(0.49, 0.09, expression(paste("Change")), cex = labelsize)
-Arrows(0.62, 0.62, 0.49, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.63, 0.62, 0.5, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

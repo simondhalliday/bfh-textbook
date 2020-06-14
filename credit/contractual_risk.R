@@ -20,7 +20,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7, 1, 1))
+par(mar =  c(5, 7, 0.5, 0.5))
 
 PCFn <- function(delta, q = 0.5) {
   delta/q
@@ -83,9 +83,9 @@ lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 
 
 #Label the feasible frontier
-text(0.14, 0.82, expression("Lower interest factor"), cex = labelsize)
-text(0.14, 0.77,  expression("better for borrower"), cex = labelsize)
-Arrows(0.23, 0.72, 0.05, 0.72, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.14, 0.82, expression("Lower interest factor"), cex = labelsize)
+text(0.14, 0.77,  expression("Better for borrower"), cex = labelsize)
+Arrows(0.19, 0.72, 0.1, 0.72, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(0.14, 0.82, expression("Feasible combinations"), cex = labelsize)
 #text(0.14, 0.77,  expression("of risk and interest"), cex = labelsize)
@@ -98,15 +98,19 @@ text(-0.09, 0.5*(ylims[2]), expression(paste("Risk, ", f)), xpd = TRUE, cex = ax
 text(0.5*(xlims[2]), -0.15, expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
 
 
-Arrows(0.38, 0.18, 0.58, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
-text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
+# Arrows(0.38, 0.18, 0.58, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+# text(0.48, 0.23, expression(paste('better for principal')), cex = labelsize, xpd = TRUE)
 
+Arrows(0.36, 0.45, 0.46, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.46, 0.25, expression(paste('Better for lender')), cex = labelsize, xpd = TRUE)
 
 
 #Label participation constraint
-text(0.26, 0.94, expression(paste("Participation constraint,")), cex = labelsize)
-text(0.41, 0.94, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
+text(0.26, 0.985, expression(paste("Participation constraint,")), cex = labelsize)
+text(0.41, 0.985, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
+text(0.26, 0.9, expression(paste("Slope" == frac(1, q))), cex = labelsize)
 
 #Label Iso-profit
 text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
@@ -119,6 +123,9 @@ segments(0.25, 0, 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segm
 text(0.25, isoreturnFn(0.25) + 0.05, expression(paste(c)), cex = labelsize)
 points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
 
+# slope of indiff
+#text(0.35, 0.1, expression(paste("Slope ", phantom() == frac((1 - f),delta ))), cex = labelsize, xpd = TRUE)
+# Arrows(0.265, 0.09, 0.21, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

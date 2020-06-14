@@ -157,9 +157,12 @@ text(0.34, 0.08, expression(paste("lens")), cex = labelsize)
 Arrows(0.3, 0.18, 0.3, 0.43, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # ff
-Arrows(0.7, 0.18, 0.9, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(0.8, 0.28, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
-text(0.8, 0.23, expression(paste('better for lender')), cex = labelsize, xpd = TRUE)
+# Arrows(0.7, 0.18, 0.9, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(0.8, 0.28, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+# text(0.8, 0.23, expression(paste('better for lender')), cex = labelsize, xpd = TRUE)
+Arrows(0.56, 0.55, 0.66, 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.66, 0.35, expression(paste('Better for lender')), cex = labelsize, xpd = TRUE)
 
 #text(0.20, 0.78, expression("More expected income"), cex = labelsize)
 text(0.18, 0.7,  expression("Better for borrower"), cex = labelsize)

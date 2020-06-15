@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.5), ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)^n)), expression(paste(hat(y)[s]^{2})), expression(paste(hat(y)[s]^{1})), NA)
+ylabels <- c(NA, expression(paste(hat(y)[n])), expression(paste(hat(y)[2]^{s})), expression(paste(hat(y)[1]^{s})), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[s]^{2})), expression(paste(Delta^n)), expression(paste(Delta[s]^{1})), NA)
+xlabels <- c(NA, expression(paste(Delta[2]^{s})), expression(paste(Delta[n])), expression(paste(Delta[1]^{s})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -90,12 +90,12 @@ segments(0, riskreturn(g = 10.5) , 10.5, riskreturn(g = 10.5) , lty = 2, col = g
 segments(0, insurance(g = 1.8), 10.5, insurance(g = 1.8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(1.8, 0, 1.8, insurance(g = 1.8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1.8, insurance(g = 1.8) , pch = 16, col = "black", cex = 1.5)
-text(1.8, insurance(g = 1.8) + 0.6, expression(paste(c^2)), cex = labelsize)
+text(1.8, insurance(g = 1.8) + 0.6, expression(paste(c[2])), cex = labelsize)
 
 
 
 points(10.5, riskreturn(g = 10.5) , pch = 16, col = "black", cex = 1.5)
-text(10.5, riskreturn(g = 10.5) + 0.6, expression(paste(c^1)), cex = labelsize)
+text(10.5, riskreturn(g = 10.5) + 0.6, expression(paste(c[1])), cex = labelsize)
 
 brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1, 
          x2 = 10.7, y2 = insurance(1.8),  

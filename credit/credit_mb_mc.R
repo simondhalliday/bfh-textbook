@@ -1,4 +1,5 @@
-require(shape)
+library(shape)
+library(plotrix)
 pdf(file = "credit/credit_mb_mc.pdf", width = 7, height = 7)
 
 #Set parameters for graphics
@@ -14,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(5, 6, 1, 1))
 
@@ -22,7 +23,7 @@ mc <- function(f, q = 2) {
   -q + 2*q*f
 }
 
-xlims <- c(0, 1.05)
+xlims <- c(0.4, 1.05)
 ylims <- c(0, 2.05)
 
 npts <- 501 
@@ -53,12 +54,15 @@ ticksx <- c(0, flevels, 1, xlims[2])
 xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f^{N} )), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
 
 
-
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+axis(2, at = ticksy, pos = 0.4, labels = ylabels, las = 1, cex.axis = labelsize)
+axis.break(axis=1,breakpos=0.425,pos=0,bgcol="white",breakcol="black",
+           style="slash",brw=0.02)
+
 
 text(x = c(0, 
-           ylow(delta = 0.34, ybar = 0.0625) - 0.02, 
+           ylow(delta = 0.34, ybar = 0.0625), # - 0.2)
            0.5,
            brfFn(delta = 0.34), 
            brfFn(delta = 0.5), 
@@ -78,13 +82,13 @@ lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.15, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
+text(0.3, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.65*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
-text(0.8, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
-text(0.25, mc(flevels[5]) + 0.07, expression(paste(mb[e] == delta[e] )), cex = labelsize)
-text(0.25, mc(flevels[4]) + 0.07, expression(paste(mb^N == delta^N )), cex = labelsize)
-text(0.25, mc(flevels[3]) + 0.07, expression(paste(mb[b] == delta[b] )), cex = labelsize)
+#text(0.8, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.975, mc(flevels[5]) + 0.07, expression(paste(mb[e] == delta[e] )), cex = labelsize)
+text(0.975, mc(flevels[4]) + 0.07, expression(paste(mb^N == delta^N )), cex = labelsize)
+text(0.975, mc(flevels[3]) + 0.07, expression(paste(mb[b] == delta[b] )), cex = labelsize)
 
 #Point h on delta = delta^b
 segments(flevels[1], 0, flevels[1], mc(f = flevels[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)

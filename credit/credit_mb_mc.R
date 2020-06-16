@@ -49,9 +49,9 @@ flevels <- c(ylow(delta = 0.34, ybar = 0.0625), #point h
              )
 
 ticksy <- c(0, mc(f = flevels[3]), mc(f = flevels[4]), mc(f = flevels[5]), ylims[2])
-ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta^N)), expression(paste(delta[e])), NA)
+ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta[n])), expression(paste(delta[e])), NA)
 ticksx <- c(0, flevels, 1, xlims[2])
-xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f^{N} )), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
+xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f[n])), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
@@ -85,9 +85,9 @@ lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 text(0.3, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.65*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
-#text(0.8, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.85, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
 text(0.975, mc(flevels[5]) + 0.07, expression(paste(mb[e] == delta[e] )), cex = labelsize)
-text(0.975, mc(flevels[4]) + 0.07, expression(paste(mb^N == delta^N )), cex = labelsize)
+text(0.975, mc(flevels[4]) + 0.07, expression(paste(mb[n] == delta[n] )), cex = labelsize)
 text(0.975, mc(flevels[3]) + 0.07, expression(paste(mb[b] == delta[b] )), cex = labelsize)
 
 #Point h on delta = delta^b

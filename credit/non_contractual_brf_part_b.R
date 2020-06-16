@@ -70,7 +70,7 @@ ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.34), brfFn(delta = 0.5), brfFn(delta 
 ylabels <- c(NA, NA, NA, NA, NA, NA, NA)
 #ylabels <- c(NA, expression(paste(f == frac(1,2))), expression(paste(f^d)), expression(paste(f*(delta^L) )),  expression(paste(f*(delta^n) == frac(3,4))),expression(paste(f*(delta^H) )), expression(paste(f^e)), NA)
 ticksx <- c(xlims[1], 0.34, 0.5, 0.65, xlims[2])
-xlabels <- c(NA,  expression(paste(delta^b)), expression(paste(delta^N)), expression(paste(delta^e)), NA)
+xlabels <- c(NA,  expression(paste(delta^b)), expression(paste(delta[n])), expression(paste(delta^e)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)

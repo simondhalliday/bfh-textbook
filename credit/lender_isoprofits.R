@@ -80,8 +80,6 @@ ylabels <- c(NA, expression(paste(f[i])), expression(paste(f^C)), expression(pas
 ticksx <- c(xlims[1], deltaFn(f = 0.5, pi = 0.075), deltaFn(f = 0.5), deltaFn(f = 0.5, pi = 0.175), xlims[2])
 xlabels <- c(NA, expression(paste(delta[e])),  expression(paste(delta^C)), expression(paste(delta[j])), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 503 
 xx1 <- seq(xlims[1], 0.8, length.out = npts)
@@ -105,9 +103,15 @@ xx3 <- seq(1.5, 2.5, length.out = npts)
 xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
+xpoly <- seq(from = 0.175, to = xlims[2], length.out = 500)
+ypoly <- isoreturnFn(xpoly, pi = 0.175)
+polygon(x = xpoly, y = ypoly, col = COLB[1], density = NULL, border = NA)
 
+xpoly1 <- c(0.175, xlims[2], xlims[2])
+ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.175))
+polygon(x = xpoly1, y = ypoly1, col = COLB[1], density = NULL, border = NA)
 
-
+segments(0.175, 0, xlims[2], isoreturnFn(xlims[2], pi = 0.175), col = COLB[1])
 #Draw the graphs
 #lines(xx1, PCFn(xx1), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1), col = COLB[4], lwd = graphlinewidth)
@@ -209,6 +213,8 @@ Arrows(0.35, 0.93, 0.35, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "tria
 #text(0.3, 0.13, expression(paste("Pareto-improving")), cex = labelsize)
 #text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
 #Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 dev.off()

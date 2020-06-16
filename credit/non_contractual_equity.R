@@ -121,11 +121,15 @@ text(1.725, 0.39, expression(paste("minimum collateral")), cex = labelsize, xpd 
 text(1.725, 0.32, expression(paste(f(delta, k[3] > k^0))), cex = labelsize, xpd = TRUE)
 Arrows(1.75, 0.55, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.825, 0.425, expression(paste(hat(pi) > 1 + rho)), cex = labelsize)
+text(0.825, 0.425, expression(paste(hat(pi) > 0)), cex = labelsize)
 
 text(0.19, 0.37, expression(paste("Zero profit")), cex = labelsize)
 text(0.19, 0.31, expression(paste("condition")), cex = labelsize)
-text(0.168, 0.25, expression(paste(hat(pi)[0] == 1 + rho)), cex = labelsize)
+text(0.168, 0.25, expression(paste(hat(pi)[0] == 0)), cex = labelsize)
+
+
+text(0.2, 0.05, expression(paste(hat(pi)[0])), cex = labelsize)
+text(0.34, 0.05, expression(paste(hat(pi)[1])), cex = labelsize)
 
 
 dev.off()

@@ -124,8 +124,7 @@ text(0.25, isoreturnFn(0.25) + 0.05, expression(paste(c)), cex = labelsize)
 points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
 
 # slope of indiff
-#text(0.35, 0.1, expression(paste("Slope ", phantom() == frac((1 - f),delta ))), cex = labelsize, xpd = TRUE)
-# Arrows(0.265, 0.09, 0.21, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
+text(0.35, 0.1, expression(paste("Slope ", phantom() == frac((1 - f),delta ))), cex = labelsize, xpd = TRUE)
+Arrows(0.265, 0.09, 0.21, 0.09, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

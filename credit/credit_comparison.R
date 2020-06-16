@@ -169,12 +169,13 @@ text(0.96, 0.78, expression(paste(hat(pi)^{C})), cex = labelsize, xpd = TRUE)
 # 
 # text(0.575, 0.64, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
 
-brackets(x1 = 0.74, y1 = 0.45,
-         x2 = 0.51, y2 = 0.45,
+brackets(x1 = 0.74, y1 = 0.4,
+         x2 = 0.51, y2 = 0.4,
          ticks = 0.5, curvature = 0.5, type = 1,
          col = "black", lwd = 2, lty = 1, h = 0.02, xpd = TRUE)
 
-text(0.625, 0.4, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
+text(0.625, 0.35, expression(paste("Rent")), cex = labelsize, xpd = TRUE)
+text(0.625, 0.28, expression(phantom() == delta[g] - delta^N), cex = labelsize, xpd = TRUE)
 
 
 

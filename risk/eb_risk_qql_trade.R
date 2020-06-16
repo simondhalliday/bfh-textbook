@@ -180,6 +180,12 @@ text(1 - 0.025, ylims[2]/3 + 20, expression(z), cex = annotatesize)
 # points(0.7, indiffA(0.7), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 # text(0.7, indiffA(0.7) - 20, expression(c))
 
+#Segment lines
+segments(0, 333, 1, 333, col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0.45, 0, 0.45, ylims[2], col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90, 0.45, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90,
+         col = grays[20], lwd = segmentlinewidth, lty = 2)
+
 
 points(0.45, indiffA(x = 0.45, 
                      utility = uA(x = 1, y = ylims[2]/3) + 90), 
@@ -189,12 +195,6 @@ text(0.45 + 0.02, indiffA(x = 0.45,
      expression(a), cex = annotatesize)
 
 
-#Segment lines
-segments(0, 333, 1, 333, col = grays[20], lwd = segmentlinewidth, lty = 2)
-segments(0.45, 0, 0.45, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90,
-                               col = grays[20], lwd = segmentlinewidth, lty = 2)
-segments(0, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90, 0.45, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90,
-         col = grays[20], lwd = segmentlinewidth, lty = 2)
 
 
 # points(5, 4.4, pch = 16, col = "black", cex = 1.5)

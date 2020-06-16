@@ -94,8 +94,8 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 # data <- as.data.frame(mat)
 # data$y <- as.numeric(data$y)
 
-x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover $400 sudden expense with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
-y <- c(0.51, 0.29, 0.13, 0.37, .30, 0.52)
+x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
+y <- c(0.51, 0.29, 0.13,  0.30, 0.52)
 mat <- cbind(x, y)
 data <- as.data.frame(mat)
 data$y <- as.numeric(as.character(data$y))
@@ -103,18 +103,35 @@ data$y <- as.numeric(as.character(data$y))
 
 #data$x <- factor(data$x, levels = c("<40,000", "40,000-100,000", "100,000<", "Can't cover $400 sudden expenses with cash, savings or credit card", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates"))
 
-data$x <- factor(data$x, levels = c("Borrowing at credit card rates", "Cannot cover emergency expenses by any means", "Cannot cover $400 sudden expense with cash, savings or credit card", "100,000<", "40,000-100,000","<40,000"))
+data$x <- factor(data$x, 
+                 levels = c("Borrowing at credit card rates", 
+                            "Cannot cover emergency expenses by any means", 
+                            "100,000<", 
+                            "40,000-100,000",
+                            "<40,000")
+                 )
 
-labels <- c("Fraction of households borrowing at \n credit card interest rates (between 16 and 20%)",
-"If these adults lose their primary source of income,\n they can not cover three months of expenses by any means.", 
-"When faced with a hypothetical expense of $400, \n these adults would be unable to cover it exclusively using cash, \n savings or a credit card paid off in the next statement.", 
-"Credit applicants in the income range of >$100,000 a year \n denied credit or approved for less than requested.", 
-"Credit applicants in the income range of $40,000-$100,000 a year \n denied credit or approved for less than requested.",
-"Credit applicants in the income range of <$40,000 a year \n denied credit or approved for less than requested.")
+labels <- c("Fraction borrowing at credit card \n interest rates (between 16 and 20%)",
+"Cannot cover 3 months' expenses by \n  any means if primary income source lost", 
+"Credit market excluded or constrained:\n >$100,000 income", 
+"Credit market excluded or constrained:\n $40,000-$100,000 income",
+"Credit market excluded or constrained:\n <$40,000 income")
+
+#data <- 
+#  data %>% 
+#  filter(!x %in% c("Cannot cover $400 sudden expense with cash, savings or credit card"))
+# data <-
+#  data %>%
+#  filter(x %in% c("Borrowing at credit card rates", 
+#                  "Cannot cover emergency expenses by any means", 
+#                  "100,000<", 
+#                  "40,000-100,000",
+#                  "<40,000")
+#         )
 
 
 plot2 <- data %>% 
-ggplot(aes(x = x, y = y)) + 
+  ggplot(aes(x = x, y = y)) + 
   geom_bar(stat = "identity", colour = "#2f82b8", fill = "#2f82b8") + 
   scale_x_discrete(labels = labels) + 
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent_format(accuracy = 5L))  +
@@ -148,5 +165,5 @@ ggplot(aes(x = x, y = y)) +
 
 
 
-ggsave("credit/credit_constraints.pdf", width = 18, height = 6, units = "in")
+ggsave("credit/credit_constraints.pdf", width = 12, height = 6, units = "in")
 

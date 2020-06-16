@@ -103,12 +103,12 @@ xx3 <- seq(1.5, 2.5, length.out = npts)
 xx4 <- seq(3, 5, length.out = npts)
 xx5 <- seq(7, 9, length.out = npts)
 
-xpoly <- seq(from = 0.175, to = xlims[2], length.out = 500)
-ypoly <- isoreturnFn(xpoly, pi = 0.175)
+xpoly <- seq(from = 0.075, to = xlims[2], length.out = 500)
+ypoly <- isoreturnFn(xpoly, pi = 0.075)
 polygon(x = xpoly, y = ypoly, col = COLB[1], density = NULL, border = NA)
 
-xpoly1 <- c(0.175, xlims[2], xlims[2])
-ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.175))
+xpoly1 <- c(0.075, xlims[2], xlims[2])
+ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.075))
 polygon(x = xpoly1, y = ypoly1, col = COLB[1], density = NULL, border = NA)
 
 segments(0.175, 0, xlims[2], isoreturnFn(xlims[2], pi = 0.175), col = COLB[1])

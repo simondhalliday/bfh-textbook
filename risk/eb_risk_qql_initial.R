@@ -76,8 +76,14 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      xaxs="i", 
      yaxs="i")
 
+ticksy <- c(0, 100, 500, 1000)
+ylabels <- c(0, 100, 500, 1000)
+ticksx <- seq(from = 0, to = xlims[2], by = 0.2)
+xlabels <- seq(from = 0, to = xlims[2], by = 0.2)
+
+
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 #Set up axes at sides 3 and 4 (top and right)
@@ -119,12 +125,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- seq(from = ylims[1], to = ylims[2], by = 100)
+#ticksy <- seq(from = ylims[1], to = ylims[2], by = 100)
 #ylabels <- seq(from = ylims[1], to = ylims[2], by = 100)
-ylabels <- c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-ticksx <- seq(from = 0, to = xlims[2], by = 0.2)
-xlabels <- seq(from = 0, to = xlims[2], by = 0.2)
-
+#ylabels <- c(0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000)
 
 
 #Pareto-improving lens
@@ -206,7 +209,7 @@ points(4, -8.25, pch = 16, col = "black", cex = 1.5)
 text(4.1, -8.75, expression(paste(g)), cex = labelsize)
 
 axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 

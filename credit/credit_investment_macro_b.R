@@ -77,17 +77,38 @@ text(0.7, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
 text(1, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
 
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-
 npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+
+# Polygon
+COLD <- c("#deebf7", "#9ecae1")
+xpoly <- seq(from = 0.175, to = xlims[2], length.out = 500)
+ypoly <- isoreturnFn(xpoly, pi = 0.175)
+polygon(x = xpoly, y = ypoly, col = COLD[1], density = NULL, border = NA)
+
+xpoly1 <- c(0.175, xlims[2], xlims[2])
+ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.175))
+polygon(x = xpoly1, y = ypoly1, col = COLD[1], density = NULL, border = NA)
+
+xpoly2 <- seq(from = 0.25, to = xlims[2], length.out = 500)
+ypoly2 <- isoreturnFn(xpoly2, pi = 0.25)
+polygon(x = xpoly2, y = ypoly2, col = COLD[2], density = NULL, border = NA)
+
+xpoly3 <- c(0.25, xlims[2], xlims[2])
+ypoly3 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.25))
+polygon(x = xpoly3, y = ypoly3, col = COLD[2], density = NULL, border = NA)
+
+segments(0.25, 0, xlims[2], isoreturnFn(xlims[2], pi = 0.25), col = COLD[2])
+
+
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Draw the graphs
 lines(xx1, brfFn(xx1, k = 0.28), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1, k = 0.75), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = segmentlinewidth, lty = 2)
+lines(xx1, isoreturnFn(xx1, pi = 0.175), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, isoreturnFn(xx1, pi = 0.5), col = COLB[4], lwd = graphlinewidth)
 
@@ -114,29 +135,29 @@ segments(.7, -1, 0.7, brfFn(delta = 0.7, k = 0.28), lty = 2, col = grays[20] , l
 
 
 points(0.7, 0.75, pch = 16, col = "black", cex = 1.5)
-text(0.7, 0.78, expression(paste(n[0])), cex = labelsize)
+text(0.7, 0.79, expression(paste(n[0])), cex = labelsize)
 
 points(1, 0.75, pch = 16, col = "black", cex = 1.5)
-text(1, 0.78, expression(paste(n[1])), cex = labelsize)
+text(1, 0.79, expression(paste(n[1])), cex = labelsize)
 
 
 # ZPC
-text(1.4, 0.91, expression(paste(pi[0] == 1 + rho[0])), cex = labelsize, xpd = TRUE)
-text(1.4, 0.78, expression(paste(pi[1] == 1 + rho[1])), cex = labelsize, xpd = TRUE)
+text(1.4, 0.925, expression(paste(hat(pi)[0]^{t==0} == 1 + rho[0])), cex = labelsize, xpd = TRUE)
+text(1.4, 0.76, expression(paste(hat(pi)[0]^{t==1} == 1 + rho[1])), cex = labelsize, xpd = TRUE)
 
 
 text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
 text(1.1, 1.02, expression(paste("now marginal borrower")), cex = labelsize, xpd = TRUE)
-Arrows(1.1, 0.98, 1.1, 0.92, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(1.1, 0.98, 1.1, 0.93, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(1.1, 0.5, expression(paste("BRF of")), cex = labelsize)
-text(1.1, 0.44, expression(paste("wealthy borrower")), cex = labelsize)
-Arrows(1.1, 0.53, 1.1, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.25, 0.5, expression(paste("BRF of")), cex = labelsize)
+text(1.25, 0.44, expression(paste("wealthy borrower")), cex = labelsize)
+Arrows(1.25, 0.53, 1.25, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 text(0.6, 0.91, expression(paste("BRF of previously")), cex = labelsize)
 text(0.6, 0.85, expression(paste("marginal borrower")), cex = labelsize)
-Arrows(0.6, 0.82, 0.6, 0.68, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.6, 0.82, 0.6, 0.69, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # text(0.12, 0.44, expression(paste("zpc")), cex = labelsize)
 # text(0.12, 0.38, expression(paste("after")), cex = labelsize)

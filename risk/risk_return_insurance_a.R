@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  insurance(g = 1.6, intercept = 7.4), riskreturn(g = 5.6) ,ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[b])), expression(paste(hat(y)[n])) , NA)
+ylabels <- c(NA, expression(paste(hat(y)[b])), expression(paste(hat(y)[a])) , NA)
 ticksx <- c(0, 1.6, 5.6, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[b])), expression(paste(Delta[n])), NA)
+xlabels <- c(NA, expression(paste(Delta[b])), expression(paste(Delta[a])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -79,7 +79,7 @@ lines(xx1, riskreturn(xx1, int1 = 14, int2 = 4, coeff = 1/3), col = COLA[4], lwd
 #lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
 lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = segmentlinewidth, lty = 2)
+lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = segmentlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 10.35, slope = 0.1), col = COLB[4], lwd = graphlinewidth, lty = 1)
 
 
@@ -87,7 +87,7 @@ lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = se
 #Add points a, b, c and c
 
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(n), cex = labelsize)
+text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(a), cex = labelsize)
 
 
 # segments(10.5, 0, 10.5, riskreturn(g = 10.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -146,7 +146,7 @@ text(14.8, 14, expression(paste(hat(y)(Delta))), cex = labelsize, xpd = TRUE)
 
 #Label value functions
 text(10, 17, expression(u[1]), cex = labelsize)
-text(8.3, 17, expression(u[2]), cex = labelsize)
+text(8.58, 17, expression(u[2]), cex = labelsize)
 
 
 dev.off()

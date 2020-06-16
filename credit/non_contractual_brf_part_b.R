@@ -150,6 +150,11 @@ points(0.655, brfFn(delta = 0.655), pch = 16, col = "black", cex = 1.5)
 
 #text(0.65, 1.01, expression(paste("Iso-expected income curves")), cex = labelsize)
 
+
+text(0.445, 0.55, expression(paste(hat(y)[1])), cex = labelsize - 0.15)
+text(0.37, 0.55, expression(paste(hat(y)[2])), cex = labelsize - 0.15)
+text(0.275, 0.55, expression(paste(hat(y)[3])), cex = labelsize - 0.15)
+
 # text(0.3, 1.01, expression(paste(y[1] == y^L)), cex = labelsize)
 # text(0.3, 0.88, expression(paste(y[2] == y^{NE})), cex = labelsize)
 # text(0.2, 0.75, expression(paste(y[3] == y^H)), cex = labelsize)

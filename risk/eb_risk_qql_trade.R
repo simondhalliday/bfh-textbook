@@ -72,7 +72,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 ticksy2 <- c(ylims[1], 2*ylims[2]/3,ylims[2])
 ylabels2 <- c(0, expression(paste(y[z]^W)), 1000)
 ticksx2 <- c(0, 0.55, 1)
-xlabels2 <- c(0, expression(paste(Delta[i]^W)), 1)
+xlabels2 <- c(0, expression(paste(Delta[a]^W)), 1)
 
 axis(side = 3, at = ticksx2, pos = 0, labels = xlabels2, cex.axis = labelsize)
 axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
@@ -121,17 +121,17 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 
             indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3) + 90), 
             ylims[2]/3,ylims[2])
-ylabels <- c(0, expression(paste(y[z]^N - p(1-Delta[i]^N))), expression(paste(y[z]^N)), 1000)
+ylabels <- c(0, expression(paste(hat(y)[z]^N - p[s]*(1-Delta[a]^N))), expression(paste(hat(y)[z]^N)), 1000)
 ticksx <- c(0, 0.45, 1)
-xlabels <- c(0, expression(paste(Delta[i]^N)), NA)
+xlabels <- c(0, expression(paste(Delta[a]^N)), NA)
 
 
 axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
-lines(xx1, priceIns(xx1), col = grays[20], 
-      lwd = segmentlinewidth, lty = 2)
+lines(xx1, priceIns(xx1), col = COL[2], 
+      lwd = segmentlinewidth, lty = 1)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -184,26 +184,29 @@ text(1 - 0.025, ylims[2]/3 + 20, expression(z), cex = annotatesize)
 points(0.45, indiffA(x = 0.45, 
                      utility = uA(x = 1, y = ylims[2]/3) + 90), 
        pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(0.45, indiffA(x = 0.45, 
+text(0.45 + 0.02, indiffA(x = 0.45, 
                    utility = uA(x = 1, y = ylims[2]/3) + 90) - 30, 
      expression(a), cex = annotatesize)
 
 
-#Label point f. 
-points(4, -3.75, pch = 16, col = "black", cex = 1.5)
-text(3.9, -3.5, expression(paste(f)), cex = annotatesize)
+#Segment lines
+segments(0, 333, 1, 333, col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0.45, 0, 0.45, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90,
+                               col = grays[20], lwd = segmentlinewidth, lty = 2)
+segments(0, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90, 0.45, indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3)) + 90,
+         col = grays[20], lwd = segmentlinewidth, lty = 2)
 
-# segments(5, 4.4, 10, 4.4, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+
 # points(5, 4.4, pch = 16, col = "black", cex = 1.5)
 # text(5.2, 4.6, expression(paste(n)))
 # 
 # 
-points(4, -8.25, pch = 16, col = "black", cex = 1.5)
-text(4.1, -8.75, expression(paste(g)), cex = annotatesize)
-
 #Initial Allocations
 
-text(0.3, 105, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
+#text(0.3, 105, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
+
+text(0.7, 55, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
+Arrows(0.7, 75, 0.7, 225, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Braces for labels
 brackets(x1 = 1, y1 = -10, x2 = 0.48, y2 = -10,
@@ -218,9 +221,9 @@ brackets(x1 = 0.44, y1 = -10, x2 = 0, y2 = -10,
 text(0.225, -60, expression(paste("N's remaining")), xpd = TRUE, cex = annotatesize)
 text(0.225, -100, expression(paste("risk exposure")), xpd = TRUE, cex = annotatesize)
 
-brackets(x1 = 0.02, y1 = ylims[2]/3,
+brackets(x1 = 0.02, y1 = ylims[2]/3 - 8,
          x2 = 0.02, y2 = indiffA(x = 0.45, 
-                                 utility = uA(x = 1, y = ylims[2]/3) + 90), 
+                                 utility = uA(x = 1, y = ylims[2]/3) + 90) + 8, 
          ticks = 0.5, curvature = 0.5, type = 1,
          col = "black", lwd = 2, lty = 1, h = 0.02, xpd = TRUE)
 text(0.25, 290, expression(paste("Cost of insurance")), xpd = TRUE, cex = annotatesize)

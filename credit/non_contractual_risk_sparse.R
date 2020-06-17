@@ -164,5 +164,9 @@ Arrows(0.87, 0.53, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "tria
 text(0.065, 0.05, expression(paste(hat(pi)^N == hat(pi)[0])), cex = labelsize)
 text(0.23, 0.04, expression(paste(hat(pi)[1])), cex = labelsize)
 
+Arrows(0.56, 0.35, 0.66, 0.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
+text(0.66, 0.15, expression(paste('Better for lender')), cex = labelsize, xpd = TRUE)
+
 
 dev.off()

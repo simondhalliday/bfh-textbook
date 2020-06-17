@@ -81,24 +81,24 @@ npts <- 503
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 # Polygon
-COLD <- c("#deebf7", "#9ecae1")
-xpoly <- seq(from = 0.175, to = xlims[2], length.out = 500)
-ypoly <- isoreturnFn(xpoly, pi = 0.175)
-polygon(x = xpoly, y = ypoly, col = COLD[1], density = NULL, border = NA)
-
-xpoly1 <- c(0.175, xlims[2], xlims[2])
-ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.175))
-polygon(x = xpoly1, y = ypoly1, col = COLD[1], density = NULL, border = NA)
-
-xpoly2 <- seq(from = 0.25, to = xlims[2], length.out = 500)
-ypoly2 <- isoreturnFn(xpoly2, pi = 0.25)
-polygon(x = xpoly2, y = ypoly2, col = COLD[2], density = NULL, border = NA)
-
-xpoly3 <- c(0.25, xlims[2], xlims[2])
-ypoly3 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.25))
-polygon(x = xpoly3, y = ypoly3, col = COLD[2], density = NULL, border = NA)
-
-segments(0.25, 0, xlims[2], isoreturnFn(xlims[2], pi = 0.25), col = COLD[2])
+# COLD <- c("#deebf7", "#9ecae1")
+# xpoly <- seq(from = 0.175, to = xlims[2], length.out = 500)
+# ypoly <- isoreturnFn(xpoly, pi = 0.175)
+# polygon(x = xpoly, y = ypoly, col = COLD[1], density = NULL, border = NA)
+# 
+# xpoly1 <- c(0.175, xlims[2], xlims[2])
+# ypoly1 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.175))
+# polygon(x = xpoly1, y = ypoly1, col = COLD[1], density = NULL, border = NA)
+# 
+# xpoly2 <- seq(from = 0.25, to = xlims[2], length.out = 500)
+# ypoly2 <- isoreturnFn(xpoly2, pi = 0.25)
+# polygon(x = xpoly2, y = ypoly2, col = COLD[2], density = NULL, border = NA)
+# 
+# xpoly3 <- c(0.25, xlims[2], xlims[2])
+# ypoly3 <- c(0, 0, isoreturnFn(xlims[2], pi = 0.25))
+# polygon(x = xpoly3, y = ypoly3, col = COLD[2], density = NULL, border = NA)
+# 
+# segments(0.25, 0, xlims[2], isoreturnFn(xlims[2], pi = 0.25), col = COLD[2])
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)

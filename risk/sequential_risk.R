@@ -108,9 +108,9 @@ text(8.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
 
 
 #Payoffs 
-text(0.6, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, z)), cex = actionlabelsize, xpd = TRUE)
-text(3.7, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, z)), cex = actionlabelsize, xpd = TRUE)
-text(6, .5, expression(y[z] - frac(bar(Delta), z)), cex = actionlabelsize, xpd = TRUE)
-text(9, .5, expression(y[z]^J + frac(bar(Delta), z)), cex = actionlabelsize, xpd = TRUE)
+text(0.6, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+text(3.7, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+text(6, .5, expression(y[z] - frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
+text(9, .5, expression(y[z]^J + frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
 
 dev.off()

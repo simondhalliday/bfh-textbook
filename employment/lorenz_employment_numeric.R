@@ -18,6 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(8, 6, 6, 6))
@@ -99,8 +100,8 @@ segments(0, 0, 1, 1, lty = 1, col = COLB[5], lwd = graphlinewidth)
 text(0.76, 0.9, expression(paste("Line of")), cex = labelsize)
 text(0.76, 0.85, expression(paste("equality")), cex = labelsize)
 
-segments(0.9, 0, 0.9, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 0.6, 1, 0.6, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.9, 0, 0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.6, 1, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 #Label areas A and B

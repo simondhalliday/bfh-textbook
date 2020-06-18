@@ -86,11 +86,11 @@ text(5, 10.5, expression(paste("K offers insurance at ", p)), cex = actionlabels
 text(-0.45, 8.5, expression(paste("J decides:")), cex = actionlabelsize, xpd = TRUE)
 
 text(3.6, 8.5, expression(paste("Pay")), cex = actionlabelsize)
-text(3.6, 8.1, expression(paste(p[s](bar(Delta) - Delta^J))), cex = actionlabelsize)
+text(3.6, 8.0, expression(paste(p[s](bar(Delta) - Delta^J))), cex = actionlabelsize)
 
 
 text(6.1, 8.5, expression(paste("Reject")), cex = actionlabelsize)
-text(6.1, 8.1, expression("Pay 0"), cex = actionlabelsize)
+text(6.1, 8.0, expression("Pay 0"), cex = actionlabelsize)
 
 #text(-0.575, 6.15, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
 
@@ -100,17 +100,17 @@ text(6.1, 8.1, expression("Pay 0"), cex = actionlabelsize)
 
 text(-0.575, 3.55, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
 
-text(1.3, 3.55, expression(paste("Bad")), cex = actionlabelsize)
-text(3.7, 3.55, expression(paste("Good")), cex = actionlabelsize)
-text(6, 3.55, expression(paste("Bad")), cex = actionlabelsize)
-text(8.9, 3.55, expression(paste("Good")), cex = actionlabelsize)
+text(1.4, 3.55, expression(paste("Bad")), cex = actionlabelsize)
+text(3.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
+text(6.4, 3.55, expression(paste("Bad")), cex = actionlabelsize)
+text(8.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
 
 
 
 #Payoffs 
-text(0.6, .6, expression(y^J == y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, z)), cex = actionlabelsize, xpd = TRUE)
-text(3.7, .6, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, z)), cex = actionlabelsize)
-text(6, .6, expression(y[z] - frac(bar(Delta), z)), cex = actionlabelsize)
-text(9, .6, expression(y^J == y[z]^J + frac(bar(Delta), z)), cex = actionlabelsize)
+text(0.6, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, z)), cex = actionlabelsize, xpd = TRUE)
+text(3.7, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, z)), cex = actionlabelsize, xpd = TRUE)
+text(6, .5, expression(y[z] - frac(bar(Delta), z)), cex = actionlabelsize, xpd = TRUE)
+text(9, .5, expression(y[z]^J + frac(bar(Delta), z)), cex = actionlabelsize, xpd = TRUE)
 
 dev.off()

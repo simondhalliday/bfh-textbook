@@ -55,9 +55,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 
 #Customize ticks and labels for the plot
-ticksx <- c(0, 6.3, 7.5, xlims[2])
+ticksx <- c(0, 6.3, 7.25, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
-ticksy <- c(0, 3.7, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.5), ylims[2])
+ticksy <- c(0, 3.65, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.25), ylims[2])
 ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), expression(paste(hat(y)^A0)), expression(paste(hat(y)^A1)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -79,8 +79,8 @@ segments(0, riskreturn(g = 6.3, int1 = 12), 6.3, riskreturn(g = 6.3, int1 = 12),
 # 
 
 
-segments(7.5, 0, 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, riskreturn(g = 7.5, int1 = 15) , 7.5, riskreturn(g = 7.5, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(7.25, 0, 7.25, riskreturn(g = 7.25, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 7.25, int1 = 15) , 7.25, riskreturn(g = 7.25, int1 = 15) , lty = 2, col = grays[20], lwd = segmentlinewidth)
 #text(7 + 0.25, riskreturn(g = 7.5, int1 = 15) - 1, expression(B), cex = labelsize)
 
 #Segment for next best wage offer
@@ -92,18 +92,18 @@ segments(0, riskreturn(g = 7.5, int1 = 15) , 7.5, riskreturn(g = 7.5, int1 = 15)
 # points(12, riskreturn(int1 = 5.7, g = 12), pch = 16, col = "black", cex = 1.5)
 
 #Segment for next best wage offer
-segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[3], lwd = segmentlinewidth)
+segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[3], lwd = graphlinewidth)
 text(12.75, 5, expression(paste("Wage from work, ", w,"*")), cex = labelsize)
 
 lines(xx1, riskreturn(xx1, int1 = 12), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, riskreturn(xx1, int1 = 15), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 3.7, slope2 = 0.08), col = COLB[5], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[5], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 3.65, slope2 = 0.08), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 7.8, slope2 = 0.055), col = COLB[4], lwd = graphlinewidth, lty = 1)
 
 # points
-points(7.5, riskreturn(g = 7.5, int1 = 15) , pch = 16, col = "black", cex = 1.5)
+points(7.25, riskreturn(g = 7.25, int1 = 15) , pch = 16, col = "black", cex = 1.5)
 points(6.3, riskreturn(g = 6.3, int1 = 12), pch = 16, col = "black", cex = 1.5)
 
 
@@ -113,14 +113,14 @@ text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = label
 text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd = TRUE)
 
 Arrows(12.5, riskreturn(int1 = 15, g = 12) - 0.6, 12.5, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
-text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize, xpd = TRUE)
+text(11.1, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize, xpd = TRUE)
 # text(13.5, 9.7, expression(paste(m)), cex = labelsize)
 
 #Label value functions
 text(6.3, riskreturn(int1 = 12, 6.3) + 0.8, expression(a^0), cex = labelsize)
-text(7.5, riskreturn(int1 = 15, 7.5) + 0.8, expression(a^1), cex = labelsize)
-text(11.8, 17, expression(u[1]^A), cex = labelsize)
-text(10.1, 17, expression(u[2]^A), cex = labelsize)
+text(7.25, riskreturn(int1 = 15, 7.25) + 0.8, expression(a^1), cex = labelsize)
+text(12, 17, expression(u[1]), cex = labelsize)
+text(10.1, 17, expression(u[2]), cex = labelsize)
 
 
 

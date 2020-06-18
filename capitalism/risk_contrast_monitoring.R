@@ -16,7 +16,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(4, 5, 4, 2))
 xlims <- c(0, 15)
@@ -63,7 +63,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksx <- c(0, 12, xlims[2])
 xlabels <- c(NA, expression(paste( bar(Delta) )), NA)
 ticksy <- c(0, 11, riskreturn(int1 = 15, g = 12), ylims[2])
-ylabels <- c(NA, expression(paste(w,"*")), expression(paste(y(bar(Delta)))), NA)
+ylabels <- c(NA, expression(paste(w,"*")), expression(paste(hat(y)(bar(Delta)))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -111,7 +111,7 @@ text(10, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = label
 
 text(9.7, riskreturn(int1 = 11, g = 14)-2, expression(paste(w,"*",phantom()==g(Delta)-rho%.%K-m) ), cex = labelsize)
 
-Arrows(12, riskreturn(int1 = 15, g = 12) - 0.75, 12, riskreturn(int1 = 11, g = 12) + 0.75, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
+Arrows(12, riskreturn(int1 = 15, g = 12) - 0.75, 12, riskreturn(int1 = 11, g = 12) + 0.75, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
 text(14, 13, expression(paste("Monitoring costs")), cex = labelsize, xpd = TRUE)
 text(14, 12, expression(paste((m))), cex = labelsize, xpd = TRUE)
 

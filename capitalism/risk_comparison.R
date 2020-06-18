@@ -58,7 +58,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksx <- c(0, 6.3, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta^A0)), expression(paste(Delta^A1)), NA)
 ticksy <- c(0, 3.7, 5.75, 7.8, riskreturn(int1 = 12, 6.3), riskreturn(int1 = 15, 7.5), ylims[2])
-ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), expression(paste(y^A0)), expression(paste(y^A1)), NA)
+ylabels <- c(NA, expression(paste(w^A0)), expression(paste(w,"*")), expression(paste(w^A1)), expression(paste(hat(y)^A0)), expression(paste(hat(y)^A1)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -112,7 +112,7 @@ text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = label
 
 text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd = TRUE)
 
-Arrows(12.5, riskreturn(int1 = 15, g = 12) - 0.6, 12.5, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
+Arrows(12.5, riskreturn(int1 = 15, g = 12) - 0.6, 12.5, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
 text(11, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize, xpd = TRUE)
 # text(13.5, 9.7, expression(paste(m)), cex = labelsize)
 

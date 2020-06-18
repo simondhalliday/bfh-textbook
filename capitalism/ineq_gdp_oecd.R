@@ -1,5 +1,6 @@
 library(tidyverse)
 library(ggrepel)
+library(readxl)
 
 inGDP <- read_excel("capitalism/ineq_growth.xlsx")
 

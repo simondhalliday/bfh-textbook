@@ -1,4 +1,6 @@
 library(tidyverse)
+library(ggrepel)
+library(readxl)
 
 inGDP2 <- read_excel("capitalism/ineq_growth_dev.xlsx")
 
@@ -17,6 +19,4 @@ Devplot <-
 #scale_y_continuous(expand = c(0, ))
 Devplot
 
-pdf(file = "capitalism/ineq_gdp_dev.pdf", width = 8, height = 5)
-Devplot
-dev.off()
+ggsave("capitalism/ineq_gdp_dev.pdf", width = 9, height = 7)

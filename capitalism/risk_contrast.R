@@ -22,7 +22,7 @@ par(mar =  c(5, 6, 1, 1))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
-riskreturn <- function(g, int1 = 14, int2 = 4, coeff = 1/3){
+riskreturn <- function(g, int1 = 14.07, int2 = 4, coeff = 1/3){
   int1 - (int2 - (coeff)*g)^2
 }
 
@@ -60,17 +60,17 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 # ylabels <- seq(ylims[1], ylims[2], 3)
 # ticksx <- seq(xlims[1], xlims[2], 5)
 # xlabels <- seq(xlims[1], xlims[2], 5)
-ticksx <- c(0, 5.6, 7.5, xlims[2])
+ticksx <- c(0, 5.2, 7.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[A])), expression(paste(Delta[B])), NA)
-ticksy <- c(0, 4.4, 7.1, riskreturn(5.6), riskreturn(7.5), riskreturn(g = 12), ylims[2])
-ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(bar(w)[B])), expression(paste(y[A])), expression(paste(y[B])), expression(paste(bar(Delta)^"max")), NA)
+ticksy <- c(0, 4.4, 7.15, riskreturn(5.2), riskreturn(7.5), riskreturn(g = 12), ylims[2])
+ylabels <- c(NA, expression(paste(bar(w)[A])), expression(paste(bar(w)[B])), expression(paste(hat(y)[A])), expression(paste(hat(y)[B])), expression(paste(bar(Delta)^"max")), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 3, cex = axislabelsize)
-text(-2, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.9, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(hat(y), w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -79,16 +79,16 @@ lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 5.8), col = COLB[3], lwd = segmentlinewidth, lty = 2)
 #lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA2(xx1, intercept = 7.1), col = COLB[5], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA2(xx1, intercept = 7.15), col = COLB[5], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA2(xx1, intercept = 5.8), col = COLB[5], lwd = segmentlinewidth, lty = 2)
 
 #lines(xx1, indiffA2(xx1, intercept = 10), col = COLB[5], lwd = graphlinewidth, lty = 1)
 
 #Add points a, b, c and c
-segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 + 0.35, riskreturn(g = 5.6) - 0.05, expression(a), cex = labelsize)
+segments(5.2, 0, 5.2, riskreturn(g = 5.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, riskreturn(g = 5.2), 5.2, riskreturn(g = 5.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(5.2, riskreturn(g = 5.2), pch = 16, col = "black", cex = 1.5)
+text(5.2 + 0.35, riskreturn(g = 5.2) - 0.05, expression(a), cex = labelsize)
 
 
 segments(7.5, 0, 7.5, riskreturn(g = 7.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)

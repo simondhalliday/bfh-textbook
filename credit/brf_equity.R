@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "credit/brf_equity.pdf", width = 8, height = 6)
+pdf(file = "credit/brf_equity.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -18,10 +18,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 3))
+par(mar =  c(4, 6, 1, 1))
 
 brfFn <- function(delta, mu = 1, k = 1) {
   .5 + (delta / (2 * mu)) * (1 - k)
@@ -88,7 +88,7 @@ lines(xx1, brfFn(xx1, k = 0.6), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.3, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #segments(0, 0.75, xlims[2], 0.75, lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -108,13 +108,13 @@ text(0.65, brfFn(delta = 0.6, k = 0.6) - 0.03, expression(paste(w)), cex = label
 
 text(1.7, 0.62, expression(paste(f(delta)== frac(1,2) + frac(delta(1-k),2*q))), cex = labelsize, xpd = TRUE)
 text(1.73, 0.77, expression(paste("BRF without")), cex = labelsize,xpd = TRUE)
-text(1.64, 0.72, expression(paste("equity, ")), cex = labelsize, xpd = TRUE)
-text(1.84, 0.72, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
+text(1.73, 0.72, expression(paste("equity, ", k > 0)), cex = labelsize, xpd = TRUE)
+#text(1.84, 0.72, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
 
 
 text(1.25, 0.9, expression(paste(f(delta)== frac(1,2) + frac(delta,2*q))), cex = labelsize, xpd = TRUE)
-text(1.27, 1, expression(paste("BRF without")), cex = labelsize, xpd = TRUE)
-text(1.72, 0.995, expression(paste("equity, ", k == 0)), cex = labelsize, xpd = TRUE)
+text(1.45, 1, expression(paste("BRF without equity, ", k == 0)), cex = labelsize, xpd = TRUE)
+#text(1.72, 0.995, expression(paste("equity, ", k == 0)), cex = labelsize, xpd = TRUE)
 
 #segments(1, 0, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(1, brfFn(1, k = 0.5), pch = 16, col = "black", cex = 1.5)

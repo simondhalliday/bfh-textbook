@@ -2,8 +2,9 @@
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
-require(shape)
-pdf(file = "credit/credit_equity_mb.pdf", width = 7, height = 7)
+library(shape)
+library(plotrix)
+pdf(file = "credit/credit_equity_mb.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -56,7 +57,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 # axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0.4, labels = ylabels, las = 1, cex.axis = labelsize)
 axis.break(axis=1,breakpos=0.425,pos=0,bgcol="white",breakcol="black",
-           style="slash",brw=0.02)
+            style="slash",brw=0.02)
 # text(x = c(0, 
 #            0.5, 
 #            0.68, 
@@ -74,11 +75,11 @@ lines(xx1, mc(xx1, mu = 2), col = COLA[4], lwd = graphlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(0.3, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.325, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.65*(xlims[2]), -0.4, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 
-text(0.95, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.975, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
 text(1.025, 1.5, expression(paste(mb[p] == delta )), cex = labelsize)
 text(1.025, 0.7, expression(paste(mb[w] == delta*(1 - k) )), cex = labelsize)
 

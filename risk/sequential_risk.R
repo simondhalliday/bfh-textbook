@@ -79,18 +79,18 @@ points(4, 1, pch = 16, col = "black", cex = nodesize)
 points(6, 1, pch = 16, col = "black", cex = nodesize)
 points(9, 1, pch = 16, col = "black", cex = nodesize)
 
-text(-0.475, 10.5, expression(paste("Principal:")), cex = actionlabelsize, xpd = TRUE)
+text(-0.55, 10.5, expression(paste("Insurer:")), cex = actionlabelsize, xpd = TRUE)
 text(5, 10.5, expression(paste("K offers insurance at ", p)), cex = actionlabelsize, xpd = TRUE)
 #text(5, 10.55, expression(paste("and wage, ", w)), cex = actionlabelsize, xpd = TRUE)
 
 text(-0.45, 8.5, expression(paste("J decides:")), cex = actionlabelsize, xpd = TRUE)
 
-text(3.6, 8.5, expression(paste("Pay")), cex = actionlabelsize)
-text(3.6, 8.0, expression(paste(p[s](bar(Delta) - Delta^J))), cex = actionlabelsize)
+text(2.75, 7.5, expression(paste("Pay")), cex = actionlabelsize)
+text(2.75, 7, expression(paste(p[s](bar(Delta) - Delta^J))), cex = actionlabelsize)
 
 
-text(6.1, 8.5, expression(paste("Reject")), cex = actionlabelsize)
-text(6.1, 8.0, expression("Pay 0"), cex = actionlabelsize)
+text(6.95, 7.5, expression(paste("Reject")), cex = actionlabelsize)
+text(6.95, 7, expression("Pay 0"), cex = actionlabelsize)
 
 #text(-0.575, 6.15, expression(paste("Chance:")), cex = actionlabelsize, xpd = TRUE)
 
@@ -108,9 +108,20 @@ text(8.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
 
 
 #Payoffs 
-text(0.6, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
-text(3.7, .5, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
-text(6, .5, expression(y[z] - frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
-text(9, .5, expression(y[z]^J + frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
+text(-1, 0.5, expression(paste("K:")), cex = actionlabelsize, xpd = TRUE)
+text(-1, -1.2, expression(paste("J:")), cex = actionlabelsize, xpd = TRUE)
+
+
+text(0.6, 0.5, expression(y[z]^K - p[s](bar(Delta) - Delta^J) - frac(Delta^K, 2)), cex = actionlabelsize, xpd = TRUE)
+text(0.6, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+
+text(3.7, 0.5, expression(y[z]^K - p[s](bar(Delta) - Delta^J) + frac(Delta^K, 2)), cex = actionlabelsize, xpd = TRUE)
+text(3.7, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+
+text(6, 0.5, expression(y[z]^K), cex = actionlabelsize, xpd = TRUE)
+text(6, -1.2, expression(y[z] - frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
+
+text(9, 0.5, expression(y[z]^K), cex = actionlabelsize, xpd = TRUE)
+text(9, -1.2, expression(y[z]^J + frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
 
 dev.off()

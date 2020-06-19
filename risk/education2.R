@@ -38,7 +38,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
 # xlabels <- seq(from = 0, to = xlims[2],by = 2)
 ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == z)), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d] == hat(y)[f])), expression(paste(hat(y)[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[c])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d] == hat(y)[f])), expression(paste(hat(y)[e])), NA)
 # ticksy <- seq(from = 0, to = ylims[2], by = 3)
 # ylabels <- seq(from = 0, to = ylims[2], by = 3)
 ticksx <- c(0, deltaT, 7, ylims[2])
@@ -82,8 +82,12 @@ text(1.6, 5.2 - 0.1, expression(paste(u[1])), cex = labelsize)
 text(1.6, 7.8 - 0.1, expression(paste(u[2])), cex = labelsize)
 text(1.6, 9.8 - 0.1, expression(paste(u[3])), cex = labelsize)
 
+points(0, y0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(0.15, y0 - 0.3, expression(paste(c)), cex = labelsize)
+
+
 text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
-text(deltaR-0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
+text(deltaR, yRprime + 0.5, expression(paste(e)), cex = labelsize)
 
 
 #Arrow for cost
@@ -96,7 +100,7 @@ text(deltaR + 1.25, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
 #          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
 # #Arrows(deltaR + 0.3, yR + 0.3, deltaR + 0.3, yRprime - 0.3, code = 3, col = "black", lty = 1, arr.type = "triangle")
 # text(deltaR + 1, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
-text(deltaT + 0.1, yT - 0.3, expression(f), cex = labelsize)
+text(deltaT + 0.15, yT - 0.5, expression(f), cex = labelsize)
 
 
 #Arrow for reduced risk

@@ -80,10 +80,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == z)), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[c])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
 
 ticksx <- c(0, 7, ylims[2])
-xlabels <- c(NA, expression(paste(Delta[d] == Delta[e])), NA)
+xlabels <- c(0, expression(paste(Delta[d] == Delta[e])), NA)
 
 #Axis label
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
@@ -106,6 +106,11 @@ segments(0, yRprime, deltaR, yRprime, lty = 2, col = grays[20] , lwd = segmentli
 #Label points
 points(deltaR, yR, pch = 16, col = "black", cex = 1.5)
 points(deltaRprime, yRprime, pch = 16, col = "black", cex = 1.5)
+
+
+points(0, y0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(0.15, y0 - 0.3, expression(paste(c)), cex = labelsize)
+
 
 text(1.6, 1.2 - 0.1, expression(paste(u[0])), cex = labelsize)
 text(1.6, 5.2 - 0.1, expression(paste(u[1])), cex = labelsize)

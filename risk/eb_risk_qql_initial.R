@@ -76,24 +76,24 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, 100, 500, 1000)
-ylabels <- c(0, 100, 500, 1000)
-ticksx <- seq(from = 0, to = xlims[2], by = 0.2)
-xlabels <- seq(from = 0, to = xlims[2], by = 0.2)
+ticksy2 <- c(0, 1000 - indiffA(0.7), 1000 - indiffA(0.4), 1000)
+ylabels2 <- c(0, expression(paste(hat(y)[c]^K)), expression(paste(hat(y)[b]^K)), 1000)
+ticksx2 <- c(0, 1 - 0.7, 1 - 0.4,  1)
+xlabels2 <- c(0, expression(paste(Delta[c]^K)), expression(paste(Delta[b]^K)), expression(paste(bar(Delta))))
 
 
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+axis(side = 3, at = ticksx2, pos = 0, labels = xlabels2, cex.axis = labelsize)
+axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
 
 
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
 
-text(-0.15, 0.5*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.15, 0.5*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
-text(0.5*xlims[2], -125, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -125, expression(paste("K's risk, ", Delta^K == 1 - Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 
 
@@ -152,11 +152,11 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*xlims[2], -100, expression(paste("N's risk, ", Delta^N)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -100, expression(paste("J's risk, ", Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 
-text(-0.15, 0.5*ylims[2], expression(paste("N's expected income,", hat(y)^N)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.15, 0.5*ylims[2], expression(paste("J's expected income,", hat(y)^J)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
 # arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
@@ -179,12 +179,12 @@ contour(x, y,
 
 
 #Label indiffs for N
-text(0.85, 210, expression(u[1]^N), cex = labelsize)
-text(0.85, 400, expression(u[2]^N), cex = labelsize)
+text(0.85, 210, expression(u[1]^J), cex = labelsize)
+text(0.85, 400, expression(u[2]^J), cex = labelsize)
 
 #Label the indiffs for B
-text(0.7, 280, expression(u[1]^W), cex = labelsize)
-text(0.7, 100, expression(u[2]^W), cex = labelsize)
+text(0.7, 280, expression(u[1]^K), cex = labelsize)
+text(0.7, 100, expression(u[2]^K), cex = labelsize)
 
 
 points(1, ylims[2]/3, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
@@ -207,6 +207,12 @@ text(0.5, 170, expression(paste("lens")), cex = labelsize)
 # 
 points(4, -8.25, pch = 16, col = "black", cex = 1.5)
 text(4.1, -8.75, expression(paste(g)), cex = labelsize)
+
+ticksy <- c(0, indiffA(0.4), indiffA(0.7), indiffA(1), 1000)
+ylabels <- c(0, expression(paste(hat(y)[b]^J)), expression(paste(hat(y)[c]^J)), expression(paste(hat(y)[z]^J)), 1000)
+ticksx <- c(0, 0.4, 0.7, 1)
+xlabels <- c(0, expression(paste(Delta[b]^J)), expression(paste(Delta[c]^J)), expression(paste(bar(Delta))))
+
 
 axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

@@ -21,7 +21,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(4, 6, 1, 1))
 
 mc <- function(f, mu = 2) {
   -mu + 2*mu*f
@@ -48,10 +48,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, mc(f = 0.65), mc(f = 0.85), ylims[2])
-ylabels <- c(0, NA, NA,  NA)
-ticksx <- c(0, 0.5, 0.65, 0.85,  xlims[2])
-xlabels <- c(0, 0.5, expression(paste(f[w] )), expression(paste(f[p])), NA)
+ticksy <- c(0, ylims[2])
+ylabels <- c(0, NA)
+ticksx <- c(0.4, 0.5, 0.65, 0.85,  xlims[2])
+xlabels <- c(NA, 0.5, expression(paste(f[w] )), expression(paste(f[p])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 # axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -76,7 +76,7 @@ lines(xx1, mc(xx1, mu = 2), col = COLA[4], lwd = graphlinewidth)
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
 text(0.325, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.65*(xlims[2]), -0.4, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
+text(0.65*(xlims[2]), -0.3, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 
 text(0.975, 2.4, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)

@@ -68,7 +68,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(ylims[1], 0.5, brfFn(delta = 0.6, k = 0.6), brfFn(0.6, k = 0), ylims[2])
-ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f[w])),expression(paste(f[p])), NA)
+ylabels <- c(0, expression(paste(frac(1,2))), expression(paste(f[w])),expression(paste(f[p])), NA)
 ticksx <- c(xlims[1], 0.6, xlims[2])
 xlabels <- c(NA, expression(paste(delta[1])), NA)
 

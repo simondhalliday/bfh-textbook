@@ -70,9 +70,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
 # ylabels <- c(NA, expression(paste(f == frac(1,2))), 1)
 ticksy <- c(ylims[1], ylims[2])
-ylabels <- c(NA, 1)
-ticksx <- c(xlims[1], (1 + 0.1)/(1 - 0), (1 + 0.1)/(1 - 0.5), xlims[2])
-xlabels <- c(NA, expression(paste(1 + rho)), NA, NA)
+ylabels <- c(NA, NA)
+ticksx <- c(xlims[1], xlims[2])
+xlabels <- c(0, 1)
 
 text((1 + 0.1)/(1 - 0.5), - 0.09, expression(paste(frac(1 + rho, 1 - b))), xpd = TRUE, cex = labelsize) 
 
@@ -116,8 +116,8 @@ lines(xx1, profitFn(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 #mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
-text(0.5*(xlims[2]), - 0.16 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
-text(-1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), -1 , expression(paste("Barriers to entry, ", b)), xpd = TRUE, cex = axislabelsize) 
+text(-0.1, 0.5*(ylims[2]), expression(paste("Profits, income, rents, ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)

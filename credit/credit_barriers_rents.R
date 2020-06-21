@@ -31,7 +31,7 @@ PCFn <- function(delta, q = 1) {
   delta/q
 }
 
-profitFn <- function(b, rho = 0.1) {
+profitFn <- function(b, rho = 0.05) {
   ((1 + rho)/(1 - b))
 }
 

@@ -80,7 +80,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[c])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
 
 ticksx <- c(0, 7, ylims[2])
 xlabels <- c(0, expression(paste(Delta[d] == Delta[e])), NA)
@@ -109,7 +109,7 @@ points(deltaRprime, yRprime, pch = 16, col = "black", cex = 1.5)
 
 
 points(0, y0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(0.15, y0 - 0.3, expression(paste(c)), cex = labelsize)
+text(0.15, y0 - 0.3, expression(paste(a)), cex = labelsize)
 
 
 text(1.6, 1.2 - 0.1, expression(paste(u[0])), cex = labelsize)
@@ -118,11 +118,20 @@ text(1.6, 7.8 - 0.1, expression(paste(u[2])), cex = labelsize)
 text(1.6, 9.8 - 0.1, expression(paste(u[3])), cex = labelsize)
 
 text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
-text(deltaR - 0.15, yRprime + 0.3, expression(paste(e)), cex = labelsize)
+text(deltaR, yRprime + 0.5, expression(paste(e)), cex = labelsize)
 
 #Arrow for cost
-brackets(deltaR + 0.2, yRprime - 0.3, deltaR + 0.2, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+brackets(deltaR + 0.1, yRprime - 0.1, 
+         deltaR + 0.1, yR + 0.1, 
+         ticks = 0.4, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
-text(deltaR + 1.25, (yR + yRprime)/2, expression(paste("Cost")), cex = labelsize)
+text(deltaR + 0.6, (yR + yRprime)/2 + 0.9, 
+     expression(paste("Cost")), 
+     cex = labelsize)
+text(deltaR + 0.6, (yR + yRprime)/2 + 0.3, 
+     expression(paste(c)), 
+     cex = labelsize)
+
+
 
 dev.off()

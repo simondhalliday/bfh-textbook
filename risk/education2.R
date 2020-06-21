@@ -38,7 +38,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2],by = 2)
 # xlabels <- seq(from = 0, to = xlims[2],by = 2)
 ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[c])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d] == hat(y)[f])), expression(paste(hat(y)[e])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d] == hat(y)[f])), expression(paste(hat(y)[e])), NA)
 # ticksy <- seq(from = 0, to = ylims[2], by = 3)
 # ylabels <- seq(from = 0, to = ylims[2], by = 3)
 ticksx <- c(0, deltaT, 7, ylims[2])
@@ -64,7 +64,7 @@ segments(0, yRprime, deltaR, yRprime, lty = 2, col = grays[20] , lwd = segmentli
 segments(deltaT, 0, deltaT, yT, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Diagonal from the origin
-segments(0, 0, deltaR, yRprime, lty = 2, col = COLB[4], lwd = segmentlinewidth)
+segments(0, 0, deltaR, yRprime, lty = 1, col = COLB[4], lwd = segmentlinewidth)
 
 #Label points
 points(deltaR, yR, pch = 16, col = "black", cex = 1.5)
@@ -83,7 +83,7 @@ text(1.6, 7.8 - 0.1, expression(paste(u[2])), cex = labelsize)
 text(1.6, 9.8 - 0.1, expression(paste(u[3])), cex = labelsize)
 
 points(0, y0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(0.15, y0 - 0.3, expression(paste(c)), cex = labelsize)
+text(0.15, y0 - 0.3, expression(paste(a)), cex = labelsize)
 
 
 text(deltaR + 0.15, yR - 0.3, expression(paste(d)), cex = labelsize)
@@ -91,10 +91,16 @@ text(deltaR, yRprime + 0.5, expression(paste(e)), cex = labelsize)
 
 
 #Arrow for cost
-brackets(deltaR + 0.2, yRprime - 0.3, deltaR + 0.2, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
+brackets(deltaR + 0.1, yRprime - 0.1, 
+         deltaR + 0.1, yR + 0.1, 
+         ticks = 0.4, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)
-text(deltaR + 1.25, (yR + yRprime)/2, expression(paste("Tax")), cex = labelsize)
-
+text(deltaR + 0.6, (yR + yRprime)/2 + 0.9, 
+     expression(paste("Tax")), 
+     cex = labelsize)
+text(deltaR + 0.6, (yR + yRprime)/2 + 0.3, 
+     expression(paste(T)), 
+     cex = labelsize)
 # #Arrow for tax
 # brackets(deltaR + 0.3, yRprime - 0.3, deltaR + 0.3, yR + 0.3,  ticks = 0.5, curvature = 0.5, type = 1, 
 #          col = "black", lwd = 2, lty = 1, h = 0.3, xpd = TRUE)

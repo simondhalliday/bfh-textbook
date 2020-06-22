@@ -1,0 +1,540 @@
+---
+title: "FRED 30Y Fixed Rate Mortgage x Housing Starts"
+author: "Scott Cohn"
+date: "June 22"
+output: 
+    html_document:
+        theme: flatly
+        highlight: haddock
+        toc: yes
+        toc_depth: 4
+        toc_float: no 
+        keep_md: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, cache = TRUE)
+
+#' GDPDEF: https://fred.stlouisfed.org/series/GDPDEF (annual)
+#' M30: https://fred.stlouisfed.org/series/MORTGAGE30US (quarterly)
+#' HOUST: https://fred.stlouisfed.org/series/HOUST (quarterly)
+
+library("tidyverse")
+library("zoo")
+
+library("sjPlot")
+library("sjmisc")
+library("sjlabelled")
+
+library("ggpubr")
+
+```
+
+# Clean + Tidy + Mutate
+```{r clean}
+
+# load gdpdeflator
+df_gdpdef <- read.csv("fred_data/GDPDEF.csv")
+
+# convert date + inflation
+df_gdpdef$GDPDEF <- as.numeric(df_gdpdef$GDPDEF)
+
+df_gdpdef <- df_gdpdef %>%
+  mutate(DATE = as.Date(df_gdpdef$DATE, format = "%Y-%m-%d"),
+         inflation = ((GDPDEF - lag(GDPDEF, default = 0))/lag(GDPDEF, default = 0))*100)
+
+# change inf
+df_gdpdef[1, 3] <- 0
+
+# load m30 and houst
+df <- read_csv("fred_data/m30_x_houst.csv")
+
+# merge on date
+df <- right_join(df_gdpdef, df, by = "DATE")
+
+# carry last NA on gdpdef
+df <- df %>%
+  mutate(
+    GDPDEF = na.locf(df$GDPDEF),
+    inflation = na.locf(df$inflation)
+  )
+
+# rename
+df <- df %>%
+  rename(c("houst" = "HOUST", "m30" = "MORTGAGE30US"))
+
+# as numeric
+df <- df %>% 
+  mutate(houst = as.numeric(df$houst),
+         m30 = as.numeric(df$m30))
+
+# real m30 (rm30)
+df <- df %>% mutate(rm30 = m30 - inflation)
+
+```
+
+```{r lag_calcs, echo=FALSE}
+# moving avg
+df <- df %>% mutate(rm30_ma_k3 = rollmean(rm30, k = 3, fill = NA),
+                    rm30_ma_k6 = rollmean(rm30, k = 6, fill = NA),
+                    rm30_ma_k9 = rollmean(rm30, k = 9, fill = NA))
+
+# lagged
+df <- df %>%
+  mutate(rm30_lag2q_ma_k3 = lag(df$rm30_ma_k3, 2, na.pad = TRUE), # 6month
+         rm30_lag3q_ma_k3 = lag(df$rm30_ma_k3, 3, na.pad = TRUE), # 9month
+         rm30_lag4q_ma_k3 = lag(df$rm30_ma_k3, 4, na.pad = TRUE), # 12month
+         rm30_lag2q_ma_k6 = lag(df$rm30_ma_k6, 2, na.pad = TRUE), # 6month
+         rm30_lag3q_ma_k6 = lag(df$rm30_ma_k6, 3, na.pad = TRUE), # 9month
+         rm30_lag4q_ma_k6 = lag(df$rm30_ma_k6, 4, na.pad = TRUE), # 12month
+         rm30_lag2q_ma_k9 = lag(df$rm30_ma_k9, 2, na.pad = TRUE), # 6month
+         rm30_lag3q_ma_k9 = lag(df$rm30_ma_k9, 3, na.pad = TRUE), # 9month
+         rm30_lag4q_ma_k9 = lag(df$rm30_ma_k9, 4, na.pad = TRUE)) # 12month
+
+```
+
+# Plots
+
+### houst x date
+
+```{r houst_date, echo=FALSE}
+
+df %>% 
+  gather(metric, value, rm30:rm30_lag4q_ma_k9) %>%
+  filter(DATE > "1970-01-01" & DATE < "2006-01-01") %>% 
+  ggplot(aes(DATE, houst)) +
+  geom_line() +
+  theme_bw() +
+  labs(x = "Date", y = "Housing Starts: Total: New Privately Owned Housing Units Started", caption = "Source: FRED")
+
+#ggsave("FRED_houst.pdf", width = 9, height = 6)
+
+```
+
+### houst x rm30 (1yrlag)
+
+```{r houst_rm30_1yrlag, echo=FALSE}
+
+df %>% 
+  select(DATE, houst, rm30) %>% 
+  # lagged diffs (1 year // 4Qs)
+  mutate(houst_lag_diff = houst - lag(df$houst, 4, na.pad = TRUE),
+         rm30_lag_diff = rm30 - lag(df$rm30, 4, na.pad = TRUE)) %>% 
+  #filter(DATE > "1977-01-01" & DATE < "1985-01-01") %>% 
+  filter(DATE > "1977-01-01" & DATE < "2006-01-01") %>% 
+  ggplot(aes(x = rm30_lag_diff, y = houst_lag_diff)) + 
+  geom_point(color = "#377EB8") +
+  scale_color_brewer(palette = "Set1") +
+  labs(x = "Real 30-year fixed rate mortgage average  differences (1 Year)", 
+       y = "Housing start differences (1 Year)",
+       caption = "1977-2006") + 
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 17),
+        axis.text = element_text(size = 12))
+
+#ggsave("FRED_houst_rm30_first_differences_77_06.pdf", width = 9, height = 6)
+
+```
+
+### houst x rm30
+
+```{r houst_rm30, echo=FALSE}
+
+df %>% 
+  select(DATE, houst, rm30) %>% 
+  filter(DATE > "1970-01-01" & DATE < "2006-01-01") %>% 
+  ggplot(aes(x = rm30, y = houst)) + 
+  geom_point(color = "#377EB8") +
+  scale_color_brewer(palette = "Set1") +
+  theme_bw() + 
+  labs(x = "rm30", y = "houst")
+
+#ggsave("FRED_houst_rm30.pdf", width = 9, height = 6)
+
+```
+
+### m30 x date
+
+```{r m30_date, echo=FALSE}
+
+df %>% 
+  # wide to long
+  gather(metric, value, inflation:rm30_ma_k9) %>%
+  #filter(metric %in% c("inflation", "m30", "rm30"),
+  filter(metric != "houst",
+    DATE > "1970-01-01" & DATE < "2006-01-01") %>% 
+  # plot
+  ggplot(aes(DATE, value, color = metric)) +
+  geom_line() +
+  scale_color_brewer(palette = "Set1") + 
+  theme_bw() + 
+  labs(x = "Date", y = "Percentage", caption = expression(paste("Source: FRED")))
+
+#ggsave("FRED_m30.pdf", width = 9, height = 6)
+
+```
+
+### Dual axis 
+
+Ignore this for now.
+
+```{r dual_axis, echo=FALSE}
+
+coeff <- 210
+df %>% 
+  gather(metric, value, rm30_lag2q_ma_k3:rm30_lag4q_ma_k9) %>%
+  filter(DATE > "1970-01-01" & DATE < "2006-01-01") %>% 
+  ggplot(aes(x = DATE)) +
+  #ggplot(aes(DATE, houst)) +
+  geom_line(aes(y=value, color = metric)) +
+  geom_line(aes(y=houst/coeff), color = "black") +
+  scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage",
+    
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~.*coeff, name="Housing Starts")
+  ) + 
+  #scale_fill_manual(values = colorRampPalette(13)) +
+  #scale_color_brewer(palette = "Set3") +
+  #labs(x = "Date", y = "Housing Starts: Total: New Privately Owned Housing Units Started", caption = "Source: FRED")
+  scale_color_brewer(palette = "Set1") + 
+  theme_bw() + 
+  labs(x = "Date", caption = expression(paste("Source: FRED")))
+
+#ggsave("FRED_dualaxis.pdf", width = 9, height = 6)
+
+```
+
+
+# Lagged Correlations (1977 -- 2006) 
+
+```{r df_lag_diffs}
+
+df_lag_diffs <- df %>% 
+  select(DATE, houst, rm30) %>% 
+  # lagged diffs (1 year // 4Qs)
+  mutate(houst_lag_diff_1q = houst - lag(df$houst, 1, na.pad = TRUE),    # 1Q
+         houst_lag_diff_2q = houst - lag(df$houst, 2, na.pad = TRUE),    # 2Q
+         houst_lag_diff_3q = houst - lag(df$houst, 3, na.pad = TRUE),
+         houst_lag_diff_4q = houst - lag(df$houst, 4, na.pad = TRUE),
+         houst_lag_diff_5q = houst - lag(df$houst, 5, na.pad = TRUE),
+         houst_lag_diff_6q = houst - lag(df$houst, 6, na.pad = TRUE),
+         houst_lag_diff_7q = houst - lag(df$houst, 7, na.pad = TRUE),
+         houst_lag_diff_8q = houst - lag(df$houst, 8, na.pad = TRUE),
+         houst_lag_diff_9q = houst - lag(df$houst, 9, na.pad = TRUE),
+         
+         rm30_lag_diff_1q = rm30 - lag(df$rm30, 1, na.pad = TRUE),    # 1Q
+         rm30_lag_diff_2q = rm30 - lag(df$rm30, 2, na.pad = TRUE),    # 2Q
+         rm30_lag_diff_3q = rm30 - lag(df$rm30, 3, na.pad = TRUE),
+         rm30_lag_diff_4q = rm30 - lag(df$rm30, 4, na.pad = TRUE),
+         rm30_lag_diff_5q = rm30 - lag(df$rm30, 5, na.pad = TRUE),
+         rm30_lag_diff_6q = rm30 - lag(df$rm30, 6, na.pad = TRUE),
+         rm30_lag_diff_7q = rm30 - lag(df$rm30, 7, na.pad = TRUE),
+         rm30_lag_diff_8q = rm30 - lag(df$rm30, 8, na.pad = TRUE),
+         rm30_lag_diff_9q = rm30 - lag(df$rm30, 9, na.pad = TRUE)
+         ) %>% 
+  #filter(DATE > "1977-01-01" & DATE < "1985-01-01") %>% 
+  filter(DATE > "1977-01-01" & DATE < "2006-01-01") 
+  
+```
+
+## First Differences: Simple OLS of diff starts on diff mortgages (by quarter)
+
+1 year lag for `houst` regressed on 1 year lag for `rm30`. 
+
+```{r ols_simple_1y_diff, fig.align='center'}
+
+ols_simple_1y <- lm(houst_lag_diff_4q ~ rm30_lag_diff_4q, data = df_lag_diffs)
+#summary(ols_simple_1y)
+tab_model(ols_simple_1y)
+```
+
+Check for stationarity of var:
+
+```{r acf_houst, fig.align='center'}
+
+acf(as.ts(df$houst), na.action = na.pass, plot = TRUE)
+```
+
+```{r acf_rm30, fig.align='center'}
+acf(as.ts(df$rm30), na.action = na.pass, plot = TRUE)
+```
+
+Check for autocorrelation:
+
+```{r ols_1y_autocorr}
+res <- ols_simple_1y$res 
+n <- length(res) 
+ols_1y_autocorr <- lm(res[-n] ~ res[-1]) 
+# summary(ols_1y_autocorr)
+tab_model(ols_1y_autocorr)
+
+```
+
+Since the coefficient for `res[-1]` is significant, we have evidence for autocorrelation.
+
+## diff starts on diff mortages {.tabset .tabset-fade .tabset-pills}
+t-1, t-2, t-3, t-4, ... t-8  (where the numbers refer to quarters (look at the pattern of the coefficients on the lagged mortages)
+
+### 1Q
+
+1 quarter lag for `houst` regressed on 1 quarter lag for `rm30`. 
+
+```{r ols_simple_1q_diff, fig.align='center'}
+
+ols_simple_1q_diff_diff <- lm(houst_lag_diff_1q ~ rm30_lag_diff_1q, data = df_lag_diffs)
+#summary(ols_simple_1q_diff_diff)
+tab_model(ols_simple_1q_diff_diff)
+```
+
+### 2Q
+
+2 quarter lag for `houst` regressed on 2 quarter lag for `rm30`. 
+
+```{r ols_simple_2q_diff, fig.align='center'}
+
+ols_simple_2q_diff_diff <- lm(houst_lag_diff_2q ~ rm30_lag_diff_2q, data = df_lag_diffs)
+#summary(ols_simple_2q_diff_diff)
+tab_model(ols_simple_2q_diff_diff)
+```
+
+### 3Q
+
+3 quarter lag for `houst` regressed on 3 quarter lag for `rm30`. 
+
+```{r ols_simple_3q_diff, fig.align='center'}
+
+ols_simple_3q_diff_diff <- lm(houst_lag_diff_3q ~ rm30_lag_diff_3q, data = df_lag_diffs)
+#summary(ols_simple_3q_diff_diff)
+tab_model(ols_simple_3q_diff_diff)
+```
+
+### 4Q
+
+4 quarter lag for `houst` regressed on 4 quarter lag for `rm30`. 
+
+```{r ols_simple_4q_diff, fig.align='center'}
+
+ols_simple_4q_diff <- lm(houst_lag_diff_4q ~ rm30_lag_diff_4q, data = df_lag_diffs)
+#summary(ols_simple_4q_diff)
+tab_model(ols_simple_4q_diff)
+```
+
+### 5Q
+
+5 quarter lag for `houst` regressed on 5 quarter lag for `rm30`. 
+
+```{r ols_simple_5q_diff, fig.align='center'}
+
+ols_simple_5q_diff <- lm(houst_lag_diff_5q ~ rm30_lag_diff_5q, data = df_lag_diffs)
+#summary(ols_simple_5q_diff)
+tab_model(ols_simple_5q_diff)
+```
+
+### 6Q
+
+6 quarter lag for `houst` regressed on 6 quarter lag for `rm30`. 
+
+```{r ols_simple_6q_diff, fig.align='center'}
+
+ols_simple_6q_diff <- lm(houst_lag_diff_6q ~ rm30_lag_diff_6q, data = df_lag_diffs)
+#summary(ols_simple_6q_diff)
+tab_model(ols_simple_6q_diff)
+```
+
+### 7Q
+
+7 quarter lag for `houst` regressed on 7 quarter lag for `rm30`. 
+
+```{r ols_simple_7q_diff, fig.align='center'}
+
+ols_simple_7q_diff <- lm(houst_lag_diff_7q ~ rm30_lag_diff_7q, data = df_lag_diffs)
+#summary(ols_simple_7q_diff)
+tab_model(ols_simple_7q_diff)
+```
+
+### 8Q
+
+8 quarter lag for `houst` regressed on 8 quarter lag for `rm30`. 
+
+```{r ols_simple_8q_diff, fig.align='center'}
+
+ols_simple_8q_diff <- lm(houst_lag_diff_8q ~ rm30_lag_diff_8q, data = df_lag_diffs)
+#summary(ols_simple_8q_diff)
+tab_model(ols_simple_8q_diff)
+```
+
+### 9Q
+
+9 quarter lag for `houst` regressed on 9 quarter lag for `rm30`. 
+
+```{r ols_simple_9q_diff, fig.align='center'}
+
+ols_simple_9q_diff <- lm(houst_lag_diff_9q ~ rm30_lag_diff_9q, data = df_lag_diffs)
+#summary(ols_simple_9q_diff)
+tab_model(ols_simple_9q_diff)
+```
+
+
+## starts (not diffs) on various lagged mortages (not diffs) with lags as above. {.tabset .tabset-fade .tabset-pills}
+
+```{r df_lag_nondiff}
+df_lag <- df %>% 
+  select(DATE, houst, rm30) %>% 
+  # lagged diffs (1 year // 4Qs)
+  mutate(rm30_lag_1q = lag(df$rm30, 1, na.pad = TRUE),    # 1Q
+         rm30_lag_2q = lag(df$rm30, 2, na.pad = TRUE),    # 2Q
+         rm30_lag_3q = lag(df$rm30, 3, na.pad = TRUE),
+         rm30_lag_4q = lag(df$rm30, 4, na.pad = TRUE),
+         rm30_lag_5q = lag(df$rm30, 5, na.pad = TRUE),
+         rm30_lag_6q = lag(df$rm30, 6, na.pad = TRUE),
+         rm30_lag_7q = lag(df$rm30, 7, na.pad = TRUE),
+         rm30_lag_8q = lag(df$rm30, 8, na.pad = TRUE),
+         rm30_lag_9q = lag(df$rm30, 9, na.pad = TRUE)
+         ) %>% 
+  #filter(DATE > "1977-01-01" & DATE < "1985-01-01") %>% 
+  filter(DATE > "1977-01-01" & DATE < "2006-01-01") 
+```
+
+### 1Q
+
+`houst` regressed on 1 quarter lag for `rm30` .  
+
+```{r ols_simple_1q, fig.align='center'}
+
+ols_simple_1q <- lm(houst ~ rm30_lag_1q, data = df_lag)
+#summary(ols_simple_1q)
+tab_model(ols_simple_1q)
+```
+
+### 2Q
+
+`houst` regressed on 2 quarter lag for `rm30` . 
+
+```{r ols_simple_2q, fig.align='center'}
+
+ols_simple_2q <- lm(houst ~ rm30_lag_2q, data = df_lag)
+#summary(ols_simple_2q)
+tab_model(ols_simple_2q)
+```
+
+### 3Q
+
+`houst` regressed on 3 quarter lag for `rm30` . 
+
+```{r ols_simple_3q, fig.align='center'}
+
+ols_simple_3q <- lm(houst ~ rm30_lag_3q, data = df_lag)
+#summary(ols_simple_3q)
+tab_model(ols_simple_3q)
+```
+
+### 4Q
+
+`houst` regressed on 4 quarter lag for `rm30` . 
+
+```{r ols_simple_4q, fig.align='center'}
+
+ols_simple_4q <- lm(houst ~ rm30_lag_4q, data = df_lag)
+#summary(ols_simple_4q)
+tab_model(ols_simple_4q)
+```
+
+### 5Q
+
+`houst` regressed on 5 quarter lag for `rm30`.
+
+```{r ols_simple_5q, fig.align='center'}
+
+ols_simple_5q <- lm(houst ~ rm30_lag_5q, data = df_lag)
+#summary(ols_simple_5q)
+tab_model(ols_simple_5q)
+```
+
+### 6Q
+
+`houst` regressed on 6 quarter lag for `rm30` . 
+
+```{r ols_simple_6q, fig.align='center'}
+
+ols_simple_6q <- lm(houst ~ rm30_lag_6q, data = df_lag)
+#summary(ols_simple_6q)
+tab_model(ols_simple_6q)
+```
+
+### 7Q
+
+`houst` regressed on 7 quarter lag for `rm30` . 
+
+```{r ols_simple_7q, fig.align='center'}
+
+ols_simple_7q <- lm(houst ~ rm30_lag_7q, data = df_lag)
+#summary(ols_simple_7q)
+tab_model(ols_simple_7q)
+```
+
+### 8Q
+
+`houst` regressed on 8 quarter lag for `rm30`. 
+
+```{r ols_simple_8q, fig.align='center'}
+
+ols_simple_8q <- lm(houst ~ rm30_lag_8q, data = df_lag)
+#summary(ols_simple_8q)
+tab_model(ols_simple_8q)
+```
+
+### 9Q
+
+9 quarter lag for `rm30` regressed on 9 quarter lag for `houst`. 
+
+```{r ols_simple_9q, fig.align='center'}
+
+ols_simple_9q <- lm(houst ~ rm30_lag_9q, data = df_lag)
+#summary(ols_simple_9q)
+tab_model(ols_simple_9q)
+```
+
+# Book Figs
+
+## houst x lagged rm30 (4Q)
+
+```{r bookfig_a, fig.align='center'}
+
+df_lag %>% 
+  select(DATE, houst, rm30, rm30_lag_4q) %>% 
+  ggplot(aes(x = rm30_lag_4q, y = houst)) + 
+  geom_point(color = "#377EB8") +
+  labs(x = "Real 30-year fixed rate mortgage averages, 1-year lag", 
+       y = "Housing starts: total") +
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 13))
+
+ggsave("rm30_lag_4q_x_houst.pdf", width = 9, height = 7, units = "in")
+```
+
+## scatter of rm30 diffs x houst diffs
+
+```{r bookfig_b, fig.align='center'}
+
+df_lag_diffs %>% 
+  select(DATE, rm30_lag_diff_4q, houst_lag_diff_4q) %>% 
+  ggplot(aes(x = rm30_lag_diff_4q, y = houst_lag_diff_4q)) + 
+  geom_smooth(method='lm', se = FALSE, color = "#E41A1C") +
+  geom_point(color = "#377EB8") +
+  stat_cor(method = "pearson", r.digits = 2, p.digits = 3, label.x = 3.5, label.y = -540) +
+  labs(x = "Real 30-year fixed rate mortgage averages, 1-year lag (differences)", 
+       y = "Housing starts: total (differences)") +
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 13))
+
+ggsave("rm30_lagdiff4q_x_houst_lagdiff4q.pdf", width = 9, height = 7, units = "in")
+```
+

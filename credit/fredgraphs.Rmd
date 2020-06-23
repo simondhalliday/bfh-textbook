@@ -580,3 +580,30 @@ df_lag_diffs %>%
 ggsave("rm30_lagdiff4q_x_houst_lagdiff4q.pdf", width = 9, height = 7, units = "in")
 ```
 
+```{r faux_elas}
+# Calculate faux elasticity
+
+df_faux_elas <- df_lag %>% 
+  select(DATE, houst, rm30_lag_4q) %>%  
+  mutate(houst_lag_4q = lag(df_lag$houst, 4, na.pad = TRUE)) %>% 
+  filter(DATE > "1978-01-01" & DATE < "2006-01-01") 
+
+w <- mean(df_faux_elas$rm30_lag_4q) / mean(df_faux_elas$houst_lag_4q) 
+
+fe <- w*(-77.45)
+
+fe
+```
+
+```{r r_ci}
+# calculate CI for pearson r
+n = 111 
+r = 0.397
+
+stderr <- 1 / sqrt(n-3)
+
+r_lb <- formatC(r - stderr)
+r_ub <- formatC(r + stderr)
+
+print(paste0("(", r_lb, ", ", r_ub, " )"))
+```

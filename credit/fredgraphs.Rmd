@@ -561,12 +561,12 @@ df_lag_diffs %>%
   geom_smooth(method='lm', se = FALSE, color = "#E41A1C", size = 0.5) +
   # geom_abline(intercept = 14.19, slope = -77.45, color = "#E41A1C", size = 0.5) +
   geom_point(color = "#377EB8") +
-  annotate("segment", x = 4.5, xend = 4.5, y = -500, yend = -350, size=0.5, alpha=1, arrow = arrow(length = unit(0.15, "cm"), type = "closed")) +
-  annotate("text", x = 4.5, y = -540, label = expression(r == 0.397), size = 5) +
-  annotate("text", x = 4.5, y = -600, 
-           label = expression(paste("Slope ", phantom() == - 77.45)), size = 5) +
-    annotate("text", x = 4.5, y = -660, 
-           label = expression(paste("CI", phantom() == phantom(), "(-110.8, -44.13)")), size = 5) +
+  # annotate("segment", x = 4.5, xend = 4.5, y = -500, yend = -350, size=0.5, alpha=1, arrow = arrow(length = unit(0.15, "cm"), type = "closed")) +
+  # annotate("text", x = 4.5, y = -540, label = expression(r == 0.397), size = 5) +
+  # annotate("text", x = 4.5, y = -600, 
+  #          label = expression(paste("Slope ", phantom() == - 77.45)), size = 5) +
+  #   annotate("text", x = 4.5, y = -660, 
+  #          label = expression(paste("CI", phantom() == phantom(), "(-110.8, -44.13)")), size = 5) +
   # stat_cor(method = "pearson", r.digits = 3, p.digits = 3, label.x = 3.5, label.y = -540) +
   labs(x = "Inflation adjusted mortgage interest rate (lagged 1-year)",
       #x = "Real 30-year fixed rate mortgage averages, 1-year lag (differences)", 
@@ -574,8 +574,8 @@ df_lag_diffs %>%
       y = "Private housing starts (in thousands)") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 17),
-        axis.text = element_text(size = 14))
+        axis.title = element_text(size = 20),
+        axis.text = element_text(size = 17))
 
 ggsave("rm30_lagdiff4q_x_houst_lagdiff4q.pdf", width = 9, height = 7, units = "in")
 ```

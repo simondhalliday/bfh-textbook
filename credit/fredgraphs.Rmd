@@ -504,16 +504,46 @@ tab_model(ols_simple_9q)
 
 ```{r bookfig_a, fig.align='center'}
 
+coeff <- 210
 df_lag %>% 
-  select(DATE, houst, rm30, rm30_lag_4q) %>% 
-  ggplot(aes(x = rm30_lag_4q, y = houst)) + 
-  geom_point(color = "#377EB8") +
-  labs(x = "Real 30-year fixed rate mortgage averages, 1-year lag", 
-       y = "Housing starts: total") +
+  select(DATE, houst, rm30_lag_4q) %>% 
+  # gather(metric, value, 2:3) %>%
+  filter(DATE > "1970-01-01" & DATE < "2006-01-01") %>% 
+  ggplot(aes(x = DATE)) +
+  geom_line(aes(y=houst, color = "houst")) +
+  geom_line(aes(y=rm30_lag_4q*coeff, color = "rm30_lag_4q")) +
+  scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Housing starts: total",
+    
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~./coeff, name="Real 30-year fixed rate mortgage averages, 1-year lag (%)")
+  ) + 
+  labs(x = "Date") +
+  scale_color_manual(name = "", labels = c("Housing starts", "Real mortgage rates (1-year lag)"), 
+                     values = c("#377EB8", "#4DAF4A")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 13))
+        axis.title = element_text(size = 17),
+        axis.text = element_text(size = 14),
+        legend.title = element_blank(),
+        legend.position = c(0.8, 0.925),
+        legend.text = element_text(size = 12),
+        axis.text.y.right = element_text(margin = unit(c(5, 5, 5, 1), "mm")))
+
+#ggsave("FRED_dualaxis.pdf", width = 9, height = 6)
+
+# df_lag %>% 
+#   select(DATE, houst, rm30, rm30_lag_4q) %>% 
+#   ggplot(aes(x = rm30_lag_4q, y = houst)) + 
+#   geom_point(color = "#377EB8") +
+#   labs(x = "Real 30-year fixed rate mortgage averages, 1-year lag", 
+#        y = "Housing starts: total") +
+#   theme_bw() + 
+#   theme(panel.grid.minor = element_blank(),
+#         axis.title = element_text(size = 15),
+#         axis.text = element_text(size = 13))
 
 ggsave("rm30_lag_4q_x_houst.pdf", width = 9, height = 7, units = "in")
 ```
@@ -522,18 +552,30 @@ ggsave("rm30_lag_4q_x_houst.pdf", width = 9, height = 7, units = "in")
 
 ```{r bookfig_b, fig.align='center'}
 
+# cor(df_lag_diffs$houst_lag_diff_4q, df_lag_diffs$rm30_lag_diff_4q) 
+# = -0.3974753
+
 df_lag_diffs %>% 
   select(DATE, rm30_lag_diff_4q, houst_lag_diff_4q) %>% 
   ggplot(aes(x = rm30_lag_diff_4q, y = houst_lag_diff_4q)) + 
-  geom_smooth(method='lm', se = FALSE, color = "#E41A1C") +
+  geom_smooth(method='lm', se = FALSE, color = "#E41A1C", size = 0.5) +
+  # geom_abline(intercept = 14.19, slope = -77.45, color = "#E41A1C", size = 0.5) +
   geom_point(color = "#377EB8") +
-  stat_cor(method = "pearson", r.digits = 2, p.digits = 3, label.x = 3.5, label.y = -540) +
-  labs(x = "Real 30-year fixed rate mortgage averages, 1-year lag (differences)", 
-       y = "Housing starts: total (differences)") +
+  annotate("segment", x = 4.5, xend = 4.5, y = -500, yend = -350, size=0.5, alpha=1, arrow = arrow(length = unit(0.15, "cm"), type = "closed")) +
+  annotate("text", x = 4.5, y = -540, label = expression(r == 0.397), size = 5) +
+  annotate("text", x = 4.5, y = -600, 
+           label = expression(paste("Slope ", phantom() == - 77.45)), size = 5) +
+    annotate("text", x = 4.5, y = -660, 
+           label = expression(paste("CI", phantom() == phantom(), "(-110.8, -44.13)")), size = 5) +
+  # stat_cor(method = "pearson", r.digits = 3, p.digits = 3, label.x = 3.5, label.y = -540) +
+  labs(x = "Inflation adjusted mortgage interest rate (lagged 1-year)",
+      #x = "Real 30-year fixed rate mortgage averages, 1-year lag (differences)", 
+      #y = "Housing starts: total (differences)") +
+      y = "Private housing starts (in thousands)") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 13))
+        axis.title = element_text(size = 17),
+        axis.text = element_text(size = 14))
 
 ggsave("rm30_lagdiff4q_x_houst_lagdiff4q.pdf", width = 9, height = 7, units = "in")
 ```

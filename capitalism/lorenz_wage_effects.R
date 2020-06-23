@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 2, 2))
@@ -39,8 +39,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 #Calculate the Gini
@@ -95,13 +95,13 @@ Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triang
 #        col = COLA[1], density = NULL, border = NA)
 
 # Lorenz curve
-segments(0, 0, 0.07, 0, lty = 1, col = COLA[5], lwd = graphlinewidth, xpd = TRUE)
+segments(0, 0, 0.07, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE)
 
-segments(0.07, 0, 0.9, 0.76, lty = 1, col = COLA[5], lwd = graphlinewidth)
-segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[5], lwd = graphlinewidth)
+segments(0.07, 0, 0.9, 0.76, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
 
-segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[5], lwd = graphlinewidth)
-segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[5], lwd = graphlinewidth)
+segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[4], lwd = graphlinewidth)
+segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[4], lwd = graphlinewidth)
 
 text(0.76, 0.46, expression(paste("New")), cex = labelsize)
 text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
@@ -112,7 +112,7 @@ text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
 
 text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
 text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
-text(0.85, 0.62, expression(paste("Curve")), cex = labelsize)
+text(0.85, 0.62, expression(paste("curve")), cex = labelsize)
 
 
 
@@ -120,7 +120,7 @@ text(0.85, 0.62, expression(paste("Curve")), cex = labelsize)
 
 
 #Line of equality
-segments(0, 0, 1, 1, lty = 1, col = COLB[5], lwd = graphlinewidth)
+segments(0, 0, 1, 1, lty = 1, col = COLB[4], lwd = graphlinewidth)
 text(0.8, 0.91, expression(paste("Line of")), cex = labelsize)
 text(0.8, 0.87, expression(paste("equality")), cex = labelsize)
 

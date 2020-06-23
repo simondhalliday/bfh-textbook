@@ -17,7 +17,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
 # Wage Share
@@ -44,8 +44,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n", 
-     xaxs="i", 
-     yaxs="i"
+     xaxs = "i", 
+     yaxs = "i"
 )
 
 #Calculate the Gini
@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(1.0)))
 ticksx <- c(xlims[1], 0.78467, 0.83, 0.85, xlims[2])
-xlabels <- c(0, 78, NA, NA, 90)
+xlabels <- c(NA, 78, NA, NA, 90)
 ticksy2 <- c(0,1)
 
 text(0.87, -0.043, expression(paste(85)), xpd = TRUE, cex = labelsize) 
@@ -76,7 +76,7 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Cumulative population proportion, ", F(n))), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("Real Wage")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.1, 0.5*ylims[2], expression(paste("Real wage")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -0.1, expression(paste("Employment, ", N)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -123,24 +123,24 @@ text(0.76, 0.62, expression(paste(b)), cex = labelsize)
 text(0.87, 0.58, expression(paste(c)), cex = labelsize)
 
 text(0.2, 0.29, expression(paste("Original")), cex = labelsize)
-text(0.2, 0.25, expression(paste("Wage")), cex = labelsize)
-text(0.2, 0.21, expression(paste("Curve")), cex = labelsize)
+text(0.2, 0.25, expression(paste("wage")), cex = labelsize)
+text(0.2, 0.21, expression(paste("curve")), cex = labelsize)
 Arrows(0.4, 0.2, 0.5, 0.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 text(0.65, 0.2, expression(paste("New")), cex = labelsize)
-text(0.65, 0.16, expression(paste("Wage")), cex = labelsize)
-text(0.65, 0.12, expression(paste("Curve")), cex = labelsize)
+text(0.65, 0.16, expression(paste("wage")), cex = labelsize)
+text(0.65, 0.12, expression(paste("curve")), cex = labelsize)
 
 
 text(0.2, 0.88, expression(paste("Original")), cex = labelsize)
-text(0.2, 0.84, expression(paste("Competition")), cex = labelsize)
-text(0.2, 0.8, expression(paste("Condition")), cex = labelsize)
+text(0.2, 0.84, expression(paste("competition")), cex = labelsize)
+text(0.2, 0.8, expression(paste("condition")), cex = labelsize)
 Arrows(0.2, 0.75, 0.2, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 text(0.2, 0.56, expression(paste("New")), cex = labelsize)
-text(0.2, 0.52, expression(paste("Competition")), cex = labelsize)
-text(0.2, 0.48, expression(paste("Condition")), cex = labelsize)
+text(0.2, 0.52, expression(paste("competition")), cex = labelsize)
+text(0.2, 0.48, expression(paste("condition")), cex = labelsize)
 
 # text(0.9, 0.7, expression(paste(B[3])), cex = labelsize)
 

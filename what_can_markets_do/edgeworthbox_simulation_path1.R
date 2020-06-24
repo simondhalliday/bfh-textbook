@@ -121,8 +121,8 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-mtext("A's good, x", side=1, line = 3.3, cex = axislabelsize)
-text(-1.1, 0.5*ylims[2], expression(paste("A's money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("A's good x, ", x^A)), side=1, line = 3.3, cex = axislabelsize)
+text(-1.1, 0.45*ylims[2], expression(paste("A's money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -239,8 +239,8 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
-mtext("B's good, x", side = 3, line = 3, cex = axislabelsize)
-text(-0.9, 0.5*ylims[2], expression(paste("B's money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 3, cex = axislabelsize)
+text(-0.9, 0.45*ylims[2], expression(paste("B's money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.9, 275, -0.9, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

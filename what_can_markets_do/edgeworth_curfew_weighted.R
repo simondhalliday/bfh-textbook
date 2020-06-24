@@ -74,7 +74,7 @@ axis(side = 3, at = ticksx, pos = -24, labels = NA, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels2, las = 0, cex.axis = labelsize)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.85, 0.15*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.85, 0.15*ylims[2], expression(paste("B's Money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 
 
@@ -134,7 +134,7 @@ contour(x, y,
 
 text(0.5*xlims[2], -32, expression(paste("The curfew, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.65*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 0.65*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:

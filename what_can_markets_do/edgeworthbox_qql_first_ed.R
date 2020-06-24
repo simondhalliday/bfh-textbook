@@ -15,7 +15,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 par(mar =  c(6, 4, 4, 6))
 
@@ -68,9 +68,9 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = NA)
 axis(side = 4, at = ticksy, pos = 0, labels = NA, las = 0)
-text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
+text(5, -1, expression(paste("B's Good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.15*ylims[2], expression(paste("B's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.8, 0.12*ylims[2], expression(paste("B's Money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 xpoly1 <- seq(from = 1.48, to = 8.52, length.out = 500)
 ypoly1 <- indiffA(xpoly1)
@@ -130,9 +130,9 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.15*ylims[2], -1.2, expression(paste("A's Good, x")), xpd = TRUE, cex = axislabelsize) 
+text(0.15*ylims[2], -1.2, expression(paste("A's Good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.6, 0.5*ylims[2], expression(paste("A's Money, y")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:

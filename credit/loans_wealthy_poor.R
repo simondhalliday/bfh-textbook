@@ -111,17 +111,17 @@ text(1.75, 7.75, expression(b), cex = labelsize)
 
 # annotations -------------------------------------------------------------
 
-text(1, 9.5, expression("Poor borrowers"), cex = labelsize)
-text(1, 9.15, expression("best project"), cex = labelsize)
+text(1, 9.5, expression("Poor borrower's"), cex = labelsize)
+text(1, 9.15, expression("best projects"), cex = labelsize)
 
-text(8.8, 9.5, expression("Wealthy borrowers"), cex = labelsize)
-text(8.8, 9.15, expression("best project"), cex = labelsize)
+text(8.8, 9.5, expression("Wealthy borrower's"), cex = labelsize)
+text(8.8, 9.15, expression("best projects"), cex = labelsize)
 
 text(8.75, 6.65, expression("Quality of wealthy"), cex = labelsize)
-text(8.75, 6.3, expression(paste("borrwers project, ", q^k)), cex = labelsize)
+text(8.75, 6.3, expression(paste("borrower's projects, ", q^k)), cex = labelsize)
 
 text(8.75, 3.35, expression("Quality of poor"), cex = labelsize)
-text(8.75, 3, expression(paste("borrwers project, ", q^0)), cex = labelsize)
+text(8.75, 3, expression(paste("borrower's projects, ", q^0)), cex = labelsize)
 
 # brackets + labels -------------------------------------------------------
 

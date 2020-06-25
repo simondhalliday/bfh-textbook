@@ -7,6 +7,9 @@ library(data.table)
 library(grid)
 library(ineq)
 
+
+# Import + Tidy -----------------------------------------------------------
+
 Sim <- read_excel("what_can_markets_do/simulations2.xlsx")
 
 narSim <- 
@@ -62,6 +65,9 @@ Lc(x, n = rep(1,length(x)), plot = FALSE)
 Lorenz1 <- Lc(FinalP$utility, n = rep(1,length(FinalP$utility)), plot = TRUE)
 LorenzW <- Lc(FinalP$wealth, n = rep(1,length(FinalP$wealth)), plot = TRUE)
 
+
+# lorenz_utility ----------------------------------------------------------
+
 pdf(file = "what_can_markets_do/lorenz_utility.pdf", width = 5, height = 4)
 plot(Lorenz1, 
      col = "#0868ac",
@@ -74,6 +80,8 @@ plot(Lorenz1,
 )
 dev.off()
 
+
+# lorenz_wealth -----------------------------------------------------------
 
 pdf(file = "what_can_markets_do/lorenz_wealth.pdf", width = 5, height = 4)
 plot(LorenzW, 
@@ -88,38 +96,43 @@ plot(LorenzW,
 dev.off()
 
 
+# wealth_distribution -----------------------------------------------------
 
 
-pdf(file = "what_can_markets_do/wealth_distribution.pdf", width = 5, height = 4)
-FinalP %>% 
-  ggplot(aes(x = wealth, fill = type)) + 
-  geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
-                 binwidth = 10) + 
-  ylab("Density") + 
-  xlab("Wealth") + 
-  scale_fill_discrete("Trader Type", 
-                      breaks = c("A", "B"),
-                      labels = c("Type A", "Type B")) + 
-  theme_bw()
-dev.off()
+# pdf(file = "what_can_markets_do/wealth_distribution.pdf", width = 5, height = 4)
+# FinalP %>% 
+#   ggplot(aes(x = wealth, fill = type)) + 
+#   geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
+#                  binwidth = 10) + 
+#   ylab("Density") + 
+#   xlab("Wealth") + 
+#   scale_fill_discrete("Trader Type", 
+#                       breaks = c("A", "B"),
+#                       labels = c("Type A", "Type B")) + 
+#   theme_bw()
+# dev.off()
 
 
 pdf(file = "what_can_markets_do/wealth_distribution_facet.pdf", width = 5, height = 4)
-FinalP %>% 
-  ggplot(aes(x = wealth, fill = type)) + 
+FinalP %>%
+  ggplot(aes(x = wealth, fill = type)) +
   facet_grid(. ~type) +
   geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
-                 binwidth = 10) + 
-  ylab("Density") + 
-  xlab("Wealth") + 
+                 binwidth = 10) +
+  ylab("Density") +
+  xlab("Wealth") +
   scale_fill_manual("Trader Type",
                     breaks = c("A", "B"),
                     labels = c("Type A", "Type B"),
                     values = c("#e41a1c", "#377eba")) +
-  theme_bw() + 
+  theme_bw() +
   theme(axis.title = element_text(size = 12),
-        axis.text = element_text(size = 9))
+        axis.text = element_text(size = 9),
+        legend.position = "top")
 dev.off()
+
+
+# utility_distribution_facet ----------------------------------------------
 
 
 pdf(file = "what_can_markets_do/utility_distribution_facet.pdf", width = 5, height = 4)
@@ -136,21 +149,25 @@ FinalP %>%
                     values = c("#e41a1c", "#377eba")) +
   theme_bw() + 
   theme(axis.title = element_text(size = 12),
-        axis.text = element_text(size = 9))
+        axis.text = element_text(size = 9),
+        legend.position = "top")
 dev.off()
 
-pdf(file = "what_can_markets_do/utility_distribution_facet.pdf", width = 5, height = 4)
-FinalP %>% 
-  ggplot(aes(x = utility, fill = type)) + 
-  geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
-                 binwidth = 10) + 
-  ylab("Density") + 
-  xlab("Utility") + 
-  scale_fill_discrete("Trader Type", 
-                      breaks = c("A", "B"),
-                      labels = c("Type A", "Type B")) + 
-  theme_bw()
-dev.off()
+# pdf(file = "what_can_markets_do/utility_distribution_facet.pdf", width = 5, height = 4)
+# FinalP %>% 
+#   ggplot(aes(x = utility, fill = type)) + 
+#   geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
+#                  binwidth = 10) + 
+#   ylab("Density") + 
+#   xlab("Utility") + 
+#   scale_fill_discrete("Trader Type", 
+#                       breaks = c("A", "B"),
+#                       labels = c("Type A", "Type B")) + 
+#   theme_bw()
+# dev.off()
+
+
+# old clean up ------------------------------------------------------------
 
 
 ###The content below applied to an old version of the data. 
@@ -187,6 +204,9 @@ BWFewA <-
   filter(trade %in% seq(1, 92, 10)) %>%
   arrange(Trader, trade)
 
+
+# trading paths -----------------------------------------------------------
+
 pdf(file = "what_can_markets_do/trading_paths.pdf", width = 6, height = 4)
 BWFewA %>% 
   ungroup() %>%
@@ -205,6 +225,7 @@ BWFewA %>%
   theme_bw()
 dev.off()
 
+# trading_paths_allpoints -------------------------------------------------
 
 pdf(file = "what_can_markets_do/trading_paths_allpoints.pdf", width = 6, height = 4)
 BestWorstA %>% 
@@ -224,6 +245,10 @@ BestWorstA %>%
   theme_bw()
 dev.off()
 
+
+# trading_paths_pos -------------------------------------------------------
+
+
 pdf(file = "what_can_markets_do/trading_paths_pos.pdf", width = 6, height = 4)
 BWFewA %>% 
   arrange(Trader, trade) %>%
@@ -241,6 +266,8 @@ BWFewA %>%
   theme_bw()
 dev.off()
 
+
+# trading_paths_arrows ----------------------------------------------------
 
 
 pdf(file = "what_can_markets_do/trading_paths_arrows.pdf", width = 6, height = 4)
@@ -260,6 +287,8 @@ BWFewA %>%
   theme_bw()
 dev.off()
 
+
+# trading_paths_topA ------------------------------------------------------
 
 pdf(file = "what_can_markets_do/trading_paths_topA.pdf", width = 6, height = 4)
 TopA %>% 

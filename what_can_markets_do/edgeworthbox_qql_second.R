@@ -161,6 +161,9 @@ segments(5, 0, 5, 2.5, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 7.5, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 4.5, 5, 5.5, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
+text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
+
 #Label the PEC
 text(8.25, 8.8, expression("Pareto-efficient"), cex = annotatesize)
 text(8.25, 8.3, expression("curve"), cex = annotatesize)

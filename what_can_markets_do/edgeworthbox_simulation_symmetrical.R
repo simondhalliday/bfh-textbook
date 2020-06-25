@@ -191,6 +191,8 @@ text(4.9, 190, expression(paste(n)), cex = labelsize)
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(9.2, 10.2, expression(paste(z)), cex = labelsize)
 
+text(-0.3, -40.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 440.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Braces for labels

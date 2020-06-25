@@ -169,10 +169,10 @@ points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
 text(2.7, 7.8, expression(h), cex = labelsize)
 
 points(5, 5, pch = 16, col = "black", cex = 1.5)
-text(5.2, 5.25, expression(i), cex = labelsize)
+text(5.2, 5.25, expression(j), cex = labelsize)
 
 text(9, 6.85, expression("Price line"), cex = labelsize)
-text(9, 6.25, expression(paste("slope ", phantom() == -p[i])), cex = labelsize)
+text(9, 6.25, expression(paste("slope ", phantom() == -p[j])), cex = labelsize)
 Arrows(9.25, 5.75, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
 # #Label B's offer curve
@@ -182,6 +182,9 @@ Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 # # Price Line
 text(8, 13, expression(paste("A's Offer Curve")), cex = labelsize)
 Arrows(6.5, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Set up second axes and labels

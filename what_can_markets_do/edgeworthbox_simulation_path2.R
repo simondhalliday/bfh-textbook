@@ -233,6 +233,9 @@ text(7, 268, expression(u[H]^A), cex = annotatesize)
 #          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 # text(11.2, 3, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270)
 # text(10.9, 3, expression(paste("B pays A")), xpd = TRUE, srt = 270)
+text(-0.3, -40.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 440.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
+
 
 par(new = TRUE)
 

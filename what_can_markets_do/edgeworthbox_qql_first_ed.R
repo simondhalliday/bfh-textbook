@@ -220,6 +220,8 @@ brackets(x1 = 10.2, y1 = 4.4, x2 = 10.2, y2 = 0.9,
 text(11.2, 2.9, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270, cex = annotatesize)
 text(10.9, 2.9, expression(paste("B pays A")), xpd = TRUE, srt = 270, cex = annotatesize)
 
+text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 dev.off()
 

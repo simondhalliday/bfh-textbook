@@ -217,8 +217,8 @@ text(3.85, -12.5, expression(paste(g)), cex = labelsize)
 
 
 brackets(x1 = -0.5, y1 = -9, x2 = -0.5, y2 = 0,  
-         ticks = 0.5, curvature = 0.5, type = 1, 
-         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.5)
+         ticks = 0.5, curvature = 0.3, type = 1, 
+         col = "black", lwd = 1, lty = 1, xpd = TRUE, h = 0.3)
 #text(6.6, -1, expression(paste("Quantity of the good, x")), xpd = TRUE)
 #text(6.6, -1.4, expression(paste("A sells to B")), xpd = TRUE)
 
@@ -231,6 +231,8 @@ points(x = 1, y = 0, pch = 16, col = "black", cex = 1.5)
 text(0.9, 1.3, expression(paste(e*minute)), cex = labelsize)
 
 
+text(-0.75, -27.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(8.5, 25.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Braces for labels

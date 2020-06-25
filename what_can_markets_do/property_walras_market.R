@@ -164,6 +164,9 @@ Arrows(8.5, 6.5, 8.5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 points(4.8275, 7.25, pch = 16, col = "black", cex = 1.5)
 text(5, 7.75, expression(n), cex = labelsize)
 
+text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
+
 #Set up second axes and labels
 
 par(new = TRUE)

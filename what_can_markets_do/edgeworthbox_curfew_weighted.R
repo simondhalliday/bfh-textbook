@@ -112,7 +112,7 @@ xlabels <- c(paste("8pm"), paste("9pm"), paste("10pm"), paste("11pm"),
              paste("12am"), paste("1am"), paste("2am"), paste("3am"), paste("4am"))
 #xlabels <- c("8pm", "9pm", "10pm", "11pm", "12am", "1am", "2am", "3am", "4am")
 #xlabels <- seq(from = 0, to = 8, by = 1)
-axis(1, at = ticksx, pos = -24, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = -24, labels = xlabels, gap.axis = -1, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #Pareto-improving lens
@@ -132,7 +132,7 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.5*xlims[2], -32, expression(paste("The curfew, x")), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -32, expression(paste("The curfew, T")), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 text(-1, 0.65*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

@@ -58,7 +58,7 @@ ticksx <- c(3, 6, 7.5, 9)
 xlabels <- c(expression(paste(T^A)), expression(paste(T^I)), expression(paste(T*minute)), expression(paste(T^B)))
 ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
 
-ylabels <- c(NA, expression(paste(-u[x]^A*(x*minute))), expression(paste(-u[x]^A == u[x]^B)), expression(paste(u[x]^B*(x*minute))), NA)
+ylabels <- c(NA, expression(paste(-u[T]^A*(T*minute))), expression(paste(-u[T]^A == u[T]^B)), expression(paste(u[T]^B*(T*minute))), NA)
 ticksy2 <- c(ylims[1], ylims[2])
 ylabels2 <- seq(from = 0, to = ylims[2], by = 10)
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -102,7 +102,7 @@ segments(7.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentline
 segments(7.5, 0, 7.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(7.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
 
-text(7.5 + 0.1, MUb(7.5) + 0.1, expression(paste("h")), cex = labelsize)
+text(7.5 + 0.1, MUb(7.5) + 0.1, expression(paste(h)), cex = labelsize)
 points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
 
 text(4.5, MUb(4.5, beta = 1/4)  + 0.2, expression(paste(j)), cex = labelsize)
@@ -118,13 +118,13 @@ points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
 #text(-2, 7, expression(paste(u[x]^A*(x*minute))),  xpd = TRUE, cex = labelsize)
 
 text(4, 6.3, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
-text(4, 6, expression(paste(u[x]^B == 2*beta*(T^B - x))), xpd = TRUE, cex = labelsize)
+text(4, 6, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
 text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
 text(3.8, 2.2, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
 
 
 text(7.75, 6.3, expression(paste("-A's marginal disutility ")),  xpd = TRUE, cex = labelsize)
-text(7.75, 6, expression(paste(-u[x]^A == -2*alpha*(T^A - x))),  xpd = TRUE, cex = labelsize)
+text(7.75, 6, expression(paste(-u[T]^A == -2*alpha*(T^A - T))),  xpd = TRUE, cex = labelsize)
 text(7.75, 5.5, expression(paste(alpha == frac(1,2))), xpd = TRUE, cex = labelsize)
 text(6.9, 5.5, expression(paste(alpha == frac(3,4))), xpd = TRUE, cex = labelsize)
 

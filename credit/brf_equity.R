@@ -107,7 +107,7 @@ text(0.65, brfFn(delta = 0.6, k = 0) - 0.03, expression(paste(p)), cex = labelsi
 text(0.65, brfFn(delta = 0.6, k = 0.6) - 0.03, expression(paste(w)), cex = labelsize)
 
 text(1.7, 0.62, expression(paste(f(delta)== frac(1,2) + frac(delta(1-k),2*q))), cex = labelsize, xpd = TRUE)
-text(1.73, 0.77, expression(paste("BRF without")), cex = labelsize,xpd = TRUE)
+text(1.73, 0.77, expression(paste("BRF with")), cex = labelsize,xpd = TRUE)
 text(1.73, 0.72, expression(paste("equity, ", k > 0)), cex = labelsize, xpd = TRUE)
 #text(1.84, 0.72, expression(paste(k > 0)), cex = labelsize, xpd = TRUE)
 

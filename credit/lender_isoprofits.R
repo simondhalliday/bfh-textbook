@@ -180,7 +180,8 @@ Arrows(0.36, 0.45, 0.46, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "trian
 #text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)
 text(0.46, 0.25, expression(paste('Better for lender')), cex = labelsize, xpd = TRUE)
 
-text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
+text(0.53, 0.97, expression(paste("Iso-expected")), cex = labelsize)
+text(0.53, 0.9, expression(paste("profits")), cex = labelsize)
 text(0.53, 0.82, expression(paste(hat(pi)[0])), cex = labelsize)
 text(0.53, 0.72, expression(paste(hat(pi)[1])), cex = labelsize)
 text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)

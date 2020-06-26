@@ -113,7 +113,8 @@ text(0.41, 0.985, expression(paste(f == frac(delta, q))), cex = labelsize, xpd =
 text(0.26, 0.9, expression(paste("Slope" == frac(1, q))), cex = labelsize)
 
 #Label Iso-profit
-text(0.53, 0.9, expression(paste("Isoprofits")), cex = labelsize)
+text(0.53, 0.96, expression(paste("Iso-expected")), cex = labelsize)
+text(0.53, 0.9, expression(paste("profits")), cex = labelsize)
 text(0.53, 0.82, expression(paste(hat(pi)[0])), cex = labelsize)
 text(0.53, 0.72, expression(paste(hat(pi)[1] == hat(pi)^C)), cex = labelsize)
 text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)

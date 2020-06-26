@@ -125,7 +125,7 @@ lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
 lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
 
-lines(xx3, OfferCurveB(xx3), col = COLB[3], lwd = graphlinewidth)
+lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, WalrasPrice(xx1), col = COL[8], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
@@ -145,14 +145,19 @@ arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 text(2, 14, expression(u[n]^A), cex = labelsize)
 # 
 
-# #Label B's offer curve
-text(2, 2.6, expression("B's Offer Curve"), cex = labelsize)
-Arrows(1.5, 3.3, 1.5, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# 
-# # Price Line
-text(8.3, 13, expression(paste("A's Offer Curve")), cex = labelsize)
-Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# # #Label B's offer curve
+# text(2, 2.6, expression("B's Offer Curve"), cex = labelsize)
+# Arrows(1.5, 3.3, 1.5, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# # 
+# # # Price Line
+# text(8.3, 13, expression(paste("A's Offer Curve")), cex = labelsize)
+# Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
+text(2.5, 7.0, expression("B's best-response"), cex = annotatesize)
+text(2.5, 6.3, expression("function (ICC)"), cex = annotatesize)
+
+text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
+text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
 # Walrasian Price Line
 text(8.3, 7.8, expression(paste("Walrasian Price Line")), cex = labelsize)

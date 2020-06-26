@@ -146,7 +146,7 @@ lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = COLB[2], lwd = graphlinewi
 # 
 lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphlinewidth)
 # 
-lines(xx3, OfferCurveB(xx3), col = COLB[3], lwd = graphlinewidth)
+lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -175,13 +175,19 @@ text(9, 6.85, expression("Price line"), cex = labelsize)
 text(9, 6.25, expression(paste("slope ", phantom() == -p[j])), cex = labelsize)
 Arrows(9.25, 5.75, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # 
-# #Label B's offer curve
-text(1.5, 2.5, expression("B's Offer Curve"), cex = labelsize)
-Arrows(1, 3.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# 
-# # Price Line
-text(8, 13, expression(paste("A's Offer Curve")), cex = labelsize)
-Arrows(6.5, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# # #Label B's offer curve
+# text(1.5, 2.5, expression("B's Offer Curve"), cex = labelsize)
+Arrows(1, 6.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# #
+# # # Price Line
+# text(8, 13, expression(paste("A's Offer Curve")), cex = labelsize)
+# Arrows(6.5, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(1.5, 6.0, expression("B's best-response"), cex = annotatesize)
+text(1.5, 5.3, expression("function (ICC)"), cex = annotatesize)
+
+text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
+text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
 text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])

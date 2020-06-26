@@ -1,9 +1,9 @@
-#' Graph Designer: Simon Halliday
+#' Graph Designer: Scott Cohn
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "credit/credit_barriers_rents.pdf", width = 8, height = 6)
+pdf(file = "credit/credit_profit_brf.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -21,49 +21,40 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 1, 2))
+par(mar =  c(4, 5, 1, 1))
 
-brfFn <- function(delta, q = 1, k = 1) {
+brfFn <- function(delta, q = 15, k = 0) {
   .5 + (delta / (2 * q)) * (1 - k)
 }
 
-yhat <- function(b, rho = 0.05) {
- 5/4 -(1 + rho)/(2*(1-b)) + (5/4)*(1 - (4/5)*(1+rho)/(1 - b))^(0.5) 
+
+PCFn <- function(delta, q = 1) {
+  delta/q
 }
 
-
-yHatb <- function(b, rho = 0.05, k = 0.5) {
-  (5/4)*(1 + (1 - (4/5)*(1+rho)*(1 - k)/(1 - b))^(0.5) - (2/5)*(1 + rho)*(1 - k)/(1 - b)) - (1 + rho)*k 
-}
-
-profitFn <- function(b, rho = 0.05) {
-  ((1 + rho)/(1 - b)) - (1 + rho)
-}
-
-piHatb <- function(b, rho = 0.05, k = 0.5) {
-  ((1 + rho)*b*(1-k)/(1 - b))
-}
-
-piHatyHatb <- function(b, rho = 0.05, k = 0.5) {
-  (5/4)*(1 + (1 - (4/5)*(1+rho)*(1 - k)/(1 - b))^(0.5) - (2/5)*(1 + rho)*(1 - k)/(1 - b)) - (1 + rho)*k  + ((1 + rho)*b*(1-k)/(1 - b))
-}
-
-piHatyHat <- function(b, rho = 0.05) {
-  5/4 + (1 + rho)/(2*(1-b)) + (5/4)*(1 - (4/5)*(1+rho)/(1 - b))^(0.5) 
+isoprofitFn <- function(delta, rho = 0.05, b = 0.5) {
+  1 - ((1 + rho)/(1 - b))*(1/delta)
 }
 
 yFn <- function(d1, f1, q = 1){
   q*f1*(1 - f1) - d1*(1 - f1)
 }
 
+ylow <- function(delta, q = 1, ybar = 0.0625){
+  (-sqrt(delta^2 - 2*delta*q + q^2 - 4*q*ybar) + delta + q)/(2*q)
+}
 
-xlims <- c(0, 0.55)
-ylims <- c(0, 1.6)
+yhigh <- function(delta, q = 1, ybar = 0.0625){
+  (sqrt(delta^2 - 2*delta*q + q^2 - 4*q*ybar) + delta + q)/(2*q)
+}
+
+xlims <- c(0, 10)
+ylims <- c(0, 1.1)
 
 npts <- 501 
 d1 <- seq(xlims[1], xlims[2], length.out = npts)
 f1 <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(0.0625)
+deltalevel <- c(2.5, 4.75)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -77,15 +68,18 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksy <- c(ylims[1], 0.5, 1, yHatb(0), ylims[2])
-ylabels <- c(ylims[1], 0.5, 1, round(yHatb(0),2), NA)
-# ticksy <- c(ylims[1], ylims[2)
-# ylabels <- c(NA, NA)
-ticksx <- c(xlims[1], xlims[2])
-xlabels <- c(0, xlims[2])
+# ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
+# ylabels <- c(NA, expression(paste(f == frac(1,2))), 1)
+ticksy <- c(ylims[1], 0.5, brfFn(deltalevel[1], k = 0), brfFn(deltalevel[2], k = 0), ylims[2])
+ylabels <- c(NA, NA, expression(paste(f[0]^N)), expression(paste(f[1]^N)), 1)
+#ticksx <- c(xlims[1], (1 + 0.1)/(1 - 0), (1 + 0.1)/(1 - 0.5), xlims[2])
+ticksx <- c(xlims[1], deltalevel[1], deltalevel[2], xlims[2])
+xlabels <- c(NA, NA, NA, NA)
 
-text((1 + 0.1)/(1 - 0.5), - 0.09, expression(paste(frac(1 + rho, 1 - b))), xpd = TRUE, cex = labelsize) 
+#text((1 + 0.1)/(1 - 0.5), - 0.09, expression(paste(frac(1 + rho, 1 - b))), xpd = TRUE, cex = labelsize) 
+text(-0.4, 0.46, expression(paste(frac(1,2))), xpd = TRUE, cex = labelsize) 
 
+text(c(deltalevel[1], deltalevel[2]), -.07, c(expression(paste(delta[0]^N)),expression(paste(delta[1]^N))), xpd = TRUE, cex = labelsize)  
 
 npts <- 503 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -115,22 +109,33 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
+
 #Draw the graphs
 # lines(xx1, brfFn(xx1, k = 0.28), col = COLA[4], lwd = graphlinewidth)
-# lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1, k = 0), col = COLA[4], lwd = graphlinewidth)
 # lines(xx1, brfFn(xx1, k = 0.75), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, piHatyHatb(xx1), col = COL[2], lwd = graphlinewidth)
-lines(xx1, yHatb(xx1), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, piHatb(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoprofitFn(xx1, b = 0.35), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, isoprofitFn(xx1, b = 0), col = COLB[4], lwd = graphlinewidth)
+#lines(xx1, isoprofitFn(xx1, pi = 0.5), col = COLB[4], lwd = graphlinewidth)
 
 
 #Axis labels
 #mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
-text(0.5*(xlims[2]), -0.25 , expression(paste("Barriers to entry, ", b)), xpd = TRUE, cex = axislabelsize) 
-text(-0.075, 0.5*(ylims[2]), expression(paste("Profits, income, rents, ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), - 0.13 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
+text(-1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-#points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)
+segments(0, brfFn(deltalevel[1], k = 0), deltalevel[1], brfFn(deltalevel[1], k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(deltalevel[1], 0, deltalevel[1], brfFn(deltalevel[1], k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(deltalevel[2], 0, deltalevel[2], brfFn(deltalevel[2], k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, brfFn(deltalevel[2], k = 0), deltalevel[2], brfFn(deltalevel[2], k = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
+points(deltalevel[1], brfFn(deltalevel[1], k = 0), pch = 16, col = "black", cex = 1.5)
+text(deltalevel[1]+0.25, brfFn(deltalevel[1], k = 0) - 0.03, expression(paste(n[0])), cex = labelsize)
+
+points(deltalevel[2], brfFn(deltalevel[2], k = 0), pch = 16, col = "black", cex = 1.5)
+text(deltalevel[2] +0.25, brfFn(deltalevel[2], k = 0) - 0.03, expression(paste(n[1])), cex = labelsize)
+
 #text(0.39 + 0.025, brfFn(0.39, k = 0.75) - 0.03, expression(paste(b)), cex = labelsize)
 
 #segments(1, -1, 1, brfFn(delta = 1, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -148,8 +153,8 @@ text(-0.075, 0.5*(ylims[2]), expression(paste("Profits, income, rents, ($)")), x
 # text(1.35, 0.925, expression(paste(hat(pi)[0]^{t==0} == 1 + rho[0])), cex = labelsize, xpd = TRUE)
 # text(1.35, 0.75, expression(paste(hat(pi)[0]^{t==1} == 1 + rho[1])), cex = labelsize, xpd = TRUE)
 
-# text(9, 0.93, expression(paste(hat(pi)[0]({b==0}) )), cex = labelsize, xpd = TRUE)
-# text(9, 0.68, expression(paste(hat(pi)[1]({b==0.5}) )), cex = labelsize, xpd = TRUE)
+text(0.95, 0.4, expression(paste(hat(pi)[0]({b==0}) )), cex = labelsize, xpd = TRUE)
+text(3.6, 0.4, expression(paste(hat(pi)[1]({b>0}) )), cex = labelsize, xpd = TRUE)
 
 
 # text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
@@ -170,31 +175,22 @@ text(-0.075, 0.5*(ylims[2]), expression(paste("Profits, income, rents, ($)")), x
 
 # text(4.7, 0.7, expression(paste("Barriers")), cex = labelsize)
 # text(4.7, 0.65, expression(paste("decrease")), cex = labelsize)
-text(4.6, 0.7, expression(paste("Lower")), cex = labelsize)
-text(4.6, 0.65, expression(paste("barriers")), cex = labelsize)
+# text(4.6, 0.7, expression(paste("Barriers")), cex = labelsize)
+# text(4.6, 0.65, expression(paste("increase")), cex = labelsize)
 
-Arrows(5.5, 0.62, 3.2, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Arrows(5.5, 0.62, 3.2, 0.62, col = "black", code = 1, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Labels for lenders entering and leaving
-text(2, 0.91, expression(paste("Lenders")), cex = labelsize)
-text(2, 0.85, expression(paste("leaving")), cex = labelsize)
+# text(2, 0.91, expression(paste("Lenders")), cex = labelsize)
+# text(2, 0.85, expression(paste("leaving")), cex = labelsize)
+# 
+# text(8, 0.36, expression(paste("Lenders")), cex = labelsize)
+# text(8, 0.3, expression(paste("entering")), cex = labelsize)
 
+text(9, 0.72, expression(paste("Best-response")), cex = labelsize, xpd = TRUE)
+text(9, 0.67, expression(paste("function")), cex = labelsize, xpd = TRUE)
+#text(9, 0.5, expression(paste(f == frac(1, 2) + frac(delta, 2*q))), cex = labelsize)
 
-text(0.36, 0.9, expression(paste("Borrower's" )), cex = labelsize)
-text(0.36, 0.83, expression(paste("expected" )), cex = labelsize)
-text(0.36, 0.76, expression(paste("income" )), cex = labelsize)
-text(0.36, 0.66, expression(paste(hat(y)(b))), cex = labelsize)
-
-
-text(0.46, 0.33, expression(paste("Lender's" )), cex = labelsize)
-text(0.46, 0.25, expression(paste("expected" )), cex = labelsize)
-text(0.46, 0.17, expression(paste("profits" )), cex = labelsize)
-text(0.46, 0.09, expression(paste(hat(pi)(b))), cex = labelsize)
-
-
-text(0.5, 1.48, expression(paste("Total" )), cex = labelsize)
-text(0.5, 1.41, expression(paste("rents" )), cex = labelsize)
-text(0.5, 1.32, expression(paste(hat(y) + hat(pi))), cex = labelsize)
 
 dev.off()

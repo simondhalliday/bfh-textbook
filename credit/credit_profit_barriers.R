@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(4, 4, 1, 1))
 
 brfFn <- function(delta, q = 1, k = 1) {
   .5 + (delta / (2 * q)) * (1 - k)
@@ -116,8 +116,8 @@ lines(xx1, isoprofitFn(xx1, b = 0), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 #mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
-text(0.5*(xlims[2]), - 0.16 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
-text(-1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*(xlims[2]), - 0.13 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #points(0.39, brfFn(0.39, k = 0.75), pch = 16, col = "black", cex = 1.5)
@@ -138,8 +138,16 @@ text(-1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f))
 # text(1.35, 0.925, expression(paste(hat(pi)[0]^{t==0} == 1 + rho[0])), cex = labelsize, xpd = TRUE)
 # text(1.35, 0.75, expression(paste(hat(pi)[0]^{t==1} == 1 + rho[1])), cex = labelsize, xpd = TRUE)
 
+text(9, 1.03, expression(paste("No barriers")), cex = labelsize)
+text(9, 0.98, expression(paste("to entry")), cex = labelsize)
 text(9, 0.93, expression(paste(hat(pi)[0]({b==0}) )), cex = labelsize, xpd = TRUE)
-text(9, 0.68, expression(paste(hat(pi)[1]({b==0.5}) )), cex = labelsize, xpd = TRUE)
+
+text(9, 0.7, expression(paste("Barriers")), cex = labelsize)
+text(9, 0.65, expression(paste("to entry")), cex = labelsize)
+text(9, 0.59, expression(paste(hat(pi)[1]({b>0}) )), cex = labelsize, xpd = TRUE)
+
+
+
 
 
 # text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
@@ -160,10 +168,11 @@ text(9, 0.68, expression(paste(hat(pi)[1]({b==0.5}) )), cex = labelsize, xpd = T
 
 # text(4.7, 0.7, expression(paste("Barriers")), cex = labelsize)
 # text(4.7, 0.65, expression(paste("decrease")), cex = labelsize)
-text(4.6, 0.7, expression(paste("Lower")), cex = labelsize)
-text(4.6, 0.65, expression(paste("barriers")), cex = labelsize)
 
-Arrows(5.5, 0.62, 3.2, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+
+#Arrows(5.5, 0.62, 3.2, 0.62, col = "black", code = 1, lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Labels for lenders entering and leaving
@@ -173,5 +182,8 @@ text(2, 0.85, expression(paste("leaving")), cex = labelsize)
 text(8, 0.36, expression(paste("Lenders")), cex = labelsize)
 text(8, 0.3, expression(paste("entering")), cex = labelsize)
 
+text(4.6, 0.7, expression(paste("More")), cex = labelsize)
+text(4.6, 0.65, expression(paste("lenders")), cex = labelsize)
+text(4.6, 0.6, expression(paste("enter")), cex = labelsize)
 
 dev.off()

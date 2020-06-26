@@ -150,7 +150,7 @@ text(0.62, 0.92, expression(paste(f == frac(1,2) + frac(delta, 2*q))), cex = lab
 text(0.92, 0.4, expression(paste("A's participation")), cex = labelsize, xpd = TRUE)
 text(0.92, 0.34, expression(paste("constraint (PC)")), cex = labelsize, xpd = TRUE)
 text(0.92, 0.25, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
-Arrows(0.83, 0.44, 0.83, 0.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.80, 0.44, 0.80, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(0.87, 0.6, expression(paste("P's isoprofit curve")), cex = labelsize, xpd = TRUE)

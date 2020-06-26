@@ -30,7 +30,7 @@ isoreturnFn <- function(delta, pi=0.125) {
   1 - (pi)/delta
 }
 
-xlims <- c(0, 0.6)
+xlims <- c(0, 0.64)
 ylims <- c(0, 1.05)
 
 npts <- 501 
@@ -108,13 +108,13 @@ text(0.46, 0.25, expression(paste('Better for lender')), cex = labelsize, xpd = 
 
 
 #Label participation constraint
-text(0.26, 0.985, expression(paste("Participation constraint,")), cex = labelsize)
+text(0.26, 0.985, expression(paste("Participation constraint, ")), cex = labelsize)
 text(0.41, 0.985, expression(paste(f == frac(delta, q))), cex = labelsize, xpd = TRUE)
 text(0.26, 0.9, expression(paste("Slope" == frac(1, q))), cex = labelsize)
 
 #Label Iso-profit
-text(0.53, 0.96, expression(paste("Iso-expected")), cex = labelsize)
-text(0.53, 0.9, expression(paste("profits")), cex = labelsize)
+text(0.57, 0.96, expression(paste("Iso-expected")), cex = labelsize, xpd = TRUE)
+text(0.57, 0.9, expression(paste("profits")), cex = labelsize, xpd = TRUE)
 text(0.53, 0.82, expression(paste(hat(pi)[0])), cex = labelsize)
 text(0.53, 0.72, expression(paste(hat(pi)[1] == hat(pi)^C)), cex = labelsize)
 text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)

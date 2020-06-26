@@ -150,7 +150,7 @@ arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 #text(0.5, 12, expression(u[1]^A), cex = annotatesize)
 #text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
 text(1.1, 12, expression(u[z]^A), cex = annotatesize)
-text(6.9, 12, expression(u[3]^A), cex = annotatesize)
+text(6.5, 12, expression(u[3]^A), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)

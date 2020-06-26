@@ -105,7 +105,8 @@ x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 a <- c(uA(9,2) - 1.5, uA(8,2), uA(8,2) + 1)
 
-a2 <- c(uAlog(9,1), uAlog(10 - xbtioli(uBlog(9,1)),15 - (3/2)*xbtioli(uBlog(9,1))))
+#a2 <- c(uAlog(9,1), uAlog(10 - xbtioli(uBlog(9,1)),15 - (3/2)*xbtioli(uBlog(9,1))))
+a2 <- c(uAlog(9,1), uAlog(2.91,12), uAlog(10 - xbtioli(uBlog(9,1)), 15 - (3/2)*xbtioli(uBlog(9,1))))
 
 contour(x, y, 
         outer(x, y, uAlog),
@@ -147,9 +148,8 @@ arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
-#text(0.5, 12, expression(u[1]^A), cex = annotatesize)
-#text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
-text(1.1, 12, expression(u[z]^A), cex = annotatesize)
+text(1.0, 12, expression(u[z]^A), cex = annotatesize)
+text(3.2, 12, expression(u[2]^A), cex = annotatesize)
 text(6.5, 12, expression(u[3]^A), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -159,8 +159,8 @@ text(2.8, 7.0, expression("B's best-response"), cex = annotatesize)
 text(2.8, 6.3, expression("function (ICC)"), cex = annotatesize)
 #arrows(2, 6.5, 1.5, 6.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
-text(3.1, 12.0, expression("A's best-response"), cex = annotatesize)
-text(3.1, 11.3, expression("function (ICC)"), cex = annotatesize)
+text(3.1, 14.3, expression("A's best-response"), cex = annotatesize)
+text(3.1, 13.6, expression("function (ICC)"), cex = annotatesize)
 # arrows(7.7, 6.5, 8.2, 6.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
@@ -231,9 +231,9 @@ contour(x, y,
 #text(0.75, 12.5, expression(u[1]^B), cex = annotatesize)
 #text(1.7, 12.5, expression(u[2]^B == u[z]^B), cex = annotatesize)
 #text(1.4, 12.5, expression(u[z]^B), cex = annotatesize)
-text(1.5 - 0.75, 12.5, expression(u[z]^B), cex = annotatesize)
-text(3.6 - 0.75, 12.5, expression(u[3]^B), cex = annotatesize)
-text(7.3, 12.5, expression(u[4]^B), cex = annotatesize)
+text(1.5, 12.5, expression(u[z]^B), cex = annotatesize)
+text(3.6, 12.5, expression(u[2]^B), cex = annotatesize)
+text(7.3, 12.5, expression(u[3]^B), cex = annotatesize)
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)

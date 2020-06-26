@@ -164,8 +164,8 @@ arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 # #Annotation of the three graphs and the NE
-text(1.05, 14.5, expression(u[1]^A), cex = labelsize)
-text(2, 14.5, expression(u[2]^A), cex = labelsize)
+text(1.05, 14.5, expression(u[h]^A), cex = labelsize)
+text(2, 14.5, expression(u[j]^A), cex = labelsize)
 
 points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
 text(2.7, 7.8, expression(h), cex = labelsize)
@@ -184,8 +184,8 @@ text(1.5, 5.3, expression("function (ICC)"), cex = annotatesize)
 text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
 text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
-text(8.5, 10.2, expression("Pareto-efficient"), cex = annotatesize)
-text(8.5, 9.5, expression("curve"), cex = annotatesize)
+text(8.5, 10.4, expression("Pareto-efficient"), cex = annotatesize)
+text(8.5, 9.7, expression("curve"), cex = annotatesize)
 
 text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
@@ -240,8 +240,8 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
 
 
 #Label B's indifference curves
-text(9.1, 5.0, expression(u[1]^B), cex = labelsize)
-text(9.1, 6.8, expression(u[2]^B), cex = labelsize)
+text(9.1, 4.925, expression(u[j]^B), cex = labelsize)
+text(9.1, 6.8, expression(u[h]^B), cex = labelsize)
 
 
 #Add a point for the initial endowment

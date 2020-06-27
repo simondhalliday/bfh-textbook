@@ -123,12 +123,12 @@ text(-0.15, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", 
 segments(0.5, 0, 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, brfFn(delta = 0.5), 0.5, brfFn(delta = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-#Annotate points (4,4),(2,8),(8,2) on feasibility frontier
+#Annotate  points
 text(0.5 + 0.015, isoreturnFn(0.5) + 0.04, expression(paste(n)), cex = labelsize)
 points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 
 # text(0.5 + 0.015, isoreturnFn(0.5, pi = 0.25) + 0.04, expression(paste(c)), cex = labelsize)
-points(0.5, isoreturnFn(0.5, pi = 0.25), pch = 16, col = "black", cex = 1.5)
+#points(0.5, isoreturnFn(0.5, pi = 0.25), pch = 16, col = "black", cex = 1.5)
 
 #text(0.375 + 0.02, 0.6 + 0.03, expression(paste(b)), cex = labelsize)
 #points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
@@ -162,8 +162,8 @@ Arrows(0.87, 0.63, 0.87, 0.82, col = "black", lty = 1, lwd = 2, arr.type = "tria
 #text(0.3, 0.07, expression(paste("lens")), cex = labelsize)
 #Arrows(0.3, 0.18, 0.3, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0.065, 0.05, expression(paste(hat(pi)^N == hat(pi)[0])), cex = labelsize)
-text(0.23, 0.04, expression(paste(hat(pi)[1])), cex = labelsize)
+text(0.065, 0.05, expression(paste(hat(pi)^N == hat(pi)[1])), cex = labelsize)
+text(0.23, 0.04, expression(paste(hat(pi)[2])), cex = labelsize)
 
 Arrows(0.56, 0.35, 0.66, 0.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 #text(0.48, 0.3, expression(paste('More profits')), cex = labelsize, xpd = TRUE)

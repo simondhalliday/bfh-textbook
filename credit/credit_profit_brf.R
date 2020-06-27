@@ -121,7 +121,7 @@ lines(xx1, isoprofitFn(xx1, b = 0), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 #mtext(expression(paste("Interest factor, ", delta)), side = 1, line = 3.3, cex = axislabelsize)
-text(0.5*(xlims[2]), - 0.13 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), - 0.14 , expression(paste("Interest factor, ", delta)), xpd = TRUE, cex = axislabelsize) 
 text(-1, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(0.39, -1, 0.39, brfFn(0.39, k = 0.75), lty = 2, col = grays[20] , lwd = segmentlinewidth)

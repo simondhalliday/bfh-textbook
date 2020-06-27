@@ -31,7 +31,7 @@ declining_share3 <- declining_share2 %>%
 #Plotting the data
 declining_share_plot <- ggplot(declining_share3, aes(x = Year, y = declining_share_decimal, group = Country, color = Country)) +
   geom_line() +
-  ylab("Declining Income Share of the Top 1%") +
+  ylab("Declining income share of the top 1%") +
   scale_y_continuous(breaks = seq(0, 0.3, by = 0.05), labels = scales::percent_format(accuracy = 1), limits = c(0,0.3)) +
   scale_x_continuous(breaks = seq(1900, 2010, by = 10)) +
   scale_color_brewer(palette = "Set1") +

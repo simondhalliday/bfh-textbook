@@ -4,7 +4,7 @@
 
 library("shape")
 
-pdf(file = "what_can_markets_do/property_walras_market.pdf", width = 9, height = 7)
+pdf(file = "what_can_markets_do/property_walras_baseline_pec.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -21,6 +21,13 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
+uA <- function(xA, yA, alpha = 0.5){
+  ((xA)^alpha)*((yA)^(1 - alpha))
+}
+
+uB <- function(xA, yA, alpha = 0.5){
+  ((10-xA)^alpha)*((15-yA)^(1 - alpha))
+}
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
   ((((U-2)/A)*(1/x)^a)^(1/(1-a)))
@@ -30,12 +37,12 @@ indiffcurveA2 <- function(x, U = 4, A = 1, a = 0.5) {
   (((U/A)*(1/x)^a)^(1/(1-a)))
 }
 
-indiffcurveA3 <- function(x, U = 5.93, A = 1, a = 0.5) {
-  (((U/A)*(1/x)^a)^(1/(1-a)))
+indiffcurveA3 <- function(x, U = 5.715476, A = 1, a = 0.5) {
+  (((U/A)*(1/x)^a)^(1/(1 - a)))
 }
 
 indiffcurveA4 <- function(x, U = 6.984164, A = 1, a = 0.5) {
-  ((((U)/A)*(1/x)^a)^(1/(1-a)))
+  ((((U)/A)*(1/x)^a)^(1/(1 - a)))
 }
 
 paretoEC <- function(x) {
@@ -47,8 +54,13 @@ OfferCurveA <- function(x) {
   x / (2*x - 9)
 }
 
+PriceLine <- function(x, intercept = 10, slope = 1) {
+  intercept - slope*x 
+}
+
 mrsplot <- function(x) {
-  (13/2)*(x/(9-x)^2)
+  (13/2)*(x/(9 - x)^2)
+  
 }
 
 OfferCurveB <- function(x) {
@@ -57,7 +69,7 @@ OfferCurveB <- function(x) {
 }
 
 WalrasPrice <- function(x) {
-  14.5 - (3/2)*x
+  14 - (3/2)*x
 }
 
 #Deriving the offer curves: let py = 1
@@ -76,7 +88,7 @@ indiffcurveBneg1 <- function(x, U = 5.09, A = 1, a = 0.5) {
   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
 }
 
-indiffcurveBneg2 <- function(x, U = 6.33, A = 1, a = 0.5) {
+indiffcurveBneg2 <- function(x, U = 6.531973, A = 1, a = 0.5) {
   15 - (((U/A)*(1/(10 - x))^a)^(1/(1-a)))
 }
 
@@ -86,22 +98,25 @@ indiffcurveBneg2 <- function(x, U = 6.33, A = 1, a = 0.5) {
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
 
-par(mar =  c(4, 5.2, 4, 4))
+
+par(mar =  c(4, 4.4, 4, 4))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's coffee (kg), ", x^A)),
-     ylab = expression(paste("A's data (gb), ", y^A)), 
-     #line = 2.5,
+     xlab = "",
+     ylab = "", 
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
      bty = "n",
      xaxs = "i", 
      yaxs = "i")
+
+text(0.5*xlims[2], -1.3, expression(paste("A's coffee (kg), ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.95, 0.5*ylims[2], expression(paste("A's data (gb), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -112,7 +127,6 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 yy1 <- indiffcurveA2(xx1, U = 4, A = 1, a = 0.5)
 yy2 <- indiffcurveA2(xx1)
 
-
 #I need something like xx1 with npts for 
 xx2 <- seq(4.5, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9.1, length.out = npts)
@@ -120,13 +134,21 @@ xx4 <- seq(1, 9.5, length.out = npts)
 
 #Draw the lines for the graphs
 
-lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
-
+lines(xx1, indiffcurveA2(xx1, U = uA(5, 5)), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, indiffcurveA2(xx1, U = uA(2.5, 7.5)), col = COLA[3], lwd = graphlinewidth)
+# 
 lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
-lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
-
+# 
+# 
+lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = COLB[2], lwd = graphlinewidth)
+# 
+# 
+lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphlinewidth)
+# 
 lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, WalrasPrice(xx1), col = COL[8], lwd = graphlinewidth)
+
+lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -140,40 +162,36 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis
 arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
-#Annotation of the three graphs and the NE
 
-text(2, 14, expression(u[n]^A), cex = labelsize)
-# 
+# #Annotation of the three graphs and the NE
+text(1.05, 14.5, expression(u[h]^A), cex = labelsize)
+text(2, 14.5, expression(u[j]^A), cex = labelsize)
 
-# # #Label B's offer curve
-# text(2, 2.6, expression("B's Offer Curve"), cex = labelsize)
-# Arrows(1.5, 3.3, 1.5, 7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# # 
-# # # Price Line
-# text(8.3, 13, expression(paste("A's Offer Curve")), cex = labelsize)
-# Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
+text(2.7, 7.8, expression(h), cex = labelsize)
 
-text(2.5, 7.0, expression("B's best-response"), cex = annotatesize)
-text(2.5, 6.3, expression("function (ICC)"), cex = annotatesize)
+points(5, 5, pch = 16, col = "black", cex = 1.5)
+text(5.2, 5.25, expression(j), cex = labelsize)
+
+text(9, 6.85, expression("Price line"), cex = labelsize)
+text(9, 6.25, expression(paste("slope ", phantom() == -p[j])), cex = labelsize)
+Arrows(9.25, 5.75, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+Arrows(1, 6.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.5, 6.0, expression("B's best-response"), cex = annotatesize)
+text(1.5, 5.3, expression("function (ICC)"), cex = annotatesize)
 
 text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
 text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
-# Walrasian Price Line
-text(8.3, 7.8, expression(paste("Walrasian Price Line")), cex = labelsize)
-text(8.3, 7, expression(paste("Slope", phantom() == -p^N)), cex = labelsize)
-Arrows(8.5, 6.5, 8.5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-
-
-# #Add a point for the initial endowment
-points(4.8275, 7.25, pch = 16, col = "black", cex = 1.5)
-text(5, 7.75, expression(n), cex = labelsize)
+text(8.5, 10.4, expression("Pareto-efficient"), cex = annotatesize)
+text(8.5, 9.7, expression("curve"), cex = annotatesize)
 
 text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
 
-#Set up second axes and labels
 
+#Set up second axes and labels
 par(new = TRUE)
 
 #Use the same x and ylims as previously, but with locations switched
@@ -186,21 +204,21 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      ylab = expression(paste("")),
      xaxt = "n", 
      yaxt = "n", 
-     #cex.lab = 1.2,
-     cex.axis = labelsize,
+     cex.lab = 1.3, 
      bty = "n",
      xaxs = "i", 
      yaxs = "i")
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1,  cex.axis = labelsize)
 text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = axislabelsize) 
 text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 arrows(-0.9, 11, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(7, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {
@@ -221,23 +239,27 @@ indiffcurveB4 <- function(x, U = 8.244574, A = 1, a = 0.5) {
 
 
 
-
-
 #Label B's indifference curves
-
-text(9.1, 5.2, expression(u[n]^B), cex = labelsize)
+text(9.1, 4.925, expression(u[j]^B), cex = labelsize)
+text(9.1, 6.8, expression(u[h]^B), cex = labelsize)
 
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
-text(0.8, 13.5, expression(z), cex = labelsize)
+text(1.2, 14.5, expression(z), cex = labelsize)
 
 
 
 
+#Label a point on the middle of the curve
+#points(5, 7.5, pch = 16, col = "black", cex = 1.5)
+#text(5, 7, expression(i))
 
+#(5^0.5)*(7.5^0.5) = 6.123724
 
-
+#Add point for comparison to participation constraint
+#points(6.2, 1.55, pch = 16, col = "black", cex = 1.5)
+#text(6.1, 1.2, expression(d))
 
 
 #Calculate TIOLI power allocation for B
@@ -263,16 +285,5 @@ text(0.8, 13.5, expression(z), cex = labelsize)
 # text(4.16, 5.8, expression(f))
 
 
-#Annotating B's endowment
-#text(1.8, 12.5, expression(z), cex = labelsize)
-
-#Annotating a point that is a Pareto improvement over e.
-#points(3.623424, 8.977679, pch = 16, col = "black", cex = 1.5)
-#text(3.623424, 8.4, expression(h))
-#(2.94^0.5)*(12.76^0.5)
-
-#Label Pareto Improving Lens
-#text(7, 5, expression(paste("Pareto-Improving Lens")))
 
 dev.off()
-

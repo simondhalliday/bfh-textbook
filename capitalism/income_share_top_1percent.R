@@ -31,7 +31,7 @@ income_share3 <- income_share2 %>%
 #Plotting the data
 income_share_plot <- ggplot(income_share3, aes(x = Year, y = income_share_decimal, group = Country, color = Country)) +
   geom_line() +
-  ylab("Income Share of the Top 1%") +
+  ylab("Income share of the top 1%") +
   scale_y_continuous(breaks = seq(0, 0.3, by = 0.05), labels = scales::percent_format(accuracy = 1), limits = c(0,0.3)) +
   scale_x_continuous(breaks = seq(1910, 2015, by = 10)) +
   scale_color_brewer(palette = "Set1") +

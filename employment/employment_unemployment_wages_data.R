@@ -17,8 +17,8 @@ u1 <- ggplot(wageunions,aes(x = UnemploymentAvg, y = RealWageGrowth,
 u1 + 
   geom_point(size = 2.2) + 
   coord_cartesian(xlim = c(0, 18), ylim = c(0, 4.5)) +
-  labs(x = "Average Unemployment Rate (1970 - 2011)",
-       y = "Compound Average Wage Rate Growth (1970 - 2011)") + 
+  labs(x = "Average unemployment rate (1970 - 2011)",
+       y = "Compound average wage rate growth (1970 - 2011)") + 
   # xlab("Average Unemployment Rate (1970 - 2011)") + 
   # ylab("Compound Average Wage Rate Growth (1970 - 2011)") + 
   scale_color_brewer(palette="Set1", name = "Performance", 
@@ -33,13 +33,13 @@ u1 +
   # annotate("text", x = 2.5, y = 3.75, label = "High", color = COL[3], size = 6) +
   # annotate("text", x = 2.5, y = 3.5, label = "Performers", color = COL[3], size = 6) +
   # annotate("segment", x = 1, xend = 9, y = 0.5, yend = 4.5, color = COL[3], lty = 2) + 
-  annotate("text", x = 14, y = 1.25, label = "Low", color = COL[1], size = 6) +
-  annotate("text", x = 14, y = 1, label = "Performers", color = COL[1], size = 6) +
+  annotate("text", x = 14, y = 1.2, label = "Low", color = COL[1], size = 6) +
+  annotate("text", x = 14, y = 1, label = "performers", color = COL[1], size = 6) +
   annotate("segment", x = 2.5, xend = 13, y = 0.2, yend = 3.5, color = grays[20], lty = 2) +
-  annotate("text", x = 10, y = 3.75, label = "Average", color = COL[2], size = 6) +
-  annotate("text", x = 10, y = 3.5, label = "Performers", color = COL[2], size = 6) +
-  annotate("text", x = 2.5, y = 3.75, label = "High", color = COL[3], size = 6) +
-  annotate("text", x = 2.5, y = 3.5, label = "Performers", color = COL[3], size = 6) +
+  annotate("text", x = 10, y = 3.7, label = "Average", color = COL[2], size = 6) +
+  annotate("text", x = 10, y = 3.5, label = "performers", color = COL[2], size = 6) +
+  annotate("text", x = 2.5, y = 3.7, label = "High", color = COL[3], size = 6) +
+  annotate("text", x = 2.5, y = 3.5, label = "performers", color = COL[3], size = 6) +
   annotate("segment", x = 1, xend = 9, y = 0.5, yend = 4.5, color = grays[20], lty = 2) +
   geom_text_repel(aes(label = Country), size = 5, show.legend = FALSE, color = "black") +
   theme_bw() +

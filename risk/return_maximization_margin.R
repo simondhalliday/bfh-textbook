@@ -21,10 +21,10 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(2, 6.5, 1, 1))
 
 return <- function(f, mu = 5){
-  mu*f*(1 - f)
+  mu*f*(1 - f) - 0.2
 }
 
 indiffA <- function(x, alpha = 0.7, uA = 4) {
@@ -40,7 +40,7 @@ ff <- function(x, c = 12, s = 1/3){
 }
 
 xlims <- c(0, 1)
-ylims <- c(0, 1.5)
+ylims <- c(-0.25, 1.2)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -60,11 +60,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 
-ticksy <- c(ylims[1], return(f = 0.5), ylims[2])
+ticksy <- c(ylims[1], return(f = 0),return(f = 0.5), ylims[2])
 #ylabels <- c(NA, expression(paste(hat(y)[a] == 1.25)), NA)
-ylabels <- c(NA, expression(paste(hat(y)[a] == frac(q,4))), NA)
+ylabels <- c(NA, expression(paste(-(1 + rho))), expression(paste(hat(y)[a])), NA)
+#ylabels <- c(NA, expression(paste(-(1 + rho))), expression(paste(y[a] == frac(q,4))), NA)
 ticksx <- c(xlims[1], 0.5, xlims[2])
-xlabels <- c(0, NA, 1)
+xlabels <- c(NA, NA, 1)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -84,13 +85,14 @@ lines(xx1, return(xx1), col = COLA[5], lwd = graphlinewidth)
 text(0.5*(xlims[2]), -0.3, expression(paste("Risk, ", f)), xpd = TRUE, cex = axislabelsize) 
 text(0.5*(xlims[2]), -0.1, expression(paste(f[a] == frac(1, 2))), xpd = TRUE, cex = labelsize) 
 
-text(-0.1, 0.45*(ylims[2]), expression(paste("Expected income, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.14, 0.45*(ylims[2]), expression(paste("Expected income, ", hat(y) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.02, -0.03, expression(paste(0)), xpd = TRUE, cex = labelsize) 
 
 segments(0.5, 0, 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, return(0.5), 0.5, return(0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Annotate points (4,4),(2,8),(8,2) on feasibility frontier
-text(0.5, return(0.5) + 0.075, expression(paste(a)), cex = labelsize)
+text(0.5, return(0.5) + 0.05, expression(paste(a)), cex = labelsize)
 points(0.5, return(0.5), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

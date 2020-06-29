@@ -60,7 +60,7 @@ p_sm_pie <- ggplot(df, aes("", y = val_sm_pie, fill = pr_ag))+
   geom_text(aes(label = val_sm_pie), 
             position = position_stack(vjust = 0.5)) +
   scale_fill_brewer(palette = "Set1") + 
-  labs(caption = "p_sm_pie") +
+  # labs(caption = "p_sm_pie") +
   theme_blank() +
   theme(axis.title = element_blank(),
         axis.text = element_blank(),
@@ -76,7 +76,7 @@ p_lg_pie <- ggplot(df, aes("", y = val_lg_pie, fill = pr_ag))+
   geom_text(aes(label = val_lg_pie), 
             position = position_stack(vjust = 0.5)) +
   scale_fill_brewer(palette = "Set1") + 
-  labs(caption = "p_lg_pie") +
+  # labs(caption = "p_lg_pie") +
   theme_blank() +
   theme(axis.title = element_blank(),
         axis.text = element_blank(),

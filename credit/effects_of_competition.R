@@ -26,6 +26,7 @@
 #' by side, either arrayed from L to R s in my sketch, or in two rows. 
 
 library("tidyverse")
+library("gridExtra")
 library("RColorBrewer")
 
 # dataframe ---------------------------------------------------------------
@@ -43,12 +44,14 @@ df <- tibble(
 # Fig a -- nonebar
 p_sm_bar <- ggplot(df, aes(pr_ag, val_sm_bar)) +
   geom_col(aes(fill = pr_ag)) + 
+  geom_text(aes(label = val_sm_bar), vjust = -0.5, size = 5) + 
   scale_fill_brewer(palette = "Set1") +
   theme_bw() + 
   theme(legend.position = "none",
-        axis.title.x = element_blank())
+        axis.title = element_blank(),
+        axis.text = element_text(size = 15))
 
-ggsave("credit/effects_of_competition_a.pdf", width = 6, height = 6)
+ggsave("credit/effects_of_comp_nonebar_a.pdf", width = 3, height = 6)
 
 # Fig b -- nonepie
 p_sm_pie <- ggplot(df, aes("", y = val_sm_pie, fill = pr_ag))+
@@ -61,9 +64,10 @@ p_sm_pie <- ggplot(df, aes("", y = val_sm_pie, fill = pr_ag))+
   theme_blank() +
   theme(axis.title = element_blank(),
         axis.text = element_blank(),
-        legend.title = element_blank())
+        legend.title = element_blank(),
+        plot.margin=grid::unit(c(0,0,0,0), "mm"))
 
-ggsave("credit/effects_of_competition_b.pdf", width = 6, height = 6)
+ggsave("credit/effects_of_comp_nonepie_b.pdf", width = 6, height = 6)
 
 # Fig c -- comppie
 p_lg_pie <- ggplot(df, aes("", y = val_lg_pie, fill = pr_ag))+
@@ -76,19 +80,27 @@ p_lg_pie <- ggplot(df, aes("", y = val_lg_pie, fill = pr_ag))+
   theme_blank() +
   theme(axis.title = element_blank(),
         axis.text = element_blank(),
-        legend.title = element_blank())
+        legend.title = element_blank(),
+        plot.margin=grid::unit(c(0,0,0,0), "mm"))
 
-ggsave("credit/effects_of_competition_c.pdf", width = 6, height = 6)
+ggsave("credit/effects_of_comp_comppie_c.pdf", width = 6, height = 6)
 
 # Fig d -- compbar
 p_lg_bar <- ggplot(df, aes(pr_ag, val_lg_bar)) +
   geom_col(aes(fill = pr_ag)) + 
+  geom_text(aes(label = val_lg_bar), vjust = -0.5, size = 5) + 
   scale_fill_brewer(palette = "Set1") +
   theme_bw() + 
   theme(legend.position = "none",
-        axis.title.x = element_blank())
+        axis.title = element_blank(),
+        axis.text = element_text(size = 15))
 
-ggsave("credit/effects_of_competition_d.pdf", width = 6, height = 6)
+ggsave("credit/effects_of_comp_compbar_d.pdf", width = 3, height = 6)
 
+# save panel --------------------------------------------------------------
 
+# ggsave("credit/effects_of_comp_sm.pdf", arrangeGrob(p_sm_bar, p_sm_pie))
+# ggsave("credit/effects_of_comp_lg.pdf", arrangeGrob(p_lg_bar, p_lg_pie))
+
+# ^^ looks gross.
 

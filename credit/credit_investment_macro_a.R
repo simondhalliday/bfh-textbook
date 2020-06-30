@@ -67,8 +67,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 
-ticksy <- c(ylims[1], 0.5, ylims[2] - 0.1)
-ylabels <- c(NA, expression(paste(f == frac(1,2))), 1)
+ticksy <- c(ylims[1], ylims[2] - 0.1)
+ylabels <- c(NA, 1)
 ticksx <- c(xlims[1],NA, NA, xlims[2])
 xlabels <- c(NA, NA, NA, NA)
 
@@ -130,8 +130,8 @@ text(-0.2, 0.5*(ylims[2]), expression(paste("Probability of failure (risk), ", f
 #points(0.7, brfFn(0.7, k = 0.28), pch = 16, col = "black", cex = 1.5)
 
 # ZPC
-text(1.35, 0.925, expression(paste(hat(pi)[0]^{t==0} == 1 + rho[0])), cex = labelsize, xpd = TRUE)
-text(1.35, 0.75, expression(paste(hat(pi)[0]^{t==1} == 1 + rho[1])), cex = labelsize, xpd = TRUE)
+text(1.35, 0.925, expression(paste(hat(pi)[0]({b==0}) )), cex = labelsize, xpd = TRUE)
+text(1.35, 0.75, expression(paste(hat(pi)[1]({b>0}) )), cex = labelsize, xpd = TRUE)
 
 # text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)
 # text(1.1, 1.02, expression(paste("now marginal borrower")), cex = labelsize, xpd = TRUE)

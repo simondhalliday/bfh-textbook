@@ -1,29 +1,6 @@
 #' Graph Designer: Scott Cohn
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
-#' 
-#' TODO: 
-#' 1. the colors should be consistent the bar graphs should be much smaller and thinner.
-#' 
-#' 2. the size of thepie should equal the total payoffs, 
-#' e.g. in the pie on the left (no competition) 62.5+25 = 87.5 
-#'  
-#' 3. the numbers are screwed up. in the pie on the right the 
-#' shares are 122.5 for the borrowers, 5 for the lender
-#' 
-#' 4. the slices of the pies should have labels like “100 borrowers 
-#' (122.5)” and ” the lender (5) ” and similarly for the other pie.  
-#' 
-#' 5. no need for a vertical axis label on the bar graphs. 
-#' 
-#' 6. there should be numbers at the top of the horizontal bars (but they 
-#' should be 15 and 0.625 in one case and 5 and 1.225 in the other ( your second one is wrong)
-#' 
-#' 7. it might help of ou have the figs informative names, like from left to right 
-#' in my sktech below: Nonebar, Nonepie, CompPie and Compbar.  
-#' 
-#' 8. they should eventually be laid out with the bar and the pie charts side 
-#' by side, either arrayed from L to R s in my sketch, or in two rows. 
 
 library("tidyverse")
 library("gridExtra")
@@ -39,6 +16,12 @@ df <- tibble(
   val_lg_pie = c(5, 122.5)
 )
 
+df_long <- df %>% 
+  #select(c("pr_ag", "val_sm_pie", "val_lg_pie")) %>% 
+  gather(key = "group", value = "value", 2:5) %>% 
+  mutate(condition = c("sm_bar", "sm_bar", "sm", "sm", "lg_bar", "lg_bar", "lg", "lg"))
+
+
 # plots -------------------------------------------------------------------
 
 # Fig a -- nonebar
@@ -51,7 +34,7 @@ p_sm_bar <- ggplot(df, aes(pr_ag, val_sm_bar)) +
         axis.title = element_blank(),
         axis.text = element_text(size = 15))
 
-ggsave("credit/effects_of_comp_nonebar_a.pdf", width = 3, height = 6)
+ggsave("credit/effects_of_comp_nonebar_a.pdf", width = 3, height = 5)
 
 # Fig b -- nonepie
 p_sm_pie <- ggplot(df, aes("", y = val_sm_pie, fill = pr_ag))+
@@ -95,7 +78,37 @@ p_lg_bar <- ggplot(df, aes(pr_ag, val_lg_bar)) +
         axis.title = element_blank(),
         axis.text = element_text(size = 15))
 
-ggsave("credit/effects_of_comp_compbar_d.pdf", width = 3, height = 6)
+ggsave("credit/effects_of_comp_compbar_d.pdf", width = 3, height = 5)
+
+
+# stacked bar (replace pie?) ----------------------------------------------
+
+stk_bar <- df_long %>% 
+  filter(condition %in% c("sm", "lg")) %>% 
+  ggplot(aes(x = condition, y = value, fill = pr_ag)) + 
+  geom_bar(position = "stack", stat = "identity") + 
+  # geom_text(aes(label = value)) +  
+  scale_fill_brewer(palette = "Set1") + 
+  coord_flip() +
+  theme_bw() + 
+  theme(legend.title = element_blank(),
+        axis.title.y = element_blank())
+
+ggsave("credit/effects_of_comp_stk_bar.pdf", width = 5, height = 3)
+
+comp_bar <- df_long %>% 
+  filter(condition %in% c("sm_bar", "lg_bar")) %>% 
+  ggplot(aes(x = pr_ag, y = value, fill = pr_ag)) + 
+  geom_col() +
+  scale_fill_brewer(palette = "Set1") +
+  facet_grid(rows = vars(condition)) + 
+  coord_flip() +
+  theme_bw() + 
+  theme(legend.position = "none",
+        axis.title.y = element_blank())
+
+ggsave("credit/effects_of_comp_facet_bar.pdf", width = 5, height = 3)
+
 
 # save panel --------------------------------------------------------------
 
@@ -103,4 +116,5 @@ ggsave("credit/effects_of_comp_compbar_d.pdf", width = 3, height = 6)
 # ggsave("credit/effects_of_comp_lg.pdf", arrangeGrob(p_lg_bar, p_lg_pie))
 
 # ^^ looks gross.
+
 

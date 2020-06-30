@@ -10,8 +10,8 @@ library("RColorBrewer")
 # dataframe ---------------------------------------------------------------
 
 df <- tibble(
-  pr_ag = c("Borrower", "Lender"),
-  val_sm_bar = c(0.65, 25),
+  pr_ag = c("Borrowers", "The lender"),
+  val_sm_bar = c(0.625, 25),
   val_sm_pie = c(62.5, 25),
   val_lg_bar = c(1.225, 5), 
   val_lg_pie = c(122.5, 5)
@@ -91,11 +91,11 @@ stk_bar <- df_long %>%
                        "122.5\nfor 100\nborrowers", "5 for 1 lender")) %>% 
   ggplot(aes(x = forcats::fct_rev(condition), y = value, fill = pr_ag)) + 
   geom_bar(position = "stack", stat = "identity") + 
-  geom_text(aes(label = b_l_label), position = position_stack(vjust = 0.5)) + 
+  geom_text(aes(label = b_l_label), position = position_stack(vjust = 0.5), size = 3.5) + 
   # geom_text(aes(label = value)) +  
   scale_fill_brewer(palette = "Set1") + 
-  scale_x_discrete(labels=c("sm" = "Low\ncompetition",
-                            "lg" = "High\ncompetition")) + 
+  scale_x_discrete(labels=c("sm" = "No\ncompetition",
+                            "lg" = "Unlimited\ncompetition")) + 
   ylab("Expected income") +
   # coord_flip() +
   theme_bw() + 
@@ -117,8 +117,8 @@ low_comp_bar <- df_long %>%
   geom_text(aes(label = value), vjust = -0.5, size = 4) +
   ylab("Expected income") +
   scale_fill_brewer(palette = "Set1") +
-  scale_x_discrete(labels=c("Lender" = "The lender",
-                            "Borrower" = "One of 100\nborrowers")) + 
+  scale_x_discrete(labels=c("The lender" = "The lender",
+                            "Borrowers" = "One of 100\nborrowers")) + 
   ylim(0, 25) +
   theme_bw() +
   theme(legend.position = "none",
@@ -129,7 +129,7 @@ low_comp_bar <- df_long %>%
         panel.grid.minor = element_blank()
         )
 
-ggsave("credit/effects_of_comp_low_bar.pdf", width = 3, height = 5)
+ggsave("credit/effects_of_comp_low_bar.pdf", width = 2.5, height = 5)
 
 # Right Fig
 high_comp_bar <- df_long %>% 
@@ -139,8 +139,8 @@ high_comp_bar <- df_long %>%
   geom_text(aes(label = value), vjust = -0.5, size = 4) +
   ylab("Expected income") +
   scale_fill_brewer(palette = "Set1") +
-  scale_x_discrete(labels=c("Lender" = "The lender",
-                            "Borrower" = "One of 100\nborrowers")) + 
+  scale_x_discrete(labels=c("The lender" = "The lender",
+                            "Borrowers" = "One of 100\nborrowers")) + 
   ylim(0, 25) +
   theme_bw() +
   theme(legend.position = "none",
@@ -151,7 +151,7 @@ high_comp_bar <- df_long %>%
         panel.grid.minor = element_blank()
   )
 
-ggsave("credit/effects_of_comp_high_bar.pdf", width = 3, height = 5)
+ggsave("credit/effects_of_comp_high_bar.pdf", width = 2.5, height = 5)
 
 # save panel --------------------------------------------------------------
 

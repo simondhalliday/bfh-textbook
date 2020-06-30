@@ -14,7 +14,7 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
-COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COL <- c("#7fc97f", "#beaed4", "#ff7f00", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
@@ -75,7 +75,7 @@ segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[
 segments(0, insurance(g = 1.6, intercept = 7.4), 5.6, insurance(g = 1.6, intercept = 7.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(1.6, 0, 1.6, insurance(g = 1.6, intercept = 7.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-lines(xx1, riskreturn(xx1, int1 = 14, int2 = 4, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, riskreturn(xx1, int1 = 14, int2 = 3.99, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
 lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)

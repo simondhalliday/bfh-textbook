@@ -14,7 +14,7 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
-COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
+COL <- c("#7fc97f", "#beaed4", "#ff7f00", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
@@ -55,7 +55,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 
 #Customize ticks and labels for the plot
-ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.5), ylims[2])
+ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.4), ylims[2])
 ylabels <- c(NA, expression(paste(hat(y)[a])), expression(paste(hat(y)[d])), expression(paste(hat(y)[c])), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[d])), expression(paste(Delta[a])), expression(paste(Delta[c])), NA)
@@ -68,7 +68,7 @@ text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Exp
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-lines(xx1, riskreturn(xx1, int1 = 14, int2 = 4, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
+lines(xx1, riskreturn(xx1, int1 = 14, int2 = 3.99, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 2)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)
@@ -94,6 +94,9 @@ segments(1.8, 0, 1.8, insurance(g = 1.8), lty = 2, col = grays[20], lwd = segmen
 points(1.8, insurance(g = 1.8) , pch = 16, col = "black", cex = 1.5)
 text(1.8, insurance(g = 1.8) + 0.6, expression(paste(d)), cex = labelsize)
 
+
+points(1.6, insurance(g = 1.6, intercept = 7.4) , pch = 16, col = "black", cex = 1.5)
+text(1.6, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(b)), cex = labelsize)
 
 
 points(10.5, riskreturn(g = 10.5) , pch = 16, col = "black", cex = 1.5)

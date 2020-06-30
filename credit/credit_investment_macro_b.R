@@ -73,8 +73,8 @@ ticksx <- c(xlims[1], 0.7, 1, xlims[2])
 #xlabels <- c(NA, expression(paste(delta[0]^{W})), expression(paste(delta[1]^{W})), NA)
 xlabels <- c(NA, NA, NA, NA)
 
-text(0.7, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
-text(1, -0.07, expression(paste(delta[0]^{W})), cex = labelsize, xpd = TRUE)
+text(0.7, -0.07, expression(paste(delta[0]^{N})), cex = labelsize, xpd = TRUE)
+text(1, -0.07, expression(paste(delta[1]^{N})), cex = labelsize, xpd = TRUE)
 
 
 npts <- 503 
@@ -142,8 +142,8 @@ text(1, 0.79, expression(paste(n[1])), cex = labelsize)
 
 
 # ZPC
-text(1.4, 0.925, expression(paste(hat(pi)[0]^{t==0} == 1 + rho[0])), cex = labelsize, xpd = TRUE)
-text(1.4, 0.76, expression(paste(hat(pi)[0]^{t==1} == 1 + rho[1])), cex = labelsize, xpd = TRUE)
+text(1.4, 0.925, expression(paste(hat(pi)[0]({b==0}) )), cex = labelsize, xpd = TRUE)
+text(1.4, 0.76, expression(paste(hat(pi)[1]({b>0}) )), cex = labelsize, xpd = TRUE)
 
 
 text(1.1, 1.08, expression(paste("BRF of previously excluded")), cex = labelsize, xpd = TRUE)

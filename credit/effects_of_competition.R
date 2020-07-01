@@ -161,3 +161,44 @@ ggsave("credit/effects_of_comp_high_bar.pdf", width = 2.5, height = 5)
 # ^^ looks gross.
 
 
+
+
+
+# Version 2 ---------------------------------------------------------------
+
+df <- tibble(
+  "100 borrowers" = c(62.5, 122.5),
+  "The lender" = c(25, 5),
+  "Total" = c(87.5, 127.5),
+  "Treatment" = as.factor(c("No competition", "Unlimited competition"))
+)
+
+df %>% gather(key = Group, value = Value, 1:3)
+
+bar2 <- df %>% 
+  # wide to long
+  gather(key = Group, value = Value, 1:3) %>% 
+  # plot
+  ggplot(aes(x = Group, y = Value, fill = Treatment)) + 
+  geom_bar(position = "dodge", stat = "identity") + 
+  geom_text(
+    aes(label = Value, y = Value + 5),
+    position = position_dodge(1),
+    size = 5
+  ) +
+  scale_x_discrete(limits = c("Total", "100 borrowers", "The lender")) +
+  scale_fill_brewer(palette = "Set1") + 
+  ylab("Expected income") +
+  coord_flip() +
+  theme_bw() + 
+  theme(legend.title = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 19),
+        axis.text.y = element_text(size = 17),
+        axis.text.x = element_text(size = 17),
+        legend.position = "top",
+        legend.text = element_text(size = 15),
+        panel.grid.minor = element_blank())
+
+ggsave("credit/effects_of_comp_bar.pdf", width = 9, height = 7)
+

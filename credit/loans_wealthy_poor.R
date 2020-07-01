@@ -42,7 +42,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- c(0, 2, 8, ylims[2])
+ticksy <- c(0, 2, 7, ylims[2])
 ylabels <- c(NA, expression(paste(q^{kN})),  expression(paste(q^0, phantom()^N)), NA)
 ticksy2 <- c(0, ylims[2])
 ylabels2 <- c(NA, NA)
@@ -56,7 +56,7 @@ xlabels <- c(0, expression(paste(phi^{0}, phantom()^N)), expression(phi^e), 1)
 segments(5, 0, 5, 5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 segments(2, 0, 2, 8, lty = 2, lwd = segmentlinewidth, col = grays[20])
 segments(0, 2, 2, 2, lty = 2, lwd = segmentlinewidth, col = grays[20])
-segments(0, 8, 2, 8, lty = 2, lwd = segmentlinewidth, col = grays[20])
+segments(0, 7, 2, 7, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 # blue (top L to bottom R)
 segments(0, 9, 0.75, 9, lty = 1, lwd = graphlinewidth, col = COLB[4])
@@ -106,8 +106,8 @@ points(5, 5, pch = 16, size = 1.5) # e
 text(4.75, 5, expression(e), cex = labelsize)
 points(2, 2, pch = 16, size = 1.5) # a
 text(1.75, 2.25, expression(a), cex = labelsize)
-points(2, 8, pch = 16, size = 1.5) # b
-text(1.75, 7.75, expression(b), cex = labelsize)
+points(2, 7, pch = 16, size = 1.5) # b
+text(1.75, 6.75, expression(b), cex = labelsize)
 
 # annotations -------------------------------------------------------------
 

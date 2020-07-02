@@ -83,11 +83,11 @@ text(6.3, 29.4, expression(italic("Implemented by fiat and elections")), cex = l
 
 text(43.5, 33.5, expression(bold("Markets")), cex = namesize)
 text(44.85, 31, expression(italic("Material incentives")), cex = labelsize, xpd = TRUE)
-text(45, 29.4, expression(italic("Implemented by prices")), cex = labelsize, xpd = TRUE)
+text(45.7, 29.4, expression(italic("Implemented by prices")), cex = labelsize, xpd = TRUE)
 
 text(27, 11, expression(bold("Civil Society")), cex = namesize)
 text(27, 8.5, expression(italic("Reciprocity, altruism, fairness, sustainability, identity (including in-group)")), cex = labelsize, xpd = TRUE)
-text(27, 6.9, expression(italic("Implemented by social norms and the exercise of private power")), cex = labelsize, xpd = TRUE)
+text(27, 7, expression(italic("Implemented by social norms and the exercise of private power")), cex = labelsize, xpd = TRUE)
 
 # Annotations (CW) --------------------------------------------------------
 

@@ -96,5 +96,9 @@ text(0.35, 7.9, expression(u[3]), cex = labelsize)
 text(0.35, 5.6, expression(u[2]), cex = labelsize)
 text(0.35, 1, expression(u[1]), cex = labelsize)
 
+#Label slope
+text(4, riskreturn(g = 12) + 1.5, expression(paste("Slope", phantom()==phantom(), "-mrs", phantom()== -frac(u[Delta],u[hat(y)]))), cex = labelsize)
+Arrows(6.5, riskreturn(g = 12) + 1.5, 7.5, riskreturn(g = 12) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 
 dev.off()

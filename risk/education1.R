@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-
+library(pBrackets)
 # The utility function and indifference curve
 
 U <- function(y, delta, alpha = 0.2, beta = 2){
@@ -83,7 +83,7 @@ ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
 ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
 
 ticksx <- c(0, 7, ylims[2])
-xlabels <- c(0, expression(paste(Delta[d] == Delta[e])), NA)
+xlabels <- c(0, expression(paste(Delta[0])), NA)
 
 #Axis label
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)

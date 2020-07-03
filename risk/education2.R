@@ -42,7 +42,7 @@ ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a
 # ticksy <- seq(from = 0, to = ylims[2], by = 3)
 # ylabels <- seq(from = 0, to = ylims[2], by = 3)
 ticksx <- c(0, deltaT, 7, ylims[2])
-xlabels <- c(NA, expression(paste(Delta[f])), expression(paste(Delta[d] == Delta[e])), NA)
+xlabels <- c(NA, expression(paste(Delta[f])), expression(paste(Delta[0])), NA)
 
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2] - 0.1, expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 

@@ -92,10 +92,10 @@ segments(0, yBprime, deltaB, yBprime, lty = 2, col = grays[20] , lwd = segmentli
 braces(deltaA + 0.1, deltaA + 0.2, yA + 0.1, yAprime, 1/4, mid = 0.5 * (yA+yBprime) / (yA + yAprime))
 braces(deltaB - 0.1, deltaB - 0.2, yB, yBprime, 1/4, mid = 0.5 * (yA+yBprime) / (yB + yBprime))
 braces(deltaB + 0.1, deltaB + 0.2, yA + 0.1, yB, 0.5)
-Arrows(2.1, (yA + yBprime) / 2, 1.4, (yA + yBprime) / 2 ,
-       col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
-Arrows(3.9, (yA + yBprime) / 2, 4.6, (yA + yBprime) / 2 ,
-       col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
+# Arrows(2.1, (yA + yBprime) / 2, 1.4, (yA + yBprime) / 2 ,
+#        col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
+# Arrows(3.9, (yA + yBprime) / 2, 4.6, (yA + yBprime) / 2 ,
+#        col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
                                         # the four points
 points(deltaB, yB, pch = 16, col = "black", cex = 1.5)
@@ -108,7 +108,11 @@ text(deltaA-0.2, yA-0.5, expression(paste(b)), cex = labelsize)
 text(deltaA-0.2, yAprime-0.5, expression(paste(b*minute)), cex = labelsize)
 text(deltaB-0.1, yB-0.4, expression(paste(i)), cex = labelsize)
 text(deltaB-0.1, yBprime+0.3, expression(paste(i*minute)), cex = labelsize)
-text((deltaA + deltaB)/2, (yA + yBprime)/2, 'Non farm income', cex = labelsize)
+#text((deltaA + deltaB)/2, (yA + yBprime)/2, 'Non farm income', cex = labelsize)
+
+text(deltaA + 0.75, (yA + yBprime)/2, 'Non farm\nincome', cex = labelsize)
+text(deltaB - 0.75, (yA + yBprime)/2, 'Non farm\nincome', cex = labelsize)
+
 
 text(deltaB+1.15, ((yA + yB) / 2) + 0.25, 'Increased expected', cex = labelsize, xpd = TRUE)
 text(deltaB+1.15, ((yA + yB) / 2) - 0.35, 'income from pumps', cex = labelsize, xpd = TRUE)

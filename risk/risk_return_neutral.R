@@ -85,13 +85,14 @@ text(2, 8.8, expression(u[1]), cex = labelsize)
 text(2, 13.5, expression(u[2]), cex = labelsize)
 text(2, 16.5, expression(u[3]), cex = labelsize)
 
-
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
 text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(paste(a)), cex = labelsize)
 
-
 points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
 text(12, riskreturn(g = 12) + 0.6, expression(paste(m)), cex = labelsize)
+
+text(7, riskreturn(g = 12) + 1.5, expression(paste("Slope", phantom()==phantom(), "-mrs", phantom()== -frac(u[Delta],u[hat(y)]), phantom() == 0)), cex = labelsize)
+text(3, 2, expression(paste("Slope", phantom()== hat(y)[Delta])), cex = labelsize)
 
 
 dev.off()

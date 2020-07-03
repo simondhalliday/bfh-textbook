@@ -6,6 +6,7 @@ library(ggplot2)
 library(data.table)
 library(grid)
 library(ineq)
+library(mosaic)
 
 
 # Import + Tidy -----------------------------------------------------------
@@ -53,8 +54,9 @@ Pareto <-
 
 Pareto <- 
   Pareto %>%
-  mutate(mrs = 100 + 10*x2, 
-         wealth = mrs*x2 + y2)
+  mutate(mrs = 100 - 10*x2, 
+         wealth = mrs*x2 + y2, 
+         wealthwalras = 50*x2 + y2)
 
 FinalP <- 
   Pareto %>% 
@@ -112,25 +114,71 @@ dev.off()
 #   theme_bw()
 # dev.off()
 
+#SDH Note 2020.07.03
+#Checking the data I saw that Duncan inverted 
+#The As and Bs (he switched their endowments)
+#So we need to make sure the correct ones are labeled below
 
-pdf(file = "what_can_markets_do/wealth_distribution_facet.pdf", width = 5, height = 4)
+#Checking mean wealth is the Walrasian wealth
+#Indeed it is
+summary <- 
+  FinalP %>%
+  group_by(type) %>% 
+  summarise(meanwealth = mean(wealth))
+
+FinalP <-
+  FinalP %>%
+  mutate(type = factor(type, levels = c("B", "A")))
+
+pdf(file = "what_can_markets_do/wealth_distribution_facet.pdf", width = 8, height = 6)
 FinalP %>%
   ggplot(aes(x = wealth, fill = type)) +
   facet_grid(. ~type) +
   geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
                  binwidth = 10) +
+  geom_vline(xintercept = 450, linetype="dashed", color = "black") +
   ylab("Density") +
   xlab("Wealth") +
   scale_fill_manual("Trader Type",
-                    breaks = c("A", "B"),
+                    breaks = c("B", "A"),
                     labels = c("Type A", "Type B"),
                     values = c("#e41a1c", "#377eba")) +
   theme_bw() +
-  theme(axis.title = element_text(size = 12),
-        axis.text = element_text(size = 9),
-        legend.position = "top")
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.position = "top", 
+        strip.background = element_blank(),
+        strip.text.x = element_blank()
+        )
+
 dev.off()
 
+pdf(file = "what_can_markets_do/wealth_distribution_facet_walras.pdf", width = 8, height = 6)
+FinalP %>%
+  ggplot(aes(x = wealthwalras, fill = type)) +
+  facet_grid(. ~type) +
+  geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
+                 binwidth = 10) +
+  geom_vline(xintercept = 450, linetype="dashed", color = "black") +
+  ylab("Density") +
+  xlab("Wealth") +
+  scale_fill_manual("Trader Type",
+                    breaks = c("B", "A"),
+                    labels = c("Type A", "Type B"),
+                    values = c("#e41a1c", "#377eba")) +
+  theme_bw() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.position = "top", 
+        strip.background = element_blank(),
+        strip.text.x = element_blank()
+  )
+
+dev.off()
 
 # utility_distribution_facet ----------------------------------------------
 
@@ -302,12 +350,5 @@ TopA %>%
   ylab("money, y") +
   theme_bw()
 dev.off()
-
-
-
-  geom_segment(aes(x = x1, y = y1, xend = x, yend = y, color = as.factor(Trader)), data = BWFewA)
-  
-  
-   
 
 

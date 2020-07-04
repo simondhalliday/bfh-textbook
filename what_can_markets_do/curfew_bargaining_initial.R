@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "what_can_markets_do/curfew_bargaining.pdf", width = 10, height = 8)
+pdf(file = "what_can_markets_do/curfew_bargaining_initial.pdf", width = 10, height = 8)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -67,8 +67,8 @@ axis(4, at = ticksy2, pos = 9, labels = FALSE, las = 1, cex.axis = labelsize)
 
 
 #Disutility polygon
-xrent <- c(3, 4.5, 9, 3)
-yrent <- c(MUa(3), MUa(4.5, alpha = 3/4), MUb(9), MUa(3))
+xrent <- c(3, 6, 9, 3)
+yrent <- c(MUa(3), MUa(6), MUb(9), MUa(3))
 polygon(xrent, yrent, col = COL[4], density = NULL, border = NA)
 
 
@@ -77,36 +77,36 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
-xx5 <- seq(xlims[1], xlims[2], length.out = npts)
+xx5 <- seq(xlims[1], 0.75*xlims[2], length.out = npts)
 
 #Axis labels and draw linear utility functions
 text(6, -0.75, expression(paste("Curfew, T")), xpd = TRUE, cex = axislabelsize, srt = 0) 
 #text(, side = 1, line = 2, cex = axislabelsize)
 text(xlims[1] - 1, 0.5*ylims[2], expression(paste("Disutility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-# lines(xx1, MUb(xx1), col = COLB[4], lwd = graphlinewidth)
-# lines(xx1, MUa(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx5, MUa(xx5, alpha = 3/4), col = COLA[5], lwd = segmentlinewidth, lty = 1)
-lines(xx1, MUb(xx1, beta = 1/4), col = COLB[4], lwd = segmentlinewidth, lty = 1)
+lines(xx1, MUb(xx1), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, MUa(xx1), col = COLA[5], lwd = graphlinewidth)
+#lines(xx5, MUa(xx5, alpha = 3/4), col = COLA[5], lwd = segmentlinewidth, lty = 2)
+#lines(xx1, MUb(xx1, beta = 1/4), col = COLB[4], lwd = segmentlinewidth, lty = 2)
 
 #Label points on line
 
-# text(6, MUa(6) + 0.2, expression(paste(i)), cex = labelsize)
-# segments(6, 0, 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
-# segments(0, MUa(6), 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
-# points(6, MUa(6), pch = 16, col = "black", cex = 1.5)
+text(6, MUa(6) + 0.2, expression(paste(i)), cex = labelsize)
+segments(6, 0, 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, MUa(6), 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(6, MUa(6), pch = 16, col = "black", cex = 1.5)
 
-# text(7.5 + 0.1, MUa(7.5) - 0.1, expression(paste(g)), cex = labelsize)
-# segments(7.5, MUb(7.5), 0, MUb(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-# segments(7.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-# segments(7.5, 0, 7.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-# points(7.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
+text(7.5 + 0.1, MUa(7.5) - 0.1, expression(paste(g)), cex = labelsize)
+segments(7.5, MUb(7.5), 0, MUb(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(7.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(7.5, 0, 7.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+points(7.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
 
-# text(7.5 + 0.1, MUb(7.5) + 0.1, expression(paste(h)), cex = labelsize)
-# points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
+text(7.5 + 0.1, MUb(7.5) + 0.1, expression(paste(h)), cex = labelsize)
+points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
 
-text(4.5, MUb(4.5, beta = 1/4)  + 0.2, expression(paste(j)), cex = labelsize)
-points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
+# text(4.5, MUb(4.5, beta = 1/4)  + 0.2, expression(paste(j)), cex = labelsize)
+# points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
 
 
 #Label relevant points on axes
@@ -117,16 +117,16 @@ points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
 #text(-2, 33, expression(paste(-u[x]^B*(x*minute))),  xpd = TRUE, cex = labelsize)
 #text(-2, 7, expression(paste(u[x]^A*(x*minute))),  xpd = TRUE, cex = labelsize)
 
-text(4, 4, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
-text(4, 3.5, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
-#text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
-text(3.8, 3, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
+text(4, 6.3, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
+text(4, 6, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
+text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
+#text(3.8, 2.2, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
 
 
-text(7.75, 5.5, expression(paste("-A's marginal disutility ")),  xpd = TRUE, cex = labelsize)
-text(7.75, 5.2, expression(paste(-u[T]^A == -2*alpha*(T^A - T))),  xpd = TRUE, cex = labelsize)
-#text(7.75, 5.5, expression(paste(alpha == frac(1,2))), xpd = TRUE, cex = labelsize)
-text(7.75, 4.7, expression(paste(alpha == frac(3,4))), xpd = TRUE, cex = labelsize)
+text(7.75, 6.3, expression(paste("-A's marginal disutility ")),  xpd = TRUE, cex = labelsize)
+text(7.75, 6, expression(paste(-u[T]^A == -2*alpha*(T^A - T))),  xpd = TRUE, cex = labelsize)
+text(7.75, 5.5, expression(paste(alpha == frac(1,2))), xpd = TRUE, cex = labelsize)
+#text(6.9, 5.5, expression(paste(alpha == frac(3,4))), xpd = TRUE, cex = labelsize)
 
 #Axis arrow
 arrows(6.75, -0.75, 8, -0.75, xpd = TRUE, length=0.1,angle=40,lwd=3)

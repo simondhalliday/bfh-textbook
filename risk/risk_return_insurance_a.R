@@ -127,7 +127,7 @@ Arrows(5.4, 0.5, 2, 0.5,
 text(3.6, 3.1, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
 text(3.6, 2.4, expression(paste("risk exposure")), cex = labelsize, xpd = TRUE)
 text(3.6, 1.7, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
-text(3.6, 1, expression(paste(s == Delta[n] - Delta[b])), cex = labelsize, xpd = TRUE)
+text(3.6, 1, expression(paste(s == Delta[a] - Delta[b])), cex = labelsize, xpd = TRUE)
 
 
 text(13.5, 11.4, expression(paste("Insurance")), cex = labelsize, xpd = TRUE)

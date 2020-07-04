@@ -118,6 +118,15 @@ dev.off()
 #Checking the data I saw that Duncan inverted 
 #The As and Bs (he switched their endowments)
 #So we need to make sure the correct ones are labeled below
+#utilities are u^A = y + 100x - 5x^2
+#mrs = 100 - 10x = p
+#x = (100 - p)/10
+#Total Demand for x = (100 - p)/10 + (100 - p)/10 
+#Total supply of x = 10
+#x = (100 - p)/10 + (100 - p)/10  = 10
+# => p = 50 
+#Therefore walrasian wealth for A at (9,0) = 450
+#Therefore walrasian wealth for B at (1,400) = 450
 
 #Checking mean wealth is the Walrasian wealth
 #Indeed it is
@@ -136,7 +145,8 @@ FinalP %>%
   facet_grid(. ~type) +
   geom_histogram(aes(y =..density..),      # Histogram with density instead of count on y-axis
                  binwidth = 10) +
-  geom_vline(xintercept = 450, linetype="dashed", color = "black") +
+  geom_vline(xintercept = 450, linetype="dashed", color = "black") + 
+  annotate("text", x = 500, y = 0.01, label = "Mean wealth", size = 6) +
   ylab("Density") +
   xlab("Wealth") +
   scale_fill_manual("Trader Type",

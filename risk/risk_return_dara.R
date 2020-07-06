@@ -46,7 +46,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 
 ticksy <- c(0,  0.5, 5.1, 8.4, riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y) )), NA)
+ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y)[m] )), NA)
 ticksx <- c(0, 5.3, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 

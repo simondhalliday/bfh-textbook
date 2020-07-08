@@ -79,8 +79,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i"
 )
 
-ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
+# ticksy <- c(0, y0 - 4, y0, y0 + 2.7, y0 + 4.7, yT, 17, ylims[2])
+# ylabels <- c(NA, expression(paste(hat(y)[0])), expression(paste(hat(y)[1] == y[a])), expression(paste(hat(y)[2])), expression(paste(hat(y)[3])), expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
+ticksy <- c(0,  y0,  yT, 17, ylims[2])
+ylabels <- c(NA, expression(paste(y[a])),  expression(paste(hat(y)[d])), expression(paste(hat(y)[e])), NA)
 
 ticksx <- c(0, 7, ylims[2])
 xlabels <- c(0, expression(paste(Delta[0])), NA)

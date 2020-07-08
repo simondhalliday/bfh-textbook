@@ -1,4 +1,4 @@
-#' Graph Designer: Scott Cohn
+#' Graph Designer: Scott Cohn + Simon Halliday
 #' Authors: Bowles and Halliday
 #' Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -72,9 +72,9 @@ y2 <- indiff(64, 0.5*xlims[2], c = 2.7) - 4
 y3 <- indiff(156, 0.5*xlims[2], c = 2.7)
 
 ticksx <- c(0, 0.325*xlims[2], 0.5*xlims[2], 0.625*xlims[2], xlims[2])
-xlabels <- c(NA, expression(paste(Delta[c])), expression(paste(Delta[e] == Delta[f])), expression(paste(Delta[d])), NA)
+xlabels <- c(NA, expression(paste(Delta[h])), expression(paste(Delta[e] == Delta[f])), expression(paste(Delta[d])), NA)
 ticksy <- c(0, 2.9, y1, y2, y3, ylims[2])
-ylabels <- c(NA, expression(g), expression(paste(hat(y)[e])), expression(paste(hat(y)[c] == hat(y)[d])), expression(paste(hat(y)[f])), NA)
+ylabels <- c(NA, expression(y[c]), expression(paste(hat(y)[e])), expression(paste(hat(y)[h] == hat(y)[d])), expression(paste(hat(y)[f])), NA)
 
 
 #Axis labels and draw linear utility function
@@ -115,7 +115,7 @@ points(0.5*xlims[2], y3, pch = 16, col = "black", cex = 1.5)
 
 # label points
 text(0.5*xlims[2] + 0.25, y1 - 1, expression(paste(e)), cex = labelsize)
-text(0.325*xlims[2], y2 + 1.5, expression(paste(c)), cex = labelsize)
+text(0.325*xlims[2], y2 + 1.5, expression(paste(h)), cex = labelsize)
 text(0.625*xlims[2], y2 + 1.5, expression(paste(d)), cex = labelsize)
 text(0.5*xlims[2] + 0.25, y3 - 1, expression(paste(f)), cex = labelsize)
 

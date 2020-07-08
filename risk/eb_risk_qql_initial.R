@@ -93,7 +93,7 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = lab
 text(-0.15, 0.5*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
-text(0.5*xlims[2], -125, expression(paste("K's risk, ", Delta^K == 1 - Delta^J)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -125, expression(paste("K's risk, ", Delta^K == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 
 

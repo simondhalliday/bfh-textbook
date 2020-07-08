@@ -16,7 +16,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(7, 9, 6, 6))
+par(mar =  c(6, 6, 6, 6))
 
 uA <- function(x, y, alpha = 300) {
   y - alpha*(x)^2
@@ -82,7 +82,7 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = lab
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.17, 0.55*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.16, 0.55*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 text(0.5*xlims[2], -170, expression(paste("K's risk, ", Delta^K == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 
@@ -96,7 +96,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Add arrows:
 # arrows(-0.1, 740, -0.1, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # arrows(0.72, -100, 0.9, -100, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(-0.15, 850, -0.15, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.14, 840, -0.14, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(0.77, -165, 0.9, -165, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
@@ -117,7 +117,7 @@ ticksy <- c(ylims[1],
             indiffA(x = 0.45, utility = uA(x = 1, y = ylims[2]/3) + 90), 
             ylims[2]/3,ylims[2])
 #ylabels <- c(0, expression(paste(hat(y)[a]^J == hat(y)[z]^J - p[s]*(1-Delta[a]^J))), expression(paste(hat(y)[z]^J)), 1000)
-ylabels <- c(0, expression(paste(hat(y)[s]^J == phantom())), expression(paste(hat(y)[z]^J)), 1000)
+ylabels <- c(0, expression(paste(hat(y)[s]^J)), expression(paste(hat(y)[z]^J)), 1000)
 ticksx <- c(0, 0.45, 1)
 xlabels <- c(0, expression(paste(Delta[s]^J)), NA)
 
@@ -143,10 +143,10 @@ text(1.025, -50, expression(paste(bar(Delta))), cex = labelsize, xpd = TRUE)
 
 text(0.5*xlims[2], -170, expression(paste("J's risk, ", Delta^J)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.19, 0.55*ylims[2], expression(paste("J's expected income,", hat(y)^J)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.17, 0.55*ylims[2], expression(paste("J's expected income,", hat(y)^J)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows for N:
-arrows(-0.17, 840, -0.17, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.16, 840, -0.16, 950, xpd = TRUE, length=0.1,angle=40,lwd=3)
 arrows(0.65, -175, 0.9, -175, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
@@ -212,8 +212,8 @@ text(0.45 + 0.02, indiffA(x = 0.45,
 
 #text(0.3, 105, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
 
-text(0.7, 55, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
-Arrows(0.7, 75, 0.7, 225, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(0.7, 55, expression(paste("Slope", phantom() == p[s])), cex = annotatesize)
+# Arrows(0.7, 75, 0.7, 225, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Braces for labels
 brackets(x1 = 0.99, y1 = -10, x2 = 0.48, y2 = -10,
@@ -237,7 +237,7 @@ text(0.25, 290, expression(paste("Cost of insurance")), xpd = TRUE, cex = annota
 text(0.25, 230, expression(paste("for Juliana")), xpd = TRUE, cex = annotatesize)
 
 #text(-0.1, 100, expression(paste(phantom() == hat(y)[a]^J)), xpd = TRUE, cex = annotatesize)
-text(-0.16, 130, expression(paste(hat(y)[z]^J - p[s]*(bar(Delta) - Delta[s]^J))), xpd = TRUE, cex = annotatesize)
+#text(-0.16, 130, expression(paste(hat(y)[z]^J - p[s]*(bar(Delta) - Delta[s]^J))), xpd = TRUE, cex = annotatesize)
 
 # 
 

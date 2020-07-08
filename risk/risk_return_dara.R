@@ -45,13 +45,15 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 
 
-ticksy <- c(0,  0.5, 5.1, 8.4, riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y)[m] )), NA)
+#ticksy <- c(0,  0.5, 5.1, 8.4, riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
+ticksy <- c(0,   riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
+#ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y)[m] )), NA)
+ylabels <- c(NA,  expression(paste(hat(y)[a])), expression(paste(hat(y)[m] )), NA)
 ticksx <- c(0, 5.3, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
-text(xlims[1] - 0.5, 8.4, expression(paste(c[3])), cex = labelsize, xpd = TRUE)
-text(xlims[1] - 0.5, riskreturn(g = 5.3) + 0.25, expression(paste(hat(y)[a])), cex = labelsize, xpd = TRUE)
+#text(xlims[1] - 0.5, 8.4, expression(paste(c[3])), cex = labelsize, xpd = TRUE)
+#text(xlims[1] - 0.5, riskreturn(g = 5.3) + 0.25, expression(paste(hat(y)[a])), cex = labelsize, xpd = TRUE)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

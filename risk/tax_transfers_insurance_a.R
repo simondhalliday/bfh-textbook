@@ -22,7 +22,7 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 a <- c(2, 4, 6)
 par(mar =  c(4, 6, .5, .5))
-xlims <- c(0, 15)
+xlims <- c(0, 13)
 ylims <- c(0, 18)
 
 indiff <- function(g, intercept = 4, slope = 0.09){

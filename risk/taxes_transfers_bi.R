@@ -75,7 +75,7 @@ xx5 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Axis labels and 
 #mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-22000, 0.5*ylims[2], expression(paste("Taxes paid, ", hat(T), ", and transfers received, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-22000, 0.5*ylims[2], expression(paste("Transfers received and expected taxes, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -5500 , expression(paste("Expected income pre-tax, ", hat(y) )), xpd = TRUE, cex = axislabelsize) 
 
 #draw linear tax function
@@ -112,21 +112,23 @@ brackets(x1 = expinc[3] + 500, y1 = exptax[3] - 500, x2 = expinc[3] + 500, y2 = 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
 
 # Labels
-text(32000, exptax[2] - 2500, expression(paste("Taxes paid")), xpd = TRUE, cex = labelsize)
-text(32000, exptax[2] - 4000, expression(paste("lower than")), xpd = TRUE, cex = labelsize)
-text(32000, exptax[2] - 5500, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
+text(32000, exptax[2] - 2000, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
+text(32000, exptax[2] - 3500, expression(paste("taxes")), xpd = TRUE, cex = labelsize)
+text(32000, exptax[2] - 5000, expression(paste("lower than")), xpd = TRUE, cex = labelsize)
+text(32000, exptax[2] - 6500, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
 
-text(140000, exptax[3] - 5000, expression(paste("Taxes paid")), xpd = TRUE, cex = labelsize)
-text(140000, exptax[3] - 6500, expression(paste("higher than")), xpd = TRUE, cex = labelsize)
-text(140000, exptax[3] - 8000, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
+text(140000, exptax[3] - 4300, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
+text(140000, exptax[3] - 5800, expression(paste("taxes")), xpd = TRUE, cex = labelsize)
+text(140000, exptax[3] - 7500, expression(paste("higher than")), xpd = TRUE, cex = labelsize)
+text(140000, exptax[3] - 9000, expression(paste("transfers")), xpd = TRUE, cex = labelsize)
 
 text(expinc[1], exptax[1] + 1500, expression(paste("a")), xpd = TRUE, cex = labelsize)
 text(expinc[2], exptax[2] + 1500, expression(paste("b")), xpd = TRUE, cex = labelsize)
 text(expinc[3], exptax[3] + 1500, expression(paste("c")), xpd = TRUE, cex = labelsize)
 
-text(140000, ylims[2] - 1500, expression(paste("Taxes")), xpd = TRUE, cex = labelsize)
-text(140000, ylims[2] - 3500, expression(paste("paid")), xpd = TRUE, cex = labelsize)
-text(140000, ylims[2] - 5500, expression(paste((tau*y))), xpd = TRUE, cex = labelsize)
+text(140000, ylims[2] - 1500, expression(paste("Expected")), xpd = TRUE, cex = labelsize)
+text(140000, ylims[2] - 3500, expression(paste("taxes")), xpd = TRUE, cex = labelsize)
+text(140000, ylims[2] - 5500, expression(paste( tau*hat(y) )), xpd = TRUE, cex = labelsize)
 
 text(140000, exptax[2] - 1000, expression(paste("Transfers")), xpd = TRUE, cex = labelsize)
 text(140000, exptax[2] - 2800, expression(paste("received")), xpd = TRUE, cex = labelsize)

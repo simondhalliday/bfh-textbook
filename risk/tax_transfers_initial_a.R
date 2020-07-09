@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 a <- c(2, 4, 6)
-par(mar =  c(4, 6, .5, 2))
+par(mar =  c(4, 6, 0.5, 0.5))
 xlims <- c(0, 12)
 ylims <- c(0, 13)
 

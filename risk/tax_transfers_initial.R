@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 a <- c(2, 4, 6)
-par(mar =  c(4, 6, .5, 2))
+par(mar =  c(4, 6, 0.5, 0.5))
 xlims <- c(0, 12)
 ylims <- c(0, 13)
 
@@ -80,9 +80,11 @@ lines(xx1, indiff(xx1, intercept = 7, slope = 0.08), col = COLA[4], lwd = graphl
 #lines(xx1, indiff(xx1, intercept = 9.2, slope = 0.08), col = COLA[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiff(xx1, intercept = 13, slope = 0.04), col = COLA[4], lwd = graphlinewidth, lty = 1)
 
+xx2 <- seq(xlims[1], 8.74, length.out = npts)
+
 #Insurance Lines
 #Though points f' and f
-lines(xx1, insur(xx1, slope = 0.75), col = COLB[4], lwd = graphlinewidth, lty = 1)
+lines(xx2, insur(xx2, slope = 0.75), col = COLB[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insur(xx1, slope = 1.28), col = COLB[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insur(xx1, slope = 1.49), col = COLB[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insur(xx1, slope = 1.638), col = COLB[4], lwd = graphlinewidth, lty = 1)
@@ -146,8 +148,8 @@ text(3.33 + (8.74-3.33)/2, 3.4, expression(paste("risk")), xpd = TRUE, cex = lab
 
 
 # Tax and transfer line
-text(11.5, 12.8, expression(paste("Tax and")), xpd = TRUE, cex = labelsize)
-text(11.5, 12.3, expression(paste("transfer line")), xpd = TRUE, cex = labelsize)
+text(2, 3.7, expression(paste("Tax and")), xpd = TRUE, cex = labelsize)
+text(2, 3.2, expression(paste("transfer line")), xpd = TRUE, cex = labelsize)
 
 
 dev.off()

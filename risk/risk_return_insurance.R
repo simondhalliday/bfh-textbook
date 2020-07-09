@@ -68,8 +68,11 @@ text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Exp
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(xlims[1], 10.5, length.out = npts)
+xx3 <- seq(10.5, xlims[2], length.out = npts)
 lines(xx1, riskreturn(xx1, int1 = 14, int2 = 3.99, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
+lines(xx2, insurance(xx2), col = COL[3], lwd = graphlinewidth, lty = 1)
+lines(xx3, insurance(xx3), col = COL[3], lwd = segmentlinewidth, lty = 2)
 #lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 2)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = graphlinewidth, lty = 1)

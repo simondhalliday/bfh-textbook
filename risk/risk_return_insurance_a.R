@@ -62,12 +62,15 @@ xlabels <- c(NA, expression(paste(Delta[b])), expression(paste(Delta[a])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
-mtext(expression(paste("Degree of risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Degree of risk, ", Delta)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], - 2, expression(paste("Degree of risk, ", Delta)), xpd = TRUE, cex = axislabelsize) 
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+xx2 <- seq(xlims[1], 5.6, length.out = npts)
+xx3 <- seq(5.6, xlims[2], length.out = npts)
 
 # gray segments
 segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -75,9 +78,11 @@ segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[
 segments(0, insurance(g = 1.6, intercept = 7.4), 5.6, insurance(g = 1.6, intercept = 7.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(1.6, 0, 1.6, insurance(g = 1.6, intercept = 7.4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
+
 lines(xx1, riskreturn(xx1, int1 = 14, int2 = 3.99, coeff = 1/3), col = COLA[4], lwd = graphlinewidth, lty = 1)
 #lines(xx1, insurance(xx1), col = COL[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, insurance(xx1, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 1)
+lines(xx2, insurance(xx2, intercept = 7.4), col = COL[3], lwd = graphlinewidth, lty = 1)
+lines(xx3, insurance(xx3, intercept = 7.4), col = COL[3], lwd = segmentlinewidth, lty = 2)
 lines(xx1, indiffA(xx1, intercept = 5.6), col = COLB[4], lwd = graphlinewidth, lty = 1)
 lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = segmentlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 10.35, slope = 0.1), col = COLB[4], lwd = graphlinewidth, lty = 1)

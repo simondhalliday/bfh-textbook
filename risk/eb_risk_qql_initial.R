@@ -179,11 +179,11 @@ contour(x, y,
 
 
 #Label indiffs for N
-text(0.85, 210, expression(u[1]^J), cex = labelsize)
+text(0.85, 220, expression(u[z]^J), cex = labelsize)
 text(0.85, 400, expression(u[2]^J), cex = labelsize)
 
 #Label the indiffs for B
-text(0.7, 280, expression(u[1]^K), cex = labelsize)
+text(0.7, 280, expression(u[z]^K), cex = labelsize)
 text(0.7, 100, expression(u[2]^K), cex = labelsize)
 
 
@@ -217,8 +217,15 @@ xlabels <- c(0, expression(paste(Delta[b]^J)), expression(paste(Delta[c]^J)), ex
 axis(side = 1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
+text(0.15, 650, expression(paste("Better for")), cex = labelsize)
+text(0.15, 600, expression(paste("Juliana")), cex = labelsize)
+Arrows(0.3, 600, 0.2, 750, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
+
+text(0.86, 750, expression(paste("Better for")), cex = labelsize)
+text(0.86, 700, expression(paste("Konstantin")), cex = labelsize)
+Arrows(0.7, 750, 0.8, 600, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 dev.off()

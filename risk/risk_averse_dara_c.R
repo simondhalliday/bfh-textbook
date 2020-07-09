@@ -85,10 +85,13 @@ text(0.45*xlims[2], -5, expression(paste("Difference in income (good versus bad 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(0.5*xlims[2] - 1.5, 0.5*xlims[2] + 1.25, length.out = npts)
-
+xx3 <- seq(0.5*xlims[2] - 3.25, 0.5*xlims[2] - 0.25, length.out = npts)
 # tangent lines
 lines(xx2, tangentline(x = xx2, m = 3.97626, b = -7.500294), col = grays[22], lwd = segmentlinewidth, lty = 2)
 lines(xx2, tangentline(x = xx2, m = 2.39591, b = 21.5975), col = grays[22], lwd = segmentlinewidth, lty = 2)
+
+lines(xx3, tangentline(x = xx3, m = 1.8, b = 11.98), col = grays[22], lwd = segmentlinewidth, lty = 2)
+
 
 # util curves
 for (u in c(5, 64, 156) ) {

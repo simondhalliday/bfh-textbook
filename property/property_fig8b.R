@@ -108,17 +108,17 @@ ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
 ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 ticksx <- seq(from =  xlims[1], to = xlims[2], by = 1)
 xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
 #UPF
-text(9.1, 0.5, expression(paste("Utility Possibilities Frontier")), cex = annotatesize)
+text(9.1, 0.5, expression(paste("Utility possibilities frontier")), cex = annotatesize)
 #text(8.1, 0.8, expression(paste(u^B == (10^0.5)*(15^0.5) - u^A)), cex = annotatesize)
 
 #Iso-welfare curve labels
 text(10.5, 5.7, expression(paste("Impartial Spectator's")), cex = annotatesize)
-text(10.5, 5, expression(paste("Iso-welfare Curves")), cex = annotatesize)
+text(10.5, 5, expression(paste("iso-welfare curves")), cex = annotatesize)
 
 #Annotate point g
 #ua_g(2.44949^0.5)*(((3/2)*2.44949)^0.5) = 3

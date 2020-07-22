@@ -94,12 +94,12 @@ ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)
 ylabels <- seq(from = ylims[1], to = ylims[2], by = 1)
 ticksx <- seq(from =  xlims[1], to = xlims[2], by = 1)
 xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
 #UPF
-text(8.1, 1.5, expression(paste("Utility Possibilities Frontier")), 
+text(8.1, 1.5, expression(paste("Utility possibilities frontier")), 
      cex = annotatesize)
 # text(8.1, 1, expression(paste(u^B == bar(W) - u^A)), 
 #      cex = annotatesize)
@@ -176,12 +176,12 @@ text(6.123724 + 0.2, 6.123724 + 0.2, expression(i), cex = annotatesize)
 
 #Label Participation Constraints
 #Aisha's
-text(11, 4.9, expression(paste("B's Participation")), cex = annotatesize)
-text(11, 4.2, expression(paste("constraint ", u[z]^B)), cex = annotatesize)
+text(11, 4.9, expression(paste("B's participation")), cex = annotatesize)
+text(11, 4.2, expression(paste("constraint, ", u[z]^B)), cex = annotatesize)
 
 #Betty's
-text(4.6, 12.7, expression(paste("A's Participation")), cex = annotatesize)
-text(4.6, 12, expression(paste("constraint ", u[z]^A)), cex = annotatesize)
+text(4.6, 12.7, expression(paste("A's participation")), cex = annotatesize)
+text(4.6, 12, expression(paste("constraint, ", u[z]^A)), cex = annotatesize)
 
 #Arrows showing Social Planner's choices
 #Arrows(5.2, 4.2, 5.9, 4.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = arrowwidth)

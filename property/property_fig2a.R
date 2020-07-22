@@ -32,7 +32,7 @@ indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4.5, 4, 4.5))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
@@ -70,15 +70,15 @@ ticksy <- seq(from = 0, to = 15, by = 1)
 ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.9, cex = axislabelsize)
-text(-0.8, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.95, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add arrows:
-arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
+Arrows(-0.95, 11.5, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 
@@ -94,7 +94,7 @@ arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 text(-0.3, -1.7, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
 
 
 #Set up second axes and labels
@@ -114,17 +114,17 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      xaxs="i", 
      yaxs="i")
 
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 #axis(side=3, at = xlims2, pos = 0)
 
 
-text(4.5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
-text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(4.5, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
+text(-0.95, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 11.5, -0.8, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+Arrows(-0.95, 11.5, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7, -1.7, 9, -1.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {
@@ -150,10 +150,15 @@ COLB <- c("#fc9272", "#fb6a4a", "#ef3b2c","#084081", "#99000d")
 #text(9.1, 3.4, expression(u[2]^B))
 #text(9.1, 6.2, expression(u[3]^B))
 
+
+#Annotating B's endowment
+
+segments(0, 14, xlims[2], 14, lty = 2, col = "darkgray", lwd = 2)
+segments(1, 0, 1, ylims[2], lty = 2, col = "darkgray", lwd = 2)
+
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
 
-#Annotating B's endowment
 text(0.8, 13.5, expression(z), cex = pointsize)
 
 #Arrow to Slope of BRF

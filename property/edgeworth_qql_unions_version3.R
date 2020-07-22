@@ -74,12 +74,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- seq(from = 0, to = ylims[2], by = 50)
-ylabels <- seq(from = 0, to = ylims[2], by = 50)
-ticksx <- seq(from = 0, to = 16, by = 1)
-xlabels <- seq(from = 0, to = 16, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0)
+ticksy <- seq(from = 0, to = ylims[2], by = 100)
+ylabels <- seq(from = 0, to = ylims[2], by = 100)
+ticksx <- seq(from = 0, to = 16, by = 4)
+xlabels <- seq(from = 0, to = 16, by = 4)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #Pareto-improving lens
 xpoly1 <- seq(from = 5, to = 11, length.out = 500)
@@ -114,8 +114,11 @@ text(-1.2, 0.5*ylims[2], expression(paste("A's Money, ", y^A)), xpd = TRUE, cex 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(12.5, -42, 15, -42, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.2, 270, -1.2, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(12.5, -42, 15, -42, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(12.5, -42, 15, -42, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #lines(xx1, WalrasP(xx1, intercept = 400, slope = 24), col = COL[3], lwd = graphlinewidth)
 # lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
@@ -216,16 +219,18 @@ contour(x, y,
 ) 
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = xlabels)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0)
+axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 #mtext("B's Hours of Living, x", side=3, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -45, expression(paste("B's Hours of Living,", x^B)), xpd = TRUE, cex = axislabelsize) 
 text(-1.2, 0.5*ylims[2], expression(paste("B's Money, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-#Add arrows:
-arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(11.2, -48, 15, -48, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.2, 270, -1.2, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(11.2, -48, 15, -48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+#arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+#arrows(11.2, -48, 15, -48, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 points(x = 16, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(15.8, -10, expression(paste(z)), , cex = annotatesize, xpd = TRUE)

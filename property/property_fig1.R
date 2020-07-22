@@ -39,7 +39,7 @@ indiffcurveA3 <- function(x, U = 3, A = 1, a = 0.5) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 #COL <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4, 4.5, 1, 1))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 
@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #mtext(expression(paste("A's coffee (kilograms), ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -1.5, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.7, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.88, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 
@@ -80,8 +80,8 @@ ticksy <- seq(from = 0, to = 15, by = 1)
 ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 text(0.3, 11, expression(u[1]^A), cex = annotatesize)

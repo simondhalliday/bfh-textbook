@@ -37,7 +37,7 @@ plot1 <- dfnar %>%
                     labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
-  theme(legend.position = "right",
+  theme(legend.position = "top",
         legend.text.align = 0,
         axis.title = element_text(size = 20),
         axis.title.y = element_blank(),
@@ -48,7 +48,7 @@ plot1 <- dfnar %>%
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
   geom_text(
     aes(x = point, y = Utility, label = Utility, group = type), 
-    hjust = -0.5, size = 4,
+    hjust = -0.5, size = 5,
     position = position_dodge(width = 1),
     inherit.aes = TRUE
   ) + 

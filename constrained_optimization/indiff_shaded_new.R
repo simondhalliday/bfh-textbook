@@ -8,8 +8,11 @@ library(shape)
 pdf(file = "constrained_optimization/indiff_shaded_new.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -57,8 +60,8 @@ xlabels <- seq(from = 0, to = xlims[2], by = 1)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -85,8 +88,8 @@ lines(xx1, indiffA(xx1, alpha = 0.5, uA = 4), col = COLA[5], lwd = graphlinewidt
 # Arrows(4.35, 0.95, 8.1, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.2,  expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 
@@ -103,11 +106,11 @@ text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axi
 #Label the indifference curves
 text(9.5, 1.3, expression(u[4]^A == 4), cex = labelsize)
 
-text(3, 3, expression(u^A < 4), cex = labelsize)
-text(3, 2.5, expression(paste("Worse than ", u[4]^A)), cex = labelsize)
+text(3, 2.8, expression(u^A < 4), cex = labelsize)
+text(3, 2.1, expression(paste("Worse than ", u[4]^A)), cex = labelsize)
 
-text(7, 7, expression(u^A > 4), cex = labelsize)
-text(7, 6.5, expression(paste("Better than ", u[4]^A)), cex = labelsize)
+text(7, 8, expression(u^A > 4), cex = labelsize)
+text(7, 7.3, expression(paste("Better than ", u[4]^A)), cex = labelsize)
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
 

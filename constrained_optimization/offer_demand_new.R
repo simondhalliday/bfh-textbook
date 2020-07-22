@@ -2,17 +2,20 @@ require(shape)
 pdf(file = "constrained_optimization/offer_demand.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.2
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(5, 8, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -59,9 +62,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 2)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 2)
 ticksy <- c(0, 0.25, 0.5, 1, 2, ylims[2])
-ylabels <- c(NA, expression(paste(p[x] == 0.25)), expression(paste(p[x]==0.5)), expression(paste(p[x]==1)), expression(paste(p[x]==2)), NA)
+ylabels <- c(NA, expression(paste(p[1] == 0.25)), expression(paste(p[2]==0.5)), expression(paste(p[3]==1)), expression(paste(bar(p)==2)), NA)
 ticksx <- c(0, 6, 9, 10.5,  xlims[2])
-xlabels <- c(NA, expression(paste(x[1]) == 6), expression(paste(x[2])==9), expression(paste(x[3])==10.5), NA)
+xlabels <- c(NA, expression(paste(x[1]) == 6), expression(paste(x[2])==9), NA, NA)
+
+text(11, -0.1, expression(paste(x[3])==10.5), xpd = TRUE, cex = labelsize) 
+
 
 
 
@@ -79,8 +85,9 @@ lines(xx1, mrsA(xx1, rmax = 2, xmax = 12), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.7, 0.5*ylims[2], expression(paste("Price per kilogram of fish, ", p[x])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -0.27, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-2.3, 0.5*ylims[2], expression(paste("Price per kilogram of fish, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 # text(11.8, 1.3, expression(u[1]))

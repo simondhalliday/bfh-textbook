@@ -7,7 +7,7 @@ library(shape)
 #pdf(file = "feasible_frontier_indifference_badsSTEP2.pdf", width = 8, height = 8)
 #pdf(file = "feasible_frontier_indifference_badsSTEP3.pdf", width = 8, height = 8)
 #pdf(file = "feasible_frontier_indifference_badsSTEP4.pdf", width = 8, height = 8)
-pdf(file = "constrained_optimization/feasible_frontier_indifference_bads.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/feasible_frontier_indifference_bads_indiffsonly.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -21,8 +21,6 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
-grays <- gray.colors(25, start = 1, end = 0)
-
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 1, 1))
@@ -37,10 +35,6 @@ uFn <- function(x, y, alpha = 0.4){
 
 indiffA <- function(x, ubar = uFn(8,3) - 1, alpha = 0.4) {
   (ubar/ ((16-x)^alpha))^(1/ (1 - alpha))
-}
-
-tangentLine <- function(x, slope, intercept){
-  intercept + slope*x
 }
 
 ylims <- c(0, 5)
@@ -83,25 +77,23 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-
-xx3 <- seq(4.5, 11.5, length.out = npts)
+xx2 <- seq(0, xlims[2], length.out = npts)
+xx3 <- seq(xlims[1], 0, length.out = npts)
+xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
-xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
-ypoly1 <- ppf(xpoly1)
-polygon(x = c(xlims[2], xlims[2], xpoly1, 0),
-        y = c(ppf(xlims[2]), 0, ypoly1, ylims[2]),
-        col=COLA[1], density=NULL, border = NA)
+# xpoly1 <- seq(from = xlims[1], to = xlims[2], length.out = 500)
+# ypoly1 <- ppf(xpoly1)
+# polygon(x = c(xlims[2], xlims[2], xpoly1, 0),
+#         y = c(ppf(xlims[2]), 0, ypoly1, ylims[2]),
+#         col=COLA[1], density=NULL, border = NA)
 
 #Draw the graphs
-lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
-
-lines(xx3, tangentLine(xx3, slope = 1/4, intercept = 1), col = grays[22], lwd = segmentlinewidth, lty = 2)
+# lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(16, 3, expression("Feasible"), cex = labelsize)
-text(16, 2.8, expression("frontier"), cex = labelsize)
-Arrows(16, 3.1, 16, 3.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(16, 3, expression("Feasible Frontier"), cex = labelsize)
+# Arrows(16, 3.1, 16, 3.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 contour(x, y, 
         outer(x, y, uFn),
@@ -117,36 +109,40 @@ contour(x, y,
 text(0.5*xlims[2], -0.45, expression(paste("Studying (hours = 16 - Living), ", h)), xpd = TRUE, cex = axislabelsize) 
 text(-1.5, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#Add mrs = mrt at b
-#text(7.3, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-#Arrows(8, 3.5, 8, 3.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(3.5, 3, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(6.5, 3, 7.5, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#mtext(expression(paste("Studying (hours = 16 - Living), ", h)), side = 1, line = 2.5, cex = axislabelsize)
+#text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
+#Add mrs = mrt at i
+# text(7.3, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+# Arrows(8, 3.5, 8, 3.15, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
 text(14.3, 4.7, expression(u[1]^A), cex = labelsize)
 text(12.4, 4.7, expression(u[2]^A), cex = labelsize)
-text(8.3, 4.7, expression(u[3]^A), cex = labelsize)
+text(8.4, 4.7, expression(u[3]^A), cex = labelsize)
 
 #Annotate max u point on feasible frontier
-text(8.4, ppf(8) - 0.1, expression(paste(b)), cex = labelsize)
-segments(8, 0, 8, ppf(x = 8), lty = 2, col = grays[20], lwd = segmentlinewidth)
-#segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = grays[20], lwd = segmentlinewidth)
+text(8.3, ppf(8) - 0.1, expression(paste(b)), cex = labelsize)
+# segments(8, 0, 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
 
-text(3.2-0.2, ppf(3.2) + 0.1, expression(paste(a)), cex = labelsize)
-segments(3.2, 0, 3.2, ppf(x = 3.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, ppf(x = 3.2), 3.2, ppf(x = 3.2), lty = 2, col = grays[20], lwd = segmentlinewidth)
+text(3.2-0.2, ppf(3.2) + 0.12, expression(paste(a)), cex = labelsize)
+# segments(3.2, 0, 3.2, ppf(x = 3.2), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 3.2), 3.2, ppf(x = 3.2), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(3.2, ppf(x = 3.2), pch = 16, col = "black", cex = 1.5)
 
 
 text(13.1-0.2, ppf(13.1) + 0.1, expression(paste(c)), cex = labelsize)
-segments(13.1, 0, 13.1, ppf(x = 13.1), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, ppf(x = 13.1), 13.1, ppf(x = 13.1), lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(13.1, 0, 13.1, ppf(x = 13.1), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(0, ppf(x = 13.1), 13.1, ppf(x = 13.1), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(13.1, ppf(x = 13.1), pch = 16, col = "black", cex = 1.5)
 
+text(14, 1, expression("Lower"), cex = labelsize + 0.1)
+text(14, 0.8, expression("utility"), cex = labelsize + 0.1)
 
+text(4, 4.6, expression("Higher"), cex = labelsize + 0.1)
+text(4, 4.4, expression("utility"), cex = labelsize + 0.1)
 
 dev.off()

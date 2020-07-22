@@ -6,17 +6,20 @@ library(shape)
 pdf(file = "constrained_optimization/feasible_dictator_fair.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 ppf <- function(x, slope = 1, bary = 10) {
   bary - slope * x
@@ -59,8 +62,8 @@ ylabels <- seq(from = 0, to = ylims[2], by = 1)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -93,35 +96,38 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("A's payoff (dollars), ", pi^A)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("B's payoff (dollars), ", pi^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2] - 0.1, -0.9, expression(paste("C's payoff (dollars), ", pi^C)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("D's payoff (dollars), ", pi^D)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 text(5, 6.5, expression(paste(mrs == mrt)), cex = labelsize)
 Arrows(5, 6.3, 5, 5.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves
-text(10.5, 1.4, expression(u[1]^A), cex = labelsize)
-text(10.5, 2.1, expression(u[2]^A), cex = labelsize)
-text(10.5, 3.6, expression(u[3]^A), cex = labelsize)
+text(10.5, 1.35, expression(u[1]^C), cex = labelsize)
+text(10.5, 2.05, expression(u[2]^C), cex = labelsize)
+text(10.5, 3.55, expression(u[3]^C), cex = labelsize)
 
 #Annotate max u point on feasible frontier
-text(5.2, ppf(5) + 0.2, expression(paste(i)), cex = labelsize)
+text(5.3, ppf(5) + 0.2, expression(paste(b*minute)), cex = labelsize)
 segments(5, 0, 5, ppf(x = 5), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 5), 5, ppf(x = 5), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(5, ppf(x = 5), pch = 16, col = "black", cex = 1.5)
 
-text(2.3+0.2, ppf(2.3) + 0.2, expression(paste(a)), cex = labelsize)
+text(2.3+0.3, ppf(2.3) + 0.2, expression(paste(a*minute)), cex = labelsize)
 segments(2.3, 0, 2.3, ppf(x = 2.3), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 2.3), 2.3, ppf(x = 2.3), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(2.3, ppf(x = 2.3), pch = 16, col = "black", cex = 1.5)
 
 
-text(7.7+0.2, ppf(7.7) + 0.2, expression(paste(b)), cex = labelsize)
+text(7.7+0.2, ppf(7.7) + 0.2, expression(paste(c*minute)), cex = labelsize)
 segments(7.7, 0, 7.7, ppf(x = 7.7), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(0, ppf(x = 7.7), 7.7, ppf(x = 7.7), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(7.7, ppf(x = 7.7), pch = 16, col = "black", cex = 1.5)
 
+
+# text(2, ppf(2) - 1, expression(paste("Feasible")), cex = labelsize)
+# text(2, ppf(2) - 1.5, expression(paste("frontier")), cex = labelsize)
 
 
 dev.off()

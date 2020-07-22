@@ -6,10 +6,13 @@ library(shape)
 pdf(file = "constrained_optimization/indiff_map_new.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -61,8 +64,8 @@ xlabels <- seq(from = 0, to = xlims[2], by = 1)
 # ticksx <- c(xlims[1], 5, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -96,7 +99,8 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Kilograms of coffee, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -1.2, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-0.8, 5, expression(paste("Gigabytes of data, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -145,7 +149,7 @@ points(2, 9, pch = 16, col = "black", cex = 1.5)
 
 #Label the indifference curves
 text(9.7, .8, expression(u[3]^A), cex = labelsize)
-text(9.7, 2, expression(u[4]^A), cex = labelsize)
+text(9.7, 2.1, expression(u[4]^A), cex = labelsize)
 text(9.7, 4.1, expression(u[5]^A), cex = labelsize)
 
 dev.off()

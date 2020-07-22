@@ -3,8 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 library(shape)
-pdf(file = "constrained_optimization/indiff_feasible_environ_initial.pdf", width = 8, height = 8)
-#pdf(file = "constrained_optimization/step_by_step_graphs_3/indiff_feasible_environ_initial.pdf", width = 8, height = 8)
+pdf(file = "constrained_optimization/indiff_feasible_environ_rd.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -67,8 +66,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksy <- seq(from = 0, to = ylims[2], by = 10)
 # ylabels <- seq(from = 0, to = ylims[2], by = 10)
 
-ticksx <- c(xlims[1], 7.07, 14.14214, xlims[2])
-xlabels <- c(NA, expression(paste(x[b])), expression(paste(bar(x))), NA)
+ticksx <- c(xlims[1], 7.07, 8.66, 14.14214, xlims[2])
+xlabels <- c(NA, expression(paste(x[b])), expression(paste(x[r])), expression(paste(bar(x))), NA)
 ticksy <- c(ylims[1], ppf(x = 7.07), 100, ylims[2])
 ylabels <- c(NA, expression(paste(y[b])), expression(paste(bar(y))), NA)
 
@@ -87,19 +86,19 @@ text(2.5, 84, expression("Cost"), cex = labelsize)
 
 #Draw the feasibility frontiers
 lines(xx1, ppf(xx1, y), col = COLA[5], lwd = graphlinewidth)
-#lines(xx1, ppf_rd(xx1, y), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, ppf_rd(xx1, y), col = COLA[5], lwd = graphlinewidth)
 
 #Label the feasibility frontier frontier
-text(15, 15, expression("Initial"), cex = labelsize)
-text(15, 11, expression("feasible"), cex = labelsize)
-text(15, 7, expression("frontier"), cex = labelsize)
+text(11.8, 15, expression("Initial"), cex = labelsize)
+text(11.8, 11, expression("feasible"), cex = labelsize)
+text(11.8, 7, expression("frontier"), cex = labelsize)
 
 
 #Label the feasibility frontier with R&D frontier
-#text(18.2, 15, expression("Feasible"), cex = labelsize)
-#text(18.2, 11, expression("Frontier"), cex = labelsize)
-#text(18.2, 7, expression("With R&D"), cex = labelsize)
-#Arrows(14.2, 3, 16.6, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(18.3, 15, expression("Feasible"), cex = labelsize)
+text(18.3, 11, expression("frontier"), cex = labelsize)
+text(18.3, 7, expression("with R&D"), cex = labelsize)
+Arrows(14.2, 3, 16.6, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 contour(x, y, 
         outer(x, y, uFn),
@@ -126,10 +125,10 @@ text(19, 40.8, expression(u[2]), cex = labelsize)
 text(19, 46.5, expression(u[3]), cex = labelsize)
 
 #Annotate max u point on feasibility with r&D frontier
-#text(9.1, ppf_rd(8.66) + 3, expression(paste(h)), cex = labelsize)
-#segments(8.66, 0, 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
-#segments(0, ppf_rd(x = 8.66), 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
-#points(8.66, ppf_rd(x = 8.66), pch = 16, col = "black", cex = 1.5)
+text(9.1, ppf_rd(8.66) + 3, expression(paste(r)), cex = labelsize)
+segments(8.66, 0, 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ppf_rd(x = 8.66), 8.66, ppf_rd(x = 8.66), lty = 2, col = "gray", lwd = segmentlinewidth)
+points(8.66, ppf_rd(x = 8.66), pch = 16, col = "black", cex = 1.5)
 
 #Annotate max u point on feasibility frontier
 text(7.3, ppf(7.07) + 3, expression(paste(b)), cex = labelsize)
@@ -138,9 +137,9 @@ segments(0, ppf(x = 7.07), 7.07, ppf(x = 7.07), lty = 2, col = "gray", lwd = seg
 points(7.07, ppf(x = 7.07), pch = 16, col = "black", cex = 1.5)
 
 #Added arrow for abatement costs and labeled the arrow as such
-# arrows(.2, 75, .2, 100, length = 0.1, angle = 30, code = 3, col = par("fg"), lty = par("lty"),   lwd = par("lwd"))
-# text(1.71, 88, expression(paste("Abatement")), cex = labelsize)
-# text(1.05, 84, expression(paste("Costs")), cex = labelsize)
+#arrows(.2, 75, .2, 100, length = 0.1, angle = 30, code = 3, col = par("fg"), lty = par("lty"),   lwd = par("lwd"))
+#text(1.71, 88, expression(paste("Abatement")), cex = labelsize)
+#text(1.05, 84, expression(paste("Costs")), cex = labelsize)
 
 
 dev.off()

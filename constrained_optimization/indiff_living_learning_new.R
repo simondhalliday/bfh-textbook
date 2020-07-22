@@ -6,10 +6,13 @@ library(shape)
 pdf(file = "constrained_optimization/indiff_living_learning_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.8
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -59,8 +62,8 @@ ylabels <- c(NA, 1, 2, 3, 4, NA)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -91,8 +94,9 @@ contour(x, y,
         add = TRUE)
 
 #Axis labels
-mtext(expression(paste("Living (hours), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Living (hours), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -0.45, expression(paste("Living (hours), ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-1.5, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 #text(8.6, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
@@ -123,13 +127,13 @@ segments(2, 0, 2, indiffA(x = 2, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd =
 
 
 
-text(14 + 0.2, indiffA(x = 14, ubar = uFn(2, 3)) + 0.1, expression(paste(b)), cex = labelsize)
+text(14 + 0.3, indiffA(x = 14, ubar = uFn(2, 3)) + 0.1, expression(paste(h)), cex = labelsize)
 segments(0, indiffA(x = 14, ubar = uFn(2, 3)), 14, indiffA(x = 14, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(14, 0, 14, indiffA(x = 14, ubar = uFn(2, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 
-text(14 + 0.2, indiffA(x = 14, ubar = uFn(14, 3)) + 0.1, expression(paste(g)), cex = labelsize)
+text(14 + 0.3, indiffA(x = 14, ubar = uFn(14, 3)) + 0.1, expression(paste(g)), cex = labelsize)
 segments(0, indiffA(x = 14, ubar = uFn(14, 3)), 14, indiffA(x = 14, ubar = uFn(14, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 segments(14, 0, 14, indiffA(x = 14, ubar = uFn(14, 3)), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(14,  indiffA(x = 14, ubar = uFn(14, 3)), pch = 16, col = "black", cex = 1.5)

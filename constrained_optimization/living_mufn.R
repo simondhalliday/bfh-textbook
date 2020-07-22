@@ -8,14 +8,18 @@ library(shape)
 pdf(file = "constrained_optimization/living_mufn.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 4, 1, 1))
@@ -55,15 +59,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- seq(from = 0, to = ylims[2], by = 1)
 ylabels <- seq(from = 0, to = ylims[2], by = 1)
-ticksx <- seq(from = 0, to = xlims[2], by = 1)
-xlabels <- seq(from = 0, to = xlims[2], by = 1)
+ticksx <- seq(from = 0, to = xlims[2], by = 2)
+xlabels <- seq(from = 0, to = xlims[2], by = 2)
 # ticksy <- c(ylims[1], 5.25, 8, ylims[2])
 # ylabels <- c(NA, expression(paste(y,"*")), expression(paste(bar(y))), NA)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -115,13 +119,13 @@ text(-1.1, 0.5*ylims[2], expression(paste("Marginal utility of Living, ", u[x]))
 #text(9.5, 3.15, expression(u[2]^A), cex = labelsize)
 #text(9.5, 5.85, expression(u[3]^A), cex = labelsize)
 
-text(2 + 0.1, muFn(2) + 0.05, expression(paste(f)), cex = labelsize)
+text(2 + 0.1, muFn(2) + 0.04, expression(paste(f)), cex = labelsize)
 points(2, muFn(2), pch = 16, col = "black", cex = 1.5)
 
-text(8+ 0.1, muFn(8) + 0.05, expression(paste(i)), cex = labelsize)
+text(8 + 0.1, muFn(8) + 0.04, expression(paste(i)), cex = labelsize)
 points(8, muFn(8), pch = 16, col = "black", cex = 1.5)
 
-text(14+ 0.1, muFn(14) + 0.05, expression(paste(g)), cex = labelsize)
+text(14 + 0.1, muFn(14) + 0.04, expression(paste(g)), cex = labelsize)
 points(14, muFn(14), pch = 16, col = "black", cex = 1.5)
 
 dev.off()

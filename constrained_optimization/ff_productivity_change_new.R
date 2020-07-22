@@ -6,17 +6,22 @@ library(shape)
 pdf(file = "constrained_optimization/ff_productivity_change_new.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-labelsize <- 1.1
-graphlinewidth <- 3
-segmentlinewidth <- 2
+pointsize <- 1.8
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 4, 1, 1))
 
 #Change this to make it log of l 
 
@@ -59,8 +64,8 @@ ylabels <- c(NA, 1, 2, 3, 4, NA)
 # ticksx <- c(xlims[1], 5.25, 8.944272, xlims[2])
 # xlabels <- c(NA, expression(paste(x,"*")), expression(paste(bar(x))), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -87,13 +92,15 @@ lines(xx1, ppf(xx1, k = 4/log(17), maxx = 17), col = COLA[5], lwd = graphlinewid
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label the feasible frontier
-text(10.5, 0.65, expression("Initial"), cex = labelsize)
-text(10.5, 0.5, expression("Feasible Frontier"), cex = labelsize)
-text(10.5, 0.35, expression(paste((ff[1]))), cex = labelsize)
-Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(10.5, 1.8, expression("Initial"), cex = labelsize)
+text(10.5, 1.65, expression("feasible"), cex = labelsize)
+text(10.5, 1.5, expression("frontier"), cex = labelsize)
+text(10.5, 1.33, expression(paste((ff[1]))), cex = labelsize)
+#Arrows(12.5, 0.53, 14.9, 0.53, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Axis labels
-mtext(expression(paste("Living, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Living, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -0.38, expression(paste("Living (hours), ", x == 16 - h)), xpd = TRUE, cex = axislabelsize) 
 text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
@@ -107,12 +114,12 @@ text(-1.2, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = a
 
 #Annotate max u point on feasibility frontier
 text(8.4, ppf(8) + 0.1, expression(paste(a)), cex = labelsize)
-segments(8, 0, 8, ppf(x = 8, k = 4/log(17) ), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(8, 0, 8, ppf(x = 8, k = 4/log(17) ), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ppf(x = 8), 8, ppf(x = 8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(8, ppf(x = 8), pch = 16, col = "black", cex = 1.5)
 
 text(8.4, ppf(x = 8, k = 4/log(17)) + 0.1, expression(paste(d)), cex = labelsize)
-segments(0, ppf(x = 8, k = 4/log(17)), 8, ppf(x = 8, k = 4/log(17)), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, ppf(x = 8, k = 4/log(17)), 8, ppf(x = 8, k = 4/log(17)), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(8, ppf(x = 8, k = 4/log(17)), pch = 16, col = "black", cex = 1.5)
 
 text(8.4, 1.1, expression(paste(c)), cex = labelsize)
@@ -126,30 +133,37 @@ segments(0, 1, 8, 1, lty = 2, col = "gray", lwd = segmentlinewidth)
 
 
 text(6.45, ppf(6) + 0.1, expression(paste(b)), cex = labelsize)
-segments(6, 0, 6, ppf(x = 6), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 6), 6, ppf(x = 6), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(6, 0, 6, ppf(x = 6), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ppf(x = 6), 6, ppf(x = 6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(6, ppf(x = 6), pch = 16, col = "black", cex = 1.5)
 
 
 
 text(14, ppf(14.42872) - 0.1, expression(paste(g)), cex = labelsize)
-segments(14.42872, 0, 14.42872, ppf(x = 14.42872), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(x = 14.42872), 14.42872, ppf(x = 14.42872), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(14.42872, 0, 14.42872, ppf(x = 14.42872), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ppf(x = 14.42872), 14.42872, ppf(x = 14.42872), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(14.42872, ppf(x = 14.42872), pch = 16, col = "black", cex = 1.5)
 
 #Point for c
 points(8, 1, pch = 16, col = "black", cex = 1.5)
 
-Arrows(6, ppf(x = 8) + 0.3, 6, ppf(x = 6, k = 4/log(17)) - 0.1, col = "black", lty = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(4.5, 3, expression("Increased"), cex = labelsize)
-text(4.5, 2.85, expression("Productivity"), cex = labelsize)
+Arrows(4.4, ppf(x = 8) + 0.4, 4.4, ppf(x = 4.4, k = 4/log(17)) - 0.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(2.5, 3.4, expression("Increased"), cex = labelsize)
+text(2.5, 3.25, expression("productivity"), cex = labelsize)
 
 
 #Label the feasible frontier
-text(10.5, 3.95, expression("Increased Productivity"), cex = labelsize)
-text(10.5, 3.8, expression("Feasible Frontier"), cex = labelsize)
-text(10.5, 3.65, expression(paste((ff[2]))), cex = labelsize)
-Arrows(10.5, 3.55, 10.5, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(10.5, 3.95, expression("Increased Productivity"), cex = labelsize)
+# text(10.5, 3.8, expression("Feasible Frontier"), cex = labelsize)
+# text(10.5, 3.65, expression(paste((ff[2]))), cex = labelsize)
+text(12.5, 2.97, expression("Increased"), cex = labelsize)
+text(12.5, 2.82, expression("productivity"), cex = labelsize)
+text(12.5, 2.68, expression("feasible"), cex = labelsize)
+text(12.5, 2.53, expression("frontier"), cex = labelsize)
+text(12.5, 2.35, expression(paste((ff[2]))), cex = labelsize)
+
+
+#Arrows(10.5, 3.55, 10.5, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

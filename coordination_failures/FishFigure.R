@@ -61,13 +61,14 @@ tonnes$x <- c(1:37)
 write.xlsx(tonnes, 'FishData2.xlsx')
 
 data_fish <- read.xlsx('FishData2.xlsx')
+data_fish$x <- c(1:99)
 
 Fish_plot2 <- ggplot(data_fish, aes(x = x, y = y)) +
   geom_line() +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
   labs(y = "", color = "") + 
   scale_y_continuous(breaks = seq(0, 600000, by = 100000), limits = c(0,600000)) +
-  scale_x_continuous(breaks = seq(1950, 2010, by = 10)) +
+  #scale_x_continuous(breaks = seq(1950, 2010, by = 10)) +
   scale_color_brewer(palette = "Set1") +
   theme_bw() 
 #theme(panel.grid.minor = element_blank(),

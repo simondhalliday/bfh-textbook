@@ -67,7 +67,7 @@ options(scipen=999)
 Years <- c("1950", "1960", "1970", "1980", "1990", "2000", "2010")
 
 Fish_plot2 <- ggplot(data_fish, aes(x = x, y = y)) +
-  geom_line() +
+  geom_line(color = "#0868ac") +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
   labs(y = "Landings (tons)", x = "Year", color = "") + 
   #scale_y_continuous(breaks = seq(0, 600000, by = 100000), limits = c(0,600000), expand = c(0, 0)) +
@@ -75,15 +75,12 @@ Fish_plot2 <- ggplot(data_fish, aes(x = x, y = y)) +
   scale_color_brewer(palette = "Set1") +
   coord_cartesian(xlim = c(0, 60), ylim = c(0, 600000), expand = FALSE) + 
   scale_x_continuous(labels = Years) + 
-  theme_bw() 
-#theme(panel.grid.minor = element_blank(),
-# legend.position = c(0.88, 0.83), 
-# legend.title = element_text(size = 15), 
-# axis.title.y = element_text(size = 17, vjust = 1),
-# legend.text = element_text(size = 14),
-# axis.text.x = element_text(size = 14, color = "black"),
-# axis.text.y = element_text(size = 14, color = "black"),  
-# axis.title.x = element_text(size = 17, vjust = -1)) 
+  theme_bw() +
+theme(panel.grid.minor = element_blank(),
+ axis.title.y = element_text(size = 17, vjust = 1),
+ axis.text.x = element_text(size = 12),
+ axis.text.y = element_text(size = 12),  
+ axis.title.x = element_text(size = 17, vjust = -1)) 
 # 
 Fish_plot2
 

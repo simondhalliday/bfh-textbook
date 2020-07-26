@@ -19,31 +19,29 @@ fish_data_2 <- fish_data %>%
 
 #-----------GGplot---------
 Fish_plot <- ggplot(fish_data, aes(x = Year, y = Tonnes)) +
-  geom_line() +
+  geom_line(color = "#0868ac") +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
-  labs(y = "", color = "") + 
+  labs(y = "Landings (tons)", x = "Year", color = "") + 
   scale_y_continuous(breaks = seq(0, 600000, by = 100000), limits = c(0,600000)) +
   scale_x_continuous(breaks = seq(1850, 2010, by = 10)) +
   scale_color_brewer(palette = "Set1") +
-  theme_bw() 
-  #theme(panel.grid.minor = element_blank(),
-        # legend.position = c(0.88, 0.83), 
-        # legend.title = element_text(size = 15), 
-        # axis.title.y = element_text(size = 17, vjust = 1),
-        # legend.text = element_text(size = 14),
-        # axis.text.x = element_text(size = 14, color = "black"),
-        # axis.text.y = element_text(size = 14, color = "black"),  
-        # axis.title.x = element_text(size = 17, vjust = -1)) 
-        # 
+  theme_bw() + 
+  #coord_cartesian(xlim = c(1850, 2010), ylim = c(0, 600000), expand = FALSE) + 
+theme(panel.grid.minor = element_blank(),
+      axis.title.y = element_text(size = 17, vjust = 1),
+      axis.text.x = element_text(size = 13, angle = 90),
+      axis.text.y = element_text(size = 13),  
+      axis.title.x = element_text(size = 17, vjust = -1), 
+      plot.margin = margin(10, 20, 10, 0))
 Fish_plot
 
 
 #print(wealth_share_plot)
 
 #Save plot to PDF
-#ggsave(Fish_plot, filename = "Fish_plot.pdf", 
- #      path = "coordination_failures",
-  #     width = 9, height = 7, units = "in")
+ggsave(Fish_plot, filename = "Fish_plot_CORE.pdf", 
+       path = "coordination_failures",
+       width = 9, height = 7, units = "in")
 
 
 

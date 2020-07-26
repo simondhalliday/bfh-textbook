@@ -41,9 +41,9 @@ Fish_plot
 #print(wealth_share_plot)
 
 #Save plot to PDF
-ggsave(Fish_plot, filename = "Fish_plot.pdf", 
-       path = "coordination_failures",
-       width = 9, height = 7, units = "in")
+#ggsave(Fish_plot, filename = "Fish_plot.pdf", 
+ #      path = "coordination_failures",
+  #     width = 9, height = 7, units = "in")
 
 
 

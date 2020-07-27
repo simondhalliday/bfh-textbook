@@ -12,7 +12,7 @@ fish_data <- read_excel("coordination_failures/FishData.xlsx")
 
 
 fish_data_2 <- fish_data %>%
-  filter(Year >= 1950)
+  filter(Year >= 1948)
 
 #-----------GGplot---------
 Fish_plot <- ggplot(fish_data, aes(x = Year, y = Tonnes)) +

@@ -9,14 +9,10 @@ options(scipen=999) #Makes sure we don't have scienfitic notation in the figure
 
 fish_data <- read_excel("coordination_failures/FishData.xlsx")
 
-COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
-COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824", "#f0027f")
-COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081", "#9e9ac8","#f0027f")
-COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
-COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318","#41ae76","#6a51a3", "#DA3030")
+
 
 fish_data_2 <- fish_data %>%
-  filter(Year >= 1950)
+  filter(Year >= 1948)
 
 #-----------GGplot---------
 Fish_plot <- ggplot(fish_data, aes(x = Year, y = Tonnes)) +

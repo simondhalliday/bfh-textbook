@@ -22,7 +22,7 @@ Fish_plot <- ggplot(fish_data, aes(x = Year, y = Tonnes)) +
   geom_line(color = "#0868ac") +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
   labs(y = "Landings (tons)", x = "Year", color = "") + 
-  scale_y_continuous(breaks = seq(0, 600000, by = 100000), limits = c(0,600000)) +
+  scale_y_continuous(breaks = seq(0, 800000, by = 100000), limits = c(0,800000)) +
   scale_x_continuous(breaks = seq(1850, 2010, by = 10)) +
   scale_color_brewer(palette = "Set1") +
   theme_bw() + 
@@ -48,15 +48,15 @@ ggsave(Fish_plot, filename = "Fish_plot_CORE.pdf",
 #-----------Digitize---------
 
 # Using digitize to get data points 
-cal = ReadAndCal("Fish.jpg")
+#cal = ReadAndCal("Fish.jpg")
 # 
 # Tonnes of fish
-data.points = DigitData(col = 'red')
-tonnes = Calibrate(data.points, cal, 0, 60, 0, 600000 )
+#data.points = DigitData(col = 'red')
+#tonnes = Calibrate(data.points, cal, 0, 60, 0, 600000 )
 
-tonnes$x <- c(1:37)
+#tonnes$x <- c(1:37)
 # 
-write.xlsx(tonnes, 'FishData2.xlsx')
+#write.xlsx(tonnes, 'FishData2.xlsx')
 
 data_fish <- read.xlsx('coordination_failures/FishData2.xlsx')
 

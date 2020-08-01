@@ -1,4 +1,4 @@
-#Graph Designer: Scott Cohn 
+#Graph Designer: Scott Cohn & Simon Halliday
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -34,28 +34,24 @@ lumen_data <-
 
 lumen_data %>% ggplot(aes(
     x = reorder(Year, -LaborHourPer1000LumenHours),
-    y = logLabor
+    y = millionLumen
   )) +
   #geom_line(group="identity", colour=COLB[4])  +
+  scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10)) +
   geom_line(color = COLA[4], group = 1) +
   #scale_x_continuous(breaks = pretty(lumen_data[["Year"]], n = 10)) +
   theme_bw() +
-  labs(x = "Year", y = "Log of Hours of Work per 10,000,000 Lumen Hours")  +
+  labs(x = "Year", y = "Hours of work per 10 million \n lumen hours (ratio scale)")  +
   theme(
     legend.position = "none",
     legend.title = element_blank(),
-    axis.title.y = element_text(size = 16, vjust = 0.5),
-    axis.title.x = element_text(size = 16, vjust = -1),
+    axis.title.y = element_text(size = 21, vjust = 0.5),
+    axis.title.x = element_text(size = 21, vjust = -0.5),
     legend.text = element_blank(),
-    axis.text.x = element_text(size = 12),
-    axis.text.y = element_text(size = 12)
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15)
   ) 
 
 # Save as PDF -------------------------------------------------------------
 
 ggsave("specprodexch/hours_per_lumenhour_line.pdf", width = 7, height = 7)
-
-
-
-
-

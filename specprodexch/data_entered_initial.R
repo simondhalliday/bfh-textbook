@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 
 ffA <- function(x, yintA = 20, sA = 20/11) {
@@ -40,7 +42,7 @@ priceB <- function(x, pintB = 14.5, psB = 1.45) {
 }
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 1, 1))
+par(mar =  c(5, 6, 1, 1))
 
 xlims <- c(0, 15)
 ylims <- c(0, 21)
@@ -67,6 +69,9 @@ ylabels <- c(NA, 4, 6.11, 8,  20, NA)
 ticksx <- c(xlims[1], 5, 7.64, 10, 11,  xlims[2])
 xlabels <-  c(NA, 5, 7.64, 10, 11,  NA)
 
+text(11, - 0.8, "11", cex = labelsize, xpd = TRUE)
+
+
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -74,15 +79,15 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the graphs
-lines(xx1, ffA(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, ffB(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, exchange(xx1), lty = 2, col = "gray", lwd = segmentlinewidth)
+lines(xx1, ffA(xx1), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, ffB(xx1), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, exchange(xx1), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
-segments(0, 4, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(5, 0, 5, 4, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(0, 6.11, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(7.64, 0, 7.64, 6.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
+segments(0, 4, 5, 4, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(5, 0, 5, 4, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(0, 6.11, 7.64, 6.11, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(7.64, 0, 7.64, 6.11, lty = 2, col = grays[20],  lwd = segmentlinewidth)
 
 
 #Label Points
@@ -100,7 +105,12 @@ mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex
 text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(1, 17.7, expression(ff[A]), cex = labelsize)
-text(1, 6.6, expression(ff[B]), cex = labelsize)
+text(1, 19.4, expression(ff[A]), cex = labelsize)
+text(1, 7.9, expression(ff[B]), cex = labelsize)
+
+text(12.4, 13.5, expression(paste("Each graph needs")), cex = labelsize)
+text(12.4, 12.7, expression(paste("1,250 keystrokes")), cex = labelsize)
+text(12.4, 11.5, expression(paste(y == frac(x, 1.25) )), cex = labelsize)
+
 
 dev.off()

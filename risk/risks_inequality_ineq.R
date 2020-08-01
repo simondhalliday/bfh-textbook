@@ -27,7 +27,7 @@ indiffA <- function(x, ua = 2, slope = 1/12) {
 
 #Average wealth function 
 
-avgwealth <- function(x,y){
+avgwealth <- function(x){
   (1.08)*((-1/35)*(((-((.9)*x-36))^2))+36.8+((-1/10)*(x-4)+(-1/1000)*((x-3)^3)))
 }
 

@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 library(shape)
 #require(plotrix)
-pdf(file = "people/palanpur_risk_dom_bina.pdf", width = 8, height = 6)
+pdf(file = "people/palanpur_risk_dom.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -72,7 +72,7 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility functions
-text(xlims[2]*0.5, -5.5, expression(paste("Probability Bina will play Plant Early, P")), xpd = TRUE, cex = axistitlesize)
+text(xlims[2]*0.5, -5.5, expression(paste("Fraction playing Plant Early, P")), xpd = TRUE, cex = axistitlesize)
 text(-5.5, 0.5*ylims[2], expression(paste("Expected payoff, ", hat(pi))), xpd = TRUE, cex = axistitlesize, srt = 90) 
 
 
@@ -108,19 +108,24 @@ text(8, 17.3, expression(paste("Plant Late, ", hat(pi)[L])), xpd = TRUE, cex = l
 text(13, 6, expression(paste("Expected payoff to")), xpd = TRUE, cex = labelsize)
 text(13, 4, expression(paste("Plant Early, ", hat(pi)[E])),  xpd = TRUE, cex = labelsize)
 
+
+#Tipping point arrows
+Arrows((2/3)*xlims[2] + 0.5, 1, xlims[2] - 1, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+Arrows((2/3)*xlims[2] - 0.5, 1, xlims[1] + 2, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+
 #Axis arrow
-Arrows(32.5, -5.5, 39, -5.5, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+#Arrows(32.5, -5.5, 39, -5.5, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
 #arrows(33, -5, 39, -5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Risk Dominant Strategy
-text(12, 36, expression(paste("Strategy with higher")), xpd = TRUE, cex = labelsize)
-text(12, 34, expression(paste("expected payoff at ", P == 1/2)), xpd = TRUE, cex = labelsize)
-text(12, 32, expression(paste("is risk-dominant")), xpd = TRUE, cex = labelsize)
-Arrows(20, 32.5, 20, expected_late(20) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(12, 36, expression(paste("Strategy with higher")), xpd = TRUE, cex = labelsize)
+# text(12, 34, expression(paste("expected payoff at ", P == 1/2)), xpd = TRUE, cex = labelsize)
+# text(12, 32, expression(paste("is risk-dominant")), xpd = TRUE, cex = labelsize)
+# Arrows(20, 32.5, 20, expected_late(20) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Equal expected payoffs
-text(29, 38, expression(paste("Equal expected")), xpd = TRUE, cex = labelsize)
-text(29, 36, expression(paste("payoffs at ", P[i] == 2/3)), xpd = TRUE, cex = labelsize)
-Arrows(26.67, 35, 26.67, expected_late(26.67) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(29, 38, expression(paste("Equal expected")), xpd = TRUE, cex = labelsize)
+# text(29, 36, expression(paste("payoffs at ", P[i] == 2/3)), xpd = TRUE, cex = labelsize)
+# Arrows(26.67, 35, 26.67, expected_late(26.67) + 1.5, col = "black", lty = 1, lwd = 2, code = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

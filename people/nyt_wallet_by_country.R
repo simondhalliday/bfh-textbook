@@ -41,10 +41,21 @@ response_rate_subset$CountryOrd<-reorder(response_rate_subset$Country, response_
 response_rate_subset$condFactor<- as.factor(response_rate_subset$cond)
 response_rate_subset$condFactor<- ifelse(response_rate_subset$condFactor==0, "No Money", "Money")
 
+response_rate_subset <- 
+  response_rate_subset %>%
+  filter(!Country %in% c("UAE", "China", "Romania", "Greece","Serbia","Croatia","Peru"))
+
 # graph
 # ----
 
-nytfig <- ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + geom_point() + geom_line() + labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  scale_color_manual(values=c(COLB[4], COLA[4])) +theme_bw() + 
+nytfig <- ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + 
+  geom_point(size = 3) + 
+  geom_line() + 
+  labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  
+  scale_color_brewer(type = "qual", 
+                     palette = "Set1") + 
+  #scale_color_manual(values=c(COLB[4], COLA[4])) + 
+  theme_bw() + 
   theme(axis.title.y = element_text(size = 20),
         axis.text.x = element_text(size = 18),
         axis.text.y = element_text(size = 14),

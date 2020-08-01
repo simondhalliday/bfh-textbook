@@ -1,7 +1,7 @@
 require(shape)
 library(extrafont)
 library(pBrackets)
-pdf(file = "what_can_markets_do/gains_from_trade.pdf", width = 5, height = 4)
+pdf(file = "what_can_markets_do/gains_from_trade.pdf", width = 5, height = 2.5)
 
 #Set parameters for graphics
 axislabelsize <- 1.5
@@ -13,10 +13,10 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-par(mar =  c(2, 1, 1, 1))
+par(mar =  c(0.1, 0.5, 0.1, 0.5))
 
 xlims <- c(0, 6)
-ylims <- c(0, 2)
+ylims <- c(0.5, 1.5)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -36,19 +36,21 @@ ticksy <- seq(from = 0, to = 6, by = 1)
 ylabels <- seq(from = 0, to = 10, by = 1)
 ticksx <- c(xlims[1], 1, 2, 4, 5, xlims[2])
 xlabels <- c(0, expression(S), expression(s), expression(b), expression(paste(B)), 1)
-axis(1, at = ticksx, pos = 1, labels = xlabels)
-axis(2, at = NA, pos = 0, labels = NA, las = 0)
+axis(1, at = ticksx, pos = 1, labels = xlabels, cex.axis = labelsize)
+axis(2, at = NA, pos = 0, labels = NA, las = 0, cex.axis = labelsize)
 
 
-brackets(x1 = 2, y1 = 1.05, x2 = 4, y2 = 1.05,  
+brackets(x1 = 2, y1 = 1.03, x2 = 4, y2 = 1.03,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(3, 1.3, expression(paste("Realized trade")), xpd = TRUE, srt = 0)
+text(3, 1.25, expression(paste("Realized trade")), 
+     xpd = TRUE, srt = 0, cex = annotatesize)
 
-brackets(x1 = 5, y1 = 0.75, x2 = 1, y2 = 0.75,  
+brackets(x1 = 5, y1 = 0.8, x2 = 1, y2 = 0.8,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(3, 0.5, expression(paste("Gains from trade")), xpd = TRUE, srt = 0)
+text(3, 0.6, expression(paste("Gains from trade")), 
+     xpd = TRUE, srt = 0, cex = annotatesize)
 #text(3, .25, expression(paste("From B to A")), xpd = TRUE, srt = 270)
 
 

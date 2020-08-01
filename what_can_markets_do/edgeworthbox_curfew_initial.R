@@ -1,7 +1,7 @@
 require(shape)
 library(extrafont)
 library(pBrackets)
-pdf(file = "what_can_markets_do/edgeworthbox_curfew.pdf", width = 9, height = 7)
+pdf(file = "what_can_markets_do/edgeworthbox_curfew_initial.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -18,7 +18,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
-par(mar =  c(5, 7, 1.5, 5))
+par(mar =  c(5, 5, 1.5, 5))
 
 uA <- function(x, y, alpha = 1/4, Ta = 1) {
   y - alpha*(Ta - x)^2
@@ -51,8 +51,8 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 #a <- seq(-400, -200, by = 20)
-a <- c(-9, -6.75, -4.5)
-b <- c(0, 2.25, 4.5)
+a <- c(-9, -9/4, 0)
+b <- c(-9, -9/4, 0)
 
 #Use the same x and ylims as previously, but with locations switched
 xlims2 <- c(8, 0)
@@ -70,10 +70,11 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs = "i")
 
 ticksx2 <- c(0, 8)
+ticksy2 <- seq(ylims[1], ylims[2], by = 3)
 ylabels2 <- seq(-24, 24, by = 6)
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx2, pos = -12, labels = NA, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels2, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 0, cex.axis = labelsize)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
 text(-0.8, 0.15*ylims[2], expression(paste("B's difference in income, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
@@ -107,14 +108,22 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 ticksy <- seq(from = -12, to = 12, by = 3)
+#Note: the utility functions above have alpha and beta = 1/4
+#They should be 1/2; but I labeled this figure and did 
+#a lot of work, so the easiest fix was just to tweak
+#the levels of the y-axis labels to correspond to what
+#they ought to be with alpha = beta = 1/2
 ylabels <- seq(-24, 24, by = 6)
 #ylabels <- c(-12, -10, -8, -6, NA, NA, 0, 2, 4, 6, 8, 10, 12)
 #ticksx <- seq(from = 0, to = 8, by = 1)
 ticksx <- c(0, 1, 4, 7, 8)
+
 # xlabels <- c(paste("8pm"), paste("9pm"), paste("10pm"), paste("11pm"),
 #              paste("12am"), paste("1am"), paste("2am"), paste("3am"), paste("4am"))
-xlabels <- c(paste("8pm"), paste("9pm"), 
-             paste("12 midnight"), paste("3am"), paste("4am"))
+# xlabels <- c(paste("8pm"), expression(paste(T^A == 9*p*m)), 
+#              expression(paste(T^i == phantom(),"12 midnight")), expression(paste(T^B == 3*a*m)), paste("4am"))
+xlabels <- c(NA, expression(paste(T^A == 9*p*m)), 
+             expression(paste(T^i == phantom(),"12 midnight")), expression(paste(T^B == 3*a*m)), NA)
 
 
 #xlabels <- c("8pm", "9pm", "10pm", "11pm", "12am", "1am", "2am", "3am", "4am")
@@ -123,18 +132,21 @@ axis(1, at = ticksx, pos = -12, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #Pareto-improving lens
-xpoly1 <- seq(from = 1, to = 7, length.out = 500)
-ypoly1 <- indiffA(xpoly1)
-ypoly2 <- indiffB(xpoly1)
-polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
+# xpoly1 <- seq(from = 1, to = 7, length.out = 500)
+# ypoly1 <- indiffA(xpoly1)
+# ypoly2 <- indiffB(xpoly1)
+# polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], density = NULL, border = NA)
 
 #Point for seeing where the indifference curves intersect on the LHS
-segments(4, ylims[1], 4, -6.75, col = COL[2], lwd = segmentlinewidth, lty = 2)
-segments(4, -6.75, 4, -2.5, col = COL[2], lwd = segmentlinewidth, lty = 1)
-segments(4, -2.5, 4, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
+segments(4, ylims[1], 4, ylims[2], col = COL[2], lwd = graphlinewidth, lty = 2)
+# segments(4, ylims[1], 4, -6.75, col = COL[2], lwd = segmentlinewidth, lty = 2)
+# segments(4, -6.75, 4, -2.5, col = COL[2], lwd = segmentlinewidth, lty = 2)
+# segments(4, -2.5, 4, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
+
+#Axis at zero
 segments(0, 0, xlims[2], 0, col = "black" , lwd = segmentlinewidth - 0.8, lty = 1)
 
-segments(0, -4.5, 4, -4.5, col = grays[20] , lwd = segmentlinewidth, lty = 2)
+#segments(0, -4.5, 4, -4.5, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -148,8 +160,8 @@ contour(x, y,
 
 text(0.5*xlims[2], -15, expression(paste("Curfew, T")), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-1.3, 0.5*ylims[2], expression(paste("A's difference")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(-0.85, 0.5*ylims[2], expression(paste("in income, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#text(-1.3, 0.5*ylims[2], expression(paste("A's payment")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.85, 0, expression(paste("A's difference in income, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)
@@ -167,7 +179,8 @@ contour(x, y,
 
 # segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-# segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(1, 0, 1, -12, col = grays[22] , lwd = segmentlinewidth, lty = 2)
+segments(7, 0, 7, -12, col = grays[22] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
 text(5.8, -9, expression("Pareto-efficient"), cex = labelsize)
@@ -178,56 +191,55 @@ Arrows(4.7, -9, 4.2, -9, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 # text(4, 9.6, expression(paste("Price line")))
 # text(4, 9.2, expression(slope == -p[n] ))
 # Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-# 
 
 #Label the indifference curves for A
-text(0.25, -7.9, expression(u[1]^A), cex = labelsize)
-text(0.25, -5.6, expression(u[2]^A), cex = labelsize)
-text(0.25, -3.4, expression(u[3]^A), cex = labelsize)
-#text(0.25, -1.1, expression(u[4]^A), cex = labelsize)
-#text(0.25, 1.1, expression(u[5]^A), cex = labelsize)
+text(1.6, -10, expression(u[1]^A == u[b]^A), cex = labelsize)
+# text(0.25, -5.6, expression(u[2]^A), cex = labelsize)
+# text(0.25, -3.4, expression(u[3]^A), cex = labelsize)
+text(1.25, -3.1, expression(u[4]^A), cex = labelsize)
+text(1.6, -0.9, expression(u[5]^A == u[a]^A), cex = labelsize)
 
 #Label the indifference curves for B
-#text(7.55, 9.8, expression(u[3]^B), cex = labelsize)
-#text(7.55, 3.1, expression(u[4]^B), cex = labelsize)
-text(7.55, 0.85, expression(u[5]^B), cex = labelsize)
-text(7.55, -1.35, expression(u[6]^B), cex = labelsize)
-text(7.55, -3.65, expression(u[7]^B), cex = labelsize)
+text(5.6, 9.6, expression(u[3]^B == u[a]^B), cex = labelsize)
+text(5.3, 0.8, expression(u[4]^B), cex = labelsize)
+text(5.6, -1.6, expression(u[5]^B == u[b]^B), cex = labelsize)
+# text(7.55, -1.35, expression(u[6]^B), cex = labelsize)
+# text(7.55, -3.65, expression(u[7]^B), cex = labelsize)
 
 
 
-#Initial assignment of rights at b
-segments(7, -12, 7, 0, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 points(7, 0, pch = 16, col = "black", cex = 1.5)
 text(6.9, 0.75, expression(b), cex = labelsize)
 
-# points(4, 0, pch = 16, col = "black", cex = 1.5)
-# text(3.9, 0.5, expression(i), cex = labelsize)
+points(4, 0, pch = 16, col = "black", cex = 1.5)
+text(3.9, 0.5, expression(i), cex = labelsize)
 
 
 #Label point i. 
-points(4, -2.25, pch = 16, col = "black", cex = 1.5)
-text(3.8, -1.5, expression(paste(t^A)), cex = labelsize)
+# points(4, -2.25, pch = 16, col = "black", cex = 1.5)
+# text(3.9, -1.5, expression(paste(f)), cex = labelsize)
 
-
-points(4, -4.5, pch = 16, col = "black", cex = 1.5)
-text(4.2, -5, expression(paste(v)), cex = labelsize)
+# points(4, -4.5, pch = 16, col = "black", cex = 1.5)
+# text(4.2, -5, expression(paste(n)), cex = labelsize)
 # 
 
-points(4, -6.75, pch = 16, col = "black", cex = 1.5)
-text(4.2, -7.5, expression(paste(t^B)), cex = labelsize)
+# points(4, -6.75, pch = 16, col = "black", cex = 1.5)
+# text(4.2, -7.5, expression(paste(g)), cex = labelsize)
 
 
-brackets(x1 = -0.55, y1 = -4.5, x2 = -0.55, y2 = 0,  
-         ticks = 0.5, curvature = 0.5, type = 1, h = 0.25,
-         col = "black", lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+# brackets(x1 = -0.55, y1 = -4.5, x2 = -0.55, y2 = 0,  
+#          ticks = 0.5, curvature = 0.5, type = 1, h = 0.25,
+#          col = "black", lwd = segmentlinewidth, lty = 1, xpd = TRUE)
 #text(6.6, -1, expression(paste("Quantity of the good, x")), xpd = TRUE)
 #text(6.6, -1.4, expression(paste("A sells to B")), xpd = TRUE)
 
 
+#Initial Allocations
+# segments(8.48, 0, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+# segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-# points(x = 1, y = 0, pch = 16, col = "black", cex = 1.5)
-# text(0.9, 0.75, expression(paste(z*minute)), cex = labelsize)
+points(x = 1, y = 0, pch = 16, col = "black", cex = 1.5)
+text(0.9, 0.75, expression(paste(a)), cex = labelsize)
 
 
 
@@ -236,8 +248,8 @@ brackets(x1 = -0.55, y1 = -4.5, x2 = -0.55, y2 = 0,
 # brackets(x1 = 8.5, y1 = -0.3, x2 = 5, y2 = -0.3,  
 #          ticks = 0.5, curvature = 0.5, type = 1, 
 #          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(-1.35, -2.25, expression(paste("Payment")), xpd = TRUE, srt = 90, cex = labelsize)
-text(-1, -2.5, expression(paste("from A to B")), xpd = TRUE, srt = 90, cex = labelsize)
+# text(-1.35, -2.25, expression(paste("Payment")), xpd = TRUE, srt = 90, cex = labelsize)
+# text(-1, -2.5, expression(paste("from A to B")), xpd = TRUE, srt = 90, cex = labelsize)
 
 Arrows(5, -15, 7, -15,
        col = "black", lty = 1, lwd = 2, 
@@ -247,9 +259,9 @@ Arrows(5, -15, 7, -15,
 # text(6, -15, expression(paste("Later")), 
 #      xpd = TRUE, cex = axislabelsize )
 
-# text(-0.5, -13.75, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
+# text(-0.25, -13.5, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 # text(8.75, 12.5, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
-# 
+
 
 dev.off()
 

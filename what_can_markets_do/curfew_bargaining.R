@@ -54,11 +54,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph; y axes on both sides
 
-ticksx <- c(3, 6, 7.5, 9)
-xlabels <- c(expression(paste(T^A == 9*p*m)), expression(paste(T^i == 12*a*m)), expression(paste(T*minute)), expression(paste(T^B  == 3*a*m)))
-ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
+ticksx <- c(3, 4.5, 6,  9)
+xlabels <- c(expression(paste(T^A == 9*p*m)), expression(paste(T^j == 10:30*p*m)), expression(paste(T^i == 12*a*m)), expression(paste(T^B  == 3*a*m)))
+ticksy <- c(0,  MUb(4.5, beta = 1/4), ylims[2])
+ylabels <- c(NA, expression(paste(-u[T]^A == u[T]^B)),  NA)
 
-ylabels <- c(NA, expression(paste(-u[T]^A*(T*minute))), expression(paste(-u[T]^A == u[T]^B)), expression(paste(u[T]^B*(T*minute))), NA)
 ticksy2 <- c(ylims[1], ylims[2])
 ylabels2 <- seq(from = 0, to = ylims[2], by = 10)
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -106,6 +106,8 @@ lines(xx1, MUb(xx1, beta = 1/4), col = COLB[4], lwd = segmentlinewidth, lty = 1)
 # points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
 
 text(4.5, MUb(4.5, beta = 1/4)  + 0.2, expression(paste(j)), cex = labelsize)
+segments(4.5, MUb(4.5, beta = 1/4), 0, MUb(4.5, beta = 1/4), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, MUb(4.5, beta = 1/4), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
 
 
@@ -117,10 +119,10 @@ points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
 #text(-2, 33, expression(paste(-u[x]^B*(x*minute))),  xpd = TRUE, cex = labelsize)
 #text(-2, 7, expression(paste(u[x]^A*(x*minute))),  xpd = TRUE, cex = labelsize)
 
-text(4, 4, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
-text(4, 3.5, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
+text(7.75, 2, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
+text(7.75, 1.5, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
 #text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
-text(3.8, 3, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
+text(7.75, 1, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
 
 
 text(7.75, 5.5, expression(paste("-A's marginal disutility ")),  xpd = TRUE, cex = labelsize)

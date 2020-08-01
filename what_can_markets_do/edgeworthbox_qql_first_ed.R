@@ -17,7 +17,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(6, 4, 4, 6))
+par(mar =  c(6, 4, 4, 7))
 
 uA <- function(x, y, rmax = 2, xmax = 12) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -47,8 +47,8 @@ ylims <- c(0, 10)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(11.9, 14)
-b <- c(11.9, 14)
+a <- c(11.9, 13.97)
+b <- c(11.9, 13.97)
 
 #Use the same x and ylims as previously, but with locations switched
 xlims2 <- c(10, 0)
@@ -66,11 +66,18 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 #Set up axes at sides 3 and 4 (top and right)
-axis(side = 3, at = ticksx, pos = 0, labels = NA)
-axis(side = 4, at = ticksy, pos = 0, labels = NA, las = 0)
+ticksy2 <- c(seq(from = 0, to = 5, by = 1), 5.6, seq(from = 6, to = 8, by = 1), 9.12, 10)
+ylabels2 <- c(0, rep(NA, 5), 5.6, rep(NA, 3), 9.1, 10)
+ticksx2 <- seq(from = 0, to = 10, by = 1)
+xlabels2 <- c(0, rep(NA, 9), 10)
+axis(3, at = ticksx2, pos = 0, labels = xlabels2, cex.axis = labelsize)
+axis(4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
+
+# axis(side = 3, at = ticksx, pos = 0, labels = NA)
+# axis(side = 4, at = ticksy, pos = 0, labels = NA, las = 0)
 text(5, -1, expression(paste("B's Good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.12*ylims[2], expression(paste("B's Money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-1.5, 0.12*ylims[2], expression(paste("B's Money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 xpoly1 <- seq(from = 1.48, to = 8.52, length.out = 500)
 ypoly1 <- indiffA(xpoly1)
@@ -79,7 +86,7 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 
 
 #Add arrows:
-arrows(-0.8, 3.5, -0.8, 5.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-1.4, 3.2, -1.4, 5.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 arrows(6.5, -1, 9, -1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 par(new = TRUE)
@@ -103,11 +110,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- seq(from = 0, to = 10, by = 1)
-ylabels <- seq(from = 0, to = 10, by = 1)
-ticksx <- seq(from = 0, to = 10, by = 1)
-xlabels <- seq(from = 0, to = 10, by = 1)
-axis(1, at = ticksx, pos = 0, labels = NA)
-axis(2, at = ticksy, pos = 0, labels = NA, las = 0)
+ylabels <- c(0, rep(NA, 9), 10)
+ticksx <- c(seq(from = 0, to = 8, by = 1), 8.48, 9, 10)
+xlabels <- c(0, rep(NA, 4), 5, NA, NA, NA, 8.5, NA, 10)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 
 #Pareto-improving lens
 xpoly1 <- seq(from = 1.475, to = 8.6, length.out = 600)
@@ -136,8 +143,8 @@ text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, c
 
 
 #Add arrows:
-arrows(-0.6, 7, -0.6, 9.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(3, -1.2, 4.5, -1.2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(-0.5, 6.5, -0.5, 9.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+arrows(2.9, -1.25, 4.5, -1.25, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -160,14 +167,16 @@ segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
-text(8.25, 8.8, expression("Pareto-efficient"), cex = annotatesize)
-text(8.25, 8.3, expression("curve"), cex = annotatesize)
-Arrows(6.8, 8.8, 5.2, 8.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(3.65, 1.8, expression("Pareto-efficient"), cex = annotatesize)
+text(3.65, 1.3, expression("curve"), cex = annotatesize)
+# text(8.25, 8.8, expression("Pareto-efficient"), cex = annotatesize)
+# text(8.25, 8.3, expression("curve"), cex = annotatesize)
+#Arrows(6.8, 8.8, 5.2, 8.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the walrasian P
 text(4, 9.6, expression(paste("Price line")), cex = annotatesize)
 text(4, 9.2, expression(slope == -p^N), cex = annotatesize)
-Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(4, 9, 4, 5.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 
@@ -177,7 +186,7 @@ Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 #Label point i. 
 points(5, 3.95, pch = 16, col = "black", cex = 1.5)
-text(4.8, 3.8, expression(paste(f)), cex = annotatesize)
+text(4.75, 3.7, expression(paste(t^B)), cex = annotatesize)
 
 segments(5, 4.4, 10, 4.4, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 points(5, 4.4, pch = 16, col = "black", cex = 1.5)
@@ -185,11 +194,11 @@ text(5.2, 4.6, expression(paste(n)), cex = annotatesize)
 
 
 points(5, 6.05, pch = 16, col = "black", cex = 1.5)
-text(4.8, 5.9, expression(paste(g)), cex = annotatesize)
+text(5.2, 6.3, expression(paste(t^A)), cex = annotatesize)
 
 #Initial Allocations
-segments(8.48, 0, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-segments(10, 0.88, 8.48, 0.88, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(8.48, 0, 8.48, 0.88, col = grays[20] , lwd = segmentlinewidth, lty = 2)
+segments(10, 0.88, 8.48, 0.88, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 
 points(x = 8.48, y = 0.92, pch = 16, col = "black", cex = 1.5)
 text(8.3, 0.8, expression(paste(z)), cex = annotatesize)
@@ -208,17 +217,17 @@ text(1, 6.8, expression(u[2]^B), cex = annotatesize)
 
 
 #Braces for labels
-brackets(x1 = 8.5, y1 = -0.3, x2 = 5, y2 = -0.3,  
+brackets(x1 = 8.5, y1 = -0.8, x2 = 5, y2 = -0.8,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(6.8, -1.2, expression(paste("Quantity of the good, x")), xpd = TRUE, cex = annotatesize)
-text(6.8, -1.7, expression(paste("A sells to B")), xpd = TRUE, cex = annotatesize)
+text(6.8, -1.6, expression(paste("Quantity of the good, x")), xpd = TRUE, cex = annotatesize)
+text(6.8, -2.1, expression(paste("A sells to B")), xpd = TRUE, cex = annotatesize)
 
-brackets(x1 = 10.2, y1 = 4.4, x2 = 10.2, y2 = 0.9,  
+brackets(x1 = 10.8, y1 = 4.4, x2 = 10.8, y2 = 0.9,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(11.2, 2.9, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270, cex = annotatesize)
-text(10.9, 2.9, expression(paste("B pays A")), xpd = TRUE, srt = 270, cex = annotatesize)
+text(11.8, 2.9, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270, cex = annotatesize)
+text(11.4, 2.9, expression(paste("B pays A")), xpd = TRUE, srt = 270, cex = annotatesize)
 
 text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])

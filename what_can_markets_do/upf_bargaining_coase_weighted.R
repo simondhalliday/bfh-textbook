@@ -15,9 +15,9 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(5, 5, 4, 2))
-xlims <- c(-30, 12)
-ylims <- c(-18, 24)
+par(mar =  c(1, 3, 2, 2))
+xlims <- c(-24, 8)
+ylims <- c(-12, 20)
 
 upf <- function(uA, intercept = -9, slope = 1){
   intercept - slope*uA
@@ -58,8 +58,8 @@ xlabels <- c(NA, -18, -13.5, -9, -4.5, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 #Axis labels
-text(xlims[1] - 1, -2, expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
-text(2, ylims[2] - 2, expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(xlims[1] + 1, -2, expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
+text(1.5, ylims[2] - 3, expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Label 2.25 and 4.5
@@ -81,45 +81,50 @@ lines(xx3, upf(xx3), col = COLA[4], lwd = segmentlinewidth, lty = 2)
 
 
 #Lines for the coordinates of the Nash equilbrium
-text(-15.8, -7, expression(paste("Economic rents, or")), cex = labelsize)
-text(-15.8, -9, expression(paste("bargaining set")), cex = labelsize)
-Arrows(-15.8, -6, -15.8, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(-15.8, -7, expression(paste("Economic rents, or")), cex = labelsize)
+# text(-15.8, -9, expression(paste("Bargaining set")), cex = labelsize)
+# Arrows(-15.8, -6, -15.8, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Label the UPF
-text(-9, 18, expression(paste("Utility possibilities frontier, or")), cex = labelsize)
-text(-9, 16, expression(paste("bargaining frontier")), cex = labelsize)
-Arrows(-10, 15, -10, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+#text(-9, 18, expression(paste("Utility possibilities frontier, or")), cex = labelsize)
+#text(-9, 16, expression(paste("bargaining frontier")), cex = labelsize)
+text(-10, 12.5, expression(paste("Utility possibilities")), cex = labelsize)
+text(-10, 11, expression(paste("frontier (upf)")), cex = labelsize)
+
+Arrows(-11, 10, -11, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Lines for Fallback positions
-segments(-18, 0, -18, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
-text(-21.5, 4, expression(paste("A's fallback")), cex = labelsize)
-text(-21, 1.55, expression(paste(u[z]^A == -18)), cex = labelsize)
+segments(-18, 0, -18, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
+text(-21.8, 20.2, expression(paste("A's participation")), cex = labelsize, xpd = TRUE)
+text(-21.8, 19, expression(paste("constraint")), cex = labelsize, xpd = TRUE)
+text(-21.8, 17.5, expression(paste(u[b]^A == -18)), cex = labelsize, xpd = TRUE)
 
-text(8, 5, expression(paste("B's fallback")), cex = labelsize)
-text(8, 2, expression(paste(u[z]^B == 0)), cex = labelsize)
+text(5, 4.3, expression(paste("B's participation")), cex = labelsize, xpd = TRUE)
+text(5, 3, expression(paste("constraint")), cex = labelsize, xpd = TRUE)
+text(5, 1.2, expression(paste(u[b]^B == 0)), cex = labelsize, xpd = TRUE)
 
 #Add points
 
 points(0, -9, pch = 16, col = "black", cex = 1.5)
-text(0.65, -7.6, expression(paste(z*minute)), cex = labelsize)
+text(0.65, -8.5, expression(paste(a)), cex = labelsize)
 
 
 points(-9, 0, pch = 16, col = "black", cex = 1.5)
-text(-8.5, 1, expression(paste(f)), cex = labelsize)
+text(-8.5, 1, expression(paste(t^A)), cex = labelsize)
 
 points(-18, 9, pch = 16, col = "black", cex = 1.5)
-text(-17, 10, expression(paste(g)), cex = labelsize)
+text(-17.2, 9.8, expression(paste(t^B)), cex = labelsize)
 
 points(-13.5, 4.5, pch = 16, col = "black", cex = 1.5)
-text(-12.8, 5.7, expression(paste(n)), cex = labelsize)
+text(-13, 5.2, expression(paste(v)), cex = labelsize)
 
 points(-18, 0, pch = 16, col = "black", cex = 1.5)
-text(-19, -1, expression(paste(z)), cex = labelsize)
+text(-17.5, 0.8, expression(paste(b)), cex = labelsize)
 
 
 
 points(-4.5, -4.5, pch = 16, col = "black", cex = 1.5)
-text(-5.5, -5.5, expression(paste(i)), cex = labelsize)
+text(-5.2, -5.2, expression(paste(i)), cex = labelsize)
 
 
 

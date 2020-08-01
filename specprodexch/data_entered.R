@@ -96,7 +96,7 @@ yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "h", "i", "j")
-text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
+text(xpts, ypts + 1.5* yadj1, ptlabels, cex = labelsize)
 
 #Axis labels
 mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
@@ -104,10 +104,12 @@ text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = 
 
 
 #Label the curves
-text(13.6, 1, expression(p[2]), cex = labelsize)
-text(10.8, 1, expression(ff[A]), cex = labelsize)
+text(13.8, 1.4, expression(paste("price")), cex = labelsize)
+text(14, 0.7, expression(paste("line")), cex = labelsize)
+text(10.6, 1.4, expression(ff[A]), cex = labelsize)
 
-text(1, 12.5, expression(p[1]), cex = labelsize)
+text(0.9, 12, expression(paste("price")), cex = labelsize)
+text(1, 11.3, expression(paste("line")), cex = labelsize)
 text(1, 6.8, expression(ff[B]), cex = labelsize)
 
 
@@ -116,7 +118,10 @@ Arrows(8.5, 0 + 2.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd 
 text(10 + 0.3, 0.3, expression(s[B]), cex = labelsize)
 points(10, 0,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
-Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(7.3, 6, 6.1, 8.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+#Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(0 + 0.3, 20, 1.5, 16.8 + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0 + 0.3, 20 + 0.3, expression(s[A]), cex = labelsize)

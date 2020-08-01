@@ -12,6 +12,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 7, 1, 1))
@@ -73,8 +75,8 @@ xx4 <- seq(5, 7, length.out = npts)
 lines(xx1, prodFn(xx1, k = 0.5), col = COLB[4], lwd = graphlinewidth)
 #lines(xx2, MprodFn(xx1, k = 0.5), col = COLA[1], lwd = graphlinewidth)
 #lines(xx1, AprodFn(xx1, k = 0.5), col = COLA[2], lwd = graphlinewidth)
-lines(xx3, Mpline(xx3, constant = prodFn(l = 2, k = 0.5) - 2*MprodFn(l = 2, k = 0.5), slope = MprodFn(l = 2, k = 0.5)), col = "gray", lty = 2, lwd = graphlinewidth)
-lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 0.5), slope = MprodFn(l = 6, k = 0.5)), col = "gray", lty = 2, lwd = graphlinewidth)
+lines(xx3, Mpline(xx3, constant = prodFn(l = 2, k = 0.5) - 2*MprodFn(l = 2, k = 0.5), slope = MprodFn(l = 2, k = 0.5)), col = grays[20], lty = 2, lwd = graphlinewidth)
+lines(xx4, Mpline(xx4, constant = prodFn(l = 6, k = 0.5) - 6*MprodFn(l = 6, k = 0.5), slope = MprodFn(l = 6, k = 0.5)), col = grays[20], lty = 2, lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
@@ -87,13 +89,13 @@ text(-1, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axisla
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-segments(0, prodFn(l = 6, k = 0.5), 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, prodFn(l = 6, k = 0.5), 6, prodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(6, prodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
-segments(0, prodFn(l = 2, k = 0.5), 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, prodFn(l = 2, k = 0.5), 2, prodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(2, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(2, prodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
@@ -154,8 +156,8 @@ Arrows(4, prodFn(l = 6, k = 0.5), 5.7, prodFn(l = 6, k = 0.5), col = "black", lt
 #         yaxs="i", 
 #         add = TRUE)
 
-# segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 6, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+# segments(6, 0, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 # points(6, 6, pch = 16, col = "black", cex = 1.5)
 
 # par(new = TRUE)

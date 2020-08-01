@@ -17,6 +17,9 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
+
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(3, 3, 1, 3))
@@ -90,16 +93,16 @@ polygon(x = c(-10, 0, 0),
         border = FALSE, col = adjustcolor(COL[3], alpha.f = 0.5))
 
 #Draw the graphs
-lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
-lines(xx2, foodProd(xx2), col = COLB[3], lwd = graphlinewidth)
-lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
+lines(xx1, ppf(xx1), col = CBCols[1], lwd = graphlinewidth)
+lines(xx2, foodProd(xx2), col = CBCols[2], lwd = graphlinewidth)
+lines(xx3, feasibleLabor(xx3, time = 10), col = CBCols[3], lwd = graphlinewidth)
 lines(xx4, manufactureProd(xx4, k =  2.529822, alpha = 0.5), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of food, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-0.75, 9.5, expression(paste("Shirts,", y)), xpd = TRUE, srt = 90, cex = labelsize) 
-text(10.1, -0.75, expression(paste("Kgs of Fish, ", x)), xpd = TRUE, cex = labelsize)
-text(0.5, -9.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = labelsize, srt= 90) 
-text(-9.5, 0.5, expression(paste("Labor for Shirts, ", l^c)), xpd = TRUE, cex = labelsize)
+text(10.1, -0.75, expression(paste("Kgs of fish, ", x)), xpd = TRUE, cex = labelsize)
+text(0.5, -9.5, expression(paste("Labor for fish, ", l^f)), xpd = TRUE, cex = labelsize, srt= 90) 
+text(-9.5, 0.5, expression(paste("Labor for shirts, ", l^s)), xpd = TRUE, cex = labelsize)
 
 #Label the points on the axes we want
 #text(-0.6, 2.8, expression(paste(12.5)), xpd = TRUE, cex = axislabelsize)
@@ -117,32 +120,32 @@ text(2.65, 2.2, expression("output"),cex = labelsize)
 
 #Label the two production functions
 #Clothing
-text(-8.5, 5.8, expression(paste("Shirt Production")), xpd = TRUE, cex = labelsize)
+text(-8.5, 5.8, expression(paste("Shirt production")), xpd = TRUE, cex = labelsize)
 text(-8.7, 4.7, expression(paste(y == 2.53*(l^s)^frac(1,2))), xpd = TRUE, cex = labelsize)
 Arrows(-6.5, 4.5, -4, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #food
-text(10, -3, expression(paste("Fish Production")), xpd = TRUE, cex = labelsize)
+text(10, -3, expression(paste("Fish production")), xpd = TRUE, cex = labelsize)
 text(10, -3.8, expression(paste(x == 2.53*(l^f)^frac(1,2))), xpd = TRUE, cex = labelsize)
 Arrows(8, -3.8, 5.5, -3.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Draw segments for the 50/50 split of time
-segments(-5, -5, -5, manufactureProd(-5), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(-5, -5, manufactureProd(-5), -5, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(-5, manufactureProd(-5), manufactureProd(-5), manufactureProd(-5), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(manufactureProd(-5), -5, manufactureProd(-5), manufactureProd(-5), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(-5, -5, -5, manufactureProd(-5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(-5, -5, manufactureProd(-5), -5, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(-5, manufactureProd(-5), manufactureProd(-5), manufactureProd(-5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(manufactureProd(-5), -5, manufactureProd(-5), manufactureProd(-5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 #Annotate Max time on clothes
-segments(-10, 0, -10, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(-10, 8, 0, 8, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(-10, 0, -10, 8, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(-10, 8, 0, 8, lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(-7.3, 9.5, expression(paste("10 hrs of labor")), cex = labelsize)
 text(-7.3, 8.9, expression(paste("for shirts produces")),cex = labelsize)
 text(-7.3, 8.3, expression(paste("8 shirts")), cex = labelsize)
 points(-10, 8, pch = 16, col = "black", cex = 1.5)
 
 #Annotate Max time on farming
-segments(0, -10, 8, -10, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(8, -10, 8, 0, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0, -10, 8, -10, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(8, -10, 8, 0, lty = 2, col = grays[20], lwd = segmentlinewidth)
 text(5.2, -10.4, expression(paste("10 hrs of labor")), xpd= TRUE, cex = labelsize)
 text(5, -11.1, expression(paste("for fishing produces")), xpd= TRUE, cex = labelsize)
 text(5.2, -11.9, expression(paste("8 kgs of fish")),xpd= TRUE, cex = labelsize)
@@ -155,9 +158,9 @@ points(manufactureProd(-5), manufactureProd(-5), pch = 16, col = "black", cex = 
 
 #Annotate point on labor feasibility frontier
 points(-5, -5, pch = 16, col = "black", cex = 1.5)
-text(-7, -5, expression(paste(list(l^c ==5, l^f == 5))), cex = labelsize)
+text(-7, -5, expression(paste(list(l^s ==5, l^f == 5))), cex = labelsize)
 
-text(-3, -9, expression(paste(l^c + l^f <= 10)), cex = labelsize)
+text(-3, -9, expression(paste(l^s + l^f <= 10)), cex = labelsize)
 Arrows(-3, -8.5, -3, -7.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(-3, -9.8, expression("Constraint"),cex = labelsize)
 text(-3, -10.5, expression("on total"),cex = labelsize, xpd = TRUE)
@@ -166,7 +169,7 @@ text(-3, -11.2, expression("labor hours"),cex = labelsize, xpd = TRUE)
 
 
 #Label the feasible frontier
-text(5.5, 8, expression("Feasible Frontier"),cex = labelsize)
+text(5.5, 8, expression("Feasible frontier"),cex = labelsize)
 #text(5.5, 8.4, expression("(production possibilities frontier)"),cex = labelsize)
 
 # Label constraint 

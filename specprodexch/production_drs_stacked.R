@@ -81,19 +81,19 @@ text(-1.5, 0.75, expression(paste("Total product, ", x)), xpd = TRUE, cex = axis
 #text(7.3, 2.5, expression("Curve"))
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-segments(0, prodFn(l = 6, k = 0.5), 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, -2, 6, prodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, prodFn(l = 6, k = 0.5), 6, prodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6, -2, 6, prodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 6, prodFn(l = 6, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(6, prodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
-segments(0, prodFn(l = 4, k = 0.5), 4, prodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, -2, 4, prodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, prodFn(l = 4, k = 0.5), 4, prodFn(l = 4, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, -2, 4, prodFn(l = 4, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 4, prodFn(l = 4, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(4, prodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
 
-segments(0, prodFn(l = 2, k = 0.5), 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, -2, 2, prodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, prodFn(l = 2, k = 0.5), 2, prodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(2, -2, 2, prodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, 0, 2, prodFn(l = 2, k = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 points(2, prodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.5)
 
@@ -185,22 +185,22 @@ text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(a
 
 
 #Margin
-segments(6, 0, 6, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, MprodFn(l = 6, k = 0.5), 6, MprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 6, k = 0.5), 6, AprodFn(l = 6, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6, 0, 6, ylims[2]+1, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 6, k = 0.5), 6, MprodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 6, k = 0.5), 6, AprodFn(l = 6, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(6, MprodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(6, AprodFn(l = 6, k = 0.5), pch = 16, col = "black", cex = 1.2)
 
-segments(4, 0, 4, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, MprodFn(l = 4, k = 0.5), 4, MprodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 4, k = 0.5), 4, AprodFn(l = 4, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(4, 0, 4, ylims[2]+1, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 4, k = 0.5), 4, MprodFn(l = 4, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 4, k = 0.5), 4, AprodFn(l = 4, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(4, MprodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(4, AprodFn(l = 4, k = 0.5), pch = 16, col = "black", cex = 1.2)
 
 
-segments(2, 0, 2, ylims[2]+1, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, MprodFn(l = 2, k = 0.5), 2, MprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 2, k = 0.5), 2, AprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2, 0, 2, ylims[2]+1, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, MprodFn(l = 2, k = 0.5), 2, MprodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 2, k = 0.5), 2, AprodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(2, MprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(2, AprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 

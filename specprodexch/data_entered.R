@@ -78,7 +78,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Draw the graphs
 lines(xx1, ffA(xx1), col = CBCols[1], lwd = graphlinewidth)
 lines(xx1, ffB(xx1), col =CBCols[1], lwd = graphlinewidth)
-lines(xx1, exchange(xx1), lty = 2, col = grays[20], lwd = segmentlinewidth)
+lines(xx1, exchange(xx1), lty = 2, col = CBCols[3], lwd = graphlinewidth)
 lines(xx1, priceA(xx1), col = CBCols[2], lwd = graphlinewidth)
 lines(xx1, priceB(xx1), col = CBCols[2], lwd = graphlinewidth)
 

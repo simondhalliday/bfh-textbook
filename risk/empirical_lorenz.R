@@ -42,7 +42,7 @@ Lorenz1 <-
   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative population proportion") + 
+  xlab("Cumulative population, (%)") + 
   ylab("Cumulative income") +
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +

@@ -10,7 +10,7 @@ ylims <- c(0, 8)
 PlayerSize <- 3
 StratSize <- 2.3
 PayoffSize <- 3
-LabelSize <- 2
+LabelSize <- 2.5
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 

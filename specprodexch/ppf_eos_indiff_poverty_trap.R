@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -79,19 +81,19 @@ ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col = COLA[1], density = NULL, border = NA)
 
 #Draw the graphs
-lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = COLA[5], lwd = graphlinewidth)
-lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd = graphlinewidth)
-lines(xx2, budgetExchange(xx2,  yintercept = 7.5, slope = 1.5), col = COL[3], lwd = graphlinewidth)
+lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = CBCols[3], lwd = graphlinewidth)
+lines(xx2, budgetExchange(xx2,  yintercept = 7.5, slope = 1.5), col = CBCols[3], lwd = graphlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Kilograms of fish, ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-0.5, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y, 
         outer(x, y, uFn),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -99,8 +101,8 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-text(7.2, 2.55, expression(u^S), cex = labelsize)
-text(7.2, 1.55, expression(u[2]^F), cex = labelsize)
+text(7.2, 2.6, expression(u^S), cex = labelsize)
+text(7.2, 1.6, expression(u[2]^F), cex = labelsize)
 text(7.2, 0.75, expression(u[1]^F), cex = labelsize)
 
 #Label points A and B
@@ -112,13 +114,19 @@ text(2.7, 3.95, expression(b), cex = labelsize)
 points(1.7, ppf(1.7), pch = 16, col = "black", cex = 1.5)
 text(1.7 - 0.2, ppf(1.7) - 0.2, expression(c), cex = labelsize)
 
+points(0, ppf(0), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(0 + 0.1, ppf(0) + 0.2, expression(s), cex = labelsize)
+
+points(5, 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(5 + 0.1, 0 + 0.2, expression(f), cex = labelsize)
+
 #Label the feasible frontier
-text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize )
+text(4.5, 7.8, expression("Feasible frontier"), cex = labelsize )
 text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
 Arrows(3.1, 7.7, 0.75, 7.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 # Label feasible outputs
-text(1, 0.5, expression("Feasible Outputs"), cex = labelsize )
+text(1, 0.5, expression("Feasible outputs"), cex = labelsize )
 
 #Label the exchange constraints
 text(4.3, 9.7, expression("Price line when"), cex = labelsize)

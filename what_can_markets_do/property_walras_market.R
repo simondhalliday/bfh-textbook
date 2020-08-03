@@ -137,8 +137,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
-arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-1.1, 10.5, -1.1, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 
@@ -160,9 +160,19 @@ text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
 text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
 # Walrasian Price Line
-text(8.3, 7.8, expression(paste("Walrasian Price Line")), cex = labelsize)
-text(8.3, 7, expression(paste("Slope", phantom() == -p^N)), cex = labelsize)
-Arrows(8.5, 6.5, 8.5, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(8.3, 8.6, expression(paste("Market-clearing")), cex = labelsize)
+text(8.3, 7.8, expression(paste("price line")), cex = labelsize)
+text(8.3, 7, expression(paste("slope", phantom() == -p^N)), cex = labelsize)
+Arrows(8.5, 6.5, 8.5, 2.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+text(1.5, 3.4, expression(paste("Better")), cex = labelsize)
+text(1.5, 2.8, expression(paste("for B")), cex = labelsize)
+Arrows(3, 4, 1, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(8.5, 15-2.8, expression(paste("Better")), cex = labelsize)
+text(8.5, 15-3.4, expression(paste("for A")), cex = labelsize)
+Arrows(10-3, 15-4, 9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 # #Add a point for the initial endowment
@@ -199,8 +209,8 @@ text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = a
 text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.9, 11, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {

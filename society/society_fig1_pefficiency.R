@@ -1,14 +1,19 @@
 require(shape)
-pdf(file = "society/society_fig1_pefficiency.pdf", width = 7, height = 7)
+pdf(file = "society/society_fig1_pefficiency.pdf", width = 9, height = 7)
+#SDH: I changed these proportions to 9 by 7 for proprtionality to the figure its adjacent to
 
 #Set parameters for graphics
-axislabelsize <- 1.5
-par(mar =  c(5, 5, 2, 2))
+axislabelsize <- 2
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.8
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+
+par(mar =  c(4, 4, 0.5, 0.5))
 xlims <- c(0, 6)
 ylims <- c(0, 6)
-labelsize <- 1.8
-pointsize <- 1
-  
+
 ticksy <- c(ylims[1], 1, 2, 3, 4, 5, ylims[2])
 ylabels <- c(ylims[1], 1, 2, 3, 4, 5, ylims[2])
 ticksx <- c(xlims[1], 1, 2, 3, 4, 5, xlims[2])
@@ -18,15 +23,15 @@ xlabels <- c(xlims[1], 1, 2, 3, 4, 5, xlims[2])
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
      ylab = expression(paste("")),
-     xaxt = "n", yaxt = "n", cex.lab = axislabelsize, bty = "n")
+     xaxt = "n", yaxt = "n", cex.lab = labelsize, bty = "n")
 
 #Customize ticks and labels for the plot
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
-mtext(expression(paste("Alfredo's payoffs, ", u^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-0.6, 0.5*ylims[2], expression(paste("Bob's payoffs, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Alfredo's payoffs")), side=1, line = 2.5, cex = axislabelsize)
+text(-0.6, 0.5*ylims[2], expression(paste("Bob's payoffs")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Lines for the coordinates of the Nash equilbrium
@@ -57,13 +62,13 @@ polygon(x33, y33, col=rgb(0, 0, 1, 0.5), density=NULL, border = NA)
 
 #Add points a, b, c and c
 points(1, 4, pch = 16, col = "black", cex = pointsize)
-text(0.9, 3.9, expression(paste("d")))
+text(0.85, 3.9, expression(paste(d)), cex = annotatesize)
 points(3, 3, pch = 16, col = "black", cex = pointsize)
-text(2.9, 2.9, expression(paste("c")))
+text(2.85, 2.9, expression(paste(c)), cex = annotatesize)
 points(4, 1, pch = 16, col = "black", cex = pointsize)
-text(3.9, 0.9, expression(paste("b")))
+text(3.85, 0.9, expression(paste(b)), cex = annotatesize)
 points(2, 2, pch = 16, col = "black", cex = pointsize)
-text(1.9, 1.9, expression(paste("a")))
+text(1.85, 1.9, expression(paste(a)), cex = annotatesize)
 #text(1.5, 1.8, expression(paste("Nash equilibrium")))
 
 #90 degree angle indicators -TEST

@@ -83,23 +83,23 @@ points(9, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
 
 text(5, 9.3, expression(paste("Aisha")), cex = labelsize)
 
-text(3.2, 7.5, expression(paste("Speak")), cex = actionlabelsize)
+text(3.2, 7.5, expression(paste("Stick to")), cex = actionlabelsize)
 text(3.2, 7.1, expression(paste("Swahili")), cex = actionlabelsize)
-text(6.8, 7.5, expression(paste("Speak")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(6.8, 7.5, expression(paste("Improve")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 text(6.8, 7.1, expression(paste("English")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 
 text(2, 5, expression(paste("Ben")), cex = labelsize)
-text(1.2, 3.5, expression(paste("Speak")), cex = actionlabelsize)
+text(1.2, 3.5, expression(paste("Improve")), cex = actionlabelsize)
 text(1.2, 3.1, expression(paste("Swahili")), cex = actionlabelsize)
-text(4, 3.5, expression(paste("Speak")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(4, 3.5, expression(paste("Stick to")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 text(4, 3.1, expression(paste("English")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 
 text(8, 5, expression(paste("Ben")), cex = labelsize, col = rgb(0,0,0,fadelevel))
-text(6, 3.5, expression(paste("Speak")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(6, 3.5, expression(paste("Improve")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 text(6, 3.1, expression(paste("Swahili")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(8.8, 3.5, expression(paste("Speak")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(8.8, 3.5, expression(paste("Stick to")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 text(8.8, 3.1, expression(paste("English")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 #Payoffs 

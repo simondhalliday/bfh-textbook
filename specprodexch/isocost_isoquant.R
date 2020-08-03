@@ -13,6 +13,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -50,9 +52,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, isoquant(l = 2.68), isoquant(l = 5), isoquant(l = 9.35) , ylims[2])
-ylabels <- c(NA, expression(paste(k[a])), expression(paste(k,"*")), expression(paste(k[b])), NA)
+ylabels <- c(NA, expression(paste(k[a])), expression(paste(k[b])), expression(paste(k[d])), NA)
 ticksx <- c(0, 2.68, 5, 9.35, xlims[2])
-xlabels <- c(NA, expression(paste(l[a])), expression(paste(l,"*")), expression(paste(l[b])), NA)
+xlabels <- c(NA, expression(paste(l[a])), expression(paste(l[b])), expression(paste(l[d])), NA)
 
 
 
@@ -64,10 +66,10 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, isocost(xx1, c = 10, w = 1, r = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, isocost(xx1, c = 8, w = 1, r = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, isocost(xx1, c = 12, w = 1, r = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, isoquant(xx1, x = 5, alpha = 0.5), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, c = 10, w = 1, r = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, c = 8, w = 1, r = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, c = 12, w = 1, r = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, isoquant(xx1, x = 5, alpha = 0.5), col = CBCols[1], lwd = graphlinewidth)
 
 
 #Label the axes
@@ -105,23 +107,23 @@ text(10.75, 1, expression(paste(c[3])),cex = labelsize)
 #Where mrs = 2 - (1/6)*x
 
 #Label a
-segments(2.68, 0, 2.68, isoquant(l = 2.68), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, isoquant(l = 2.68) , 2.68, isoquant(l = 2.68), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2.68, 0, 2.68, isoquant(l = 2.68), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, isoquant(l = 2.68) , 2.68, isoquant(l = 2.68), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(2.68, isoquant(l = 2.68), pch = 16, col = "black", cex = 1.5)
 text(2.68 + 0.25, isoquant(l = 2.68) + 0.25, expression(paste(a)), cex = labelsize)
 
 #Label b
-segments(9.35, 0, 9.35, isoquant(9.35), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, isoquant(l = 9.35) , 9.35, isoquant(l = 9.35), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(9.35, 0, 9.35, isoquant(9.35), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, isoquant(l = 9.35) , 9.35, isoquant(l = 9.35), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(9.35, isoquant(l = 9.35), pch = 16, col = "black", cex = 1.5)
-text(9.35 + 0.25, isoquant(l = 9.35) + 0.25, expression(paste(b)), cex = labelsize)
+text(9.35 + 0.25, isoquant(l = 9.35) + 0.25, expression(paste(d)), cex = labelsize)
 
 
 #Label i
-segments(0, 5, 5, 5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(5, 0, 5, 5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 5, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(5, 0, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(5, 5, pch = 16, col = "black", cex = 1.5)
-text(5.25, 5.25, expression(paste(i)), cex = labelsize)
+text(5.25, 5.25, expression(paste(b)), cex = labelsize)
 
 #Add mrs = mrt at i
 text(5, 10.25, expression(paste(mrts(l,k) == mrt(l,k))), cex = labelsize)

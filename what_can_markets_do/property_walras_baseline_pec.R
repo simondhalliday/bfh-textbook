@@ -119,8 +119,16 @@ text(0.5*xlims[2], -1.3, expression(paste("A's coffee (kg), ", x^A)), xpd = TRUE
 text(-0.95, 0.5*ylims[2], expression(paste("A's data (gb), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
+
 npts <- 500 
 npts2 <- 501
+
+#I need something like xx1 with npts for 
+xpoly1 <- seq(from = 3.2, to = 5, length.out = 501)
+ypoly1 <- indiffcurveA2(xpoly1, U = uA(5, 5))
+ypoly2 <- indiffcurveBneg1(xpoly1, U = uB(5, 5))
+polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+
 
 #Specify the sequences of points for graphing. 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -148,7 +156,7 @@ lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphl
 # 
 lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
 
-lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -159,8 +167,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
-arrows(-0.8, 10.5, -0.8, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.6, -1.4, 9, -1.4, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 # #Annotation of the three graphs and the NE
@@ -168,14 +176,14 @@ text(1.05, 14.5, expression(u[h]^A), cex = labelsize)
 text(2, 14.5, expression(u[j]^A), cex = labelsize)
 
 points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
-text(2.7, 7.8, expression(h), cex = labelsize)
+text(2.65, 7.9, expression(h), cex = labelsize)
 
 points(5, 5, pch = 16, col = "black", cex = 1.5)
 text(5.2, 5.25, expression(j), cex = labelsize)
 
-text(9, 6.85, expression("Price line"), cex = labelsize)
+text(9, 6.9, expression("Price line"), cex = labelsize)
 text(9, 6.25, expression(paste("slope ", phantom() == -p[j])), cex = labelsize)
-Arrows(9.25, 5.75, 9.25, 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(9.25, 5.75, 9.25, 1.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(1, 6.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 text(1.5, 6.0, expression("B's best-response"), cex = annotatesize)
@@ -184,8 +192,8 @@ text(1.5, 5.3, expression("function (ICC)"), cex = annotatesize)
 text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
 text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
-text(8.5, 10.4, expression("Pareto-efficient"), cex = annotatesize)
-text(8.5, 9.7, expression("curve"), cex = annotatesize)
+# text(8.5, 10.4, expression("Pareto-efficient"), cex = annotatesize)
+# text(8.5, 9.7, expression("curve"), cex = annotatesize)
 
 text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
 text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
@@ -216,8 +224,8 @@ text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = a
 text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.9, 11, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7, -1.5, 9, -1.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Functions for B's indifference curves

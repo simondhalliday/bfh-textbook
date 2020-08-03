@@ -1,4 +1,4 @@
-#Graph Designer: Scott Cohn 
+#Graph Designer: Scott Cohn and Simon Halliday
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -26,19 +26,19 @@ ag_data[["lnHoursPer100Bushels"]] <- log(ag_data[["HoursPer100Bushels"]])
 
 # Plot --------------------------------------------------------------------
 
-ag_data %>% ggplot(mapping = aes(x = Year, y = lnHoursPer100Bushels)) +  
-    labs(x = "Year", y = "Log of Labor Hours Per 100 Bushels of Wheat") + 
+ag_data %>% ggplot(mapping = aes(x = Year, y = HoursPer100Bushels)) +  
+    labs(x = "Year", y = "Labor hours per 100 bushels \n of wheat (ratio scale)") + 
     geom_line(color = COLB[4]) + 
     scale_x_continuous(breaks = pretty(ag_data[["Year"]], n = 10)) +
     theme_bw() + 
-    ylim(0, 6) + 
+    scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10)) +
     theme(legend.position = "none", 
           legend.title = element_blank(), 
-          axis.title.y = element_text(size = 16, vjust = 0.5),
-          axis.title.x = element_text(size = 16, vjust = -1),
+          axis.title.y = element_text(size = 21, vjust = 0.5),
+          axis.title.x = element_text(size = 21, vjust = -0.5),
           legend.text = element_blank(),
-          axis.text.x = element_text(size = 12),
-          axis.text.y = element_text(size = 12),
+          axis.text.x = element_text(size = 15),
+          axis.text.y = element_text(size = 15),
           panel.grid.minor.x = element_blank()
     ) 
 

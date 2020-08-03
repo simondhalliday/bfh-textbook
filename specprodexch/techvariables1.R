@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 2, 2))
@@ -43,7 +45,6 @@ plot(0, 0, xlim = xlims, ylim = ylims,
      ylab = expression(paste("")), 
      xaxt = "n", 
      yaxt = "n", 
-     cex.lab = axistitlesize, 
      bty = "n", 
      xaxs="i", 
      yaxs="i"
@@ -72,8 +73,8 @@ xx5 <- seq(7, 9, length.out = npts)
 #Draw the graphs
 lines(xx1, isoquant(xx1, alpha = 2/3, xbar = 4.22), col = "grey22", lwd = graphlinewidth)
 lines(xx1, isoquant(xx1, alpha = 1/3, xbar = 4.22), col = "grey22", lwd = graphlinewidth)
-lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 10, pl = 20), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, isocost(xx1, m = 100, pk = 20, pl = 10), col = CBCols[1], lwd = graphlinewidth)
 
 #Axis labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 3, cex = axislabelsize)
@@ -107,39 +108,39 @@ Arrows(5.5, 9.7, 3.4, 9.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 #Ray from t he origin
 #segments(0, 0, 3.1, ylims[2], lty = 2, col = "grey22" , lwd = segmentlinewidth)
 
-# segments(0, 8, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(2.9705, 0, 2.9705, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(2, 0, 2, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(4, 0, 4, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(0, 8, 2.9705, 8, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(2.9705, 0, 2.9705, 8, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+# segments(2, 0, 2, 8, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+# segments(4, 0, 4, 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 
 
 segments(0, isoquant(l = 1.8, alpha = 1/3, xbar = 4.22), 
          1.8, isoquant(l = 1.8, alpha = 1/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(1.8, 0, 
          1.8, isoquant(l = 1.8, alpha = 1/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(1.8, isoquant(l = 1.8, alpha = 1/3, xbar = 4.22), pch = 16, col = "black", cex = 1.5)
 text(1.8 + 0.3, isoquant(l = 1.8, alpha = 1/3, xbar = 4.22), expression(paste(h)), cex = labelsize)
 
 
 segments(0, isoquant(l = 2.77, alpha = 2/3, xbar = 4.22), 
          2.77, isoquant(l = 2.77, alpha = 2/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(2.77, 0, 
          2.77, isoquant(l = 2.77, alpha = 2/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(2.77, isoquant(l = 2.77, alpha = 2/3, xbar = 4.22), pch = 16, col = "black", cex = 1.5)
 text(2.77 + 0.3, isoquant(l = 2.77, alpha = 2/3, xbar = 4.22), expression(paste(i)), cex = labelsize)
 
 
 segments(0, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), 
          6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(6.66, 0, 
          6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), 
-         lty = 2, col = "gray" , lwd = segmentlinewidth)
+         lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22), pch = 16, col = "black", cex = 1.5)
 text(6.66, isoquant(l = 6.66, alpha = 2/3, xbar = 4.22) + 0.4, expression(paste(j)), cex = labelsize)
 

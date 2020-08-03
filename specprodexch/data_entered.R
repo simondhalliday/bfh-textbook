@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 ffA <- function(x, yintA = 20, sA = 20/11) {
@@ -67,6 +69,9 @@ ylabels <- c(NA, 5.16, 7.11, 8, 14.5, 20, NA)
 ticksx <- c(xlims[1], 6.45, 8.88, 10, 11, 13.78, xlims[2])
 xlabels <-  c(NA, 6.45, 8.88, 10, 11, 13.8, NA)
 
+text(10, - 0.86, "10", cex = labelsize, xpd = TRUE)
+
+
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -74,18 +79,18 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the graphs
-lines(xx1, ffA(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, ffB(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, exchange(xx1), lty = 2, col = "gray", lwd = segmentlinewidth)
-lines(xx1, priceA(xx1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, priceB(xx1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, ffA(xx1), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, ffB(xx1), col =CBCols[1], lwd = graphlinewidth)
+lines(xx1, exchange(xx1), lty = 2, col = CBCols[3], lwd = graphlinewidth)
+lines(xx1, priceA(xx1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, priceB(xx1), col = CBCols[2], lwd = graphlinewidth)
 
 
 #Segments for new points
-segments(0, 5.16, 6.45, 5.16, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(6.45, 0, 6.45, 5.16, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(0, 7.11, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
-segments(8.88, 0, 8.88, 7.11, lty = 2, col = "grey",  lwd = segmentlinewidth)
+segments(0, 5.16, 6.45, 5.16, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(6.45, 0, 6.45, 5.16, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(0, 7.11, 8.88, 7.11, lty = 2, col = grays[20],  lwd = segmentlinewidth)
+segments(8.88, 0, 8.88, 7.11, lty = 2, col = grays[20],  lwd = segmentlinewidth)
 
 
 #Label Points
@@ -96,7 +101,7 @@ yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "h", "i", "j")
-text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
+text(xpts, ypts + 1.5*yadj1, ptlabels, cex = labelsize)
 
 #Axis labels
 mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
@@ -104,22 +109,32 @@ text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = 
 
 
 #Label the curves
-text(13.6, 1, expression(p[2]), cex = labelsize)
-text(10.8, 1, expression(ff[A]), cex = labelsize)
+text(13.8, 1.4, expression(paste("price")), cex = labelsize)
+text(14, 0.7, expression(paste("line")), cex = labelsize)
+text(10.6, 1.5, expression(ff[A]), cex = labelsize)
 
-text(1, 12.5, expression(p[1]), cex = labelsize)
-text(1, 6.8, expression(ff[B]), cex = labelsize)
+text(0.9, 12, expression(paste("price")), cex = labelsize)
+text(1, 11.3, expression(paste("line")), cex = labelsize)
+text(1, 6.7, expression(ff[B]), cex = labelsize)
 
 
 Arrows(xpts[1]+1.8, ypts[1] - 1.8, 10 - 1.6, 0 + 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(8.5, 0 + 2.5, xpts[2] + 0.5, ypts[2] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(10 + 0.3, 0.3, expression(s[B]), cex = labelsize)
+text(10 + 0.4, 0.4, expression(s[B]), cex = labelsize)
 points(10, 0,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
-Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(7.3, 6, 6.1, 8.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+#Arrows(1.5, 16.8, 0 + 0.3, 20 - 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(0 + 0.3, 20, 1.5, 16.8 + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(0 + 0.3, 20 + 0.3, expression(s[A]), cex = labelsize)
-points(0, 20,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+text(0 + 0.4, 20 + 0.4, expression(s[A]), cex = labelsize)
+points(0, 20, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+
+
+text(12.4, 13.5, expression(paste("Each graph needs")), cex = labelsize)
+text(12.4, 12.7, expression(paste("1,250 keystrokes")), cex = labelsize)
+text(12.4, 11.5, expression(paste(y == frac(x, 1.25) )), cex = labelsize)
 
 dev.off()

@@ -3,10 +3,10 @@ pdf(file = "specprodexch/production_tech_marginfig.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
-axislabelsize <- 1.8
-labelsize <- 1.5
-namesize <- 1.8
-annotatesize <- 1.5
+axislabelsize <- 2.2
+labelsize <- 2.1
+namesize <- 2.1
+annotatesize <- 1.9
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
@@ -58,7 +58,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
-text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #For production technique 
@@ -68,6 +68,7 @@ segments(4, 0, 4, 6, lty = 2, col = "grey22", lwd = segmentlinewidth)
 points(4, 6, pch = 16, col = "black", cex = 1.5)
 text(5.75, 7.75, expression(paste("A production")), cex = labelsize)
 text(5.75, 6.75, expression(paste("technique, ", (list(x, l, k)))), cex = labelsize)
+text(3.75, 5.7, expression(paste(i)), cex = labelsize)
 
 
 dev.off()

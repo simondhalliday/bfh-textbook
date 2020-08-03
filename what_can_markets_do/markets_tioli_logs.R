@@ -91,9 +91,10 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], dens
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(uA(9,2) - 1.5, uA(8,2), uA(8,2) + 1)
+a <- c(uA(9,2) - 1.5, uA(8,2) + 1)
 
-a2 <- c(uAlog(9,1), uAlog(2.91,12), uAlog(10 - xbtioli(uBlog(9,1)), 15 - (3/2)*xbtioli(uBlog(9,1))))
+#a2 <- c(uAlog(9,1), uAlog(2.91,12), uAlog(10 - xbtioli(uBlog(9,1)), 15 - (3/2)*xbtioli(uBlog(9,1))))
+a2 <- c(uAlog(9,1),  uAlog(2.91,12) + 0.1, uAlog(10 - xbtioli(uBlog(9,1)), 15 - (3/2)*xbtioli(uBlog(9,1))))
 
 contour(x, y, 
         outer(x, y, uAlog),
@@ -113,7 +114,7 @@ npts2 <- 501
 #lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
+#lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 
 #lines(xx1, indifflogB(xx1), col = COLB[2], lwd = graphlinewidth)
 #lines(xx1, indiffcurveBneg2(xx1, U = uB(8,2), a = 1/3), col = COLB[2], lwd = graphlinewidth)
@@ -144,14 +145,14 @@ text(6.5, 12, expression(u[3]^A), cex = annotatesize)
 
 #Pareto efficient curve
 #segments(4.16, 6.23, 6.73, 10.1, lty = 2, lwd = 2)
-text(8.1, 14.2, expression("Pareto-efficient"), cex = annotatesize)
-text(8.1, 13.5, expression("curve"), cex = annotatesize)
+# text(8.1, 14.2, expression("Pareto-efficient"), cex = annotatesize)
+# text(8.1, 13.5, expression("curve"), cex = annotatesize)
 #Arrows(8.8, 12.7, 8.8, 10.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label Pareto Improving Lens
-text(4.75, 10.5, expression(paste("Pareto-improving")), cex = annotatesize)
-text(4.75, 10, expression(paste("lens")), cex = annotatesize)
+text(2.5, 10.5, expression(paste("Pareto-improving")), cex = annotatesize)
+text(2.5, 10, expression(paste("lens")), cex = annotatesize)
 #Arrows(4, 10.2, 4, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -198,8 +199,8 @@ uBlog2 <- function(xB, yB, alpha = 1/2){
 
 
 
-
 b <- c(uBlog2(1,14), uBlog2(3,13.4), uBlog2(10 - xatioli(uAlog(9,1)),15 - (3/2)*xatioli(uAlog(9,1))))
+b <- c(uBlog2(1,14), uBlog2(3,13.4) + 0.1, uBlog2(10 - xatioli(uAlog(9,1)),15 - (3/2)*xatioli(uAlog(9,1))))
 contour(x, y,
         outer(x, y, uBlog2),
         drawlabels = FALSE,

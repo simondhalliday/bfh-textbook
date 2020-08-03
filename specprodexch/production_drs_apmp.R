@@ -12,6 +12,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 5, 1, 1))
@@ -72,14 +74,14 @@ mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axis
 text(-1, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
-segments(8, 0, 8, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, MprodFn(l = 8, k = 0.5), 8, MprodFn(l = 8, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 8, k = 0.5), 8, AprodFn(l = 8, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(8, 0, 8, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, MprodFn(l = 8, k = 0.5), 8, MprodFn(l = 8, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 8, k = 0.5), 8, AprodFn(l = 8, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(8, MprodFn(l = 8, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(8, AprodFn(l = 8, k = 0.5), pch = 16, col = "black", cex = 1.2)
-segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, MprodFn(l = 2, k = 0.5), 2, MprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AprodFn(l = 2, k = 0.5), 2, AprodFn(l = 2, k = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2, 0, 2, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, MprodFn(l = 2, k = 0.5), 2, MprodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AprodFn(l = 2, k = 0.5), 2, AprodFn(l = 2, k = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(2, MprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(2, AprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 

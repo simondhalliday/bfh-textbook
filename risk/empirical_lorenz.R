@@ -71,11 +71,12 @@ Lorenz2 <-
         axis.title = element_text(size = 14),
         axis.text.y = element_text(size = 11),
         axis.text.x = element_text(size = 11),
-        strip.text = element_text(size=14))
+        strip.text = element_text(size=14), 
+        plot.margin = margin(0, 12, 0, 0))
 Lorenz2  
 
 
-pdf(file = "risk/inequality_nl.pdf", width = 8, height = 4)
+pdf(file = "risk/inequality_nl.pdf", width = 9, height = 4)
 Lorenz2
 dev.off()
 

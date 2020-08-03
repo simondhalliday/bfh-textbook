@@ -69,6 +69,9 @@ ylabels <- c(NA, 5.16, 7.11, 8, 14.5, 20, NA)
 ticksx <- c(xlims[1], 6.45, 8.88, 10, 11, 13.78, xlims[2])
 xlabels <-  c(NA, 6.45, 8.88, 10, 11, 13.8, NA)
 
+text(10, - 0.86, "10", cex = labelsize, xpd = TRUE)
+
+
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -98,7 +101,7 @@ yadj2 <- -0.5
 
 points(xpts, ypts, pch = 16, col = "black", cex = 1.5)
 ptlabels <- c("g", "h", "i", "j")
-text(xpts, ypts + 1.5* yadj1, ptlabels, cex = labelsize)
+text(xpts, ypts + 1.5*yadj1, ptlabels, cex = labelsize)
 
 #Axis labels
 mtext(expression(paste("Data entered ('000's), ", x)), side = 1, line = 3.5, cex = axislabelsize)
@@ -127,7 +130,7 @@ Arrows(7.3, 6, 6.1, 8.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 Arrows(0 + 0.3, 20, 1.5, 16.8 + 1.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0 + 0.4, 20 + 0.4, expression(s[A]), cex = labelsize)
-points(0, 20,pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+points(0, 20, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
 
 text(12.4, 13.5, expression(paste("Each graph needs")), cex = labelsize)

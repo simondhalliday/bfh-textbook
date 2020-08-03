@@ -72,7 +72,7 @@ Lorenz2 <-
         axis.text.y = element_text(size = 11),
         axis.text.x = element_text(size = 11),
         strip.text = element_text(size=14), 
-        plot.margin = margin(0, 12, 0, 0))
+        plot.margin = margin(1, 12, 0, 0))
 Lorenz2  
 
 

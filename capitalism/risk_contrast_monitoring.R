@@ -18,7 +18,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(4, 5, 4, 2))
+par(mar =  c(4, 6, 4, 2))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
 
@@ -70,7 +70,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 3, cex = axislabelsize)
-text(-1.7, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(y, w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2, 0.5*ylims[2], expression(paste("Expected income or the wage, ", list(hat(y), w))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 npts <- 500 

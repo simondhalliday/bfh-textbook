@@ -35,16 +35,16 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
   labs(y = "Wealth Share of the Top 1%", color = "Country") + 
   scale_y_continuous(breaks = seq(0, 0.7, by = 0.1), labels = scales::percent_format(accuracy = 1), limits = c(0,0.7)) +
   scale_x_continuous(breaks = seq(1740, 2010, by = 30)) +
-  scale_color_brewer(palette = "Set1") +
+  scale_color_brewer(palette = "Dark2") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        legend.position = c(0.88, 0.83), 
-        legend.title = element_text(size = 15), 
-        axis.title.y = element_text(size = 17, vjust = 1),
-        legend.text = element_text(size = 14),
+        #legend.position = c(0.88, 0.81), 
+        legend.title = element_text(size = 13), 
+        axis.title.y = element_text(size = 20, vjust = 1),
+        legend.text = element_text(size = 11),
         axis.text.x = element_text(size = 14, color = "black"),
         axis.text.y = element_text(size = 14, color = "black"),  
-        axis.title.x = element_text(size = 17, vjust = -1)) 
+        axis.title.x = element_text(size = 20, vjust = -1)) 
   
   
 
@@ -53,7 +53,7 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
 #Save plot to PDF
 ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf", 
        path = "capitalism",
-       width = 9, height = 7, units = "in")
+       width = 8, height = 6, units = "in")
 
 
 # dev.off()

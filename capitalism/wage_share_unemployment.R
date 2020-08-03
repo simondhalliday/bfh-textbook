@@ -76,8 +76,8 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Cumulative population proportion, ", F(n))), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.1, 0.5*ylims[2], expression(paste("Real wage")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*xlims[2], -0.1, expression(paste("Employment, ", N)), xpd = TRUE, cex = axislabelsize) 
+text(-0.1, 0.5*ylims[2], expression(paste("Wage, w")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -0.1, expression(paste("Employment, ", H)), xpd = TRUE, cex = axislabelsize) 
 
 
 
@@ -98,7 +98,7 @@ text(0.5*xlims[2], -0.1, expression(paste("Employment, ", N)), xpd = TRUE, cex =
 # Wage Curve
 
 lines(xx1, WageFn(xx1, delta = 12.92), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, WageFn(xx1, delta = 9), col = COLA[4], lty = 2, lwd = graphlinewidth)
+lines(xx1, WageFn(xx1, delta = 9), col = COLA[4], lty = 1, lwd = graphlinewidth)
 
 
 #Line of equality
@@ -124,12 +124,12 @@ text(0.87, 0.58, expression(paste(c)), cex = labelsize)
 
 text(0.2, 0.29, expression(paste("Original")), cex = labelsize)
 text(0.2, 0.25, expression(paste("wage")), cex = labelsize)
-text(0.2, 0.21, expression(paste("curve")), cex = labelsize)
+text(0.2, 0.21, expression(paste("curve, ", w[0]^N )), cex = labelsize)
 Arrows(0.4, 0.2, 0.5, 0.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 text(0.65, 0.2, expression(paste("New")), cex = labelsize)
 text(0.65, 0.16, expression(paste("wage")), cex = labelsize)
-text(0.65, 0.12, expression(paste("curve")), cex = labelsize)
+text(0.65, 0.12, expression(paste("curve, ", w[1]^N)), cex = labelsize)
 
 
 text(0.2, 0.88, expression(paste("Original")), cex = labelsize)

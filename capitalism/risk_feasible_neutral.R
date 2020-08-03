@@ -4,12 +4,12 @@
 
 library(shape)
 require(shape)
-pdf(file = "capitalism/risks_feasible_neutral.pdf", width = 10, height = 8)
+pdf(file = "capitalism/risks_feasible_neutral.pdf", width = 7, height = 5)
 
 
 #Set parameters for graphics
-axislabelsize <- 1.8
-labelsize <- 1.5
+axislabelsize <- 2
+labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -21,7 +21,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(6, 6, 4, 4))
+par(mar =  c(4, 6, 0.5, 0.5))
 
 #Indifference curves of a risk-averse homo economicus (1st graph out of the two for 4.7)
 
@@ -61,9 +61,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 #x and y limits with plain axes without ticks/numbers to match previous graph
 
 ticksx <- c(0, 20, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[C] == bar(Delta))), NA)
+xlabels <- c(NA, expression(paste(Delta[m] == bar(Delta))), NA)
 ticksy <- c(0, avgwealth(20), ylims[2])
-ylabels <- c(NA, expression(paste(y[C])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[m])), NA)
 
 
 
@@ -85,10 +85,10 @@ lines(xx1, avgwealth(xx1), col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels and draw linear utility function
 mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-5, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(29-1.5, avgwealth(29), expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
+text(29-1.5, avgwealth(29) - 1, expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
 
 #Label various points on line
 
@@ -101,19 +101,19 @@ segments(0, avgwealth(x = 20) + 5, xlims[2], avgwealth(x = 20) + 5, lty = 1, col
 # text(23.63, avgwealth(23.63)+1.1, expression(paste("c")), cex = labelsize)
 # points(23.63, avgwealth(23.63), pch = 16, col = "black", cex = 1.5)
 # 
-text(20, avgwealth(20)+1.2, expression(paste(C)), cex = labelsize)
+text(20, avgwealth(20) + 1.5, expression(paste(m)), cex = labelsize)
 segments(20, 0, 20, avgwealth(20), lty = 2, col = "gray", lwd = segmentlinewidth)
 points(20, avgwealth(20), pch = 16, col = "black", cex = 1.5)
 # 
 
 #label the three indifference curves
-text(29, avgwealth(20) +4, expression(paste(u[3])), xpd = TRUE, cex = labelsize)
-text(29, avgwealth(20) - 1, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
-text(29, avgwealth(20) - 6, expression(paste(u[1])),  xpd = TRUE, cex = labelsize)
+text(29, avgwealth(20) + 6.5, expression(paste(u[3])), xpd = TRUE, cex = labelsize)
+text(29, avgwealth(20) + 1.5, expression(paste(u[2])),  xpd = TRUE, cex = labelsize)
+text(29, avgwealth(20) - 3.5, expression(paste(u[1])),  xpd = TRUE, cex = labelsize)
 
 #text(17, 38.5, expression(paste("Inequality Averse")), xpd = TRUE, cex = labelsize)
-text(20, 32, expression(paste("Risk-neutral")), xpd = TRUE, cex = labelsize)
-text(20, 30.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
+# text(20, 32, expression(paste("Risk-neutral")), xpd = TRUE, cex = labelsize)
+# text(20, 30.5, expression(paste("indifference curves")), xpd = TRUE, cex = labelsize)
 
 
 

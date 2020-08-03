@@ -12,14 +12,16 @@ londonrealwage <- read_csv("capitalism/data/londonrealwage.csv",
 p <- londonrealwage %>% ggplot(aes(x = Year, y = London_craftsman_real_wage)) +
   geom_line(color = "#377eba")
 
-p1 <- p + scale_x_continuous(breaks = round(seq(1250, 
+p1 <- p + 
+  scale_x_continuous(breaks = round(c(seq(1300, 
                                                 max(londonrealwage$Year), 
-                                                by = 50), 2000)) +
+                                                by = 100), 2000))) +
   labs(y = "London craftsmen's real wages") 
 
-p2 <- p1 + theme_bw() + 
+p2 <- p1 + 
+  theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.text = element_text(size = 15),
-        axis.title = element_text(size = 20))
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 17))
 
-ggsave("capitalism/londonwage.pdf", width = 9, height = 7, units = "in")
+ggsave("capitalism/londonwage.pdf", width = 6, height = 4, units = "in")

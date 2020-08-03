@@ -100,8 +100,9 @@ segments(0, 0, 0.07, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE
 segments(0.07, 0, 0.9, 0.76, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
 
-segments(0.05, 0, 0.9, 0.6, lty = 2, col = COLA[4], lwd = graphlinewidth)
-segments(0.9, 0.6, 1, 1, lty = 2, col = COLA[4], lwd = graphlinewidth)
+segments(0, 0, 0.05, 0, lty = 1, col = COLA[6], lwd = graphlinewidth)
+segments(0.05, 0, 0.9, 0.6, lty = 1, col = COLA[6], lwd = graphlinewidth)
+segments(0.9, 0.6, 1, 1, lty = 1, col = COLA[6], lwd = graphlinewidth)
 
 text(0.76, 0.46, expression(paste("New")), cex = labelsize)
 text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)

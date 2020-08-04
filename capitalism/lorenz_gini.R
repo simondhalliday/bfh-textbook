@@ -66,7 +66,7 @@ polygon(x = xpoly2, y = ypoly2, col = COLB[1], density = NULL, border = NA)
 
 #Axis labels and draw linear utility function
 text(-0.2, 0.5*ylims[2], expression(paste("Cumulative income, %")) , xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.45*xlims[2], -0.15, expression(paste("Cumulative population (unemployed & employed), %")), xpd = TRUE, cex = axislabelsize) 
+text(0.45*xlims[2], -0.15, expression(paste("Cumulative population, (%)")), xpd = TRUE, cex = axislabelsize) 
 
 # Segments
 segments(0, 1, 1, 1, lty = 2, col = grays[20], lwd = segmentlinewidth)

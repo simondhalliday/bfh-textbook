@@ -88,7 +88,7 @@ segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20]
 
 #Original competition condition 
 segments(0, 20, 0.7925, 20, lty = 1, lwd = segmentlinewidth, col = CBCols[2])
-segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[3])
+segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[2])
 
 points(0.513, 20, pch = 16, col = "black", cex = 1.5)
 text(0.77, 21.5, expression(paste(n[0])), cex = labelsize)

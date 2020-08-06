@@ -25,7 +25,7 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
 
 par(mar =  c(5, 6, 4, 4))
 xlims <- c(0, 1)
-ylims <- c(0, 40)
+ylims <- c(0, 50)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -39,13 +39,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 text(-0.11, 0.5*ylims[2], expression(paste("Wage, ", w)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(0.5*xlims[2], -5, expression(paste("Hours of employment as a proportion, ", H)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -6, expression(paste("Hours of employment as a proportion, ", H)), xpd = TRUE, cex = axislabelsize) 
 
 
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx1 <- seq(xlims[1], 0.9, length.out = npts)
+xx1 <- seq(xlims[1], 1, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
@@ -62,9 +62,9 @@ lines(xx1, WageFn(xx1, ubar = 7), col = CBCols[1], lwd = graphlinewidth)
 #ticksy <- c(0, 5, 10, 20,  40)
 #ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
 #ylabels <- c(0,  expression(paste(B + underline(u[0]))), expression(paste(B + underline(u[1]))), expression(paste(w^c)), NA)
-ticksy <- c(0, 20,  40)
+ticksy <- c(0, 20,  40, 50)
 #ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u)/t[0])), expression(paste(B+underline(u)/t[1])), expression(paste(w[0])), NA)
-ylabels <- c(0,  expression(paste(w^c)), NA)
+ylabels <- c(0,  expression(paste(w^c)), expression(paste(gamma[0])), NA)
 
 
 ticksx <- c(0, 0.513, 0.7925, 1, xlims[2])
@@ -73,10 +73,12 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(1, 39, expression(paste("Wage curve")), cex = labelsize,xpd = TRUE)
-text(1, 36.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
+text(0.98, 50, expression(paste("Wage")), cex = labelsize,xpd = TRUE)
+text(0.98, 47.5, expression(paste("curve")), cex = labelsize,xpd = TRUE)
+text(0.98, 44.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
 
-text(0.7, 39, expression(paste(w[1]^N*(H))), cex = labelsize, xpd = TRUE)
+
+text(0.73, 44.5, expression(paste(w[1]^N*(H))), cex = labelsize, xpd = TRUE)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
@@ -86,25 +88,29 @@ segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20]
 #text(0.98, 16.5, expression(paste("Employment rent")))
 #text(0.98, 15, expression(paste("decreases with union")))
 
+#Labor productivity 
+segments(0, 40, xlims[2], 40, lty = 2, lwd = segmentlinewidth, col = CBCols[3], xpd = TRUE)
+
+
 #Original competition condition 
 segments(0, 20, 0.7925, 20, lty = 1, lwd = segmentlinewidth, col = CBCols[2])
 segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[2])
 
 points(0.513, 20, pch = 16, col = "black", cex = 1.5)
-text(0.77, 21.5, expression(paste(n[0])), cex = labelsize)
+text(0.77, 21.6, expression(paste(n[0])), cex = labelsize)
 
 #segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
 #text(0.97, 11, expression(paste(B + a[1])))
 
 
 
-Arrows(0.7, 20.5, 0.7, 29, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.51, 28, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
-text(0.51, 26, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
+# Arrows(0.7, 20.5, 0.7, 29, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(0.51, 28.2, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
+# text(0.51, 26, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
 
 segments(0.513, 0, 0.513, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(0.7925, 20, pch = 16, col = "black", cex = 1.5)
-text(0.5, 21.5, expression(paste(n[1])), cex = labelsize)
+text(0.5, 21.6, expression(paste(n[1])), cex = labelsize)
 #text(1.02, 26, expression(paste(zpc[1], ", ", w == w[1])))
 
 
@@ -113,9 +119,14 @@ text(0.5, 21.5, expression(paste(n[1])), cex = labelsize)
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Zero profit condition
-text(0.2, 23.5, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
+text(0.2, 23.7, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
 text(0.2, 21.5, expression(paste("condition, ", w^c)), cex = labelsize, xpd = TRUE)
 #text(1.00, 18.5, expression(paste(w^c)), cex = labelsize, xpd = TRUE)
+
+Arrows(0.32, 8.2, 0.32, 13.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.2, 10.7, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
+text(0.2, 8.3, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
+
 
 #text(0.97, 6, expression(paste(B + a[0])))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))

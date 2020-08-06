@@ -27,7 +27,7 @@ WageFn#COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02"
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 par(mar =  c(5, 6, 4, 4))
 xlims <- c(0, 1)
-ylims <- c(0, 40)
+ylims <- c(0, 50)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -43,7 +43,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 npts <- 500 
 npts2 <- 501
 #Specify the sequences of points for graphing. 
-xx1 <- seq(xlims[1], 0.9, length.out = npts)
+xx1 <- seq(xlims[1], 1, length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
@@ -57,8 +57,8 @@ lines(xx1, WageFn(xx1), col = CBCols[1], lwd = graphlinewidth)
 # ticksy <- c(0, 2.5, 5, 20, 25,  40)
 # ylabels <- c(0, expression(paste(B)), expression(paste(B+underline(u))), expression(paste(w[0])), expression(paste(w[2])), NA)
 
-ticksy <- c(0, 20, 25,  40)
-ylabels <- c(NA, expression(paste(w[0]^c)), expression(paste(w[2]^c)), NA)
+ticksy <- c(0, 20, 25, 40, ylims[2])
+ylabels <- c(NA, expression(paste(w[0]^c)), expression(paste(w[2]^c)), expression(paste(gamma[0])), expression(paste(gamma[2])))
 
 ticksx <- c(0, 0.7925, 0.837, 1, xlims[2])
 #xlabels <- c(0, expression(paste(H[0],"*")), expression(paste(H[2],"*")), 1.0, NA)
@@ -67,14 +67,19 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #x-axis tick label 
-text(0.845, -1.55, expression(paste(H[2]^N)), cex = labelsize,xpd = TRUE)
-text(0.8, -1.55, expression(paste(H[0]^N)), cex = labelsize,xpd = TRUE)
+text(0.85, -2.1, expression(paste(H[2]^N)), cex = labelsize,xpd = TRUE)
+text(0.77, -2.1, expression(paste(H[0]^N)), cex = labelsize,xpd = TRUE)
 
 #Annotation of the  graphs
 text(0.71, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)
+
+
+segments(0, 40, xlims[2], 40, lty = 2, lwd = segmentlinewidth, col = CBCols[3], xpd = TRUE)
+segments(0, 50, xlims[2], 50, lty = 2, lwd = segmentlinewidth, col = CBCols[3], xpd = TRUE)
+
 
 #Arrows(0.85, 15, 0.85, 24, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.85, 15, 0.85, 6, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -83,7 +88,7 @@ segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20]
 
 #Original Zero profit condition 
 segments(0, 20, 0.7925, 20, lty = 1, lwd = graphlinewidth, col = CBCols[2], xpd = TRUE)
-segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[3], xpd = TRUE)
+segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[2], xpd = TRUE)
 
 points(0.793, 20, pch = 16, col = "black", cex = 1.5)
 text(0.78, 21.5, expression(paste(n[0])), cex = labelsize)
@@ -91,18 +96,21 @@ text(0.78, 21.5, expression(paste(n[0])), cex = labelsize)
 
 #Union Zero profit condition 
 segments(0, 25, 0.837, 25, lty = 1, lwd = graphlinewidth, col = CBCols[2])
-segments(0.837, 25, 1.2, 25, lty = 2, lwd = segmentlinewidth, col = CBCols[3], xpd = TRUE)
+segments(0.837, 25, 1.2, 25, lty = 2, lwd = segmentlinewidth, col = CBCols[2], xpd = TRUE)
 
 
-Arrows(0.1, 20.5, 0.1, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.37, 22.5, expression(paste("Union raises productivity, ", gamma)), cex = labelsize)
+Arrows(0.2, 20.5, 0.2, 23.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
+
+text(0.37, 45, expression(paste("Union raises productivity, ", gamma)), cex = labelsize)
+Arrows(0.6, 41, 0.6, 48, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 segments(0.837, 0, 0.837, 25, lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(0.838, 25, pch = 16, col = "black", cex = 1.5)
 text(0.81, 26.5, expression(paste(n[2])), cex = labelsize)
-text(0.97, 30.5, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
-text(0.97, 28.5, expression(paste("condition, ")), cex = labelsize, xpd = TRUE)
-text(0.97, 26.5, expression(paste(w^C == w[2])), cex = labelsize, xpd = TRUE)
+text(0.2, 31.5, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
+text(0.2, 29.2, expression(paste("condition, ")), cex = labelsize, xpd = TRUE)
+text(0.2, 26.7, expression(paste(w^C == w[2])), cex = labelsize, xpd = TRUE)
 
 
 
@@ -111,9 +119,9 @@ text(0.97, 26.5, expression(paste(w^C == w[2])), cex = labelsize, xpd = TRUE)
 #segments(0, 2.5, 1.2, 2.5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Zero profit condition
-text(0.98, 18.3, expression(paste("Initial competition")), cex = labelsize, xpd = TRUE)
-text(0.98, 16.3, expression(paste("condition, ")), cex = labelsize, xpd = TRUE)
-text(0.98, 14.3, expression(paste(w^C == w[0])), cex = labelsize, xpd = TRUE)
+text(0.2, 18.3, expression(paste("Initial competition")), cex = labelsize, xpd = TRUE)
+text(0.2, 16.3, expression(paste("condition")), cex = labelsize, xpd = TRUE)
+text(0.2, 13.8, expression(paste(w^C == w[0])), cex = labelsize, xpd = TRUE)
 #text(0.97, 6, expression(paste(B + a)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

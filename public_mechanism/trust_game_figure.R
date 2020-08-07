@@ -25,7 +25,7 @@ trust_game_plot <-
   ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat, group = desc(-Value))) + 
   geom_col(position = "dodge", alpha = 0.9, width = 0.95) + 
   xlab("Transfer by the investor") +
-  ylab(element_blank()) + 
+  ylab("Amount returned") + 
   scale_y_continuous(breaks = seq(0, 14, by = 2), limits = c(0, 14)) + 
   labs(fill = "Treatment") +
   scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
@@ -37,19 +37,20 @@ but not imposed", "Trust condition - no fine possible")) +
         axis.text = element_text(size = 16),
         legend.title = element_text(size = 20),
         legend.text = element_text(size = 16), 
-        legend.position = "top")
+        legend.position = c(0.28, 0.85))
+print(trust_game_plot)
   
 ggsave("public_mechanism/trust_game_figure.pdf", width = 9, height = 7, units = "in")
 
-trust_game_plot1 <- 
-  ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat, group = Value)) + 
-  geom_col(position = "dodge", alpha = 0.9) + 
-  xlab("Transfer by the investor") +
-  ylab("Amount returned") + 
-  scale_y_continuous(breaks = seq(0, 16, by = 2), limits = c(0,16)) + 
-  theme_bw() + 
-  labs(fill = "Treatment") +
-  scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
-but not imposed", "Trust condition - no fine possible"))
-
-print(trust_game_plot1)
+# trust_game_plot1 <- 
+#   ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat, group = Value)) + 
+#   geom_col(position = "dodge", alpha = 0.9) + 
+#   xlab("Transfer by the investor") +
+#   ylab("Amount returned") + 
+#   scale_y_continuous(breaks = seq(0, 16, by = 2), limits = c(0,16)) + 
+#   theme_bw() + 
+#   labs(fill = "Treatment") +
+#   scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
+# but not imposed", "Trust condition - no fine possible"))
+# 
+# print(trust_game_plot1)

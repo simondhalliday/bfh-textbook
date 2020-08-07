@@ -67,16 +67,16 @@ obj1 <- xyplot(markup ~ year, data = markup_data2,
                col = c("#0868ac"),
                lty=1,
                scales=list(x=list(rot=90,tick.number=15,
-                                  cex=1.5,axs="r"), y=list(cex=1.5)),
+                                  cex=1,axs="r"), y=list(cex=5)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
                           text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
-                          x = 0.05, y = .9))
+                          x = 0.02, y = .9))
 
 obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col="#FF801D",
                lty=1,
                scales=list(x=list(rot=90,tick.number=15,
-                                  cex=2,axs="r"), y=list(cex=1.5)))
+                                  cex=2,axs="r"), y=list(cex=5)))
 
 doubleYScale(obj1, obj2)
 

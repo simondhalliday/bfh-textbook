@@ -33,7 +33,6 @@ but not imposed", "Trust condition - no fine possible")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20),
-        axis.text = element_text(size = 16),
         axis.title.y = element_text(size = 20),
         axis.text = element_text(size = 16),
         legend.title = element_text(size = 20),

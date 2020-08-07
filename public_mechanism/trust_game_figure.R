@@ -36,7 +36,7 @@ but not imposed", "Trust condition - no fine possible")) +
         axis.title.y = element_text(size = 20),
         axis.text = element_text(size = 16),
         legend.title = element_text(size = 20),
-        legend.text = element_text(size = 16),
+        legend.text = element_text(size = 16), 
         legend.position = "top")
   
 ggsave("public_mechanism/trust_game_figure.pdf", width = 9, height = 7, units = "in")

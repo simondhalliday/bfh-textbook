@@ -23,7 +23,7 @@ markup_data2 <- markup_data1 %>%
 gini_data1 <- gini_data %>%
   filter(year >= 1960)
 
-
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 # p <-  ggplot() +
 #   geom_line(data = markup_data, aes(x=year, y=markup, color = "markup"), na.rm = TRUE) +
 #   geom_line(data = gini_data, aes(x=Year, y= gini_index, color = "gini", group = 1), na.rm = TRUE) +
@@ -59,32 +59,28 @@ print(plot1)
 pdf(file = "capitalism/markup_and_gini.pdf", width = 8, height = 8)
 
 obj1 <- xyplot(markup ~ year, data = markup_data2,
-               xlab=list("Year", fontsize = 18),
-               ylab = list("Markup Ratio", fontsize = 18),
-               ylab.right = list("Gini Coefficient", fontsize = 18),
+               xlab=list("Year", fontsize = 16),
+               ylab = list("Markup Ratio", fontsize = 16),
+               ylab.right = list("Gini Coefficient", fontsize = 16),
                par.settings = simpleTheme(col = 1),
                type = "l",
-               col = c("#0868ac"),
+               col = CBCols[1],
                lty=1,
-               scales=list(x=list(rot=90,tick.number=15,
-                                  cex=1,axs="r"), y=list(cex=5)),
+               scales=list(x=list(labels = c("1950", "1960", "1970", "1980","1990", "2000","2010"),
+                                  cex=1,axs="r"), y=list(cex=6),tck = c(1,0)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
-                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#0868ac", "#FF801D")), column = 1,
-                          x = 0.02, y = .9))
+                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c(CBCols[1], CBCols[2])), column = 1,
+                          x = 0.02, y = .9, fontsize = 16))
 
-obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col="#FF801D",
+obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col=CBCols[2],
                lty=1,
-               scales=list(x=list(rot=90,tick.number=15,
-                                  cex=2,axs="r"), y=list(cex=5)))
+               scales=list(x=list(labels = c("1950", "1960", "1970", "1980","1990", "2000","2010"),
+                                  cex=2,axs="r"), y=list(cex=6)))
 
 doubleYScale(obj1, obj2)
-
+#rot=90
 #space = "right"
-
-
-
-
 # ----
 
 dev.off()

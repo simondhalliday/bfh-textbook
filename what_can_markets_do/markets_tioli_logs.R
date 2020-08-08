@@ -19,6 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 uAlog <- function(xA, yA, alpha = 1/2){
@@ -129,8 +130,11 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, gap.axis = -1, las = 0, cex.axis = labelsize)
 
 #Add arrows: 
-arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.9, 11.8, -0.9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -1.7, 9, -1.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 #text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
@@ -187,8 +191,11 @@ text(0.5*xlims[2], -2, expression(paste("B's coffee (kilograms), ", x^B)), xpd =
 text(-0.9, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7.5, -2, 9, -2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+Arrows(-0.9, 11.8, -0.9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.5, -2, 9, -2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(7.5, -2, 9, -2, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 uBlog2 <- function(xB, yB, alpha = 1/2){

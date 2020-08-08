@@ -16,6 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4.5, 4.5, 4.5, 4.5))
 
@@ -114,7 +115,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -129,8 +130,11 @@ text(-0.9, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.8, 270, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.4, -42, 9, -42, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(1, 10, length.out = npts)
 #lines(xx2, WalrasP(xx2), col = "gray", lwd = segmentlinewidth)
@@ -139,7 +143,7 @@ xx2 <- seq(1, 10, length.out = npts)
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE
@@ -149,9 +153,9 @@ contour(x, y,
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = COL[2] , lwd = graphlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = COL[2]  , lwd = graphlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = COL[2] , lwd = graphlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = CBCols[4] , lwd = graphlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = CBCols[4]  , lwd = graphlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = CBCols[4] , lwd = graphlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
@@ -191,8 +195,8 @@ text(4.9, 190, expression(paste(n)), cex = labelsize)
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(9.2, 10.2, expression(paste(z)), cex = labelsize)
 
-text(-0.3, -40.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 440.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.3, -40.4, expression("A"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.4, 440.4, expression("B"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 
 #Braces for labels
@@ -237,8 +241,11 @@ text(0.5*xlims[2], -49, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex 
 text(-0.9, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.8, 270, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.4, -48, 9, -48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

@@ -137,11 +137,14 @@ text(-0.9, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.8, 280, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.5, -45, 9, -45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(0, 10, length.out = npts)
-lines(xx2, OfferA(xx2), col = "gray", lwd = segmentlinewidth)
+#lines(xx2, OfferA(xx2), col = "gray", lwd = segmentlinewidth)
 #lines(xx2, WalrasP(xx2, intercept = 9.4), col = "purple", lwd = segmentlinewidth, lty = 1)
 
 contour(x, y, 
@@ -245,8 +248,11 @@ text(0.5*xlims[2], -49, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex 
 text(-0.9, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.8, 280, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.5, -45, 9, -45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

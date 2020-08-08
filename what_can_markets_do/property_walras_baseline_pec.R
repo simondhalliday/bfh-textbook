@@ -116,8 +116,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-text(0.5*xlims[2], -1.3, expression(paste("A's coffee (kg), ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.95, 0.5*ylims[2], expression(paste("A's data (gb), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.3, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.95, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 
@@ -168,8 +168,8 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
-Arrows(-0.9, 10.5, -0.9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(6.6, -1.4, 9, -1.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-0.9, 11.8, -0.9, 14.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.2, -1.4, 9, -1.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.6, -1.4, 9, -1.4, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
@@ -224,12 +224,12 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1,  cex.axis = labelsize)
-text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(4.8, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-Arrows(-0.7, 10, -0.7, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(6.6, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-0.7, 11.5, -0.7, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.3, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

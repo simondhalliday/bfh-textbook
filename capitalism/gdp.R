@@ -49,50 +49,51 @@ plotGDP <- GDP3 %>%
   geom_line() + 
   scale_color_brewer(palette = "Set1") + 
   labs(x = "Year", y = "GDP per capita", color = "Country") +
-  # annotate(geom = "text", x = 1280, y = 5000, label = "Ibn Battuta \nvisits India \n(1334)") +
-  # annotate(
-  #   geom = "curve", x = 1280, y = 3500, xend = 1334, yend = 1000, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1430, y = 5000, label = "Bubonic plague \nstrikes Europe \n(1350)") +
-  # annotate(
-  #   geom = "curve", x = 1430, y = 3500, xend = 1350, yend = 1000, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1550, y = 8500, label = "Haiti & Cuba \nricher than \nUS colonies \n(1680)") +
-  # annotate(
-  #   geom = "curve", x = 1550, y = 6200, xend = 1680, yend = 1000, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1680, y = 13000, label = "Adam Smith's \nWealth of Nations \npublished \n(1776)") +
-  # annotate(
-  #   geom = "curve", x = 1680, y = 11000, xend = 1776, yend = 2000, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1800, y = 9000, label = "India \ncolonized \nby British \n(1793)") +
-  # annotate(
-  #   geom = "curve", x = 1800, y = 6700, xend = 1793, yend = 1000, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1880, y = 13000, label = "Marx \npublishes \nCapital \n(1867)") +
-  # annotate(
-  #   geom = "curve", x = 1880, y = 10700, xend = 1880, yend = 3700, 
-  #   curvature = 0, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # annotate(geom = "text", x = 1900, y = 17000, label = "End of Soviet rule; \nmarket reforms in \nChina & Russia \n(1989)") +
-  # annotate(
-  #   geom = "curve", x = 1920, y = 15000, xend = 1989, yend = 3700, 
-  #   curvature = -0.1, arrow = arrow(length = unit(2, "mm"))
-  # ) +
-  # xlim(1250, max(GDP3$Year)) + 
+  ylab("GDP per capita (1990 international $)") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        legend.position = c(0.1, 0.85),
-        legend.text = element_text(size = 12),
+        legend.position = c(0.1, 0.82),
+        legend.text = element_text(size = 14),
         legend.title = element_text(size = 14),
-        axis.text = element_text(size = 13),
-        axis.title = element_text(size = 16))
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 20))
 
-ggsave("capitalism/gdp.pdf", height = 7, width = 9, units = "in")
+ggsave("capitalism/gdp.pdf", height = 6, width = 8, units = "in")
 
+# annotate(geom = "text", x = 1280, y = 5000, label = "Ibn Battuta \nvisits India \n(1334)") +
+# annotate(
+#   geom = "curve", x = 1280, y = 3500, xend = 1334, yend = 1000, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1430, y = 5000, label = "Bubonic plague \nstrikes Europe \n(1350)") +
+# annotate(
+#   geom = "curve", x = 1430, y = 3500, xend = 1350, yend = 1000, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1550, y = 8500, label = "Haiti & Cuba \nricher than \nUS colonies \n(1680)") +
+# annotate(
+#   geom = "curve", x = 1550, y = 6200, xend = 1680, yend = 1000, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1680, y = 13000, label = "Adam Smith's \nWealth of Nations \npublished \n(1776)") +
+# annotate(
+#   geom = "curve", x = 1680, y = 11000, xend = 1776, yend = 2000, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1800, y = 9000, label = "India \ncolonized \nby British \n(1793)") +
+# annotate(
+#   geom = "curve", x = 1800, y = 6700, xend = 1793, yend = 1000, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1880, y = 13000, label = "Marx \npublishes \nCapital \n(1867)") +
+# annotate(
+#   geom = "curve", x = 1880, y = 10700, xend = 1880, yend = 3700, 
+#   curvature = 0, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# annotate(geom = "text", x = 1900, y = 17000, label = "End of Soviet rule; \nmarket reforms in \nChina & Russia \n(1989)") +
+# annotate(
+#   geom = "curve", x = 1920, y = 15000, xend = 1989, yend = 3700, 
+#   curvature = -0.1, arrow = arrow(length = unit(2, "mm"))
+# ) +
+# xlim(1250, max(GDP3$Year)) + 
 

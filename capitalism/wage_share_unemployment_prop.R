@@ -18,6 +18,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 # Wage Share
@@ -115,7 +116,7 @@ segments(0.85/0.9, 0, 0.85/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentline
 segments(0, 0.76, 1, 0.76, lty = 1, col = COLB[3], lwd = segmentlinewidth)
 segments(0, 0.6, 1, 0.6, lty = 1, col = COLB[5], lwd = segmentlinewidth)
 
-segments(0, 1, xlims[2], 1, lty = 2, col = COLA[4], lwd = graphlinewidth)
+segments(0.6, 1, xlims[2], 1, lty = 2, col = CBCols[3], lwd = graphlinewidth, xpd = TRUE)
 
 # Points
 points(0.812/0.9, 0.6, pch = 16, col = "black", cex = 1.5)

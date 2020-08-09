@@ -126,7 +126,7 @@ lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg2(xx1), col = COLB[2], lwd = graphlinewidth)
 
 lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, WalrasPrice(xx1), col = COL[8], lwd = graphlinewidth)
+lines(xx1, WalrasPrice(xx1), col = CBCols[6], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)

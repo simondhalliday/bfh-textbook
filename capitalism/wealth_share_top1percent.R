@@ -28,6 +28,20 @@ wealth_share3 <- wealth_share2 %>%
   filter(!is.na(Year)) %>%
   mutate(wealth_share = (Wealth_share)/100)
 
+#Brackets 
+bracketsGrob <- function(...){
+  l <- list(...)
+  e <- new.env()
+  e$l <- l
+  grid:::recordGrob(  {
+    do.call(grid.brackets, l)
+  }, e)
+}
+
+
+b1 <- bracketsGrob(0.01, 0.82, 0.445, 0.82, h=0.05, lwd=2, col="black")
+b2 <- bracketsGrob(0.449, .82, 0.99, .82, h=0.05,  lwd=2, col="black")
+
 #Plotting the data 
 wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group = Country, color = Country)) +
   geom_line() +
@@ -45,9 +59,9 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
         #legend.text = element_text(size = 11),
         axis.text.x = element_text(size = 14, color = "black"),
         axis.text.y = element_text(size = 14, color = "black"),  
-        axis.title.x = element_text(size = 20, vjust = -0.5)) 
-  
-  
+        axis.title.x = element_text(size = 20, vjust = -0.5)) +
+        annotation_custom(b1) + 
+        annotation_custom(b2) 
 
 #print(wealth_share_plot)
 

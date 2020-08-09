@@ -18,7 +18,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
-par(mar =  c(4.5, 4.5, 4.5, 4.5))
+par(mar =  c(4.5, 6, 4.5, 6))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -110,7 +110,7 @@ ylabels <- seq(from = 0, to = 400, by = 40)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 
 contour(x, y, 
         outer(x, y, uA),
@@ -124,14 +124,14 @@ contour(x, y,
 
 #mtext(expression(paste("A's good x, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 
-text(0.5*xlims[2], -42, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -42.5, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(-1.4, 0.5*ylims[2], expression(paste("A's good y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-Arrows(-0.8, 270, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(6.4, -42, 9, -42, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-1.3, 270, -1.3, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.7, -42.7, 9, -42.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
@@ -233,16 +233,16 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 
 
 #mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -49, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-1.4, 0.5*ylims[2], expression(paste("B's good y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-Arrows(-0.8, 270, -0.8, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(6.4, -48, 9, -48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-1.3, 270, -1.3, 360, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.7, -48, 9, -48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.8, 280, -0.8, 360, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.5, -45, 9, -45, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

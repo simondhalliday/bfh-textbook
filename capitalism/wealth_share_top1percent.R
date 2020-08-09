@@ -12,6 +12,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081", "#9e9ac8","#f002
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 COLD <- c("#DA3030","#41ae76","#F7DE04", "#4eb3d3","#AE82FF","#386cb0","#F48318","#41ae76","#6a51a3", "#DA3030")
 
+
 #Cleaning the wealth share data. Source: CORE
 wealth_share_gathered <- wealth_share %>% 
   gather(Country, Wealth_share, c("Denmark", "Finland", "France", "Norway", "Sweden", "United Kingdom", "United States") )

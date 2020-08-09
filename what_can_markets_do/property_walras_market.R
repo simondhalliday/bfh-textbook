@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
-
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 
 indiffcurveA1 <- function(x, U = 4, A = 1, a = 0.5) {
@@ -86,15 +86,15 @@ indiffcurveBneg2 <- function(x, U = 6.33, A = 1, a = 0.5) {
 #Betty's utility (2^0.5)*(13^0.5) = 5.09
 
 
-par(mar =  c(4, 5.2, 4, 4))
+par(mar =  c(4, 5.2, 4, 5))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = expression(paste("A's coffee (kg), ", x^A)),
-     ylab = expression(paste("A's data (gb), ", y^A)), 
+     xlab = expression(paste("A's coffee (kilograms), ", x^A)),
+     ylab = expression(paste("A's data (gigabytes), ", y^A)), 
      #line = 2.5,
      xaxt = "n", 
      yaxt = "n", 
@@ -134,11 +134,14 @@ ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
-arrows(-1.1, 10.5, -1.1, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.1, 11.7, -1.1, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -1.7, 9, -1.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-1.1, 10.5, -1.1, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.7, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 
@@ -152,12 +155,17 @@ text(2, 14, expression(u[n]^A), cex = labelsize)
 # # # Price Line
 # text(8.3, 13, expression(paste("A's Offer Curve")), cex = labelsize)
 # Arrows(6.7, 13, 5, 13, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.2, 7, expression("B's price-offer"), cex = annotatesize)
+text(1.2, 6.2, expression("curve"), cex = annotatesize)
 
-text(2.5, 7.0, expression("B's best-response"), cex = annotatesize)
-text(2.5, 6.3, expression("function (ICC)"), cex = annotatesize)
+text(5.9, 14.3, expression("A's price-offer"), cex = annotatesize)
+text(5.9, 13.6, expression("curve"), cex = annotatesize)
 
-text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
-text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
+# text(2.5, 7.0, expression("B's best-response"), cex = annotatesize)
+# text(2.5, 6.3, expression("function (ICC)"), cex = annotatesize)
+# 
+# text(6.3, 14.3, expression("A's best-response"), cex = annotatesize)
+# text(6.3, 13.6, expression("function (ICC)"), cex = annotatesize)
 
 # Walrasian Price Line
 text(8.3, 8.6, expression(paste("Market-clearing")), cex = labelsize)
@@ -204,13 +212,16 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
-text(4.8, -1.7, expression(paste("B's coffee (kg), ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-0.8, 7, expression(paste("B's data (gb), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
+text(4.8, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-1, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1, 11.5, -1, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Functions for B's indifference curves
 indiffcurveB1 <- function(x, U = 5.09, A = 1, a = 0.5) {

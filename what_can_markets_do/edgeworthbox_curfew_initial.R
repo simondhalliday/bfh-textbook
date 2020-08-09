@@ -18,7 +18,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
-par(mar =  c(5, 5, 1.5, 5))
+par(mar =  c(5, 5.5, 1.5, 5.5))
 
 uA <- function(x, y, alpha = 1/4, Ta = 1) {
   y - alpha*(Ta - x)^2
@@ -74,10 +74,10 @@ ticksy2 <- seq(ylims[1], ylims[2], by = 3)
 ylabels2 <- seq(-24, 24, by = 6)
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx2, pos = -12, labels = NA, cex.axis = labelsize)
-axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.8, 0.15*ylims[2], expression(paste("B's difference in income, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.95, 0.15*ylims[2], expression(paste("B's difference in income, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 
 
@@ -129,7 +129,7 @@ xlabels <- c(NA, expression(paste(T^A == 9*p*m)),
 #xlabels <- c("8pm", "9pm", "10pm", "11pm", "12am", "1am", "2am", "3am", "4am")
 #xlabels <- seq(from = 0, to = 8, by = 1)
 axis(1, at = ticksx, pos = -12, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Pareto-improving lens
 # xpoly1 <- seq(from = 1, to = 7, length.out = 500)
@@ -161,7 +161,7 @@ contour(x, y,
 text(0.5*xlims[2], -15, expression(paste("Curfew, T")), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 #text(-1.3, 0.5*ylims[2], expression(paste("A's payment")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(-0.85, 0, expression(paste("A's difference in income, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.95, 0, expression(paste("A's difference in income, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)

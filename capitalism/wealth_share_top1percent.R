@@ -38,13 +38,14 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
   scale_color_brewer(palette = "Dark2") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        #legend.position = c(0.88, 0.81), 
-        legend.title = element_text(size = 13), 
+        legend.position = "top", 
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14),
         axis.title.y = element_text(size = 20, vjust = 1),
-        legend.text = element_text(size = 11),
+        #legend.text = element_text(size = 11),
         axis.text.x = element_text(size = 14, color = "black"),
         axis.text.y = element_text(size = 14, color = "black"),  
-        axis.title.x = element_text(size = 20, vjust = -1)) 
+        axis.title.x = element_text(size = 20, vjust = -0.5)) 
   
   
 

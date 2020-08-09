@@ -16,8 +16,9 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
-par(mar =  c(5, 5, 5, 5))
+par(mar =  c(5, 6, 5, 6))
 
 uA <- function(x, y, rmax = 100, xmax = 10) {
   y + rmax*x - (1/2)*(rmax/xmax)*x^2
@@ -109,12 +110,12 @@ ylabels <- seq(from = 0, to = 400, by = 50)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -122,13 +123,16 @@ contour(x, y,
         add = TRUE) 
 
 mtext(expression(paste("A's good x, ", x^A)), side=1, line = 3.3, cex = axislabelsize)
-text(-1.1, 0.45*ylims[2], expression(paste("A's money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.45*ylims[2], expression(paste("A's money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-arrows(-1.1, 272, -1.1, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.3, 270, -1.3, 380, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.5, -50, 9, -50, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-1.1, 272, -1.1, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 xx2 <- seq(1, 10, length.out = npts)
 #lines(xx2, WalrasP(xx2), col = "gray", lwd = segmentlinewidth)
@@ -147,9 +151,9 @@ xx2 <- seq(1, 10, length.out = npts)
 # segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 # 
-segments(5, 0, 5, 120, col = COL[2], lwd = segmentlinewidth, lty = 2)
-segments(5, 120, 5, 280, col = COL[2] , lwd = segmentlinewidth, lty = 1)
-segments(5, 280, 5, ylims[2], col = COL[2], lwd = segmentlinewidth, lty = 2)
+segments(5, 0, 5, 120, col = CBCols[4], lwd = graphlinewidth, lty = 2)
+segments(5, 120, 5, 280, col = CBCols[4] , lwd = graphlinewidth, lty = 1)
+segments(5, 280, 5, ylims[2], col = CBCols[4], lwd = graphlinewidth, lty = 2)
 # 
 # 
 # #Label the PEC
@@ -194,6 +198,11 @@ text(6, 130, expression(u[L]^A), cex = labelsize)
 #Label point L.
 points(5, 158, pch = 16, col = "black", cex = 1.5)
 text(5.2, 168, expression(paste(L)), cex = labelsize)
+
+#Comparison to H
+points(5, 365, pch = 16, col = "black", cex = 1.5)
+text(5.3, 370, expression(paste(H)), cex = annotatesize)
+
 # 
 # #Initial Allocations
 points(x = 9, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
@@ -241,13 +250,16 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, gap.axis = -1, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 mtext(expression(paste("B's good x, ", x^B)), side = 3, line = 3, cex = axislabelsize)
-text(-0.9, 0.45*ylims[2], expression(paste("B's money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-1.4, 0.45*ylims[2], expression(paste("B's money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.9, 275, -0.9, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.3, 270, -1.3, 380, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.5, -66, 9, -66, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.9, 275, -0.9, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -60, 9, -60, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 
 #Customize ticks and labels for the plot

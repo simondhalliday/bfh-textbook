@@ -16,6 +16,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 par(mar =  c(6, 4, 4, 7))
 
@@ -86,8 +87,11 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 
 
 #Add arrows:
-arrows(-1.4, 3.2, -1.4, 5.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(6.5, -1, 9, -1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-1.4, 3.2, -1.4, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(6.5, -1, 9, -1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-1.4, 3.2, -1.4, 5.5, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(6.5, -1, 9, -1, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 par(new = TRUE)
 
@@ -130,7 +134,7 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -143,28 +147,31 @@ text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, c
 
 
 #Add arrows:
-arrows(-0.5, 6.5, -0.5, 9.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(2.9, -1.25, 4.5, -1.25, xpd = TRUE, length=0.1,angle=40,lwd=3)
+Arrows(-0.5, 6.5, -0.5, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(2.9, -1.25, 4.5, -1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.5, 6.5, -0.5, 9.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(2.9, -1.25, 4.5, -1.25, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(2.5, xlims[2], length.out = npts)
 #lines(xx1, WalrasP(xx1, intercept = 11), col = "gray", lwd = segmentlinewidth)
-lines(xx2, WalrasP(xx2, intercept = 9.4), col = "#beaed4", lwd = graphlinewidth, lty = 1)
+lines(xx2, WalrasP(xx2, intercept = 9.4), col = CBCols[6], lwd = graphlinewidth, lty = 1)
 #lines(xx1, WalrasP(xx1, intercept = 10.9, slope = 8.2/7), col = "purple", lwd = segmentlinewidth, lty = 1)
 
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE
 ) 
 
-segments(5, 3.95, 5, 6.05, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(5, 0, 5, 3.95, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-segments(5, 6.05, 5, 10, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(5, 3.95, 5, 6.05, lty = 1, col = CBCols[4] , lwd = graphlinewidth)
+segments(5, 0, 5, 3.95, col = CBCols[4] , lwd = segmentlinewidth, lty = 2)
+segments(5, 6.05, 5, 10, col = CBCols[4] , lwd = segmentlinewidth, lty = 2)
 
 #Label the PEC
 text(3.65, 1.8, expression("Pareto-efficient"), cex = annotatesize)
@@ -186,7 +193,7 @@ Arrows(4, 9, 4, 5.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr
 
 #Label point i. 
 points(5, 3.95, pch = 16, col = "black", cex = 1.5)
-text(4.75, 3.7, expression(paste(t^B)), cex = annotatesize)
+text(4.75, 3.7, expression(paste(f)), cex = annotatesize)
 
 segments(5, 4.4, 10, 4.4, col = grays[20] , lwd = segmentlinewidth, lty = 2)
 points(5, 4.4, pch = 16, col = "black", cex = 1.5)
@@ -194,7 +201,7 @@ text(5.2, 4.6, expression(paste(n)), cex = annotatesize)
 
 
 points(5, 6.05, pch = 16, col = "black", cex = 1.5)
-text(5.2, 6.3, expression(paste(t^A)), cex = annotatesize)
+text(5.2, 6.3, expression(paste(g)), cex = annotatesize)
 
 #Initial Allocations
 segments(8.48, 0, 8.48, 0.88, col = grays[20] , lwd = segmentlinewidth, lty = 2)
@@ -229,8 +236,8 @@ brackets(x1 = 10.8, y1 = 4.4, x2 = 10.8, y2 = 0.9,
 text(11.8, 2.9, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270, cex = annotatesize)
 text(11.4, 2.9, expression(paste("B pays A")), xpd = TRUE, srt = 270, cex = annotatesize)
 
-text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 dev.off()
 

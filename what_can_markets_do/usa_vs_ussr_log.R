@@ -13,6 +13,9 @@ names(GDPdata) <- gsub(" ", "_", names(GDPdata))
 valid_column_names <- make.names(names=names(GDPdata), unique=TRUE, allow_ = TRUE)
 names(GDPdata) <- valid_column_names
 
+#scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10)) +
+  
+
 ColdWar <- 
   GDPdata %>%
   select(Date, USA, F._USSR, S._Korea, Brazil) %>%#, Argentina_) %>%
@@ -42,57 +45,58 @@ WW2 <-
 
 CWPlot <- 
   ColdWar %>% 
-  ggplot(aes(x = date, y = trans_pcgdp, group = country)) +
+  ggplot(aes(x = date, y = pcgdp, group = country)) +
   geom_line(aes(color = country)) +
   scale_colour_brewer(palette = "Set1") + 
   # scale_color_discrete("Country") +
   scale_x_continuous(breaks = round(seq(min(ColdWar$date), max(ColdWar$date), by = 10),1)) +
-  ylab("Natural Log of Per Capita GDP (1990 International $)") +
+  scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10)) +
+  ylab("Per Capita GDP \n (1990  International $, ratio scale)") +
   xlab("Year") +
   labs(color = "Country") + 
-  annotate("text", x = 1928, y = 7.75, label = "First 5-year") +
-  annotate("text", x = 1928, y = 7.6, label = "plan") +
-  geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.3),
-               size = 0.6, arrow = arrow(type = "closed", 
-                                         length = unit(0.25, "cm"), 
-                                         angle = 25)) +
-  annotate("text", x = 1933, y = 9.13, label = "Great") +
-  annotate("text", x = 1933, y = 9, label = "depression") +
-  geom_segment(aes(x = 1933, y = 8.9, xend = 1933, yend = 8.571550), 
+  annotate("text", x = 1928, y = exp(7.75), label = "First 5-year") +
+  annotate("text", x = 1928, y = exp(7.6), label = "plan") +
+  geom_segment(aes(x = 1928, y = exp(7.5), xend = 1928, yend = exp(7.3)),
                 size = 0.6, arrow = arrow(type = "closed", 
-                                        length = unit(0.25, "cm"), 
-                                         angle = 25)) +
-  annotate("text", x = 1945, y = 9.8, label = "WWII ends") +
-  geom_segment(aes(x = 1945, y = 9.7, xend = 1945, yend = 9.4), 
-                size = 0.6, arrow = arrow(type = "closed", 
+                                          length = unit(0.25, "cm"), 
+                                          angle = 25)) +
+  annotate("text", x = 1933, y = exp(9.13), label = "Great") +
+  annotate("text", x = 1933, y = exp(9), label = "depression") +
+  geom_segment(aes(x = 1933, y = exp(8.9), xend = 1933, yend = exp(8.571550)), 
+                 size = 0.6, arrow = arrow(type = "closed", 
                                          length = unit(0.25, "cm"), 
                                           angle = 25)) +
-  annotate("text", x = 1959, y = 9.65, label = "Kitchen debate") +
-  geom_segment(aes(x = 1959, y = 9.55, xend = 1959, yend = 9.346359), 
-               size = 0.6, arrow = arrow(type = "closed", 
+  annotate("text", x = 1945, y = exp(9.8), label = "WWII ends") +
+  geom_segment(aes(x = 1945, y = exp(9.7), xend = 1945, yend = exp(9.4)), 
+                 size = 0.6, arrow = arrow(type = "closed", 
                                           length = unit(0.25, "cm"), 
-                                        angle = 25)) +
-  annotate("text", x = 1997, y = 9.16, label = "Central") +
-  annotate("text", x = 1997, y = 9.05, label = "planning") +
-  annotate("text", x = 1997, y = 8.92, label = "ends") +
-  geom_segment(aes(x = 1993, y = 8.95, xend = 1991, yend = 8.8),
-               size = 0.6, arrow = arrow(type = "closed",
+                                           angle = 25)) +
+  annotate("text", x = 1959, y = exp(9.65), label = "Kitchen debate") +
+  geom_segment(aes(x = 1959, y = exp(9.55), xend = 1959, yend = exp(9.346359)), 
+                size = 0.6, arrow = arrow(type = "closed", 
+                                           length = unit(0.25, "cm"), 
+                                         angle = 25)) +
+   annotate("text", x = 1997, y = exp(9.16), label = "Central") +
+   annotate("text", x = 1997, y = exp(9.05), label = "planning") +
+   annotate("text", x = 1997, y = exp(8.92), label = "ends") +
+   geom_segment(aes(x = 1993, y = exp(8.95), xend = 1991, yend = exp(8.8)),
+                size = 0.6, arrow = arrow(type = "closed",
+                                          length = unit(0.25, "cm"),
+                                          angle = 25)) +
+   annotate("text", x = 2008, y = exp(11), label = "Global") +
+   annotate("text", x = 2008, y = exp(10.85), label = "Financial") +
+   annotate("text", x = 2008, y = exp(10.7), label = "Crisis") +
+   geom_segment(aes(x = 2008, y = exp(10.6), xend = 2008, yend = exp(10.359815)),
+              size = 0.7, arrow = arrow(type = "closed",
                                          length = unit(0.25, "cm"),
                                          angle = 25)) +
-  # annotate("text", x = 2008, y = 10.8, label = "Global") +
-  # annotate("text", x = 2008, y = 10.7, label = "Financial") +
-  # annotate("text", x = 2008, y = 10.6, label = "Crisis") +
-  # geom_segment(aes(x = 2008, y = 10.5, xend = 1991, yend = 10.359815),
-  #             size = 0.7, arrow = arrow(type = "closed",
-  #                                       length = unit(0.25, "cm"),
-  #                                       angle = 25)) +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.1, 0.85),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        axis.title = element_text(size = 16))
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 20))
 
 pdf(file = "what_can_markets_do/usa_vs_ussr_log.pdf", width = 8, height = 6)
 print(CWPlot)
@@ -113,6 +117,45 @@ dev.off()
 # 
 # 
 # 
+
+#Annotations before ratio scale.
+# annotate("text", x = 1928, y = 7.75, label = "First 5-year") +
+# annotate("text", x = 1928, y = 7.6, label = "plan") +
+# geom_segment(aes(x = 1928, y = 7.5, xend = 1928, yend = 7.3),
+#              size = 0.6, arrow = arrow(type = "closed", 
+#                                        length = unit(0.25, "cm"), 
+#                                        angle = 25)) +
+# annotate("text", x = 1933, y = 9.13, label = "Great") +
+# annotate("text", x = 1933, y = 9, label = "depression") +
+# geom_segment(aes(x = 1933, y = 8.9, xend = 1933, yend = 8.571550), 
+#               size = 0.6, arrow = arrow(type = "closed", 
+#                                       length = unit(0.25, "cm"), 
+#                                        angle = 25)) +
+# annotate("text", x = 1945, y = 9.8, label = "WWII ends") +
+# geom_segment(aes(x = 1945, y = 9.7, xend = 1945, yend = 9.4), 
+#               size = 0.6, arrow = arrow(type = "closed", 
+#                                        length = unit(0.25, "cm"), 
+#                                         angle = 25)) +
+# annotate("text", x = 1959, y = 9.65, label = "Kitchen debate") +
+# geom_segment(aes(x = 1959, y = 9.55, xend = 1959, yend = 9.346359), 
+#              size = 0.6, arrow = arrow(type = "closed", 
+#                                         length = unit(0.25, "cm"), 
+#                                       angle = 25)) +
+# annotate("text", x = 1997, y = 9.16, label = "Central") +
+# annotate("text", x = 1997, y = 9.05, label = "planning") +
+# annotate("text", x = 1997, y = 8.92, label = "ends") +
+# geom_segment(aes(x = 1993, y = 8.95, xend = 1991, yend = 8.8),
+#              size = 0.6, arrow = arrow(type = "closed",
+#                                        length = unit(0.25, "cm"),
+#                                        angle = 25)) +
+# annotate("text", x = 2008, y = 10.8, label = "Global") +
+# annotate("text", x = 2008, y = 10.7, label = "Financial") +
+# annotate("text", x = 2008, y = 10.6, label = "Crisis") +
+# geom_segment(aes(x = 2008, y = 10.5, xend = 1991, yend = 10.359815),
+#             size = 0.7, arrow = arrow(type = "closed",
+#                                       length = unit(0.25, "cm"),
+#                                       angle = 25)) +
+
 # 
 # ColdWar2 <- 
 #   GDPdata %>%

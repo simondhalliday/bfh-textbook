@@ -19,6 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 uAlog <- function(xA, yA, alpha = 1/2){
@@ -121,7 +122,7 @@ a2 <- c(uAlog(2.91,12), uAlog(5,5), uAlog(5.5, 3))
 contour(x, y, 
         outer(x, y, uAlog),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a2, 
         xaxs="i", 
@@ -155,7 +156,7 @@ lines(xx1, PriceLine(xx1, intercept = 6.18, slope = 0.58), col = COL[8], lwd = g
 #lines(xx1, indiffcurveBneg2(xx1, U = uB(8,2), a = 1/3), col = COLB[2], lwd = graphlinewidth)
 #lines(xx1, indiffcurveBneg3(xx1), col = COLB[2], lwd = graphlinewidth)
 #lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
-lines(xx2, OfferCurveA(xx2), col = COLA[5], lwd = graphlinewidth)
+lines(xx2, OfferCurveA(xx2), col = COLA[6], lwd = graphlinewidth)
 
 
 #Customize ticks and labels for the plot
@@ -164,11 +165,14 @@ ylabels <- seq(from = 0, to = 15, by = 1)
 ticksx <- seq(from = 0, to = 10, by = 1)
 xlabels <- seq(from = 0, to = 10, by = 1)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, gap.axis = -1, las = 0, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, gap.axis = -1, las = 1, cex.axis = labelsize)
 
 #Add arrows: 
-arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
-arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.9, 11.8, -0.9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -1.7, 9, -1.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(7.5, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 #Annotation of the three graphs and the NE
 text(1.1, 12, expression(u[1]^A), cex = annotatesize)
@@ -185,8 +189,8 @@ text(0.5, 13.2, expression(p[n]), cex = annotatesize)
 # text(2.8, 6.3, expression("function (ICC)"), cex = annotatesize)
 #arrows(2, 6.5, 1.5, 6.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
-text(6.2, 14.3, expression("A's best-response"), cex = annotatesize)
-text(6.2, 13.6, expression("function (ICC)"), cex = annotatesize)
+text(5.9, 14.3, expression("A's price-offer"), cex = annotatesize)
+text(5.9, 13.6, expression("curve"), cex = annotatesize)
 # arrows(7.7, 6.5, 8.2, 6.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
@@ -222,14 +226,17 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
-axis(side = 4, at = ticksy, pos = 0, labels = ylabels, gap.axis = -1, las = 0, cex.axis = labelsize)
+axis(side = 4, at = ticksy, pos = 0, labels = ylabels, gap.axis = -1, las = 1, cex.axis = labelsize)
 
 text(0.5*xlims[2], -2, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
 text(-0.9, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
-arrows(7.5, -2, 9, -2, xpd = TRUE, length=0.1,angle=40,lwd=3)
+Arrows(-0.95, 11.8, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -2, 9, -2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
+# arrows(-0.9, 12, -0.9, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
+# arrows(7.5, -2, 9, -2, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 
 uBlog2 <- function(xB, yB, alpha = 1/2){

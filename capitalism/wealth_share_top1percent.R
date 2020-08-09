@@ -39,15 +39,15 @@ bracketsGrob <- function(...){
 }
 
 
-b1 <- bracketsGrob(0.01, 0.82, 0.445, 0.82, h=0.05, lwd=2, col="black")
-b2 <- bracketsGrob(0.449, .82, 0.99, .82, h=0.05,  lwd=2, col="black")
+b1 <- bracketsGrob(0.045, 0.88, 0.65, 0.88, h=0.05, lwd=2, col="black")
+b2 <- bracketsGrob(0.65, .88, 0.95, .88, h=0.05,  lwd=2, col="black")
 
 #Plotting the data 
 wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group = Country, color = Country)) +
   geom_line() +
   #geom_line(aes(linetype = Country)) + #if we differentiate the lines without color
   labs(y = "Wealth Share of the Top 1%", color = "Country") + 
-  scale_y_continuous(breaks = seq(0, 0.7, by = 0.1), labels = scales::percent_format(accuracy = 1), limits = c(0,0.7)) +
+  scale_y_continuous(breaks = seq(0, 0.7, by = 0.1), labels = scales::percent_format(accuracy = 1), limits = c(0,0.75)) +
   scale_x_continuous(breaks = seq(1740, 2010, by = 30)) +
   scale_color_brewer(palette = "Dark2") +
   theme_bw() + 
@@ -61,7 +61,9 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
         axis.text.y = element_text(size = 14, color = "black"),  
         axis.title.x = element_text(size = 20, vjust = -0.5)) +
         annotation_custom(b1) + 
-        annotation_custom(b2) 
+        annotation_custom(b2) +
+  annotate("text", x = 1830, y = 0.75, label = expression(paste(bold("Capitalism"))), size = 5) +
+  annotate("text", x = 1965, y = 0.75, label = expression(paste(bold("Capitalism and democracy"))), size = 5) 
 
 #print(wealth_share_plot)
 

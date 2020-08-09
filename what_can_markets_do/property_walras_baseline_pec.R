@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
-CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 
 uA <- function(xA, yA, alpha = 0.5){
@@ -153,7 +153,7 @@ lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = CBCols[2], lwd = graph
 lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = CBCols[2], lwd = graphlinewidth)
 # 
 # 
-lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = COL[8], lwd = graphlinewidth)
+lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = CBCols[6], lwd = graphlinewidth)
 # 
 lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
 

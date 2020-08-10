@@ -17,15 +17,16 @@ Data_select <- Data %>%
 
 Data_final <- Data_select[-c(21,22), ]
 
-Data_final$Economy <- factor(Data_select$Economy, levels = Data_select$Economy [order(Data_select$`Total Score`)])
+Data_final$Economy <- factor(Data_final$Economy, levels = Data_final$Economy [order(Data_final$`Total Score`)])
 
 Data_final$`Total Score` <- as.numeric(as.character(Data_final$`Total Score`))
 
 plot <- Data_final %>% 
   ggplot(aes(x = Economy, y = `Total Score`)) +
-  geom_bar(stat = "identity", position = position_dodge(), fill = COLB[4]) + 
-  ylab("Total Score") +
-  coord_cartesian(ylim = c(25, 90)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9), fill = COLB[4]) + 
+  ylab("Innovation index score") +
+  scale_y_continuous(limits = c(40, 90), oob=rescale_none) + 
+  #coord_cartesian(ylim = c(25, 90)) +
   #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
@@ -35,29 +36,31 @@ plot <- Data_final %>%
   theme(legend.position = "top",
         legend.text.align = 0,
         panel.grid = element_blank(),
-        axis.title = element_text(size = 20),
+        axis.title = element_text(size = 22),
         axis.text.y = element_text(size = 15),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
-        axis.text.x = element_text(size = 15))+
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 15)) +
   geom_text(
     aes(x = Economy, y = `Total Score`, label = `Total Score`), 
-    size = 4, hjust = -0.1,
-    position = position_dodge(width = 1),
+    size = 5, hjust = -0.1,
+    position = position_dodge(width = 0.9),
     inherit.aes = TRUE
-  ) + coord_flip()
+  ) + 
+  coord_flip()
 plot
 
-df.sum <- Data_select %>%
-  select(`Total Score`) %>% # select variables to summarise
-  summarise_each(funs(min = min, 
-                      q25 = quantile(., 0.25), 
-                      median = median, 
-                      q75 = quantile(., 0.75), 
-                      max = max,
-                      mean = mean, 
-                      sd = sd))
+# df.sum <- Data_select %>%
+#   select(`Total Score`) %>% # select variables to summarise
+#   summarise_each(funs(min = min, 
+#                       q25 = quantile(., 0.25), 
+#                       median = median, 
+#                       q75 = quantile(., 0.75), 
+#                       max = max,
+#                       mean = mean, 
+#                       sd = sd))
 
 ggsave("capitalism/innovation_graph_v2.pdf", plot, width = 11, height = 7)
 

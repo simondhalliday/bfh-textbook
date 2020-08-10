@@ -8,7 +8,7 @@ pdf(file = "capitalism/lorenz_gini.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 pointsize <- 1.8
-axislabelsize <- 1.8 - 0.1
+axislabelsize <- 1.8
 labelsize <- 1.7
 namesize <- 1.8
 annotatesize <- 1.5
@@ -43,8 +43,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i"
 )
 
-ticksy <- c(ylims[1], 0.1, 0.5, 1)
-ylabels <- c(NA, expression(sigma[u]),  expression(paste(sigma[u] + sigma[n])),  1)
+ticksy <- c(ylims[1], 0.1, 0.3, 0.5, 0.8, 1)
+ylabels <- c(NA, expression(sigma[u]),  NA, expression(paste(sigma[u] + sigma[n])), NA,  1)
 ticksx <- c(xlims[1], 0.3, 0.8, 1)
 xlabels <- c(0, expression(u), expression(u + n), 1)
 
@@ -89,6 +89,13 @@ segments(0, 0, 1, 1, lty = 1, col = COLB[4], lwd = graphlinewidth)
 segments(0, 0, 0.3, 0.1, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(0.3, 0.1, 0.8, 0.5, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(0.8, 0.5, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
+
+#Segment to B
+segments(0, 0.3, 0.3, 0.3, lty = 2, col = grays[20], lwd = segmentlinewidth)
+
+#Segment to D
+segments(0, 0.8, 0.8, 0.8, lty = 2, col = grays[20], lwd = segmentlinewidth)
+
 
 # Points + labels
 

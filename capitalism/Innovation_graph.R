@@ -13,15 +13,19 @@ Data <- read_excel("capitalism/2020_Bloomberg_Innovation_Index.xlsx")
 
 #drop unnecessary columns
 Data_select <- Data %>%
-  select(-c(`2020 Rank`, `2019 Rank`,`YoY Change`, `R&D Intensity`, `Manufacturing Value-added`, `Productivity`, `High-tech Density`,`Tertiary Efficiency`,`Reseacrher Concentration`,`Patent Activity`)) %>%
-  desc(`Total Score`)
+  select(-c(`2020 Rank`, `2019 Rank`,`YoY Change`, `R&D Intensity`, `Manufacturing Value-added`, `Productivity`, `High-tech Density`,`Tertiary Efficiency`,`Reseacrher Concentration`,`Patent Activity`))
 
-Data_select$Economy <- factor(Data_select$Economy, levels = Data_select$Economy [order(Data_select$`Total Score`)])
+Data_final <- Data_select[-c(21,22), ]
 
-plot <- Data_select %>% 
+Data_final$Economy <- factor(Data_select$Economy, levels = Data_select$Economy [order(Data_select$`Total Score`)])
+
+Data_final$`Total Score` <- as.numeric(as.character(Data_final$`Total Score`))
+
+plot <- Data_final %>% 
   ggplot(aes(x = Economy, y = `Total Score`)) +
   geom_bar(stat = "identity", position = position_dodge(), fill = COLB[4]) + 
   ylab("Total Score") +
+  coord_cartesian(ylim = c(25, 90)) +
   #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
@@ -44,6 +48,16 @@ plot <- Data_select %>%
     inherit.aes = TRUE
   ) + coord_flip()
 plot
+
+df.sum <- Data_select %>%
+  select(`Total Score`) %>% # select variables to summarise
+  summarise_each(funs(min = min, 
+                      q25 = quantile(., 0.25), 
+                      median = median, 
+                      q75 = quantile(., 0.75), 
+                      max = max,
+                      mean = mean, 
+                      sd = sd))
 
 ggsave("capitalism/innovation_graph_v2.pdf", plot, width = 11, height = 7)
 

@@ -13,9 +13,11 @@ Data <- read_excel("capitalism/2020_Bloomberg_Innovation_Index.xlsx")
 
 #drop unnecessary columns
 Data_select <- Data %>%
-  select(-c(`2020 Rank`, `2019 Rank`,`YoY Change`, `R&D Intensity`, `Manufacturing Value-added`, `Productivity`, `High-tech Density`,`Tertiary Efficiency`,`Reseacrher Concentration`,`Patent Activity`))
+  select(-c(`2020 Rank`, `2019 Rank`,`YoY Change`, `R&D Intensity`, `Manufacturing Value-added`, `Productivity`, `High-tech Density`,`Tertiary Efficiency`,`Reseacrher Concentration`,`Patent Activity`)) %>%
+  desc(`Total Score`)
 
-#Plot
+Data_select$Economy <- factor(Data_select$Economy, levels = Data_select$Economy [order(Data_select$`Total Score`)])
+
 plot <- Data_select %>% 
   ggplot(aes(x = Economy, y = `Total Score`)) +
   geom_bar(stat = "identity", position = position_dodge(), fill = COLB[4]) + 
@@ -28,18 +30,19 @@ plot <- Data_select %>%
   theme_bw() +
   theme(legend.position = "top",
         legend.text.align = 0,
+        panel.grid = element_blank(),
         axis.title = element_text(size = 20),
         axis.text.y = element_text(size = 15),
         #legend.title = element_text(size = 16),
         legend.text = element_text(size = 18),
         legend.title = element_text(size = 18),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 15))+ 
+        axis.text.x = element_text(size = 15))+
   geom_text(
     aes(x = Economy, y = `Total Score`, label = `Total Score`), 
-    size = 4, vjust = -0.5,
+    size = 4, hjust = -0.1,
     position = position_dodge(width = 1),
     inherit.aes = TRUE
-  ) 
+  ) + coord_flip()
 plot
 
 ggsave("capitalism/innovation_graph_v2.pdf", plot, width = 11, height = 7)

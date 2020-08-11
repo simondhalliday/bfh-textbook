@@ -3,6 +3,8 @@ library(tidyverse)
 library(lubridate)
 library(openxlsx)
 library(readxl)
+library(ggsignif)
+
 
 wealth_share <- read_excel("capitalism/top_1percent_wealth_share.xlsx")
 
@@ -40,7 +42,7 @@ bracketsGrob <- function(...){
 }
 
 
-b1 <- bracketsGrob(0.045, 0.88, 0.6455, 0.88, h=0.05, lwd=2, col="black")
+b1 <- bracketsGrob(0.045, 0.88, 0.63, 0.88, h=0.05, lwd=2, col="black")
 b2 <- bracketsGrob(0.652, .88, 0.95, .88, h=0.05,  lwd=2, col="black")
 
 #Plotting the data 
@@ -66,7 +68,7 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
   annotate("text", x = 1830, y = 0.75, label = expression(paste(bold("Capitalism"))), size = 5) +
   annotate("text", x = 1965, y = 0.75, label = expression(paste(bold("Capitalism and democracy"))), size = 5) 
 
-#print(wealth_share_plot)
+print(wealth_share_plot)
 
 #Save plot to PDF
 ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf", 

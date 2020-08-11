@@ -35,7 +35,7 @@ Giniplot <-
                      labels = c ("Disposable income", 
                                  "Market income"), 
                      name = "") +
-  ylab("Gini coefficient (various years, 1992-2013") +
+  ylab("Gini coefficient (various years, 1992-2013)") +
   xlab("") +
   theme_bw() +
   theme(legend.position = "top",
@@ -84,7 +84,7 @@ Giniplot2 <-
                      labels = c ("Disposable income", 
                                  "Market income"), 
                      name = "") +
-  ylab("Gini coefficient (various years, 1992-2013") +
+  ylab("Gini coefficient (various years, 1992-2013)") +
   xlab("") +
   theme_bw() +
   theme(legend.position = "top",

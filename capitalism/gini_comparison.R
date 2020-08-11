@@ -3,10 +3,11 @@ library(tidyverse)
 Ginis <- read_excel("capitalism/ginis_comparison.xlsx")
 
 #List 1
-filter(!Country %in% c("Greece", "Poland", "Slovenia"))
-filter(!Country %in% c("South Africa", "Uruguay", "Guatemala", "Brazil",  "Peru", "Colombia", "Egypt", "Mexico", "China", "India"))
+#filter(!Country %in% c("Greece", "Poland", "Slovenia"))
+#filter(!Country %in% c("South Africa", "Uruguay", "Guatemala", "Brazil",  "Peru", "Colombia", "Egypt", "Mexico", "China", "India"))
 # Dropped from both: "Greece", "Poland", "Slovenia"
 
+#Wealthy countries only
 GiniNar <- 
   Ginis %>% 
   gather(type, gini, -Year, -Country) %>%
@@ -55,7 +56,7 @@ pdf(file = "capitalism/gini_comparisons_wealthy.pdf", width = 8, height = 6)
 Giniplot
 dev.off()
 
-
+#Low and middle income countries only
 GiniNar2 <- 
   Ginis %>% 
   gather(type, gini, -Year, -Country) %>%
@@ -104,6 +105,8 @@ pdf(file = "capitalism/gini_comparisons_lowmiddle.pdf", width = 8, height = 6)
 Giniplot2
 dev.off()
 
+
+#Pooled sample, but with three countries gone regardless
 GiniNar <- 
   Ginis %>% 
   gather(type, gini, -Year, -Country) %>%

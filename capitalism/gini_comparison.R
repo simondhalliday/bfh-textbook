@@ -15,21 +15,30 @@ GiniNar <-
   filter(!Country %in% c("Greece", "Poland", "Slovenia")) %>% #Dropped from both figures
   filter(!Country %in% c("South Africa", "Uruguay", "Guatemala", "Brazil",  "Peru", "Colombia", "Egypt", "Mexico", "China", "India"))
 
-GiniDf1 <- 
-  GiniNar %>% 
-  filter(type == "MarketGini") %>%
-  mutate(Country = factor(Country), 
-         Country = fct_reorder(Country, gini, .desc = TRUE)) 
 GiniDf2 <- 
   GiniNar %>% 
   filter(type == "DisposableGini") %>%
   mutate(Country = factor(Country))
 
+GiniDf2 <- GiniDf2 %>%
+  mutate(sort= 1:n())
+
+GiniDf1 <- 
+  GiniNar %>% 
+  filter(type == "MarketGini")
+
+GiniDf1$sort <- GiniDf2$sort
+
+GiniDf1 <- 
+  GiniDf1 %>%
+  mutate(Country = factor(Country),
+         Country= fct_reorder(Country, sort)) 
+
 GiniPlotDf <- bind_rows(GiniDf1, GiniDf2)
 
 Giniplot <- 
   GiniPlotDf %>%
-  ggplot(aes(y = gini, x = Country, fill = type)) + 
+  ggplot(aes(y = gini, x = reorder(Country, -sort), fill = type)) + 
   geom_bar(stat = "identity", position = "identity") + 
   scale_fill_brewer( type = "qual", palette = "Accent", 
                      breaks = c ("DisposableGini", "MarketGini"),
@@ -64,21 +73,30 @@ GiniNar2 <-
   filter(!Country %in% c("Greece", "Poland", "Slovenia")) %>% #Dropped from both figures
   filter(Country %in% c("South Africa", "Uruguay", "Guatemala", "Brazil",  "Peru", "Colombia", "Egypt", "Mexico", "China", "India"))
 
-GiniDf1a <- 
-  GiniNar2 %>% 
-  filter(type == "MarketGini") %>%
-  mutate(Country = factor(Country), 
-         Country = fct_reorder(Country, gini, .desc = TRUE)) 
 GiniDf2a <- 
   GiniNar2 %>% 
   filter(type == "DisposableGini") %>%
   mutate(Country = factor(Country))
 
+GiniDf2a <- GiniDf2a %>%
+  mutate(sort= 1:n())
+
+GiniDf1a <- 
+  GiniNar2 %>% 
+  filter(type == "MarketGini")
+
+GiniDf1a$sort <- GiniDf2a$sort
+
+GiniDf1a <- 
+  GiniDf1a %>%
+  mutate(Country = factor(Country),
+         Country= fct_reorder(Country, sort)) 
+
 GiniPlotDf2 <- bind_rows(GiniDf1a, GiniDf2a)
 
 Giniplot2 <- 
   GiniPlotDf2 %>%
-  ggplot(aes(y = gini, x = Country, fill = type)) + 
+  ggplot(aes(y = gini, x = reorder(Country, -sort), fill = type)) + 
   geom_bar(stat = "identity", position = "identity") + 
   scale_fill_brewer( type = "qual", palette = "Accent", 
                      breaks = c ("DisposableGini", "MarketGini"),
@@ -114,20 +132,29 @@ GiniNar <-
   filter(!Country %in% c("Greece", "Poland", "Slovenia")) #Dropped from both figures
  
 
-GiniDf1 <- 
-  GiniNar %>% 
-  filter(type == "MarketGini") %>%
-  mutate(Country = factor(Country), 
-         Country = fct_reorder(Country, gini, .desc = TRUE)) 
 GiniDf2 <- 
   GiniNar %>% 
   filter(type == "DisposableGini") %>%
   mutate(Country = factor(Country))
 
+GiniDf2 <- GiniDf2 %>%
+  mutate(sort= 1:n())
+
+GiniDf1 <- 
+  GiniNar %>% 
+  filter(type == "MarketGini")
+
+GiniDf1$sort <- GiniDf2$sort
+
+GiniDf1 <- 
+  GiniDf1 %>%
+  mutate(Country = factor(Country),
+         Country= fct_reorder(Country, sort)) 
+
 GiniPlotDf <- bind_rows(GiniDf1, GiniDf2)
 Giniplot <- 
   GiniPlotDf %>%
-  ggplot(aes(y = gini, x = Country, fill = type)) + 
+  ggplot(aes(y = gini, x = reorder(Country,-sort), fill = type)) + 
   geom_bar(stat = "identity", position = "identity") + 
   scale_fill_brewer( type = "qual", palette = "Accent", 
                      breaks = c ("DisposableGini", "MarketGini"),

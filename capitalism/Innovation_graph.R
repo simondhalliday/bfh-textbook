@@ -25,7 +25,7 @@ plot <- Data_final %>%
   ggplot(aes(x = Economy, y = `Total Score`)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9), fill = COLB[4]) + 
   ylab("Innovation index score") +
-  scale_y_continuous(limits = c(40, 90), oob=rescale_none) + 
+  scale_y_continuous(limits = c(60, 90), oob=rescale_none) + 
   #coord_cartesian(ylim = c(25, 90)) +
   #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +

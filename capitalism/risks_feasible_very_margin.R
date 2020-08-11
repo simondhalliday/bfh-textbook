@@ -119,7 +119,7 @@ text(16, indiffA(16)+12.5, expression(paste(u[3])),  xpd = TRUE, cex = labelsize
 
 # text(24.5, avgwealth(30)+2.5, expression(paste("Expected income")), xpd = TRUE, cex = labelsize)
 # text(24.5, avgwealth(30)+1, expression(paste("function")), xpd = TRUE, cex = labelsize)
-# text(24.5, avgwealth(30)-1, expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
+text(24.5, avgwealth(30) + 5, expression(paste(hat(y)(Delta))), xpd = TRUE, cex = labelsize)
 
 #text(25, 35, expression(paste("Very")), xpd = TRUE, cex = labelsize)
 # text(25, 33.5, expression(paste("High risk aversion")), xpd = TRUE, cex = labelsize)

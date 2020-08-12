@@ -4,7 +4,7 @@ library(lubridate)
 library(openxlsx)
 library(readxl)
 library(ggsignif)
-
+library(grid)
 
 wealth_share <- read_excel("capitalism/top_1percent_wealth_share.xlsx")
 
@@ -68,7 +68,7 @@ wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group
   annotate("text", x = 1830, y = 0.75, label = expression(paste(bold("Capitalism"))), size = 5) +
   annotate("text", x = 1965, y = 0.75, label = expression(paste(bold("Capitalism and democracy"))), size = 5) 
 
-print(wealth_share_plot)
+#print(wealth_share_plot)
 
 #Save plot to PDF
 ggsave(wealth_share_plot, filename = "wealth_share_top_1percent.pdf", 

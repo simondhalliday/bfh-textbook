@@ -42,8 +42,8 @@ bracketsGrob <- function(...){
 }
 
 
-b1 <- bracketsGrob(0.045, 0.88, 0.63, 0.88, h=0.05, lwd=2, col="black")
-b2 <- bracketsGrob(0.652, .88, 0.95, .88, h=0.05,  lwd=2, col="black")
+b1 <- bracketsGrob(0.045, 0.88, 0.61, 0.88, h=0.05, lwd=2, col="black")
+b2 <- bracketsGrob(0.63, .88, 0.95, .88, h=0.05,  lwd=2, col="black")
 
 #Plotting the data 
 wealth_share_plot <- ggplot(wealth_share3, aes(x = Year, y = wealth_share, group = Country, color = Country)) +

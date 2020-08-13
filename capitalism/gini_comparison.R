@@ -1,4 +1,5 @@
 library(tidyverse)
+library(readxl)
 
 Ginis <- read_excel("capitalism/ginis_comparison.xlsx")
 
@@ -152,6 +153,9 @@ GiniDf1 <-
          Country= fct_reorder(Country, sort)) 
 
 GiniPlotDf <- bind_rows(GiniDf1, GiniDf2)
+
+GiniPlotDf$label <-ifelse(GiniPlotDf$type == "MarketGini", GiniPlotDf$gini + 0.02, GiniPlotDf$gini- 0.02)
+
 Giniplot <- 
   GiniPlotDf %>%
   ggplot(aes(y = gini, x = reorder(Country,-sort), fill = type)) + 
@@ -161,7 +165,8 @@ Giniplot <-
                      labels = c ("Disposable income", 
                                  "Market income"), 
                      name = "") +
-  ylab("Gini coefficient (various years, 1992-2013)") +
+geom_text(aes(y=label,label=round(gini,2)*100), size=3) +
+ ylab("Gini coefficient (various years, 1992-2013)") +
   xlab("") +
   theme_bw() +
   theme(legend.position = "top",
@@ -177,6 +182,6 @@ Giniplot <-
   coord_flip()
 Giniplot
 
-pdf(file = "capitalism/gini_comparisons.pdf", width = 8, height = 6)
+pdf(file = "capitalism/gini_comparisons.pdf", width = 8, height = 8)
 Giniplot
 dev.off()

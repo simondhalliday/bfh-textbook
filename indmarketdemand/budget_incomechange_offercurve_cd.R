@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 #Edited the margins to cater for the larger LHS labels
@@ -61,11 +63,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, bcA(xx1, w = 12, p = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 6, p = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 9, p = 1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 12, p = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 6, p = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 9, p = 1), col = CBCols[2], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
-abline(0, 1, col=COL[3], lwd=graphlinewidth)
+abline(0, 1, col=CBCols[3], lwd=graphlinewidth)
 
 #Label Axes
 #mtext(expression(paste("Kilograms of coffee, ", x)), side=1, line = 2.5, cex = axislabelsize)
@@ -91,7 +93,7 @@ text(3.4, 11.8, expression(u[3]), cex = annotatesize)
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 

@@ -14,6 +14,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 6, 0.2, 0.2), mfrow = c(2,1))
@@ -39,7 +40,7 @@ bcA <- function(x, w = 20, p = 2) {
 
 
 xlims <- c(0, 10.5)
-ylims <- c(520, 650)
+ylims <- c(500, 620)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -61,7 +62,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 600 - 3*14, 600 - 5*10, 600 - 7*6, 600, ylims[2])
 ylabels <- c(NA, 600 - 3*14, 600 - 5*10, 600 - 7*6, 600, NA)
 ticksx <- c(0, 3, 5, 7, 10, xlims[2])
-xlabels <- c(NA, expression(paste(x[H] == 3)), expression(paste(x,"*" == 5)), expression(paste(x[L] == 7)), expression(paste(bar(x) == 10)), NA)
+xlabels <- c(NA, expression(paste(x[H] == 3)), expression(paste(x[B] == 5)), expression(paste(x[L] == 7)), expression(paste(bar(x) == 10)), NA)
 
 
 npts <- 500 
@@ -79,15 +80,20 @@ lines(xx1, bcA(xx1, w = 600, p = 14), col = COLA[3], lwd = graphlinewidth)
 #text(0.5*xlims[2], -2, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.3, 580, expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-#segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-#segments(2, -10, 2, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-#segments(4, -10, 4, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-#segments(6, -10, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+#segments(0, 6, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+#segments(2, -10, 2, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+#segments(4, -10, 4, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+#segments(6, -10, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
 #Label the budget curve functions for the HG, Aisha
-text(5, 523, expression(bc[1]), cex = annotatesize)
-text(8.3, 523, expression(bc[2]), cex = annotatesize)
+text(6, 510, expression(bc[1]), cex = annotatesize)
+text(6, 505, expression(p[H] == 14), cex = annotatesize)
+
+text(9.3, 520, expression(bc[2]), cex = annotatesize)
+text(9.3, 515, expression(p[B] == 10), cex = annotatesize)
+
 text(10, 537, expression(bc[3]), cex = annotatesize)
+text(10, 532, expression(p[L] == 6), cex = annotatesize)
 
 
 
@@ -109,13 +115,13 @@ contour(x, y,
         add = TRUE)
 
 #abline(h=6, col=COL[3], lwd=graphlinewidth)
-segments(7, 558, 7, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(5, 550, 5, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(3, 558, 3, 0, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(7, 558, 7, 0, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(5, 550, 5, 0, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(3, 558, 3, 0, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
-segments(0, 558,3, 558, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, 550,5, 550, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, 558,7, 558, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 558,3, 558, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 550,5, 550, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, 558,7, 558, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
 points(x = 3, y = 600 - 3*14, pch = 16, col = "black", cex = 1.5)
 text(x = 3 - 0.2, y = 600 - 3*14 - 3, expression(a), cex = annotatesize)
@@ -130,7 +136,7 @@ text(x = 7 - 0.2, y = 600 - 7*6 - 3, expression(c), cex = annotatesize)
 axis(1, at = ticksx, pos = ylims[1], labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-axis.break(axis = 2, breakpos = 525, pos = 0,
+axis.break(axis = 2, breakpos = 505, pos = 0,
            bgcol = "white", breakcol = "black",
            style = "slash", brw = 0.02)
 
@@ -169,9 +175,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 10, 14, 20, ylims[2])
-ylabels <- c(NA, expression(paste(p[L])), expression(paste(p,"*")), expression(paste(p[H])), expression(paste(bar(p) == 20)), NA)
+ylabels <- c(NA, expression(paste(p[L])), expression(paste(p[B])), expression(paste(p[H])), expression(paste(bar(p) == 20)), NA)
 ticksx <- c(0, 3, 5, 7, 10, xlims[2])
-xlabels <- c(NA, expression(paste(x[H] == 3)), expression(paste(x,"*" == 5)), expression(paste(x[L] == 7)), expression(paste(bar(x) == 10)), NA)
+xlabels <- c(NA, expression(paste(x[H] == 3)), expression(paste(x[B] == 5)), expression(paste(x[L] == 7)), expression(paste(bar(x) == 10)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -195,20 +201,20 @@ text(-1.2, 0.5*ylims[2], expression(paste("Price per unit of the good, ", p)), x
 
 
 segments(0, 10, xlims[2], 10, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(5, 0, 5, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
-text(9, 10.6, expression(paste("Base price, ", p,"*" == 10)), cex = labelsize)
+segments(5, 0, 5, 30, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+text(9, 10.6, expression(paste("Base price, ", p[B] == 10)), cex = labelsize)
 points(5, 10, pch = 16, col = "black", cex = 1.5)
 text(5.25, 10.5, expression(e), cex = annotatesize)
 
 segments(0, 14, xlims[2], 14, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(3, 0, 3, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(3, 0, 3, 30, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 text(9, 14.6, expression(paste("High price, ", p[H] == 14)), cex = labelsize)
 points(3, 14, pch = 16, col = "black", cex = 1.5)
 text(3.25, 14.5, expression(f), cex = annotatesize)
 
 
 segments(0, 6, xlims[2], 6, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(7, 0, 7, 30, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(7, 0, 7, 30, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 text(9, 6.6, expression(paste("Low price, ", p[L] == 6)), cex = labelsize)
 points(7, 6, pch = 16, col = "black", cex = 1.5)
 text(7.25, 6.5, expression(g), cex = annotatesize)

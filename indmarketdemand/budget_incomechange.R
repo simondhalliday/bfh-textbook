@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -56,9 +58,9 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, bcA(xx1, w = 12, p = 1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 6, p = 1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 9, p = 1), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 12, p = 1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 6, p = 1), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 9, p = 1), col = COLB[3], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
@@ -68,9 +70,9 @@ text(-1.3, 0.5*ylims[2], expression(paste("Gigabytes of data, ", y)), xpd = TRUE
 text(0.5*xlims[2], -1.5, expression(paste("Kilograms of coffee, ", x)), xpd = TRUE, cex = axislabelsize) 
 
 #Label the iso-welfare functions for the HG, Aisha
-text(5.2, 1.5, expression(bc[m1]), cex = annotatesize)
-text(8.2, 1.5, expression(bc[m2]), cex = annotatesize)
-text(11.2, 1.5, expression(bc[m3]), cex = annotatesize)
+text(5.2, 1.5, expression(bc[1]), cex = annotatesize)
+text(8.2, 1.5, expression(bc[2]), cex = annotatesize)
+text(11.2, 1.5, expression(bc[3]), cex = annotatesize)
 
 
 dev.off()

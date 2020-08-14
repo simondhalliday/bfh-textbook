@@ -14,6 +14,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start =1, end = 0)
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 7, 1, 1))
@@ -81,7 +82,7 @@ xx3 <- seq(7, 9, length.out = npts)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
-mtext(expression(paste("Quantity of fish, ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Kilograms of fish, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(-1.9, 10, expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the iso-welfare functions for the HG, Aisha
@@ -102,16 +103,16 @@ contour(x, y,
         add = TRUE)
 
 
-segments(3, 0, 3, 14.75, col = "grey", lty = 2, lwd = segmentlinewidth)
-segments(8, 0, 8, 9.333, col = "grey", lty = 2, lwd = segmentlinewidth)
+segments(3, 0, 3, 14.75, col = Grays[20], lty = 2, lwd = segmentlinewidth)
+segments(8, 0, 8, 9.333, col = Grays[20], lty = 2, lwd = segmentlinewidth)
 
-lines(xx2, tan_line(xx2, -1.5, 12.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
-lines(xx2, tan_line(xx2, -1.5, 14.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
-lines(xx2, tan_line(xx2, -1.5, 16.25), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx2, tan_line(xx2, -1.5, 12.25), col = Grays[22], lty = 2, lwd = graphlinewidth + 0.1)
+lines(xx2, tan_line(xx2, -1.5, 14.25), col = Grays[22], lty = 2, lwd = graphlinewidth + 0.1)
+lines(xx2, tan_line(xx2, -1.5, 16.25), col = Grays[22], lty = 2, lwd = graphlinewidth + 0.1)
 
-lines(xx3, tan_line(xx3, -4/6, 7.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
-lines(xx3, tan_line(xx3, -4/6, 9.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
-lines(xx3, tan_line(xx3, -4/6, 11.6663), col = COLB[4], lty = 1, lwd = segmentlinewidth)
+lines(xx3, tan_line(xx3, -4/6, 7.6663), col = Grays[22], lty = 2, lwd = graphlinewidth  + 0.1)
+lines(xx3, tan_line(xx3, -4/6, 9.6663), col = Grays[22], lty = 2, lwd = graphlinewidth  + 0.1)
+lines(xx3, tan_line(xx3, -4/6, 11.6663), col = Grays[22], lty = 2, lwd = graphlinewidth  + 0.1)
 
 
 points(3, 7.75, pch = 16, col = "black", cex = 1.2)

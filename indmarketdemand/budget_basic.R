@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -60,7 +62,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 12, ylims[2])
-ylabels <- c(NA, expression(paste(y == frac(w, p[y]) )), NA)
+ylabels <- c(NA, expression(paste(y == frac(m, p[y]) )), NA)
 ticksx <- c(0, 12, xlims[2])
 xlabels <- c(NA, NA, NA)
 
@@ -91,13 +93,13 @@ text(10, 9.3, expression("(outside the budget)"), cex = annotatesize)
 #text(4, 1.5, expression(bc[px]))
 #text(7.5, 1.5, expression(bc[px]))
 text(11, 3.6, expression("Budget Constraint"), cex = annotatesize)
-text(11, 2.6, expression(paste(y == frac(w,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)), cex = annotatesize)
+text(11, 2.6, expression(paste(y == frac(m,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)), cex = annotatesize)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-text(12, -1, expression(paste(x == frac(w, p[x]) )), cex = labelsize, xpd = TRUE)
+text(12, -1, expression(paste(x == frac(m, p[x]) )), cex = labelsize, xpd = TRUE)
 
 
 dev.off()

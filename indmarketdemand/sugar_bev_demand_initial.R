@@ -106,8 +106,8 @@ rect(xprices[2], 0, 150, prices[1],
      #col = "#deebf7", 
      density = NULL, border = NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize - 0.2)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 0.2)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 # Segments
@@ -138,7 +138,7 @@ text(xprices[1] + 5, prices[1] + 0.05, expression(a), cex = labelsize)
 text(50, 1.8, expression("Pre-tax"), cex = labelsize)
 text(50, 1.65, expression("consumer surplus"), cex = labelsize)
 text(75, 0.9, expression("Pre-tax"), cex = labelsize)
-text(75, 0.75, expression("consumer expenditure"), cex = labelsize)
+text(75, 0.75, expression("expenditure"), cex = labelsize)
 
 
 

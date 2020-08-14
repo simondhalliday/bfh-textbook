@@ -24,23 +24,26 @@ grays <- gray.colors(25, start = 1, end = 0)
 
 
 # #Data 
-City <- c("Chicago", "Los Angeles", "New York", "San Francisco")
+City <- c("Chicago", "Los Angeles", "New York City", "San Francisco")
 Elasticity <- c(0.66, 0.33, 0.61, 0.52)
-Uber_elasticity_mat <- cbind(City, Elasticity)
-Uber_elasticity_data <- as.data.frame(Uber_elasticity_mat)
+Uber_elasticity_data <- tibble(City, Elasticity)
+#Uber_elasticity_data <- as.data.frame(Uber_elasticity_mat)
 
-pdf(file = "indmarketdemand/uber_price_elasticities_bars.pdf", width = 15, height = 6)
+pdf(file = "indmarketdemand/uber_price_elasticities_bars.pdf", width = 9, height = 5)
 
 plot2 <- Uber_elasticity_data %>% 
   ggplot(aes(x = City, y = Elasticity)) + 
-  geom_bar(stat = "identity", colour="#CD2825", fill = "#CD2825") + 
-  #scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent) + 
+  geom_bar(stat = "identity", colour="#CD2825", fill = "#CD2825", width = 0.6) + 
+  #scale_y_continuous(breaks = seq(0, 1, by = 0.2)) + 
+  scale_y_continuous(breaks = seq(0, 0.75, 0.1),
+                     labels = seq(0, 0.75, 0.1),
+                     limits = c(0, 0.75)) +
   ylab("Price elasticity of demand") +
-  xlab("U.S. City") +
+  xlab("") +
   theme_bw() + 
-  theme(axis.title = element_text(size = 18),
-        axis.text.y = element_text(size = 20),
-        axis.text.x = element_text(size = 20),
+  theme(axis.title = element_text(size = 28),
+        axis.text.y = element_text(size = 24),
+        axis.text.x = element_text(size = 24),
         panel.grid.minor = element_blank()
   ) + 
   #theme(legend.position = c(0.8,0.85),
@@ -55,7 +58,7 @@ plot2 <- Uber_elasticity_data %>%
   geom_text(
   aes(x = City, y = Elasticity, label = Elasticity),
   col = "black",
-  hjust = -0.5, size = 4,
+  hjust = -0.3, size = 8,
   position = position_dodge(width = 1),
   inherit.aes = TRUE
  ) +

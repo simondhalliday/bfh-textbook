@@ -13,9 +13,11 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5.5, 5, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -36,8 +38,8 @@ bcA <- function(x, w = 20, p = 2) {
 }
 
 
-xlims <- c(0, 13)
-ylims <- c(0, 13)
+xlims <- c(0, 40)
+ylims <- c(0, 12)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -58,27 +60,29 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0, 12, ylims[2])
-ylabels <- c(NA, expression(paste(frac(m,p[y]) )), NA)
-ticksx <- c(0, 4, 8, 12, xlims[2])
-xlabels <- c(NA, expression(paste(m/p[x3])), expression(paste(m/p[x2])), expression(paste(m/p[x1])), NA)
+ticksy <- c(0, 10, ylims[2])
+ylabels <- c(NA, expression(paste(m == 10)), NA)
+ticksx <- c(0, 10/1, 10/0.5, 10/0.25)
+xlabels <- c(NA, expression(paste(frac(m,p[x3]) == 10 )), expression(paste(frac(m,p[x2]) == 20 )), expression(paste(frac(m,p[x1]) == 40 )))
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(x = c(0, 10/1, 10/0.5, 10/0.25 - 1.5), par("usr")[3] - 0.3, labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, bcA(xx1, w = 12, p = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 12, p = 1.5), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 12, p = 3), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.5), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.25), col = CBCols[2], lwd = graphlinewidth)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 
 
-#mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -1.3, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+#mtext(expression(paste("Kilograms of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
+text(0.5*xlims[2], -1.9, expression(paste("Kilograms of fish, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-3, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))
@@ -86,9 +90,12 @@ text(-0.9, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, 
 #Arrows(7.3, 3.5, 7.3, 6.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(4.05, 1.5, expression(bc[px3]), cex = annotatesize)
-text(7.55, 1.5, expression(bc[px2]), cex = annotatesize)
-text(11.1, 1.5, expression(bc[px1]), cex = annotatesize)
+text(7, 1.5, expression(bc[px3]), cex = annotatesize)
+text(7, 1, expression(p[x3] == 1), cex = annotatesize)
+text(15, 1.5, expression(bc[px2]), cex = annotatesize)
+text(15, 1, expression(p[x2] == 0.5), cex = annotatesize)
+text(32, 1.5, expression(bc[px1]), cex = annotatesize)
+text(32, 1, expression(p[x1] == 0.25), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty

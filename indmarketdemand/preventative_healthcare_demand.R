@@ -5,6 +5,7 @@ library(openxlsx)
 library(ggplot2)
 library(tidyverse)
 library(shape)
+library(ggthemes)
 
 #pdf(file = "indmarketdemand/preventative_healthcare_demand.pdf", width = 9, height = 7)
 
@@ -88,10 +89,15 @@ data_final_1 <- read.xlsx('indmarketdemand/preventative_healthcare.xlsx')
 
 colnames(data_final_1)[3] <- "product"
 
-data_final_2 <- data_final_1 %>%
-  filter(!(product =='Vitamins (Guatemala 2009)')) %>%
-  filter(!(product == 'Vitamin (India 2009)')) %>%
-  filter(!(product == 'Soap (Uganda 2009)')) 
+data_final_2 <- 
+  data_final_1 %>%
+  filter(!product %in% c('Vitamins (Guatemala 2009)', 
+                         'Vitamin (India 2009)', 
+                         'Soap (Uganda 2009)', 
+                         "Vitamins (Uganda 2009)", 
+                         "Clorin (Kenya 2004)")
+         )  
+
 
 # p1 <- ggplot(data_final_1, aes(x=x, y=y, group=group, color=group)) +
 #   geom_point() +
@@ -111,22 +117,22 @@ data_final_2 <- data_final_1 %>%
 
 p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   geom_point() + 
-  geom_line() + 
+  geom_line(lwd = 0.7) + 
   xlab("Price in USD") +
   ylab("Household Take-up Rate") +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
-  theme(legend.position = c(0.77,0.77)) +
+  theme(legend.position = c(0.77, 0.77)) +
   #guides(colour = guide_legend(override.aes=list(fill=NA),nrow = 2)) +
   labs(color = 'Healthcare Products') +
   theme(legend.title = element_blank()) +
   coord_flip() +
-  scale_color_manual(values = COLD) + 
+  scale_color_colorblind() + 
   theme(axis.title = element_text(size = 24),
-        axis.text.y = element_text(size = 14),
+        axis.text.y = element_text(size = 15),
         legend.text = element_text(size = 13),
-        axis.text.x = element_text(size = 14, angle = 45, vjust = 0.5),
+        axis.text.x = element_text(size = 15, angle = 45, vjust = 0.5),
         panel.grid.minor = element_blank()
   )
 

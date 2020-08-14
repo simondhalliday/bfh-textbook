@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -66,10 +68,10 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, bcA(xx1, m = 1.85), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, m = 2.25), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, m = 2.69), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, mOffer(xx1, int = 3.71, slope = 1.7), col = COL[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, m = 1.85), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, m = 2.25), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, m = 2.69), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, mOffer(xx1, int = 3.71, slope = 1.7), col = CBCols[3], lwd = graphlinewidth)
 
 #Label Axes
 text(0.5*xlims[2], -0.4, expression(paste("Quantity of inferior good, ", x)), xpd = TRUE, cex = axislabelsize) 
@@ -80,23 +82,23 @@ text(2.8, 1.05, expression(bc[m1]), cex = labelsize)
 text(2.8, 1.45, expression(bc[m2]), cex = labelsize)
 text(2.8, 1.9, expression(bc[m3]), cex = labelsize)
 
-text(2.5, 0.38, expression(paste("Income offer")), cex = labelsize)
-text(2.5, 0.23, expression(paste("curve")), cex = labelsize)
+text(2.4, 0.38, expression(paste("Income-offer")), cex = labelsize)
+text(2.4, 0.23, expression(paste("curve")), cex = labelsize)
 
 
-segments(0.7, 0, 0.7, 2.52, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 2.52, 0.7, 2.52, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(0.7, 0, 0.7, 2.52, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 2.52, 0.7, 2.52, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(0.7, 2.52, pch = 16, col = "black", cex = 1.5)
 text(0.7 + 0.1, 2.52 + 0.1, expression(h), cex = annotatesize)
 
 
-segments(1, 0, 1, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 2, 1, 2, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(1, 0, 1, 2, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 2, 1, 2, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1, 2, pch = 16, col = "black", cex = 1.5)
 text(1 + 0.1, 2 + 0.1, expression(g), cex = annotatesize)
 
-segments(1.3, 0, 1.3, 1.52, lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, 1.52, 1.3, 1.52, lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(1.3, 0, 1.3, 1.52, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 1.52, 1.3, 1.52, lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1.3, 1.52, pch = 16, col = "black", cex = 1.5)
 text(1.3 + 0.1, 1.52 + 0.1, expression(f), cex = annotatesize)
 

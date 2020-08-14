@@ -50,7 +50,7 @@ a <- c(25.65, 23.5, 15)
 pdf(file = "indmarketdemand/carbon_tax_CD_1.pdf", width = 9, height = 7)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7, 1, 1))
+par(mar =  c(5, 7, 1, 4))
 
 #Add limits on axes and levels of utility for each indifference curve
 ylims <- c(0, 65)
@@ -108,7 +108,7 @@ text((80 + 57.5)/2, -3, expression(paste("Substitution")), xpd = TRUE, cex = ann
 text((80 + 57.5)/2, -5.5, expression(paste("effect")), xpd = TRUE, cex = annotatesize - 0.15) 
 
 text(0.5*xlims[2], -9, expression(paste("Fossil fuels consumed, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-18, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-20, 0.5*ylims[2], expression(paste("Consumption of other goods, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, bcA(xx1), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, px = 0.25), col = COLB[3], lwd = graphlinewidth)
@@ -119,25 +119,37 @@ lines(xx1, bcA(xx1, m = 56.5), col = COLB[5], lwd = graphlinewidth)
 
 text(16, 61, expression(u[1]), cex = labelsize)
 text(29, 61, expression(u[2]), cex = labelsize)
-text(105, 12, expression(bc[a]), cex = labelsize)
-text(70, 2.5, expression(bc[b]), cex = labelsize)
-text(105, 2.5, expression(bc[c]), cex = labelsize)
+text(115, 14.5, expression(bc[a]), cex = labelsize, xpd = TRUE)
+text(115, 12, expression(paste("initial")), cex = labelsize, xpd = TRUE)
+text(115, 9.5, expression(paste("budget")), cex = labelsize, xpd = TRUE)
+
+
+text(49, 13, expression(bc[b]), cex = labelsize)
+text(49, 10.5, expression(paste("budget")), cex = labelsize)
+text(49, 8, expression(paste("when ", p[x])), cex = labelsize)
+text(49, 5.5, expression(paste("increases")), cex = labelsize)
+
+#text(106, 12, expression(bc[a]), cex = labelsize)
+
+text(90, 7, expression(bc[c]), cex = labelsize, xpd = TRUE)
+text(90, 4.5, expression(paste("compensated")), cex = labelsize, xpd = TRUE)
+text(90, 2, expression(paste("budget")), cex = labelsize, xpd = TRUE)
 
 #Label points e-sub, e, e'
 
 text(80, bcA(80, px = 0.25) + 2, expression(paste(a)), cex = labelsize)
-segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
 
 text(40, bcA(40) + 2, expression(paste(b)), cex = labelsize)
-segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, bcA(x = 40), 56, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(40, 0, 40, bcA(x = 40), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, bcA(x = 40), 56, bcA(x = 40), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
 
 text(57.5, bcA(57.5, m = 56.5) + 2, expression(paste(c)), cex = labelsize)
-segments(57.5, 0, 57.5, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, bcA(57.5, m = 56.5), 56, bcA(57.5, m = 56.5), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(57.5, 0, 57.5, bcA(57.5, m = 56.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, bcA(57.5, m = 56.5), 56, bcA(57.5, m = 56.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(57.5, bcA(57.5, m = 56.5), pch = 16, col = "black", cex = 1.5)
 
 brackets(56.5, -0.6, 41, -0.6,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
@@ -235,25 +247,41 @@ lines(xx1, bcA(xx1, m = 62), col = COLB[5], lwd = graphlinewidth)
 text(16, 61, expression(u[1]), cex = labelsize)
 text(28.5, 61, expression(u[2]), cex = labelsize)
 text(34, 61, expression(u[3]), cex = labelsize)
-text(105, 12, expression(bc[d]), cex = labelsize)
-text(70, 2.5, expression(bc[b]), cex = labelsize)
+#text(105, 12, expression(bc[d]), cex = labelsize)
+#text(70, 2.5, expression(bc[b]), cex = labelsize)
 #text(105, 2.5, expression(bc[c]), cex = labelsize)
 
 #Label points e-sub, e, e'
 
 text(80 - 2, bcA(80, px = 0.25) - 1.5, expression(paste(a)), cex = labelsize)
-# segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(80, 0, 80, bcA(x = 80, px = 0.25), lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, bcA(x = 80, px = 0.25), 80, bcA(80, px = 0.25), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(80, bcA(80, px = 0.25), pch = 16, col = "black", cex = 1.5)
 
 text(40, bcA(40) + 2, expression(paste(b)), cex = labelsize)
-segments(40, 0, 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, bcA(x = 40), 40, bcA(x = 40), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(40, 0, 40, bcA(x = 40), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, bcA(x = 40), 40, bcA(x = 40), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(40, bcA(40), pch = 16, col = "black", cex = 1.5)
 
 text(60, bcA(60, m = 62) + 2, expression(paste(d)), cex = labelsize)
-segments(60, 0, 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, bcA(60, m = 62), 60, bcA(60, m = 62), lty = 2, col = "gray", lwd = segmentlinewidth)
+segments(60, 0, 60, bcA(60, m = 62), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, bcA(60, m = 62), 60, bcA(60, m = 62), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(60, bcA(60, m = 62), pch = 16, col = "black", cex = 1.5)
+
+
+brackets(-2, 40 + 0.5, -2, 62 - 0.5,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,
+         col = 1, lwd = segmentlinewidth, lty = 1, xpd = TRUE)
+text(-5, 51, expression(paste(dividend)), cex = labelsize, srt = 90, xpd = TRUE)
+
+text(49, 13, expression(bc[b]), cex = labelsize)
+text(49, 10.5, expression(paste("budget")), cex = labelsize)
+text(49, 8, expression(paste("with tax")), cex = labelsize)
+text(49, 5.5, expression(paste("increase")), cex = labelsize)
+
+#text(105, 12, expression(bc[d]), cex = labelsize)
+
+text(85, 16.5, expression(bc[d]), cex = labelsize)
+text(85, 14, expression(paste("budget with")), cex = labelsize)
+text(85, 12, expression(paste("dividend")), cex = labelsize)
 
 dev.off()

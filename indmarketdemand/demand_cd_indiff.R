@@ -13,6 +13,9 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
+
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 5, 1, 1))
@@ -49,14 +52,14 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 6, 12, ylims[2])
-ylabels <- c(NA, expression(paste(y,"*")), expression(paste(y == frac(m,p[y]) )), NA)
+ylabels <- c(NA, expression(paste(y[b])), expression(paste(y == frac(m,p[y]) )), NA)
 ticksx <- c(0, 6, 12, xlims[2])
-xlabels <- c(NA, expression(paste(x,"*")), NA, NA)
+xlabels <- c(NA, expression(paste(x[b])), NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-text(12, -1, expression(paste(x == frac(w, p[x]) )), cex = labelsize, xpd = TRUE)
+text(12, -1, expression(paste(x == frac(m, p[x]) )), cex = labelsize, xpd = TRUE)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -86,19 +89,22 @@ contour(x, y,
         yaxs="i", 
         add = TRUE)
 
-segments(0, 6, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, 6, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 6, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6, 0, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(6, 6, pch = 16, col = "black", cex = 1.5)
-text(6.1, 6.5, expression(i), cex = annotatesize)
+text(5.7, 5.7, expression(b), cex = annotatesize)
 
 
 points(1.55, 10.45, pch = 16, col = "black", cex = 1.5)
 points(10.45, 1.55, pch = 16, col = "black", cex = 1.5)
 text(1.65, 11, expression(a), cex = annotatesize)
-text(10.55, 2, expression(b), cex = annotatesize)
+text(10.55, 2, expression(c), cex = annotatesize)
 
 text(9.2, 0.6, expression(paste("Budget constraint, ", bc[1])), cex = annotatesize)
 #Arrows(10, 9.7, 10, 2.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(6, 8, expression(paste(mrs == mrt)), cex = annotatesize)
+Arrows(6, 7.8, 6, 6.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 dev.off()

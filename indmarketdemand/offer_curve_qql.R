@@ -13,9 +13,12 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
+
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5.5, 5, 1, 1))
 
 mrsA <- function(x, rmax = 10, xmax = 20) {
   rmax - (rmax/xmax)*x
@@ -76,14 +79,14 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 10, p = 1), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 10, p = 0.5), col = COLB[3], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.5), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 10, p = 0.25), col = CBCols[2], lwd = graphlinewidth)
 
 
 #Label the axes
-text(0.5*xlims[2], -1.3, expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.5, expression(paste("Kilograms of fish, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(-1, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
 text(11.8, 1.3, expression(u[1]), cex = labelsize)
@@ -99,14 +102,14 @@ text(11.3, 6.9, expression(paste(bc[3])), cex = annotatesize)
 text(11.3, 6.4, expression(paste(p[x] == 0.25)), cex = annotatesize)
 
 #Label the offer curve
-text(10.9, 10.2, expression("Price-offer"), cex = labelsize)
-text(10.9, 9.7, expression("curve"), cex = labelsize)
+text(11.1, 10.2, expression("Price-offer"), cex = labelsize)
+text(11.1, 9.7, expression("curve"), cex = labelsize)
 
 #Add the contour plot for the indifference curves
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -115,15 +118,15 @@ contour(x, y,
 
 #Add the offer curve (superimposed on the indifference curves tangent to the price lines)
 xx2 <- seq(2, xlims[2], length.out = npts)
-lines(xx2, offerCurve(xx2, w = 10, rmax = 2, xmax = 12), col = COL[3], lwd = graphlinewidth)
+lines(xx2, offerCurve(xx2, w = 10, rmax = 2, xmax = 12), col = CBCols[3], lwd = graphlinewidth)
 
 #Segments for points on Offer curve
-segments(0, 4, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6, 0, 6, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 5.5, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(9, 0, 9, 5.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 7.375, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10.5, 0, 10.5, 7.375, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 4, 6, 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6, 0, 6, 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 5.5, 9, 5.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(9, 0, 9, 5.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 7.375, 10.5, 7.375, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(10.5, 0, 10.5, 7.375, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Annotate points on offer curve mrs = p for each of p = 1, 0.5, 0.25
 #Where mrs = 2 - (1/6)*x

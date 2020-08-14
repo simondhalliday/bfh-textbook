@@ -30,8 +30,9 @@ p1 <- JEBO_chart_data %>%
   filter(name %in% europe) %>% 
   mutate(year = as.factor(year)) %>%
   ggplot(aes(x = year, y = hour, group = fullname, color = fullname)) +
-  geom_point() +
+  geom_point(size = 2) +
   geom_line() + 
+  ylim(1300, 3300) + 
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +
   #scale_color_manual(values = c("France", "Germany", "Netherlands", "Sweden", "Switzerland", "United Kingdom")) +
   scale_color_d3() +
@@ -39,7 +40,8 @@ p1 <- JEBO_chart_data %>%
   theme(axis.text = element_text(size = 15),
         axis.title = element_text(size = 18),
         text = element_text(size = 15),
-        legend.position = c(0.85, 0.84),
+        legend.position = c(0.8, 0.84),
+        legend.text = element_text(size = 18), 
         panel.grid.minor = element_blank()
         )
 
@@ -52,14 +54,16 @@ p2 <- JEBO_chart_data %>%
   mutate(year = as.factor(year)) %>%
   ggplot(aes(x = year,y = hour, group = fullname, color = fullname)) +
   geom_line() + 
-  geom_point() +
+  geom_point(size = 2) +
+  ylim(1300, 3300) + 
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +
   scale_color_d3() +
   theme_bw() +
   theme(axis.text = element_text(size = 15),
         axis.title = element_text(size = 18),
         text = element_text(size = 15),
-        legend.position = c(0.85, 0.875),
+        legend.position = c(0.8, 0.875),
+        legend.text = element_text(size = 18), 
         panel.grid.minor = element_blank()
         )
 

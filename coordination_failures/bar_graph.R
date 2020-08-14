@@ -11,7 +11,7 @@ dfnar <-
   arrange(point)
 #xaxislabs <- c("a",a  "b",  expression(paste(t^A)), expression(paste(t^B)), "z")
 x1 <- c(expression(paste("Aram fishes alone; \n Bina is a farmer \n not a fisherman (15 Hours)")))
-x2 <- c(expression(paste("Nash equilibrium of \n the symmetric  game \n (24 Hours)")))
+x2 <- c(expression(paste("Nash equilibrium of the symmetric  game \n (24 Hours)")))
 x3 <- c(expression(paste("Social optimum (Impartial Spectator \n implemented) \n (20 Hours)")))
 x4 <- c(expression(paste("Bina owns the lake (both permits and \n employment) (20 Hours)")))
 x5 <- c(expression(paste("Optimal tax on fishing time (20 Hours)")))
@@ -24,18 +24,24 @@ dfplot <-
 
 dfnar$point <- factor(dfnar$point, levels = c("7", "6", "5", "4", "3","2","1"))
 
+#colors Vermiliion = rgb(213/255,94/255,0)
+#blue = rgb(0,114/255,178/255)
+#blue-ish green rgb(0, 158/255,115/255)
+# rgb(230/255, 159/255, 0)
+#https://jfly.uni-koeln.de/color/
+#
 plot1 <- dfnar %>% 
   ggplot(aes(x = point, y = Utility)) +
   geom_bar(aes(group = type, fill = type), stat = "identity", position = position_dodge()) + 
   #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
   #scale_x_discrete(labels = xaxislabs) + 
-  scale_x_discrete(labels=c("1" = "Aram fishes alone; Bina is a farmer not a \n fisherman (15 Hours)", "2" = "Nash equilibrium of the symmetric game \n (24 Hours)",
+  scale_x_discrete(labels=c("1" = "Aram fishes alone; Bina is a farmer  \n not a fisherman (15 Hours)", "2" = "Nash equilibrium of the  symmetric \n game (24 Hours)",
                             "3" = "Social optimum (Impartial Spectator \n implemented) (20 Hours)", "4" = x4, "5" = x5, "6" = x6, "7" = x7)) +
   scale_y_continuous(breaks = seq(0,350,50),
                      labels = seq(0,350,50),
                      limits = c(0,350)) +
-  scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
+  scale_fill_manual(values=c("#009E73","#0072B2","#E69F00"), 
                     name = "Type",
                     breaks = c("ua", "ub", "totalu"), 
                     labels = c(expression(paste("A's Utility, ", u^A)),
@@ -43,7 +49,7 @@ plot1 <- dfnar %>%
                                paste("Total Utility")))+
   #xlab("Point in the Edgeworth Box") + 
   theme_bw() +
-  theme(legend.position = "right",
+  theme(legend.position = "top",
         legend.text.align = 0,
         axis.title = element_text(size = 20),
         axis.title.y = element_blank(),
@@ -54,7 +60,7 @@ plot1 <- dfnar %>%
         axis.text.x  = element_text(vjust = 0.5, size = 18)) + 
   geom_text(
     aes(x = point, y = Utility, label = Utility, group = type), 
-    hjust = -0.5, size = 4,
+    hjust = -0.5, size = 6,
     position = position_dodge(width = 1),
     inherit.aes = TRUE
   ) + 

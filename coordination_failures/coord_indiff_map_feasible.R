@@ -76,7 +76,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 contour(y, x, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = COLA[4],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -106,7 +106,7 @@ text(12 - 0.3, 12 - 0.6, expression(paste("n")), cex = annotatesize)
 
 
 
-segments(0,  brfA(13),  xlims[2],  brfA(13), lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(0,  brfA(13),  xlims[2],  brfA(13), lty = 1, col = COLB[4], lwd = graphlinewidth)
 
 points(13, brfA(ea = 13), pch = 16, col = "black", cex = 1.5)
 text(13 - 0.3, brfA(ea = 13) - 0.6, expression(paste("j")), cex = annotatesize)

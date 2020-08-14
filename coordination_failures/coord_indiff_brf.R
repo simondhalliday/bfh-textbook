@@ -66,13 +66,13 @@ text(x = c(0, 11, 12, 13, 15, 18), par("usr")[3] - 0.4,
   
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLB[4], lwd = graphlinewidth + 0.2)
+lines(xx1, brfA(xx1, alpha = 30, beta = 1/2), col = COLA[4], lwd = graphlinewidth + 0.2)
   
   
 contour(y, x, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = COLA[3],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 

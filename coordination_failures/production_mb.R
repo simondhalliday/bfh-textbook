@@ -13,6 +13,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start = 1, end = 0)
 
 
 #Need to create a stacked graph and 
@@ -80,10 +81,10 @@ xx3 <- seq(14, 22, length.out = npts)
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx2, output(xx2, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
-segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, output(ea = 18), 18, output(ea = 18), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(0, output(ea = 18, eb = 0), 18, output(ea = 18, eb = 0), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
-segments(18, -500, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(18, -500, 18, 500, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
 lines(xx3, slopeline(ea = xx3, slope = 6, yint = 162), lty = 2, col = "black", lwd = graphlinewidth)
 lines(xx3, slopeline(ea = xx3, slope = 12, yint = 162), lty = 2, col = "black", lwd = graphlinewidth)
@@ -97,8 +98,8 @@ text(18 - 0.75, output(ea = 18) + 14, expression(paste(j)), cex = annotatesize)
 points(18, output(ea = 18, eb = 0), pch = 16, col = "black", cex = 1.5)
 text(18 - 0.75, output(ea = 18, eb = 0) + 12, expression(paste(k)), cex = annotatesize)
 
-text(21.8, 360, expression(paste(y(h^A, h^B == 0)) ), cex = annotatesize)
-text(21.8, 250, expression(paste(y(h^A, h^B > 0))), cex = annotatesize)
+text(21.8, 370, expression(paste(y(h^A, h^B == 0)) ), cex = annotatesize)
+text(21.8, 250, expression(paste(y(h^A, h^B == 12))), cex = annotatesize)
 
 ############
 # Bottom Fig 
@@ -142,7 +143,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -3.8, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("A's marginal benefit (ounces, oz) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("A's marginal benefit (pounds, lb) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -154,17 +155,17 @@ lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 #Marginal benefit when B produce NE number of hours
 lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
 
-segments(0, MBenefit(ea = 18), 18, MBenefit(ea = 18), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(0, MBenefit(ea = 18, eb = 0), 18, MBenefit(ea = 18, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, MBenefit(ea = 18), 18, MBenefit(ea = 18), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(0, MBenefit(ea = 18, eb = 0), 18, MBenefit(ea = 18, eb = 0), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
-segments(18, 0, 18, 500, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(18, 0, 18, 500, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
-text(10, 25.5, expression(paste("Marginal Benefit")), cex = labelsize)
+text(10, 25.5, expression(paste("Marginal benefit")), cex = labelsize)
 text(10, 24, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 
 
-text(10, 9.5, expression(paste("Marginal Benefit ")), cex = labelsize)
-text(10, 8, expression(paste("when, ", h^B > 0 )), cex = labelsize)
+text(10, 9.5, expression(paste("Marginal benefit ")), cex = labelsize)
+text(10, 8, expression(paste("when, ", h^B == 12 )), cex = labelsize)
 
 
 points(18, MBenefit(ea = 18), pch = 16, col = "black", cex = 1.5)

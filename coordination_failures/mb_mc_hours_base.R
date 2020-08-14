@@ -13,7 +13,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
-
+Grays <- gray.colors(25, start = 1, end = 0)
 
 #Need to create a stacked graph and 
 #use the option mfrow = c(2,1) for that
@@ -81,7 +81,7 @@ polygon(c(0, xpolyF, xlims[2], xlims[1]),
         c(output(0, eb = 0), output(xpolyF, eb = 0), 0, 0),
         border = FALSE, col = COLA[1])
 
-text(20, 150, expression(paste("Feasible set, ", h^B == 0)), xpd = TRUE, cex = labelsize)
+text(24, 150, expression(paste("Feasible set, ", h^B == 0)), xpd = TRUE, cex = labelsize)
 
 
 lines(xx1, output(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
@@ -97,16 +97,16 @@ contour(x, y,
         yaxs="i",
         add = TRUE)
 
-# segments(12, 300, 12, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(6, output(6, eb = 0), 6, -300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+# segments(12, 300, 12, -300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(15, output(ea = 15, eb = 0), 15, -300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(6, output(6, eb = 0), 6, -300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 points(6, output(ea = 6, eb = 0), pch = 16, col = "black", cex = 1.5)
 text(6.5, output(ea = 6, eb = 0) - 8, expression(f), cex = annotatesize)
 
 
 
-# segments(2, 0, 2, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(6, 0, 6, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(2, 0, 2, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)
+# segments(6, 0, 6, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Axis labels
 #mtext(expression(paste("A's hours, ", h^A)), side=1, line = 3.2, cex = axislabelsize)
@@ -131,8 +131,15 @@ points(15, output(ea = 15, eb = 0), pch = 16, col = "black", cex = 1.5)
 text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotatesize)
 
 
-text(28, 420, expression(paste(y(h^A, h^B == 0))), cex = annotatesize)
+#text(28, 420, expression(paste(x^A*bgroup("(",list(h^A, h^B == 0),")") ) ), cex = annotatesize)
+text(27.5, 420, expression(paste("A's production") ), cex = annotatesize)
+text(27.5, 390, expression(paste("function") ), cex = annotatesize)
+text(27.5, 360, expression(paste(x^A*(list(h^A, h^B == 0)) ) ), cex = annotatesize)
+text(27.5, 330, expression(paste("defines feasible") ), cex = annotatesize)
+text(27.5, 300, expression(paste("consumption, ", y^A) ), cex = annotatesize, xpd = TRUE)
+
 # text(19.8, 260, expression(paste(y(h^A, h^B >0))), cex = annotatesize)
+
 
 MBenefit <- function(ea, eb = 12, alpha = 30, beta = 1/2) {
   (alpha - beta*eb - 2*beta*ea)
@@ -179,13 +186,13 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -3.8, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("A's MC and MC (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("A's marginal costs & benefits (lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(4, 8, length.out = npts)
 
-segments(0, 15, xlims[2], 15, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, 15, xlims[2], 15, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 text(24, 16, expression(mb == mc), cex = annotatesize)
 
 #lines(xx1, MBenefit(xx1, eb = 12), col = COLA[4], lwd = graphlinewidth)
@@ -193,24 +200,24 @@ lines(xx1, MBenefit(xx1, eb = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, MCost(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #For NE hours = 12
-# segments(0, 12, 12, 12, lty = 2, col =  "gray", lwd = segmentlinewidth)
-# segments(12, 0, 12, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(15, 0, 15, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(6, 0, 6, 300, lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
-segments(0, MBenefit(ea = 6, eb = 0), 6, MBenefit(ea = 6, eb = 0), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+# segments(0, 12, 12, 12, lty = 2, col =  grays[20], lwd = segmentlinewidth)
+# segments(12, 0, 12, 300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(15, 0, 15, 300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(6, 0, 6, 300, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(0, MBenefit(ea = 6, eb = 0), 6, MBenefit(ea = 6, eb = 0), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 points(6, MBenefit(ea = 6, eb = 0), pch = 16, col = "black", cex = 1.5)
 text(6 + 0.6, MBenefit(ea = 6, eb = 0) + 0.5, expression(g), cex = annotatesize)
 
-segments(0, MCost(ea = 6), 6, MCost(ea = 6), lty = 2, col = "gray", lwd = segmentlinewidth, xpd = 350)
+segments(0, MCost(ea = 6), 6, MCost(ea = 6), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 points(6, MCost(ea = 6), pch = 16, col = "black", cex = 1.5)
 text(6 + 0.6, MCost(ea = 6) - 0.5, expression(h), cex = annotatesize)
 
 
-#segments(0, 12, 300, 12, lty = 2, col =  "gray", lwd = segmentlinewidth, xpd = TRUE)
+#segments(0, 12, 300, 12, lty = 2, col =  grays[20], lwd = segmentlinewidth, xpd = TRUE)
 
 #For P-efficient hours = 10
-#segments(0, MBenefit(15, eb = 0), 15, MBenefit(15, eb = 0), lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = "gray" , lwd = segmentlinewidth)
+#segments(0, MBenefit(15, eb = 0), 15, MBenefit(15, eb = 0), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(15, 0, 15, MBenefit(15, eb = 0),  lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 
 text(24, 11.5, expression(paste("Marginal benefit")), cex = labelsize)
@@ -229,7 +236,7 @@ text(24, 10, expression(paste("when, ", h^B== 0 )), cex = labelsize)
 #Arrows(21.5, 12.5, 17, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(24, 30, expression(paste("Marginal cost")), cex = labelsize)
+text(24, 30.2, expression(paste("Marginal cost")), cex = labelsize)
 text(24, 28.5, expression(paste("or disutility")), cex = labelsize)
 text(24, 27, expression(paste(mc^A == h^A)), cex = labelsize)
 
@@ -238,6 +245,6 @@ text(24, 27, expression(paste(mc^A == h^A)), cex = labelsize)
 # text(12 + 0.85, 12.1, expression(paste(n)), cex = labelsize)
 
 points(15, 15, pch = 16, col = "black", cex = 1.5)
-text(15 + 0.85, 15.1, expression(paste(s)), cex = labelsize)
+text(15 + 0.35, 15 + 1.25, expression(paste(s)), cex = labelsize)
 
 dev.off()

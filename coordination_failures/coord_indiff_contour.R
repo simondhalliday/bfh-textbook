@@ -57,11 +57,11 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 # ticksy <- seq(from = 0, to = ylims[2], by = 2)
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
-ticksx <- seq(from = 0, to = xlims[2], by = 3)
-xlabels <- seq(from = 0, to = xlims[2], by = 3)
+ticksx <- c(seq(from = 0, to = 20, by = 5), 24)
+xlabels <- c(0, 5, expression(paste(h[f]^A == 10)), expression(paste(h[g]^A == 15)), 20, 24)
 #ticksy <- c(0, 1, 10, 12, 28, 30, 46.08, 70)
 ticksy <- c(ylims[1], 112, 195, 255, ylims[2])
-ylabels <- c(NA, expression(paste(z==112)), expression(paste(y[a]== 190)), expression(paste(y[b] == 247.5)), NA)
+ylabels <- c(NA, expression(paste(z==112)), expression(paste(y[f]== 190)), expression(paste(y[g] == 247.5)), NA)
 # ticksy <- c(ylims[1], 100, uA(ea = 12, output(ea = 12, eb = 12)), uA(ea = 15, output(ea = 15, eb = 0)), 300, ylims[2])
 # ylabels <- c(NA, expression(z),  expression(paste(a)),expression(paste(b)), expression(paste()), NA)
 # ticksx <- c(0, 6.9, 12, 9.6, 16, 24, 26)
@@ -110,7 +110,7 @@ text(3, 350, expression(paste("slope", phantom()==h^A, phantom() == 10)), cex = 
 Arrows(6, 350, 9.2, 350, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #
-text(3, indiffA(ea = 15, uA = 301), expression(paste("slope", phantom()==h^B, phantom() == 15)), cex = annotatesize)
+text(3, indiffA(ea = 15, uA = 301), expression(paste("slope", phantom()==h^A, phantom() == 15)), cex = annotatesize)
 Arrows(6, indiffA(ea = 15, uA = 301), 14.2, indiffA(ea = 15, uA = 301), 
        col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -120,8 +120,8 @@ text(21, 390, expression(u[1]^A), cex = annotatesize)
 text(21, 470, expression(u[2]^A), cex = annotatesize)
 text(17, 470, expression(u[3]^A), cex = annotatesize)
 
-text(9.5, 210, expression(a), cex = annotatesize)
-text(14.5, 270, expression(b), cex = annotatesize)
+text(9.5, 210, expression(f), cex = annotatesize)
+text(14.5, 270, expression(g), cex = annotatesize)
 
 
 

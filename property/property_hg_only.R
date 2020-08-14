@@ -12,6 +12,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4.5, 4, 4.5))
 
@@ -57,7 +59,7 @@ a <- c(uA(9,1), uA(9,1) + 1.5, uA(9,1) + 2.5,  uA(9,1) + 2.9)
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -103,8 +105,8 @@ Arrows(6, 12.9, 6, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
 # text(5, 7.1, expression(paste(i)))
 # 
 
-text(-0.35, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.35, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 par(new = TRUE)
 

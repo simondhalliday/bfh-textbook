@@ -3,7 +3,7 @@ require(shape)
 #pdf(file = "property_tioli_logsSTEP2.pdf", width = 9, height = 7)
 #pdf(file = "property_tioli_logsSTEP3.pdf", width = 9, height = 7)
 #pdf(file = "property_tioli_logsSTEP4.pdf", width = 9, height = 7)
-pdf(file = "property/property_symmetric_edgeworth_base.pdf", width = 9, height = 7)
+pdf(file = "property/property_tioli_logs.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 namesize <- 1.3
@@ -51,13 +51,6 @@ xbtioli <- function(uzb){
   exp(uzb - (1/2)*log(3/2))
 }
 
-
-#Aisha happens to have found 8 apples and 2 oranges, 
-#and Betty happens to have found 2 apples and 13 oranges. 
-#Aisha's utility (8^0.5)*(2^0.5) = 4
-#Betty's utility (2^0.5)*(13^0.5) = 5.09
-
-
 par(mar =  c(4, 4.5, 4, 4.5))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
@@ -87,10 +80,10 @@ yy2 <- indiffcurveA2(xx1)
 #polygon(x = c(1.34, 6, 8, 10 - 6.73), y = c(12, 9, 2, 15 - 10.1), col="powderblue", density=NULL, border = NA)
 
 #I need something like xx1 with npts for 
-# xpoly1 <- seq(from = 0.7, to = 9, length.out = 501)
-# ypoly1 <- indifflogA(xpoly1, U = uAlog(9,1), alpha = 1/2)
-# ypoly2 <- indifflogB(xpoly1, U = uBlog(9,1), alpha = 1/2)
-# polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+xpoly1 <- seq(from = 0.7, to = 9, length.out = 501)
+ypoly1 <- indifflogA(xpoly1, U = uAlog(9,1), alpha = 1/2)
+ypoly2 <- indifflogB(xpoly1, U = uBlog(9,1), alpha = 1/2)
+polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -132,14 +125,16 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Add arrows:
-Arrows(-0.95, 11.7, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+# arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+# arrows(7.3, -1.7, 9, -1.7, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
+Arrows(-0.95, 11.8, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 Arrows(7.4, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 #Annotation of the three graphs and the NE
 text(0.5, 12, expression(u[1]^A), cex = annotatesize)
 #text(1.3, 12, expression(u[2]^A==u[z]^A), cex = annotatesize)
 text(1.1, 12, expression(u[z]^A), cex = annotatesize)
-text(6.4, 12, expression(u[3]^A), cex = annotatesize)
+text(6.9, 12, expression(u[3]^A == 8.52), cex = annotatesize)
 
 #Perhaps useful point to label the unused intersection of the participation constraints
 #points(1.34, 12, pch = 16, col = "black", cex = 1.5)
@@ -148,14 +143,14 @@ text(6.4, 12, expression(u[3]^A), cex = annotatesize)
 
 #Pareto efficient curve
 #segments(4.16, 6.23, 6.73, 10.1, lty = 2, lwd = 2)
-text(8.1, 14.2, expression("Pareto-efficient"), cex = annotatesize)
-text(8.1, 13.5, expression("curve"), cex = annotatesize)
+text(8, 14.2, expression("Pareto-efficient"), cex = annotatesize)
+text(8, 13.5, expression("curve"), cex = annotatesize)
 #Arrows(8.8, 12.7, 8.8, 10.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #Label Pareto Improving Lens
-# text(3.8, 11, expression(paste("Pareto-improving")), cex = annotatesize)
-# text(3.8, 10.5, expression(paste("lens")), cex = annotatesize)
+text(3.8, 11, expression(paste("Pareto-improving")), cex = annotatesize)
+text(3.8, 10.5, expression(paste("lens")), cex = annotatesize)
 #Arrows(4, 10.2, 4, 8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -190,8 +185,8 @@ text(5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, ce
 text(-0.95, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-Arrows(-0.95, 11.5, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-0.95, 11.6, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.4, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 uBlog2 <- function(xB, yB, alpha = 1/2){
@@ -216,9 +211,10 @@ contour(x, y,
         xpd = TRUE)
 
 #Label B's indifference curves
-text(0.75, 12.5, expression(u[1]^B), cex = annotatesize)
+text(0.7, 12.5, expression(u[1]^B), cex = annotatesize)
 #text(1.7, 12.5, expression(u[2]^B == u[z]^B), cex = annotatesize)
-text(1.4, 12.5, expression(u[z]^B), cex = annotatesize)
+#text(1.4, 12.5, expression(u[z]^B), cex = annotatesize)
+text(1.9, 12.5, expression(u[z]^B == 3.74), cex = annotatesize)
 text(3.6, 12.5, expression(u[3]^B), cex = annotatesize)
 text(7.3, 12.5, expression(u[4]^B), cex = annotatesize)
 
@@ -262,7 +258,7 @@ text(10-2.44949, 15-(3/2)*2.44949 - 0.6,
 
 #xbtioli(uBlog2(1,14))
 points(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)), pch = 16, col = "black", cex = 1.5)
-text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) - 0.7, 
+text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) + 0.7, 
      expression(t^A), cex = annotatesize)
 
 #Annotating B's endowment

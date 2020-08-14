@@ -22,6 +22,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 upf <- function(ub) {
   12.24745 - ub
@@ -87,7 +89,7 @@ polygon(x = xpoly1, y = ypoly1, col=COL[4], density=NULL, border = NA)
 
 
 #Draw the lines for the graphs
-lines(xx1, upf(xx1), col = COL[1], lwd = graphlinewidth)
+lines(xx1, upf(xx1), col = CBCols[1], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = ylims[1], to = ylims[2], by = 1)

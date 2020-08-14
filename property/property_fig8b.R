@@ -66,8 +66,12 @@ swf.i <- function(ub, a = 0.5, W = 6.123724) {
 #W = (4.002874^0.5)*(8.244574^0.5) = 5.744736
 
 COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7")
+
+
 #COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4, 4, 1, 2))
 xlims <- c(0, 13)
 ylims <- c(0, 13)
 
@@ -93,13 +97,21 @@ xx4 <- seq(xlims[1], 13, length.out = npts2)
 text(0.5*xlims[2], -1.3, expression(paste("A's Utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
 text(-0.9, 0.5*ylims[2], expression(paste("B's Utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
+
+xpoly <- c(0, 12.24745, 0, 0)
+ypoly <- c(0,0,12.24745,0)
+polygon(x = xpoly, y = ypoly, col = "#e0f3db", density=NULL, border = NA)
+
+
+
 #Draw the lines for the graphs
-lines(xx1, upf(xx1), col = COL[1], lwd = graphlinewidth)
-lines(xx1, swf.h(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
-lines(xx1, swf.z(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
-lines(xx1, swf.f(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
-lines(xx1, swf.g(xx1), col = COLB[2], lwd = graphlinewidth, lty = 1)
-lines(xx1, swf.i(xx1), col = COLB[2], lwd = graphlinewidth)
+lines(xx1, upf(xx1), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, swf.h(xx1), col = CBCols[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.z(xx1), col = CBCols[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.f(xx1), col = CBCols[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.g(xx1), col = CBCols[2], lwd = graphlinewidth, lty = 1)
+lines(xx1, swf.i(xx1), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, swf.i(xx1, W = 7.5), col = CBCols[2], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
@@ -117,8 +129,9 @@ text(9.1, 0.5, expression(paste("Utility possibilities frontier")), cex = annota
 #text(8.1, 0.8, expression(paste(u^B == (10^0.5)*(15^0.5) - u^A)), cex = annotatesize)
 
 #Iso-welfare curve labels
-text(10.5, 5.7, expression(paste("Impartial Spectator's")), cex = annotatesize)
-text(10.5, 5, expression(paste("iso-welfare curves")), cex = annotatesize)
+text(10.5, 7.6, expression(paste("Impartial Spectator's")), cex = annotatesize)
+text(10.5, 7, expression(paste("iso-social")), cex = annotatesize)
+text(10.5, 6.4, expression(paste("welfare curves")), cex = annotatesize)
 
 #Annotate point g
 #ua_g(2.44949^0.5)*(((3/2)*2.44949)^0.5) = 3
@@ -160,6 +173,25 @@ text((9^0.5)*(1^0.5) - 0.3, (1^0.5)*(14^0.5) - 0.3,
 points(3, (3^0.5)*(13.7^0.5), pch = 16, col = "black", cex = 1.5)
 text(3 - 0.3, (3^0.5)*(13.7^0.5) - 0.3, 
      expression(h), cex = annotatesize)
+
+text(13.3, 0.8, expression(w[1]), cex = annotatesize, xpd = TRUE)
+text(13.3, 1.4, expression(w[2]), cex = annotatesize, xpd = TRUE)
+text(13.3, 1.95, expression(w[3]), cex = annotatesize, xpd = TRUE)
+text(13.3, 2.4, expression(w[4]), cex = annotatesize, xpd = TRUE)
+text(13.3, 2.8, expression(w[5]), cex = annotatesize, xpd = TRUE)
+text(13.3, 4.2, expression(w[6]), cex = annotatesize, xpd = TRUE)
+
+text(2, 2.5, expression("Feasible"), cex = annotatesize, xpd = TRUE)
+text(2, 2, expression("combinations"), cex = annotatesize, xpd = TRUE)
+text(2, 1.5, expression("of utility"), cex = annotatesize, xpd = TRUE)
+
+text(12, 12.5, expression("Infeasible"), cex = annotatesize, xpd = TRUE)
+text(12, 12, expression("combinations"), cex = annotatesize, xpd = TRUE)
+text(12, 11.5, expression("of utility"), cex = annotatesize, xpd = TRUE)
+
+text(6.123724, 7.7, expression(mrs == mrt), cex = annotatesize)
+Arrows(6.123724, 7.5, 6.123724, 6.123724 + 0.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
 
 # For guidance when drawing the figures. 
 # segments(3, 0, 3, ylims[2], lty = 2, col = "darkgray", lwd = 2)

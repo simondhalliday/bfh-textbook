@@ -18,6 +18,8 @@ namesize <- 1.8
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4, 4, 4))
 
@@ -89,9 +91,9 @@ polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col = COL[4], de
 
 
 
-segments(8, 84, 8, 84+252, lty = 1, col = COL[2] , lwd = graphlinewidth)
-segments(8, 0, 8, 84, col = COL[2] , lwd = segmentlinewidth, lty = 2)
-segments(8, 84+252, 8, 400, col = COL[2] , lwd = segmentlinewidth, lty = 2)
+segments(8, 84, 8, 84+252, lty = 1, col = CBCols[4] , lwd = graphlinewidth)
+segments(8, 0, 8, 84, col = CBCols[4] , lwd = segmentlinewidth, lty = 2)
+segments(8, 84+252, 8, 400, col = CBCols[4] , lwd = segmentlinewidth, lty = 2)
 
 # xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 # lines(xx2, indiffA(xx2, utility = 400), col = "purple", lwd = segmentlinewidth)
@@ -101,7 +103,7 @@ segments(8, 84+252, 8, 400, col = COL[2] , lwd = segmentlinewidth, lty = 2)
 contour(x, y,
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a,
         xaxs="i",
@@ -182,8 +184,8 @@ text(14.3, 290, paste(652), cex = annotatesize)
 # 
 
 
-text(-0.5, -40, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(16.4, 440, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.5, -40, expression("Ayanda"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(16.4, 440, expression("Biko"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 
 par(new = TRUE)
@@ -212,7 +214,7 @@ b <- c(uB2(16, 0), uB2(11,120),  uB2(16,0) + 254)
 contour(x, y, 
         outer(x, y, uB2),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE
@@ -227,13 +229,13 @@ text(-1.2, 0.5*ylims[2], expression(paste("B's Money, ", y^B)), xpd = TRUE, cex 
 
 #Add arrows:
 Arrows(-1.2, 270, -1.2, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(11.2, -48, 15, -48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(11.2, -45, 15, -45, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 #arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 #arrows(11.2, -48, 15, -48, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 
 points(x = 16, y = 0, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
-text(15.8, -10, expression(paste(z)), , cex = annotatesize, xpd = TRUE)
+text(15.6, 10, expression(paste(z)), cex = annotatesize, xpd = TRUE)
 
 points(8, 318, pch = 16, col = "black", cex = 1.5)
 text(7.7, 306, expression(paste(t^{B})), cex = annotatesize)

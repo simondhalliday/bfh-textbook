@@ -15,6 +15,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4.5, 4, 4.5))
 
@@ -60,7 +62,7 @@ a <- c(uA(9,1), uA(9,1) + 1.5, uA(9,1) + 2.5,  uA(9,1) + 2.9)
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -78,7 +80,7 @@ Arrows(7.4, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 # arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
-segments(0, 0, 6, 9, lty = 1, col = COL[2] , lwd = graphlinewidth)
+segments(0, 0, 6, 9, lty = 1, col = CBCols[4] , lwd = graphlinewidth)
 text(3.9, 3.8, expression("Pareto-efficient"), cex = labelsize)
 text(4, 3.2, expression("Curve"), cex = labelsize)
 Arrows(3.8, 4, 3.8, 5.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -106,8 +108,8 @@ points(5, 7.5, pch = 16, col = "black", cex = 1.5)
 text(5, 7, expression(paste(i)), cex = annotatesize)
 # 
 
-text(-0.35, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.35, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 #Add new plot
 par(new = TRUE)
@@ -136,7 +138,7 @@ b <- c(uB(1,14), uB(1,14) + 1.16, uB(1,14) + 2.08, uB(1,14) + 3.58, uB(1,14) + 7
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE

@@ -16,6 +16,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4.5, 4, 4.5))
 
@@ -61,7 +63,7 @@ a <- c(uA(9,1), uA(9,1) + 2, uA(9,1) + 3.2, uA(9,1) + 3.78, uA(9,1) + 4.2)
 contour(x, y, 
         outer(x, y, uA),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -78,7 +80,7 @@ Arrows(7.4, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 # arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 # arrows(7.5, -1.5, 9, -1.5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
-segments(2, 3, 8, 12, lty = 1, col = COL[2] , lwd = graphlinewidth)
+segments(2, 3, 8, 12, lty = 1, col = CBCols[4] , lwd = graphlinewidth)
 text(3.9, 8.1, expression("Pareto-efficient"), cex = labelsize - 0.25)
 text(3.9, 7.6, expression("curve"), cex = labelsize -0.25)
 Arrows(4, 7.3, 4, 6.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
@@ -110,8 +112,8 @@ text(5, 7, expression(paste(i)), cex = annotatesize)
 # 
 
 
-text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = COLA[4])
-text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = COLB[4])
+text(-0.3, -1.4, expression("Ayanda"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.5, 16.4, expression("Biko"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 par(new = TRUE)
 
@@ -139,7 +141,7 @@ b <- c(uB(1,14), uB(1,14) + 1.5, uB(1,14) + 2.33, uB(1,14) + 3.31, uB(1,14) + 3.
 contour(x, y, 
         outer(x, y, uB),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b, 
         add = TRUE

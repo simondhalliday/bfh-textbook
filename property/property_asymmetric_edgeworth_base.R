@@ -13,6 +13,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7")
 
 
 uAlog <- function(xA, yA, alpha = 2/3){
@@ -82,7 +84,7 @@ a2 <- c(uAlog(9,1) - 0.4, uAlog(9,1), uAlog(9,1) + 0.485)
 contour(x, y, 
         outer(x, y, uAlog),
         drawlabels = FALSE,
-        col = COLA[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a2, 
         xaxs="i", 
@@ -97,7 +99,7 @@ npts2 <- 501
 #lines(xx1, indiffcurveA2(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA3(xx1), col = COLA[3], lwd = graphlinewidth)
 #lines(xx1, indiffcurveA4(xx1), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
+lines(xx1, paretoEC(xx1), col = CBCols[4], lwd = graphlinewidth)
 
 #lines(xx1, indifflogB(xx1), col = COLB[2], lwd = graphlinewidth)
 #lines(xx1, indiffcurveBneg2(xx1, U = uB(8,2), a = 1/3), col = COLB[2], lwd = graphlinewidth)
@@ -191,7 +193,7 @@ b <- c(uBlog2(1,14) - 0.4,
 contour(x, y,
         outer(x, y, uBlog2),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = b,
         xaxs="i",

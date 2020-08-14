@@ -1,6 +1,6 @@
-library(shape)
-library(pBrackets)
-pdf(file = "property/psp_offer_newz_step1.pdf", width = 9, height = 7)
+#require(ggplot2)
+require(shape)
+pdf(file = "property/psp_offer_final_newz_pareto.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -40,8 +40,8 @@ paretoEC <- function(x) {
   (3/2)*x
 }
 
-MonopolyPrice <- function(x, intercept = 32.8, slope = (6.3-1)/(2.5-1)) {
-  intercept - slope*x 
+MonopolyPrice <- function(x) {
+  32.8 - (6.3-1)/(2.5-1)*x 
 }
 
 OfferCurveA <- function(x) {
@@ -88,6 +88,9 @@ xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
+x <- seq(xlims[1], xlims[2], length.out = npts)
+y <- seq(ylims[1], ylims[2], length.out = npts) 
+
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = "",
@@ -109,6 +112,8 @@ yy1 <- indiffcurveA2(xx1, U = 4, A = 1, a = 0.5)
 yy2 <- indiffcurveA2(xx1)
 
 
+
+
 # xpolyF <- seq(from = 0, to = 9.499, length.out = 501)
 # ypolyF1 <- OfferCurveB(xpoly1)
 # polygon(c(0, xpolyF, xlims[2]), 
@@ -119,23 +124,31 @@ yy2 <- indiffcurveA2(xx1)
 
 
 
-#Pareto-improving lens
-# xpoly1 <- seq(from = 4.15, to = 7.5, length.out = 500)
-# ypoly1 <- indifflogA(xpoly1, U = uAlog(7.5, 6.3))
-# ypoly2 <- indifflogB(xpoly1, U = uBlog(7.5, 6.3))
-# polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+#I need something like xx1 with npts for 
+xpoly1 <- seq(from = 4.15, to = 7.5, length.out = 500)
+ypoly1 <- indifflogA(xpoly1, U = uAlog(7.5, 6.3))
+ypoly2 <- indifflogB(xpoly1, U = uBlog(7.5, 6.3))
+polygon(x = c(xpoly1, rev(xpoly1)), y = c(ypoly1, rev(ypoly2)), col=COL[4], density=NULL, border = NA)
+
+
 
 a2 <- c(uAlog(9,1), 1.925)
 
-# contour(x, y, 
-#         outer(x, y, uAlog),
-#         drawlabels = FALSE,
-#         col = COLA[4],
-#         lwd = graphlinewidth,
-#         levels = a2, 
-#         xaxs="i", 
-#         yaxs="i", 
-#         add = TRUE)
+contour(x, y, 
+        outer(x, y, uAlog),
+        drawlabels = FALSE,
+        col = COLA[4],
+        lwd = graphlinewidth,
+        levels = a2, 
+        xaxs="i", 
+        yaxs="i", 
+        add = TRUE)
+
+#Label lens
+text(3, 9.7, expression("Pareto-"), cex = annotatesize)
+text(3, 9, expression("improving"), cex = annotatesize)
+text(3, 8.3, expression("lens"), cex = annotatesize)
+Arrows(3.8, 9, 5.7, 9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 xx2 <- seq(4, xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], 9.5, length.out = npts)
@@ -146,42 +159,19 @@ xx3 <- seq(xlims[1], 9.5, length.out = npts)
 # text(8, 10, expression("Pareto-efficient curve"), cex = annotatesize)
 # Arrows(8.5, 10.3, 8.5, 12.2, col = "black", lty = 1, lwd = backgroundlinewidth, arr.type = "triangle", arr.lwd = 0.5)
 
-xpolyF <- c(5.05, 10, 10, 9.3, 5.05)
-ypolyF1 <- c(15, 15, 0, 0, 15)
-polygon(xpolyF, ypolyF1, border = FALSE, col = COLB[1])
 
-text(8, 13, expression("B's feasible set"), cex = annotatesize)
 
-#Lines for the relevant prices and offer curve
+#Draw the lines for the graphs
+#lines(xx1, indiffcurveA1(xx1), col = COLA[3], lwd = graphlinewidth)
+#lines(xx1, indiffcurveA2(xx1), col = COLA[4], lwd = graphlinewidth)
+#lines(xx1, indiffcurveA3(xx1), col = COLA[4], lwd = graphlinewidth)
+
 #lines(xx1, mrsplot(xx1), col = COL[1], lwd = graphlinewidth)
-#lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
-#Price through z
-# lines(xx1, MonopolyPrice(xx1, intercept = 136.3, 
-#                          slope = 15), col = COL[8], lwd = graphlinewidth)
-#Price through n or b_2
+# lines(xx1, indiffcurveBneg1(xx1, U = 5.703502), col = COLB[3], lwd = graphlinewidth)
+# lines(xx1, indiffcurveBneg1(xx1), col = COLB[3], lwd = graphlinewidth)
+
+lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
-#Price through w or b_3
-# lines(xx1, MonopolyPrice(xx1, intercept = 14.45, 
-#                          slope = ((3/2)*4.83 - 1)/(9 - 4.83) ), col = COL[8], lwd = graphlinewidth)
-# #Price through b_4
-# lines(xx1, MonopolyPrice(xx1, intercept = 9.35, 
-#                          slope = (OfferCurveB(10-8) - 0.05 - 1 )/(9-2) ), col = COL[8], lwd = graphlinewidth)
-# 
-
-brackets(x1 = 7.5, y1 = 7.1, x2 = 9.1, y2 = 7.1,  
-         ticks = 0.5, curvature = 0.5, type = 1, h = 0.15,
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(8.6, 8.6, expression(paste("Coffee")),  xpd = TRUE,  cex = labelsize)
-text(8.6, 7.8, expression(paste("B gets")),  xpd = TRUE,  cex = labelsize)
-
-
-brackets(x1 = 7.3, y1 = 1, x2 = 7.3, y2 = 6,  
-         ticks = 0.5, curvature = 0.5, type = 1, h = 0.15,
-         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(6.5, 3.8, expression(paste("Data B")),  xpd = TRUE,  cex = labelsize)
-text(6.5, 3, expression(paste("gives up")),  xpd = TRUE,  cex = labelsize)
-
-
 
 #Customize ticks and labels for the plot
 ticksy <- seq(from = 0, to = 15, by = 1)
@@ -197,6 +187,7 @@ text(-0.95, 7, expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex
 #Add arrows:
 Arrows(-0.95, 11.5, -0.95, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+
 #arrows(-0.75, 11.5, -0.75, 14, xpd = TRUE, length=0.1,angle=40,lwd=3)
 #arrows(7.5, -1.6, 9, -1.6, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
@@ -205,8 +196,8 @@ Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 #text(9.6, 0.9, expression(u[1]^A))
 # text(9.2, 2.4, expression(u[1]^A == u[z]^A), cex = labelsize)
 # text(9.2, 4.9, expression(u[2]^A == u[a]^A), cex = labelsize)
-# text(9.7, 1.5, expression(u[z]^A), cex = labelsize)
-# text(9.7, 5.4, expression(u[a]^A), cex = labelsize)
+text(9.7, 1.5, expression(u[z]^A), cex = labelsize)
+text(9.7, 5.4, expression(u[N]^A), cex = labelsize)
 #text(9.6, 5.9, expression(u[4]^A))
 
 #Perhaps useful point to label the unused intersection of the participation constraints
@@ -216,14 +207,14 @@ Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 #Label B's offer curve
-# text(1.3, 4, expression("B's best-"), cex = annotatesize)
-# text(1.3, 3.2, expression("response"), cex = annotatesize)
-# text(1.3, 2.6, expression("function"), cex = annotatesize)
-# text(1.3, 1.8, expression("(ICC)"), cex = annotatesize)
-# Arrows(1, 4.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1, 4, expression("B's best-"), cex = annotatesize)
+text(1, 3.2, expression("response"), cex = annotatesize)
+text(1, 2.6, expression("function"), cex = annotatesize)
+text(1, 1.8, expression("(ICC)"), cex = annotatesize)
+Arrows(1, 4.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-# text(5, 4, expression("A's feasible set"), cex = annotatesize)
+#text(5, 4, expression("A's feasible set"), cex = annotatesize)
 #text(1.3, 3.2, expression("of prices"), cex = annotatesize)
 
 
@@ -263,11 +254,8 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = label
 text(5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
 text(-0.95, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
-b <- c(uBlog2(1,14), #point z
-       uBlog2(10 - 7.5, 15 - 6.3) #point b_2
-       #uBlog2(10 - 4.83, 15 - (3/2)*4.83),  #point b_3
-       #uBlog2(8, OfferCurveB(10 - 8 - 0.05)) #point b_4
-)
+b <- c(uBlog2(1,14), uBlog2(10 - 7.5, 15 - 6.3))
+
 
 contour(x, y,
         outer(x, y, uBlog2),
@@ -275,8 +263,8 @@ contour(x, y,
         col = COLB[3],
         lwd = graphlinewidth,
         levels = b,
-        xaxs="i",
-        yaxs="i",
+        xaxs="n",
+        yaxs="n",
         add = TRUE,
         xpd = TRUE)
 
@@ -310,21 +298,25 @@ uB2 <- function(xB, yB, alpha = 1/2){
 }
 
 
+
+
+#lines(xx1, indiffcurveB1(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, indiffcurveB2(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, indiffcurveB3(xx1), col = COLB[3], lwd = graphlinewidth)
+#lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
+
 #Label B's indifference curves
-text(8.5, 0.9, expression(paste(u[z]^B,", B's PC")), cex = annotatesize)
-text(9, 3, expression(u[2]^B), cex = annotatesize)
-# text(7, 6.4, expression(u[3]^B), cex = annotatesize)
-# text(7, 9.5, expression(u[4]^B), cex = annotatesize)
+text(8.2, 1, expression(paste(u[z]^B,", B's PC")), cex = annotatesize)
+text(8.8, 3.1, expression(u[N]^B), cex = annotatesize)
 
-
+#Label the price
+text(4.3, 1, expression(p^N), cex = annotatesize)
+#text(9.1, 8.2, expression(u[4]^B))
 
 #Add a point for the initial endowment
 points(1, 14, pch = 16, col = "black", cex = 1.5)
 text(1.2, 14.3, expression(z), cex = labelsize)
 
-#Add a point for the initial endowment
-# points(8, OfferCurveB(10-8) - 0.05, pch = 16, col = "black", cex = 1.5)
-# text(8, OfferCurveB(10-8) - 0.5, expression(paste(b[4])), cex = labelsize)
 
 
 
@@ -363,25 +355,20 @@ text(1.2, 14.3, expression(z), cex = labelsize)
 
 
 
-#Annotating points
+#Annotating a point that is a Pareto improvement over e.
 points(10 - 7.5, 15 - 6.3, pch = 16, col = "black", cex = 1.5)
-text(10 - 7.5 - 0.3, 15 - 6.3 - 0.3, expression(paste(b[4])), cex = labelsize)
-
-#Annotate prices
-# text(1.6, 1, expression(paste(p[z])), cex = labelsize)
-text(4.9, 1, expression(paste(p[4])), cex = labelsize)
-# text(9.2, 1, expression(paste(p[3])), cex = labelsize)
-# text(9.2, 5.8, expression(paste(p[4])), cex = labelsize)
+text(10 - 7.5 - 0.2, 15 - 6.3 - 0.3, expression(paste(n)), cex = labelsize)
+#(2.94^0.5)*(12.76^0.5)
 
 #Label Pareto Improving Lens
 #text(7, 5, expression(paste("Pareto-Improving Lens")))
 
-# points(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)), pch = 16, col = "black", cex = 1.5)
-# text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) - 0.7, 
-#      expression(t^A), cex = annotatesize)
+points(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)), pch = 16, col = "black", cex = 1.5)
+text(xbtioli(uBlog2(1,14)), 3/2*xbtioli(uBlog2(1,14)) - 0.7, 
+     expression(t^A), cex = annotatesize)
 
 # points(10 - 4.83, 15 - (3/2)*4.83, pch = 16, col = "black", cex = 1.5)
-# text(10 - 4.83 - 0.1, 15 - (3/2)*4.83 - 0.4, expression(paste(b[3])), cex = annotatesize)
+# text(10 - 4.83 + 0.1, 15 - (3/2)*4.83 - 0.4, expression(w), cex = annotatesize)
 
 dev.off()
 

@@ -31,7 +31,7 @@ plot1 <- dfnar %>%
   scale_y_continuous(breaks = seq(0,1000,200),
                    labels = seq(0,1000,200),
                    limits = c(0,1000)) +
-  scale_fill_manual(values=c("#386cb0","#41AE76","#FFEF66"), 
+  scale_fill_manual(values=c("#009E73","#0072B2","#E69F00"), 
                     name = "Type",
                     breaks = c("ub","ua", "totalu"), 
                     labels = c(expression(paste("B's Utility, ", u^B)), expression(paste("A's Utility, ", u^A)), paste("Total Utility")))+

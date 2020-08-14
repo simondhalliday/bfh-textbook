@@ -148,11 +148,11 @@ xx3 <- seq(xlims[1], 9.5, length.out = npts)
 
 
 #Lines for the relevant prices and offer curve
-lines(xx1, indifflogB(xx1, U = uBlog2(1,14)), col = COLB[4], lwd = graphlinewidth + 0.5)
+#lines(xx1, indifflogB(xx1, U = uBlog2(1,14)), col = COLB[4], lwd = graphlinewidth + 0.5)
 lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth + 0.5)
 #Price through z
-lines(xx1, MonopolyPrice(xx1, intercept = 136.3, 
-                         slope = 15), col = COL[8], lwd = graphlinewidth)
+# lines(xx1, MonopolyPrice(xx1, intercept = 136.3, 
+#                          slope = 15), col = COL[8], lwd = graphlinewidth)
 #Price through n or b_2
 lines(xx1, MonopolyPrice(xx1), col = COL[8], lwd = graphlinewidth)
 #Price through w or b_3
@@ -199,9 +199,10 @@ Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 #Label B's offer curve
 text(1.3, 4, expression("B's best-"), cex = annotatesize)
-text(1.3, 3.2, expression("response curve"), cex = annotatesize)
-text(1.3, 2.4, expression("(ICC)"), cex = annotatesize)
-Arrows(1, 4.3, 1, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(1.3, 3.2, expression("response"), cex = annotatesize)
+text(1.3, 2.6, expression("function"), cex = annotatesize)
+text(1.3, 1.8, expression("(ICC)"), cex = annotatesize)
+Arrows(1.3, 4.3, 1.3, 7.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 # text(5, 4, expression("A's feasible set"), cex = annotatesize)
@@ -244,7 +245,7 @@ axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = label
 text(5, -1.6, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize)
 text(-0.95, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
-b <- c(uBlog2(1,14), #point z
+b <- c(#uBlog2(1,14), #point z
        uBlog2(10 - 7.5, 15 - 6.3), #point b_4
        uBlog2(10 - 4.83, 15 - (3/2)*4.83),  #point b_3
        uBlog2(8, OfferCurveB(10 - 8 - 0.05)) #point b_2
@@ -299,7 +300,7 @@ uB2 <- function(xB, yB, alpha = 1/2){
 #lines(xx1, indiffcurveB4(xx1), col = COLB[3], lwd = graphlinewidth)
 
 #Label B's indifference curves
-text(6.4, 1.4, expression(paste(u[z]^B,", B's PC")), cex = annotatesize)
+#text(6.4, 1.4, expression(paste(u[z]^B,", B's PC")), cex = annotatesize)
 text(7, 3.7, expression(u[2]^B), cex = annotatesize)
 text(7, 6.4, expression(u[3]^B), cex = annotatesize)
 text(7, 9.5, expression(u[4]^B), cex = annotatesize)
@@ -350,10 +351,10 @@ text(8, OfferCurveB(10-8) - 0.6, expression(paste(b[2])), cex = labelsize)
 
 #Annotating points
 points(10 - 7.5, 15 - 6.3, pch = 16, col = "black", cex = 1.5)
-text(10 - 7.5 - 0.2, 15 - 6.3 - 0.3, expression(paste(b[4])), cex = labelsize)
+text(10 - 7.5 - 0.3, 15 - 6.3 - 0.3, expression(paste(b[4])), cex = labelsize)
 
 #Annotate prices
-text(1.6, 1, expression(paste(p[z])), cex = labelsize)
+#text(1.6, 1, expression(paste(p[z])), cex = labelsize)
 text(4.4, 1, expression(paste(p[4])), cex = labelsize)
 text(9.2, 1, expression(paste(p[3])), cex = labelsize)
 text(9.2, 5.8, expression(paste(p[2])), cex = labelsize)

@@ -18,7 +18,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
-CBCols <- c("#009E73","#0072B2","#E69F00")
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 0.5))
@@ -87,16 +87,22 @@ xx2 <- seq(0, 8, length.out = npts)
 xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
+
+#Draw the polygon for shading the feasible set
+xpoly2 <- c(0, 17.95/2, 0, 0)
+ypoly2 <- c(0, 0, 17.95, 0)
+polygon(x = xpoly2, y = ypoly2, col=COLA[1], density=NULL, border = NA)
+
 #Draw the polygon for shading the feasible set
 xpoly1 <- seq(from = xlims[1], to = 8, length.out = 500)
 ypoly1 <- ppf2(xpoly1, yint = 64)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
+polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col="#f7fcf0", density=NULL, border = NA)
 
 
 #Draw the graphs
 #lines(xx1, ppf(xx1, k = 0.1, maxy = 8, alpha = 2), col = COLA[5], lwd = graphlinewidth)
 lines(xx2, ppf2(xx2, yint = 64), col = CBCols[1], lwd = graphlinewidth)
-lines(xx1, bcA(xx1, w = 17.95, p = 2), col = CBCols[3], lwd = graphlinewidth)
+lines(xx1, bcA(xx1, w = 17.95, p = 2), col = CBCols[3], lwd = graphlinewidth + 0.2)
 
 #Label the feasible frontier
 text(0.95, 7.7, expression("Feasible"), cex = labelsize)

@@ -116,7 +116,7 @@ text(-0.5, -10.3, expression(paste(10)), xpd = TRUE, cex = labelsize)
 
 #Feasble output
 text(2.65, 2.8, expression("Feasible"),cex = labelsize)
-text(2.65, 2.2, expression("output"),cex = labelsize)
+text(2.65, 2.2, expression("outputs"),cex = labelsize)
 
 #Label the two production functions
 #Clothing

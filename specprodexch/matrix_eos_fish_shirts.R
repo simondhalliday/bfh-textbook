@@ -9,7 +9,7 @@ ylims <- c(0, 8)
 #TextSizes
 PlayerSize <- 3
 StratSize <- 2.8
-PayoffSize <- 3
+PayoffSize <- 2.3
 p1fadelevel <- 0.2
 p2fadelevel <- 0.2
 

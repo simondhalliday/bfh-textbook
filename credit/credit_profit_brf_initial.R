@@ -195,8 +195,14 @@ text(9, 0.67, expression(paste("function")), cex = labelsize, xpd = TRUE)
 #text(9, 0.5, expression(paste(f == frac(1, 2) + frac(delta, 2*q))), cex = labelsize)
 
 
-text(8.5, 0.93, expression(paste("Credit market") ), cex = labelsize, xpd = TRUE)
-text(8.5, 0.87, expression(paste("competition condition") ), cex = labelsize, xpd = TRUE)
+#text(8.5, 0.93, expression(paste("Credit market") ), cex = labelsize, xpd = TRUE)
+text(1.3, 0.33, expression(paste("Competition") ), cex = labelsize, xpd = TRUE)
+text(1.3, 0.28, expression(paste("condition") ), cex = labelsize, xpd = TRUE)
+text(1.3, 0.23, expression(paste(b > 0) ), cex = labelsize, xpd = TRUE)
+
+# text(0.225, 0.45, expression(paste("Competition")), cex = labelsize)
+# text(0.225, 0.39, expression(paste("condition")), cex = labelsize)
+# text(0.225, 0.34, expression(paste(b > 0)), cex = labelsize)
 
 
 dev.off()

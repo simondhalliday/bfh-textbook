@@ -121,8 +121,14 @@ text(0.53, 0.62, expression(paste(hat(pi)[2])), cex = labelsize)
 
 segments(0, isoreturnFn(0.25), 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0.25, 0, 0.25, isoreturnFn(0.25), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-text(0.25, isoreturnFn(0.25) + 0.05, expression(paste(c)), cex = labelsize)
+text(0.25, isoreturnFn(0.25) + 0.035, expression(paste(c)), cex = labelsize)
 points(0.25, isoreturnFn(0.25), pch = 16, col = "black", cex = 1.5)
+
+points(0.092, isoreturnFn(0.092, 0.075), pch = 16, col = "black", cex = 1.5)
+text(0.092 - 0.006, isoreturnFn(0.092, 0.075) + 0.03, expression(paste(g)), cex = labelsize)
+
+points(0.41, isoreturnFn(0.41, 0.075), pch = 16, col = "black", cex = 1.5)
+text(0.41 - 0.006, isoreturnFn(0.41, 0.075) + 0.035, expression(paste(h)), cex = labelsize)
 
 # slope of indiff
 text(0.35, 0.1, expression(paste("Slope ", phantom() == frac((1 - f),delta ))), cex = labelsize, xpd = TRUE)

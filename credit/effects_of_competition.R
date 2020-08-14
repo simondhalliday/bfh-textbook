@@ -180,10 +180,10 @@ bar2 <- df %>%
   gather(key = Group, value = Value, 1:3) %>% 
   # plot
   ggplot(aes(x = Group, y = Value, fill = Treatment)) + 
-  geom_bar(position = "dodge", stat = "identity") + 
+  geom_bar(position = "dodge", stat = "identity", width = 0.7) + 
   geom_text(
     aes(label = Value, y = Value + 5),
-    position = position_dodge(1),
+    position = position_dodge(width = 0.7),
     size = 5
   ) +
   scale_x_discrete(limits = c("Total", "100 borrowers", "The lender")) +
@@ -193,12 +193,12 @@ bar2 <- df %>%
   theme_bw() + 
   theme(legend.title = element_blank(),
         axis.title.y = element_blank(),
-        axis.title.x = element_text(size = 19),
-        axis.text.y = element_text(size = 17),
-        axis.text.x = element_text(size = 17),
+        axis.title.x = element_text(size = 20),
+        axis.text.y = element_text(size = 18),
+        axis.text.x = element_text(size = 18),
         legend.position = "top",
         legend.text = element_text(size = 15),
         panel.grid.minor = element_blank())
 
-ggsave("credit/effects_of_comp_bar.pdf", width = 9, height = 7)
+ggsave("credit/effects_of_comp_bar.pdf", width = 9, height = 5)
 

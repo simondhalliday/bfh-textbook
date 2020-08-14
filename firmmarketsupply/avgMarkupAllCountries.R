@@ -161,11 +161,15 @@ dfCostAvg %>%
   labs(y = "Markup ratio", x = "Drug") +
   coord_flip() +
   geom_text(aes(label = round(avgVal, 1)), position = position_dodge(width = 0.9), 
-            hjust = -0.25, size = 3, check_overlap = TRUE) +
+            hjust = -0.25, size = 4, check_overlap = TRUE) +
   theme_bw() +
-  theme(legend.title = element_blank(),
+  theme(axis.title.x = element_text(size = 18),
+        axis.title.y = element_text(size = 18),
+        axis.text.x = element_text(size = 14),
+        legend.title = element_blank(),
         panel.grid.minor = element_blank(),
-        text = element_text(size = 12),
+        text = element_text(size = 14),
+        legend.text = element_text(size = 14),
         legend.position = c(.875, .85),
         legend.margin = margin(1, 1, 1, 1)) 
 

@@ -16,6 +16,9 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
+
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(6, 6, 1, 1))
@@ -95,8 +98,8 @@ text(xlims[2] - 1, 4.7, expression(paste(pi[1])), cex = labelsize)
 text(xlims[2] - 1, 4, expression(paste(pi[0])), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 segments(0, 4, xlims[2] - 1.5, 4, lty = 1, col = COLB[3] , lwd = graphlinewidth)
 

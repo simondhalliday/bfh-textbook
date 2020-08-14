@@ -11,6 +11,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 par(mar =  c(5, 5, 0.2, 0.2))
 
@@ -109,19 +111,19 @@ text(3.7, 2.65, expression("supply"), cex = labelsize)
 
 #Indicator lines
 #Vertical lines
-segments(shares[4] - shares[3], 0, shares[4] - shares[3], costs[3], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(shares[3], 0, shares[3], costs[2], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(shares[4], 0, shares[4], costs[3], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(shares[5], 0, shares[5], costs[4], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(shares[6], 0, shares[6], costs[5], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(shares[7], 0, shares[7], costs[6], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
+segments(shares[4] - shares[3], 0, shares[4] - shares[3], costs[3], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(shares[3], 0, shares[3], costs[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(shares[4], 0, shares[4], costs[3], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(shares[5], 0, shares[5], costs[4], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(shares[6], 0, shares[6], costs[5], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(shares[7], 0, shares[7], costs[6], lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 #horizontal lines
-segments(0, costs[1], xlims[2], costs[1], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-segments(0, costs[2], xlims[2], costs[2], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(0, costs[4], shares[4], costs[4], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(0, costs[5], shares[5], costs[5], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
-# segments(0, costs[6], shares[6], costs[6], lty = 2, col = "darkgrey", lwd = segmentlinewidth)
+segments(0, costs[1], xlims[2], costs[1], lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, costs[2], xlims[2], costs[2], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, costs[4], shares[4], costs[4], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, costs[5], shares[5], costs[5], lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, costs[6], shares[6], costs[6], lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 dev.off()

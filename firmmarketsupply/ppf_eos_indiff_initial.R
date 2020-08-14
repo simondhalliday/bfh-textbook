@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "specprodexch/ppf_eos_indiff_initial.pdf", width = 9, height = 9)
+pdf(file = "specprodexch/ppf_eos_indiff_initial.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 8, 1, 1))
@@ -51,8 +53,8 @@ budgetExchange <- function(x, yintercept = 12, slope = 1){
   yintercept - slope * x
 }
 
-xlims <- c(0, 8)
-ylims <- c(0, 11)
+xlims <- c(0, 7)
+ylims <- c(0, 10.5)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -95,20 +97,20 @@ ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
 polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
 #Draw the graphs
-lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = CBCols[1], lwd = graphlinewidth)
 #lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd = graphlinewidth)
 #lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
 #Label axes
-mtext(expression(paste("Quantity of fish (kilograms), ", x)), side = 1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Kilograms of fish, ", x)), side = 1, line = 3, cex = axislabelsize)
 text(-1.5, 0.5*ylims[2], expression(paste("Quantity of shirts, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 contour(x, y, 
         outer(x, y, uFn),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = CBCols[2],
         lwd = graphlinewidth,
         levels = a, 
         xaxs="i", 
@@ -121,15 +123,15 @@ text(7.2, 1.35, expression(u[2]^A), cex = labelsize)
 #text(7.2, 2.6, expression(u[3]^A), cex = labelsize)
 
 #Label point d
-text(1.65 + 0.2, ppf(fish = 1.65) +.2, expression(d), cex = labelsize)
-segments(1.65, 0, 1.65, ppf(fish = 1.65), lty = 2, col = "gray", lwd = segmentlinewidth)
-segments(0, ppf(fish = 1.65), 1.65, ppf(fish = 1.65, k = 10/25, alpha = 2, maxfish = 5), lty = 2, col = "gray", lwd = segmentlinewidth)
+text(1.65 - 0.2, ppf(fish = 1.65) -0.2, expression(d), cex = labelsize)
+segments(1.65, 0, 1.65, ppf(fish = 1.65), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, ppf(fish = 1.65), 1.65, ppf(fish = 1.65, k = 10/25, alpha = 2, maxfish = 5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
 
 #Label point e
 # text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(e), cex = labelsize)
-# segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
-# segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = "gray", lwd = segmentlinewidth)
+# segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 # points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 
 #Label point s
@@ -148,8 +150,8 @@ points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
 # Arrows(3.2, 8.3, 1.3, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
-text(5.8, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(4.5, 4.5, 1.9, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4.5, 4.5, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
+Arrows(3, 4.5, 1.9, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.825, 1, expression("Feasible"), cex = labelsize)
 text(0.825, 0.6, expression("outputs"), cex = labelsize)

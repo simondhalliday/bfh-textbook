@@ -21,6 +21,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4.75, 7, .2, 1), mfrow = c(2,1))
@@ -88,15 +90,15 @@ text(8.8, 23, expression(paste("Total revenues")), cex = annotatesize)
 text(8.8, 20, expression(paste(r(x))), cex = annotatesize)
 
 #Draw segments for total costs
-segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, -20, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, Revenue(x = 4), 4, Revenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, -20, 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, TotalCost(x = 4, c0 = 0, c1 = 4), 4, TotalCost(x = 4, c0 = 0, c1 = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #segment for average revenue
 text(2.5, 38, expression(paste("Slope of ray")), cex = annotatesize)
 text(2.5, 36, expression(paste("from origin equals")), cex = annotatesize)
 text(2.5, 34, expression(paste("average revenue")), cex = annotatesize)
-segments(0, 0, 4, Revenue(x = 4), lty = 2, col = "gray" , lwd = graphlinewidth)
+segments(0, 0, 4, Revenue(x = 4), lty = 2, col = grays[20] , lwd = graphlinewidth)
 Arrows(2.5, 33, 2.5, 19.2, code = 2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
@@ -108,7 +110,7 @@ points(4, TotalCost(x = 4, c0 = 0, c1 = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, TotalCost(x = 4, c0 = 0, c1 = 4) - 0.5, expression(b), cex = annotatesize)
 
 Arrows(4, Revenue(x = 4) - 1.5, 4, TotalCost(x = 4, c0 = 0, c1 = 4) + 1.5, code = 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
-text(5.0, 1.4*TotalCost(x = 4, c0 = 0, c1 = 4) - 0.75, expression("Total \n economic \n profits"), cex = annotatesize)
+text(5.0, 1.4*TotalCost(x = 4, c0 = 0, c1 = 4) - 0.75, expression("Maximum \n economic \n profits"), cex = annotatesize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -180,8 +182,8 @@ text(2, 4.75, expression("Economic"), cex = annotatesize)
 text(2, 4.25, expression("profit"), cex = annotatesize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4) - 1.2, 4, AvgRevenue(x = 4) - 1.2, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4) + 40, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, AvgRevenue(x = 4) - 1.2, 4, AvgRevenue(x = 4) - 1.2, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4) + 40, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 segments(0, MRevenue(x = 4) + 0.95, xlims[2], MRevenue(x = 4) + 0.95, lty = 1, col = COL[1] , lwd = graphlinewidth)
 
 #Label Points for comparison

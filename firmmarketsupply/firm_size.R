@@ -1,4 +1,4 @@
-#Graph Designer: Simon Halliday + Scott Cohn
+#Graph Designer: Sai Mumunuru, Simon Halliday + Scott Cohn
 #Authors: Bowles and Halliday
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+Grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 par(mar =  c(4, 4, 2, 2))
 
@@ -70,9 +72,9 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, A(xx1, s2 = 2.1, pmin = -6), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, B(xx1, s1 = 1.2), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, C(xx1, s1 = 1.5), col = COLB[4], lwd = graphlinewidth, lty=2)
+lines(xx1, A(xx1, s2 = 2.1, pmin = -6), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, B(xx1, s1 = 1.2), col = CBCols[2], lwd = graphlinewidth)
+lines(xx1, C(xx1, s1 = 1.5), col = CBCols[2], lwd = graphlinewidth, lty=2)
 
 mtext(expression(paste("Average firm size, ", bar(s))), side=1, line = 2.5, cex = axislabelsize)
 text(-2, 0.5*ylims[2], expression(paste("")), xpd = TRUE, cex = axislabelsize, srt = 90)
@@ -80,12 +82,12 @@ mtext(expression(paste("Increase or decrease in average firm size")), side=2, li
 
 
 
-segments(0, 8, 6.66, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.66, 0, 6.66, 8, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 8, 6.66, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
+segments(6.66, 0, 6.66, 8, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
 points(6.66, 8, pch = 16, col = "black", cex = 1.5)
 
-segments(0, 15, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(10, 0, 10, 15, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, 15, 10, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
+segments(10, 0, 10, 15, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
 
 points(10, 15, pch = 16, col = "black", cex = 1.5)
 text(-0.65, -5.9, expression(-f*underline(s)), cex = labelsize )
@@ -94,8 +96,8 @@ text(-0.65, -5.9, expression(-f*underline(s)), cex = labelsize )
 text(10, A(x=11.4), expression(f(bar(s) - underline(s))),cex = labelsize)
 text(15, B(x=12.4), expression(bar(s)(1 - f)*g^s),cex = labelsize)
 text(14.4, C(x=12) + 2.5, expression(paste(bar(s)(1 - f)*g["+"]^s)),cex = labelsize, xpd = TRUE)
-text(9.2, A(x=12), expression(paste("Firm death effect")), cex = labelsize)
-text(14.7, B(x=11.5), expression(paste("Firm growth effect")),cex = labelsize)
+text(9.2, A(x=12) + 0.2, expression(paste("Firm death effect")), cex = labelsize)
+text(14.7, B(x=11.5) - 0.2, expression(paste("Firm growth effect")),cex = labelsize)
 
 dev.off()
 

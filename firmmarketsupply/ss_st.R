@@ -33,10 +33,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, ylims[2])
-ylabels <- c(0, ylims[2])
-ticksx <- c(0, xlims[2])
-xlabels <- c(0, xlims[2])
+ticksy <- c(0, cost(5), ylims[2])
+ylabels <- c(0, round(cost(5), 1), ylims[2])
+ticksx <- c(0, 5, xlims[2])
+xlabels <- c(0, 5, xlims[2]) 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis=labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -49,21 +49,24 @@ cost <- function(x = xx1, a = 18){
 }
 
 # Cost Func.
-lines(xx1, cost(), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, cost(), col = CBCols[2], lwd = graphlinewidth)
 
 # Label Cost Func
-text(5, 7, expression(paste("Stainless Steel")), cex = labelsize)
-text(5, 6, expression(paste("Storage Tank")), cex = labelsize)
+text(3.5, 18, expression(paste("Stainless steel")), cex = labelsize)
+text(3.5, 17, expression(paste("storage tank")), cex = labelsize)
 
-text(19, 4, expression(paste(C(x))), cex = labelsize)
+text(19, 4, expression(paste(c(x))), cex = labelsize)
 
 # Point
+segments(0, cost(5), 5, cost(5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(5, 0, 5, cost(5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+
 points(5, cost(5), pch = 16, col = "black", cex = 1.5)
 text(5.5, cost(5)+0.5, expression(a), cex = labelsize)
 
 # Label x,y axis
-mtext(expression(paste("Capacity, Gal")), side=1, line = 2.5, cex = axislabelsize)
-text(-1.4, 0.5*ylims[2], expression(paste("Pipe Cost per Unit of Capacity, Dollars")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("Capacity, gallons")), side=1, line = 2.5, cex = axislabelsize)
+text(-1.4, 0.5*ylims[2], expression(paste("Pipe cost per unit of capacity, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 dev.off()

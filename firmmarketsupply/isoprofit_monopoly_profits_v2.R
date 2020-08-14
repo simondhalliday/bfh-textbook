@@ -16,6 +16,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(5, 6, 1, 1))
@@ -96,15 +98,15 @@ text(xlims[2] - 1, 5.25, expression(paste(pi[2])), cex = labelsize)
 text(xlims[2] - 1, 4.5, expression(paste(pi[1])), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(1.55, 0, 1.55, AvgRevenue(1.55), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AvgRevenue(1.55), 1.55, AvgRevenue(1.55), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(1.55, 0, 1.55, AvgRevenue(1.55), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(1.55), 1.55, AvgRevenue(1.55), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 
-segments(0, AvgRevenue(x = 6.45), 6.45, AvgRevenue(x = 6.45), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.45, 0, 6.45, AvgRevenue(x = 6.45), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 6.45), 6.45, AvgRevenue(x = 6.45), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6.45, 0, 6.45, AvgRevenue(x = 6.45), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
 text(4.2, AvgRevenue(x = 4) + 0.5, expression("h"), cex = labelsize)

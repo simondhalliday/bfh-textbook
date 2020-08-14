@@ -16,6 +16,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 1), mfrow = c(2, 1))
@@ -87,11 +89,11 @@ lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.5), col = COLB[3], lwd = graphlinewidth
 text(-1.25, 0.5*ylims[2], expression(paste("Total cost of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Segments
-segments(xi, -50, xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
-segments(0, totalcost(xi, c0 = 2, c1 = 0.5), xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(xi, -50, xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(xi, c0 = 2, c1 = 0.5), xi, totalcost(xi, c0 = 2, c1 = 0.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-segments(xa, -50, xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
-segments(0, totalcost(xa, c0 = 2, c1 = 0.5), xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = "grey", lwd = segmentlinewidth)
+segments(xa, -50, xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(xa, c0 = 2, c1 = 0.5), xa, totalcost(xa, c0 = 2, c1 = 0.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 segments(0, 0, xi, totalcost(x = xi, c0 = 2, c1 = 0.5), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 0, xa, totalcost(x = xa, c0 = 2, c1 = 0.5), lty = 2, col = COLB[3] , lwd = segmentlinewidth)
@@ -159,14 +161,14 @@ text(-1.25, 0.5*ylims[2], expression(paste("Costs of production, ", c)), xpd = T
 mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 
 # segments
-segments(xi, 0, xi, ylims[2] + 1, lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
-segments(xa, 0, xa, ylims[2] + 1, lty = 2, col = "grey", lwd = segmentlinewidth, xpd = TRUE)
+segments(xi, 0, xi, ylims[2] + 1, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
+segments(xa, 0, xa, ylims[2] + 1, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
 
 # AC
-lines(x, avgcost(x, c0 = 2, c1 = 0.5), col = COLA[4], lwd = graphlinewidth)
+lines(x, avgcost(x, c0 = 2, c1 = 0.5), col = CBCols[1], lwd = graphlinewidth)
 
 # AVC = MC
-lines(x, marginalcost(x, c1 = 0.5), col = COL[2], lwd = graphlinewidth)
+lines(x, marginalcost(x, c1 = 0.5), col = CBCols[4], lwd = graphlinewidth)
 
 # Add point and label
 points(xi, marginalcost(xi, c1 = 0.5), pch = 16, col = "black", cex = 1.5)

@@ -12,6 +12,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 Grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00")
 
 par(mar =  c(5, 5, 1, 1.2))
 
@@ -45,8 +46,8 @@ ticksx <- c(0, shares[4], shares[6], xlims[2])
 #xlabels <- c(NA, expression(paste(x[I])), expression(paste(x[I] + x[J])), expression(paste(x[I] + x[J]+ x[K])), expression(paste(x[I] + x[J]+ x[K] + x[L])), expression(paste(x[I] + x[J]+ x[K] + x[L]+ x[M])), expression(paste(x[I] + x[J]+ x[K] + x[L]+ x[M] + x[N])), NA)
 xlabels <- c(NA, expression(paste(X^A)), expression(paste(X^B)),  NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize - 0.3)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 0.3)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 

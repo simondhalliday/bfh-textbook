@@ -16,6 +16,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(6, 6, 1, 1))
 
@@ -66,8 +68,8 @@ text(0.5*(xlims[2]), -2.1, expression(paste("Quantity, ", x)), xpd = TRUE, cex =
 text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 segments(0, 4, 4, 4, lty = 1, col = COLB[3] , lwd = graphlinewidth)
 segments(4, 4, xlims[2], 4, lty = 2, col = COLB[2] , lwd = graphlinewidth)

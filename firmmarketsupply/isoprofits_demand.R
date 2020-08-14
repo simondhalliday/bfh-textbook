@@ -16,6 +16,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 6, 1, 1))
@@ -82,11 +84,11 @@ text(xlims[2] - 1, 7, expression(paste("Isoprofit \n Curves")), cex = labelsize)
 
 
 #Draw segments for total costs
-segments(0, IsoProf(x = 2, k = 14), 2, IsoProf(x = 2, k = 14), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(2, 0, 2, IsoProf(x = 2, k = 14), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, IsoProf(x = 2, k = 14), 2, IsoProf(x = 2, k = 14), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(2, 0, 2, IsoProf(x = 2, k = 14), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(0, IsoProf(x = 8, k = 14), 8, IsoProf(x = 8, k = 14), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(8, 0, 8, IsoProf(x = 8, k = 14), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, IsoProf(x = 8, k = 14), 8, IsoProf(x = 8, k = 14), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(8, 0, 8, IsoProf(x = 8, k = 14), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 
 text(xlims[2] - 1, 5.8, expression(paste(pi[3])), cex = labelsize)

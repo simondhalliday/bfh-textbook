@@ -16,6 +16,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 8, 1, 1), mfrow = c(2, 1))
@@ -94,19 +96,19 @@ lines(xx1, totalcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COLB[3], lwd = gr
 text(-1.25, 0.5*ylims[2], expression(paste("Total cost of production, ", c)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Draw segments for average cost
-segments(0, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(xi, -20, xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(xi, -20, xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
-segments(0, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.32456, -20, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6.32456, -20, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
 segments(0, 0, xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[4] , lwd = segmentlinewidth)
 segments(0, 0, 6.32456, totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = COLB[3] , lwd = segmentlinewidth)
 
 lines(xx3, mcline(xx3, constant = totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) - xi*marginalcost(x = xi, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = xi, c1 = 0.05, c2 = 0.05)), 
-      col = "#E18500", lty = 1, lwd = graphlinewidth)
+      col = grays[23], lty = 2, lwd = graphlinewidth)
 lines(xx4, mcline(xx4, constant = totalcost(x = 6.32456, c0 = 2, c1 = 0.05, c2 = 0.05) - 6.32456*marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05), slope = marginalcost(x = 6.32456, c1 = 0.05, c2 = 0.05)), 
-      col = "#E18500", lty = 1, lwd = graphlinewidth)
+      col = grays[23], lty = 2, lwd = graphlinewidth)
 
 points(xi, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 text(xi - 0.15, totalcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05) + 0.25, expression("i"), cex = annotatesize)
@@ -177,9 +179,9 @@ xx3 <- seq(4, 8, length.out = npts)
 xx4 <- seq(xlims[1], 6.32456, length.out = npts)
 xx5 <- seq(6.32456, xlims[2], length.out = npts)
 
-lines(xx1, avgcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = COL[1], lwd = graphlinewidth)
-lines(xx1, avgvarcost(xx1, c1 = 0.05, c2 = 0.05), col = COL[2], lwd = graphlinewidth)
-lines(xx1, marginalcost(xx1, c1 = 0.05, c2 = 0.05), lty = 1, col = COL[3], lwd = graphlinewidth)
+lines(xx1, avgcost(xx1, c0 = 2, c1 = 0.05, c2 = 0.05), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, avgvarcost(xx1, c1 = 0.05, c2 = 0.05), col = CBCols[4], lwd = graphlinewidth)
+lines(xx1, marginalcost(xx1, c1 = 0.05, c2 = 0.05), lty = 1, col = CBCols[3], lwd = graphlinewidth)
 #lines(xx5, marginalcost(xx5, c1 = 0.05, c2 = 0.05), col = COL[3], lwd = graphlinewidth)
 
 #Label the axes
@@ -188,10 +190,10 @@ text(-1.25, 0.5*ylims[2], expression(paste("Costs of production, ", c)), xpd = T
 
 
 #Draw segments for average cost
-segments(0, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
-segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(xi, 0, xi, avgcost(x = xi) + 10, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, marginalcost(x = xi), xi, marginalcost(x = xi), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, avgvarcost(x = xi), xi, avgvarcost(x = xi), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(xi, avgcost(x = xi, c0 = 2, c1 = 0.05, c2 = 0.05), pch = 16, col = "black", cex = 1.5)
 
 text(xi + 0.2, avgcost(x = xi) + 0.05, expression(paste("f")), cex = labelsize)
@@ -214,8 +216,8 @@ text(2, avgcost(x = 3.2) - 0.075, expression(ac(x)), cex = labelsize)
 # text(3.75, avgcost(x = 3.2) + 0.67, expression(paste(ac(x) == frac(c[0],x) + c[1] + c[2]*x)), cex = annotatesize)
 
 #Average cost minimum
-segments(0, avgcost(x = 6.32456), 6.32456, avgcost(x = 6.32456), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(6.32456, 0, 6.32456, 2, lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(0, avgcost(x = 6.32456), 6.32456, avgcost(x = 6.32456), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(6.32456, 0, 6.32456, 2, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 text(6.1, avgcost(x = 6.32456) + 0.05, expression(paste("a")), cex = annotatesize)
 points(6.32456, avgcost(x = 6.32456), pch = 16, col = "black", cex = 1.5)
 

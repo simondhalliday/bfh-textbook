@@ -160,32 +160,3 @@ ineqUSdy <-
   
 
 
-Ginis <- read_excel("risk/ginis_comparison.xlsx")
-
-GiniNar <- 
-  Ginis %>% 
-  gather(type, gini, -Year, -Country) 
-
-GiniNar$Country <- factor(GiniNar$Country, levels(order(GiniNar$gini)))
-  
-
-
-Giniplot <- 
-  GiniNar %>%
-  ggplot(aes(y = gini, x = reorder(Country, gini), fill = type)) + 
-  geom_bar(stat = "identity", position = "identity") + 
-  scale_fill_brewer( type = "qual", palette = "Accent", 
-                     breaks = c ("DisposableGini", "MarketGini"),
-                     labels = c ("Disposable income", 
-                                 "Market income"), 
-                     name = "Income type") +
-  ylab("Gini coefficient (various years, 1992-2013") +
-  xlab("Country") +
-  theme_bw() + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-Giniplot
-
-pdf(file = "risk/gini_comparisons.pdf", width = 8, height = 6)
-Giniplot
-dev.off()
-

@@ -146,16 +146,16 @@ xx4 <- seq(1, 9.5, length.out = npts)
 lines(xx1, indiffcurveA2(xx1, U = uA(5, 5)), col = CBCols[1], lwd = graphlinewidth)
 lines(xx1, indiffcurveA2(xx1, U = uA(2.5, 7.5)), col = CBCols[1], lwd = graphlinewidth)
 # 
-lines(xx2, OfferCurveA(xx2), col = COLA[6], lwd = graphlinewidth)
+lines(xx2, OfferCurveA(xx2), col = COLA[6], lwd = graphlinewidth + 0.4)
 # 
 # 
 lines(xx1, indiffcurveBneg1(xx1, U = uB(2.5, 7.5)), col = CBCols[2], lwd = graphlinewidth)
 lines(xx1, indiffcurveBneg1(xx1, U = uB(5, 5)), col = CBCols[2], lwd = graphlinewidth)
 # 
 # 
-lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = CBCols[6], lwd = graphlinewidth)
+lines(xx4, PriceLine(xx4, intercept = 10, slope = 1), col = CBCols[6], lwd = graphlinewidth + 0.4)
 # 
-lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth)
+lines(xx3, OfferCurveB(xx3), col = COLB[5], lwd = graphlinewidth + 0.4)
 
 #lines(xx1, paretoEC(xx1), col = COL[2], lwd = graphlinewidth)
 

@@ -32,12 +32,13 @@ trust_game_plot <-
 but not imposed", "Trust condition - no fine possible")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title.x = element_text(size = 20),
-        axis.title.y = element_text(size = 20),
+        axis.title.x = element_text(size = 22),
+        axis.title.y = element_text(size = 22),
         axis.text = element_text(size = 16),
         legend.title = element_text(size = 20),
         legend.text = element_text(size = 16), 
-        legend.position = c(0.28, 0.85))
+        legend.position = c(0.28, 0.85), 
+        legend.box="vertical")
 print(trust_game_plot)
   
 ggsave("public_mechanism/trust_game_figure.pdf", width = 9, height = 7, units = "in")

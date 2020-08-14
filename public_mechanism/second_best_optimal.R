@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "public_mechanism/markets_competition_monopolist_external.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/second_best_optimal.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 2
@@ -12,6 +12,7 @@ namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+fadelevel <- 0.2
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
@@ -22,12 +23,12 @@ CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 6, 1, 1))
+par(mar =  c(4, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
 }
-  
+
 MRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - 2*(rmax/xmax)*x
 }
@@ -58,10 +59,10 @@ costs <- c(3, 6.5)
 monopoly <- c((12 - costs[1])/2, (12 - costs[2])/2)
 comp <- c((12 - costs[1]), (12 - costs[2]))
 
-ticksy <- c(0, costs[1], costs[2], AvgRevenue(monopoly[1]), AvgRevenue(x = monopoly[2]),  ylims[2])
-ylabels <- c(NA, expression(paste(p^{CP})), expression(paste(p^{CS})), expression(paste(p^{MP})), expression(paste(p^{MS})), NA)
+ticksy <- c(0, costs[1], costs[2], AvgRevenue(monopoly[1]),  AvgRevenue(monopoly[2]), ylims[2])
+ylabels <- c(NA, expression(paste(p == mpc)), expression(paste(p == msc)), expression(paste(p^{MP})),  expression(paste(p^{MS})), NA)
 ticksx <- c(0, monopoly[2], monopoly[1], comp[2], comp[1], xlims[2])
-xlabels <- c(NA, expression(paste(X^{MS})), expression(paste(X^{MP})), expression(paste(X^{CS})), expression(paste(X^{CP})), NA)
+xlabels <- c(NA,  expression(paste(X^{MS})), expression(paste(X^{MP})), expression(paste(X^{CS})), expression(paste(X^{CP})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -71,29 +72,60 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
 #Draw the polygon for A
-xpolya <- c(comp[1], comp[1], comp[2], comp[1])
-ypolya <- c(costs[1], costs[2], costs[2], costs[1])
-polygon(x = xpolya, y = ypolya, col=COL[4], density=NULL, border = NA)
+# xpolya <- c(comp[1], comp[1], comp[2], comp[1])
+# ypolya <- c(costs[1], costs[2], costs[2], costs[1])
+# polygon(x = xpolya, y = ypolya, col=rgb(230/255, 155/255, 0/255, fadelevel), 
+#       density=NULL, border = NA)
+
+
+#Monopoly CS no MSC: 
+xpolyCSM <- c(comp[2], 0, 0, comp[2])
+ypolyCSM <- c(AvgRevenue(x = comp[2]), 12, AvgRevenue(x = comp[2]), AvgRevenue(x = comp[2]))
+polygon(x = xpolyCSM, y = ypolyCSM, col=COLA[1], density=NULL, border = NA)
+
+#Monopoly profit no MSC, above MSC: 
+# xpolyMpi <- c(monopoly[2], monopoly[2], 0, 0, monopoly[2])
+# ypolyMpi <- c(costs[2], AvgRevenue(x = monopoly[2]), AvgRevenue(x = monopoly[2]), costs[2], costs[2])
+# polygon(x = xpolyMpi, y = ypolyMpi, col=COLB[1], density=NULL, border = NA)
+
+#Monopoly profit no MSC, BELOW MSC: 
+
+# xpolyMpiSC <- c(monopoly[2], monopoly[2], 0, 0, monopoly[2])
+# ypolyMpiSC <- c(costs[1], costs[2], costs[2], costs[1], costs[1])
+# polygon(x = xpolyMpiSC, y = ypolyMpiSC, col=rgb(204/255, 121/255, 167/255, fadelevel), 
+#         density=NULL, border = NA)
+
+#Profit now Lost but is a wash
+# xpolya <- c(monopoly[1], monopoly[1], monopoly[2], monopoly[2], comp[1])
+# ypolya <- c(costs[1], costs[2], costs[2], costs[1], costs[1])
+# polygon(x = xpolya, y = ypolya, col=rgb(230/255, 155/255, 0/255, fadelevel),
+#         density=NULL, border = NA)
 
 #Draw the polygon for B
-xpolyb <- c(comp[2], monopoly[1], monopoly[1], comp[2])
-ypolyb <- c(costs[2], AvgRevenue(x = monopoly[1]), costs[2], costs[2])
-polygon(x = xpolyb, y = ypolyb, col=COLA[1], density=NULL, border = NA)
+# xpolyb <- c(comp[2], monopoly[2], monopoly[2], comp[2])
+# ypolyb <- c(costs[2], AvgRevenue(x = monopoly[2]), costs[2], costs[2])
+# polygon(x = xpolyb, y = ypolyb, col=COL[4], density=NULL, border = NA)
 
 #Draw the polygon for area C
-xpolyc <- c(monopoly[1], monopoly[1], monopoly[2], monopoly[2], monopoly[1])
-ypolyc <- c(costs[2], AvgRevenue(x = monopoly[1]), AvgRevenue(x = monopoly[2]), MRevenue(monopoly[2]), MRevenue(monopoly[2]))
-polygon(x = xpolyc, y = ypolyc, col = COLA[1], density = NULL, border = NA)
+# xpolyc <- c(monopoly[1], monopoly[1], monopoly[2], monopoly[2], monopoly[1])
+# ypolyc <- c(costs[2], AvgRevenue(x = monopoly[1]), AvgRevenue(x = monopoly[2]), MRevenue(monopoly[2]), MRevenue(monopoly[2]))
+# polygon(x = xpolyc, y = ypolyc, col = COLA[1], density = NULL, border = NA)
 
 #Draw the polygon for D
-xpolyd <- c(comp[2], comp[2], monopoly[1], monopoly[1], comp[2] )
-ypolyd <- c(costs[1], AvgRevenue(x = comp[2]), AvgRevenue(x = comp[2]), costs[1], costs[1])
-polygon(x = xpolyd, y = ypolyd, col=COLB[1], density=NULL, border = NA)
+# xpolyd <- c(comp[2], comp[2], monopoly[1], monopoly[1], comp[2] )
+# ypolyd <- c(costs[1], AvgRevenue(x = comp[2]), AvgRevenue(x = comp[2]), costs[1], costs[1])
+# polygon(x = xpolyd, y = ypolyd, col=COL[2], density=NULL, border = NA)
+
+#Total costs covering external costs 
+xpolya <- c(comp[2], comp[2], 0, 0, comp[2])
+ypolya <- c(0, costs[2], costs[2], 0, 0)
+polygon(x = xpolya, y = ypolya, col=rgb(86/255, 180/255, 233/255, fadelevel),
+        density=NULL, border = NA)
 
 #Area E
-xpolye <- c(comp[1], comp[2], comp[2], comp[1])
-ypolye <- c(costs[1], AvgRevenue(x = comp[2]), costs[1], costs[1])
-polygon(x = xpolye, y = ypolye, col=COLB[1], density=NULL, border = NA)
+# xpolye <- c(comp[1], comp[2], comp[2], comp[1])
+# ypolye <- c(costs[1], AvgRevenue(x = comp[2]), costs[1], costs[1])
+# polygon(x = xpolye, y = ypolye, col=COL[2], density=NULL, border = NA)
 
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
@@ -105,7 +137,7 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
 
 text(0.5*xlims[2], -1.2, expression(paste("Quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-1.5, 0.5*ylims[2], expression(paste("Price, revenue and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2, 0.5*ylims[2], expression(paste("Price, revenue and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)
@@ -156,11 +188,22 @@ text(9 -0.2, AvgRevenue(x = 9) - 0.4, expression(a), cex = labelsize)
 
 
 #points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(7.75, 5.5, expression(A), cex = labelsize)
-text(4.75, 6.75, expression(B), cex = labelsize)
-text(3.5, 7, expression(C), cex = labelsize)
-text(5, 5, expression(D), cex = labelsize)
-text(6.5, 4.25, expression(E), cex = labelsize)
+#text(7.75, 5.5, expression(A), cex = labelsize)
+# text(4.75, 6.75, expression(B), cex = labelsize)
+# text(3.5, 7, expression(C), cex = labelsize)
+# text(5, 5, expression(D), cex = labelsize)
+# text(6.5, 4.25, expression(E), cex = labelsize)
+# text(3.5, 7.95, expression(F), cex = labelsize)
+
+text(1, 7.75, expression(paste(First-best)), cex = labelsize)
+text(1, 7.25, expression(paste(consumer)), cex = labelsize)
+text(1, 6.75, expression(paste(surplus)), cex = labelsize)
+#text(0.5, 9.75, expression(paste(CS^{MS})), cex = labelsize)
+#text(1, 8, expression(paste(pi[msc]^{MS})), cex = labelsize)
+#text(1, 4.25, expression(paste(pi[mpc]^{MS})), cex = labelsize)
+text(1.3, 4.75, expression(paste("First-best")), cex = labelsize)
+text(1.3, 4.25, expression(paste("costs include")), cex = labelsize)
+text(1.3, 3.75, expression(paste("external costs")), cex = labelsize)
 
 #Arrow to mr = mc
 #text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)

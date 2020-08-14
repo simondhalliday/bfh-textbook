@@ -23,16 +23,18 @@ LawPass <- c(1971.0046, 1971.4634, 1972.3429,
 plot.rad <- ggplot(data = rad, aes(x = Year)) +
     geom_line(aes( y = Law, color = 'Law'),
               size = 1) +
-    geom_point(aes( y = Law, color = 'Law'), size = 2)+
+    geom_point(aes( y = Law, color = 'Law', shape = 'Law'), size = 3)+
     geom_line(aes( y = NoLaw, color = 'No Law'),
               size = 1) +
-    geom_point(aes(y = NoLaw, color = 'No Law'), size = 2)+
+    geom_point(aes(y = NoLaw, color = 'No Law', shape = 'No Law'), size = 3)+
     geom_vline(xintercept = LawPass,
                aes(color = 'LawPass'),
                alpha = 0.3) +
     labs(y = 'Road Fatalities') +
     scale_x_continuous(breaks = 1970:1978) + 
-    scale_color_brewer(palette = "Set1") + 
+    scale_color_brewer(palette = "Set1") +
+    # scale_shape_manual(breaks = c("Law", "No Law"), 
+    #                    labels = c("Law", "No Law")) + 
     theme_bw() + 
     theme(panel.grid.minor = element_blank(),
           legend.position = c(0.9, 0.9),
@@ -41,5 +43,36 @@ plot.rad <- ggplot(data = rad, aes(x = Year)) +
           axis.title = element_text(size = 22),
           axis.text = element_text(size = 17))
 
+dfplot <- 
+    rad %>% 
+    gather(key = law, value = fatalities, -Year) %>% 
+    mutate(law = factor(law))
+
+plot.rad2 <- 
+    dfplot %>% 
+    ggplot(aes(x = Year, y = fatalities, group = law, color = law)) + 
+    geom_line(size = 1) + 
+    geom_point(aes(shape = law), size = 3.5) +
+    geom_vline(xintercept = LawPass,
+               aes(color = 'LawPass'),
+               alpha = 0.3) +
+    labs(y = 'Road Fatalities') +
+    scale_x_continuous(breaks = 1970:1978) + 
+    scale_color_brewer(palette = "Set1", 
+                       name = "Presence of Law",
+                       breaks = c("Law", "NoLaw"), 
+                       labels = c("Law", "No Law")) +
+    scale_shape_discrete(name = "Presence of Law",
+                       breaks = c("Law", "NoLaw"), 
+                       labels = c("Law", "No Law")) + 
+    theme_bw() + 
+    theme(panel.grid.minor = element_blank(),
+          legend.position = c(0.9, 0.9),
+          legend.title = element_blank(),
+          legend.text = element_text(size = 15),
+          axis.title = element_text(size = 22),
+          axis.text = element_text(size = 17))
+
+
 # save the figure
-ggsave(plot = plot.rad, "public_mechanism/road_accident_death.pdf", width = 8, height = 6, units = "in")
+ggsave(plot = plot.rad2, "public_mechanism/road_accident_death.pdf", width = 8, height = 6, units = "in")

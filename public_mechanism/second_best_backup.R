@@ -27,7 +27,7 @@ par(mar =  c(4, 6, 1, 1))
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
 }
-  
+
 MRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - 2*(rmax/xmax)*x
 }
@@ -54,13 +54,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-costs <- c(3, 6.5)
-monopoly <- c((12 - costs[1])/2, (12 - costs[2])/2)
-comp <- c((12 - costs[1]), (12 - costs[2]))
-
-ticksy <- c(0, costs[1], costs[2], AvgRevenue(monopoly[1]), AvgRevenue(x = monopoly[2]),  ylims[2])
+ticksy <- c(0, 3, 5, AvgRevenue(x = 4.5), AvgRevenue(3.5),  ylims[2])
 ylabels <- c(NA, expression(paste(p^{CP})), expression(paste(p^{CS})), expression(paste(p^{MP})), expression(paste(p^{MS})), NA)
-ticksx <- c(0, monopoly[2], monopoly[1], comp[2], comp[1], xlims[2])
+ticksx <- c(0, 3.5, 4.5, 7, 9, xlims[2])
 xlabels <- c(NA, expression(paste(X^{MS})), expression(paste(X^{MP})), expression(paste(X^{CS})), expression(paste(X^{CP})), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -71,28 +67,36 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(2, 6, length.out = npts)
 
 #Draw the polygon for A
-xpolya <- c(comp[1], comp[1], comp[2], comp[1])
-ypolya <- c(costs[1], costs[2], costs[2], costs[1])
+# xpolya <- c(7, 9, 7, 7)
+# ypolya <- c(3, 3, 5, 3)
+# polygon(x = xpolya, y = ypolya, col=COL[4], density=NULL, border = NA)
+
+xpolya <- c(9, 9, 7, 9)
+ypolya <- c(3, 5, 5, 3)
 polygon(x = xpolya, y = ypolya, col=COL[4], density=NULL, border = NA)
 
+
 #Draw the polygon for B
-xpolyb <- c(comp[2], monopoly[1], monopoly[1], comp[2])
-ypolyb <- c(costs[2], AvgRevenue(x = monopoly[1]), costs[2], costs[2])
+xpolyb <- c(4.5, 7, 4.5, 4.5)
+ypolyb <- c(5, 5, AvgRevenue(x = 4.5), 5)
 polygon(x = xpolyb, y = ypolyb, col=COLA[1], density=NULL, border = NA)
 
 #Draw the polygon for area C
-xpolyc <- c(monopoly[1], monopoly[1], monopoly[2], monopoly[2], monopoly[1])
-ypolyc <- c(costs[2], AvgRevenue(x = monopoly[1]), AvgRevenue(x = monopoly[2]), MRevenue(monopoly[2]), MRevenue(monopoly[2]))
+xpolyc <- c(3.5, 4.5, 4.5, 3.5, 3.5)
+ypolyc <- c(5, 5, AvgRevenue(x = 4.5), AvgRevenue(x = 3.5), MRevenue(3.5))
 polygon(x = xpolyc, y = ypolyc, col = COLA[1], density = NULL, border = NA)
 
 #Draw the polygon for D
-xpolyd <- c(comp[2], comp[2], monopoly[1], monopoly[1], comp[2] )
-ypolyd <- c(costs[1], AvgRevenue(x = comp[2]), AvgRevenue(x = comp[2]), costs[1], costs[1])
+xpolyd <- c(4.5, 7, 7, 4.5, 4.5)
+ypolyd <- c(3, 3, AvgRevenue(x = 7), AvgRevenue(x = 7), 3)
+polygon(x = xpolyd, y = ypolyd, col=COL[2], density=NULL, border = NA)
+
+xpolyd <- c(4.5, 7, 7, 4.5, 4.5)
+ypolyd <- c(3, 3, AvgRevenue(x = 7), AvgRevenue(x = 7), 3)
 polygon(x = xpolyd, y = ypolyd, col=COLB[1], density=NULL, border = NA)
 
-#Area E
-xpolye <- c(comp[1], comp[2], comp[2], comp[1])
-ypolye <- c(costs[1], AvgRevenue(x = comp[2]), costs[1], costs[1])
+xpolye <- c(7, 9, 7, 7)
+ypolye <- c(3, 3, AvgRevenue(x = 7), 3)
 polygon(x = xpolye, y = ypolye, col=COLB[1], density=NULL, border = NA)
 
 
@@ -112,12 +116,12 @@ text(-1.5, 0.5*ylims[2], expression(paste("Price, revenue and costs, $")), xpd =
 #text(10.5, 3, expression(paste(p(x) == p[max] - s*x)), cex = labelsize)
 text(10.5, 0.5, expression(paste("Demand")), cex = labelsize)
 
-text(6.6, 1, expression(paste("Marginal")), cex = labelsize)
-text(6.6, 0.5, expression(paste("revenue")), cex = labelsize)
+text(6, 2, expression(paste("Marginal")), cex = labelsize)
+text(6, 1.6, expression(paste("revenue")), cex = labelsize)
 
-text(11.2, 6.2, expression(paste("Marginal")), cex = labelsize)
-text(11.2, 5.7, expression(paste("social cost")), cex = labelsize, xpd = TRUE)
-text(11.2, 5.2, expression(paste("(msc)")), cex = labelsize)
+text(11.2, 6.25, expression(paste("Marginal")), cex = labelsize)
+text(11.2, 5.75, expression(paste("social cost")), cex = labelsize, xpd = TRUE)
+text(11.2, 5.25, expression(paste("(msc)")), cex = labelsize)
 
 text(11.2, 2.7, expression(paste("Marginal")), cex = labelsize)
 text(11.2, 2.2, expression(paste("private cost")), cex = labelsize, xpd = TRUE)
@@ -128,39 +132,39 @@ text(11.2, 1.7, expression(paste("(mpc)")), cex = labelsize)
 #text(2, 6, expression("Profit"), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = monopoly[2]), monopoly[2], AvgRevenue(x = monopoly[2]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 3.5), 3.5, AvgRevenue(x = 3.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, AvgRevenue(x = 4.5), 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
-segments(monopoly[2], 0, monopoly[2], AvgRevenue(x = monopoly[2]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(3.5, 0, 3.5, AvgRevenue(x = 3.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(4.5, 0, 4.5, AvgRevenue(x = 4.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(comp[2], 0, comp[2], AvgRevenue(x = comp[2]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(9, 0, 9, costs[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(7, 0, 7, AvgRevenue(x = 7), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(9, 0, 9, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Price lines
 segments(0, 3, xlims[2], 3, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
-segments(0, 6.5, xlims[2], 6.5, lty = 1, col = CBCols[3] , lwd = graphlinewidth)
+segments(0, 5, xlims[2], 5, lty = 1, col = CBCols[3] , lwd = graphlinewidth)
 
 
 #Label Points for comparison
-points(monopoly[2], MRevenue(x = monopoly[2]), pch = 16, col = "black", cex = 1.5)
-text(monopoly[2] -0.2, MRevenue(x = monopoly[2]) - 0.4, expression(c), cex = labelsize)
+points(3.5, MRevenue(x = 3.5), pch = 16, col = "black", cex = 1.5)
+text(3.5 -0.2, MRevenue(x = 3.5) - 0.4, expression(c), cex = labelsize)
 
 points(4.5, MRevenue(x = 4.5), pch = 16, col = "black", cex = 1.5)
 text(4.5 -0.2, MRevenue(x = 4.5) - 0.4, expression(b), cex = labelsize)
 
-points(comp[2], AvgRevenue(x = comp[2]), pch = 16, col = "black", cex = 1.5)
-text(comp[2] + 0.2, AvgRevenue(x = comp[2]) + 0.4, expression(e), cex = labelsize)
+points(7, AvgRevenue(x = 7), pch = 16, col = "black", cex = 1.5)
+text(7 + 0.2, AvgRevenue(x = 7) + 0.4, expression(e), cex = labelsize)
 
 points(9, AvgRevenue(x = 9), pch = 16, col = "black", cex = 1.5)
 text(9 -0.2, AvgRevenue(x = 9) - 0.4, expression(a), cex = labelsize)
 
 
 #points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(7.75, 5.5, expression(A), cex = labelsize)
-text(4.75, 6.75, expression(B), cex = labelsize)
-text(3.5, 7, expression(C), cex = labelsize)
-text(5, 5, expression(D), cex = labelsize)
-text(6.5, 4.25, expression(E), cex = labelsize)
+text(8.25, 4.25, expression(A), cex = labelsize)
+text(5.5, 6, expression(B), cex = labelsize)
+text(4, 6, expression(C), cex = labelsize)
+text(5.5, 4, expression(D), cex = labelsize)
+text(7.5, 3.5, expression(E), cex = labelsize)
 
 #Arrow to mr = mc
 #text(7.5, 9.5, expression(paste("Profit Maximum at")), cex = labelsize)

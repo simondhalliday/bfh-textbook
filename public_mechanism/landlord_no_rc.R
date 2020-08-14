@@ -118,10 +118,10 @@ mtext(expression(paste("Market output of housing, ", X)), side=1, line = 2.5, ce
 text(-12, 0.5*ylims[2], expression(paste("Rental price per unit of housing, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Labels
-text(10.5, 6.5, expression(paste("Landlord's")), xpd = TRUE, cex = labelsize)
-text(10.5, 5.5, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
-text(10.5, 14.16, expression(paste("Renter's")), xpd = TRUE, cex = labelsize) 
-text(10.5, 13.16, expression(paste("Surplus")), xpd = TRUE, cex = labelsize)
+text(10.5, 6.5, expression(paste("Landlords'")), xpd = TRUE, cex = labelsize)
+text(10.5, 5.5, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
+text(10.5, 14.16, expression(paste("Renters'")), xpd = TRUE, cex = labelsize) 
+text(10.5, 13.16, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
 
 #text(100, 10.25, expression("Price, Before"), cex = labelsize)
 #text(100, 5.5, expression(paste("Rent Control Price")), cex = labelsize)

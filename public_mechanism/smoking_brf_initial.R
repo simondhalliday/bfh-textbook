@@ -17,7 +17,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(9, 1, 1, 1)) # It's big to match paired fig
+par(mar =  c(5, 5, 1, 1)) # It's big to match paired fig
 
 BRFXi <- function(Xj, P, alpha = 10, beta = 2){
   (alpha+beta*Xj)/P
@@ -27,7 +27,7 @@ BRFXj <- function(Xj, P, alpha = 10, beta = 2){
   (P*Xj-alpha)/beta
 }
 
-xlims <- c(-1, 8)
+xlims <- c(0, 8)
 ylims <- c(0, 8)
 
 npts <- 501 
@@ -56,14 +56,14 @@ axis(1, at = ticksx, pos = 0, labels = xlabels)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #text(0.95, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = axislabelsize)
-text(5, -0.45,  expression(paste(x^{AN})), xpd=TRUE, cex=labelsize)
+text(5, -0.45,  expression(paste(x[a]^{AN})), xpd=TRUE, cex=labelsize)
 text(2.5, -0.49, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=labelsize )
 text(-0.3, 2.5, expression(paste(frac(alpha,P[0]))), xpd=TRUE, cex=labelsize )
 # text(-0.3, 1.15, expression(paste(x[Bt]^N)), xpd = TRUE, cex = axislabelsize)
 # text(-0.3, 2.1, expression(paste(x[Bt]^{direct})) , xpd=TRUE, cex=axislabelsize)
-text(-0.3, 5, expression(paste(x^{BN})), xpd=TRUE, cex=axislabelsize )
-text(0.5*xlims[2], -2.25, expression(paste("A's smoking")), xpd = TRUE, cex = axislabelsize) 
-text(-1, 0.5*ylims[2], expression(paste("B's smoking ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.3, 5, expression(paste(x[a]^{BN})), xpd=TRUE, cex=axislabelsize )
+text(0.5*xlims[2], -1, expression(paste("A's smoking")), xpd = TRUE, cex = axislabelsize) 
+text(-0.75, 0.5*ylims[2], expression(paste("B's smoking ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(0, xlims[2], length.out = npts)
@@ -89,11 +89,11 @@ text(4.25, 5.2, expression(paste("equilibrium")), cex = labelsize)
 
 #text(1.5, 7.3, expression(paste("A's best response")), cex = labelsize)
 #text(1.5, 7, expression(paste("after tax")), cex = labelsize)
-text(5, 7.3, expression(paste("A's best-response")), cex = labelsize)
-text(5, 7, expression(paste("before tax")), cex = labelsize)
+text(5.1, 7.3, expression(paste("A's initial")), cex = labelsize)
+text(5.1, 7, expression(paste("best response")), cex = labelsize)
 
-text(7.1, 5.1, expression(paste("B's best-response")), cex = labelsize, xpd = TRUE)
-text(7.1, 4.8, expression(paste("before tax")), cex = labelsize, xpd = TRUE)
+text(7.1, 5.5, expression(paste("B's initial")), cex = labelsize, xpd = TRUE)
+text(7.1, 5.1, expression(paste("best response")), cex = labelsize, xpd = TRUE)
 #text(7, 2, expression(paste("B's best response")), cex = labelsize)
 #text(7, 1.75, expression(paste("after tax")), cex = labelsize)
 

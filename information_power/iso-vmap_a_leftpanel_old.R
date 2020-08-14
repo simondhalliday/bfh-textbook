@@ -20,8 +20,6 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
-CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
-
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(p, delta = 5) {
@@ -110,14 +108,14 @@ xx10 <- seq(xlims[1], 25, length.out = npts2)
 #Customize ticks and labels for the plot
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
-ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(underline("u"))) ,expression(paste(10 == 2*underline("u"))), expression(paste(20 == 4*underline("u"))) , 40)
+ticksx <- c(0, 10, 20, 40)
+xlabels <- c(0, expression(paste(10 == 2*underline("u"))), expression(paste(20 == 4*underline("u"))) , 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
 
-text(3.4, 0.05, expression(paste(v[0] == 0)), cex = annotatesize)
+# text(3.4, 0.05, expression(paste(v[0] == z)), cex = annotatesize)
 text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(19, 0.05, expression(paste(v[3])), cex = annotatesize)
@@ -125,8 +123,6 @@ text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(21, 0.48, expression(paste("n")), cex = annotatesize)
 #text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
-#text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
-
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
@@ -136,27 +132,27 @@ segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
-lines(xx0, isov(xx0, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+#lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
 #lines(xx1, brfFn(xx1), col = COLA[5], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 text(32, 0.2, expression(paste("Slope of iso-v")), cex = annotatesize)
-text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = annotatesize)
-text(32, 0.06, expression(paste(phantom() == -frac(v[p], v[q]))), cex = annotatesize)
+text(32.3, 0.15, expression(paste(phantom() == phantom(), "-mrs ")), cex = annotatesize)
+text(32.3, 0.06, expression(paste(phantom() == -frac(v[p], v[q]))), cex = annotatesize)
 
 
-Arrows(27, 0.45, 32, 0.45,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(30, 0.5, expression(paste("Better for agent")), cex = annotatesize)
+Arrows(15, 0.85, 23, 0.85,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(19, 0.9, expression(paste("Better for agent")), cex = annotatesize)
 
 #Add a point for the NE
 points(20, 0.5, pch = 16, col = "black", cex = 1.5)

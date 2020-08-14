@@ -15,6 +15,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 brfFn <- function(p, delta = 5) {
   1 - (2 * delta) / p
@@ -80,12 +81,12 @@ yy1 <- isovhigh(xx3, delta = 5, v = 20)
 polygon(c(xx3, xx3[416]), c(yy1, yy1[416]), col = COL[4], density = NULL, border = NA)
 
 #Draw the lines for the graphs
-lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
-lines(xx3, isovhigh(xx3, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
-lines(xx4, isovlow(xx4, v = 20, delta = 5), col = COL[1], lwd = graphlinewidth)
-lines(xx2, solowCondition(xx2, delta = 5), col = COLB[4], lwd = graphlinewidth)
-lines(xx5, isovhigh1(xx5, v = 30, delta = 5), col = COL[1], lwd = graphlinewidth, lty = 2)
-lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = COL[1], lwd = graphlinewidth, lty = 2)
+lines(xx1, brfFn(xx1), col = CBCols[4], lwd = graphlinewidth)
+lines(xx3, isovhigh(xx3, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx4, isovlow(xx4, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx2, solowCondition(xx2, delta = 5), col = CBCols[2], lwd = graphlinewidth)
+lines(xx5, isovhigh1(xx5, v = 30, delta = 5), col = CBCols[1], lwd = graphlinewidth, lty = 2)
+lines(xx6, isovlow1(xx6, v = 30, delta = 5), col = CBCols[1], lwd = graphlinewidth, lty = 2)
 
 
 #Customize ticks and labels for the plot
@@ -99,8 +100,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = annotatesize
 #Annotation of the three graphs and the NE
 text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
 #text(31, 0.98, expression(paste("Isoprofit: ", q == frac(p, 8*underline("u")))), cex = annotatesize)
-text(35, 0.62, expression(paste("Best-response")), cex = annotatesize)
-text(35, 0.57, expression(paste("function (ICC)")), cex = annotatesize)
+text(35, 0.64, expression(paste("Best-response")), cex = annotatesize)
+text(35, 0.59, expression(paste("function (ICC)")), cex = annotatesize)
 
 text(25.5, 0.05, expression(paste(v[4])), cex = annotatesize)
 text(35, 0.05, expression(paste(v[5])), cex = annotatesize)

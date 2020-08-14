@@ -20,6 +20,8 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
+
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(p, delta = 5) {
@@ -137,17 +139,17 @@ segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segment
 segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
 
 #Draw the lines for the graphs
-lines(xx0, isov(xx0, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfFn(xx1), col = COL[2], lwd = graphlinewidth)
+lines(xx0, isov(xx0, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, brfFn(xx1), col = CBCols[4], lwd = graphlinewidth)
 #lines(xx2, tangencyLine(xx2), col = "darkgrey", lwd = segmentlinewidth, lty = 2)
-lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
-lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx5, isovhigh2(xx5, v = 10, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx6, isovlow2(xx6, v = 10, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx7, isovhigh3(xx7, v = 16, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx8, isovlow3(xx8, v = 16, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx9, isovhigh4(xx9, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
+lines(xx10, isovlow4(xx10, v = 20, delta = 5), col = CBCols[1], lwd = graphlinewidth)
 
 #Arrows and slope of iso-v label
 Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

@@ -19,6 +19,7 @@ disutilityFn <- function(t, cbar = 1.2, underbarc = 1, z = 0) {
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#238b45","#7fc97f", "#beaed4", "#fdc086", "#ffff99")
 grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 6, 1, 10))
 xlims <- c(0, 1)
@@ -39,7 +40,7 @@ xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
-lines(xx1, disutilityFn(xx1), col = COL[1], lwd = graphlinewidth)
+lines(xx1, disutilityFn(xx1), col = CBCols[1], lwd = graphlinewidth)
 #lines(xx2, solowCondition(xx2, delta = 5), col = COL[3], lwd = 4)
 #lines(xx2, solowInfeas(xx2, delta = 5), col = COL[1], lwd = 4, lty = 2)
 
@@ -60,14 +61,14 @@ segments(1, 0, 1,0.8, lty = 2, lwd = 1.5, col = grays[20],xpd = TRUE)
 
 #Axis tick labels
 #y
-text(-0.15, 0.2, expression(paste(bar(c)+(p^z-underline(c)))), cex = labelsize, xpd = TRUE)
+text(-0.15, 0.2, expression(paste(bar(u)+(p^z-underline(u)))), cex = labelsize, xpd = TRUE)
 text(-0.1, 0.8, expression(paste(p^B == 1)), cex = labelsize, xpd = TRUE)
 #x
 text(0.25, -0.07, expression(paste(underline(t))), cex = labelsize, xpd = TRUE)
 text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 
 #Text annotations
-text(0.375, 1, expression(paste(p^N,(t) == frac(bar(c)-underline(c),t)+p^z)), cex = labelsize, xpd = TRUE)
+text(0.375, 1, expression(paste(p^N,(t) == frac(bar(u)-underline(u),t) + p^z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
 text(1.3, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)

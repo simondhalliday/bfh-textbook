@@ -18,7 +18,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7, 2, 1))
+par(mar =  c(5, 7.5, 2, 1))
 
 #proportion of wealth functions
 
@@ -32,7 +32,7 @@ MUa <- function(x, y){
 
 
 #Add limits on axes and levels of utility for each function 
-ylims <- c(0, 40)
+ylims <- c(0, 42)
 xlims <- c(0, 40)
 
 npts <- 501 
@@ -57,7 +57,7 @@ xlabels <- c(0, expression(paste(a[i])), expression(paste(a[h])), 1)
 #ticksy <- seq(from = 0, to = ylims[2]+1, by = 41)
 ticksy <- c(0, MUa(33), MUb(33), ylims[2])
 #ylabels <- seq(from = 0, to = ylims[2], by = 10)
-ylabels <- c(0, expression(paste(u[a]^A*(a[h]) )), expression(paste(-u[a]^B*(a[h]) )), NA)
+ylabels <- c(0, expression(paste(m*u^A*(a[h]) )), expression(paste(m*u^B*(1 - a[h]) )), NA)
 ticksy2 <- seq(from = 0, to = ylims[2]+1, by = 41)
 ylabels2 <- seq(from = 0, to = ylims[2], by = 10)
 
@@ -83,7 +83,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 #mtext(expression(paste("A's Share of Wealth, a")), side = 1, line = 2, cex = axislabelsize)
 
 text(0.5*xlims[2], -5.5, expression(paste("A's share of wealth, a")), xpd = TRUE, cex = axislabelsize) 
-text(-7.4, 0.5*ylims[2], expression(paste("Marginal utility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-8, 0.5*ylims[2], expression(paste("Marginal utility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, MUb(xx1, y), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, MUa(xx1, y), col = COLA[5], lwd = graphlinewidth)

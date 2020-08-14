@@ -13,7 +13,7 @@ ATUS2 <-
   gather(Gender, hours, -Category)
 
 ATUS2 %>% 
-  filter(!Category %in% c("Communication","Other", "Education")) %>%
+  filter(!Category %in% c("Communication","Other", "Civil & Religious", "Education")) %>%
   ggplot(aes(x = reorder(Category, hours), y = hours, group = Gender, color = Gender, fill = Gender)) + 
   geom_bar(stat = "identity", position = "dodge") + 
   ylab("Hours") +

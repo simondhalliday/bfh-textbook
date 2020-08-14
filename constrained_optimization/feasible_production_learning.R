@@ -40,7 +40,7 @@ indiffA <- function(x, ubar = uFn(8,3) - 1, alpha = 0.4) {
 }
 
 ylims <- c(0, 4.2)
-xlims <- c(0, 18)
+xlims <- c(0, 16)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -96,7 +96,7 @@ text(6.3, 3.2, expression(paste(y == f(h))), cex = labelsize)
 #Axis labels
 #mtext(expression(paste("Studying (hours), ", h)), side = 1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -0.38, expression(paste("Studying (hours), ", h)), xpd = TRUE, cex = axislabelsize) 
-text(-3.9, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.5, 0.5*ylims[2], expression(paste("Learning, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Add mrs = mrt at i
 # text(8.6, 3.6, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)

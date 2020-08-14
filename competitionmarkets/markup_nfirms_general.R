@@ -13,6 +13,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4, 1, 1))
 
@@ -67,10 +69,10 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(1, xlims[2], length.out = npts)
 
-lines(xx2, markUp(xx2, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+lines(xx2, markUp(xx2, pmax = 20, c1 = 2), col = CBCols[1], lwd = graphlinewidth)
 #lines(xx2, marketProfit(xx2, s = 1/2, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
-segments(0, 2, xlims[2], 2, lty = 1, col = COLB[4] , lwd = graphlinewidth)
+segments(0, 2, xlims[2], 2, lty = 1, col = CBCols[2] , lwd = graphlinewidth)
 # segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)

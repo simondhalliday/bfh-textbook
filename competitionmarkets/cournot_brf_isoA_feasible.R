@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 8.5, 2, 0.1))
 
@@ -66,14 +68,14 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #         border = FALSE, col = COLA[1])
 
 # Feasible
-segments(0, 7.5, xlims[2], 7.5, col = COLA[4], lwd = graphlinewidth)
+segments(0, 7.5, xlims[2], 7.5, col = CBCols[2], lwd = graphlinewidth)
 #text(5, 35, expression("Feasible set"), cex = annotatesize)
 # polygon( feasible )
 
 contour(x, y, 
         outer(x, y, piA),
         drawlabels = FALSE,
-        col = COLB[3],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 
@@ -83,14 +85,14 @@ contour(x, y,
 text(0.5*xlims[2], -3.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 text(-7.3, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(14.25, 0, 14.25, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(14.25, 0, 14.25, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(14.25, 7.5, pch = 16, col = "black", cex = 1.5)
 
-segments(6.60, 0, 6.60, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(6.60, 0, 6.60, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 
 
-segments(3.4, 0, 3.4, 7.5, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(3.4, 0, 3.4, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
 text(14.25 - 0.5, 7.5 - 1, expression(paste(a)), cex = annotatesize)

@@ -20,7 +20,7 @@ P1Name <- c("Firm A")
 P1Strat <- c("Reduce ", "Produce ")
 P1Strat2 <- c("output", "on BRF")
 #61, 72, 81, 91.125
-P1Payoffs <- c(expression(paste(pi^{A},"*", phantom() == 81)), expression(paste(pi[O]^{A} == 91)), expression(paste(pi[V]^{A} == 61)), expression(paste(pi^{AN})==72))
+P1Payoffs <- c(expression(paste(pi[i]^{A}== 81)), expression(paste(pi[O]^{A} == 91)), expression(paste(pi[V]^{A} == 61)), expression(paste(pi^{AN})==72))
 P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
@@ -30,7 +30,7 @@ P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 P2Name <- c("Firm B")
 P2Strat <- c("Reduce ", "Produce")
 P2Strat2 <- c("output", "on BRF")
-P2Payoffs <- c(expression(paste(pi^{B},"*", phantom() == 81)), expression(paste(pi[V]^{B} == 61)), expression(paste(pi[O]^{B} == 91)), expression(paste(pi^{BN} == 72)))
+P2Payoffs <- c(expression(paste(pi[i]^{B}== 81)), expression(paste(pi[V]^{B} == 61)), expression(paste(pi[O]^{B} == 91)), expression(paste(pi^{BN} == 72)))
 P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P2bestsize <- 4 #Adjusts size of circle indicating best response of P1

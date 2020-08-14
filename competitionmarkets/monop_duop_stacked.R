@@ -18,6 +18,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(6, 8, 0.2, 0.2), mfrow = c(2, 1))
@@ -61,7 +63,7 @@ ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(past
 ticksx <- c(0, 4, 6, 12, xlims[2])
 xlabels <- c(NA, expression(paste(x^{Am})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))), NA)
 
-segments(4, -20, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(4, -20, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -99,9 +101,9 @@ text(2, 6, expression("Economic"), cex = labelsize)
 text(2, 5.4, expression("profit"), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-#segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
+segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 4, xlims[2], 4, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
 
 #Label Points for comparison
 points(4, MRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
@@ -190,7 +192,7 @@ ypoly2 <- c(0, 0, 4, 4, 4)
 polygon(x = xpoly2, y = ypoly2, col=COLB[1], density=NULL, border = NA)
 
 #Segment for xM from top figure
-segments(4, 0, 4, ylims[2], lty = 2, col = "gray" , lwd = segmentlinewidth, xpd = TRUE)
+segments(4, 0, 4, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = TRUE)
 
 
 #Labels cost and profit areas
@@ -212,7 +214,7 @@ ticksy2 <- c(ylims[1], ylims[2])
 
 axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 text(x = c(0, mrxInt(xB = 2.667) + 8/3,  12, xlims[2]), par("usr")[3] - 0.4, labels = xlabels2, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize, col = "grey")
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize, col = grays[20])
 axis(2, at = ticksy2, pos = 8/3, labels = NA, las = 1, cex.axis = labelsize)
 
 
@@ -254,20 +256,20 @@ text(8.9, 0.7, expression(paste(mr^A, " when ", x^B == x^{BN} )), cex = annotate
 
 
 #Draw segments for quantities
-#segments(xlow(c = 4), 0, xlow(c = 4), 4, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
-#segments(xhigh(c = 4), 0, xhigh(c = 4), 4, lty = 2, col = "darkgrey" , lwd = segmentlinewidth)
+#segments(xlow(c = 4), 0, xlow(c = 4), 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(xhigh(c = 4), 0, xhigh(c = 4), 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Segment for pb - 2beta xb
-# segments(8/3, 0, 8/3, AvgRevenue(xA = 8/3), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AvgRevenue(xA = 8/3), 8/3, AvgRevenue(xA = 8/3), lty = 2, col = "gray" , lwd = segmentlinewidth)
+# segments(8/3, 0, 8/3, AvgRevenue(xA = 8/3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(xA = 8/3), 8/3, AvgRevenue(xA = 8/3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #With xX and xB
-segments(2*8/3, 0, 2*8/3, AvgRevenue(xA = 8/3, xB = 8/3), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, AvgRevenue(xA = 8/3, xB = 8/3), 2*8/3, AvgRevenue(xA = 8/3, xB = 8/3), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(2*8/3, 0, 2*8/3, AvgRevenue(xA = 8/3, xB = 8/3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, AvgRevenue(xA = 8/3, xB = 8/3), 2*8/3, AvgRevenue(xA = 8/3, xB = 8/3), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Marginal cost
-segments(0, 4, 8/3, 4, lty = 2, col = COL[1] , lwd = segmentlinewidth)
-segments(8/3, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
+segments(0, 4, 8/3, 4, lty = 2, col = CBCols[1] , lwd = segmentlinewidth)
+segments(8/3, 4, xlims[2], 4, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
 
 
 

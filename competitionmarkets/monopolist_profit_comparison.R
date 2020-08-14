@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "competitionmarkets/monopolist_profit_comparison.pdf", width = 9, height = 7)
+pdf(file = "firmmarketsupply/monopolist_profit_comparison.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8

@@ -83,12 +83,12 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, mrsA(xx1, rmax = 20, xmax = 10), col = COLA[4], lwd = graphlinewidth)
 
 #Line for Demand
-segments(0, 3, 1, 3, lty = 1, col = COLA[4] , lwd = graphlinewidth)
-segments(1, 0, 1, 3, lty = 1, col = COLA[4] , lwd = graphlinewidth)
+segments(0, 3, 1, 3, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
+segments(1, 0, 1, 3, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
 
 #Line for Supply
-segments(0, 1, 0.98, 1, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(0.98, 1, 0.98, 4, lty = 1, col = COLB[4] , lwd = graphlinewidth)
+segments(0, 1, 0.98, 1, lty = 1, col = CBCols[2] , lwd = graphlinewidth)
+segments(0.98, 1, 0.98, 4, lty = 1, col = CBCols[2] , lwd = graphlinewidth)
 
 #Label axes
 mtext(expression(paste("Quantity, ", x)), side=1, line = 3, cex = axislabelsize)

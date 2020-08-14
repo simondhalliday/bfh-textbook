@@ -13,6 +13,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 5, 0.5, 0.5))
 
@@ -72,12 +74,12 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Lines for barrier graph
-lines(xx1, bte(n = xx1, b = barriers[1]), col = COLA[3], lty = 2, lwd = graphlinewidth)
-lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = graphlinewidth)
+lines(xx1, bte(n = xx1, b = barriers[1]), col = CBCols[1], lty = 2, lwd = graphlinewidth)
+lines(xx1, bte(n = xx1, b = barriers[2]), col = CBCols[1], lty = 2, lwd = graphlinewidth)
 
 #Price with no barriers
 # No Barrier --- Greenbte(n = nstar(b = 0), b = 0)
-lines(xx1, cournotPrice(xx1, c = 10), col = COLA[4], lwd = graphlinewidth) 
+lines(xx1, cournotPrice(xx1, c = 10), col = CBCols[1], lwd = graphlinewidth) 
 
 # lines(xx1, Profit(xx1, c = 0.25), col = COLA[4], lty = 2, lwd = segmentlinewidth)
 
@@ -98,33 +100,33 @@ text(32, 4.8, expression(paste(hat(p)[H]*(list(n, b[H])) == (1-b[H])*p(n) )), ce
 
 # line for the marginal cost
 segments(0, 10, xlims[2], 10, 
-         lty = 1, col = COLB[4] , lwd = graphlinewidth
+         lty = 1, col = CBCols[2] , lwd = graphlinewidth
          )
 
 #For the low price with low barriers to entry
 segments(nstar(b = barriers[1]), 0, 
          nstar(b = barriers[1]), 
          cournotPrice(n = nstar(b = barriers[1])), 
-         lty = 2, col = "gray", lwd = segmentlinewidth
+         lty = 2, col = grays[20], lwd = segmentlinewidth
          )
 
 segments(0, cournotPrice(n = nstar(b = barriers[1])), 
          nstar(b = barriers[1]), 
          cournotPrice(n = nstar(b = barriers[1])), 
-         lty = 2, col = "gray", lwd = segmentlinewidth
+         lty = 2, col = grays[20], lwd = segmentlinewidth
 )
 
 #For the high price with high barriers to entry
 segments(nstar(b = barriers[2]), 0, 
          nstar(b = barriers[2]), 
          cournotPrice(n = nstar(b = barriers[2])), 
-         lty = 2, col = "gray", lwd = segmentlinewidth
+         lty = 2, col = grays[20], lwd = segmentlinewidth
          )
 
 segments(0, cournotPrice(n = nstar(b = barriers[2])), 
          nstar(b = barriers[2]), 
          cournotPrice(n = nstar(b = barriers[2])), 
-         lty = 2, col = "gray", lwd = segmentlinewidth
+         lty = 2, col = grays[20], lwd = segmentlinewidth
 )
 
 #This should probably have a loop, but I haven't worked it out. 

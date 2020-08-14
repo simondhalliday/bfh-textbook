@@ -13,6 +13,7 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 Grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 par(mar =  c(6, 8.5, 0.5, 0.5))
@@ -69,8 +70,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
-lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = CBCols[2], lwd = graphlinewidth)
 
 segments(0, 12, 12, 12, lty = 2, col = Grays[20] , lwd = segmentlinewidth)
 segments(12, 0, 12, 12, lty = 2, col = Grays[20] , lwd = segmentlinewidth)

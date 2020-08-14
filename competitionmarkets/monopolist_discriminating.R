@@ -17,6 +17,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 7, 1, 1))
@@ -80,7 +82,7 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphline
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.7, cex = axislabelsize)
+mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.7, cex = axislabelsize)
 text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
@@ -93,10 +95,10 @@ text(2, 6, expression("Economic"), cex = labelsize)
 text(2, 5.5, expression("profit"), cex = labelsize)
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(0, 4, xlims[2], 4, lty = 1, col = COL[1] , lwd = graphlinewidth)
-segments(8, 0, 8, 4, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 4), 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(4, 0, 4, AvgRevenue(x = 4), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 4, xlims[2], 4, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
+segments(8, 0, 8, 4, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Label Points for comparison
 points(4, MRevenue(x = 4), pch = 16, col = "black", cex = 1.5)

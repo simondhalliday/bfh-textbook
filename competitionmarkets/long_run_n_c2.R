@@ -14,6 +14,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(5, 8, 1, 1))
 
@@ -59,9 +61,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, 2, cournotPrice(n = nstar(b = barriers[1]), c = costs[1]),  ylims[2])
-ylabels <- c(NA, expression(c), expression(paste(p,"(n*)")), NA)
+ylabels <- c(NA, expression(c), expression(paste(p*(n[e]))), NA)
 ticksx <- c(0, nstar(b = barriers[1]), xlims[2])
-xlabels <- c(NA, expression(paste(n,"*")), NA)
+xlabels <- c(NA, expression(paste(n[e])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -72,11 +74,11 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Lines for barrier graph
 #lines(xx1, bte(n = xx1, b = barriers[3]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
 #lines(xx1, bte(n = xx1, b = barriers[2]), col = COLA[3], lty = 2, lwd = segmentlinewidth)
-lines(xx1, bte(n = xx1, b = barriers[1]), col = COLA[3], lty = 2, lwd = graphlinewidth)
+lines(xx1, bte(n = xx1, b = barriers[1]), col = CBCols[1], lty = 2, lwd = graphlinewidth)
 
 #Price with no barriers
 # No Barrier --- Green
-lines(xx1, cournotPrice(xx1, c = costs[1]), col = COLA[4], lwd = graphlinewidth) 
+lines(xx1, cournotPrice(xx1, c = costs[1]), col = CBCols[1], lwd = graphlinewidth) 
 
 
 #Label axes
@@ -84,7 +86,7 @@ lines(xx1, cournotPrice(xx1, c = costs[1]), col = COLA[4], lwd = graphlinewidth)
 text(0.5*xlims[2], -0.8 , expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
 text(-4, 0.5*ylims[2], expression(paste("Costs, price, and expected price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(20, 3.2, expression(paste(p(n))), cex = labelsize)
+text(20, 3.1, expression(paste(p(n))), cex = labelsize)
 text(20, 1.4, expression(paste(hat(p)*(n) == (1-b)*p(n) )), cex = labelsize)
 
 #line for the marginal cost
@@ -95,12 +97,12 @@ segments(nstar(b = barriers[1]),
          0, 
          nstar(b = barriers[1]), 
          cournotPrice(n = nstar(b = barriers[1]), c = costs[1]), 
-         lty = 2, col = "gray", lwd = segmentlinewidth)
+         lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 
          cournotPrice(n = nstar(b = barriers[1]), c = costs[1]), 
          nstar(b = barriers[1]), 
          cournotPrice(n = nstar(b = barriers[1]), c = costs[1]), 
-         lty = 2, col = "gray", lwd = segmentlinewidth)
+         lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 points(nstar(b = barriers[1]), 
@@ -109,7 +111,7 @@ points(nstar(b = barriers[1]),
 )
 
 text(x = nstar(b = barriers[1]) - 0.5, 
-     y = bte(n = nstar(b = barriers[1]), b = barriers[1]) - 0.5, 
+     y = bte(n = nstar(b = barriers[1]), b = barriers[1]) - 0.2, 
      expression(paste(h)), cex = labelsize) 
 
 points(nstar(b = barriers[1], c = costs[1]),
@@ -117,8 +119,8 @@ points(nstar(b = barriers[1], c = costs[1]),
        pch = 16, col = "black", cex = 1.5
 )
 
-text(x = nstar(b = barriers[1]) + 0.5, 
-     y = cournotPrice(n = nstar(b = barriers[1])) + 0.5, 
+text(x = nstar(b = barriers[1]) + 0.2, 
+     y = cournotPrice(n = nstar(b = barriers[1])) + 0.2, 
      expression(paste(e)), cex = labelsize) 
 
 

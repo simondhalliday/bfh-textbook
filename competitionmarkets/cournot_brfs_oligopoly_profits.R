@@ -13,6 +13,9 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
+
 par(mar =  c(5, 5, 1, 1))
 
 piA <- function(xa, xb, s = 0.5, pmax = 20, c1 = 2) {
@@ -62,8 +65,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 2)
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
-ticksy <- c(0,  18, 36, ylims[2])
-ylabels <- c(NA, expression(paste( frac(bar(p) - c,2*beta) )), expression(paste( frac(bar(p) - c,beta) )), NA)
+ticksy <- c(0,  36, ylims[2])
+ylabels <- c(NA, expression(paste( frac(bar(p) - c,beta) )), NA)
 ticksx <- c(0,  18, xlims[2])
 xlabels <- c(NA,  expression(paste(frac(bar(p) - c,2*beta))),  NA)
 
@@ -71,7 +74,7 @@ contour(x, y,
         outer(x, y, piA),
         #labels = c("v1", "v2", "v3"),
         drawlabels = FALSE,
-        col = COLA[2],
+        col = CBCols[1],
         #xlab = expression(paste("A's Apples, ", x)),
         #ylab = expression(paste("A's Oranges, ", y)),
         #cex.lab = axislabelsize,
@@ -91,11 +94,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
+lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[5], lwd = graphlinewidth)
 ## lines(xx1, brfB(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
 
-## segments(0, 12, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
-# segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
+## segments(0, 12, 12, 12, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+# segments(12, 0, 12, 12, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 # segments(0, 0, 36, 36, lty = 2, col = COLB[3] , lwd = graphlinewidth)
 # segments(0, 0, 18, 36, lty = 2, col = COLB[3] , lwd = graphlinewidth)
 # segments(0, 0, 12, 36, lty = 2, col = COLB[3] , lwd = graphlinewidth)

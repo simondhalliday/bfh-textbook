@@ -18,6 +18,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(4, 7, 1, 1))
@@ -92,7 +94,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #lines(xx1, bcA(xx1, w = 10, p = 1.5), col = COLB[3], lwd = graphlinewidth)
 lines(xx1, AvgRevenue(xx1, rmax = 20, xmax = 40), col = COLB[5], lwd = graphlinewidth)
-lines(xx1, MRevenue(xx1, rmax = 20, xmax = 40), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, MRevenue(xx1, rmax = 20, xmax = 40), col = CBCols[2], lwd = graphlinewidth)
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
@@ -106,14 +108,14 @@ text(21.5, 0.9, expression(paste(mr(x))), cex = labelsize)
 
 
 #Draw segments for total costs
-segments(0, AvgRevenue(x = 18), 18, AvgRevenue(x = 18), lty = 2, col = "gray" , lwd = segmentlinewidth)
-segments(18, 0, 18, AvgRevenue(x = 18), lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(0, AvgRevenue(x = 18), 18, AvgRevenue(x = 18), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(18, 0, 18, AvgRevenue(x = 18), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Marginal costs
-segments(0, 2, xlims[2], 2, lty = 1, col = COL[1] , lwd = graphlinewidth)
+segments(0, 2, xlims[2], 2, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
 
 #Segment for many firms comparison
-segments(36, 0, 36, 2, lty = 2, col = "gray" , lwd = segmentlinewidth)
+segments(36, 0, 36, 2, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Label Points for comparison
 points(18, MRevenue(x = 18), pch = 16, col = "black", cex = 1.5)

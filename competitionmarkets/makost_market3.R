@@ -15,6 +15,8 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(5, 6.5, 0.5, 0.5))
 
@@ -64,14 +66,14 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsiz
 
 
 #Line for Demand
-segments(0, 3, 2, 3, lty = 1, col = COLA[4] , lwd = graphlinewidth)
-segments(2, 3, 2, 2, lty = 1, col = COLA[4] , lwd = graphlinewidth)
-segments(2, 2, 3, 2, lty = 1, col = COLA[4] , lwd = graphlinewidth)
-segments(3, 2, 3, 0, lty = 1, col = COLA[4] , lwd = graphlinewidth)
+segments(0, 3, 2, 3, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
+segments(2, 3, 2, 2, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
+segments(2, 2, 3, 2, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
+segments(3, 2, 3, 0, lty = 1, col = CBCols[1] , lwd = graphlinewidth)
 
 #Line for Supply
-segments(0, 1, 0.98, 1, lty = 1, col = COLB[4] , lwd = graphlinewidth)
-segments(0.98, 1, 0.98, 4, lty = 1, col = COLB[4] , lwd = graphlinewidth)
+segments(0, 1, 0.98, 1, lty = 1, col = CBCols[2] , lwd = graphlinewidth)
+segments(0.98, 1, 0.98, 4, lty = 1, col = CBCols[2], lwd = graphlinewidth)
 
 #For market price
 # segments(0, 2, 1, 2, lty = 2, "gray" , lwd = segmentlinewidth)

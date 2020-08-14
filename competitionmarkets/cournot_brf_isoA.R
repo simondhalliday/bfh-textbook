@@ -14,6 +14,8 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+grays <- gray.colors(25, start = 1, end = 0)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 8.5, 2, 0.1))
 
@@ -74,12 +76,12 @@ text(x = c(0, 9.2, 12, 14.75, 18, xlims[2]), par("usr")[3] - 0.4, labels = xlabe
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
-lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLB[4], lwd = graphlinewidth)
+lines(xx1, brfA(xx1, s = 0.5, pmax = 20, c1 = 2), col = COLA[4], lwd = graphlinewidth)
 
 contour(x, y, 
         outer(x, y, piA),
         drawlabels = FALSE,
-        col = COLB[2],
+        col = CBCols[1],
         lwd = graphlinewidth,
         levels = a, 
         xaxs = "i", 

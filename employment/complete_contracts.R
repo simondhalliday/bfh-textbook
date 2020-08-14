@@ -13,8 +13,12 @@ annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
 
-Fn <- function(t, ubar = 0.5, b = 0, k = 0.5) {
-  (ubar)/(k*t) + b
+Fn <- function(t, ubar = 0.5, b = 0, j = 0.5) {
+  (ubar)/(j*t) + b
+}
+
+Incomp <- function(t, ubar = 0.5, b = 0, j = 0.5) {
+  (ubar)/(j*t) + b
 }
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
@@ -39,6 +43,9 @@ xx4 <- seq(xlims[1], 25, length.out = npts2)
 
 #Draw the lines for the graphs
 lines(xx1, Fn(xx1), col = COL[1], lwd = graphlinewidth)
+lines(xx1, Fn(xx1, j = 0.2), col = COL[1], lwd = graphlinewidth)
+lines(xx1, Fn(xx1, j = 0.8), col = COL[1], lwd = graphlinewidth)
+
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,1,4.5,5)
@@ -65,8 +72,7 @@ text(0.22, -0.25, expression(paste(underline(t)*j)), cex = labelsize, xpd = TRUE
 
 #Text annotations
 text(0.42, 5.45, expression(paste("No-shirking condition")), cex = labelsize, xpd = TRUE)
-#B + \uline{u} + \frac{\uline{u}(1 - tj)}{tj} 
-text(0.42, 5, expression(paste(w^N== B + underline(u) + frac(underline(u)*(1 - t*j) , t*j))), cex = labelsize, xpd = TRUE)
+text(0.42, 5, expression(paste(w^N== B + underline(u) + frac(underline(u)*(1 - t) , t*j))), cex = labelsize, xpd = TRUE)
 text(-0.1, 1, expression(paste(B + underline(u))), cex = labelsize, xpd = TRUE)
 #text(1.15, 4.5, expression(paste(gamma[p])), cex = labelsize, xpd = TRUE)
 text(0.43, 1.55, expression(paste("Employee's rent")), cex = labelsize, xpd = TRUE)
@@ -98,7 +104,9 @@ Arrows(0.38, 3.65, 0.38, 2.8, col = "black", lty = 1, lwd = 2, arr.type = "trian
 text(0.5, -0.7, expression(paste("Degree of contractual completeness")), xpd = TRUE, cex = axislabelsize) 
 text(-0.15, 2.5, expression(paste("Wage and  price")), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
-
+text(0.9, 0.5, expression(paste(j == 0.8)), cex = labelsize, xpd = TRUE)
+text(0.9, 1.35, expression(paste(j == 0.5)), cex = labelsize, xpd = TRUE)
+text(0.9, 3.2, expression(paste(j == 0.2)), cex = labelsize, xpd = TRUE)
 
 dev.off()
 

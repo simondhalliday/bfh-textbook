@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "employment/employment_price_ed.pdf", width = 9, height = 7)
+pdf(file = "employment/employment_price_edv2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -27,13 +27,14 @@ indiffFn1 <- function(y, u1 = 4.5, a1 = 5) {
   1 - (a1) / (y - u1)
 }
 
-indiffFn2 <- function(y, u2 = 10.5, a2 = 5) {
-  1 - (a2) / (y - u2)
+isovhigh1 <- function(w, delta = 5, v = 30){
+  (sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
 
-indiffFn3 <- function(y, u3 = 16.5, a3 = 5) {
-  1 - (a3) / (y - u3)
+isovlow1 <- function(w, delta = 5, v = 30){
+  (-sqrt(w^2 - 4 * delta * v) - w + 2*v)/( 2 * v )
 }
+
 
 PCFn <- function(delta, mu = 16) {
   delta/mu
@@ -47,9 +48,14 @@ tangentLine <- function(w){
   0.375 + (1/32)*w
 }
 
-par(mar =  c(5, 5, 1, 1))
-xlims <- c(0, 12)
-ylims <- c(0, 1.05)
+solowCondition <- function(w, delta = 5, slope = 4){
+  (w*(1/(slope*delta)))
+}
+
+
+par(mar =  c(5, 5, 4, 6))
+xlims <- c(0, 40)
+ylims <- c(0, 1)
 
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
@@ -71,18 +77,37 @@ polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLB[1
 npts <- 500 
 xx1 <- seq(u1 + a1 + 0.1, xlims[2], length.out = npts)
 xx2 <- seq(u2 + a2 + 0.1, xlims[2], length.out = npts)
-xx3 <- seq(3, xlims[2], length.out = npts)
+xx3 <- seq(20, xlims[2], length.out = npts)
 xx4 <- seq(7, 17, 0.01)
-xx5 <- seq(xlims[1] + 0.2, xlims[2], length.out = npts)
-xx6 <- seq(xlims[1], 20, length.out = npts)
+xx5 <- seq(5, xlims[2], length.out = npts)
+xx6 <- seq(11.9, xlims[2], length.out = npts)
+xx7 <- seq(xlims[1], 20, length.out = npts)
 
 
 #Draw the lines for the graphs
-lines(xx5, PCFn(xx5, mu = 8), col = COLB[4], lwd = graphlinewidth)
+xx3 <- seq(0, xlims[2], length.out = npts2)
+xx4 <- seq(xlims[1], 10, length.out = npts2)
+lines(xx3, isovhigh1(xx3, v = 0.01, delta = 5), col = COLA[4], lwd = graphlinewidth)
+lines(xx4, isovlow1(xx4, v = 0.01, delta = 5), col = COLA[4], lwd = graphlinewidth)
+
+# lines(xx3, isovhigh1(xx3, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+# lines(xx4, isovlow1(xx4, v = 5, delta = 5), col = COLA[4], lwd = graphlinewidth)
+
+
+#lines(xx7, PCFn(xx7, mu = 28), col = COLB[4], lwd = graphlinewidth)
+#lines(xx6, indiffFn1(xx6, u1 = 11.9), col = COLA[4], lwd = graphlinewidth)
+
+solowCondition <- function(w, delta = 5, slope = 4){
+  (w*(1/(slope*delta)))
+}
+xx5 <- seq(5, xlims[2], length.out = npts)
+xx7 <- seq(xlims[1], 20, length.out = npts)
 lines(xx5, indiffFn1(xx5, u1 = 0), col = COLA[4], lwd = graphlinewidth)
-lines(xx5, indiffFn1(xx5, u1 = -1.5), col = COLA[4], lwd = graphlinewidth)
-lines(xx3, indiffFn1(xx3, u1 = 1.5), col = COLA[4], lwd = graphlinewidth)
+lines(xx7, solowCondition(xx7, delta = 5, slope = 4), col = COLB[4], lwd = graphlinewidth)
+
+#lines(xx3, indiffFn1(xx3, u1 =20), col = COLA[4], lwd = graphlinewidth)
 #lines(xx6, prodFn2(xx6), col = COLB[4], lwd = graphlinewidth)
+lines(xx7, solowCondition(xx7, delta = 5, slope = 5.8), col = COLB[4], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, PCFn(delta = 4, mu = 8), 1, 1.1)
@@ -93,10 +118,10 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1,cex.axis = labelsize)
 
 #Annotation of the three indifference curves
-text(0.9, 0.05, expression(paste(u[1])), cex = labelsize-0.05)
-text(2.8, 0.075, expression(paste(u[2] == u[z])), cex = labelsize-0.05)
-text(2.915, 0.035, expression(paste(phantom() == 0)), cex = labelsize-0.05)
-text(3.825, 0.05, expression(paste(u[3])), cex = labelsize-0.05)
+text(6.5, 0.075, expression(paste(u[1])), cex = labelsize-0.05)
+text(15, 0.075, expression(paste(u[2] == u[z])), cex = labelsize-0.05)
+text(15, 0.035, expression(paste(phantom() == 0)), cex = labelsize-0.05)
+text(18.5, 0.075, expression(paste(u[3])), cex = labelsize-0.05)
 
 #Line for the max quality, q = 1 
 segments(0, 1, xlims[2], 1, lty = 2, col = grays[20], lwd = 2)
@@ -121,7 +146,7 @@ text(8, 0.2, expression("employee"), cex = labelsize)
 Arrows(8.8, 0.225, 10, 0.225, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
-text(3.5, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
+text(3.5, 0.97, expression(paste("Slope of isoprofit")), cex = labelsize)
 text(3.5, 0.89, expression(paste(-mrt(p,e) == frac(Delta*e,Delta*p),phantom()==frac(e, p))), cex = labelsize)
 Arrows(5.3, 0.89, 6.8, 0.89, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

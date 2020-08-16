@@ -1,6 +1,6 @@
 require(ggplot2)
 require(shape)
-pdf(file = "society/matrix_fishermen_A.pdf", width = 9, height = 7)
+pdf(file = "society/matrix_fishermen_goodbadA_v2.pdf", width = 9, height = 7)
 
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
@@ -19,7 +19,7 @@ p2fadelevel <- 0.2
 #Considerations for Player 1
 P1Name <- c("Alfredo")
 P1Strat <- c("10 hours", "12 hours")
-P1Payoffs <- c("3", "4", "1", "2")
+P1Payoffs <- c("Good", "Best", "Worst", "Bad")
 P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
@@ -65,9 +65,9 @@ polygon(c(4,4,6,4), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 polygon(c(4,6,6,4), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
-text(4.5, 2.5, P1Payoffs[1], cex = PayoffSize)
+text(4.7, 2.5, P1Payoffs[1], cex = PayoffSize)
 #P2
-text(5.5, 3.5, P2Payoffs[1], cex = PayoffSize)
+text(5.7, 3.5, P2Payoffs[1], cex = PayoffSize)
 
 #SouthWest cell  
 #P1
@@ -76,9 +76,9 @@ polygon(c(4,4,6,4), c(2,0,0,2), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 polygon(c(4,6,6,4), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 
 #P1
-text(4.5, 0.5, P1Payoffs[2], cex = PayoffSize)
+text(4.6, 0.5, P1Payoffs[2], cex = PayoffSize)
 #P2
-text(5.5, 1.5, P2Payoffs[2], cex = PayoffSize)
+text(5.7, 1.5, P2Payoffs[2], cex = PayoffSize)
 
 
 #NorthEast cell 
@@ -87,9 +87,9 @@ polygon(c(6,6,8,6), c(4,2,2,4), col=rgb(0, 0, 1, p1fadelevel), density=NULL, bor
 #P2
 polygon(c(6,8,8,6), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, border = NA)
 #P1
-text(6.5, 2.5, P1Payoffs[3], cex = PayoffSize)
+text(6.7, 2.5, P1Payoffs[3], cex = PayoffSize)
 #P2
-text(7.5, 3.5, P2Payoffs[3], cex = PayoffSize)
+text(7.7, 3.5, P2Payoffs[3], cex = PayoffSize)
 
 #SouthEast cell 
 #P1

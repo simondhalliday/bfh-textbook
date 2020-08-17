@@ -33,7 +33,7 @@ uA <- function(xA, yA, alpha = 1/2){
 }
 
 
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(4.5, 4.5, 1, 2))
 xlims <- c(0, 8)
 ylims <- c(0, 8)
 
@@ -55,8 +55,8 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 
-text(0.5*xlims[2], -1.3, expression(paste("Payoffs to A")), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("Payoffs to B")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1, expression(paste("Payoffs to A")), xpd = TRUE, cex = axislabelsize) 
+text(-0.7, 0.5*ylims[2], expression(paste("Payoffs to B")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Draw the lines for the graphs

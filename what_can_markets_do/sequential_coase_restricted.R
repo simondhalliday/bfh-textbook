@@ -40,28 +40,28 @@ xlabels <- seq(from = 0, to = xlims[2], by = 2)
 
 #segments(5, 9, 2.5, 5, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
 #Plant late
-segments(5, 9, 7.5, 5, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
+segments(5, 9, 7.5, 5, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
 
 #Branches for Bianca
 #From Anders planting early
 #Bianca plants early
 #Arrows(2.5, 5, 1, 1, col = rgb(1, 0, 0, 0.5), lty = 1, lwd = 3, arr.type = "triangle")
-segments(2.5, 5, 1, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+segments(2.5, 5, 1, 1, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
 #Bianca plants late
-segments(2.5, 5, 4, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+segments(2.5, 5, 4, 1, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
 
 #Branches for Anders
 #Plant early
 #Arrows(5, 9, 2.5, 5, col = rgb(0, 0, 1, 0.5), lty = 1, lwd = 3, arr.type = "triangle")
-segments(5, 9, 2.5, 5, col = rgb(0, 0, 1, 0.5), lty = 1, lwd = 3)
+segments(5, 9, 2.5, 5, col = rgb(1, 0, 0, 0.5), lty = 1, lwd = 3)
 
 #From Anders plants late
 #Bianca plants early
-segments(7.5, 5, 6, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+#segments(7.5, 5, 10, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
 
 
 #Bianca plants late
-segments(7.5, 5, 9, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+#segments(7.5, 5, 9, 1, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
 
 #Initial node
 points(5, 9, pch = 16, col = "black", cex = nodesize)
@@ -73,34 +73,46 @@ points(7.5, 5, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
 #P2 Terminal Nodes
 points(1, 1, pch = 16, col = "black", cex = nodesize)
 points(4, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
-points(6, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
-points(9, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
+#points(6, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
+#points(9, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
+#points(10, 1, pch = 16, col = rgb(0,0,0,fadelevel), cex = nodesize)
 
-text(5, 9.3, expression(paste("Anders")), cex = labelsize)
+text(5, 9.3, expression(paste("Bianca")), cex = labelsize)
 text(3, 7.5, expression(paste("Bargain")), cex = actionlabelsize)
-text(3, 7.1, expression(paste("(to allow)")), cex = actionlabelsize)
-text(6.9, 7.5, expression(paste("Don't")), cex = actionlabelsize, col = rgb(0, 0, 0, fadelevel))
-text(6.9, 7.1, expression(paste("bargain")), cex = actionlabelsize, col = rgb(0, 0, 0, fadelevel))
+text(3, 7.1, expression(paste("(to use)")), cex = actionlabelsize)
+text(7.1, 7.5, expression(paste("Don't")), cex = actionlabelsize, col = rgb(0, 0, 0, fadelevel))
+text(7.1, 7.1, expression(paste("bargain")), cex = actionlabelsize, col = rgb(0, 0, 0, fadelevel))
+text(7.1, 6.7, expression(paste("(restrict)")), cex = actionlabelsize, col = rgb(0, 0, 0, fadelevel))
 
 
-text(1.8, 5, expression(paste("Bianca")), cex = labelsize)
+text(1.7, 5, expression(paste("Anders")), cex = labelsize)
 text(1.3, 3.5, expression(paste("Accept")), cex = actionlabelsize)
 #text(1.3, 3.1, expression(paste("early")), cex = actionlabelsize)
 text(3.8, 3.5, expression(paste("Reject")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 #text(3.8, 3.1, expression(paste("late")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 
-text(8.2, 5, expression(paste("Bianca")), cex = labelsize, col = rgb(0,0,0,fadelevel))
-text(6.1, 3.5, expression(paste("Restrict")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+#text(8.2, 5, expression(paste("Anders")), cex = labelsize, col = rgb(0,0,0,fadelevel))
+#text(9.1, 3.5, expression(paste("Restrict")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 #text(6.1, 3.1, expression(paste("early")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(9.1, 3.5, expression(paste("Use")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(9.1, 3.1, expression(paste("unrestricted")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+#text(9.1, 3.5, expression(paste("Use")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+#text(9.1, 3.1, expression(paste("unrestricted")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 #Payoffs 
-text(1, .6, expression("(4, 2)"), cex = actionlabelsize)
-text(4, .6, expression("(4, 4)"), cex = actionlabelsize ,col = rgb(0,0,0,fadelevel))
-text(6, .6, expression("(4, 4)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(9, .6, expression("(1, 0)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(1, .6, expression("(" * phantom("4") * "," * phantom("2") * ")"), cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * "4" * phantom(",") * phantom("2") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * phantom("4") * phantom(",") * "2" * phantom(")")), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize)
+
+text(4, .6, expression("(" * phantom("4") * "," * phantom("4") * ")"), cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * phantom("4") * phantom(",") * "4" * phantom(")")), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize)
+
+text(7.5, 4.6, expression("(" * phantom("4") * "," * phantom("4") * ")"), cex = actionlabelsize)
+text(7.5, 4.6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)
+text(7.5, 4.6, expression(phantom("(") * phantom("4") * phantom(",") * "4" * phantom(")")), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize)
+
+#text(6, .6, expression("(4, 4)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+#text(9, .6, expression("(1, 0)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 #Cutting branch plant late when A plants early
 # segments(2.6, 3.9, 3.1, 4.4, lty = 1, col = rgb(0,0,0,fadelevel), lwd = graphlinewidth)

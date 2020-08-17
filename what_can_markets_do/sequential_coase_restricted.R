@@ -99,9 +99,9 @@ text(3.8, 3.5, expression(paste("Reject")), cex = actionlabelsize, col = rgb(0,0
 #text(9.1, 3.1, expression(paste("unrestricted")), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 
 #Payoffs 
-text(1, .6, expression("(" * phantom("4") * "," * phantom("2") * ")"), cex = actionlabelsize)
-text(1, .6, expression(phantom("(") * "4" * phantom(",") * phantom("2") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)
-text(1, .6, expression(phantom("(") * phantom("4") * phantom(",") * "2" * phantom(")")), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize)
+text(1, .6, expression("(" * phantom("2") * "," * phantom("4") * ")"), cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * "2" * phantom(",") * phantom("4") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * phantom("2") * phantom(",") * "4" * phantom(")")), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize)
 
 text(4, .6, expression("(" * phantom("4") * "," * phantom("4") * ")"), cex = actionlabelsize)
 text(4, .6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(1, 0, 0, 0.5),  cex = actionlabelsize)

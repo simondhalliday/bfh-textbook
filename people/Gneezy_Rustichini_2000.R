@@ -19,8 +19,8 @@ fines <- ggplot(data = GR_2000, aes(x = weeknum)) +
   scale_color_manual("Fines", values = BHcolors, labels=c("Group with fine","Control group")) +
   scale_x_continuous(breaks = scales::pretty_breaks(n = 20)) +
   scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
-  xlab("Week Number") + 
-  ylab("Late Arrivals") +
+  xlab("Week number") + 
+  ylab("Late arrivals") +
   theme_classic() + 
   theme(axis.title.y = element_text(size = 16),
         legend.position = c(0.15, 0.9),

@@ -69,8 +69,8 @@ data_final_1 <- read.xlsx('constrained_optimization/FLFP_HAPI_countries.xlsx')
 plot1 <- data_final_1 %>% ggplot(aes(x = x, y = y, group = group)) +
   geom_point(aes(color = group), size = 2) +
   geom_text(aes(label = group), vjust = -0.5, hjust = 0.7, size = 6) + 
-  xlab("Changes in the Home Appliance Price Index") +
-  ylab("Change in Female Labor Force Participation") +
+  xlab("Changes in the home appliance price index") +
+  ylab("Change in female labor force participation") +
   scale_y_continuous(breaks = seq(5, 15, by = 1), limits = c(5,15)) + 
   scale_x_continuous(breaks = seq(-0.3, -0.1, by = 0.05), limits = c(-0.3,-0.1)) +
   scale_color_d3() +

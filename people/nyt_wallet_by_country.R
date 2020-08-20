@@ -39,7 +39,7 @@ response_rate_subset$NoMoneyRate <- ifelse(response_rate_subset$cond==0, respons
 response_rate_subset$CountryOrd<-reorder(response_rate_subset$Country, response_rate_subset$NoMoneyRate)
 
 response_rate_subset$condFactor<- as.factor(response_rate_subset$cond)
-response_rate_subset$condFactor<- ifelse(response_rate_subset$condFactor==0, "No Money", "Money")
+response_rate_subset$condFactor<- ifelse(response_rate_subset$condFactor==0, "No money", "Money")
 
 response_rate_subset <- 
   response_rate_subset %>%
@@ -51,7 +51,7 @@ response_rate_subset <-
 nytfig <- ggplot(data=response_rate_subset, aes(x=response_rate, y=CountryOrd, color=condFactor, group=CountryOrd)) + 
   geom_point(size = 3) + 
   geom_line() + 
-  labs(x = "Reporting Rate", y = "Country", colour = "Treatment") +  
+  labs(x = "Reporting rate", y = "Country", colour = "Treatment") +  
   scale_color_brewer(type = "qual", 
                      palette = "Set1") + 
   #scale_color_manual(values=c(COLB[4], COLA[4])) + 

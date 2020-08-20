@@ -24,5 +24,6 @@ ATUS2 %>%
   #scale_color_brewer(type = "qual", palette = "Accent") + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1), 
         text = element_text(size = 12), 
-        axis.title.x=element_blank())
+        axis.title.x=element_blank(),
+        legend.title = element_blank())
 ggsave(file = "constrained_optimization/atus.pdf", device = "pdf", width = 6, height = 4)

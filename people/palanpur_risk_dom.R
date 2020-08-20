@@ -110,8 +110,8 @@ text(13, 4, expression(paste("Plant Early, ", hat(pi)[E])),  xpd = TRUE, cex = l
 
 
 #Tipping point arrows
-Arrows((2/3)*xlims[2] + 0.5, 1, xlims[2] - 1, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
-Arrows((2/3)*xlims[2] - 0.5, 1, xlims[1] + 2, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+Arrows((2/3)*xlims[2] + 1, 1, xlims[2] - 2.5, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+Arrows((2/3)*xlims[2] - 1, 1, xlims[1] + 3.5, 1, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
 
 #Axis arrow
 #Arrows(32.5, -5.5, 39, -5.5, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)

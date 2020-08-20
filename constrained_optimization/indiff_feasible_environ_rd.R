@@ -82,7 +82,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 Arrows(0.5, 78, 0.5, 97, col = "black", lty = 1, lwd = 2, code = 3, arr.type = "triangle", arr.lwd = 0.5)
 text(2.5, 88, expression("Abatement"), cex = labelsize)
-text(2.5, 84, expression("Cost"), cex = labelsize)
+text(2.5, 84, expression("cost"), cex = labelsize)
 
 #Draw the feasibility frontiers
 lines(xx1, ppf(xx1, y), col = COLA[5], lwd = graphlinewidth)

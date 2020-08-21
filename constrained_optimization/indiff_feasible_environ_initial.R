@@ -40,7 +40,7 @@ uFn <- function(x, y, alpha = 0.4){
 
 #Add limits on axes and levels of utility for each indifference curve
 
-ylims <- c(0, 130)
+ylims <- c(0, 125)
 xlims <- c(0, 20)
 
 npts <- 501 
@@ -67,15 +67,15 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksy <- seq(from = 0, to = ylims[2], by = 10)
 # ylabels <- seq(from = 0, to = ylims[2], by = 10)
 
-ticksx <- c(xlims[1], 5, 7.07, 10, 14.14214,15, xlims[2])
-xlabels <- c(0, 5, expression(paste(x[b] == 7)),10, NA, 15, 20)
-ticksy <- c(ylims[1], 20, 40, 60, ppf(x = 7.07), 80, 100, 120, ylims[2])
-ylabels <- c(0, 20, 40, 60, expression(paste(y[b])  == 75), 80, expression(paste(bar(y) == 100)),120,130)
+ticksx <- c(xlims[1], 5, 7.07, 10, 14.14214,NA, xlims[2])
+xlabels <- c(0, 5, expression(paste(x[b] == 7)),10, expression(paste(bar(x) == 14)), NA, 20)
+ticksy <- c(ylims[1], 25, 50, ppf(x = 7.07), 100, 125, NA)
+ylabels <- c(0, 25, 50, expression(paste(y[b])  == 75), expression(paste(bar(y) == 100)),125,NA)
  
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
-text(13.4, -5, expression(paste(bar(x) == 14)), cex = labelsize, xpd = TRUE)
+#text(13.4, -5, expression(paste(bar(x) == 14)), cex = labelsize, xpd = TRUE)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

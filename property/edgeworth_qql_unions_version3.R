@@ -224,7 +224,7 @@ contour(x, y,
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 #mtext("B's Hours of Living, x", side=3, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -45, expression(paste("B's hours of living,", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -45, expression(paste("B's hours of Living,", x^B)), xpd = TRUE, cex = axislabelsize) 
 text(-1.2, 0.5*ylims[2], expression(paste("B's money, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:

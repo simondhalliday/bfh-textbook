@@ -75,7 +75,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #lines(xx1, indiffA1(xx1, uA = 20, rmax = 2.5, xmax = 10), col = COLB[4], lwd = graphlinewidth)
 
 #mtext(expression(paste("Hours of Living, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text( 0.5*xlims[2],-38, expression(paste("Hours of living, ", x)), xpd = TRUE, cex = axislabelsize) 
+text( 0.5*xlims[2],-38, expression(paste("Hours of Living, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-2.9, 0.5*ylims[2], expression(paste("Quantity of money, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)

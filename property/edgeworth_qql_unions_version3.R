@@ -110,8 +110,8 @@ contour(x, y,
         yaxs="i",
         add = TRUE)
 
-mtext(expression(paste("A's Hours hired of B's Work, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("A's Money, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+mtext(expression(paste("A's hours hired of B's work, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
+text(-1.2, 0.5*ylims[2], expression(paste("A's money, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
@@ -224,8 +224,8 @@ contour(x, y,
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 0, cex.axis = labelsize)
 #mtext("B's Hours of Living, x", side=3, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -45, expression(paste("B's Hours of Living,", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-1.2, 0.5*ylims[2], expression(paste("B's Money, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(0.5*xlims[2], -45, expression(paste("B's hours of living,", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-1.2, 0.5*ylims[2], expression(paste("B's money, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 Arrows(-1.2, 270, -1.2, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)

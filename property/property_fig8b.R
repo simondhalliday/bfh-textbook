@@ -94,8 +94,8 @@ xx2 <- seq(xlims[1], xlims[2], length.out = npts)
 xx3 <- seq(xlims[1], xlims[2], length.out = npts2)
 xx4 <- seq(xlims[1], 13, length.out = npts2)
 
-text(0.5*xlims[2], -1.3, expression(paste("A's Utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.9, 0.5*ylims[2], expression(paste("B's Utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(0.5*xlims[2], -1.3, expression(paste("A's utility, ", u^A)), xpd = TRUE, cex = axislabelsize) 
+text(-0.9, 0.5*ylims[2], expression(paste("B's utility, ", u^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 xpoly <- c(0, 12.24745, 0, 0)

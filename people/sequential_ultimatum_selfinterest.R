@@ -98,11 +98,21 @@ text(9, 3, expression(paste("Reject")), cex = actionlabelsize, col = rgb(0,0,0,f
 
 
 #Payoffs 
-text(1, .6, expression("(8, 2)"), cex = actionlabelsize)
-text(4, .6, expression("(0, 0)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(6, .6, expression("(5, 5)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(9, .6, expression("(0, 0)"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(1, .6, expression("(" * phantom("8") * "," * phantom("2") * ")"), cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * "8" * phantom(",") * phantom("2") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * phantom("8") * phantom(",") * "2" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
 
+text(4, .6, expression("(" * phantom("0") * "," * phantom("0") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(4, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 0.5,fadelevel),  cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 0.5,fadelevel), cex = actionlabelsize)
+
+text(6, .6, expression("(" * phantom("5") * "," * phantom("5") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(6, .6, expression(phantom("(") * "5" * phantom(",") * phantom("5") * phantom(")")), col = rgb(0, 0, 1, 0.5,fadelevel),  cex = actionlabelsize)
+text(6, .6, expression(phantom("(") * phantom("5") * phantom(",") * "5" * phantom(")")), col = rgb(1, 0, 0, 0.5,fadelevel), cex = actionlabelsize)
+
+text(9, .6, expression("(" * phantom("0") * "," * phantom("0") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
+text(9, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 0.5,fadelevel),  cex = actionlabelsize)
+text(9, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 0.5,fadelevel), cex = actionlabelsize)
 
 #Cutting branch plant late when A plants early
 segments(2.6, 3.9, 3.1, 4.4, lty = 1, col = rgb(0,0,0,fadelevel), lwd = graphlinewidth)

@@ -93,9 +93,21 @@ text(8.7, 3.5, expression(paste("Plant")), cex = actionlabelsize)
 text(8.7, 3.1, expression(paste("late")), cex = actionlabelsize)
 
 #Payoffs 
-text(1, .6, expression("(4, 4)"), cex = actionlabelsize)
-text(4, .6, expression("(0, 3)"), cex = actionlabelsize)
-text(6, .6, expression("(3, 0)"), cex = actionlabelsize)
-text(9, .6, expression("(2, 2)"), cex = actionlabelsize)
+
+text(1, .6, expression("(" * phantom("4") * "," * phantom("4") * ")"), cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * phantom("4") * phantom(",") * "4" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
+
+text(4, .6, expression("(" * phantom("0") * "," * phantom("3") * ")"), cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * "0" * phantom(",") * phantom("3") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * phantom("0") * phantom(",") * "3" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
+
+text(6, .6, expression("(" * phantom("3") * "," * phantom("0") * ")"), cex = actionlabelsize)
+text(6, .6, expression(phantom("(") * "3" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
+text(6, .6, expression(phantom("(") * phantom("3") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
+
+text(9, .6, expression("(" * phantom("2") * "," * phantom("2") * ")"), cex = actionlabelsize)
+text(9, .6, expression(phantom("(") * "2" * phantom(",") * phantom("2") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
+text(9, .6, expression(phantom("(") * phantom("2") * phantom(",") * "2" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
 
 dev.off()

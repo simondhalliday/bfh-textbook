@@ -20,7 +20,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4.5, 6, 0.5, 1))
+par(mar =  c(4.5, 6.5, 0.5, 1))
 
 #Feasibility frontier equation and new feasbility frontier equation with R&D
 
@@ -69,8 +69,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], 5, 7.07, 10, 14.14214,15, xlims[2])
 xlabels <- c(0, 5, expression(paste(x[b] == 7)),10, NA, 15, 20)
-ticksy <- c(ylims[1], ppf(x = 7.07), 100, ylims[2])
-ylabels <- c(0, expression(paste(y[b])  == 7), expression(paste(bar(y) == 100)), 130)
+ticksy <- c(ylims[1], 20, 40, 60, ppf(x = 7.07), 80, 100, 120, ylims[2])
+ylabels <- c(0, 20, 40, 60, expression(paste(y[b])  == 75), 80, expression(paste(bar(y) == 100)),120,130)
  
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -116,7 +116,7 @@ contour(x, y,
 #Axis labels
 #mtext(expression(paste("Environmental quality, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -12, expression(paste("Environmental quality, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-3, 0.5*ylims[2], expression(paste("Goods in millions, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.5, 0.5*ylims[2], expression(paste("Goods in millions, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves generally
 text(7.8, 120, expression("Policy-maker's"), cex = labelsize)

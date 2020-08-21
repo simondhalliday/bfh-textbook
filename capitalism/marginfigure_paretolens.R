@@ -1,13 +1,14 @@
 require(shape)
-pdf(file = "capitalism/marginfigure.pdf", width = 9, height = 7)
+pdf(file = "capitalism/marginfigure_paretolens.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.8
-labelsize <- 1.5
+axislabelsize <- 2
+labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
+
 
 #The equation is below when v = 0. See Wolfram Alpha output. 
 isov <- function(w, delta = 5) {
@@ -71,7 +72,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0)
 
 grays <- gray.colors(25, start = 1, end = 0)
-par(mar =  c(5, 5, 4, 5))
+par(mar =  c(5, 5.5, 4, 5))
 xlims <- c(0, 40)
 ylims <- c(0, 1)
 
@@ -81,7 +82,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxt = "n", 
      yaxt = "n", 
      cex.lab = axislabelsize, 
-     line = 3,
+     line = 3.5,
      bty = "n", 
      xaxs="i", 
      yaxs="i")
@@ -142,8 +143,8 @@ text(15.1, 0.1, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
 #text(37, 0.77, expression(paste("BRF (ICC)")), cex = labelsize, xpd = TRUE)
 #text(38, 0.6, expression(paste("function (ICC):")), cex = labelsize, xpd = TRUE)
 #text(38, 0.65, expression(paste("Slope: ", frac(Delta*e,Delta*w))), cex = labelsize, xpd = TRUE)
-text(35, 0.05, expression(paste(v[1])), cex = annotatesize)
-text(37, 0.98, expression(paste(c[2])), cex = annotatesize)
+text(35, 0.05, expression(paste(v[f])), cex = labelsize)
+text(37, 0.98, expression(paste(c[2])), cex = labelsize)
 #text(18, 0.98, expression(paste(c[1])), cex = annotatesize)
 #text(4, 0.38, expression("Participation"), cex = labelsize-0.05)
 #text(3.5, 0.35, expression("PC:"), cex = labelsize-0.05)
@@ -211,12 +212,12 @@ text(26.2 + 0.5, 0.72 - 0.02, expression(f), cex = labelsize)
 
 #Label the feasible frontier
 text(4, 0.7, expression("Better for"), cex = labelsize)
-text(4, 0.65, expression("employer"), cex = labelsize)
+text(4, 0.63, expression("employer"), cex = labelsize)
 Arrows(4, 0.74, 2, 0.85, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(27, 0.10, expression("Better for"), cex = labelsize, xpd = TRUE)
-text(27, 0.05, expression("worker"), cex = labelsize, xpd = TRUE)
-Arrows(29.5, 0.04, 32, 0.04, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+text(27.5, 0.10, expression("Better for"), cex = labelsize, xpd = TRUE)
+text(27.5, 0.05, expression("worker"), cex = labelsize, xpd = TRUE)
+Arrows(30, 0.04, 32, 0.04, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 #Add a point for f. referred to in the text

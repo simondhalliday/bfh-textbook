@@ -19,10 +19,17 @@ UnionCoverage$Country <-
 u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) + 
   geom_bar(stat = "identity", 
               aes(fill = Coverage), 
-              fill = "#4DAF4A",
+              fill = "#009E73",
               show.legend = FALSE) + 
   #scale_fill_manual(guide = "legend") + #This is so I can supress the legend
   labs(y = "Percentage of workers covered by collective bargaining, %") + 
+  geom_text(
+    aes(x = Country, y = Coverage, label = round(Coverage, 0)), 
+    size = 5, hjust = -0.1,
+    position = position_dodge(width = 0.9),
+    inherit.aes = TRUE
+  ) +
+  xlab("")+
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         axis.title = element_text(size = 20),

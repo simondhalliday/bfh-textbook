@@ -44,7 +44,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 )
 
 ticksy <- c(ylims[1], 0.1, 0.3, 0.5, 0.8, 1)
-ylabels <- c(NA, expression(sigma[u]),  NA, expression(paste(sigma[u] + sigma[n])), NA,  1)
+ylabels <- c(NA, expression(sigma[B]),  expression(u), expression(paste(sigma[B] + sigma[w])), expression(paste(u + n)),   1)
 ticksx <- c(xlims[1], 0.3, 0.8, 1)
 xlabels <- c(0, expression(u), expression(u + n), 1)
 
@@ -100,19 +100,19 @@ segments(0, 0.8, 0.8, 0.8, lty = 2, col = grays[20], lwd = segmentlinewidth)
 # Points + labels
 
 points(0.3, 0.1, pch = 16, col = "black", cex = 1.5)
-text(0.325, 0.075, expression(A), cex = labelsize)
+text(0.325, 0.075, expression(H), cex = labelsize)
 
 points(0.3, 0.3, pch = 16, col = "black", cex = 1.5)
-text(0.275, 0.325, expression(B), cex = labelsize)
+text(0.275, 0.325, expression(I), cex = labelsize)
 
 points(0.8, 0.5, pch = 16, col = "black", cex = 1.5)
-text(0.825, 0.475, expression(C), cex = labelsize)
+text(0.825, 0.475, expression(J), cex = labelsize)
 
 points(0.8, 0.8, pch = 16, col = "black", cex = 1.5)
-text(0.775, 0.825, expression(D), cex = labelsize)
+text(0.775, 0.825, expression(K), cex = labelsize)
 
 points(1, 1, pch = 16, col = "black", cex = 1.5)
-text(1.025, 1.025, expression(E), cex = labelsize)
+text(1.025, 1.025, expression(L), cex = labelsize)
 
 
 

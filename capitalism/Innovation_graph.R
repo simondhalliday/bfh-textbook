@@ -1,5 +1,6 @@
 library(tidyverse)
 library(readxl)
+library(scales)
 
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824", "#f0027f")
@@ -20,12 +21,15 @@ Data_final <- Data_select[-c(21,22), ]
 Data_final$Economy <- factor(Data_final$Economy, levels = Data_final$Economy [order(Data_final$`Total Score`)])
 
 Data_final$`Total Score` <- as.numeric(as.character(Data_final$`Total Score`))
+Data_final <- 
+  Data_final %>%
+  mutate(roundscore = round(`Total Score`,0))
 
 plot <- Data_final %>% 
-  ggplot(aes(x = Economy, y = `Total Score`)) +
+  ggplot(aes(x = Economy, y = `Total Score` )) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9), fill = COLB[4]) + 
   ylab("Innovation index score") +
-  scale_y_continuous(limits = c(60, 90), oob=rescale_none) + 
+  scale_y_continuous(limits = c(60, 90), oob = rescale_none) + 
   #coord_cartesian(ylim = c(25, 90)) +
   #geom_text(aes(x=point,y=Utility,label=Utility),vjust=90) + 
   #geom_text(aes(x = point, y = Utility, label = Utility)) +
@@ -44,13 +48,15 @@ plot <- Data_final %>%
         axis.title.y = element_blank(),
         axis.text.x = element_text(size = 15)) +
   geom_text(
-    aes(x = Economy, y = `Total Score`, label = `Total Score`), 
+    aes(x = Economy, y = `Total Score`, label = roundscore), 
     size = 5, hjust = -0.1,
     position = position_dodge(width = 0.9),
     inherit.aes = TRUE
   ) + 
   coord_flip()
 plot
+
+ggsave("capitalism/innovation_graph_v2.pdf", plot, width = 11, height = 7)
 
 # df.sum <- Data_select %>%
 #   select(`Total Score`) %>% # select variables to summarise
@@ -62,13 +68,3 @@ plot
 #                       mean = mean, 
 #                       sd = sd))
 
-ggsave("capitalism/innovation_graph_v2.pdf", plot, width = 11, height = 7)
-
-# scale_fill_discrete(name = "", 
-#                     breaks = c("ua", "ub", "totalu"), 
-#                     labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ",u^B), "Total Utility"))
-# ) +
-#   scale_color_discrete(name = "", 
-#                        breaks = c("ua", "ub", "totalu"), 
-#                        labels = c(expression(paste("A's Utility, ", u^A)), expression(paste("B's Utility, ",u^B), "Total Utility"))
-#   ) +

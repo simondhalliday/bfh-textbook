@@ -72,7 +72,7 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Axis labels and draw linear utility functions
-text(xlims[2]*0.5, -5.5, expression(paste("Probability Bina will play Plant Early, P")), xpd = TRUE, cex = axistitlesize)
+text(xlims[2]*0.5, -5.5, expression(paste("Probability Bina will Plant Early, P")), xpd = TRUE, cex = axistitlesize)
 text(-5.5, 0.5*ylims[2], expression(paste("Expected payoff, ", hat(pi))), xpd = TRUE, cex = axistitlesize, srt = 90) 
 
 
@@ -109,7 +109,7 @@ text(13, 6, expression(paste("Expected payoff to")), xpd = TRUE, cex = labelsize
 text(13, 4, expression(paste("Plant Early, ", hat(pi)[E])),  xpd = TRUE, cex = labelsize)
 
 #Axis arrow
-Arrows(32.5, -5.5, 39, -5.5, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
+Arrows(33, -5.5, 39, -5.5, col = "black", lty = 1, lwd = 2.5, arr.type = "triangle", xpd = TRUE)
 #arrows(33, -5, 39, -5, xpd = TRUE, length=0.1,angle=40,lwd=3)
 
 #Risk Dominant Strategy

@@ -64,17 +64,18 @@ obj1 <- xyplot(markup ~ year, data = markup_data2,
                ylab.right = list("Gini Coefficient", fontsize = 16),
                par.settings = simpleTheme(col = 1),
                type = "l",
-               col = CBCols[1],
+               col = "#E33024",
                lty=1,
+               lwd = 1.5,
                scales=list(x=list(labels = c("1950", "1960", "1970", "1980","1990", "2000","2010"),
                                   cex=1,axs="r"), y=list(cex=6),tck = c(1,0)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
-                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c(CBCols[1], CBCols[2])), column = 1,
-                          x = 0.02, y = .9, fontsize = 16))
+                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#E33024", CBCols[2])), column = 1,
+                          x = 0.02, y = .9, fontsize = 16, lwd = 1.5))
 
 obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col=CBCols[2],
-               lty=1,
+               lty=1,lwd = 1.5, 
                scales=list(x=list(labels = c("1950", "1960", "1970", "1980","1990", "2000","2010"),
                                   cex=2,axs="r"), y=list(cex=6)))
 

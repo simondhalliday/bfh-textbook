@@ -23,7 +23,7 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
 }
 
 
-par(mar =  c(5, 6, 4, 4))
+par(mar =  c(5, 6, 1.1, 1.1))
 xlims <- c(0, 1)
 ylims <- c(0, 50)
 
@@ -73,9 +73,9 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.98, 50, expression(paste("Wage")), cex = labelsize,xpd = TRUE)
-text(0.98, 47.5, expression(paste("curve")), cex = labelsize,xpd = TRUE)
-text(0.98, 44.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
+text(0.97, 50, expression(paste("Wage")), cex = labelsize,xpd = TRUE)
+text(0.97, 47.5, expression(paste("curve")), cex = labelsize,xpd = TRUE)
+text(0.97, 44.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
 
 
 text(0.73, 44.5, expression(paste(w[1]^N*(H))), cex = labelsize, xpd = TRUE)

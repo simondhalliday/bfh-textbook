@@ -108,7 +108,7 @@ LorenzMarket <-
   theme_bw() +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 18),
+        axis.title = element_text(size = 15),
         axis.text.y = element_text(size = 13),
         axis.text.x = element_text(size = 13),
         plot.margin = margin(6, 12, 6, 6)) 
@@ -143,7 +143,7 @@ LorenzDisposable <-
   theme_bw() +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 18),
+        axis.title = element_text(size = 15),
         axis.text.y = element_text(size = 13),
         axis.text.x = element_text(size = 13),
         plot.margin = margin(6, 12, 6, 6)) 

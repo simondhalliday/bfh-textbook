@@ -25,7 +25,7 @@ WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
 
 WageFn#COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(5, 6, 4, 4))
+par(mar =  c(5, 6, 1.1, 1.1))
 xlims <- c(0, 1)
 ylims <- c(0, 50)
 
@@ -71,7 +71,7 @@ text(0.85, -2.1, expression(paste(H[2]^N)), cex = labelsize,xpd = TRUE)
 text(0.77, -2.1, expression(paste(H[0]^N)), cex = labelsize,xpd = TRUE)
 
 #Annotation of the  graphs
-text(0.71, 35, expression(paste("Wage Curve ", w^N*(H))), cex = labelsize)
+text(0.74, 35, expression(paste("Wage curve, ", w^N*(H))), cex = labelsize)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)
@@ -110,7 +110,7 @@ points(0.838, 25, pch = 16, col = "black", cex = 1.5)
 text(0.81, 26.5, expression(paste(n[2])), cex = labelsize)
 text(0.2, 31.5, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
 text(0.2, 29.2, expression(paste("condition, ")), cex = labelsize, xpd = TRUE)
-text(0.2, 26.7, expression(paste(w^C == w[2])), cex = labelsize, xpd = TRUE)
+text(0.2, 26.7, expression(paste(w^c == w[2])), cex = labelsize, xpd = TRUE)
 
 
 
@@ -121,7 +121,7 @@ text(0.2, 26.7, expression(paste(w^C == w[2])), cex = labelsize, xpd = TRUE)
 #Zero profit condition
 text(0.2, 18.3, expression(paste("Initial competition")), cex = labelsize, xpd = TRUE)
 text(0.2, 16.3, expression(paste("condition")), cex = labelsize, xpd = TRUE)
-text(0.2, 13.8, expression(paste(w^C == w[0])), cex = labelsize, xpd = TRUE)
+text(0.2, 13.8, expression(paste(w^c == w[0])), cex = labelsize, xpd = TRUE)
 #text(0.97, 6, expression(paste(B + a)))
 #text(0.97, 3.5, expression(paste(B, " (unemployment benefits)")))
 #text(1.08, 36, expression(paste("level of")))

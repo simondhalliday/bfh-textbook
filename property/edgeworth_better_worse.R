@@ -139,11 +139,11 @@ indiffcurveB3 <- function(x, U = 5.09, A = 1, a = 0.5) {
 
 
 #Arrow to Slope of BRF
-Arrows(4, 1.5*4, 9, 13, lty = 1, lwd = 2.5, arr.type = "triangle",  col = CBCols[2])
+Arrows(5, 1.5*4, 9, 11.5, lty = 1, lwd = 2.5, arr.type = "triangle",  col = CBCols[2])
 Arrows(6, 1.5*6, 1, 2, lty = 1, lwd = 2.5, arr.type = "triangle",  col = CBCols[1])
 
-text(7.7, 8.5, expression(paste("Better")), cex = labelsize)
-text(7.7, 9.5, expression(paste("for Biko")), cex = labelsize)
+text(7.7, 7.5, expression(paste("Better")), cex = labelsize)
+text(7.7, 8.5, expression(paste("for Biko")), cex = labelsize)
 text(2.5, 5.5, expression(paste("Better")), cex = labelsize)
 text(2.5, 6.5, expression(paste("for Ayanda")), cex = labelsize)
 

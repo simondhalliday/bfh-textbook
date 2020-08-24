@@ -224,7 +224,7 @@ Arrows(0.3, 600, 0.2, 750, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 text(0.86, 750, expression(paste("Better for")), cex = labelsize)
-text(0.86, 700, expression(paste("Konstantin")), cex = labelsize)
+text(0.86, 700, expression(paste("Weikai")), cex = labelsize)
 Arrows(0.7, 750, 0.8, 600, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 

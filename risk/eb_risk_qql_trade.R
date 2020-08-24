@@ -71,9 +71,9 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 
 
 ticksy2 <- c(ylims[1], 2*ylims[2]/3, 810, ylims[2])
-ylabels2 <- c(0, expression(paste(hat(y)[z]^K)), expression(paste(hat(y)[s]^K)), 1000)
+ylabels2 <- c(0, expression(paste(hat(y)[z]^W)), expression(paste(hat(y)[s]^W)), 1000)
 ticksx2 <- c(0, 0.55, 1)
-xlabels2 <- c(0, expression(paste(Delta[s]^K)), expression(paste(bar(Delta))))
+xlabels2 <- c(0, expression(paste(Delta[s]^W)), expression(paste(bar(Delta))))
 
 axis(side = 3, at = ticksx2, pos = 0, labels = xlabels2, cex.axis = labelsize)
 axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
@@ -82,8 +82,8 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = lab
 #Set up axes at sides 3 and 4 (top and right)
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-0.16, 0.55*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
-text(0.5*xlims[2], -170, expression(paste("K's risk, ", Delta^K == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
+text(-0.16, 0.55*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(0.5*xlims[2], -170, expression(paste("W's risk, ", Delta^W == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 
 priceLine <- function(x, slope = 275, intercept = 2*ylims[2]/3) {
@@ -220,7 +220,7 @@ brackets(x1 = 0.99, y1 = -10, x2 = 0.48, y2 = -10,
          ticks = 0.5, curvature = 0.5, type = 1,
          col = "black", lwd = 2, lty = 1, h = 20, xpd = TRUE)
 text(0.75, -60, expression(paste("Quantity of insurance")), xpd = TRUE, cex = annotatesize)
-text(0.75, -100, expression(paste("J buys from K")), xpd = TRUE, cex = annotatesize)
+text(0.75, -100, expression(paste("J buys from W")), xpd = TRUE, cex = annotatesize)
 
 brackets(x1 = 0.44, y1 = -10, x2 = 0.01, y2 = -10,
          ticks = 0.5, curvature = 0.5, type = 1,
@@ -245,7 +245,7 @@ brackets(x1 = 0.48, y1 = 1010, x2 = 0.99, y2 = 1010,
          ticks = 0.5, curvature = 0.5, type = 1,
          col = "black", lwd = 2, lty = 1, h = 20, xpd = TRUE)
 text(0.73, 1110, expression(paste("Quantity of insurance")), xpd = TRUE, cex = annotatesize)
-text(0.73, 1058, expression(paste("K sells to J, ", bar(Delta) - Delta[s]^J)), xpd = TRUE, cex = annotatesize)
+text(0.73, 1058, expression(paste("W sells to J, ", bar(Delta) - Delta[s]^J)), xpd = TRUE, cex = annotatesize)
 
 
 

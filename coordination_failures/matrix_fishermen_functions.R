@@ -2,6 +2,14 @@ require(ggplot2)
 require(shape)
 pdf(file = "coordination_failures/matrix_fishermen_functions.pdf", width = 8, height = 8)
 
+pointsize <- 1.8
+axislabelsize <- 1.8
+labelsize <- 1.5
+namesize <- 1.8
+annotatesize <- 1.5
+graphlinewidth <- 2
+segmentlinewidth <- 1.5
+
 par(mar =  c(0, 0, 0, 0))
 xlims <- c(0, 8)
 ylims <- c(0, 8)
@@ -18,7 +26,7 @@ p2fadelevel <- 0.2
 
 #Considerations for Player 1
 P1Name <- c("Aram")
-P1Strat <- c("10 Hours", "12 Hours")
+P1Strat <- c("10 hours", "12 hours")
 P1Payoffs <- c("150", "156", "140", "144")
 P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
@@ -27,7 +35,7 @@ P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 
 #Considerations for Player 2
 P2Name <- c("Bina")
-P2Strat <- c("10 Hours", "12 Hours")
+P2Strat <- c("10 hours", "12 hours")
 P2Payoffs <- c("150", "140", "156", "144")
 P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
@@ -148,10 +156,10 @@ if (P2BR2[1] == "SW"){
 }
 
 #label point for Pareto comparisons
-text(5.25, 2.25, expression(a), cex = LabelSize)
-text(5.25, 0.25, expression(b), cex = LabelSize)
-text(7.25, 2.25, expression(d), cex = LabelSize)
-text(7.25, 0.25, expression(c), cex = LabelSize)
+text(5.25, 2.25, expression(a), cex = labelsize)
+text(5.25, 0.25, expression(b), cex = labelsize)
+text(7.25, 2.25, expression(d), cex = labelsize)
+text(7.25, 0.25, expression(c), cex = labelsize)
 
 dev.off()
 

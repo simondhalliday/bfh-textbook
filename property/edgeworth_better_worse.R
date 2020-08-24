@@ -29,6 +29,7 @@ indiffcurveA3 <- function(x, U = 4, A = 1, a = 0.5) {
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 par(mar =  c(4, 4.5, 4, 4.5))
 xlims <- c(0, 10)
@@ -138,13 +139,13 @@ indiffcurveB3 <- function(x, U = 5.09, A = 1, a = 0.5) {
 
 
 #Arrow to Slope of BRF
-Arrows(5.25, 7.875, 9, 13.5, lty = 1, lwd = 2, arr.type = "triangle",  col = COLB[3])
-Arrows(4.75, 7.125, 1, 1.5, lty = 1, lwd = 2, arr.type = "triangle",  col = COLA[3])
+Arrows(4, 1.5*4, 9, 13, lty = 1, lwd = 2.5, arr.type = "triangle",  col = CBCols[2])
+Arrows(6, 1.5*6, 1, 2, lty = 1, lwd = 2.5, arr.type = "triangle",  col = CBCols[1])
 
-text(7.7, 9, expression(paste("Better")), cex = labelsize)
-text(7.7, 10, expression(paste("for Biko")), cex = labelsize)
-text(2.5, 5, expression(paste("Better")), cex = labelsize)
-text(2.5, 6, expression(paste("for Ayanda")), cex = labelsize)
+text(7.7, 8.5, expression(paste("Better")), cex = labelsize)
+text(7.7, 9.5, expression(paste("for Biko")), cex = labelsize)
+text(2.5, 5.5, expression(paste("Better")), cex = labelsize)
+text(2.5, 6.5, expression(paste("for Ayanda")), cex = labelsize)
 
 #Arrow to Slope of isoprofit
 #Arrows(13, 0.80, 15, 0.80, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

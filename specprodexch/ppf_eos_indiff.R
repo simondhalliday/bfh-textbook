@@ -125,9 +125,9 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-text(7.2, 0.72, expression(u[1]^A), cex = labelsize)
-text(7.2, 1.35, expression(u[2]^A), cex = labelsize)
-text(7.2, 2.65, expression(u[3]^A), cex = labelsize)
+text(6.7, 0.74, expression(u[1]^A), cex = labelsize)
+text(6.7, 1.39, expression(u[2]^A), cex = labelsize)
+text(6.7, 2.8, expression(u[3]^A), cex = labelsize)
 
 #Label point d
 text(1.65 - 0.2, ppf(fish = 1.65) -0.2, expression(d), cex = labelsize)

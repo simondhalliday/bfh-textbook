@@ -77,9 +77,9 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 ticksy2 <- c(0, 1000 - indiffA(0.7), 1000 - indiffA(0.4), 1000)
-ylabels2 <- c(0, expression(paste(hat(y)[c]^K)), expression(paste(hat(y)[b]^K)), 1000)
+ylabels2 <- c(0, expression(paste(hat(y)[c]^W)), expression(paste(hat(y)[b]^W)), 1000)
 ticksx2 <- c(0, 1 - 0.7, 1 - 0.4,  1)
-xlabels2 <- c(0, expression(paste(Delta[c]^K)), expression(paste(Delta[b]^K)), expression(paste(bar(Delta))))
+xlabels2 <- c(0, expression(paste(Delta[c]^W)), expression(paste(Delta[b]^W)), expression(paste(bar(Delta))))
 
 
 axis(side = 3, at = ticksx2, pos = 0, labels = xlabels2, cex.axis = labelsize)
@@ -90,10 +90,10 @@ axis(side = 4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = lab
 #text(5, -1, expression(paste("B's Good, x")), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
 
-text(-0.15, 0.5*ylims[2], expression(paste("K's expected income, ", hat(y)^K)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-0.15, 0.5*ylims[2], expression(paste("W's expected income, ", hat(y)^W)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #text(0.4*xlims[2], -100, expression(paste("W's risk, ", Delta^W == 1 - Delta^N)), xpd = TRUE, cex = axislabelsize) 
-text(0.5*xlims[2], -125, expression(paste("K's risk, ", Delta^K == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -125, expression(paste("W's risk, ", Delta^W == bar(Delta) - Delta^J)), xpd = TRUE, cex = axislabelsize) 
 
 
 
@@ -183,8 +183,8 @@ text(0.85, 220, expression(u[z]^J), cex = labelsize)
 text(0.85, 400, expression(u[2]^J), cex = labelsize)
 
 #Label the indiffs for B
-text(0.7, 280, expression(u[z]^K), cex = labelsize)
-text(0.7, 100, expression(u[2]^K), cex = labelsize)
+text(0.7, 280, expression(u[z]^W, cex = labelsize)
+text(0.7, 100, expression(u[2]^W), cex = labelsize)
 
 
 points(1, ylims[2]/3, pch = 16, col = "black", cex = 1.5, xpd = TRUE)

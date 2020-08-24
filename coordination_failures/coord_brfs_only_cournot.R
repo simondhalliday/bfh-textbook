@@ -88,7 +88,7 @@ segments(12, 0, 12, 12, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label Nash Equilibrium 
 points(hANE(alpha = 30), hANE(alpha = 30), pch = 16, col = "black", cex = 1.5)
-text(hANE(alpha = 30) + 3.5, hANE(alpha = 30) + 0.4, expression(paste("Nash Equilibrium")), cex = labelsize)
+text(hANE(alpha = 30) + 3.5, hANE(alpha = 30) + 0.4, expression(paste("Nash equilibrium")), cex = labelsize)
 text(hANE(alpha = 30) - 0.4, hANE(alpha = 30) - 0.4, expression(paste(n)), cex = labelsize)
 
 

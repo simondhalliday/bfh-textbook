@@ -54,5 +54,5 @@ plot1
 
 
 
-ggsave("coordination_failures/figureC.pdf", plot1, width = 14, height = 7)
+ggsave("coordination_failures/figureC.pdf", plot1, width = 12, height = 7)
 

@@ -5,7 +5,7 @@ library(tidyverse)
 Data <- read_csv("female-to-male-ratio-of-time-devoted-to-unpaid-care-work.csv")
 
 data_final <- Data %>%
-  filter(Entity %in% c("USA", "India", "China", "Italy", "Turkey","Cuba", "Brazil"))
+  filter(Entity %in% c("United States", "India", "China", "France", "Turkey","Cuba", "Brazil"))
 
 colnames(data_final)[4] <- "Ratio"
 #Create figure 

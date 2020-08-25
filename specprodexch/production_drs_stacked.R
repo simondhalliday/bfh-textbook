@@ -114,13 +114,13 @@ text(8.7, 0.9, expression(x == frac(1,2)*ln(1 + l)), cex = labelsize)
 #Average Product
 text(4.25, 0.28, expression(paste("Slope of ray from")), cex = labelsize)
 text(4.25, 0.22, expression(paste("origin equals")), cex = labelsize)
-text(4.25, 0.15, expression(paste("Average Product")), cex = labelsize)
+text(4.25, 0.15, expression(paste("Average product")), cex = labelsize)
 Arrows(2.7, 0.3, 1.3, 0.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, 0.33, 4, 0.58, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Marginal Product
 text(2.2, prodFn(l = 6, k = 0.5) + 0.03, expression(paste("Slope of tangent line")), cex = labelsize)
-text(2.2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal Product")), cex = labelsize)
+text(2.2, prodFn(l = 6, k = 0.5) - 0.03, expression(paste("equals Marginal product")), cex = labelsize)
 Arrows(2, prodFn(l = 6, k = 0.5) - 0.075, 2, prodFn(l = 2, k = 0.5) + 0.05 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, prodFn(l = 6, k = 0.5), 5.7, prodFn(l = 6, k = 0.5), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
@@ -205,7 +205,7 @@ points(2, MprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 points(2, AprodFn(l = 2, k = 0.5), pch = 16, col = "black", cex = 1.2)
 
 #Label the iso-welfare functions for the HG, Aisha
-text(8.2, 1.1, expression(paste("Total Product")))
+text(8.2, 1.1, expression(paste("Total product")))
 text(8.2, 1, expression(x == frac(1,50)*(l)^2))
 
 

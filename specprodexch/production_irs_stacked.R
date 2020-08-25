@@ -99,18 +99,18 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 
 #Label total product
-text(6.2, 1.1, expression(paste("Total Product")), cex = annotatesize)
+text(6.2, 1.1, expression(paste("Total product")), cex = annotatesize)
 text(6.2, 1, expression(x == frac(1,50)*(l)^2), cex = annotatesize)
 
 #Marginal Product
 text(7, 0.12, expression(paste("Slope of tangent line")), cex = labelsize)
-text(7, 0.05, expression(paste("equals Marginal Product")), cex = labelsize)
+text(7, 0.05, expression(paste("equals Marginal product")), cex = labelsize)
 Arrows(4.7, 0.075, 2.3, 0.075, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(6, 0.16, 6, 0.67, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Average Product
 text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.08, expression(paste("Slope of ray from origin")), cex = labelsize)
-text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.15, expression(paste("equals Average Product")), cex = labelsize)
+text(2, prodFn(l = 6, k = 0.02, alpha = 2) - 0.15, expression(paste("equals Average product")), cex = labelsize)
 Arrows(1.5, prodFn(l = 6, k = 0.02, alpha = 2) - 0.175, 1.5, prodFn(l = 2, k = 0.02, alpha = 2) + 0.01 , col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 Arrows(4, prodFn(l = 6, k = 0.02, alpha = 2) - 0.125, 4.75, prodFn(l = 6, k = 0.02, alpha = 2) - 0.125, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

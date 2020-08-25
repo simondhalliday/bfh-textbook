@@ -18,16 +18,16 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 7.5, 2, 1))
+par(mar =  c(5, 9, 2, 1))
 
 #proportion of wealth functions
 
 MUb <- function(x, y){
-  10 + 0.75*x
+   0.75*x
 }
 
 MUa <- function(x, y){
-  40 - (0.75)*x
+  30 - (0.75)*x
 }
 
 
@@ -83,7 +83,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 #mtext(expression(paste("A's Share of Wealth, a")), side = 1, line = 2, cex = axislabelsize)
 
 text(0.5*xlims[2], -5.5, expression(paste("A's share of wealth, a")), xpd = TRUE, cex = axislabelsize) 
-text(-8, 0.5*ylims[2], expression(paste("Marginal utility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-11, 0.5*ylims[2], expression(paste("Marginal utility")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 lines(xx1, MUb(xx1, y), col = COLB[4], lwd = graphlinewidth)
 lines(xx1, MUa(xx1, y), col = COLA[5], lwd = graphlinewidth)
@@ -106,13 +106,13 @@ points(33, MUa(33), pch = 16, col = "black", cex = 1.5)
 
 
 
-text(8, 40, expression(paste("A's marginal utility")), xpd = TRUE, cex = labelsize)
-text(8, 37.5, expression(paste(u[a]^A)), xpd = TRUE, cex = labelsize)
-text(32, 40, expression(paste("B's marginal utility")),  xpd = TRUE, cex = labelsize)
-text(32, 37.5, expression(paste(-u[a]^B)),  xpd = TRUE, cex = labelsize)
+text(8, 30, expression(paste("A's marginal utility")), xpd = TRUE, cex = labelsize)
+#text(8, 37.5, expression(paste(u[a]^A)), xpd = TRUE, cex = labelsize)
+text(32, 30, expression(paste("B's marginal utility")),  xpd = TRUE, cex = labelsize)
+#text(32, 37.5, expression(paste(-u[a]^B)),  xpd = TRUE, cex = labelsize)
 
 #Axis arrow
-Arrows(30, -5.5, 38, -5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(30.5, -5.5, 38, -5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 
 

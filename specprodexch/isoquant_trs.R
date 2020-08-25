@@ -105,7 +105,7 @@ points(4, 4, pch = 16, col = "black", cex = 1.5)
 text(1.8, 7.8, expression(paste(a)), cex = labelsize)
 points(2, 8, pch = 16, col = "black", cex = 1.5)
 
-text(7.8, 1.8, expression(paste(c)), cex = labelsize)
+text(7.8, 1.8, expression(paste(d)), cex = labelsize)
 points(8, 2, pch = 16, col = "black", cex = 1.5)
 
 

@@ -97,8 +97,8 @@ lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphl
 #mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-0.5, 8, expression(paste("Shirts, ", y)), xpd = TRUE, cex = annotatesize, srt = 90) 
 text(8, -0.5, expression(paste("Fish, ", x)), xpd = TRUE, cex = annotatesize)
-text(0.5, -7.5, expression(paste("Labor for Fish, ", l^f)), xpd = TRUE, cex = annotatesize, srt= 90) 
-text(-7.5, 0.5, expression(paste("Labor for Shirts, ", l^s)), xpd = TRUE, cex = annotatesize)
+text(0.5, -7.5, expression(paste("Labor for fish, ", l^f)), xpd = TRUE, cex = annotatesize, srt= 90) 
+text(-7.5, 0.5, expression(paste("Labor for shirts, ", l^s)), xpd = TRUE, cex = annotatesize)
 
 #Label the points on the axes we want
 text(-0.6, 2.8, expression(paste(2.5)), xpd = TRUE, cex = annotatesize)
@@ -112,12 +112,12 @@ text(-0.5, -10.3, expression(paste(10)), xpd = TRUE, cex = annotatesize)
 
 #Label the two production functions
 #Clothing
-text(-3.25, 6, expression(paste("Shirt Production")), xpd = TRUE, cex = annotatesize)
+text(-3.25, 6, expression(paste("Shirt production")), xpd = TRUE, cex = annotatesize)
 text(-3.15, 4.8, expression(paste(y == frac(1,10)(l^s)^2)), xpd = TRUE, cex = annotatesize)
 Arrows(-4.6, 4.8, -6.5, 4.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Fishing
-text(6.8, -4.8, expression(paste("Fish Production")), xpd = TRUE, cex = annotatesize)
+text(6.8, -4.8, expression(paste("Fish production")), xpd = TRUE, cex = annotatesize)
 text(7, -6, expression(paste(x == frac(1,2)(l^f))), xpd = TRUE, cex = annotatesize)
 Arrows(5.8, -6, 3.5, -6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

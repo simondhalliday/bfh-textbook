@@ -152,10 +152,6 @@ ggsave("society/schelling_5.pdf", plot = p5, width = 6, height = 6)
 p5.2 <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop5))) + 
   geom_circle(aes(x0 = 0, y0 = 0, r = 1), inherit.aes = FALSE) +
   geom_point(size = 7) +
-  geom_curve(
-    aes(x = -0.86, y = -.5, xend = 0.5, yend = .86),
-    arrow = arrow(length = unit(0.03, "npc"), type = "closed", end = "both"), col = "black"
-  ) +
   scale_color_manual(values = c("#377EB8", "#4DAF4A")) + 
   theme_minimal() +
   theme(legend.position = "none",

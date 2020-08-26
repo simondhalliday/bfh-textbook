@@ -95,11 +95,11 @@ text(11.8, 7.5, expression(u[3]), cex = labelsize)
 
 #Label the price lines
 text(8, 1.7, expression(paste(bc[1])), cex = annotatesize)
-text(8, 1.2, expression(paste(p[x] == 1)), cex = annotatesize)
+text(8, 1.2, expression(paste(p[x] == 10)), cex = annotatesize)
 text(11.3, 4.1, expression(paste(bc[2])), cex = annotatesize)
-text(11.3, 3.6, expression(paste(p[x] == 0.5)), cex = annotatesize)
+text(11.3, 3.6, expression(paste(p[x] == 5)), cex = annotatesize)
 text(11.3, 6.9, expression(paste(bc[3])), cex = annotatesize)
-text(11.3, 6.4, expression(paste(p[x] == 0.25)), cex = annotatesize)
+text(11.3, 6.4, expression(paste(p[x] == 2.5)), cex = annotatesize)
 
 #Label the offer curve
 text(11.1, 10.2, expression("Price-offer"), cex = labelsize)

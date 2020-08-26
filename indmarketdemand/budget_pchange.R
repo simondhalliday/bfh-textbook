@@ -61,7 +61,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 10, ylims[2])
-ylabels <- c(NA, expression(paste(m == 10)), NA)
+ylabels <- c(NA, expression(paste(m == 100)), NA)
 ticksx <- c(0, 10/1, 10/0.5, 10/0.25)
 xlabels <- c(NA, expression(paste(frac(m,p[x3]) == 10 )), expression(paste(frac(m,p[x2]) == 20 )), expression(paste(frac(m,p[x1]) == 40 )))
 
@@ -91,11 +91,11 @@ text(-3, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, ce
 
 #Label the iso-welfare functions for the HG, Aisha
 text(7, 1.5, expression(bc[px3]), cex = annotatesize)
-text(7, 1, expression(p[x3] == 1), cex = annotatesize)
+text(6.5, 1, expression(p[x3] == 10), cex = annotatesize)
 text(15, 1.5, expression(bc[px2]), cex = annotatesize)
-text(15, 1, expression(p[x2] == 0.5), cex = annotatesize)
+text(15, 1, expression(p[x2] == 5), cex = annotatesize)
 text(32, 1.5, expression(bc[px1]), cex = annotatesize)
-text(32, 1, expression(p[x1] == 0.25), cex = annotatesize)
+text(32, 1, expression(p[x1] == 2.5), cex = annotatesize)
 #text(6.6, 8.3, expression(u[4]^A))
 
 #Label the indifference curves for the HG, Betty

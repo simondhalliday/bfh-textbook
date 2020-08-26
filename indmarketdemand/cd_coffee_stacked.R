@@ -84,12 +84,12 @@ segments(6, -10, 6, 6, lty = 2, col = grays[20] , lwd = segmentlinewidth, xpd = 
 
 #Label the budget curve functions for the HG, Aisha
 text(3.1, 1, expression(bc[1]), cex = annotatesize)
-text(3.1, 0.4, expression(p[x] ==3), cex = annotatesize)
+text(3.1, 0.4, expression(p[x] ==30), cex = annotatesize)
 text(6.8, 1, expression(bc[2]), cex = annotatesize)
-text(6.8, 0.4, expression(p[x] == 1.5), cex = annotatesize)
+text(6.8, 0.4, expression(p[x] == 15), cex = annotatesize)
 
 text(11.1, 0.5, expression(bc[3]), cex = annotatesize)
-text(12.4, 0.5, expression(p[x] == 1), cex = annotatesize)
+text(12.4, 0.5, expression(p[x] == 10), cex = annotatesize, xpd = TRUE)
 
 
 #adding iso-welfare functions:
@@ -169,7 +169,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0, 2, 4, 6, 8, 12, 13)
 xlabels <- c(0, 2, 4, 6, 8, 12, NA)
 ticksy <- c(ylims[1], 1, 1.5, 3, ylims[2])
-ylabels <- c(NA, expression(paste(p == 1)), expression(paste(p == 1.5)), expression(paste(p == 3)), NA)
+ylabels <- c(NA, expression(paste(p == 10)), expression(paste(p == 15)), expression(paste(p == 30)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

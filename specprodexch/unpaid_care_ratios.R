@@ -17,15 +17,15 @@ plot <- ggplot(data_final, aes(x = reorder(Entity, Ratio), y = Ratio)) +
   ylab("Female to male ratio of time devoted to unpaid care work") +
   theme_bw() +
   theme(
-        axis.title = element_text(size = 20),
+        axis.title = element_text(size = 35),
         axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 20),
+        axis.text.y = element_text(size = 35),
         #legend.title = element_text(size = 16),
-        axis.title.x = element_text(size = 25),
-        axis.text.x  = element_text(vjust = 0.5, size = 20)) + 
+        axis.title.x = element_text(size = 35),
+        axis.text.x  = element_text(vjust = 0.5, size = 35)) + 
   geom_text(
     aes(x = Entity, y = Ratio, label = round(Ratio, digits =1)), 
-    hjust = -0.2, size = 8,
+    hjust = -0.1,size = 10,
     position = position_dodge(width = 1),
     inherit.aes = TRUE
   ) + 
@@ -34,4 +34,4 @@ plot <- ggplot(data_final, aes(x = reorder(Entity, Ratio), y = Ratio)) +
 
 plot
 
-ggsave("specprodexch/unpaid_care_ratios.pdf", plot, width = 15, height = 7)
+ggsave("specprodexch/unpaid_care_ratios.pdf", plot, width = 16, height = 9)

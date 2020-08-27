@@ -78,7 +78,7 @@ segments(0, 10, xlims[2], 10, lty = 1, col = COL[2] , lwd = graphlinewidth)
 segments(50, 0, 50, 10, lty = 2, col = "gray" , lwd = segmentlinewidth)
 
 #Label axes
-mtext(expression(paste("Market quantity of fish in kilograms, ", X)), side=1, line = 3.5, cex = axislabelsize)
+mtext(expression(paste("Kilograms of fish, ", X)), side=1, line = 3.5, cex = axislabelsize)
 text(-16.2, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(50, 10, pch = 16, col = "black", cex = 1.5)

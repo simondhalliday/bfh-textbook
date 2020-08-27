@@ -77,7 +77,7 @@ ypoly3 <- c(0, 0, 10, 10, 0)
 polygon(x = xpoly3, y = ypoly3, col = COLB[1], density=NULL, border = NA)
 
 #Label axes
-mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 3, cex = axislabelsize)
+mtext(expression(paste("Kilograms of fish, ", x)), side=1, line = 3, cex = axislabelsize)
 text(-16.2, 0.5*ylims[2], expression(paste("Price per kilogram, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 points(5, 10, pch = 16, col = "black", cex = 1.5)

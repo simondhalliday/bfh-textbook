@@ -59,7 +59,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(ylims[1], GreenPrice(f = 0), BluePrice(f = 0), ylims[2])
 ylabels <- c(NA, expression(paste(p^G*(g == 0))), expression(paste(p^B*(g == 0))), NA)
 ticksx <- c(xlims[1], 0.4, 0.5, 0.7, xlims[2])
-xlabels <- c(NA, NA, expression(paste(g[e]==0.5 )), expression(paste(g[c] == 0.7 )), NA)
+xlabels <- c(NA, NA, NA, expression(paste(g[c] == 0.7 )), NA)
 ticksy2 <- c(ylims[1], BluePrice(f = 1), GreenPrice(f = 1), ylims[2])
 ylabels2 <- c(NA, expression(paste(p^B*(g == 1))), expression(paste(p^G*(g == 1))), NA)
 
@@ -69,6 +69,7 @@ axis(4, at = ticksy2, pos = 1, labels = ylabels2, las = 1, cex.axis = labelsize)
 
 text(0.335, -0.016, expression(paste(g[a] == 0.4 )), xpd = TRUE, cex = labelsize) 
 
+text(0.523, -0.016, expression(paste(g[e]==0.5)), xpd = TRUE, cex = labelsize) 
 
 
 npts <- 503 

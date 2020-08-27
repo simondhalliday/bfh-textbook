@@ -71,7 +71,7 @@ xx3 <- seq(xprices[2], xprices[1], length.out = npts)
 
 #Label axes
 #mtext(expression(paste("Quantity of sugary drinks (liters), ", x)), side = 1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -0.25, expression(paste("Quantity of sugary drinks (liters), ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -0.25, expression(paste("Liters of sugary drinks, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-55, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Shade Regions

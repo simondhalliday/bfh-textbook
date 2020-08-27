@@ -71,7 +71,7 @@ xx2 <- seq(48, xprices[2], length.out = npts)
 xx3 <- seq(xprices[2], xprices[1], length.out = npts)
 
 #Label axes
-mtext(expression(paste("Quantity of sugary drinks (liters), ", x)), side = 1, line = 2.5, cex = axislabelsize)
+mtext(expression(paste("Liters of sugary drinks, ", X)), side = 1, line = 2.5, cex = axislabelsize)
 text(-56, 0.5*ylims[2], expression(paste("Price per liter, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Segments

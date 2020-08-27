@@ -59,7 +59,7 @@ xprices <- c(cefinv(prices[1]), cefinv(prices[2]))
 ticksy <- c(0, prices[1], prices[2], ylims[2])
 ylabels <- c(NA, expression(paste(p[0] == phantom(),"$1.25")), expression(paste(p[1] == p[0] + Delta*p^tau)), NA)
 ticksx <- c(0, xprices[2], xprices[1], xlims[2])
-xlabels <- c(NA, expression(paste(x[1]) == 108), expression(paste(x[0]) == 150), NA)
+xlabels <- c(NA, expression(paste(X[1]) == 108), expression(paste(X[0]) == 150), NA)
 
 text(-31, prices[2] - 0.11, expression(paste(phantom() == phantom(),"$1.50")), xpd = TRUE, cex = annotatesize)
 

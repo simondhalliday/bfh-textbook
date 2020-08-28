@@ -33,7 +33,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, 4, 6, 8, ylims[2])
+ticksy <- c(0, 2, 4, 6, ylims[2])
 ylabels <- c(NA, expression(paste(k[1])), expression(paste(k[2])), expression(paste(k[3])), NA)
 ticksx <- c(0, 2, 4, 6, xlims[2])
 xlabels <- c(NA, expression(paste(l[1])), expression(paste(l[2])), expression(paste(l[3])), NA)
@@ -43,24 +43,25 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
+abline(0,1)
 
-segments(2, 4, xlims[2], 4, lty = 1, col = COLA[4], lwd = graphlinewidth)
-segments(2, 4, 2, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
+segments(2, 2, xlims[2], 2, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(2, 2, 2, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
-segments(4, 6, xlims[2], 6, lty = 1, col = COLA[4], lwd = graphlinewidth)
-segments(4, 6, 4, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
+segments(4, 4, xlims[2], 4, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(4, 4, 4, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
-segments(6, 8, xlims[2], 8, lty = 1, col = COLA[4], lwd = graphlinewidth)
-segments(6, 8, 6, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
+segments(6, 6, xlims[2], 6, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(6, 6, 6, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.7, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(11, 4.35, expression(paste(underline(x)[1]^L)), cex = labelsize)
-text(11, 6.35, expression(paste(underline(x)[2]^L)), cex = labelsize)
-text(11, 8.35, expression(paste(underline(x)[3]^L)), cex = labelsize)
+text(11, 2.6, expression(paste(underline(x)[1]^L)), cex = labelsize)
+text(11, 4.6, expression(paste(underline(x)[2]^L)), cex = labelsize)
+text(11, 6.6, expression(paste(underline(x)[3]^L)), cex = labelsize)
 
 
 # text(10, 11, expression(paste("Feasible")), cex = labelsize)

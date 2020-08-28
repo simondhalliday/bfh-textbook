@@ -43,7 +43,6 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-abline(0,1)
 
 segments(2, 2, xlims[2], 2, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(2, 2, 2, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)

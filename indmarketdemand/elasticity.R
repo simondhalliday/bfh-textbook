@@ -39,7 +39,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- c(0, 10, xlims[2])
 ticksy <- c(0, 10, ylims[2])
 ylabels <- c(NA, expression(bar(p)), NA)
-xlabels <- c(0, expression(bar(x)), NA)
+xlabels <- c(0, expression(bar(X)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

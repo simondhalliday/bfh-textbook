@@ -57,9 +57,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 ticksy <- c(0, 4, IsoProf(8, k = 14), IsoProf(2, k = 14), ylims[2])
-ylabels <- c(NA, expression(paste(c)), expression(paste(p^{b})), expression(paste(p^{a})), NA) #expression(paste(p^{m})),
+ylabels <- c(NA, expression(paste(c)), expression(paste(p[b])), expression(paste(p[a])), NA) #expression(paste(p^{m})),
 ticksx <- c(0, 2, 8, xlims[2])
-xlabels <- c(NA, expression(paste(x^{a})), expression(paste(x^{b})), NA) #expression(paste(x^{m})), expression(paste(frac(bar(p),beta)))
+xlabels <- c(NA, expression(paste(x[a])), expression(paste(x[b])), NA) #expression(paste(x^{m})), expression(paste(frac(bar(p),beta)))
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = axislabelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = axislabelsize)

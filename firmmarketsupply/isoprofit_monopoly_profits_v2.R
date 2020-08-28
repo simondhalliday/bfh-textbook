@@ -59,9 +59,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, AvgRevenue(x = 4), AvgRevenue(x = 6.45), AvgRevenue(1.55), 12, ylims[2])
-ylabels <- c(NA, expression(paste(p^{h})), expression(paste(p^{f})), expression(paste(p^{e})), expression(paste(bar(p))), NA)
+ylabels <- c(NA, expression(paste(p[h])), expression(paste(p[f])), expression(paste(p[e])), expression(paste(bar(p))), NA)
 ticksx <- c(0, 1.55, 4, 6.45, 12, xlims[2])
-xlabels <- c(NA, expression(paste(x^{e})), expression(paste(x^{h})), expression(paste(x^{f})), expression(paste(frac(bar(p),beta))), NA)
+xlabels <- c(NA, expression(paste(x[e])), expression(paste(x[h])), expression(paste(x[f])), expression(paste(frac(bar(p),beta))), NA)
 
 #Draw the polygon for feasible
 xpoly1 <- c(0, 0, 12, 0)

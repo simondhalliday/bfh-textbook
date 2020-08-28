@@ -42,20 +42,22 @@ ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 
 #Branches for Agent
-segments(5, 9, 5, 10, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth, xpd = TRUE)
+segments(5, 9, 5, 10, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth, xpd = TRUE)
 #Fish 10
-segments(5, 9, 2.5, 4, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
-segments(2.5, 4, 1, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+segments(5, 9, 2.5, 4, col = rgb(0, 0, 1, 0.5), lty = 1, lwd = graphlinewidth)
+segments(2.5, 4, 1, 1, lty = 1,  lwd = graphlinewidth)
 
 #Fish 12
-segments(5, 9, 9, 1, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
+segments(5, 9, 7.5, 4, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
+
+segments(7.5, 4, 9, 1, lty = 1, lwd = graphlinewidth)
 
 #Branches for Agent
 #From Aram Fishing 10
 #Bina fishes 10
-segments(7.5, 4, 6, 1, lty = 1, col = rgb(1, 0, 0, 0.5), lwd = graphlinewidth)
+segments(7.5, 4, 6, 1, lty = 1,  lwd = graphlinewidth)
 #Bina fishes 12
-segments(2.5, 4, 4, 1, lty = 1, col = rgb(0, 0, 1, 0.5), lwd = graphlinewidth)
+segments(2.5, 4, 4, 1, lty = 1,  lwd = graphlinewidth)
 
 #From Aram fishing 12
 #Bina fishes 10
@@ -108,20 +110,20 @@ text(8.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
 
 
 #Payoffs 
-text(-1, 0.5, expression(paste("W:")), cex = actionlabelsize, xpd = TRUE)
-text(-1, -1.2, expression(paste("J:")), cex = actionlabelsize, xpd = TRUE)
+text(-1, 0.5, expression(paste("W:")), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
+text(-1, -1.2, expression(paste("J:")), cex = actionlabelsize, col = rgb(0, 0, 1, 0.5), xpd = TRUE)
 
 
-text(0.6, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) - frac(Delta^W, 2)), cex = actionlabelsize, xpd = TRUE)
-text(0.6, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+text(0.6, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) - frac(Delta^W, 2)), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
+text(0.6, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, col = rgb(0, 0, 1, 0.5),xpd = TRUE)
 
-text(3.7, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) + frac(Delta^W, 2)), cex = actionlabelsize, xpd = TRUE)
-text(3.7, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), cex = actionlabelsize, xpd = TRUE)
+text(3.7, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) + frac(Delta^W, 2)), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize, xpd = TRUE)
+text(3.7, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
 
-text(6, 0.5, expression(y[z]^W), cex = actionlabelsize, xpd = TRUE)
-text(6, -1.2, expression(y[z] - frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
+text(6, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
+text(6, -1.2, expression(y[z]^J - frac(bar(Delta), 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
 
-text(9, 0.5, expression(y[z]^W), cex = actionlabelsize, xpd = TRUE)
-text(9, -1.2, expression(y[z]^J + frac(bar(Delta), 2)), cex = actionlabelsize, xpd = TRUE)
+text(9, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
+text(9, -1.2, expression(y[z]^J + frac(bar(Delta), 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
 
 dev.off()

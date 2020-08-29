@@ -32,6 +32,7 @@ df$pop6 <- c(2, 2, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1) #Ideal
 #   ) 
 # colnames(dfcurve1) <- c("x1", "x2", "y1", "y2")
 
+
 #Baseline with no steps
 p <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop))) + 
   geom_circle(aes(x0 = 0, y0 = 0, r = 1), inherit.aes = FALSE) +
@@ -51,6 +52,27 @@ p <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop))) +
 
 ggsave("society/schelling_baseline.pdf", plot = p, width = 6, height = 6)
 
+#Baseline with no steps
+p <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop))) + 
+  geom_circle(aes(x0 = 0, y0 = 0, r = 1), inherit.aes = FALSE) +
+  geom_point(size = 7) + 
+  # geom_curve(
+  #   aes(x = -0.86, y = 0.5, xend = -0.5, yend = 0.86),
+  #   arrow = arrow(length = unit(0.03, "npc"), type = "closed", end = "both"), col = "black"
+  # ) +
+  annotate("text", x = -0.86 + 0.08, y = 0.5 - 0.08, label = "D", size = 8) +
+  annotate("text", x = -0.5 + 0.08, y = 0.86 - 0.08, label = "D", size = 8) +
+  scale_color_manual(values = c("#377EB8", "#4DAF4A")) + 
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.line = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank())
+
+ggsave("society/schelling_baseline_labeled.pdf", plot = p, width = 6, height = 6)
+
 #Step 1
 p1 <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop1))) + 
   geom_circle(aes(x0 = 0, y0 = 0, r = 1), inherit.aes = FALSE) +
@@ -58,7 +80,9 @@ p1 <- df %>% ggplot(aes(x = x, y = y, color = as.factor(pop1))) +
   geom_curve(
     aes(x = -0.86, y = 0.5, xend = -0.5, yend = 0.86),
     arrow = arrow(length = unit(0.03, "npc"), type = "closed", end = "both"), col = "black"
-  ) +
+  ) + 
+  annotate("text", x = -0.86 + 0.08, y = -0.5 + 0.08, label = "D", size = 8) +
+  annotate("text", x = 0.5 - 0.08, y = 0.86 - 0.08, label = "D", size = 8) +
   scale_color_manual(values = c("#377EB8", "#4DAF4A")) + 
   theme_minimal() +
   theme(legend.position = "none",
@@ -81,6 +105,8 @@ p2 <- df %>%
     aes(x = -0.86, y = -0.5, xend = 0.5, yend = 0.86),
     arrow = arrow(length = unit(0.03, "npc"), type = "closed", end = "both"), col = "black"
   ) +
+  annotate("text", x = 1 - 0.1, y = 0, label = "D", size = 8) +
+  annotate("text", x = 0, y = -1 + 0.1, label = "D", size = 8) +
   scale_color_manual(values = c("#377EB8", "#4DAF4A")) + 
   theme_minimal() +
   theme(legend.position = "none",

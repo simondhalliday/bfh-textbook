@@ -78,9 +78,9 @@ text(-1.7, 0.5*ylims[2], expression(paste("Expected income, ", hat(y))), xpd = T
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 lines(xx1, riskreturn(xx1), col = COLA[4], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA(xx1, intercept = 3), col = COLB[3], lwd = graphlinewidth, lty = 1)
-lines(xx1, indiffA(xx1, intercept = 5.8), col = COLB[3], lwd = segmentlinewidth, lty = 1)
-lines(xx1, indiffA(xx1, intercept = 9.5), col = COLB[3], lwd = segmentlinewidth, lty = 1)
+lines(xx1, indiffA(xx1, intercept = 1.5), col = COLB[3], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA(xx1, intercept = 4.4), col = COLB[3], lwd = graphlinewidth, lty = 1)
+lines(xx1, indiffA(xx1, intercept = 9.5), col = COLB[3], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA(xx1, intercept = 8), col = COLB[3], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA2(xx1, intercept = 7.15), col = COLB[5], lwd = graphlinewidth, lty = 1)
 #lines(xx1, indiffA2(xx1, intercept = 5.8), col = COLB[5], lwd = segmentlinewidth, lty = 2)
@@ -115,8 +115,8 @@ text(13.8, riskreturn(g = 14) - 1.2, expression(paste(hat(y)*(Delta))), cex = la
 
 #Label value functions
 #text(13.2, 17, expression(u[1]^B), cex = labelsize)
-text(8.15, 17, expression(u[2]), cex = labelsize)
-text(9.4, 17, expression(u[1]), cex = labelsize)
+text(8.7, 17, expression(u[2]), cex = labelsize)
+text(10, 17, expression(u[1]), cex = labelsize)
 text(6.4, 17, expression(u[3]), cex = labelsize)
 #text(8.2, 17, expression(u[2]^A), cex = labelsize)
 

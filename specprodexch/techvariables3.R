@@ -61,13 +61,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 1)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(ylims[1],  ylims[2])
-ylabels <- c(NA, NA)
+ticksy <- c(ylims[1], 1.36, 3.83, 7.56, ylims[2])
+ylabels <- c(NA, expression(paste(k[1])), expression(paste(k[2])), expression(paste(k[3])), NA)
 ticksx <- c(xlims[1], xlims[2])
 xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis  = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis  = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -96,7 +96,7 @@ lines(xx1, isoA(xx1, alpha = 0.8, xbar = 5.5, A = 2), col = COLA[5], lwd = graph
 
 #Axis labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 
@@ -116,9 +116,9 @@ text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, c
 # text(6, 8, expression(paste("Isoquant curve: ", k == bgroup("(",frac(bar(x), A),")")^2 - alpha*l   )), cex = labelsize)
 # text(6, 7, expression(paste(trs(l,k) == frac(x[l],x[k]), phantom() == alpha)), cex = labelsize)
 
-text(1.4, 0.7, expression(paste(underline(x)[1]^S)), cex = labelsize)
-text(4.6, 0.7, expression(paste(underline(x)[2]^S)), cex = labelsize)
-text(9.2, 0.7, expression(paste(underline(x)[3]^S)), cex = labelsize)
+text(1.3, 0.7, expression(paste(underline(x)[1])), cex = labelsize)
+text(4.5, 0.7, expression(paste(underline(x)[2])), cex = labelsize)
+text(9.1, 0.7, expression(paste(underline(x)[3])), cex = labelsize)
 
 # text(8, 4, expression(paste(trs(l,k) == frac(2,8), phantom() == 0.25)), cex = labelsize)
 # Arrows(8, 3.6, 8, 2.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)

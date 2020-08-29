@@ -58,9 +58,9 @@ mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabe
 text(-1.7, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # points(4, 6, pch = 16, col = "black", cex = 1.5)
-text(11, 2.6, expression(paste(underline(x)[1]^L)), cex = labelsize)
-text(11, 4.6, expression(paste(underline(x)[2]^L)), cex = labelsize)
-text(11, 6.6, expression(paste(underline(x)[3]^L)), cex = labelsize)
+text(11, 2.3, expression(paste(underline(x)[1])), cex = labelsize)
+text(11, 4.3, expression(paste(underline(x)[2])), cex = labelsize)
+text(11, 6.3, expression(paste(underline(x)[3])), cex = labelsize)
 
 
 # text(10, 11, expression(paste("Feasible")), cex = labelsize)

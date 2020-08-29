@@ -82,9 +82,9 @@ text(-1, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd 
 #Label the isoquant curve
 #text(11.25, 3.15, expression("isoquant"), cex = labelsize)
 
-text(11.25, 1.15, expression(paste(underline(x)[1]^{CD})), cex = labelsize)
-text(11.25, 2.65, expression(paste(underline(x)[2]^{CD})), cex = labelsize)
-text(11.25, 4.75, expression(paste(underline(x)[3]^{CD})), cex = labelsize)
+text(11.25, 1.15, expression(paste(underline(x)[1])), cex = labelsize)
+text(11.25, 2.65, expression(paste(underline(x)[2])), cex = labelsize)
+text(11.25, 4.75, expression(paste(underline(x)[3])), cex = labelsize)
 
 
 #Label the price lines

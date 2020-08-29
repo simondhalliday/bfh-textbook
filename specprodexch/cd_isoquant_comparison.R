@@ -33,7 +33,7 @@ ylims <- c(0, 12)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(13, 16.75, 19.25)
+a <- c(13, 16.125, 19.25)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),

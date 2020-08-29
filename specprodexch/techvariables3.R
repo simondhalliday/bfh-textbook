@@ -61,13 +61,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 1)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(ylims[1],  ylims[2])
-ylabels <- c(NA, NA)
+ticksy <- c(ylims[1], 1.36, 3.83, 7.56, ylims[2])
+ylabels <- c(NA, expression(paste(k[1])), expression(paste(k[2])), expression(paste(k[3])), NA)
 ticksx <- c(xlims[1], xlims[2])
 xlabels <- c(NA, NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels)
-axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
+axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis  = labelsize)
+axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis  = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -96,7 +96,7 @@ lines(xx1, isoA(xx1, alpha = 0.8, xbar = 5.5, A = 2), col = COLA[5], lwd = graph
 
 #Axis labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.8, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1, 5, expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 # contour(x, y, 

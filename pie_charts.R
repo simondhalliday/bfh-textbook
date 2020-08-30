@@ -25,7 +25,7 @@ pie_4 <- data.frame(
 )
 
 
-pie_plot1<- ggplot(pie_1, aes(x = "",
+pie_plot1 <- ggplot(pie_1, aes(x =factor(""),
                        y = value,
                        fill = group)) +
   geom_bar(width = 1,
@@ -57,16 +57,17 @@ pie_plot2<- ggplot(pie_2, aes(x = "",
 pie_plot2
 
 
-pie_plot3<- ggplot(pie_3, aes(x = "",
+pie_plot3<- ggplot(pie_3, aes(x = " ",
                               y = value,
                               fill = group)) +
   geom_bar(width = 1,
            stat = "identity") +
-  coord_polar("y", start = 0) +
+  coord_polar("y") +
   theme_bw() +
   theme(legend.title = element_blank(),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
+        axis.text.x=element_blank(), 
         legend.position = "none") +
   scale_fill_manual(values=c("#2b8cbe",
                              "#41ae76"))

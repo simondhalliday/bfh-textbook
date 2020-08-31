@@ -110,20 +110,20 @@ text(8.6, 3.55, expression(paste("Good")), cex = actionlabelsize)
 
 
 #Payoffs 
-text(-1, 0.5, expression(paste("W:")), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
-text(-1, -1.2, expression(paste("J:")), cex = actionlabelsize, col = rgb(0, 0, 1, 0.5), xpd = TRUE)
+text(-1, 0.5, expression(paste("W:")), cex = actionlabelsize, col = rgb(1, 0, 0, 1), xpd = TRUE)
+text(-1, -1.2, expression(paste("J:")), cex = actionlabelsize, col = rgb(0, 0, 1, 1), xpd = TRUE)
 
 
-text(0.6, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) - frac(Delta^W, 2)), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
-text(0.6, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, col = rgb(0, 0, 1, 0.5),xpd = TRUE)
+text(0.6, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) - frac(Delta^W, 2)), cex = actionlabelsize, col = rgb(1, 0, 0, 1), xpd = TRUE)
+text(0.6, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) - frac(Delta^J, 2)), cex = actionlabelsize, col = rgb(0, 0, 1, 1),xpd = TRUE)
 
-text(3.7, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) + frac(Delta^W, 2)), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize, xpd = TRUE)
-text(3.7, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
+text(3.7, 0.5, expression(y[z]^W - p[s](bar(Delta) - Delta^J) + frac(Delta^W, 2)), col = rgb(1, 0, 0, 1), cex = actionlabelsize, xpd = TRUE)
+text(3.7, -1.2, expression(y[z]^J - p[s](bar(Delta) - Delta^J) + frac(Delta^J, 2)), col = rgb(0, 0, 1, 1), cex = actionlabelsize, xpd = TRUE)
 
-text(6, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
-text(6, -1.2, expression(y[z]^J - frac(bar(Delta), 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
+text(6, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 1), xpd = TRUE)
+text(6, -1.2, expression(y[z]^J - frac(bar(Delta), 2)), col = rgb(0, 0, 1, 1), cex = actionlabelsize, xpd = TRUE)
 
-text(9, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 0.5), xpd = TRUE)
-text(9, -1.2, expression(y[z]^J + frac(bar(Delta), 2)), col = rgb(0, 0, 1, 0.5), cex = actionlabelsize, xpd = TRUE)
+text(9, 0.5, expression(y[z]^W), cex = actionlabelsize, col = rgb(1, 0, 0, 1), xpd = TRUE)
+text(9, -1.2, expression(y[z]^J + frac(bar(Delta), 2)), col = rgb(0, 0, 1, 1), cex = actionlabelsize, xpd = TRUE)
 
 dev.off()

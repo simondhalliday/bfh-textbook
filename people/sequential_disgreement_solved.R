@@ -108,12 +108,12 @@ text(1, .6, expression(phantom("(") * "4" * phantom(",") * phantom("2") * phanto
 text(1, .6, expression(phantom("(") * phantom("4") * phantom(",") * "2" * phantom(")")), col = rgb(1, 0, 0, 1), cex = actionlabelsize)
 
 text(4, .6, expression("(" * phantom("0") * "," * phantom("0") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(4, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 1,fadelevel),  cex = actionlabelsize)
-text(4, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 1,fadelevel), cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 0.5,fadelevel),  cex = actionlabelsize)
+text(4, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 0.5,fadelevel), cex = actionlabelsize)
 
 text(6, .6, expression("(" * phantom("0") * "," * phantom("0") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
-text(6, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 1,fadelevel),  cex = actionlabelsize)
-text(6, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 1,fadelevel), cex = actionlabelsize)
+text(6, .6, expression(phantom("(") * "0" * phantom(",") * phantom("0") * phantom(")")), col = rgb(0, 0, 1, 0.5,fadelevel),  cex = actionlabelsize)
+text(6, .6, expression(phantom("(") * phantom("0") * phantom(",") * "0" * phantom(")")), col = rgb(1, 0, 0, 0.5,fadelevel), cex = actionlabelsize)
 
 text(9, .6, expression("(" * phantom("2") * "," * phantom("4") * ")"), cex = actionlabelsize, col = rgb(0,0,0,fadelevel))
 text(9, .6, expression(phantom("(") * "2" * phantom(",") * phantom("4") * phantom(")")), col = rgb(0, 0, 1, 1,fadelevel),  cex = actionlabelsize)

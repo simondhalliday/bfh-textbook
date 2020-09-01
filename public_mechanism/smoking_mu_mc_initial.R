@@ -4,8 +4,8 @@ library(pBrackets)
 pdf(file = "public_mechanism/smoking_MU_MC_initial.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
-axislabelsize <- 1.8
-labelsize <- 1.5
+axislabelsize <- 2
+labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -44,7 +44,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 4,  ylims[2])
 ylabels <- c(NA, expression(paste(p[0])),  NA)
 ticksx <- c(0, 5, xlims[2])
-xlabels <- c(NA, expression(paste(x[a]^A)), NA)
+xlabels <- c(NA, NA, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -53,8 +53,8 @@ text(0.5*xlims[2], -1.5, expression(paste("A's smoking, ", x^A)), xpd = TRUE, ce
 text(-.6, 0.5*ylims[2], expression(paste("Benefits and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #text(0.5, 11.5, expression(paste(u[A],"(",x[A],",",x[Bt],")")), xpd = TRUE, cex = labelsize) 
-text(2.3, 11.5, expression(paste(mb^A,"(",x^A,",",x[a]^B,")")), xpd = TRUE, cex = labelsize) 
-
+text(2.4, 11.5, expression(paste(mb^A,"(",x^A,",",x[a]^B,")")), xpd = TRUE, cex = labelsize) 
+text(5, -0.5, expression(paste(x[a]^A)), xpd = TRUE, cex = labelsize) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -92,6 +92,6 @@ text(1.3, ylims[2] + 0.5, expression(paste("A's marginal benefits")), cex = labe
 
 Arrows(5, 5.8, 5, 4.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
-text(5, 6, expression(paste(mb == mc)), cex = labelsize, xpd = TRUE)
+text(5, 6.2, expression(paste(mb == mc)), cex = labelsize, xpd = TRUE)
 
 dev.off()

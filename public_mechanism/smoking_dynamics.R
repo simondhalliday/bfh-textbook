@@ -1,11 +1,11 @@
 require(shape)
 library(pBrackets)
 
-pdf(file = "public_mechanism/smoking_BRF_initial.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/smoking_dynamics.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
-axislabelsize <- 1.8
-labelsize <- 1.5
+axislabelsize <- 2.1
+labelsize <- 1.9
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -57,8 +57,8 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1)
 
 #text(0.95, -0.49, expression(paste(frac(alpha,P[t]))), xpd = TRUE, cex = axislabelsize)
 text(5, -0.45,  expression(paste(x[a]^{AN})), xpd=TRUE, cex=labelsize)
-text(2.5, -0.49, expression(paste(frac(alpha, p[0]))), xpd=TRUE, cex=labelsize )
-text(-0.3, 2.5, expression(paste(frac(alpha, p[0]))), xpd=TRUE, cex=labelsize )
+text(2.5, -0.49, expression(paste(frac(alpha,p[0]))), xpd=TRUE, cex=labelsize )
+text(-0.3, 2.5, expression(paste(frac(alpha,p[0]))), xpd=TRUE, cex=labelsize )
 # text(-0.3, 1.15, expression(paste(x[Bt]^N)), xpd = TRUE, cex = axislabelsize)
 # text(-0.3, 2.1, expression(paste(x[Bt]^{direct})) , xpd=TRUE, cex=axislabelsize)
 text(-0.3, 5, expression(paste(x[a]^{BN})), xpd=TRUE, cex=axislabelsize )
@@ -77,8 +77,21 @@ segments(5, 0, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 5, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(5, 5, pch = 16, col = "black", cex = 1.5)
 text(5.15, 4.9, expression(paste(a)), cex = labelsize)
-text(4.25, 5.6, expression(paste("Pre-tax Nash")), cex = labelsize)
-text(4.25, 5.2, expression(paste("equilibrium")), cex = labelsize)
+#text(4.25, 5.6, expression(paste("Pre-tax Nash")), cex = labelsize)
+text(4.75, 5.2, expression(paste("NE")), cex = labelsize)
+
+#Arrows for dynamics
+Arrows(0, 2, BRFXi(Xj = 2, P = 4) - 0.2, 2, col = CBCols[2], lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(3.5, 2 + 0.2, 3.5, BRFXi(Xj = 3.5, P = 4) - 0.3, col = CBCols[1], lty = 1, lwd = 2, arr.type = "triangle")
+Arrows(3.5 + 0.1, 4.25, BRFXi(Xj = 4.25, P = 4) - 0.2, 4.25, col = CBCols[2], lty = 1, lwd = 2, arr.type = "triangle")
+
+points(BRFXi(Xj = 2, P = 4), 2, pch = 16, col = "black", cex = 1.5)
+points(3.5, BRFXi(Xj = 3.5, P = 4), pch = 16, col = "black", cex = 1.5)
+points(BRFXi(Xj = 4.25, P = 4), 4.25,  pch = 16, col = "black", cex = 1.5)
+
+text(BRFXi(Xj = 2, P = 4) + 0.2, 2, expression(paste(f)), cex = labelsize)
+text(3.5 - 0.1, BRFXi(Xj = 3.5, P = 4) + 0.2, expression(paste(g)), cex = labelsize)
+text(BRFXi(Xj = 4.25, P = 4) + 0.2, 4.25 - 0.1, expression(paste(h)), cex = labelsize)
 
 # segments(1.25, 0, 1.25, 1.25, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 # segments(0, 1.25, 1.25, 1.25, lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -89,11 +102,11 @@ text(4.25, 5.2, expression(paste("equilibrium")), cex = labelsize)
 
 #text(1.5, 7.3, expression(paste("A's best response")), cex = labelsize)
 #text(1.5, 7, expression(paste("after tax")), cex = labelsize)
-text(5.1, 7.3, expression(paste("A's initial")), cex = labelsize)
-text(5.1, 7, expression(paste("best response")), cex = labelsize)
+text(5.5, 7.3, expression(paste("A's BRF")), cex = labelsize)
+#text(5.1, 7, expression(paste("best response")), cex = labelsize)
 
-text(7.1, 5.5, expression(paste("B's initial")), cex = labelsize, xpd = TRUE)
-text(7.1, 5.1, expression(paste("best response")), cex = labelsize, xpd = TRUE)
+text(7.1, 5.5, expression(paste("B's BRF")), cex = labelsize, xpd = TRUE)
+#text(7.1, 5.1, expression(paste("best response")), cex = labelsize, xpd = TRUE)
 #text(7, 2, expression(paste("B's best response")), cex = labelsize)
 #text(7, 1.75, expression(paste("after tax")), cex = labelsize)
 

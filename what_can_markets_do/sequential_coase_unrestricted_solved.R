@@ -111,7 +111,7 @@ text(6, .6, expression("(" * phantom("4") * "," * phantom("4") * ")"), col = rgb
 text(6, .6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(0, 0, 1, 0.5 ,fadelevel),  cex = actionlabelsize)
 text(6, .6, expression(phantom("(") * phantom("4") * phantom(",") * "4" * phantom(")")), col = rgb(1, 0, 0, 0.5 ,fadelevel), cex = actionlabelsize)
 
-text(9, .6, expression("(" * phantom("1") * "," * phantom("5") * ")"), col = rgb(0, 0, 0, fadelevel), cex = actionlabelsize)
+text(9, .6, expression("(" * phantom("1") * "," * phantom("5") * ")"), cex = actionlabelsize)
 text(9, .6, expression(phantom("(") * "1" * phantom(",") * phantom("5") * phantom(")")), col = rgb(0, 0, 1, 1 ,fadelevel),  cex = actionlabelsize)
 text(9, .6, expression(phantom("(") * phantom("1") * phantom(",") * "5" * phantom(")")), col = rgb(1, 0, 0, 1 ,fadelevel), cex = actionlabelsize)
 

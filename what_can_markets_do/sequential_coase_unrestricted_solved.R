@@ -100,8 +100,8 @@ text(8.7, 3.5, expression(paste("Use")), cex = actionlabelsize, col = rgb(0,0,0,
 
 #Payoffs 
 text(1, .6, expression("(" * phantom("2") * "," * phantom("6") * ")"), cex = actionlabelsize)
-text(1, .6, expression(phantom("(") * "2" * phantom(",") * phantom("6") * phantom(")")), col = rgb(0, 0, 1, 0.5),  cex = actionlabelsize)
-text(1, .6, expression(phantom("(") * phantom("2") * phantom(",") * "6" * phantom(")")), col = rgb(1, 0, 0, 0.5), cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * "2" * phantom(",") * phantom("6") * phantom(")")), col = rgb(0, 0, 1, 1),  cex = actionlabelsize)
+text(1, .6, expression(phantom("(") * phantom("2") * phantom(",") * "6" * phantom(")")), col = rgb(1, 0, 0, 1), cex = actionlabelsize)
 
 text(4, .6, expression("(" * phantom("1") * "," * phantom("5") * ")"), col = rgb(0, 0, 0, fadelevel), cex = actionlabelsize)
 text(4, .6, expression(phantom("(") * "1" * phantom(",") * phantom("5") * phantom(")")), col = rgb(0, 0, 1, 0.5 ,fadelevel),  cex = actionlabelsize)
@@ -111,9 +111,9 @@ text(6, .6, expression("(" * phantom("4") * "," * phantom("4") * ")"), col = rgb
 text(6, .6, expression(phantom("(") * "4" * phantom(",") * phantom("4") * phantom(")")), col = rgb(0, 0, 1, 0.5 ,fadelevel),  cex = actionlabelsize)
 text(6, .6, expression(phantom("(") * phantom("4") * phantom(",") * "4" * phantom(")")), col = rgb(1, 0, 0, 0.5 ,fadelevel), cex = actionlabelsize)
 
-text(9, .6, expression("(" * phantom("1") * "," * phantom("5") * ")"), col = rgb(0, 0, 0, fadelevel), cex = actionlabelsize)
-text(9, .6, expression(phantom("(") * "1" * phantom(",") * phantom("5") * phantom(")")), col = rgb(0, 0, 1, 0.5 ,fadelevel),  cex = actionlabelsize)
-text(9, .6, expression(phantom("(") * phantom("1") * phantom(",") * "5" * phantom(")")), col = rgb(1, 0, 0, 0.5 ,fadelevel), cex = actionlabelsize)
+text(9, .6, expression("(" * phantom("1") * "," * phantom("5") * ")"), cex = actionlabelsize)
+text(9, .6, expression(phantom("(") * "1" * phantom(",") * phantom("5") * phantom(")")), col = rgb(0, 0, 1, 1 ,fadelevel),  cex = actionlabelsize)
+text(9, .6, expression(phantom("(") * phantom("1") * phantom(",") * "5" * phantom(")")), col = rgb(1, 0, 0, 1 ,fadelevel), cex = actionlabelsize)
 
 #Cutting branch plant late when A plants early
 segments(2.6, 3.9, 3.1, 4.4, lty = 1, col = rgb(0,0,0,fadelevel), lwd = graphlinewidth)

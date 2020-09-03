@@ -123,8 +123,8 @@ segments(4, 2, 6, 0, lty = 1, col = "white")
 segments(6, 2, 8, 0, lty = 1, col = "white")
 
 
-# #Best responses 
-# #P1 
+# #Best responses
+# #P1
 # if (P1BR1[1] == "NW"){
 #   points(5, 3, pch = 16, col = "black", cex = P1bestsize)
 # } else{points(5, 1, pch = 16, col = "black", cex = P1bestsize)

@@ -39,7 +39,7 @@ p <-  ggplot(data = CSUSH ) +
             angle = 90, size = 6) +
   theme_bw() +
   xlab("Year") + 
-  ylab("Home price index") +
+  ylab("Index of average home prices \n (100 = January 2000) ") +
   theme(text = element_text(size = 19),
         axis.text = element_text(size = 16),
         axis.title = element_text(size = 24),

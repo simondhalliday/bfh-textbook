@@ -16,21 +16,21 @@ Data <- Data %>%
 
 
 Plot <- ggplot(Data, aes(x = `gini post tax and transfer`, y = `protective services employees per 10000 workers in the labor force`)) + 
-  geom_point(aes(group = country), color  = CBCols[1], size = 2) + 
-  geom_text(aes(label = country), hjust = 0, vjust = -0.4, size =5) + 
+  geom_point(aes(group = country), color  = CBCols[1], size = 3) + 
+  geom_text(aes(label = country), hjust = 0, vjust = -0.4, size =5.5) + 
   scale_x_continuous(limits = c(.2,.4)) + 
   theme_bw() + 
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
               axis.title = element_text(size = 19),
               axis.text = element_text(size = 19)) + 
-  annotate("text", x = 0.285, y = 66.8, label = "Switzerland", size =5 ) + 
-  annotate("text", x = 0.293, y = 87, label = "Germany", size =5 ) + 
-  annotate("text", x = 0.25, y = 77, label = "Finland", size =5 ) +
-  annotate("text", x = 0.245, y = 68, label = "Netherlands", size =5 ) + 
-  annotate("text", x = 0.213, y = 62, label = "Denmark", size =5 ) +
-  xlab("Protective service employees per  10,000 people \n in labor force in 2000") + 
-  ylab("Income inequality among households \n in the early 2000s")
+  annotate("text", x = 0.285, y = 66.8, label = "Switzerland", size =5.5 ) + 
+  annotate("text", x = 0.293, y = 87, label = "Germany", size =5.5 ) + 
+  annotate("text", x = 0.25, y = 77, label = "Finland", size =5.5) +
+  annotate("text", x = 0.245, y = 68, label = "Netherlands", size =5.5) + 
+  annotate("text", x = 0.213, y = 62, label = "Denmark", size =5.5) +
+  ylab("Protective service employees per  10,000 people \n in labor force in 2000") + 
+  xlab("Income inequality among households \n in the early 2000s")
   
   
 Plot

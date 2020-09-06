@@ -20,6 +20,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 #Edited the margins to cater for the larger LHS labels
 par(mar =  c(0.5, 3, 0, 3))
@@ -70,11 +71,11 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # points(25, 10, cex = 1.5, pch = 16)
 
 # Top
-Arrows(13, 32.5, 37, 32.5, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = "black")
+Arrows(13, 32.5, 37, 32.5, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[2])
 # Left
-Arrows(12.5, 31.25, 24.5, 11.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = "#377eb8")
+Arrows(12.5, 31.25, 24.5, 11.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[1])
 # Right
-Arrows(25.5, 11.25, 37.5, 31.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = "#4daf4a")
+Arrows(25.5, 11.25, 37.5, 31.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[3])
 
 # Text --------------------------------------------------------------------
 text(7, 31.5, expression("Government"), cex = axislabelsize)
@@ -95,12 +96,12 @@ text(25, 5, expression(italic("implemented by social norms and the exercise of p
 text(7, 38, expression("Mandatory risk-sharing (transfers)"), cex = labelsize, xpd = TRUE)
 Arrows(12.5, 33.5, 9, 37, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(20, 43, expression("Free childcare"), cex = labelsize, xpd = TRUE)
+#text(20, 43, expression("Free childcare"), cex = labelsize, xpd = TRUE)
 Arrows(15, 33.25, 20, 42, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(39, 38, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
-text(39, 36.5, expression("hired by government as contractors"), cex = labelsize, xpd = TRUE)
-Arrows(25, 33.25, 30, 35.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(20, 45, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
+text(20, 43, expression("hired by government as contractors"), cex = labelsize, xpd = TRUE)
+#Arrows(25, 33.25, 30, 35.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # Right
 text(41, 25, expression("Reallocation of labor -"), cex = labelsize, xpd = TRUE)

@@ -3,7 +3,7 @@ require(shape)
 pdf(file = "capitalism/risk_contrast_b.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
-axislabelsize <- 1.8
+axislabelsize <- 2
 labelsize <- 1.8
 namesize <- 1.8
 annotatesize <- 1.6
@@ -17,7 +17,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
-
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 par(mar =  c(5, 6.5, 1, 1))
 xlims <- c(0, 15)
 ylims <- c(0, 18)
@@ -108,7 +108,7 @@ points(12, riskreturn(g = 12) , pch = 16, col = "black", cex = 1.5)
 
 
 #Segment for next best wage offer
-segments(0, 5.75, xlims[2], 5.75, lty = 1, col = COL[2], lwd = segmentlinewidth)
+segments(0, 5.75, xlims[2], 5.75, lty = 1, col = CBCols[3], lwd = graphlinewidth)
 text(13.8, 7.3, expression(paste("Certain")), cex = labelsize)
 text(13.8, 6.3, expression(paste("wage, ", w^c)), cex = labelsize)
 

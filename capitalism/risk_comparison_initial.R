@@ -60,7 +60,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 ticksx <- c(0, 6.3, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), NA)
 ticksy <- c(0, 3.65, 5.75, riskreturn(int1 = 12, 6.3), ylims[2])
-ylabels <- c(NA, expression(paste(w[a])), expression(paste(w^C)),  expression(paste(hat(y)[a])), NA)
+ylabels <- c(NA, expression(paste(w[a])), expression(paste(w^c)),  expression(paste(hat(y)[a])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -96,7 +96,7 @@ segments(0, riskreturn(g = 6.3, int1 = 12), 6.3, riskreturn(g = 6.3, int1 = 12),
 #Segment for next best wage offer
 segments(0, 5.75, xlims[2], 5.75, lty = 1, col = CBCols[3], lwd = graphlinewidth)
 
-text(12.75, 5, expression(paste("Wage from work, ", w^C)), cex = labelsize)
+text(12.75, 5, expression(paste("Wage from work, ", w^c)), cex = labelsize)
 
 lines(xx1, riskreturn(xx1, int1 = 12), col = CBCols[1], lwd = graphlinewidth, lty = 1)
 #lines(xx1, riskreturn(xx1, int1 = 15), col = CBCols[1], lwd = graphlinewidth, lty = 1)

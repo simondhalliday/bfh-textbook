@@ -20,9 +20,10 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
+CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(0.5, 3, 0, 3))
+par(mar =  c(0, 1, 0, 1))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -70,11 +71,11 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # points(25, 10, cex = 1.5, pch = 16)
 
 # Top
-Arrows(15, 34.3, 39, 34.3, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = "#377eb8")
+Arrows(15, 34.3, 39, 34.3, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[2])
 # Left
-Arrows(14.65, 33.35, 26.5, 13.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = "#4daf4a")
+Arrows(14.65, 33.35, 26.5, 13.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[1])
 # Right
-Arrows(27.4, 13.35, 39.35, 33.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = "#4daf4a")
+Arrows(27.4, 13.35, 39.35, 33.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[3])
 
 # Text --------------------------------------------------------------------
 text(9, 33.5, expression(bold("Government")), cex = namesize)

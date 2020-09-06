@@ -23,7 +23,7 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(0.5, 3, 0, 3))
+par(mar =  c(0, 4, 0, 3))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -100,7 +100,7 @@ Arrows(12.5, 33.5, 9, 37, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "t
 Arrows(15, 33.25, 20, 42, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 text(20, 45, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
-text(20, 43, expression("hired by government as contractors"), cex = labelsize, xpd = TRUE)
+text(20, 43, expression("hired by government as contact tracers"), cex = labelsize, xpd = TRUE)
 #Arrows(25, 33.25, 30, 35.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # Right
@@ -124,12 +124,12 @@ Arrows(22, 25, 28, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "tria
 text(17, 13, expression("Social distancing"), cex = labelsize, xpd = TRUE)
 Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(15, 15.5, expression("Care work at home"), cex = labelsize, xpd = TRUE)
-Arrows(24, 16, 21, 15.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(15, 15.5, expression("Care work at home"), cex = labelsize, xpd = TRUE)
+# Arrows(24, 16, 21, 15.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(12, 19.5, expression("Kidney exchanges"), cex = labelsize, xpd = TRUE)
-text(12, 18, expression("(kidney sales prohibited)"), cex = labelsize, xpd = TRUE)
-Arrows(22, 17, 18, 19.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(12, 19.5, expression("Kidney exchanges"), cex = labelsize, xpd = TRUE)
+# text(12, 18, expression("(kidney sales prohibited)"), cex = labelsize, xpd = TRUE)
+# Arrows(22, 17, 18, 19.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 text(8, 22, expression("NHS call for volunteers"), cex = labelsize, xpd = TRUE)
 Arrows(17.5, 22, 15, 22, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")

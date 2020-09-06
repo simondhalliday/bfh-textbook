@@ -13,7 +13,9 @@ Data <- Data %>%
   mutate(country = na_if(country, "Netherlands")) %>%
   mutate(country = na_if(country, "Denmark"))
 
-
+Data <- 
+  Data %>%
+  mutate()
 
 Plot <- ggplot(Data, aes(x = `gini post tax and transfer`, y = `protective services employees per 10000 workers in the labor force`)) + 
   geom_point(aes(group = country), color  = CBCols[1], size = 3) + 
@@ -29,8 +31,9 @@ Plot <- ggplot(Data, aes(x = `gini post tax and transfer`, y = `protective servi
   annotate("text", x = 0.25, y = 77, label = "Finland", size =5.5) +
   annotate("text", x = 0.245, y = 68, label = "Netherlands", size =5.5) + 
   annotate("text", x = 0.213, y = 62, label = "Denmark", size =5.5) +
-  ylab("Protective service employees per  10,000 people \n in labor force in 2000") + 
-  xlab("Income inequality among households \n in the early 2000s")
+  annotate("text", x = 0.393, y = 202, label = "(2000)", size =5.5) +
+  ylab("Guards per  10,000 people \n in labor force in 2000") + 
+  xlab("Inequality in disposable income (Gini coefficient)")
   
   
 Plot

@@ -84,7 +84,7 @@ segments(4, 4, 4, 6.5, lty = 2, col = "black", lwd = 2)
 
 #points:
 points(4,  4, pch = 16, col = "black", cex = 1.5)
-text(4-0.3,  4-0.3, expression(Z[a]), cex = annotatesize)
+text(4-0.3,  4-0.3, expression(z[a]), cex = annotatesize)
 
 #points(1, 5, pch = 16, col = "black", cex = 1.5)
 #text(1 - 0.3, 5 - 0.3, expression(Z[b]), cex = annotatesize)

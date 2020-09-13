@@ -93,8 +93,8 @@ p1 <- p0 + xlab("Education Level") +
         axis.text.y = element_text(size = 16),
         axis.text.x = element_text(size = 16),
         #axis.title = element_text(size = 24), 
-        axis.title.x = element_text(size = 20, vjust = -0.5),
-        axis.title.y = element_text(size = 20, vjust = 2),
+        axis.title.x = element_text(size = 20, vjust = -0.25),
+        axis.title.y = element_text(size = 20, vjust = 1),
         panel.grid.minor = element_blank())
 
 
@@ -102,4 +102,4 @@ p1 <- p0 + xlab("Education Level") +
 #Save plot to PDF
 ggsave(p1, filename = "incidence_of_non_competes.pdf", 
        path = "employment",
-       width = 9, height = 7, units = "in")
+       width = 7, height = 4, units = "in")

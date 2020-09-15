@@ -95,10 +95,10 @@ segments(1, 5, 1, 7.5, lty = 2, col = "black", lwd = 2)
 #text(4-0.3,  4-0.3, expression(Z[a]), cex = annotatesize)
 
 points(1, 5, pch = 16, col = "black", cex = 1.5)
-text(1 - 0.3, 5 - 0.3, expression(Z[b]), cex = annotatesize)
+text(1 - 0.3, 5 - 0.3, expression(z[b]), cex = annotatesize)
 
 points(2, 6, pch = 16, col = "black", cex = 1.5)
-text(2+0.2, 6+0.2, expression(N), cex = annotatesize)
+text(2+0.2, 6+0.2, expression(n), cex = annotatesize)
 
 #label
 text(5.4, 1, expression("Feasible payoffs if restrict"), cex = annotatesize)

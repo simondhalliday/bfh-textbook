@@ -87,7 +87,7 @@ lines(xx1, bcA(xx1, w = 10, p = 0.25), col = COLB[3], lwd = graphlinewidth)
 
 
 #Label the axes
-#mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Kilograms of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-2.2, 0.5*ylims[2], expression(paste("Money left over, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label the indifference curves
@@ -205,7 +205,7 @@ lines(xx1, mrsA(xx1, rmax = 2, xmax = 12), col = COLB[3], lwd = graphlinewidth)
 
 #Label the axes
 #mtext(expression(paste("Quantity of fish in kilograms, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -0.4,  expression(paste("Quantity of fish in kilograms, ", x)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -0.4,  expression(paste("Kilograms of fish, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-2.2, 0.5*ylims[2], expression(paste("Price per kilogram of fish, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Segments for points on Offer curve

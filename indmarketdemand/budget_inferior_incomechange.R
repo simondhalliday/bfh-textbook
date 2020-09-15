@@ -67,11 +67,11 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
-
+xx2 <- seq(xlims[1] + 0.3, xlims[2] - 1.2, length.out = npts)
 lines(xx1, bcA(xx1, m = 1.85), col = CBCols[2], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, m = 2.25), col = CBCols[2], lwd = graphlinewidth)
 lines(xx1, bcA(xx1, m = 2.69), col = CBCols[2], lwd = graphlinewidth)
-lines(xx1, mOffer(xx1, int = 3.71, slope = 1.7), col = CBCols[3], lwd = graphlinewidth)
+lines(xx2, mOffer(xx2, int = 3.71, slope = 1.7), col = CBCols[3], lwd = graphlinewidth)
 
 #Label Axes
 text(0.5*xlims[2], -0.4, expression(paste("Quantity of inferior good, ", x)), xpd = TRUE, cex = axislabelsize) 
@@ -82,8 +82,8 @@ text(2.8, 1.05, expression(bc[m1]), cex = labelsize)
 text(2.8, 1.45, expression(bc[m2]), cex = labelsize)
 text(2.8, 1.9, expression(bc[m3]), cex = labelsize)
 
-text(2.4, 0.38, expression(paste("Income-offer")), cex = labelsize)
-text(2.4, 0.23, expression(paste("curve")), cex = labelsize)
+text(2, 0.6, expression(paste("Income-offer")), cex = labelsize)
+text(2, 0.4, expression(paste("curve")), cex = labelsize)
 
 
 segments(0.7, 0, 0.7, 2.52, lty = 2, col = grays[20], lwd = segmentlinewidth)

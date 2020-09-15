@@ -130,7 +130,7 @@ text(3.7, 1, expression(paste(s == Delta[c] - Delta[d])), cex = labelsize, xpd =
 
 
 text(14, 17.2, expression(paste("Insurance")), cex = labelsize, xpd = TRUE)
-text(14, 16.5, expression(paste("contract")), cex = labelsize, xpd = TRUE)
+text(14, 16.5, expression(paste("line")), cex = labelsize, xpd = TRUE)
 text(14, 15.8, expression(paste("slope", phantom()==p[s])), cex = labelsize, xpd = TRUE)
 
 #Label risk return schedule

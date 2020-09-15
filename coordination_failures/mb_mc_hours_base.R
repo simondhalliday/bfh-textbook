@@ -134,9 +134,9 @@ text(15 + 0.5, output(ea = 15, eb = 0) - 6, expression(paste(s)), cex = annotate
 #text(28, 420, expression(paste(x^A*bgroup("(",list(h^A, h^B == 0),")") ) ), cex = annotatesize)
 text(27.5, 420, expression(paste("A's production") ), cex = annotatesize)
 text(27.5, 390, expression(paste("function") ), cex = annotatesize)
-text(27.5, 360, expression(paste(x^A*(list(h^A, h^B == 0)) ) ), cex = annotatesize)
-text(27.5, 330, expression(paste("defines feasible") ), cex = annotatesize)
-text(27.5, 300, expression(paste("consumption, ", y^A) ), cex = annotatesize, xpd = TRUE)
+#text(27.5, 360, expression(paste(x^A*(list(h^A, h^B == 0)) ) ), cex = annotatesize)
+#text(27.5, 330, expression(paste("defines feasible") ), cex = annotatesize)
+#text(27.5, 300, expression(paste("consumption, ", y^A) ), cex = annotatesize, xpd = TRUE)
 
 # text(19.8, 260, expression(paste(y(h^A, h^B >0))), cex = annotatesize)
 

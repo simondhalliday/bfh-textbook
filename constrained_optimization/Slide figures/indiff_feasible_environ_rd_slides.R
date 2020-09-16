@@ -68,8 +68,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksx <- c(xlims[1], 7.07, NA, 14.14214, xlims[2])
 xlabels <- c(NA, expression(paste(x[b])), NA, expression(paste(bar(x))), NA)
-ticksy <- c(ylims[1], ppf(x = 7.07), NA, ylims[2])
-ylabels <- c(NA, expression(paste(y[b])), expression(paste(bar(y))), NA)
+ticksy <- c(ylims[1], NA, 100, ylims[2])
+ylabels <- c(NA, NA, expression(paste(bar(y))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

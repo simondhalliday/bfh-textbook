@@ -106,7 +106,12 @@ text(7.2, 1.6, expression(u[2]^F), cex = labelsize)
 text(7.2, 0.75, expression(u[1]^F), cex = labelsize)
 
 #Label points A and B
-text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(a), cex = labelsize)
+text(3.4 - 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) -0.2, expression(a), cex = labelsize)
+Arrows(4.7, budgetExchange(3.4,  yintercept = 10, slope = 1.5),
+       3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 
+       col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(6, budgetExchange(3.4,  yintercept = 10, slope = 1.5), expression(paste(mrs == mrt, " (exchange)")), cex = labelsize)
 points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 points(2.5,3.75, pch = 16, col = "black", cex = 1.5)
 text(2.7, 3.95, expression(b), cex = labelsize)

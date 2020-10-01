@@ -3,7 +3,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "specprodexch/ppf_eos_indiff.pdf", width = 8, height = 8)
+pdf(file = "specprodexch/ppf_eos_indiff_initial.pdf", width = 8, height = 8)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -59,7 +59,7 @@ ylims <- c(0, 10.5)
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
-a <- c(1.8, 2.73, 4.1)
+a <- c(1.8, 2.73)
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xlab = expression(paste("")),
@@ -76,10 +76,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ylabels <- seq(from = 0, to = ylims[2], by = 1)
 # ticksx <- seq(from = 0, to = xlims[2], by = 1)
 # xlabels <- seq(from = 0, to = xlims[2], by = 1)
-ticksy <- c(ylims[1], 4.5, 4.9, 10, ylims[2])
-ylabels <- c(NA, expression(paste(y[d]) == 4.5), expression(paste(y[e]) == 4.9),expression(paste(bar(y)==10, phantom() == y[s])), NA)
-ticksx <- c(xlims[1], 1.65, 3.4, 5, 6.67, xlims[2])
-xlabels <- c(expression(paste(x[s] == 0)), expression(paste(x[d]) == 1.65), expression(paste(x[e])==3.4), expression(paste(bar(x)==5)), 6.67, NA)
+ticksy <- c(ylims[1], 4.5, 10, ylims[2])
+ylabels <- c(NA, expression(paste(y[d]) == 4.5), expression(paste(bar(y)==10)), NA)
+ticksx <- c(xlims[1], 1.65,  5, xlims[2])
+xlabels <- c(0, expression(paste(x[d]) == 1.65),  expression(paste(bar(x)==5)), NA)
 
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -92,20 +92,13 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
-xpoly2 <- c(0, 10/1.5, 0, 0)
-ypoly2 <- c(0, 0, 10, 0)
-polygon(x = xpoly2, y = ypoly2, col=COLA[1], density=NULL, border = NA)
-
-
 xpoly1 <- seq(from = 0, to = 5, length.out = 500)
 ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
-polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col="#f7fcf0", density=NULL, border = NA)
-
-
+polygon(x = c(xpoly1, rev(xpoly1[1])), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 
 #Draw the graphs
 lines(xx1, ppf(xx1, k = 10/25, alpha = 2, maxfish = 5), col = CBCols[1], lwd = graphlinewidth)
-lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = CBCols[3], lwd = graphlinewidth)
+#lines(xx2, budgetExchange(xx2,  yintercept = 10, slope = 1.5), col = COL[3], lwd = graphlinewidth)
 #lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)
 
@@ -125,9 +118,9 @@ contour(x, y,
         add = TRUE)
 
 #Label the indifference curves
-text(6.7, 0.77, expression(u[1]^A), cex = labelsize)
-text(6.7, 1.41, expression(u[2]^A), cex = labelsize)
-text(6.7, 2.8, expression(u[3]^A), cex = labelsize)
+text(6, 0.82, expression(u[1]^A), cex = labelsize)
+text(6, 1.55, expression(u[2]^A), cex = labelsize)
+#text(7.2, 2.6, expression(u[3]^A), cex = labelsize)
 
 #Label point d
 text(1.65 - 0.2, ppf(fish = 1.65) -0.2, expression(d), cex = labelsize)
@@ -135,19 +128,18 @@ segments(1.65, 0, 1.65, ppf(fish = 1.65), lty = 2, col = grays[20], lwd = segmen
 segments(0, ppf(fish = 1.65), 1.65, ppf(fish = 1.65, k = 10/25, alpha = 2, maxfish = 5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1.65, ppf(fish = 1.65), pch = 16, col = "black", cex = 1.5)
 
+#points(5, ppf(fish = 5), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+
 #Label point e
-text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(e), cex = labelsize)
-segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
+# text(3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) +.2, expression(e), cex = labelsize)
+# segments(3.4, 0, 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+# points(3.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), pch = 16, col = "black", cex = 1.5)
 
 #Label point s
-text(0.2, 10.2, expression(s), cex = labelsize)
-points(0.02, 10, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
+# text(0.2, 10.2, expression(s), cex = labelsize)
+# points(0.02, 10, pch = 16, col = "black", cex = 1.5)
 
-#Label point c
-text(5 + 0.1, ppf(fish = 5) + 0.2, expression(c), cex = labelsize)
-points(5, ppf(fish = 5), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 #Label the feasible frontier
 # text(4.5, 7.8, expression("Feasible Frontier"), cex = labelsize)
 # text(4.5, 7.4, expression("(production possibilities frontier)"), cex = labelsize)
@@ -155,16 +147,14 @@ points(5, ppf(fish = 5), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 
 
 #Label the exchange constraint
-text(4.6, 8.7, expression("Feasible frontier when"), cex = labelsize)
-text(4.6, 8.3, expression("specializing in shirts"), cex = labelsize)
-text(4.6, 7.9, expression("and exchanging them for fish"), cex = labelsize)
-Arrows(3, 8.3, 1.3, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(4.6, 8.5, expression("Feasible frontier when"), cex = labelsize)
+# text(4.6, 8.1, expression("specializing in shirts"), cex = labelsize)
+# Arrows(3.2, 8.3, 1.3, 8.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label mrt = mrs
-text(5.75, budgetExchange(3.4,  yintercept = 10, slope = 1.5), expression(paste(mrs == mrt, " (exchange)")), cex = labelsize, xpd = TRUE)
-#text(6.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5) - 0.25, expression(paste(), cex = labelsize - 0.2, xpd = TRUE)
-Arrows(4.4, budgetExchange(3.4,  yintercept = 10, slope = 1.5), 
-       3.4 + 0.2, budgetExchange(3.4,  yintercept = 10, slope = 1.5), col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4.5, 4.5, expression(paste(mrs == mrt)), cex = labelsize)
+text(5.9, 4.5, expression(paste("(production)")), cex = labelsize)
+Arrows(3.8, 4.5, 1.9, 4.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.825, 1, expression("Feasible"), cex = labelsize)
 text(0.825, 0.6, expression("outputs"), cex = labelsize)

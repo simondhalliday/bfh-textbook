@@ -76,8 +76,8 @@ text(11.4, 1, expression(paste(c[3])),cex = labelsize)
 
 
 #Add mrs = mrt at i
-text(7, 10.25, expression(paste("Marginal rate of transformation:")), cex = labelsize)
-text(7, 9.25, expression(paste(mrt(l,k)== frac(w,p[k]))), cex = labelsize)
+text(7, 10.25, expression(paste("Marginal rate of substitution")), cex = labelsize)
+text(7, 9.25, expression(paste(mrs(l,k)== frac(w,p[k]))), cex = labelsize)
 Arrows(7, 8.5, 7, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

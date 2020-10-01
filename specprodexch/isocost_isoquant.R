@@ -126,7 +126,7 @@ points(5, 5, pch = 16, col = "black", cex = 1.5)
 text(5.25, 5.25, expression(paste(b)), cex = labelsize)
 
 #Add mrs = mrt at i
-text(5, 10.25, expression(paste(mrts(l,k) == mrt(l,k))), cex = labelsize)
+text(5, 10.25, expression(paste(mrts(l,k) == mrs(l,k))), cex = labelsize)
 text(5, 9.25, expression(paste(frac(mp[l], mp[k]) == frac(w,p[k]))), cex = labelsize)
 Arrows(5, 8.5, 5, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 

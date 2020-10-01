@@ -21,7 +21,7 @@ grays <- gray.colors(25, start = 1, end = 0)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 8, 1, 0.5))
+par(mar =  c(4, 8, 4, 0.5))
 
 #Change this to make it log of l 
 
@@ -114,9 +114,13 @@ text(0.95, 7.3, expression("frontier"), cex = labelsize)
 #Arrows(3.35, 0.95, 7.7, 0.95, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the exchange constraint
-text(8.5, 6.5, expression("Price line"), cex = labelsize)
-text(8.5, 6.1, expression("(feasible frontier)"), cex = labelsize)
-Arrows(8.5, 6, 8.5, 1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+# text(8.5, 6.5, expression("Price line"), cex = labelsize)
+# text(8.5, 6.1, expression("(feasible frontier)"), cex = labelsize)
+# Arrows(8.5, 6, 8.5, 1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+text(4, 11, expression("Price line"), cex = labelsize, xpd = TRUE)
+text(4, 10.6, expression("(feasible frontier with"), cex = labelsize, xpd = TRUE)
+text(4, 10.2, expression("production at s and exchange)"), cex = labelsize, xpd = TRUE)
+#Arrows(8.5, 6, 8.5, 1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 contour(x, y, 
@@ -146,6 +150,17 @@ segments(0, ppf2(x = 7.15), 7.15, ppf2(x = 7.15), lty = 2, col = grays[20], lwd 
 segments(7.15, 0, 7.15, ppf2(x = 7.15), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(7.15, ppf2(x = 7.15), pch = 16, col = "black", cex = 1.5)
 
+#Add mrt = mrt at s
+text(7.15 - 0.5, 7 + 0.6, expression(paste(mrt)), cex = labelsize)
+text(7.15 + 0.7, 7 + 0.6, expression(paste(phantom() == phantom())), cex = labelsize)
+text(7.15 + 1.8, 7 + 0.6, expression(paste(mrt)), cex = labelsize)
+text(7.15 - 0.5, 7 + 0.25, expression(paste("(production)")), cex = labelsize - 0.2)
+text(7.15 + 1.8, 7 + 0.25, expression(paste("(exchange)")), cex = labelsize - 0.2)
+Arrows(7.15, 7, 
+       7.15, ppf2(x = 7.15) + 0.3, 
+       col = "black", lty = 1, lwd = 2, 
+       arr.type = "triangle", arr.lwd = 0.5)
+
 #Point of tangency between exchange budget and indiff curve 3
 text(4.7, bcA(x = 4.5, w = 18, p = 2) +.2, expression(e), cex = labelsize)
 segments(0, bcA(x = 4.5, w = 18, p = 2), 4.5, bcA(x = 4.5, w = 18, p = 2), lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -153,13 +168,18 @@ segments(4.5, 0, 4.5, bcA(x = 4.5, w = 18, p = 2), lty = 2, col = grays[20], lwd
 points(4.5, bcA(x = 4.5, w = 18, p = 2), pch = 16, col = "black", cex = 1.5)
 
 
-#Add mrs = mrt at i
-text(6.8, 8.25, expression(paste(mrs(x,y) == mrt(x,y))), cex = labelsize)
-Arrows(5.65, 8, 5.65, 5.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+#Add mrs = mrt at e
+text(7.7, bcA(x = 4.5, w = 18, p = 2), expression(paste(mrs == mrt, " (exchange)")), cex = labelsize)
+#text(6.8, bcA(x = 4.5, w = 18, p = 2) - 0.2, expression(paste("(exchange)")), cex = labelsize)
+Arrows(5.8, bcA(x = 4.5, w = 18, p = 2), 
+       4.8, bcA(x = 4.5, w = 18, p = 2), 
+       col = "black", lty = 1, lwd = 2, 
+       arr.type = "triangle", arr.lwd = 0.5)
+
 
 #Label the indifference curves
 text(9.5, 1.25, expression(u[1]^A), cex = labelsize)
 text(9.5, 3.05, expression(u[2]^A), cex = labelsize)
-text(9.5, 4, expression(u[3]^A), cex = labelsize)
+text(9.5, 3.9, expression(u[3]^A), cex = labelsize)
 
 dev.off()

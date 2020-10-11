@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "public_mechanism/landlord_rc.pdf", width = 9, height = 7)
+pdf(file = "public_mechanism/landlord_rc_renterworseoff.pdf", width = 9, height = 7)
 
 # Set parameters for graphics
 axislabelsize <- 1.8
@@ -26,7 +26,7 @@ Demand <- function(x, c2 = 3667, m = 10/3) {
   c2 - m*x
 }
 
-Supply <- function(x, c1 = 334, m = 10/3){
+Supply <- function(x, c1 = 3500/3, m = 5/3){
   c1 + m*x
 }
 
@@ -52,7 +52,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(0, 1500, 2000, ylims[2])
 ylabels <- c(NA, expression(paste(p[R])), expression(paste(p[B])), NA)
-ticksx <- c(0, 350, 500, 650, xlims[2])
+ticksx <- c(0, 200, 500, 650, xlims[2])
 xlabels <- c(NA, expression(paste(X[R])), expression(paste(X[B])), expression(paste(X[E])), NA)
 
 
@@ -60,27 +60,27 @@ npts <- 500
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Draw the polygon for landlord surplus
-xpoly1 <- c(0, 350, 0, 0)
+xpoly1 <- c(0, 200, 0, 0)
 ypoly1 <- c(Supply(x = 0), 1500, 1500, 1500)
 polygon(x = xpoly1, y = ypoly1, col=COLB[1], density=NULL, border = NA)
 
 #Draw the polygon for renter surplus
-xpoly2 <- c(0, 350, 350, 0)
-ypoly2 <- c(2000, 2000, Demand(x = 350), Demand(x = 0))
+xpoly2 <- c(0, 200, 200, 0)
+ypoly2 <- c(2000, 2000, Demand(x = 200), Demand(x = 0))
 polygon(x = xpoly2, y = ypoly2, col=COLA[1], density=NULL, border = NA)
 
 #Draw the polygon for renter loss
-xpoly3 <- c(350, 350, 500)
-ypoly3 <- c( 2000, Demand(x = 350), 2000)
+xpoly3 <- c(200, 200, 500)
+ypoly3 <- c( 2000, Demand(x = 200), 2000)
 polygon(x = xpoly3, y = ypoly3, col=COLA[2], density=NULL, border = NA)
 
 #Draw the polygon for LL loss
-xpoly4 <- c(350, 350, 500)
+xpoly4 <- c(200, 200, 500)
 ypoly4 <- c(1500, 2000, 2000)
 polygon(x = xpoly4, y = ypoly4, col=COLB[2], density=NULL, border = NA)
 
 # Draw now renters surplus
-xpoly5 <- c(0, 0, 350, 350)
+xpoly5 <- c(0, 0, 200, 200)
 ypoly5 <- c(2000, 1500, 1500, 2000)
 polygon(x = xpoly5, y = ypoly5, col= "#f1eef6", density=NULL, border = NA)
 
@@ -94,7 +94,7 @@ lines(xx1, Supply(xx1), col = COLB[4], lwd = graphlinewidth)
 
 # Segments
 segments(500, 0, 500, 2000, lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(350, 0, 350, Demand(x = 350), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(200, 0, 200, Demand(x = 200), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(650, 0, 650, Demand(x = 650), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, 2000, xlims[2], 2000, lty = 2, grays[20] , lwd = segmentlinewidth)
 segments(0, 1500, xlims[2], 1500, lty = 2, grays[20] , lwd = segmentlinewidth)
@@ -111,16 +111,16 @@ text(1050, 2100, expression("Price before control"), cex = labelsize)
 text(1050, 1400, expression(paste("Rent control price")), cex = labelsize)
 
 
-text(100, 2500, expression(paste("A")), xpd = TRUE, cex = labelsize)
-text(100, 1000, expression(paste("B")), xpd = TRUE, cex = labelsize)
-text(100, 1750, expression(paste("C")), xpd = TRUE, cex = labelsize)
-text(380, 2200, expression(paste("D")), xpd = TRUE, cex = labelsize)
-text(380, 1750, expression(paste("E")), xpd = TRUE, cex = labelsize)
+text(75, 2500, expression(paste("A")), xpd = TRUE, cex = labelsize)
+text(75, 1400, expression(paste("B")), xpd = TRUE, cex = labelsize)
+text(75, 1750, expression(paste("C")), xpd = TRUE, cex = labelsize)
+text(250, 2200, expression(paste("D")), xpd = TRUE, cex = labelsize)
+text(250, 1750, expression(paste("E")), xpd = TRUE, cex = labelsize)
 
 
 
 text(1150, 200, expression("Demand"), cex = labelsize)
-text(1150, 3800, expression("Supply"), cex = labelsize)
+text(1150, 3400, expression("Supply"), cex = labelsize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

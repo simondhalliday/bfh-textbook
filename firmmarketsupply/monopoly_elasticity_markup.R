@@ -109,8 +109,15 @@ text(11.5, 4, expression(paste(mc == c, phantom() == pi[0])), cex = annotatesize
 text(11.7, 2.2, expression(paste("Initial")), cex = annotatesize)
 text(11.7, 1.4, expression(paste("demand")), cex = annotatesize)
 
-text(7.2, 2.4, expression(paste("Less elastic")), cex = annotatesize)
-text(7.2, 1.4, expression(paste("demand ", beta[g]^m > beta[h]^m)), cex = annotatesize)
+text(6.8, 2.4, expression(paste("Less elastic")), cex = annotatesize)
+text(6.8, 1.4, expression(paste("demand ")), cex = annotatesize)
+
+#text(4, 14, expression(paste("Less elastic")), cex = annotatesize)
+#text(4, 13, expression(paste("demand ")), cex = annotatesize)
+
+
+#text(4.5, 18.5, expression(paste("Less elastic demand")), cex = annotatesize, xpd = TRUE)
+#Arrows(2.5, 18.5, 1.6, 18.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #text(6.7, 2.2, expression(paste(mr(x) == bar(p) - 2*beta*x)), cex = labelsize)
 

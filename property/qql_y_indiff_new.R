@@ -37,6 +37,10 @@ bcA <- function(x, w = 20, p = 2) {
   w - p*x
 }
 
+tangentLine <- function(m, x, b){
+  -m*x + b
+}
+
 
 xlims <- c(0, 16)
 ylims <- c(0, 400)
@@ -133,19 +137,19 @@ slopeline <- function(x, yint, slope = 1.5){
 
 
 # slopex1 <- seq(0.5,3.5,length.out = 200)
-# lines(slopex1, slopeline(slopex1, yint = a[1] - 5, slope = mrsA(x = 2)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+#lines(slopex1, slopeline(slopex1, yint = a[1] - 5, slope = mrsA(x = 2)), col = grays[22], lty = 2, lwd = graphlinewidth)
 # lines(slopex1, slopeline(slopex1, yint = a[2] - 5, slope = mrsA(x = 2)), col = Grays[21], lty = 2, lwd = graphlinewidth)
 # lines(slopex1, slopeline(slopex1, yint = a[3] - 5, slope = mrsA(x = 2)), col = Grays[21], lty = 2, lwd = graphlinewidth)
 
 slopex1 <- seq(6.5,10.5,length.out = 200)
-lines(slopex1, slopeline(slopex1, yint = a[1] - 65, slope = mrsA(x = 8)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex1, slopeline(slopex1, yint = a[1] - 65, slope = mrsA(x = 8)), col = grays[21], lty = 2, lwd = graphlinewidth)
 
 slopex2 <- seq(6,10,length.out = 200)
-lines(slopex2, slopeline(slopex2, yint = a[2] - 65, slope = mrsA(x = 8)), col = Grays[21], lty = 2, lwd = graphlinewidth)
-lines(slopex2, slopeline(slopex2, yint = a[3] - 65, slope = mrsA(x = 8)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex2, slopeline(slopex2, yint = a[2] - 65, slope = mrsA(x = 8)), col = grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex2, slopeline(slopex2, yint = a[3] - 65, slope = mrsA(x = 8)), col = grays[21], lty = 2, lwd = graphlinewidth)
 
 slopex3 <- seq(1.5,5.5,length.out = 200)
-lines(slopex3, slopeline(slopex3, yint = a[1] - 16, slope = mrsA(x = 4)), col = Grays[21], lty = 2, lwd = graphlinewidth)
+lines(slopex3, slopeline(slopex3, yint = a[1] - 16, slope = mrsA(x = 4)), col = grays[21], lty = 2, lwd = graphlinewidth)
 
 # firstpointsx <- c(2, 2, 2)
 # firstpointsy <- c(indiffA(x = firstpointsx[1], uA = a[1]), indiffA(x = firstpointsx[2], uA = a[2]), indiffA(x = firstpointsx[3], uA = a[3]))
@@ -160,6 +164,9 @@ text(secondpointsx, secondpointsy + 15, c("f", "g", "h"), xpd = TRUE, cex = anno
 #Point at same height, but different x as 8
 points(4, indiffA(x = secondpointsx[2], uA = a[2]), pch = 16, col = "black", cex = 1.5)
 text(4, indiffA(x = secondpointsx[2], uA = a[2]) + 15, expression(e), xpd = TRUE, cex = annotatesize) 
+
+#tangent lines
+#lines(slopex1, tangentLine(x = slopex1, m = 0.025, b = 0.17), col = grays[22], lty = 2, lwd = graphlinewidth)
 
 
 dev.off()

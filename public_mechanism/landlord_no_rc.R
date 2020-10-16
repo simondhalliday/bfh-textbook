@@ -123,8 +123,10 @@ mtext(expression(paste("Number of housing units, ", X, " (thousands)")), side=1,
 text(-180, 0.5*ylims[2], expression(paste("Rental price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Labels
-text(125, 1500, expression(paste("Landlords'")), xpd = TRUE, cex = labelsize)
-text(125, 1300, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
+text(125, 1650, expression(paste("Landlords'")), xpd = TRUE, cex = labelsize)
+text(125, 1450, expression(paste("Economic")), xpd = TRUE, cex = labelsize)
+text(125, 1250, expression(paste("Profit")), xpd = TRUE, cex = labelsize)
+
 text(125, 2600, expression(paste("Renters'")), xpd = TRUE, cex = labelsize) 
 text(125, 2400, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
 

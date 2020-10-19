@@ -15,7 +15,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 7, 1, 1))
 
 
 # Demand <- function(x, rmax = 20, xmax = 12, n = 8) {
@@ -50,11 +50,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, 1500, 2000, ylims[2])
-ylabels <- c(NA, expression(paste(p[R])), expression(paste(p[B])), NA)
+ticksy <- c(0, 334, 1500, 2000, 3667, ylims[2])
+ylabels <- c(NA, 334, 1500, 2000, 3667, NA)
 ticksx <- c(0, 350, 500, 650, xlims[2])
-xlabels <- c(NA, expression(paste(X[R])), expression(paste(X[B])), expression(paste(X[E])), NA)
+xlabels <- c(NA, NA, expression(paste(X[B] == 500)), NA, NA)
 
+text(320, -170, expression(paste(X[R] == 350)), cex = labelsize, xpd = TRUE)
+text(680, -170, expression(paste(X[E] == 650)), cex = labelsize, xpd = TRUE)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -104,11 +106,11 @@ points(500, 2000, pch = 16, col = "black", cex = 1.5)
 
 #Label axes
 mtext(expression(paste("Number of housing units, ", X, " (thousands)")), side=1, line = 2.5, cex = axislabelsize)
-text(-120, 0.5*ylims[2], expression(paste("Rental price per unit of housing, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-180, 0.5*ylims[2], expression(paste("Rental price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
-text(1050, 2100, expression("Price before control"), cex = labelsize)
-text(1050, 1400, expression(paste("Rent control price")), cex = labelsize)
+text(1025, 2100, expression(paste("Price before control, ", p[B])), cex = labelsize, xpd = TRUE)
+text(1025, 1400, expression(paste("Rent control price, ", p[R])), cex = labelsize)
 
 
 text(100, 2500, expression(paste("A")), xpd = TRUE, cex = labelsize)

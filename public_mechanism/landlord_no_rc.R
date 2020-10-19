@@ -15,7 +15,7 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3", "#54278f", "#3f007d")
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-par(mar =  c(5, 5, 1, 1))
+par(mar =  c(5, 7, 1, 1))
 
 # Demand <- function(x, rmax = 20, xmax = 12, n = 8) {
 #   rmax - (rmax/(n*xmax))*x
@@ -65,10 +65,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 
-ticksy <- c(0, 2000, ylims[2])
-ylabels <- c(NA, expression(paste(p[B])), NA)
-ticksx <- c(0, 500, xlims[2])
-xlabels <- c(NA, expression(paste(X[B])), NA)
+ticksy <- c(0, 334, 2000, 3667, ylims[2])
+ylabels <- c(NA, 334, 2000, 3667, NA)
+ticksx <- c(0, 500, 1100.1, xlims[2])
+xlabels <- c(NA, expression(paste(X[B]) == 500), 1100.1, NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -120,16 +120,20 @@ text(500, 2200, expression(paste(B)), xpd = TRUE, cex = labelsize)
 
 #Label axes
 mtext(expression(paste("Number of housing units, ", X, " (thousands)")), side=1, line = 2.5, cex = axislabelsize)
-text(-120, 0.5*ylims[2], expression(paste("Rental price per unit of housing, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-180, 0.5*ylims[2], expression(paste("Rental price, ", p)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # Labels
-text(125, 1500, expression(paste("Landlords'")), xpd = TRUE, cex = labelsize)
-text(125, 1300, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
+text(125, 1650, expression(paste("Landlords'")), xpd = TRUE, cex = labelsize)
+text(125, 1450, expression(paste("Economic")), xpd = TRUE, cex = labelsize)
+text(125, 1250, expression(paste("Profit")), xpd = TRUE, cex = labelsize)
+
 text(125, 2600, expression(paste("Renters'")), xpd = TRUE, cex = labelsize) 
 text(125, 2400, expression(paste("surplus")), xpd = TRUE, cex = labelsize)
 
 #text(100, 10.25, expression("Price, Before"), cex = labelsize)
 #text(100, 5.5, expression(paste("Rent Control Price")), cex = labelsize)
+text(1025, 2100, expression(paste("Price before control, ", p[B])), cex = labelsize)
+
 
 text(1150, 200, expression("Demand"), cex = labelsize)
 text(1150, 3800, expression("Supply"), cex = labelsize)

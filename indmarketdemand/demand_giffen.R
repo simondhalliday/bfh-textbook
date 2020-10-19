@@ -69,7 +69,7 @@ text(-1, 0.5*ylims[2], expression(paste("Price per unit, $, ", p)), xpd = TRUE, 
 
 # text labels
 #text(9, 5.9, expression(paste(b)), cex = labelsize)
-text(3, 7.5, expression(paste("Giffen demand")), cex = annotatesize)
+text(5.75, 2.5, expression(paste("Giffen demand")), cex = annotatesize)
 
 
 brackets(9.2, 10, 9.2, 4.1,  h = 1,  ticks = 0.5, curvature = 0.5, type = 1,

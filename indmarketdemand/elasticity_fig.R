@@ -2,6 +2,7 @@ require(shape)
 require(plotrix)
 require(ggplot2)
 pdf(file = "indmarketdemand/elasticity_fig.pdf", width = 9, height = 7)
+#jpeg(file = "indmarketdemand/elasticity_fig.jpg", width = 640, height = 480, units = "px",)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -27,7 +28,7 @@ elasticity1 <- function(x, A = 5, b = 1) {
 }
 
 plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
-     xlab = "Quantity of the good, X",
+     xlab = "Quantity of the good, x",
      ylab = "Price per unit of x, p", 
      xaxt = "n", 
      yaxt = "n", 

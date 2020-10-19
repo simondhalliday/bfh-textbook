@@ -19,7 +19,7 @@ COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 1, 1))
 
 uFn <- function(x, y, alpha = 0.7){
   (x^alpha)*(y^(1 - alpha))

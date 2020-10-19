@@ -17,8 +17,8 @@ COLB <- c("#c6dbef", "#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 par(mar =  c(5, 5, 1, 1))
 
-xlims <- c(0, 12)
-ylims <- c(0, 12)
+xlims <- c(0, 10)
+ylims <- c(0, 10)
 
 npts <- 501 
 
@@ -55,7 +55,7 @@ segments(6, 6, 6, ylims[2], lty = 1, col = COLA[4],  lwd = graphlinewidth)
 
 
 mtext(expression(paste("Hours of labor, ", l)), side=1, line = 3, cex = axislabelsize)
-text(-1.7, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Quantity of capital goods, ", k)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 # points(4, 6, pch = 16, col = "black", cex = 1.5)
 text(11, 2.3, expression(paste(underline(x)[1])), cex = labelsize)

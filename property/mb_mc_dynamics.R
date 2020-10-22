@@ -116,7 +116,7 @@ segments(12, 0, 12, 12, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 
 # text(4.2, 29.5, expression(paste("when, ", h^B == 0 )), cex = labelsize, xpd = TRUE)
 
 text(4.7, 24, expression(paste("Marginal benefit ")), cex = labelsize, xpd = TRUE)
-text(4.7, 22.5, expression(paste("when, ", h^B == 12 )), cex = labelsize)
+text(4.7, 22.5, expression(paste("when ", h^B == 12 )), cex = labelsize)
 
 
 text(20, 24, expression(paste("Marginal disutility")), cex = labelsize, xpd = TRUE)

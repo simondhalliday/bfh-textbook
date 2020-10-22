@@ -189,12 +189,12 @@ text(0.36, 0.66, expression(paste(hat(y)(b))), cex = labelsize)
 
 text(0.46, 0.33, expression(paste("Lender's" )), cex = labelsize)
 text(0.46, 0.25, expression(paste("expected" )), cex = labelsize)
-text(0.46, 0.17, expression(paste("profits" )), cex = labelsize)
-text(0.46, 0.09, expression(paste(hat(pi)(b))), cex = labelsize)
+text(0.46, 0.17, expression(paste("economic")), cex = labelsize)
+text(0.46, 0.08, expression(paste("profits, ", hat(pi)(b))), cex = labelsize)
 
 
-text(0.5, 1.48, expression(paste("Total" )), cex = labelsize)
-text(0.5, 1.41, expression(paste("rents" )), cex = labelsize)
-text(0.5, 1.32, expression(paste(hat(y) + hat(pi))), cex = labelsize)
+#text(0.5, 1.51, expression(paste("Total" )), cex = labelsize)
+text(0.5, 1.45, expression(paste("Total rents" )), cex = labelsize)
+text(0.5, 1.35, expression(paste(hat(y)*(b) + hat(pi)*(b) )), cex = labelsize)
 
 dev.off()

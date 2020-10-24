@@ -112,23 +112,29 @@ segments(0, isoquant(l = 2.68) , 2.68, isoquant(l = 2.68), lty = 2, col = grays[
 points(2.68, isoquant(l = 2.68), pch = 16, col = "black", cex = 1.5)
 text(2.68 + 0.25, isoquant(l = 2.68) + 0.25, expression(paste(a)), cex = labelsize)
 
-#Label b
+#Label d
 segments(9.35, 0, 9.35, isoquant(9.35), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(0, isoquant(l = 9.35) , 9.35, isoquant(l = 9.35), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(9.35, isoquant(l = 9.35), pch = 16, col = "black", cex = 1.5)
 text(9.35 + 0.25, isoquant(l = 9.35) + 0.25, expression(paste(d)), cex = labelsize)
 
 
-#Label i
+#Label b
 segments(0, 5, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(5, 0, 5, 5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(5, 5, pch = 16, col = "black", cex = 1.5)
 text(5.25, 5.25, expression(paste(b)), cex = labelsize)
 
 #Add mrs = mrt at i
-text(5, 10.25, expression(paste(mrts(l,k) == mrs(l,k))), cex = labelsize)
+text(5, 10.25, expression(paste(mrts == mrs)), cex = labelsize)
 text(5, 9.25, expression(paste(frac(mp[l], mp[k]) == frac(w,p[k]))), cex = labelsize)
-Arrows(5, 8.5, 5, 5.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(5, 8.5, 5, 5.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
+#Add mrs > mrt at d
+text(9.35, 7.75, expression(paste(mrts < mrs)), cex = labelsize)
+text(9.35, 6.75, expression(paste(frac(mp[l], mp[k]) < frac(w,p[k]))), cex = labelsize)
+Arrows(9.35, 6, 9.35, 3.1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 
 #text(9, 5.9, expression(paste(b)), cex = labelsize)

@@ -30,7 +30,7 @@ Uber_elasticity_data <- tibble(City, Elasticity)
 #Uber_elasticity_data <- as.data.frame(Uber_elasticity_mat)
 
 pdf(file = "indmarketdemand/uber_price_elasticities_bars.pdf", width = 9, height = 5)
-
+#jpeg(file = "indmarketdemand/uber_price_elasticities_bars.jpg", width = 860, height = 480)
 plot2 <- Uber_elasticity_data %>% 
   ggplot(aes(x = City, y = Elasticity)) + 
   geom_bar(stat = "identity", colour="#CD2825", fill = "#CD2825", width = 0.6) + 
@@ -42,7 +42,7 @@ plot2 <- Uber_elasticity_data %>%
   xlab("") +
   theme_bw() + 
   theme(axis.title = element_text(size = 28),
-        axis.text.y = element_text(size = 24),
+        axis.text.y = element_text(size = 28),
         axis.text.x = element_text(size = 24),
         panel.grid.minor = element_blank()
   ) + 

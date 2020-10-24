@@ -17,7 +17,7 @@ p2fadelevel <- 0.2
 #Payoffs are listed as c("NW", "SW", "NE", "SE")
 
 #Considerations for Player 1
-P1Name <- c("Aram")
+P1Name <- c("Abdul")
 P1Strat <- c("10 hours", "12 hours")
 P1Payoffs <- c("a", "b", "d", "c")
 P1BR1 <- c("SW") #Must be NW or SW - the BR prints accordingly. 
@@ -26,7 +26,7 @@ P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 #NW = (5, 3); SW = (5,1); NE = (7, 3); SE = (7, 1)
 
 #Considerations for Player 2
-P2Name <- c("Bina")
+P2Name <- c("Bridget")
 P2Strat <- c("10 hours", "12 hours")
 P2Payoffs <- c("a", "d", "b", "c")
 P2BR1 <- c("NE") #Must be NW or SW - the BR prints accordingly. 

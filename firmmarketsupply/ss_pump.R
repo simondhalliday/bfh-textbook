@@ -1,6 +1,6 @@
 #require(shape)
 pdf(file = "firmmarketsupply/ss_pump.pdf", width = 9, height = 7)
-par(mar =  c(5, 6, 1, 1))
+par(mar =  c(5, 8, 1, 1))
 #Set parameters for graphics
 
 # I tried to get three points that I could roughly read off of the graph (with error, because it's hard to tell exactly). 
@@ -15,8 +15,8 @@ par(mar =  c(5, 6, 1, 1))
 
 #Changed for marginnote
 pointsize <- 1.8
-axislabelsize <- 2.2
-labelsize <- 2
+axislabelsize <- 2.4
+labelsize <- 2.2
 namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
@@ -81,8 +81,8 @@ lines(xx1, cost(), col = CBCols[1], lwd = graphlinewidth)
 #text(3.5, 18, expression(paste("Stainless steel")), cex = labelsize)
 #text(3.5, 17, expression(paste("gear pump")), cex = labelsize)
 
-text(26.5, cost(26.5) + 60, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
-text(26.5, cost(26.5) + 25, expression(paste(ac(x))), cex = labelsize, xpd = TRUE)
+text(26, cost(26.5) + 65, expression(paste("Average cost")), cex = labelsize, xpd = TRUE)
+text(26, cost(26.5) + 25, expression(paste(ac(x))), cex = labelsize, xpd = TRUE)
 
 # Point
 points <- c(3, 10, 20)
@@ -106,7 +106,7 @@ text(points[3] + 0.5, cost(points[3]) + 15, expression(g), cex = labelsize)
 # Label x,y axis
 #mtext(expression(paste("Capacity, gallons per minute")), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -70,  expression(paste("Capacity, gallons per minute")), xpd = TRUE, cex = axislabelsize) 
-text(-4, 0.5*ylims[2], expression(paste("Pump cost per gallons per minute, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
+text(-5.7, 0.5*ylims[2], expression(paste("Pump cost per")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4.2, 0.5*ylims[2], expression(paste("gallons per minute, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 dev.off()

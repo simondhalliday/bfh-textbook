@@ -4,7 +4,7 @@
 
 library(shape)
 
-pdf(file = "public_mechanism/govt_markt_civ.pdf", width = 9, height = 6)
+pdf(file = "public_mechanism/govt_markt_civ_empty.pdf", width = 9, height = 6)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -23,7 +23,7 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(0, 2, 0, 2))
+par(mar =  c(0, 3, 0, 1))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -93,36 +93,35 @@ text(25, 5, expression(italic("implemented by social norms and the exercise of p
 # Annotations (CW) --------------------------------------------------------
 
 # Top
-text(7, 38, expression("Mandatory risk-sharing (transfers)"), cex = labelsize, xpd = TRUE)
-Arrows(12.5, 33.5, 9, 37, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(7, 38, expression("Mandatory risk-sharing (transfers)"), cex = labelsize, xpd = TRUE)
+# Arrows(12.5, 33.5, 9, 37, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 #text(20, 43, expression("Free childcare"), cex = labelsize, xpd = TRUE)
-Arrows(15, 33.25, 20, 42, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
-
-text(20, 45, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
-text(20, 43, expression("hired by government as contact tracers"), cex = labelsize, xpd = TRUE)
+# Arrows(15, 33.25, 20, 42, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(20, 45, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
+# text(20, 43, expression("hired by government as contact tracers"), cex = labelsize, xpd = TRUE)
 #Arrows(25, 33.25, 30, 35.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # Right
-text(41, 25, expression("Reallocation of labor -"), cex = labelsize, xpd = TRUE)
-text(41, 23.5, expression("Amazon hires 100k"), cex = labelsize, xpd = TRUE)
-Arrows(35, 30, 36, 26, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
-
-text(43, 21, expression("Fast-track approval for private sector"), cex = labelsize, xpd = TRUE)
-text(43, 19.5, expression("developed virus tests"), cex = labelsize, xpd = TRUE)
-Arrows(25, 28, 32.5, 21, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
-
-text(38, 17, expression("Research, production and"), cex = labelsize, xpd = TRUE)
-text(38, 15.5, expression("distribution of vaccine"), cex = labelsize, xpd = TRUE)
-Arrows(24, 25, 30.5, 17, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
-
-text(36, 13, expression("German healthcare system"), cex = labelsize, xpd = TRUE)
-Arrows(22, 25, 28, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(41, 25, expression("Reallocation of labor -"), cex = labelsize, xpd = TRUE)
+# text(41, 23.5, expression("Amazon hires 100k"), cex = labelsize, xpd = TRUE)
+# Arrows(35, 30, 36, 26, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# 
+# text(43, 21, expression("Fast-track approval for private sector"), cex = labelsize, xpd = TRUE)
+# text(43, 19.5, expression("developed virus tests"), cex = labelsize, xpd = TRUE)
+# Arrows(25, 28, 32.5, 21, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# 
+# text(38, 17, expression("Research, production and"), cex = labelsize, xpd = TRUE)
+# text(38, 15.5, expression("distribution of vaccine"), cex = labelsize, xpd = TRUE)
+# Arrows(24, 25, 30.5, 17, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# 
+# text(36, 13, expression("German healthcare system"), cex = labelsize, xpd = TRUE)
+# Arrows(22, 25, 28, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # Left
 
-text(17, 13, expression("Social distancing"), cex = labelsize, xpd = TRUE)
-Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(17, 13, expression("Social distancing"), cex = labelsize, xpd = TRUE)
+# Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # text(15, 15.5, expression("Care work at home"), cex = labelsize, xpd = TRUE)
 # Arrows(24, 16, 21, 15.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
@@ -131,11 +130,11 @@ Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "tria
 # text(12, 18, expression("(kidney sales prohibited)"), cex = labelsize, xpd = TRUE)
 # Arrows(22, 17, 18, 19.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(8, 22, expression("NHS call for volunteers"), cex = labelsize, xpd = TRUE)
-Arrows(17.5, 22, 15, 22, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
-
-text(9, 24.5, expression("Virus-testing"), cex = labelsize, xpd = TRUE)
-Arrows(16, 24.5, 13, 24.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# text(8, 22, expression("NHS call for volunteers"), cex = labelsize, xpd = TRUE)
+# Arrows(17.5, 22, 15, 22, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+# 
+# text(9, 24.5, expression("Virus-testing"), cex = labelsize, xpd = TRUE)
+# Arrows(16, 24.5, 13, 24.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 
 

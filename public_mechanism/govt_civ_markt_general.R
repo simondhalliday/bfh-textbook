@@ -10,7 +10,7 @@ pdf(file = "public_mechanism/govt_markt_civ_general.pdf", width = 9, height = 6)
 pointsize <- 1.8
 axislabelsize <- 1.5
 labelsize <- 1.0
-namesize <- 1.2
+namesize <- 1.8
 annotatesize <- 1.5
 graphlinewidth <- 2
 segmentlinewidth <- 1.5
@@ -71,11 +71,11 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # points(25, 10, cex = 1.5, pch = 16)
 
 # Top
-Arrows(15, 34.3, 39, 34.3, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[2])
+Arrows(15, 34.3, 39, 34.3, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[2])
 # Left
-Arrows(14.65, 33.35, 26.5, 13.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[1])
+Arrows(14.65, 33.35, 26.5, 13.35, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[1])
 # Right
-Arrows(27.4, 13.35, 39.35, 33.35, code = 3, lty = 1, lwd = segmentlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[3])
+Arrows(27.4, 13.35, 39.35, 33.35, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.3, col = CBCols[3])
 
 # Text --------------------------------------------------------------------
 text(9, 33.5, expression(bold("Government")), cex = namesize)

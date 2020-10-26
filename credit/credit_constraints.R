@@ -111,11 +111,11 @@ data$x <- factor(data$x,
                             "<40,000")
                  )
 
-labels <- c("Fraction borrowing at credit card \n interest rates (between 16 and 20%)",
-"Cannot cover 3 months' expenses by \n  any means if primary income source lost", 
-"Credit market excluded or constrained:\n >$100,000 income", 
-"Credit market excluded or constrained:\n $40,000-$100,000 income",
-"Credit market excluded or constrained:\n <$40,000 income")
+labels <- c("Percent that are borrowing at credit card \n interest rates (between 16% and 20%)",
+"Percent of people that cannot \n cover 3 months' expenses by \n any means if primary income source lost", 
+"Percent of people that are credit \n market excluded or constrained:\n >$100,000 income", 
+"Percent of people that are credit \n market excluded or constrained:\n $40,000-$100,000 income",
+"Percent of people that are credit \n market excluded or constrained:\n <$40,000 income")
 
 #data <- 
 #  data %>% 
@@ -163,6 +163,7 @@ plot2 <- data %>%
   #ylim(0, 160) +
   coord_flip()
 
+plot2
 
 
 ggsave("credit/credit_constraints.pdf", width = 12, height = 6, units = "in")

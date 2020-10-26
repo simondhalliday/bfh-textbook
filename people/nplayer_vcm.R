@@ -1,6 +1,6 @@
 library(tidyverse)
-contribute <- seq(-5,10,5)
-dont <- seq(0,15,5)
+contribute <- seq(5,20,5)
+dont <- seq(10,25,5)
 df <- tibble(contribute, dont)
 df2 <- df %>% gather(action, payoff)
 df2 <- df2 %>% mutate(action = factor(action),
@@ -30,9 +30,10 @@ vcmlines <-
   ggplot(aes(x = others, y = payoff, group = action, color = action, fill = action)) + 
   geom_line(lwd = 0.8) + 
   geom_point() + 
-  geom_hline(yintercept = 0, color = "black") +
+  #geom_hline(yintercept = 0, color = "black") +
   xlab("Number of others playing Contribute") + 
-  ylab("Payoff net of endowment, $") + 
+  ylab("Payoff, $") + 
+  ylim(0,25) + 
   scale_fill_brewer(type = "qual", 
                     palette = "Set1",
                     name = "Action", 
@@ -45,7 +46,7 @@ vcmlines <-
                      labels = c("Contribute", "Don't contribute")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 17),
+        axis.title = element_text(size = 20),
         axis.text = element_text(size = 14),
         legend.title = element_blank(),
         legend.position = c(0.2, 0.84),

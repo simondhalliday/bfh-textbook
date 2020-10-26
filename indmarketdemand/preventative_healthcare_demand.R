@@ -192,7 +192,9 @@ print(p2)
 ggsave(p2, filename = "preventative_healthcare_demand.pdf", 
       path = "indmarketdemand",
       width = 9, height = 7, units = "in")
-
+ggsave(p2, filename = "preventative_healthcare_demand.jpg", 
+       path = "indmarketdemand",
+       width = 9, height = 7, units = "in")
 #dev.off()
 
 

@@ -89,12 +89,16 @@ text(0.5*(xlims[2]), -1.8, expression(paste("Quantity, ", x)), xpd = TRUE, cex =
 #text(0.5*(xlims[2]), -1.8, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 text(-1.4, 0.5*ylims[2], expression(paste("Price per unit ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-text(2, AvgRevenue(x = 4) + 0.2, expression("Demand curve"), cex = annotatesize)
+text(10 - 1.4, AvgRevenue(x = 10) -0.5, expression("Demand curve"), cex = annotatesize)
 
 text(2, 1.5, expression("Feasible"), cex = annotatesize)
 text(12, 12, expression("Infeasible"), cex = annotatesize)
 
+points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
+text(4.2, AvgRevenue(x = 4) + 0.5, expression(h), cex = labelsize)
 
+points(1.55, AvgRevenue(x = 6.45), pch = 16, col = "black", cex = 1.5)
+text(1.55 - 0.3, AvgRevenue(x = 6.45) - 0.4, expression(g), cex = labelsize)
 
 
 dev.off()

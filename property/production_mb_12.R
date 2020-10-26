@@ -84,12 +84,21 @@ lines(xx2, output(xx2, eb = 12), col = COLA[6], lwd = graphlinewidth)
 segments(0, output(ea = 12), 12, output(ea = 12), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 segments(0, output(ea = 12, eb = 0), 12, output(ea = 12, eb = 0), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
-segments(12, -500, 12, 500, lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
+segments(12, -500, 12, output(ea = 12, eb = 0), lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = 350)
 
 lines(xx3, slopeline(ea = xx3, slope = 12, yint = 72), lty = 2, col = "black", lwd = graphlinewidth)
 lines(xx3, slopeline(ea = xx3, slope = 18, yint = 72), lty = 2, col = "black", lwd = graphlinewidth)
 
 text(-4, 0.5*ylims[2], expression(paste("Consumption, ", y^A," (pounds, lb)")), xpd = TRUE, cex = axislabelsize, srt = 90)
+
+#mrt label for  slope
+#text(12, output(ea = 12, eb = 0) + 120, expression(paste("slope = -mrt = mb")), xpd = TRUE, cex = labelsize)
+text(12, output(ea = 12, eb = 0) + 100, expression(paste("slope = -mrt = mb")), xpd = TRUE, cex = labelsize)
+Arrows(12, output(ea = 12, eb = 0) + 90, 
+       12, output(ea = 12, eb = 0) + 20,
+       col = "black", lty = 1, lwd = 2,
+       arr.type = "triangle", xpd = TRUE,
+       arr.lwd = 0.5, code = 2)
 
 
 points(12, output(ea = 12), pch = 16, col = "black", cex = 1.5)

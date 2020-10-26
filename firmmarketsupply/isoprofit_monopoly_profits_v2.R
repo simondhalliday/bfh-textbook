@@ -109,16 +109,16 @@ segments(0, AvgRevenue(x = 6.45), 6.45, AvgRevenue(x = 6.45), lty = 2, col = gra
 segments(6.45, 0, 6.45, AvgRevenue(x = 6.45), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 points(4, AvgRevenue(x = 4), pch = 16, col = "black", cex = 1.5)
-text(4.2, AvgRevenue(x = 4) + 0.5, expression("h"), cex = labelsize)
+text(4.2, AvgRevenue(x = 4) + 0.5, expression(h), cex = labelsize)
 
 points(6.45, AvgRevenue(x = 6.45), pch = 16, col = "black", cex = 1.5)
-text(6.65, AvgRevenue(x = 6.45) + 0.4, expression("f"), cex = labelsize)
+text(6.65, AvgRevenue(x = 6.45) + 0.4, expression(f), cex = labelsize)
 
 points(1.55, AvgRevenue(1.55), pch = 16, col = "black", cex = 1.5)
-text(1.55 + 0.2, AvgRevenue(x = 1.55) + 0.4, expression("e"), cex = labelsize)
+text(1.55 + 0.2, AvgRevenue(x = 1.55) + 0.4, expression(e), cex = labelsize)
 
 points(1.55, AvgRevenue(x = 6.45), pch = 16, col = "black", cex = 1.5)
-text(1.55 - 0.3, AvgRevenue(x = 6.45) - 0.4, expression("g"), cex = labelsize)
+text(1.55 - 0.3, AvgRevenue(x = 6.45) - 0.4, expression(g), cex = labelsize)
 
 
 dev.off()

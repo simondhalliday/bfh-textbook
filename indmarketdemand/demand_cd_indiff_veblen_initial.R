@@ -31,7 +31,7 @@ uA <- function(x, y, alpha = 0.5) {
 }
 
 
-bcA <- function(x, w = 1, h = 1) {
+bcA <- function(x, w = 0.25, h = 1) {
   h - w*x
 }
 
@@ -103,6 +103,11 @@ segments(0, 0.5, 2, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 segments(2, 0, 2, 0.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(2, 0.5, pch = 16, col = "black", cex = 1.5)
 text(1.9, 0.48, expression(a), cex = annotatesize)
+
+
+points(0.57, bcA(0.57), pch = 16, col = "black", cex = 1.5)
+text(0.57 + 0.1, bcA(0.57) + 0.02, expression(d), cex = annotatesize)
+
 
 #text(2, 0.9, expression(paste(mrs == mrt)), cex = annotatesize)
 text(2.38, 0.51, expression(paste(mrs == mrt)), cex = annotatesize)

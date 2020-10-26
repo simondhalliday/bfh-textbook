@@ -160,7 +160,8 @@ text(0.445, 0.55, expression(paste(hat(y)[1])), cex = labelsize - 0.15)
 text(0.37, 0.55, expression(paste(hat(y)[2])), cex = labelsize - 0.15)
 text(0.275, 0.55, expression(paste(hat(y)[3])), cex = labelsize - 0.15)
 text(0.55, 0.24, expression(paste("Slope", phantom() == -mrs(delta, f))), cex = labelsize)
-text(0.61, 0.14, expression(paste(phantom() == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
+text(0.54, 0.14, expression(paste(phantom() == -frac(y[delta], y[f]))), cex = labelsize)
+#text(0.61, 0.14, expression(paste(phantom() == frac(1 - f, q*(1 - 2*f) + delta))), cex = labelsize)
 Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 

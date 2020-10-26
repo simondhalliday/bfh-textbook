@@ -81,8 +81,7 @@ lines(xx1, BluePrice(xx1), col = COLB[4], lwd = graphlinewidth)
 
 #Axis labels
 text(0.5*xlims[2], -0.05,  expression(paste("Fraction of Greens in the neighborhood, ", f)), xpd = TRUE, cex = axislabelsize) 
-text(-0.28, 0.5*(ylims[2]), expression(paste("Green's willingness to pay, ", p^G)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-
+text(-0.27, 0.5*(ylims[2]), expression(paste("Willingness to pay, ", p^G, " and ", p^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 #Segments and labeled points on the graphs
 segments(0.5, 0, 0.5, GreenPrice(f = 0.5), lty = 2, col = "gray" , lwd = segmentlinewidth)
 points(0.5, GreenPrice(f = 0.5), pch = 16, col = "black", cex = 1.5)

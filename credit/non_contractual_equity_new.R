@@ -2,7 +2,7 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 library(shape)
-pdf(file = "credit/non_contractual_equity.pdf", width = 8, height = 6)
+pdf(file = "credit/non_contractual_equity_new.pdf", width = 8, height = 6)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -32,10 +32,6 @@ PCFn <- function(delta, mu = 1) {
 
 isoreturnFn <- function(delta, pi=0.125) {
   1 - (pi)/delta
-}
-
-isoprofitFn <- function(delta, rho = 0.05, b = 0.5) {
-  1 - ((1 + rho)/(1 - b))*(1/delta)
 }
 
 yFn <- function(d1, f1, mu = 1){
@@ -87,7 +83,6 @@ lines(xx1, brfFn(xx1, k = 0), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, brfFn(xx1, k = 0.666), col = COLA[4], lwd = graphlinewidth)
 lines(xx1, isoreturnFn(xx1, pi = 0.25), col = COLB[4], lwd = graphlinewidth)
-lines(xx1, isoprofitFn(xx1, b = 0), col = COLB[4], lwd = graphlinewidth)
 #lines(xx1, isoreturnFn(xx1, pi = 0.375), col = COLB[4], lwd = graphlinewidth)
 
 

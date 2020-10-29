@@ -85,7 +85,7 @@ lines(xx1, mc(xx1, q = 2), col = COLA[4], lwd = graphlinewidth)
 text(0.3, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefit and marginal costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.65*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
-text(0.85, 1.9, expression(paste(mc == -q*(1 - 2*f) )), cex = labelsize)
+text(0.85, 1.9, expression(paste(mb == -q*(1 - 2*f) )), cex = labelsize)
 text(0.975, mc(flevels[5]) + 0.07, expression(paste(mb[e] == delta[e] )), cex = labelsize)
 text(0.975, mc(flevels[4]) + 0.07, expression(paste(mb[n] == delta[n] )), cex = labelsize)
 text(0.975, mc(flevels[3]) + 0.07, expression(paste(mb[b] == delta[b] )), cex = labelsize)

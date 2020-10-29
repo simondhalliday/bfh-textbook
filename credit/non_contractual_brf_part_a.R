@@ -167,7 +167,7 @@ Arrows(0.45, 0.26, 0.45, 0.48, col = "black", lty = 1, lwd = 2, arr.type = "tria
 
 #text(0.82, 0.6, expression(paste("More expected income")), cex = labelsize, xpd = TRUE)
 text(0.175, 0.65, expression(paste("Better for borrower")), cex = labelsize,xpd = TRUE)
-Arrows(0.3, 0.6, 0.05, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+Arrows(0.2, 0.6, 0.05, 0.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 text(0.85, 1.02, expression(paste("Participation")), cex = labelsize)
 text(0.85, 0.97, expression(paste("constraint")), cex = labelsize)

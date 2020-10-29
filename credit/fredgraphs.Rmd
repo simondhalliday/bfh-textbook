@@ -555,6 +555,8 @@ ggsave("rm30_lag_4q_x_houst.pdf", width = 9, height = 7, units = "in")
 # cor(df_lag_diffs$houst_lag_diff_4q, df_lag_diffs$rm30_lag_diff_4q) 
 # = -0.3974753
 
+summary(lm(houst_lag_diff_4q ~ rm30_lag_diff_4q, data = df_lag_diffs))
+
 df_lag_diffs %>% 
   select(DATE, rm30_lag_diff_4q, houst_lag_diff_4q) %>% 
   ggplot(aes(x = rm30_lag_diff_4q, y = houst_lag_diff_4q)) + 
@@ -568,13 +570,13 @@ df_lag_diffs %>%
   #   annotate("text", x = 4.5, y = -660, 
   #          label = expression(paste("CI", phantom() == phantom(), "(-110.8, -44.13)")), size = 5) +
   # stat_cor(method = "pearson", r.digits = 3, p.digits = 3, label.x = 3.5, label.y = -540) +
-  labs(x = "Inflation adjusted mortgage interest rate (lagged 1-year)",
+  labs(x = "Change in inflation adjusted mortgage interest rate (lagged 1-year)",
       #x = "Real 30-year fixed rate mortgage averages, 1-year lag (differences)", 
       #y = "Housing starts: total (differences)") +
-      y = "Private housing starts (in thousands)") +
+      y = "Change in private housing starts (in thousands)") +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
-        axis.title = element_text(size = 20),
+        axis.title = element_text(size = 19),
         axis.text = element_text(size = 17))
 
 ggsave("rm30_lagdiff4q_x_houst_lagdiff4q.pdf", width = 9, height = 7, units = "in")

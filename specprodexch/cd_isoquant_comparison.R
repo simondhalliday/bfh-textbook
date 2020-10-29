@@ -15,7 +15,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 1, 1))
+par(mar =  c(5, 5, 1, 1))
 
 isocost <- function(l, c = 10, w = 1, r = 1) {
   c - (w/r)*l
@@ -27,8 +27,8 @@ isoquant <- function(l, alpha = 0.5, x = 5) {
 }
 
 
-xlims <- c(0, 12)
-ylims <- c(0, 12)
+xlims <- c(0, 10)
+ylims <- c(0, 10)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)

@@ -1,6 +1,6 @@
 library(shape)
 library(plotrix)
-pdf(file = "credit/credit_mb_mc_equity_new.pdf", width = 7, height = 7)
+pdf(file = "credit/credit_mb_mc_equity_new.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -18,8 +18,10 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
-par(mar =  c(4, 6, 1, 1))
-deltalvl <- c(0.2, 0.5, 0.8)
+#par(mar =  c(5, 9, 1, 1))
+par(mar =  c(5, 9, 1, 1))
+
+deltalvl <- c(0.2, 0.5,0.58,0.72, 0.8)
 
 brfFn <- function(delta, q = 15, k = 0) {
   .5 + (delta / (2 * q)) * (1 - k)
@@ -45,7 +47,7 @@ eqL <- uniroot(function(x)  mcFn(x) - mbEquityFn(x, delta = deltalvl[2], k = 0.5
 fls <- c(as.numeric(eqL[1]), as.numeric(eqN[1]), as.numeric(eqH[1]), mbEquityFn(f = 0), mbFn(f = 0, delta = deltalvl[2]))
 
 xlims <- c(0, 1)
-ylims <- c(0, 1.05)
+ylims <- c(0, 2.05)
 
 npts <- 501 
 x <- seq(xlims[1], xlims[2], length.out = npts)
@@ -61,12 +63,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-ticksy <- c(0, mcFn(f = fls[1]), mcFn(f = fls[2]), fls[4], fls[5], ylims[2])
-ylabels <- c(0, expression(paste(mb[p])), expression(paste(mb[w])), expression(paste(q + delta*(1-k))), expression(paste(q + delta)), NA)
+ticksy <- c(0, 0.744, 0.96, 1.49, 1.92, ylims[2])
+ylabels <- c(0, expression(paste(mb[w])), expression(paste(mb[p])), expression(paste(q + delta*(1-k))), expression(paste(q + delta)), NA)
 # ticksy <- c(0, mcFn(f = flevels[3]), mcFn(f = flevels[4]), mcFn(f = flevels[5]), ylims[2])
 # ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta[n])), expression(paste(delta[e])), NA)
 ticksx <- c(0, 0.62, 0.8,  1, xlims[2])
-xlabels <- c(0, expression(paste(f[w])), expression(paste(f[p] )), 1, NA)
+xlabels <- c(0, expression(paste(f[w] )), expression(paste(f[p] )), 1.0, NA)
 #xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f[n])), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
 
 
@@ -74,8 +76,8 @@ axis(1, at = ticksx, pos = 0, labels = FALSE, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 text(x = c(0, 
-           eqL[1], 
-           eqN[1],
+           0.62, 
+           0.8,
            xlims[2]
 ), 
 par("usr")[3] - 0.05, cex = labelsize,
@@ -87,27 +89,27 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #Lines for mrs graph
 lines(xx1, mcFn(xx1, q = 1.2), col = CBCols[2], lwd = graphlinewidth)
 #lines(xx1, mbFn(xx1, q = 1.2, delta = deltalvl[3]), col = CBCols[1], lwd = graphlinewidth)
-lines(xx1, mbFn(xx1, q = 1.2, delta = deltalvl[2]), col = CBCols[1], lwd = graphlinewidth)
-lines(xx1, mbEquityFn(xx1, q = 1.2, delta = deltalvl[2]), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, mbFn(xx1, q = 1.2, delta = deltalvl[4]), col = CBCols[1], lwd = graphlinewidth)
+lines(xx1, mbEquityFn(xx1, q = 1.2, delta = deltalvl[3]), col = CBCols[1], lwd = graphlinewidth)
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.31, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.22, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 text(0.9, 1.23, expression(paste(mc == q*f )), cex = labelsize)
 
-text(0.15, 1.07, expression(paste(mb[1])), cex = labelsize)
-text(0.15, 1.61, expression(paste(mb[2])), cex = labelsize)
+text(0.15, 1.4, expression(paste(mb[1])), cex = labelsize)
+text(0.15, 1.85, expression(paste(mb[2])), cex = labelsize)
 #text(0.15, 1.9, expression(paste(mb[3])), cex = labelsize)
 
 #Point p
-segments(fls[1], 0, fls[1], mcFn(f = fls[1]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, mcFn(f = fls[1]), fls[1], mcFn(f = fls[1]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.62, 0, 0.62, 0.744, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 0.744, 0.62, 0.744, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Point w
-segments(fls[2], 0, fls[2], mcFn(f = fls[2]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
-segments(0, mcFn(f = fls[2]), fls[2], mcFn(f = fls[2]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0.8, 0, 0.8, 0.96, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+segments(0, 0.96, 0.8, 0.96, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 
 #Point e
 # segments(fls[3], 0, fls[3], mcFn(f = fls[3]), lty = 2, col = grays[20] , lwd = segmentlinewidth)
@@ -134,8 +136,8 @@ segments(flevels[6], 0, flevels[6], mc(f = flevels[3]), lty = 2, col = grays[20]
 #segments(1, 0, 1, mc(f = 1), lty = 2, col = grays[20] , lwd = segmentlinewidth)
 #segments(0, mc(f = 1), xlims[2], mc(f = 1), lty = 1, col = COLB[4] , lwd = segmentlinewidth)
 
-points(fls[1], mcFn(fls[1]), pch = 16, col = "black", cex = 1.5)
-points(fls[2], mcFn(fls[2]), pch = 16, col = "black", cex = 1.5)
+points(0.62, 0.744, pch = 16, col = "black", cex = 1.5)
+points(0.8, 0.96, pch = 16, col = "black", cex = 1.5)
 
 
 # points(0.58, mc(f = 0.85), pch = 16, col = "black", cex = 1.5)
@@ -145,8 +147,8 @@ points(fls[2], mcFn(fls[2]), pch = 16, col = "black", cex = 1.5)
 
 
 #text(fls[1], mcFn(fls[1]) + 0.075, expression(paste(b)), cex = labelsize)
-text(fls[2], mcFn(fls[2]) + 0.075, expression(paste(w)), cex = labelsize)
-text(fls[1], mcFn(fls[1]) + 0.075, expression(paste(p)), cex = labelsize)
+text(0.62, 0.744 + 0.075, expression(paste(w)), cex = labelsize)
+text(0.8, 0.96 + 0.075, expression(paste(p)), cex = labelsize)
 
 #text(fls[3], mcFn(fls[3]) + 0.075, expression(paste(e)), cex = labelsize)
 

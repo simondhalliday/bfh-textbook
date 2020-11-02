@@ -56,7 +56,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.4), ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[a])), expression(paste(hat(y)[d])), expression(paste(hat(y)[c])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[d])), expression(paste(hat(y)[a])), expression(paste(hat(y)[c])), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[d])), expression(paste(Delta[a])), expression(paste(Delta[c])), NA)
 

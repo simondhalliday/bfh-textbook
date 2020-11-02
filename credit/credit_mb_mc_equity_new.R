@@ -65,8 +65,8 @@ ticksy <- c(0, mcFn(f = fls[1]), mcFn(f = fls[2]), fls[4], fls[5], ylims[2])
 ylabels <- c(0, expression(paste(mb[p])), expression(paste(mb[w])), expression(paste(q + delta*(1-k))), expression(paste(q + delta)), NA)
 # ticksy <- c(0, mcFn(f = flevels[3]), mcFn(f = flevels[4]), mcFn(f = flevels[5]), ylims[2])
 # ylabels <- c(0, expression(paste(delta[b])), expression(paste(delta[n])), expression(paste(delta[e])), NA)
-ticksx <- c(0, eqL[1], eqN[1],  1, xlims[2])
-xlabels <- c(0, expression(paste(f[p] )), expression(paste(f[w] )), 1.0, NA)
+ticksx <- c(0, 0.62, 0.8,  1, xlims[2])
+xlabels <- c(0, expression(paste(f[w])), expression(paste(f[p] )), 1, NA)
 #xlabels <- c(NA, expression(paste(f[h] )), 0.5, expression(paste(f[b] )), expression(paste(f[n])), expression(paste(f[e])), expression(paste(f[g])), 1.0, NA)
 
 

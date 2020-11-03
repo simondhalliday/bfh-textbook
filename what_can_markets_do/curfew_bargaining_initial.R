@@ -97,9 +97,9 @@ segments(0, MUa(6), 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(6, MUa(6), pch = 16, col = "black", cex = 1.5)
 
 text(4.5 + 0.1, MUa(7.5) + 0.1, expression(paste(g)), cex = labelsize)
-segments(7.5, MUb(7.5), 0, MUb(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(7.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(7.5, 0, 7.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(4.5, MUb(7.5), 0, MUb(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(4.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(4.5, 0, 4.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(4.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
 
 text(4.5 + 0.1, MUb(7.5) - 0.1, expression(paste(h)), cex = labelsize)

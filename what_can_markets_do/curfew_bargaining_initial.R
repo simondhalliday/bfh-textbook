@@ -67,9 +67,9 @@ axis(4, at = ticksy2, pos = 9, labels = FALSE, las = 1, cex.axis = labelsize)
 
 
 #Disutility polygon
-xrent <- c(3, 6, 9, 3)
-yrent <- c(MUa(3), MUa(6), MUb(9), MUa(3))
-polygon(xrent, yrent, col = COL[4], density = NULL, border = NA)
+#xrent <- c(3, 6, 9, 3)
+#yrent <- c(MUa(3), MUa(6), MUb(9), MUa(3))
+#polygon(xrent, yrent, col = COL[4], density = NULL, border = NA)
 
 
 npts <- 503 
@@ -96,14 +96,14 @@ segments(6, 0, 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, MUa(6), 6, MUa(6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(6, MUa(6), pch = 16, col = "black", cex = 1.5)
 
-text(7.5 + 0.1, MUa(7.5) - 0.1, expression(paste(g)), cex = labelsize)
+text(4.5 + 0.1, MUa(7.5) + 0.1, expression(paste(g)), cex = labelsize)
 segments(7.5, MUb(7.5), 0, MUb(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(7.5, MUa(7.5), 0, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(7.5, 0, 7.5, MUa(7.5), lty = 2, col = grays[20], lwd = segmentlinewidth)
-points(7.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
+points(4.5, MUb(7.5), pch = 16, col = "black", cex = 1.5)
 
-text(7.5 + 0.1, MUb(7.5) + 0.1, expression(paste(h)), cex = labelsize)
-points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
+text(4.5 + 0.1, MUb(7.5) - 0.1, expression(paste(h)), cex = labelsize)
+points(4.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
 
 # text(4.5, MUb(4.5, beta = 1/4)  + 0.2, expression(paste(j)), cex = labelsize)
 # points(4.5, MUa(4.5, alpha = 3/4), pch = 16, col = "black", cex = 1.5)
@@ -117,15 +117,17 @@ points(7.5, MUa(7.5), pch = 16, col = "black", cex = 1.5)
 #text(-2, 33, expression(paste(-u[x]^B*(x*minute))),  xpd = TRUE, cex = labelsize)
 #text(-2, 7, expression(paste(u[x]^A*(x*minute))),  xpd = TRUE, cex = labelsize)
 
-text(4, 6.3, expression(paste("B's marginal disutility")), xpd = TRUE, cex = labelsize)
-text(4, 6, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
-text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
+text(4.1, 6.3, expression(paste("B's marginal utility")), xpd = TRUE, cex = labelsize)
+text(4.1, 6.05, expression(paste("of a later curfew")), xpd = TRUE, cex = labelsize)
+text(4.1, 5.73, expression(paste(u[T]^B == 2*beta*(T^B - T))), xpd = TRUE, cex = labelsize)
+#text(4, 5.5, expression(paste(beta == frac(1,2))), xpd = TRUE, cex = labelsize)
 #text(3.8, 2.2, expression(paste(beta == frac(1,4))), xpd = TRUE, cex = labelsize)
 
 
 text(7.75, 6.3, expression(paste("-A's marginal disutility ")),  xpd = TRUE, cex = labelsize)
-text(7.75, 6, expression(paste(-u[T]^A == -2*alpha*(T^A - T))),  xpd = TRUE, cex = labelsize)
-text(7.75, 5.5, expression(paste(alpha == frac(1,2))), xpd = TRUE, cex = labelsize)
+text(7.75, 6.05, expression(paste("of a later curfew ")),  xpd = TRUE, cex = labelsize)
+text(7.75, 5.73, expression(paste(-u[T]^A == -2*alpha*(T^A - T))),  xpd = TRUE, cex = labelsize)
+#text(7.75, 5.5, expression(paste(alpha == frac(1,2))), xpd = TRUE, cex = labelsize)
 #text(6.9, 5.5, expression(paste(alpha == frac(3,4))), xpd = TRUE, cex = labelsize)
 
 #Axis arrow

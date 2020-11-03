@@ -51,8 +51,8 @@ npts <- 501
 x <- seq(xlims[1], xlims[2], length.out = npts)
 y <- seq(ylims[1], ylims[2], length.out = npts) 
 #a <- seq(-400, -200, by = 20)
-a <- c(-9, -9/4, 0)
-b <- c(-9, -9/4, 0)
+a <- c(-9, -9/4, 0, 4.5)
+b <- c( -9, -9/4, 0, 4.5)
 
 #Use the same x and ylims as previously, but with locations switched
 xlims2 <- c(8, 0)
@@ -193,16 +193,20 @@ Arrows(4.7, -9, 4.2, -9, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 # Arrows(4, 9, 4, 5.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label the indifference curves for A
-text(1.6, -10, expression(u[1]^A == u[b]^A), cex = labelsize)
+text(1.5, -9.8, expression(u[1]^A == u[b]^A), cex = labelsize)
 # text(0.25, -5.6, expression(u[2]^A), cex = labelsize)
 # text(0.25, -3.4, expression(u[3]^A), cex = labelsize)
-text(1.25, -3.1, expression(u[4]^A), cex = labelsize)
-text(1.6, -0.9, expression(u[5]^A == u[a]^A), cex = labelsize)
+text(1.2, -3.1, expression(u[4]^A), cex = labelsize)
+text(1.5, -0.9, expression(u[5]^A == u[a]^A), cex = labelsize)
+text(1.2, 3.6, expression(u[6]^A), cex = labelsize)
+
 
 #Label the indifference curves for B
-text(5.6, 9.6, expression(u[3]^B == u[a]^B), cex = labelsize)
+text(5.6, 7.5, expression(u[3]^B == u[a]^B), cex = labelsize)
 text(5.3, 0.8, expression(u[4]^B), cex = labelsize)
 text(5.6, -1.6, expression(u[5]^B == u[b]^B), cex = labelsize)
+text(5.3, -6.2, expression(u[6]^B), cex = labelsize)
+
 # text(7.55, -1.35, expression(u[6]^B), cex = labelsize)
 # text(7.55, -3.65, expression(u[7]^B), cex = labelsize)
 

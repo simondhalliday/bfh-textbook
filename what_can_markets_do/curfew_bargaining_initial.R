@@ -54,7 +54,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #x and y limits with plain axes without ticks/numbers to match previous graph; y axes on both sides
 
-ticksx <- c(3, 6, 7.5, 9)
+ticksx <- c(3, 6, 4.5, 9)
 xlabels <- c(expression(paste(T^A == 9*p*m)), expression(paste(T^i == 12*a*m)), expression(paste(T*minute)), expression(paste(T^B  == 3*a*m)))
 ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
 

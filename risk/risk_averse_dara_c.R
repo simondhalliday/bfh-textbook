@@ -127,4 +127,8 @@ text(0.95*xlims[2], 0.98*ylims[2], expression(paste(u[1])), cex = labelsize)
 text(0.85*xlims[2], 0.98*ylims[2], expression(paste(u[2])), cex = labelsize)
 text(0.625*xlims[2], 0.98*ylims[2], expression(paste(u[3])), cex = labelsize)
 
+# slope label 
+text(7.1,14, expression(paste(slope == frac(-u[Delta], u[y]))), cex = labelsize)
+text(8.8,14.2, expression(paste(phantom() == - mrs)), cex = labelsize)
+
 dev.off() 

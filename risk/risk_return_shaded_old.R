@@ -93,8 +93,15 @@ segments(10, riskreturn(g = 12), 14, riskreturn(g = 12), lty = 2, lwd = graphlin
 points(12, riskreturn(g = 12), pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 text(12, riskreturn(g = 12) + 0.5, expression(m), cex = labelsize)
 
-#Add points a, b, c and c
-#points(5.6, 9.5, pch = 16, col = "black", cex = 1.5)
+#Add points
+points(6.5, 10.6, pch = 16, col = "black", cex = 1.5)
+points(4.5, 7.7, pch = 16, col = "black", cex = 1.5)
+points(6.5, 7.5, pch = 16, col = "black", cex = 1.5)
+
+#point labels
+text(6.8, 10, expression(paste("g''")), cex = labelsize)
+text(4.8, 7, expression(paste("g'")), cex = labelsize)
+text(6.8, 7, expression(paste(g)), cex = labelsize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

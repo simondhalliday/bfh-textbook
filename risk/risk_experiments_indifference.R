@@ -141,7 +141,7 @@ Arrows(36, 19.5, 36, 21.7,
        col = "black", lty = 1, lwd = 2, arr.type = "triangle",
        arr.lwd = 0.5, code = 2)
 text(36, 19, expression(paste("Slope",  phantom() == -mrs)), xpd = TRUE, cex = annotatesize)
-text(38.1, 17.8, expression(paste(phantom() == -frac(u[hat(y)],u[Delta]))), xpd = TRUE, cex = annotatesize)
+text(38.1, 17.8, expression(paste(phantom() == frac(-u[Delta],u[hat(y)]))), xpd = TRUE, cex = annotatesize)
 #text(8.05, 3.5, expression(paste("due to insurance")), xpd = TRUE)
 
 

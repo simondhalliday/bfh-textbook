@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  riskreturn(g = 5.6), insurance(g = 1.8), insurance(g = 10.4), ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[a])), expression(paste(hat(y)[d])), expression(paste(hat(y)[c])), NA)
+ylabels <- c(NA, expression(paste(hat(y)[a[1]])), expression(paste(hat(y)[c[2]])), expression(paste(hat(y)[c[1]])), NA)
 ticksx <- c(0, 1.8, 5.6, 10.5, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[d])), expression(paste(Delta[a])), expression(paste(Delta[c])), NA)
+xlabels <- c(NA, expression(paste(Delta[c[2]])), expression(paste(Delta[a[1]])), expression(paste(Delta[c[1]])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -85,7 +85,7 @@ lines(xx1, indiffA(xx1, intercept = 10.35, slope = 0.1), col = COLB[4], lwd = gr
 segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, riskreturn(g = 5.6), 5.6, riskreturn(g = 5.6), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(a), cex = labelsize)
+text(5.6 + 0.35, riskreturn(g = 5.6) - 0.3, expression(paste(a[1])), cex = labelsize)
 
 
 segments(10.5, 0, 10.5, riskreturn(g = 10.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -95,15 +95,15 @@ segments(0, riskreturn(g = 10.5) , 10.5, riskreturn(g = 10.5) , lty = 2, col = g
 segments(0, insurance(g = 1.8), 10.5, insurance(g = 1.8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(1.8, 0, 1.8, insurance(g = 1.8), lty = 2, col = grays[20], lwd = segmentlinewidth)
 points(1.8, insurance(g = 1.8) , pch = 16, col = "black", cex = 1.5)
-text(1.8, insurance(g = 1.8) + 0.6, expression(paste(d)), cex = labelsize)
+text(1.8, insurance(g = 1.8) + 0.6, expression(paste(c[2])), cex = labelsize)
 
 
 points(1.6, insurance(g = 1.6, intercept = 7.4) , pch = 16, col = "black", cex = 1.5)
-text(1.6, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(b)), cex = labelsize)
+text(1.6 - 0.1, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(a[2])), cex = labelsize)
 
 
 points(10.5, riskreturn(g = 10.5) , pch = 16, col = "black", cex = 1.5)
-text(10.5, riskreturn(g = 10.5) + 0.6, expression(paste(c)), cex = labelsize)
+text(10.5, riskreturn(g = 10.5) + 0.6, expression(paste(c[1])), cex = labelsize)
 
 brackets(x1 = 10.7, y1 = riskreturn(10.5)  - 0.1, 
          x2 = 10.7, y2 = insurance(1.8),  
@@ -120,13 +120,13 @@ text(8.05, 4.2, expression(paste("Increased risk-taking")), cex = labelsize, xpd
 text(8.05, 3.5, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
 
 
-Arrows(10.4, .5, 2, 0.5, 
+Arrows(10.4, 0.45, 2, 0.45, 
        col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
        arr.lwd = 0.5, code = 2)
-text(3.7, 3.1, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
-text(3.7, 2.4, expression(paste("risk exposure")), cex = labelsize, xpd = TRUE)
-text(3.7, 1.7, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
-text(3.7, 1, expression(paste(s == Delta[c] - Delta[d])), cex = labelsize, xpd = TRUE)
+text(3.7, 3.3, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
+text(3.7, 2.55, expression(paste("risk exposure")), cex = labelsize, xpd = TRUE)
+text(3.7, 1.8, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
+text(3.7, 1, expression(paste(s == Delta[c[1]] - Delta[c[2]])), cex = labelsize, xpd = TRUE)
 
 
 text(14, 17.2, expression(paste("Insurance")), cex = labelsize, xpd = TRUE)

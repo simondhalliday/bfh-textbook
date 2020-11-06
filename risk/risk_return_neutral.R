@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 )
 
 ticksy <- c(0,  riskreturn(g = 5.6), riskreturn(g = 12), 17, ylims[2])
-ylabels <- c(NA, expression(paste(c[1])), expression(paste(bar(c) == c[2],phantom() == hat(y))), expression(paste(c[3])), NA)
+ylabels <- c(NA, expression(paste(c[1]^N)), expression(paste(c[2]^N,phantom() == hat(y)[m])), expression(paste(c[3]^N)), NA)
 ticksx <- c(0, 5.6, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
@@ -81,9 +81,9 @@ text(14, 12.7, expression(paste(hat(y)(Delta))), cex = labelsize)
 
 
 #Label value functions
-text(2, 8.8, expression(u[1]), cex = labelsize)
-text(2, 13.5, expression(u[2]), cex = labelsize)
-text(2, 16.5, expression(u[3]), cex = labelsize)
+text(2, 8.8, expression(u[1]^N), cex = labelsize)
+text(2, 13.4, expression(u[2]^N), cex = labelsize)
+text(2, 16.4, expression(u[3]^N), cex = labelsize)
 
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
 text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(paste(a)), cex = labelsize)

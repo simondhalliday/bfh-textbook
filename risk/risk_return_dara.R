@@ -45,15 +45,15 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 
 
-#ticksy <- c(0,  0.5, 5.1, 8.4, riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
-ticksy <- c(0,   riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
-#ylabels <- c(NA, expression(paste(c[1])), expression(paste(c[2])), NA, NA, expression(paste(hat(y)[m] )), NA)
-ylabels <- c(NA,  expression(paste(hat(y)[a])), expression(paste(hat(y)[m] )), NA)
+ticksy <- c(0,  0.5, 5.1, 8.4, riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
+#ticksy <- c(0,   riskreturn(g = 5.3), riskreturn(g = 12) ,ylims[2])
+ylabels <- c(NA, expression(paste(c[1]^A)), expression(paste(c[2]^A)), NA, NA, expression(paste(hat(y)[m] )), NA)
+#ylabels <- c(NA,  expression(paste(hat(y)[a])), expression(paste(hat(y)[m] )), NA)
 ticksx <- c(0, 5.3, 12, xlims[2])
 xlabels <- c(NA, expression(paste(Delta[a])), expression(paste(Delta[m])), NA)
 
-#text(xlims[1] - 0.5, 8.4, expression(paste(c[3])), cex = labelsize, xpd = TRUE)
-#text(xlims[1] - 0.5, riskreturn(g = 5.3) + 0.25, expression(paste(hat(y)[a])), cex = labelsize, xpd = TRUE)
+text(xlims[1] - 0.55, 8.15, expression(paste(c[3]^A)), cex = labelsize, xpd = TRUE)
+text(xlims[1] - 0.55, riskreturn(g = 5.3) + 0.3, expression(paste(hat(y)[a])), cex = labelsize, xpd = TRUE)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -83,7 +83,7 @@ text(12, riskreturn(g = 12) + 0.5, expression(m), cex = labelsize)
 
 
 points(1.057, riskreturn(g = 1.057) , pch = 16, col = "black", cex = 1.5)
-text(1.057 + 0.25, riskreturn(g = 1.057) - 0.3, expression(c), cex = labelsize)
+text(1.057 + 0.25, riskreturn(g = 1.057) - 0.3, expression(e), cex = labelsize)
 
 
 points(8.109, riskreturn(g = 8.109) , pch = 16, col = "black", cex = 1.5)
@@ -94,9 +94,9 @@ text(8.109 + 0.25, riskreturn(g = 8.109) - 0.3, expression(d), cex = labelsize)
 text(14, 12.7, expression(paste(hat(y)(Delta))), cex = labelsize)
 
 #Label value functions
-text(0.35, 7.9, expression(u[3]), cex = labelsize)
-text(0.35, 5.6, expression(u[2]), cex = labelsize)
-text(0.35, 1, expression(u[1]), cex = labelsize)
+text(0.35, 7.85, expression(u[3]^A), cex = labelsize)
+text(0.35, 5.75, expression(u[2]^A), cex = labelsize)
+text(0.35, 1.15, expression(u[1]^A), cex = labelsize)
 
 #Label slope
 text(4, riskreturn(g = 12) + 1.5, expression(paste("Slope", phantom()==phantom(), "-mrs", phantom()== -frac(u[Delta],u[hat(y)]))), cex = labelsize)

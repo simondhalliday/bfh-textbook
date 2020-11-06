@@ -46,12 +46,13 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 )
 
 
-ticksy <- c(0,  riskreturn(g = 12) ,ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[m])), NA)
-ticksx <- c(0, 12, xlims[2])
-xlabels <- c(NA, expression(Delta[m]), NA)
+ticksy <- c(0, riskreturn(g = 3.227315) , riskreturn(g = 5.6) , riskreturn(g = 12) , ylims[2])
+ylabels <- c(NA, expression(paste(hat(y)[d])), expression(paste(hat(y)[a])),  expression(paste(hat(y)[m])), NA)
+ticksx <- c(0, 3.227315, 5.6, 12, xlims[2])
+xlabels <- c(NA, expression(Delta[d]), expression(Delta[a]), expression(Delta[m]), NA)
 
-mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+#mtext(expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), side = 1, line = 2.5, cex = axislabelsize)
+text(xlims[2] - 0.5*(xlims[2] - xlims[1]), ylims[1] - 1.7, expression(paste("Difference in income (good versus bad outcome), ", Delta, ", risk")), xpd = TRUE, cex = axislabelsize) 
 text(xlims[1] - 1.5, ylims[2] - 0.5*(ylims[2] - ylims[1]), expression(paste("Expected income, ", hat(y))), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -74,8 +75,8 @@ text(10, 9.1, expression(paste("schedule, ", omega = hat(y)(Delta) )), cex = lab
 
 Arrows(10, 10.5, 10, 12.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(7, 3, expression(paste("Feasible combinations ")), cex = labelsize)
-text(7, 2, expression(paste("of risk and expected income")), cex = labelsize)
+text(9, 3, expression(paste("Feasible combinations ")), cex = labelsize)
+text(9, 2, expression(paste("of risk and expected income")), cex = labelsize)
 
 text(4, 17, expression(paste("Infeasible combinations ")), cex = labelsize)
 text(4, 16, expression(paste("of risk and expected income")), cex = labelsize)
@@ -97,6 +98,25 @@ text(12, riskreturn(g = 12) + 0.5, expression(m), cex = labelsize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+
+#Add points a, b, c and c
+segments(5.6, 0, 5.6, riskreturn(g = 5.6), lty = 2, lwd = segmentlinewidth, col = grays[22])
+segments(0, riskreturn(5.6), 5.6, riskreturn(g = 5.6), lty = 2, lwd = segmentlinewidth, col = grays[22])
+points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
+text(5.6 + 0.25, riskreturn(g = 5.6) - 0.3, expression(a), cex = labelsize)
+
+
+#riskreturn(g = 5.6) - 4 = 5.448889
+#12 - 3*(14 - 5.448889)^(1/2) = 3.227315
+segments(3.227315, 0, 3.227315, riskreturn(g = 3.227315), lty = 2, lwd = segmentlinewidth, col = grays[22])
+segments(0, riskreturn(3.227315), 5.6, riskreturn(g = 3.227315), lty = 2, lwd = segmentlinewidth, col = grays[22])
+
+points(3.227315, 5.448889 , pch = 16, col = "black", cex = 1.5)
+text(3.227315 + 0.25, 5.448889 - 0.5, expression(d), cex = labelsize)
+points(5.6, riskreturn(g = 5.6) - 4 , pch = 16, col = "black", cex = 1.5)
+text(5.6  + 0.25, riskreturn(g = 5.6) - 4 - 0.5, expression(e), cex = labelsize)
+
 
 dev.off()
 

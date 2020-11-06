@@ -56,9 +56,9 @@ plot(0, 0, xlim = xlims, ylim = ylims,
 
 #Customize ticks and labels for the plot
 ticksy <- c(0,  insurance(g = 1.6, intercept = 7.4), riskreturn(g = 5.6) ,ylims[2])
-ylabels <- c(NA, expression(paste(hat(y)[b])), expression(paste(hat(y)[a])) , NA)
+ylabels <- c(NA, expression(paste(hat(y)[a[2]])), expression(paste(hat(y)[a[1]])) , NA)
 ticksx <- c(0, 1.6, 5.6, xlims[2])
-xlabels <- c(NA, expression(paste(Delta[b])), expression(paste(Delta[a])), NA)
+xlabels <- c(NA, expression(paste(Delta[a[2]])), expression(paste(Delta[a[1]])), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -92,7 +92,7 @@ lines(xx1, indiffA(xx1, intercept = 7.7, slope = 0.115), col = COLB[4], lwd = se
 #Add points a, b, c and c
 
 points(5.6, riskreturn(g = 5.6), pch = 16, col = "black", cex = 1.5)
-text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(a), cex = labelsize)
+text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(paste(a[1])), cex = labelsize)
 
 
 # segments(10.5, 0, 10.5, riskreturn(g = 10.5) , lty = 2, col = grays[20], lwd = segmentlinewidth)
@@ -102,7 +102,7 @@ text(5.6 - 0.2, riskreturn(g = 5.6) + 0.5, expression(a), cex = labelsize)
 
 
 points(1.6, insurance(g = 1.6, intercept = 7.4) , pch = 16, col = "black", cex = 1.5)
-text(1.6, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(b)), cex = labelsize)
+text(1.6, insurance(g = 1.6, intercept = 7.4) + 0.6, expression(paste(a[2])), cex = labelsize)
 
 
 
@@ -126,18 +126,18 @@ text(8.9, 8.3, expression(paste("premium")), xpd = TRUE, cex = labelsize)
 # text(8.05, 3.5, expression(paste("due to insurance")), xpd = TRUE)
 # 
 
-Arrows(5.4, 0.5, 2, 0.5, 
+Arrows(5.4, 0.45, 2, 0.45, 
        col = "black", lty = 1, lwd = 2, arr.type = "triangle", 
        arr.lwd = 0.5, code = 2)
-text(3.6, 3.1, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
-text(3.6, 2.4, expression(paste("risk exposure")), cex = labelsize, xpd = TRUE)
-text(3.6, 1.7, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
-text(3.6, 1, expression(paste(s == Delta[a] - Delta[b])), cex = labelsize, xpd = TRUE)
+text(3.6, 3.3, expression(paste("Decreased")), cex = labelsize, xpd = TRUE)
+text(3.6, 2.5, expression(paste("risk exposure")), cex = labelsize, xpd = TRUE)
+text(3.6, 1.8, expression(paste("due to insurance")), cex = labelsize, xpd = TRUE)
+text(3.6, 1, expression(paste(s == Delta[a[1]] - Delta[a[2]])), cex = labelsize, xpd = TRUE)
 
 
 text(13.5, 11.4, expression(paste("Insurance")), cex = labelsize, xpd = TRUE)
 text(13.5, 10.7, expression(paste("contract")), cex = labelsize, xpd = TRUE)
-text(13.5, 10, expression(paste("slope", phantom()==p[s])), cex = labelsize, xpd = TRUE)
+text(13.5, 9.95, expression(paste("slope", phantom()==p[s])), cex = labelsize, xpd = TRUE)
 
 
 # text(3, 17.5, expression(paste("Insurance reduces")), cex = labelsize, xpd = TRUE)

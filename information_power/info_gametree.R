@@ -10,7 +10,7 @@ segmentlinewidth <- 2
 nodesize <- 1.5
 fadelevel <- 1
 
-col_agent = c(rgb(0, 0, 1, 0.5), rgb(1, 0, 0, 0.5))
+col_agent = c(rgb(0, 0, 1, 0.5), rgb(1, 0, 0, 0.5), rgb(0, 0, 1, 1))
 
 par(mar =  c(0, 0, 0, 0))
 
@@ -70,9 +70,9 @@ text(5, 3.5, expression(paste("Don't terminate")), cex = actionlabelsize)
 text(5, 3.1, expression(paste("(1 - t)")), cex = actionlabelsize)
 
 #Payoffs 
-text(1, .6, expression(p^z - underline(u)), col = col_agent[1], cex = actionlabelsize)
-text(5, .6, expression(p - underline(u)),  col = col_agent[1], cex = actionlabelsize)
-text(9, .6, expression(p - bar(u)), col = col_agent[1], cex = actionlabelsize)
+text(1, .6, expression(p^z - underline(u)), col = col_agent[3], cex = actionlabelsize)
+text(5, .6, expression(p - underline(u)),  col = col_agent[3], cex = actionlabelsize)
+text(9, .6, expression(p - bar(u)), col = col_agent[3], cex = actionlabelsize)
 
 
 

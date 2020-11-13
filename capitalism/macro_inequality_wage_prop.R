@@ -59,7 +59,7 @@ lines(xx1, WageFn(xx1), col = COL[1], lwd = graphlinewidth)
 
 #Customize ticks and labels for the plot
 ticksy <- c(0, 20, 40)
-ylabels <- c(0, expression(paste(w^c)), NA)
+ylabels <- c(0, expression(paste(w^c)), expression(paste(gamma)))
 ticksx <- c(0, 0.8/0.9, 1, xlims[2])
 xlabels <- c(0, 80, 90, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -74,6 +74,9 @@ segments(0.8/0.9, 0, 0.8/0.9, WageFn(0.8/0.9), lty = 2, lwd = segmentlinewidth, 
 #Competition condition 
 segments(0, 20, 0.8/0.9, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.8, 20, xlims[2], 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
+
+#Gamma segment 
+segments(0, 40, xlims[2], 40, lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)
 
 #Point n
 points(0.8/0.9, WageFn(0.8/0.9), pch = 16, col = "black", cex = 1.5)

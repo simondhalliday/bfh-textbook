@@ -105,6 +105,12 @@ xlabels <- c(0, expression(paste(h[m])), 1.0, NA)
 xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly1 <- c(wagelvls[3], wagelvls[1], wagelvls[1], wagelvls[3], wagelvls[3])
 polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+
+xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
+ypoly1 <- c(wagelvls[3] - 2, wagelvls[3] , wagelvls[3], wagelvls[3] - 2, wagelvls[3] - 2)
+polygon(x = xpoly1, y = ypoly1, col=COLB[2], density=NULL, border = NA)
+
+
 # 
 xpoly2 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly2 <- c(wagelvls[4], wagelvls[1], wagelvls[1], wagelvls[4], wagelvls[4])
@@ -151,6 +157,12 @@ text(0.2, wagelvls[1] + 1,  expression(paste("wage, ", w[m])), xpd = TRUE, cex =
 text(0.62, wagelvls[1] - 2.25,  expression(paste("Employment")), xpd = TRUE, cex = labelsize)
 text(0.62, wagelvls[1] - 4.25,  expression(paste("rents")), xpd = TRUE, cex = labelsize)
 Arrows(0.525, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+
+
+text(0.3, wagelvls[3] + 11.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital, ", rho%.%w[m]%.%h[m])), xpd = TRUE, cex = labelsize)
+Arrows(0.3, wagelvls[3] + 8.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+
 
 # text(0.15, wagelvls[3] - 1,  expression(paste(arp)), xpd = TRUE, cex = labelsize)
 # text(0.15, wagelvls[3] - 3,  expression(paste("(no monopoly)")), xpd = TRUE, cex = labelsize)

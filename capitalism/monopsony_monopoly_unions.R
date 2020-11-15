@@ -114,8 +114,14 @@ xlabels <- c(0, expression(paste(h[m])), expression(paste(h[u])), 1.0, NA)
 
 # Owners' rents
 xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
-ypoly1 <- c(wagelvls[3], wagelvls[5] + 2, wagelvls[5] + 2, wagelvls[3], wagelvls[3])
+ypoly1 <- c(wagelvls[3] - 2, wagelvls[5] + 2 , wagelvls[5] + 2, wagelvls[3] - 2, wagelvls[3] - 2)
 polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
+
+xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
+ypoly1 <- c(wagelvls[3] - 2, wagelvls[3] , wagelvls[3], wagelvls[3] - 2, wagelvls[3] - 2)
+polygon(x = xpoly1, y = ypoly1, col=COLB[2], density=NULL, border = NA)
+
+
 # Employment rents
 xpoly2 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly2 <- c(wagelvls[4], wagelvls[1], wagelvls[1], wagelvls[4], wagelvls[4])
@@ -164,12 +170,17 @@ text(0.3, wagelvls[4] - 3,  expression(paste("fallbacks")), xpd = TRUE, cex = la
 
 
 #text(0.85, wagelvls[1] - 1,  expression(paste(ac)), xpd = TRUE, cex = labelsize)
-text(0.1, wagelvls[6] + 3,  expression(paste("Union")), xpd = TRUE, cex = labelsize)
-text(0.1, wagelvls[6] + 1,  expression(paste("wage, ", w[u])), xpd = TRUE, cex = labelsize)
+text(0.9, wagelvls[6] + 3,  expression(paste("Union")), xpd = TRUE, cex = labelsize)
+text(0.9, wagelvls[6] + 1,  expression(paste("wage, ", w[u])), xpd = TRUE, cex = labelsize)
 
 text(0.85, wagelvls[1] - 2.25,  expression(paste("Employment")), xpd = TRUE, cex = labelsize)
 text(0.85, wagelvls[1] - 4.25,  expression(paste("rents")), xpd = TRUE, cex = labelsize)
 Arrows(0.75, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+
+text(0.3, wagelvls[3] + 12.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 10.5,  expression(paste("of capital, ", rho%.%w[u]%.%h[u])), xpd = TRUE, cex = labelsize)
+Arrows(0.3, wagelvls[3] + 9.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
+
 
 # text(0.15, wagelvls[3] - 1,  expression(paste(arp)), xpd = TRUE, cex = labelsize)
 # text(0.15, wagelvls[3] - 3,  expression(paste("(no monopoly)")), xpd = TRUE, cex = labelsize)
@@ -217,7 +228,7 @@ segments(0, wagelvls[3], LPoints[1], wagelvls[3], lty = 2, lwd = segmentlinewidt
 segments(LPoints[1], 0, LPoints[1], wagelvls[3], lty = 2, lwd = segmentlinewidth, col = grays[22])
 
 #Union wage
-segments(0, wagelvls[6], LPoints[1], wagelvls[6], lty = 2, lwd = graphlinewidth, col = CBCols[3])
+segments(0, wagelvls[6], xlims[2], wagelvls[6], lty = 1, lwd = graphlinewidth, col = CBCols[3])
 
 
 #Green part of min wage

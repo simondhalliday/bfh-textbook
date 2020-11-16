@@ -8,7 +8,7 @@ Devplot <-
   inGDP2 %>%
   ggplot(aes(x = avgini, y = avgdpgrowth)) +
   geom_point(color = COLA[4], size = 3) +
-  geom_text_repel(aes(label = country), size = 5) + 
+  geom_text_repel(aes(label = country), size = 6, point.padding = 0.09) + 
   theme_bw() + 
   ylab("Average GDP per capita growth, 1980-2012, %") + 
   xlab("Long-term average inequality in disposable income") + 

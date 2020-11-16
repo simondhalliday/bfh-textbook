@@ -60,8 +60,8 @@ pdf(file = "capitalism/markup_and_gini.pdf", width = 8, height = 8)
 
 obj1 <- xyplot(markup ~ year, data = markup_data2,
                xlab=list("Year", fontsize = 16),
-               ylab = list("Markup Ratio", fontsize = 16),
-               ylab.right = list("Gini Coefficient", fontsize = 16),
+               ylab = list("Share-weighted markup ratio", fontsize = 16),
+               ylab.right = list("Gini coefficient", fontsize = 16),
                par.settings = simpleTheme(col = 1),
                type = "l",
                col = "#E33024",
@@ -71,7 +71,7 @@ obj1 <- xyplot(markup ~ year, data = markup_data2,
                                   cex=1,axs="r"), y=list(cex=6),tck = c(1,0)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
-                          text = list(label = c("Share Weighted Markup", "Gini")), lines = list(col= c("#E33024", CBCols[2])), column = 1,
+                          text = list(label = c("Share-weighted markup", "Gini")), lines = list(col= c("#E33024", CBCols[2])), column = 1,
                           x = 0.02, y = .9, fontsize = 16, lwd = 1.5))
 
 obj2 <- xyplot(gini~year,data = gini_data1 ,type = "l",col=CBCols[2],

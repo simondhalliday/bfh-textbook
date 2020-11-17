@@ -151,6 +151,10 @@ text(-0.15, 2.5, expression(paste("Wage and  price ($), ", list(w, p) )), xpd = 
 text(0.07, 5.2, expression(paste(w[1]^N*(j[2] == 0.5) )), cex = labelsize, xpd = TRUE)
 text(0.5, 5.2, expression(paste(w[2]^N*(j[1] == 0.2) )), cex = labelsize, xpd = TRUE)
 
+text(0.07, 5.5, expression(paste("More unemployment")), cex = labelsize, xpd = TRUE)
+text(0.55, 5.5, expression(paste("Less unemployment")), cex = labelsize, xpd = TRUE)
+
+
 #Horizontal segments for the wages and different values of t
 segments(0, Incomp(t = 0.5, j = 0.5), 1, Incomp(t = 0.5, j = 0.5) ,lty = 2, lwd = 1.5, col = "darkgray", xpd = TRUE)
 segments(0, Incomp(t = 0.5, j = 0.2), 1, Incomp(t = 0.5, j = 0.2) ,lty = 2, lwd = 1.5, col = "darkgray", xpd = TRUE)

@@ -106,6 +106,7 @@ xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly1 <- c(wagelvls[3], wagelvls[1], wagelvls[1], wagelvls[3], wagelvls[3])
 polygon(x = xpoly1, y = ypoly1, col=COLA[1], density=NULL, border = NA)
 
+#Opportunity cost of capital
 xpoly1 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly1 <- c(wagelvls[3] - 2, wagelvls[3] , wagelvls[3], wagelvls[3] - 2, wagelvls[3] - 2)
 polygon(x = xpoly1, y = ypoly1, col=COLB[2], density=NULL, border = NA)
@@ -119,6 +120,12 @@ polygon(x = xpoly2, y = ypoly2, col=COL[4], density=NULL, border = NA)
 xpoly3 <- c(0, 0, LPoints[1], LPoints[1], 0)
 ypoly3 <- c(wagelvls[4], 0, 0, wagelvls[4], wagelvls[4])
 polygon(x = xpoly3, y = ypoly3, col=COLB[1], density=NULL, border = NA)
+
+#Consumer surplus
+xpoly4 <- c(0, 0, LPoints[1], 0)
+ypoly4 <- c(AvgRevenue(0), wagelvls[3], wagelvls[3], AvgRevenue(0))
+polygon(x = xpoly4, y = ypoly4, col=COLB[1], density=NULL, border = NA)
+
 
 #Draw the lines for the graphs
 lines(xx3, WageFn(xx3), col = COLA[6], lwd = graphlinewidth, lty = 1)
@@ -160,7 +167,8 @@ Arrows(0.525, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "
 
 
 text(0.3, wagelvls[3] + 11.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
-text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital, ", rho%.%w[m]%.%h[m])), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital")), xpd = TRUE, cex = labelsize)
+#text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital, ", rho%.%w[m]%.%h[m])), xpd = TRUE, cex = labelsize)
 Arrows(0.3, wagelvls[3] + 8.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
 
@@ -183,11 +191,14 @@ text(0.69, 41, expression(paste(mc(h) )), cex = labelsize, xpd = TRUE)
 #text(0.1, 30, expression(paste("Marginal revenue")), cex = labelsize, xpd = TRUE)
 #text(0.1, 28, expression(paste("product")), cex = labelsize, xpd = TRUE)
 #Marginal revenue product
-text(0.1, 31, expression(paste(mrp(h) )), cex = labelsize, xpd = TRUE)
+text(0.9, 3, expression(paste(mrp(h) )), cex = labelsize, xpd = TRUE)
 
 #Average revenue product
-text(0.1, 39.5, expression(paste(arp(h))), cex = labelsize, xpd = TRUE)
+text(0.9, 18, expression(paste(arp(h))), cex = labelsize, xpd = TRUE)
 
+#Consumer surplus
+text(0.08, 32, expression(paste("Consumer")), cex = labelsize, xpd = TRUE)
+text(0.08, 30, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
 
 
 #Labor supply

@@ -95,13 +95,17 @@ Arrows(-11, 10, -11, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
 #Lines for Fallback positions
 segments(-18, 0, -18, ylims[2], lty = 2, col = grays[20], lwd = segmentlinewidth, xpd = TRUE)
-text(-21.8, 20.2, expression(paste("A's participation")), cex = labelsize, xpd = TRUE)
-text(-21.8, 19, expression(paste("constraint")), cex = labelsize, xpd = TRUE)
-text(-21.8, 17.5, expression(paste(u[b]^A == -18)), cex = labelsize, xpd = TRUE)
+text(-14, 20.2, expression(paste("A's participation")), cex = labelsize, xpd = TRUE)
+text(-14, 19, expression(paste("constraint")), cex = labelsize, xpd = TRUE)
+text(-14, 17.5, expression(paste(u[b]^A == -18)), cex = labelsize, xpd = TRUE)
+Arrows(-16.3, 19, -17.5, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
 
 text(5, 4.3, expression(paste("B's participation")), cex = labelsize, xpd = TRUE)
 text(5, 3, expression(paste("constraint")), cex = labelsize, xpd = TRUE)
 text(5, 1.2, expression(paste(u[b]^B == 0)), cex = labelsize, xpd = TRUE)
+Arrows(2.2, 3.9, 2.2, 0.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+
 
 #Add points
 

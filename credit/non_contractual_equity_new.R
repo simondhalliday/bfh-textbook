@@ -68,8 +68,8 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.5, 0.605, 0.75, ylims[2])
 ylabels <- c(NA, expression(paste(frac(1,2))), expression(paste(f[a])), expression(paste(f[e])), NA)
-ticksx <- c(xlims[1], 0.64, 1, xlims[2])
-xlabels <- c(NA, expression(paste(delta[a])),expression(paste(delta[e])), NA)
+ticksx <- c(xlims[1], 0.25, 0.64, 1, xlims[2])
+xlabels <- c(NA, expression(paste(1 + rho)), expression(paste(delta[a])),expression(paste(delta[e])), NA)
 #xlabels <- c(NA, expression(paste(delta[1](k[3]))),expression(paste(delta[2](k[2]))), expression(paste(delta[3](k[3]))), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -120,12 +120,12 @@ Arrows(1.75, 0.55, 1.75, 0.77, col = "black", lty = 1, lwd = 2, arr.type = "tria
 
 #text(0.825, 0.425, expression(paste(hat(pi) > 0)), cex = labelsize)
 
-text(0.225, 0.45, expression(paste("Competition")), cex = labelsize)
-text(0.225, 0.39, expression(paste("condition")), cex = labelsize)
-text(0.225, 0.34, expression(paste(b > 0)), cex = labelsize)
+text(0.225, 0.42, expression(paste("Zero profit")), cex = labelsize)
+text(0.225, 0.36, expression(paste("condition")), cex = labelsize)
+text(0.225, 0.31, expression(paste(b == 0)), cex = labelsize)
 
 
-text(0.2, 0.05, expression(paste(hat(pi)[1])), cex = labelsize)
+text(0.2, 0.05, expression(paste(hat(pi)[0])), cex = labelsize)
 #text(0.34, 0.05, expression(paste(hat(pi)[1])), cex = labelsize)
 
 

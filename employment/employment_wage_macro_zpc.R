@@ -136,7 +136,9 @@ brackets(x1 = 1.02, y1 = 29.8, x2 = 1.02, y2 = 20.2,
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, h = 0.03,
          lty = 1, xpd = TRUE)
-text(1.14, 25, expression(paste("Profits, ", pi^E)), cex = labelsize, xpd = TRUE)
+
+text(1.14, 26, expression(paste("Accounting")), cex = labelsize, xpd = TRUE)
+text(1.14, 24, expression(paste("profits, ", pi^A)), cex = labelsize, xpd = TRUE)
 
 # text(0.55, 15, expression(paste("Wages")))
 # Arrows(0.5, 18, 0.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

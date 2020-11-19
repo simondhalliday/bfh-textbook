@@ -63,10 +63,10 @@ text(6.9, 7.5, expression(paste("High quality")), cex = actionlabelsize)
 text(6.9, 7.1, expression(paste("(disutility = ", bar(u), ")")), cex = actionlabelsize)
 
 
-text(2, 5, expression(paste("Principal")), cex = labelsize)
-text(1.3, 3.5, expression(paste("Terminate")), cex = actionlabelsize)
+text(2, 5, expression(paste("Chance")), cex = labelsize)
+text(1.3, 3.5, expression(paste("Terminated")), cex = actionlabelsize)
 text(1.3, 3.1, expression(paste("(t)")), cex = actionlabelsize)
-text(5, 3.5, expression(paste("Don't terminate")), cex = actionlabelsize)
+text(5, 3.5, expression(paste("Not terminated")), cex = actionlabelsize)
 text(5, 3.1, expression(paste("(1 - t)")), cex = actionlabelsize)
 
 #Payoffs 

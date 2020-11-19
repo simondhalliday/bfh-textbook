@@ -102,6 +102,8 @@ text(0.65, 0.75, expression("per period"), cex = labelsize,xpd = TRUE)
 
 segments(0.1, 0, 0.1, 0.8, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0.4, 0, 0.4, 0.8, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0, 0.8, 0.5, 0.8, lty = 2, col = grays[20], lwd = segmentlinewidth)
+
 
 text(0.64, 0.45, expression("Per period"), cex = labelsize,xpd = TRUE)
 text(0.64, 0.41, expression("employment"), cex = labelsize,xpd = TRUE)
@@ -130,7 +132,7 @@ Arrows(0, 0.2, 0.5, 0.2, lty = 1, col = "black" , arr.type = "0", arr.lwd = segm
 #Arrows for the rents
 #Arrows(0, 0.8, 0.49, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 #Arrows(0.26, 0.8, 0.49, 0.8, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
-Arrows(0, 0.8, 0.49, 0.8, lty = 1, col = "black", arr.type = "triangle", arr.lwd = segmentlinewidth)
+#Arrows(0, 0.8, 0.49, 0.8, lty = 1, col = "black", arr.type = "triangle", arr.lwd = segmentlinewidth)
 
 Arrows(0, 0.6, 0.06, 0.6, lty = 1, col = COLB[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 Arrows(0.1, 0.6, 0.1, 0.4, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)

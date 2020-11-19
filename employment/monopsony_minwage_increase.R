@@ -154,7 +154,7 @@ segments(IPoints[3], 13, IPoints[3], Mch(IPoints[3]), lty = 2, lwd = graphlinewi
 
 segments(IPoints[2], 0, IPoints[2], MRP(IPoints[2]), lty = 2, lwd = segmentlinewidth, col = grays[20])
 points(IPoints[2], MRP(IPoints[2]), pch = 16, col = "black", cex = 1.5)
-text(IPoints[2] + 0.01, MRP(IPoints[2]) + 1, expression(paste(i)), cex = labelsize)
+text(IPoints[2] - 0.01, MRP(IPoints[2]) - 1, expression(paste(i)), cex = labelsize)
 
 points(IPoints[3], Mch(IPoints[3]), pch = 16, col = "black", cex = 1.5)
 text(IPoints[3] + 0.02, Mch(IPoints[3]), expression(paste(f)), cex = labelsize)

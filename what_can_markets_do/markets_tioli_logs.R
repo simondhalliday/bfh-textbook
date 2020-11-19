@@ -286,5 +286,14 @@ indifflogAneg <- function(xA, U, alpha = 1/2){
 # [1] 1.464816
 #(2.94^0.5)*(12.76^0.5)
 
+text(2.3, 3.4, expression(paste("Better")), cex = labelsize)
+text(2.3, 2.8, expression(paste("for B")), cex = labelsize)
+Arrows(3, 3, 2, 1, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+text(8.7, 15-2.8, expression(paste("Better")), cex = labelsize)
+text(8.7, 15-3.4, expression(paste("for A")), cex = labelsize)
+Arrows(10-2, 15-3, 9, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
+
+
 
 dev.off()

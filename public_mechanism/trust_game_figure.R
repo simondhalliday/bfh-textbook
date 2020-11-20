@@ -7,6 +7,7 @@ library(digitize)
 library(jpeg)
 library(scales)
 library(openxlsx)
+library(cowplot)
 
 trust_game_data <- read.xlsx("public_mechanism/Fig4.1_trust_game_data.xlsx")
 
@@ -28,8 +29,7 @@ trust_game_plot <-
   ylab("Amount returned") + 
   scale_y_continuous(breaks = seq(0, 14, by = 2), limits = c(0, 14)) + 
   labs(fill = "Treatment") +
-  scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
-but not imposed", "Trust condition - no fine possible")) +
+  scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 22),
@@ -37,8 +37,8 @@ but not imposed", "Trust condition - no fine possible")) +
         axis.text = element_text(size = 16),
         legend.title = element_text(size = 20),
         legend.text = element_text(size = 16), 
-        legend.position = c(0.28, 0.85), 
-        legend.box="vertical")
+        legend.position = c(0.36, 0.86)
+        )
 print(trust_game_plot)
   
 ggsave("public_mechanism/trust_game_figure.pdf", width = 9, height = 7, units = "in")

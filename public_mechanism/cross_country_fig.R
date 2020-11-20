@@ -1,6 +1,7 @@
 library(ggplot2)
 library(readxl)
 library(dplyr)
+library(shape)
 
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
@@ -33,7 +34,13 @@ Plot <- ggplot(Data, aes(x = `gini post tax and transfer`, y = `protective servi
   annotate("text", x = 0.213, y = 62, label = "Denmark", size =5.5) +
   annotate("text", x = 0.393, y = 202, label = "(2000)", size =5.5) +
   ylab("Guards per  10,000 people \n in labor force in 2000") + 
-  xlab("Inequality in disposable income (Gini coefficient)")
+  xlab("Inequality in disposable income (Gini coefficient)") + 
+  geom_segment(
+    aes(x = 0.355, y = 174, xend = 0.371, yend = 202.5),
+    data = Data,
+    arrow = arrow(length = unit(0.025, "npc"), 
+                  type = "closed")
+  )
   
   
 Plot

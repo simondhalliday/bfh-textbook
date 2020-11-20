@@ -28,29 +28,18 @@ pos <- coordinates(c(3, 3))
 #From 4 to 3
 straightarrow(from = pos[1, ] + c(0.04,0), 
               to = pos[3, ] + c(-0.09,0), 
-              lty = 1, lcol = 1)
+              lty = 1, lcol = 1, arr.lwd = 6, arr.type = "triangle")
 #From 4 to 8
 straightarrow(from = pos[1, ], 
-              to = pos[5, ], lty = 1, lcol = 1)
+              to = pos[5, ], lty = 1, lcol = 1, arr.lwd = 6, arr.type = "triangle")
 
 #From 8 to 3
 straightarrow(from = pos[5,], 
-              to = pos[3, ], lty = 1, lcol = 1)
+              to = pos[3, ], lty = 1, lcol = 1, arr.lwd = 6, arr.type = "triangle")
 
 #From 11 to 7
 straightarrow(from = pos[11,] + c(0.07,0), to = pos[7, ] + c(0, 0.02), 
-              lty = 1, lcol = 1, arr.pos = 0.6)
-
-#From 9 to 10
-straightarrow(from = pos[9,], to = pos[10, ], 
-              lty = 1, lcol = 1, arr.pos = 0.55)
-
-#From 10 to 11
-straightarrow(from = pos[10,], to = pos[11, ], lty = 1, lcol = 1, arr.pos = 0.5)
-
-
-#From 3 to 12
-straightarrow(from = pos[3,]+c(0.04,0), to = pos[12, ], lty = 1, lcol = 1, arr.pos = 0.5)
+              lty = 1, lcol = 1, arr.pos = 0.6, arr.lwd = 1)
 
 
 #First row
@@ -62,7 +51,6 @@ textround(mid = pos[3,],
           lwd = framewidth, 
           cex = textsize, 
           lcol = "#238b45",
-          nr = 3, 
           shadow.col = FALSE)
 
 #Initial position

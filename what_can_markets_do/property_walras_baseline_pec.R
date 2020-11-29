@@ -100,7 +100,7 @@ indiffcurveBneg2 <- function(x, U = 6.531973, A = 1, a = 0.5) {
 
 
 
-par(mar =  c(4, 4.4, 4, 4))
+par(mar =  c(4, 4.4, 4, 4.7))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
@@ -225,7 +225,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1,  cex.axis = labelsize)
 text(4.8, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-0.8, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-1, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
 Arrows(-0.7, 11.5, -0.7, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)

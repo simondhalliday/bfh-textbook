@@ -43,11 +43,11 @@ loecker_2018 <- read_csv("competitionmarkets/loecker_barkai/loecker_2018.csv")
 loecker_2018$y_adj<- sub_1(loecker_2018["y"])
 
 
-barkai_2018 <- barkai_2018 %>% 
+barkai_2018 <- barkai_2018 %>%
   rename("year_b" = x, "b_share" = y)
 
-loecker_2018 <- loecker_2018 %>% 
-  rename("year_l" = x, "l_markup" = y_adj) 
+loecker_2018 <- loecker_2018 %>%
+  rename("year_l" = x, "l_markup" = y_adj)
 
 loecker_2018$y <- NULL
 
@@ -137,8 +137,9 @@ p <-  ggplot(data = LBdf) +
   
 
 #Save plot to PDF
-ggsave(p, filename = "loecker_barkai.pdf", 
-       path = "competitionmarkets",
+ggsave(p, filename = "competitionmarkets/loecker_barkai.pdf", 
+       width = 7, height = 7, units = "in")
+ggsave(p, filename = "competitionmarkets/loecker_barkai.png", 
        width = 7, height = 7, units = "in")
 
 # ----

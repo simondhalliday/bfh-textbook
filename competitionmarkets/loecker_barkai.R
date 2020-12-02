@@ -33,6 +33,10 @@ date_max <- function(x, y){
 
 
 #----
+<<<<<<< HEAD
+# pull in data - HBG comment: I have commented out the data cleaning so this file can easily run.
+# To uncomment the data cleaning, uncomment from line 40 to 116
+=======
 # pull in data
 # ----
 library(readr)
@@ -43,79 +47,102 @@ loecker_2018 <- read_csv("competitionmarkets/loecker_barkai/loecker_2018.csv")
 loecker_2018$y_adj<- sub_1(loecker_2018["y"])
 
 
-barkai_2018 <- barkai_2018 %>% 
+barkai_2018 <- barkai_2018 %>%
   rename("year_b" = x, "b_share" = y)
 
-loecker_2018 <- loecker_2018 %>% 
-  rename("year_l" = x, "l_markup" = y_adj) 
+loecker_2018 <- loecker_2018 %>%
+  rename("year_l" = x, "l_markup" = y_adj)
 
 loecker_2018$y <- NULL
 
 loecker_2018$year <- floor(loecker_2018$year_l)
 barkai_2018$year <- floor(barkai_2018$year_b)
+>>>>>>> ee2e6ac649eecf6f7f14757b3f3c8dad532dc55c
 
 # ----
-# merge data
-loecker_barkai <- full_join(loecker_2018, barkai_2018, by = "year")
-
-loecker_barkai <- 
-  loecker_barkai %>%
-  mutate(year_l = coalesce(year_l, 0),
-         year_b = coalesce(year_b, 0)
-         )
-
-loecker_barkai$year <- 
-  pmax(loecker_barkai$year_l, loecker_barkai$year_b,
-       na.rm = FALSE
-       )
-
-# manually inputting missing values: 
-
-#Loecker:
-#missing year values
-loecker_barkai$year<- ifelse(loecker_barkai$year == 0, loecker_barkai$year, loecker_barkai$year)
-#missing markup values (estimated from original data):
-#1983:
-loecker_barkai[53, 2] <- 0.193
-#1984:
-loecker_barkai[54, 2] <- 0.21
-#1987:
-loecker_barkai[55, 2] <- 0.2796
-#1993:
-loecker_barkai[56, 2] <- 0.34
-#1995:
-loecker_barkai[57, 2] <- 0.365
-#1996:
-loecker_barkai[58, 2] <- 0.375
-#1998 
-loecker_barkai[59, 2]<- 0.3936267
-
-#Barkai:
-#missing year values 
-loecker_barkai$year_b<- ifelse(loecker_barkai$year_b == 0, ifelse(loecker_barkai$year >= 1985,loecker_barkai$year, loecker_barkai$year_b),  loecker_barkai$year_b)
-#missing b_share values (estimated from original data)
-#2001:
-loecker_barkai[40, "b_share"] <- .03
-#2011:
-loecker_barkai[50, "b_share"] <- 0.12
-
-
-#The ggplot had issues with read l_markup.y
-#So I re-did it and just mutated it
-#as  you'd coded it it was trying 
-#to read l_markup as a df itself
-LBdf <- 
-  loecker_barkai %>%
-  mutate(markup = l_markup$y) %>% 
-  select(year, markup, b_share)
-
-write.xlsx(LBdf, 'competitionmarkets/loecker_barkai/LBdf_data.xlsx')
+# library(readr)
+# barkai_2018 <- read_csv("competitionmarkets/loecker_barkai/barkai_2018.csv")
+# loecker_2018 <- read_csv("competitionmarkets/loecker_barkai/loecker_2018.csv")
+# 
+# # adjust / clean
+# loecker_2018$y_adj<- sub_1(loecker_2018["y"])
+# 
+# 
+# barkai_2018 <- barkai_2018 %>% 
+#   rename("year_b" = x, "b_share" = y)
+# 
+# loecker_2018 <- loecker_2018 %>% 
+#   rename("year_l" = x, "l_markup" = y_adj) 
+# 
+# loecker_2018$y <- NULL
+# 
+# loecker_2018$year <- floor(loecker_2018$year_l)
+# barkai_2018$year <- floor(barkai_2018$year_b)
+# 
+# # ----
+# # merge data
+# loecker_barkai <- full_join(loecker_2018, barkai_2018, by = "year")
+# 
+# loecker_barkai <- 
+#   loecker_barkai %>%
+#   mutate(year_l = coalesce(year_l, 0),
+#          year_b = coalesce(year_b, 0)
+#          )
+# 
+# loecker_barkai$year <- 
+#   pmax(loecker_barkai$year_l, loecker_barkai$year_b,
+#        na.rm = FALSE
+#        )
+# 
+# # manually inputting missing values: 
+# 
+# loecker_barkai <- as.data.frame(loecker_barkai)
+# 
+# #Loecker:
+# #missing year values
+# loecker_barkai$year<- ifelse(loecker_barkai$year == 0, loecker_barkai$year, loecker_barkai$year)
+# #missing markup values (estimated from original data):
+# #1983:
+# loecker_barkai[53, 2] <- 0.193
+# #1984:
+# loecker_barkai[54, 2] <- 0.21
+# #1987:
+# loecker_barkai[55, 2] <- 0.2796
+# #1993:
+# loecker_barkai[56, 2] <- 0.34
+# #1995:
+# loecker_barkai[57, 2] <- 0.365
+# #1996:
+# loecker_barkai[58, 2] <- 0.375
+# #1998 
+# loecker_barkai[59, 2]<- 0.3936267
+# 
+# #Barkai:
+# #missing year values 
+# loecker_barkai$year_b<- ifelse(loecker_barkai$year_b == 0, ifelse(loecker_barkai$year >= 1985,loecker_barkai$year, loecker_barkai$year_b),  loecker_barkai$year_b)
+# #missing b_share values (estimated from original data)
+# #2001:
+# loecker_barkai[40, "b_share"] <- .03
+# #2011:
+# loecker_barkai[50, "b_share"] <- 0.12
+# 
+# 
+# #The ggplot had issues with read l_markup.y
+# #So I re-did it and just mutated it
+# #as  you'd coded it it was trying 
+# #to read l_markup as a df itself
+# LBdf <- 
+#   loecker_barkai %>%
+#   mutate(markup = l_markup$y) %>% 
+#   select(year, markup, b_share)
+# 
+# write.xlsx(LBdf, 'competitionmarkets/loecker_barkai/LBdf_data.xlsx')
 
 # graph
 # ----
 
-#library(readxl)
-#LBdf <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
+library(readxl)
+LBdf <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
 
 p <-  ggplot(data = LBdf) +
   geom_line(aes(x = year, y = markup, color = "Markup ratio"), na.rm = TRUE) +
@@ -135,9 +162,15 @@ p <-  ggplot(data = LBdf) +
         panel.grid.minor = element_blank()) + 
   scale_colour_manual(values = c("#0868ac","#41ae76"))
   
-
+p
 #Save plot to PDF
-ggsave(p, filename = "loecker_barkai.pdf", 
+ggsave(p, filename = "competitionmarkets/loecker_barkai.pdf", 
+       width = 7, height = 7, units = "in")
+ggsave(p, filename = "competitionmarkets/loecker_barkai.png", 
+       width = 7, height = 7, units = "in")
+
+#Save plot to PNG
+ggsave(p, filename = "loecker_barkai.png", 
        path = "competitionmarkets",
        width = 7, height = 7, units = "in")
 

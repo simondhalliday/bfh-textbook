@@ -65,10 +65,12 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksy <- c(0, 10, cournotPrice(n = nstar(b = barriers[1])), cournotPrice(n = nstar(b = barriers[2])), ylims[2])
 ylabels <- c(NA, expression(c), expression(paste(p[L]^N)), expression(paste(p[H]^N)), NA)
 ticksx <- c(0, nstar(b = barriers[2]), nstar(b = barriers[1]), xlims[2])
-xlabels <- c(NA, expression(paste(n[H])), expression(paste(n[L])), NA)
+xlabels <- c(NA, expression(paste(n[H]^N)), expression(paste(n[L]^N)), NA)
 
-axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
+axis(1, at = ticksx, pos = 0, labels = NA, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
+
+text(x = c(0,  nstar(b = barriers[2]) + 0.3, nstar(b = barriers[1]) + 0.3, xlims[2]), par("usr")[3], labels = xlabels, srt = 0, pos = 1, xpd = TRUE, cex = labelsize)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

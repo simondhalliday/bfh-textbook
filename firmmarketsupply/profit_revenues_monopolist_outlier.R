@@ -3,8 +3,8 @@
 #Title: Coordination, Conflict and Competition: A Text in Microeconomics
 
 require(shape)
-pdf(file = "firmmarketsupply/monopolist_profit_comparison.pdf", width = 9, height = 7)
-
+#pdf(file = "firmmarketsupply/monopolist_profit_comparison.pdf", width = 9, height = 7)
+png(file = "firmmarketsupply/profit_revenues_monopolist_outlier.png", width = 6*120, height = 4.5*120)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -22,7 +22,7 @@ Grays <- gray.colors(25, start = 1, end = 0)
 CBCols <- c("#009E73","#0072B2","#E69F00")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(7, 7, 1, 1))
+par(mar =  c(6, 7, 1, 1))
 
 AvgRevenue <- function(x, rmax = 12, xmax = 12){
   rmax - (rmax/xmax)*x
@@ -59,9 +59,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = xlims[1], to = xlims[2], by = 1)
 # xlabels <- seq(from = xlims[1], to = xlims[2], by = 1)
 ticksy <- c(0, 4, AvgRevenue(x = 4), ylims[2])
-ylabels <- c(NA, expression(paste(c)), expression(paste(p^{m})), expression(paste(bar(p))))
+ylabels <- c(NA, expression(paste(c == 4)), expression(paste(p[m] == 8)), expression(paste(12)))
 ticksx <- c(0, 4, 6, xlims[2])
-xlabels <- c(NA, expression(paste(x^{m})), expression(paste(frac(bar(p),2*beta))), expression(paste(frac(bar(p),beta))))
+xlabels <- c(NA, expression(paste(q[m] == 4)), expression(paste(6)), expression(paste(12)))
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -87,15 +87,15 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #lines(xx1, AvgCost(xx1, c0 = 2, c1 = 4), col = COLA[5], lwd = graphlinewidth)
 
 #Label the axes
-text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", X)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*(xlims[2]), -1.5, expression(paste("Quantity (1000s), ", q[i])), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -2.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 #mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.6, 0.5*ylims[2], expression(paste("Price per unit, revenues, and costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 4.5, expression(paste(ac == mc,phantom() == c)), cex = labelsize, xpd=TRUE)
-text(10.1, 2.8, expression(paste(p(x))), cex = labelsize)
-text(5.4, 2.8, expression(paste(mr(x))), cex = labelsize)
+text(10.1, 2.8, expression(paste(p(q[i]))), cex = labelsize)
+text(5.4, 2.8, expression(paste(mr(q[i]))), cex = labelsize)
 
 #Labels cost and profit areas
 text(2, 0.5*AvgCost(x = 4), expression("Total costs"), cex = labelsize)

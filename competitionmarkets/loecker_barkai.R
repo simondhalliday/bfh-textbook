@@ -33,10 +33,9 @@ date_max <- function(x, y){
 
 
 #----
-<<<<<<< HEAD
 # pull in data - HBG comment: I have commented out the data cleaning so this file can easily run.
 # To uncomment the data cleaning, uncomment from line 40 to 116
-=======
+
 # pull in data
 # ----
 library(readr)
@@ -57,7 +56,6 @@ loecker_2018$y <- NULL
 
 loecker_2018$year <- floor(loecker_2018$year_l)
 barkai_2018$year <- floor(barkai_2018$year_b)
->>>>>>> ee2e6ac649eecf6f7f14757b3f3c8dad532dc55c
 
 # ----
 # library(readr)
@@ -167,11 +165,6 @@ p
 ggsave(p, filename = "competitionmarkets/loecker_barkai.pdf", 
        width = 7, height = 7, units = "in")
 ggsave(p, filename = "competitionmarkets/loecker_barkai.png", 
-       width = 7, height = 7, units = "in")
-
-#Save plot to PNG
-ggsave(p, filename = "loecker_barkai.png", 
-       path = "competitionmarkets",
        width = 7, height = 7, units = "in")
 
 # ----

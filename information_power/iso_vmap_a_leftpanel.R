@@ -111,7 +111,7 @@ xx10 <- seq(xlims[1], 25, length.out = npts2)
 ticksy <- c(0, 0.5, 1)
 ylabels <- c(0, expression(paste(frac(1,2))), 1)
 ticksx <- c(0, 5, 10, 20, 40)
-xlabels <- c(0, expression(paste(underline("u"))) ,expression(paste(10 == 2*underline("u"))), expression(paste(20 == 4*underline("u"))) , 40)
+xlabels <- c(0, expression(paste(5 == underline("u"))) ,expression(paste(10 == 2*underline("u"))), expression(paste(20 == 4*underline("u"))) , 40)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
@@ -122,7 +122,7 @@ text(9.0, 0.05, expression(paste(v[1])), cex = annotatesize)
 text(14, 0.05, expression(paste(v[2])), cex = annotatesize)
 text(19, 0.05, expression(paste(v[3])), cex = annotatesize)
 text(23.5, 0.05, expression(paste(v[4])), cex = annotatesize)
-text(21, 0.48, expression(paste("n")), cex = annotatesize)
+#text(21, 0.48, expression(paste("n")), cex = annotatesize)
 #text(33, 0.58, expression(paste("Best-response function")), cex = annotatesize)
 text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 #text(8.2, 0.3, expression(paste("PC")), cex = annotatesize)
@@ -130,7 +130,7 @@ text(36, 0.9, expression(paste("Iso-v curves")), cex = annotatesize)
 
 #Lines for the coordinates of the Nash equilbrium
 #segments(10, 0, 10, 0.175, lty = 2, col = grays[22], lwd = segmentlinewidth)
-segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
+#segments(20, 0, 20, 0.6545, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = grays[22], lwd = segmentlinewidth)
 #segments(17.889, 0.3, 17.889, 0.6, lty = 2, col = grays[22], lwd = segmentlinewidth)
@@ -159,7 +159,7 @@ Arrows(27, 0.45, 32, 0.45,  col = "black", lty = 1, lwd = 2, arr.type = "triangl
 text(30, 0.5, expression(paste("Better for agent")), cex = annotatesize)
 
 #Add a point for the NE
-points(20, 0.5, pch = 16, col = "black", cex = 1.5)
+#points(20, 0.5, pch = 16, col = "black", cex = 1.5)
 
 
 #Add a point for b

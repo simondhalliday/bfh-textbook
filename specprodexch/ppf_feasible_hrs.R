@@ -85,11 +85,11 @@ ypoly1 <- ppf(xpoly1, k = 10/25, alpha = 2, maxfish = 5)
 # shade 
 polygon(x = c(10, 0, 0), 
         y = c(0, 0, 10),
-        border = FALSE, col = adjustcolor(COL[3], alpha.f = 0.5))
+        border = FALSE, col = adjustcolor(COL[1], alpha.f = 0.5))
 
 
 #Draw the graphs
-lines(xx3, feasibleLabor(xx3, time = 10), col = CBCols[3], lwd = graphlinewidth)
+lines(xx3, feasibleLabor(xx3, time = 10), col = CBCols[1], lwd = graphlinewidth)
 
 #mtext(expression(paste("Quantity of fish, ", x)), side=1, line = 2.5, cex = axislabelsize)
 text(-0.5, 7.5, expression(paste("Labor for fish, ", l^f)), xpd = TRUE, cex = axislabelsize, srt= 90) 

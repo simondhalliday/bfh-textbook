@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "competitionmarkets/cournot_brf_isoA_feasible.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/cournot_brf_isoA_feasible_slide3.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -102,8 +102,8 @@ text(9.2 - 0.5, 17.7 - 1, expression(paste(c)), cex = annotatesize)
 
 #labels for the isoprofits
 text(17.5, 5.0, expression(paste(pi[3]^A == 101.5)), cex = annotatesize)
-text(16.8, 12.3, expression(paste(pi[2]^A == 72)), cex = annotatesize)
-text(17.8, 16, expression(paste(pi[1]^A == 41.9)), cex = annotatesize)
+text(17, 8.8, expression(paste(pi[2]^A == 72)), cex = annotatesize)
+text(18, 16, expression(paste(pi[1]^A == 41.9)), cex = annotatesize)
 
 axis(1, at = ticksx, pos = 0, labels = xlabelsnum, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabelsnum, las = 1, cex.axis = labelsize)

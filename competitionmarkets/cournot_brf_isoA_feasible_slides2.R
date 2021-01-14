@@ -1,5 +1,5 @@
 require(shape)
-pdf(file = "competitionmarkets/cournot_brf_isoA_feasible.pdf", width = 9, height = 7)
+pdf(file = "competitionmarkets/cournot_brf_isoA_feasible_slide2.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -68,7 +68,7 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 #         border = FALSE, col = COLA[1])
 
 # Feasible
-segments(0, 7.5, xlims[2], 7.5, col = CBCols[2], lwd = graphlinewidth)
+#segments(0, 7.5, xlims[2], 7.5, col = CBCols[2], lwd = graphlinewidth)
 #text(5, 35, expression("Feasible set"), cex = annotatesize)
 # polygon( feasible )
 
@@ -85,14 +85,14 @@ contour(x, y,
 text(0.5*xlims[2], -3.5, expression(paste("A's output, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 text(-7.3, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
-segments(14.25, 0, 14.25, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(14.25, 0, 14.25, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(14.25, 7.5, pch = 16, col = "black", cex = 1.5)
 
-segments(6.60, 0, 6.60, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(6.60, 0, 6.60, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(12, 12, pch = 16, col = "black", cex = 1.5)
 
 
-segments(3.4, 0, 3.4, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
+#segments(3.4, 0, 3.4, 7.5, lty = 2, col = grays[20] , lwd = segmentlinewidth)
 points(9.2, 17.7, pch = 16, col = "black", cex = 1.5)
 
 text(14.25 - 0.5, 7.5 - 1, expression(paste(a)), cex = annotatesize)

@@ -61,9 +61,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs="i")
 
 ticksy <- c(0, 2, cournotPrice(n = nstar(b = barriers[1]), c = costs[1]),  ylims[2])
-ylabels <- c(NA, expression(c), expression(paste(p*(n[e]))), NA)
+ylabels <- c(NA, expression(c), expression(paste(p*(n^N))), NA)
 ticksx <- c(0, nstar(b = barriers[1]), xlims[2])
-xlabels <- c(NA, expression(paste(n[e])), NA)
+xlabels <- c(NA, expression(paste(n^N)), NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

@@ -1,5 +1,6 @@
 require(shape)
-pdf(file = "employment/employment_price_initial_indiff_nolabels.pdf", width = 9, height = 7)
+#pdf(file = "employment/employment_price_initial_indiff_nolabels.pdf", width = 9, height = 7)
+jpeg(file = "employment/employment_price_initial_indiff_nolabels.jpg", width = 5*120, height = 4*120)
 
 #Set parameters for graphics
 axislabelsize <- 1.5

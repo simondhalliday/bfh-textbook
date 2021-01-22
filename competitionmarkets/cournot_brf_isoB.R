@@ -102,7 +102,7 @@ text(5.5, 18, expression(paste(pi[3])), cex = annotatesize)
 text(8.8, 18, expression(paste(pi[2])), cex = annotatesize)
 text(12.2, 18, expression(paste(pi[1])), cex = annotatesize)
 
-text(24, 21, expression(paste("B's isoprofit curves")), cex = annotatesize)
+text(22, 21, expression(paste("B's isoprofit curves")), cex = annotatesize)
 Arrows(17, 21, 12, 21, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

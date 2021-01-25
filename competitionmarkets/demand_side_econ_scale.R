@@ -98,7 +98,7 @@ text(-12, 0.5*ylims[2], expression(paste("Price per unit of x, ", p)), xpd = TRU
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(105, 16, expression("Demand curve"), cex = labelsize)
-text(105, 14.5, expression(paste(P(x) == underline(p) + beta*x)), cex = labelsize)
+text(105, 14.5, expression(paste(p(X) == underline(p) + beta*X)), cex = labelsize)
 
 
 dev.off()

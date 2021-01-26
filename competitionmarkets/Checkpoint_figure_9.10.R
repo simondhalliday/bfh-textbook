@@ -328,7 +328,7 @@ text(-0.3, 0.6*ylims[2], expression(paste("Price per unit of x, ", p[X])), xpd =
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 text(0.5, 5.2, expression("Demand of"), cex = labelsize)
-text(0.5, 4.8, expression("three sellers"), cex = labelsize)
+text(0.5, 4.8, expression("three buyers"), cex = labelsize)
 text(2, 5.47, expression("Supply of"), cex = labelsize)
 text(2, 5.17, expression("three sellers"), cex = labelsize)
 

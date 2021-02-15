@@ -6,7 +6,7 @@ require(ggplot2)
 require(shape)
 require(extrafontdb)
 require(pBrackets)
-pdf(file = "information_power/iso_vmap_b_checkpoint.pdf", width = 9, height = 7)
+pdf(file = "information_power/iso_vmap_b_checkpoint.jpg", width = 9, height = 7)
 
 #Set parameters for graphics
 pointsize <- 1.8

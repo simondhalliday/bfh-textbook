@@ -229,6 +229,6 @@ Arrows(29.5, 0.04, 32, 0.04, col = "black", lty = 1, lwd = 2, arr.type = "triang
 
 brackets(19, 0.5, 19, 0.73, h = 0.5, ticks = 0.5, curvature = 0.5, type = 1, col = 1, lwd = 2, lty = 1, xpd = FALSE)
 text(15.5, 0.65, expression(paste("Additional")), cex = annotatesize)
-text(15.5, 0.6, expression(paste("quality")), cex = annotatesize)
+text(15.5, 0.6, expression(paste("effort")), cex = annotatesize)
 dev.off()
 

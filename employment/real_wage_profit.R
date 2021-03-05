@@ -141,7 +141,8 @@ text(1.35, 11, expression(paste(gamma)), cex = labelsize, xpd = TRUE)
 
 text(1.14, 11, expression(paste("Real")), cex = labelsize, xpd = TRUE)
 text(1.14, 9, expression(paste("wage, ",  w^C)), cex = labelsize, xpd = TRUE)
-text(1.15, 25, expression(paste("Profit per")), cex = labelsize, xpd = TRUE)
+text(1.15, 27, expression(paste("Accounting")), cex = labelsize, xpd = TRUE)
+text(1.15, 25, expression(paste("profit per")), cex = labelsize, xpd = TRUE)
 text(1.15, 23, expression(paste("worker hour")), cex = labelsize, xpd = TRUE)
 
 

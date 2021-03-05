@@ -69,7 +69,7 @@ lines(xx2, MRP2(xx2), lty = 2, col = COLA[4], lwd = graphlinewidth)
 
 #Axis labels
 #mtext(expression(paste("Total hours hired by the employer, ", h)), side = 1, line = 2.5, cex = axislabelsize)
-text(0.5*xlims[2], -8, expression(paste("Total hours hired by the employer, ", italic(l) == e^N*h)), xpd = TRUE, cex = axislabelsize) 
+text(0.5*xlims[2], -8, expression(paste("Total hours hired by the employer, ", h)), xpd = TRUE, cex = axislabelsize) 
 text(-360, 0.5*ylims[2], expression(paste("Wage, ", w^N, ", marginal revenue product of hours, ", r[italic(l)]*e^N )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

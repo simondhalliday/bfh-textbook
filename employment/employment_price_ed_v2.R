@@ -1,5 +1,6 @@
 require(shape)
 pdf(file = "employment/employment_price_edv2.pdf", width = 9, height = 7)
+#jpeg(file = "employment/employment_price_edv2.jpg", width = 9*75, height = 7*75)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -129,10 +130,10 @@ Arrows(30, 0.14, 36, 0.06, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 
 text(8.5, 0.97, expression(paste("Slope of isocost")), cex = labelsize)
-text(8.5, 0.89, expression(paste(-mrt ==frac(e, p))), cex = labelsize)
+text(8.5, 0.89, expression(paste(-mrs ==frac(e, p))), cex = labelsize)
 Arrows(12, 0.9, 16, 0.9, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
-text(30, 0.5, expression(paste(-mrs == frac(u[p],u[e]),phantom()==frac(e, p),phantom() == -mrt)), cex = labelsize, xpd = TRUE)
+text(30, 0.5, expression(paste(-mrt == frac(u[p],u[e]),phantom()==frac(e, p),phantom() == -mrs)), cex = labelsize, xpd = TRUE)
 Arrows(23, 0.5, 11, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 Arrows(21, 0.30, 18, 0.30,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")

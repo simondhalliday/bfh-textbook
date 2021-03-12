@@ -113,8 +113,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- seq(from = 0, to = 10, by = 1)
-ylabels <- c(0, rep(NA, 9), 10)
+ticksy <- c(0, 0.9, seq(from = 1, to = 4, by = 1), 4.4, seq(from = 5, to = 9, by = 1), 10)
+ylabels <- c(0, 0.9, NA, NA, NA, NA, 4.4, rep(NA, 5), 10)
+
+text(-0.5, 0.9, expression(0.9), xpd = TRUE, cex = labelsize, srt = 90) 
+
+#ticksy <- seq(from = 0, to = 10, by = 1)
+#ylabels <- c(0, rep(NA, 9), 10)
 ticksx <- c(seq(from = 0, to = 8, by = 1), 8.48, 9, 10)
 xlabels <- c(0, rep(NA, 4), 5, NA, NA, NA, 8.5, NA, 10)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -143,7 +148,9 @@ contour(x, y,
 
 text(0.15*ylims[2], -1.2, expression(paste("A's Good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
-text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+# TODO UNCOMMENT
+#text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:
@@ -236,8 +243,8 @@ brackets(x1 = 10.8, y1 = 4.4, x2 = 10.8, y2 = 0.9,
 text(11.8, 2.9, expression(paste("Quantity of money, y")), xpd = TRUE, srt = 270, cex = annotatesize)
 text(11.4, 2.9, expression(paste("B pays A")), xpd = TRUE, srt = 270, cex = annotatesize)
 
-text(-0.3, -0.4, expression("A"), xpd = TRUE, cex = namesize, col = CBCols[1])
-text(10.4, 10.4, expression("B"), xpd = TRUE, cex = namesize, col = CBCols[2])
+text(-0.4, -0.8, expression("A"), xpd = TRUE, cex = namesize, col = CBCols[1])
+text(10.4, 10.9, expression("B"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
 dev.off()
 

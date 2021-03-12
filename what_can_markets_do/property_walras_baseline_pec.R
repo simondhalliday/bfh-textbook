@@ -100,7 +100,7 @@ indiffcurveBneg2 <- function(x, U = 6.531973, A = 1, a = 0.5) {
 
 
 
-par(mar =  c(4, 4.4, 4, 4.7))
+par(mar = c(6, 4.2, 4.2, 7)) # c(4, 4.4, 4, 4.7))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
@@ -116,7 +116,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs = "i", 
      yaxs = "i")
 
-text(0.5*xlims[2], -1.3, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(0.2*xlims[2], -2.5, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
 text(-0.95, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
@@ -169,7 +169,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis
 
 #Add arrows:
 Arrows(-0.9, 11.8, -0.9, 14.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(7.2, -1.4, 9, -1.4, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(4.5, -3, 5.8, -3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.6, -1.4, 9, -1.4, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
@@ -183,7 +183,7 @@ points(2.5, 7.5, pch = 16, col = "black", cex = 1.5)
 text(2.65, 7.9, expression(h), cex = labelsize)
 
 points(5, 5, pch = 16, col = "black", cex = 1.5)
-text(5.2, 5.25, expression(j), cex = labelsize)
+text(5.2, 5.4, expression(j), cex = labelsize)
 
 text(9, 6.9, expression("Price line"), cex = labelsize)
 text(9, 6.25, expression(paste("slope ", phantom() == -p[j])), cex = labelsize)
@@ -202,6 +202,17 @@ text(5.9, 13.6, expression("curve"), cex = annotatesize)
 text(-0.3, -1.4, expression("A"), xpd = TRUE, cex = namesize, col = CBCols[1])
 text(10.4, 16.4, expression("B"), xpd = TRUE, cex = namesize, col = CBCols[2])
 
+brackets(x1 = 8.9, y1 = -1.2, x2 = 5.1, y2 = -1.2,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(7, -2.1, expression(paste("Quantity of coffee, x")), xpd = TRUE, cex = annotatesize)
+text(7.1, -2.8, expression(paste("A trades to B")), xpd = TRUE, cex = annotatesize)
+
+brackets(x1 = 10.8, y1 = 4.4, x2 = 10.8, y2 = 0.9,  
+         ticks = 0.5, curvature = 0.5, type = 1, h = 0.25,
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(11.8, 2.7, expression(paste("Quantity of data, y")), xpd = TRUE, srt = 270, cex = annotatesize)
+text(11.3, 2.7, expression(paste("B trades A")), xpd = TRUE, srt = 270, cex = annotatesize)
 
 #Set up second axes and labels
 par(new = TRUE)
@@ -209,6 +220,8 @@ par(new = TRUE)
 #Use the same x and ylims as previously, but with locations switched
 xlims2 <- c(10, 0)
 ylims2 <- c(15, 0)
+
+
 
 #Leave the ylab and xlab blank to ensure no axes titles
 plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
@@ -224,12 +237,12 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
 #Set up axes at sides 3 and 4 (top and right)
 axis(side = 3, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(side = 4, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1,  cex.axis = labelsize)
-text(4.8, -1.7, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
-text(-1, 7, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(4.8, -1.9, expression(paste("B's coffee (kilograms), ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(-1.5, 3, expression(paste("B's data (gigabytes), ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 #Add arrows:
-Arrows(-0.7, 11.5, -0.7, 14, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
-Arrows(7.3, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-1.3, 7.8, -1.3, 9.8, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(7.5, -1.6, 9, -1.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.7, 10, -0.7, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)
 # arrows(6.6, -1.6, 9, -1.6, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

@@ -87,8 +87,10 @@ LorenzMarket <-
   ggplot(aes(y = cumy, x = cumprop, group = type)) + 
   geom_line() + 
   #facet_grid(. ~type, space = "free") +
-  scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+  scale_x_continuous(limits = c(0, 1), expand = c(0, 0), 
+                     labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
+  scale_y_continuous(limits = c(0, 1), expand = c(0, 0), 
+                     labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
   xlab("Cumulative population, (%)") + 
@@ -121,8 +123,10 @@ LorenzDisposable <-
   ggplot(aes(y = cumy, x = cumprop, group = type)) + 
   geom_line() + 
   #facet_grid(. ~type, space = "free") +
-  scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+  scale_x_continuous(limits = c(0, 1), expand = c(0, 0), 
+                     labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
+  scale_y_continuous(limits = c(0, 1), expand = c(0, 0), 
+                     labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
   xlab("Cumulative population, (%)") + 

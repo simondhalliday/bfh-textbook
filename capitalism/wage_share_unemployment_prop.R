@@ -82,7 +82,7 @@ xx3 <- seq(xlims[1], 0, length.out = npts)
 
 #Axis labels and draw linear utility function
 #mtext(expression(paste("Cumulative population proportion, ", F(n))), side = 1, line = 2.5, cex = axislabelsize)
-text(xlims[1] - 0.04, 0.5*ylims[2], expression(paste("Wage, w, and wage share, ", sigma[n])), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(xlims[1] - 0.04, 0.5*ylims[2], expression(paste("Wage, w, and wage share, ", sigma[w])), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[1] + xlims[2]), -0.1, expression(paste("Employment, ", H)), xpd = TRUE, cex = axislabelsize) 
 
 

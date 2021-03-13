@@ -1,5 +1,6 @@
 require(shape)
-pdf(file = "employment/employment_brf_nash.pdf", width = 9, height = 7)
+#pdf(file = "employment/employment_brf_nash_quiz.pdf", width = 9, height = 7)
+jpeg(file = "employment/employment_brf_nash_quiz.jpg", width = 6*120, height = 4*120)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -106,14 +107,16 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the three graphs and the NE
-text(7, 0.42, expression(paste("Slope of isocost: ")), cex = labelsize)
-text(5, 0.34, expression(paste( frac(e, w) == frac(de, dw))), cex = labelsize)
+#text(7, 0.42, expression(paste("Slope of isocost: ")), cex = labelsize)
+text(7, 0.34, expression(paste( A)), cex = labelsize)
 Arrows(7.5, 0.34, 12.6, 0.34,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 
-text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
-text(38, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
-text(38, 0.6, expression(paste("Best-response function")), cex = labelsize, xpd = TRUE)
-text(38, 0.55, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
+#text(25.5, 0.05, expression(paste(v[N])), cex = labelsize)
+text(25.5, 0.05, expression(paste(C)), cex = labelsize)
+text(38, 0.71, expression(paste(B)), cex = labelsize, xpd = TRUE)
+# text(38, 0.66, expression(paste("Employee's ICC, or")), cex = labelsize, xpd = TRUE)
+# text(38, 0.6, expression(paste("Best-response function")), cex = labelsize, xpd = TRUE)
+# text(38, 0.55, expression(paste(e(w))), cex = labelsize, xpd = TRUE)
 
 
 
@@ -125,8 +128,8 @@ segments(20, 0, 20, 0.75, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.5, 20, 0.5, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #segments(14.14214, 0.15, 14.14214, 0.45, lty = 2, col = "darkgray", lwd = 3)
 text(19.3, 0.52, expression(n), cex = labelsize)
-text(27, 0.48, expression(paste("Incomplete contract")),cex = labelsize)
-text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
+# text(27, 0.48, expression(paste("Incomplete contract")),cex = labelsize)
+# text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 
 #Arrows and rent label
 # 
@@ -136,10 +139,10 @@ text(27, 0.43, expression(paste("Nash equilibrium")),cex = labelsize)
 # text(14.8, 0.85, expression(paste("Nash Equilibrium")))
 
 #Arrows and slope of iso-v label
-Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
-text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
-text(31.5, 0.06, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize)
+# Arrows(29, 0.15, 24, 0.15,  col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+# text(32, 0.2, expression(paste("Slope of iso-v")), cex = labelsize)
+# text(32.3, 0.15, expression(paste(phantom() == "-mrs ")), cex = labelsize)
+# text(31.5, 0.06, expression(paste(phantom() == -frac(v[w], v[e]))), cex = labelsize)
 
 
 

@@ -87,7 +87,8 @@ p0 <- ggplot(incid_filter, aes(x = group, y = y)) +
 p1 <- p0 + xlab("Education level") +
   ylab("Incidence of non-competes") +
   scale_y_continuous(breaks = seq(0, 0.40, by = 0.05), 
-                     labels = scales::percent_format(accuracy = 1),
+                     labels = seq(0,40,5),
+                     #labels = scales::percent_format(accuracy = 1),
                      limits = c(0, 0.40)) +
   coord_flip() +
   theme_bw() +

@@ -1,6 +1,7 @@
 require(ggplot2)
 require(shape)
 require(plotrix)
+require(pBrackets)
 pdf(file = "information_power/ch10_newfigure.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -71,9 +72,9 @@ text(1, -0.07, expression(paste(1)), cex = labelsize, xpd = TRUE)
 text(0.375, 1, expression(paste(p^N,(t) == frac(bar(u)-underline(u),t) + p^z)), cex = labelsize, xpd = TRUE)
 text(0.42, .335, expression(paste("Agent's rent")), cex = labelsize, xpd = TRUE)
 text(.55, .65, expression(paste("Principal's profit")), cex = labelsize, xpd = TRUE)
-text(1.3, 0.55, expression(paste("Total")), cex = labelsize, xpd = TRUE)
-text(1.3, 0.5, expression(paste("economic")), cex = labelsize, xpd = TRUE)
-text(1.3, 0.45, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.525, expression(paste("Total")), cex = labelsize, xpd = TRUE)
+#text(1.3, 0.5, expression(paste("economic")), cex = labelsize, xpd = TRUE)
+text(1.25, 0.475, expression(paste("rents")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.8, expression(paste("P's Willingness")), cex = labelsize, xpd = TRUE)
 text(1.25, 0.74, expression(paste("to pay")), cex = labelsize, xpd = TRUE)
 

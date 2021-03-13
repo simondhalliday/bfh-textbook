@@ -82,9 +82,9 @@ text(0.3, 5.4, expression(paste(w^N== B + underline(u) + frac(underline(u), j)*b
 text(0.48, 1.55, expression(paste("Worker's rent")), cex = labelsize, xpd = TRUE)
 text(0.5, 3.8, expression(paste("Employer's profit")), cex = labelsize, xpd = TRUE)
 # 
-text(1.28, 2.95, expression(paste("Total")), cex = labelsize, xpd = TRUE)
-text(1.28, 2.7, expression(paste("economic")), cex = labelsize, xpd = TRUE)
-text(1.28, 2.4, expression(paste("surplus")), cex = labelsize, xpd = TRUE)
+text(1.25, 2.82, expression(paste("Total")), cex = labelsize, xpd = TRUE)
+#text(1.28, 2.7, expression(paste("economic")), cex = labelsize, xpd = TRUE)
+text(1.25, 2.58, expression(paste("rents")), cex = labelsize, xpd = TRUE)
 
 text(1.25, 4.5, expression(paste("Willingness")), cex = labelsize, xpd = TRUE)
 text(1.25, 4.2, expression(paste("to pay")), cex = labelsize, xpd = TRUE)

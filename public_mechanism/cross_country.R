@@ -16,12 +16,13 @@ Data <- Data %>%
 
 Data <- 
   Data %>%
-  mutate()
+  mutate(highlight = if_else(codecountry == "US", 1, 0))
 
 Plot <- ggplot(Data, aes(x = `gini post tax and transfer`, y = `protective services employees per 10000 workers in the labor force`)) + 
-  geom_point(aes(group = country), color  = CBCols[1], size = 3) + 
+  geom_point(aes(group = country, color = factor(highlight)), size = 3) + 
   geom_text(aes(label = country), hjust = 0, vjust = -0.4, size =5.5) + 
   scale_x_continuous(limits = c(.2,.4)) + 
+  scale_color_manual(values = c(CBCols[1], CBCols[2])) +
   theme_bw() + 
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),

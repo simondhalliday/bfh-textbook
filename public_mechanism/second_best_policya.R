@@ -131,7 +131,7 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #mtext(expression(paste("Quantity of output, ", X)), side=1, line = 2.5, cex = axislabelsize)
 
 text(0.5*xlims[2], -1.2, expression(paste("Quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
-text(-2, 0.5*ylims[2], expression(paste("Price, revenue and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2, 0.5*ylims[2], expression(paste("Price, revenue, and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 #text(10.5, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)

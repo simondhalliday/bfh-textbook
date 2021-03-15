@@ -61,7 +61,7 @@ text(2.5, -0.49, expression(paste(frac(alpha, p[0]))), xpd=TRUE, cex=labelsize )
 text(-0.3, 2.5, expression(paste(frac(alpha, p[0]))), xpd=TRUE, cex=labelsize )
 # text(-0.3, 1.15, expression(paste(x[Bt]^N)), xpd = TRUE, cex = axislabelsize)
 # text(-0.3, 2.1, expression(paste(x[Bt]^{direct})) , xpd=TRUE, cex=axislabelsize)
-text(-0.3, 5, expression(paste(x[a]^{BN})), xpd=TRUE, cex=axislabelsize )
+text(-0.3, 5, expression(paste(x[a]^{BN})), xpd=TRUE, cex=labelsize )
 text(0.5*xlims[2], -1, expression(paste("A's smoking")), xpd = TRUE, cex = axislabelsize) 
 text(-0.75, 0.5*ylims[2], expression(paste("B's smoking ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 

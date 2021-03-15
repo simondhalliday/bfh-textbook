@@ -13,7 +13,7 @@ ATUS2 <-
   gather(Gender, hours, -Category)
 
 ATUS2 %>% 
-  filter(!Category %in% c("Communication","Other", "Civil & Religious", "Education")) %>%
+  filter(!Category %in% c("Communication","Other", "Civil and Religious", "Education")) %>%
   ggplot(aes(x = reorder(Category, hours), y = hours, group = Gender, color = Gender, fill = Gender)) + 
   geom_bar(stat = "identity", position = "dodge") + 
   ylab("Hours") +
@@ -22,7 +22,7 @@ ATUS2 %>%
   scale_color_manual(values = c("#41ae76", "#084081")) +
   #scale_fill_brewer(type = "qual", palette = "Accent") + 
   #scale_color_brewer(type = "qual", palette = "Accent") + 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+  theme(axis.text.x = element_text(angle = 45, hjust = 0.9), 
         text = element_text(size = 12), 
         axis.title.x=element_blank(),
         legend.title = element_blank())

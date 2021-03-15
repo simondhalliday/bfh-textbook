@@ -180,7 +180,7 @@ lines(xx1, AprodFn(xx1, k = 0.5), col = COLA[4], lwd = graphlinewidth)
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Average and marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 

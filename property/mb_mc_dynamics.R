@@ -92,7 +92,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels ,las = 1, cex.axis = labelsize - 
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 0.05)
 
 text(0.5*xlims[2], -3, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-3, 0.5*ylims[2], expression(paste("A's marginal costs & benefits (lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("A's marginal costs and benefits (lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

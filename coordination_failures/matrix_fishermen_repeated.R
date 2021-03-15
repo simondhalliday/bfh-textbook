@@ -19,7 +19,7 @@ p2fadelevel <- 0.2
 #Considerations for Player 1
 P1Name <- c("Abdul")
 P1Strat <- c("Grim Trigger", "Defect")
-P1Payoffs <- c("1500", "1452", "1436", "1440")
+P1Payoffs <- c("1,500", "1,452", "1,436", "1,440")
 P1BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
 P1BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
@@ -28,7 +28,7 @@ P1bestsize <- 2.5 #Adjusts size of point indicating best response of P1
 #Considerations for Player 2
 P2Name <- c("Bridget")
 P2Strat <- c("Grim Trigger", "Defect")
-P2Payoffs <- c("1500", "1436", "1452", "1440")
+P2Payoffs <- c("1,500", "1,436", "1,452", "1,440")
 P2BR1 <- c("NW") #Must be NW or SW - the BR prints accordingly. 
 P2BR2 <- c("SE") #Must be NE or SE - the BR prints accordingly. 
 P2bestsize <- 4 #Adjusts size of circle indicating best response of P1
@@ -67,7 +67,7 @@ polygon(c(4,6,6,4), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, bor
 #P1
 text(4.5, 2.5, P1Payoffs[1], cex = PayoffSize)
 #P2
-text(5.5, 3.5, P2Payoffs[1], cex = PayoffSize)
+text(5.4, 3.5, P2Payoffs[1], cex = PayoffSize)
 
 #SouthWest cell  
 #P1
@@ -78,7 +78,7 @@ polygon(c(4,6,6,4), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, bor
 #P1
 text(4.5, 0.5, P1Payoffs[2], cex = PayoffSize)
 #P2
-text(5.5, 1.5, P2Payoffs[2], cex = PayoffSize)
+text(5.4, 1.5, P2Payoffs[2], cex = PayoffSize)
 
 
 #NorthEast cell 
@@ -89,7 +89,7 @@ polygon(c(6,8,8,6), c(4,4,2,4), col=rgb(1, 0, 0, p2fadelevel), density=NULL, bor
 #P1
 text(6.5, 2.5, P1Payoffs[3], cex = PayoffSize)
 #P2
-text(7.5, 3.5, P2Payoffs[3], cex = PayoffSize)
+text(7.4, 3.5, P2Payoffs[3], cex = PayoffSize)
 
 #SouthEast cell 
 #P1
@@ -99,7 +99,7 @@ polygon(c(6,8,8,6), c(2,2,0,2), col=rgb(1, 0, 0, p2fadelevel), density=NULL, bor
 #P1
 text(6.5, 0.5, P1Payoffs[4], cex = PayoffSize)
 #P2
-text(7.5, 1.5, P2Payoffs[4], cex = PayoffSize)
+text(7.4, 1.5, P2Payoffs[4], cex = PayoffSize)
 
 
 #Lines for the Table

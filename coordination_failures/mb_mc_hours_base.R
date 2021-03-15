@@ -186,7 +186,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize - 
 
 #mtext(expression(paste("Aram's hours, ", h^A)), side=1, line = 4, cex = axislabelsize)
 text(0.5*xlims[2], -3.8, expression(paste("A's hours, ", h^A)), xpd = TRUE, cex = axislabelsize)
-text(-4, 0.5*ylims[2], expression(paste("A's marginal costs & benefits (lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-4, 0.5*ylims[2], expression(paste("A's marginal costs and benefits (lb)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

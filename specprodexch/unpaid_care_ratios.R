@@ -14,7 +14,7 @@ CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 plot <- ggplot(data_final, aes(x = reorder(Entity, Ratio), y = Ratio)) + 
   geom_bar( stat = "identity", position = position_dodge(), fill = CBCols[2], width = 0.75) + 
-  ylab("Female to male ratio of time devoted to unpaid care work") +
+  ylab("Female-to-male ratio of time devoted to unpaid care work") +
   theme_bw() +
   theme(
         axis.title = element_text(size = 40),

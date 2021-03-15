@@ -216,7 +216,7 @@ text(30, 40, expression(paste("Feasible")), cex = labelsize)
 text(30, 25, expression(paste("utilities")), cex = labelsize)
 
 
-text(190, 40, expression(paste("Utillity")), cex = labelsize)
+text(190, 40, expression(paste("Utility")), cex = labelsize)
 text(190, 25, expression(paste("possibilities")), cex = labelsize)
 text(190, 10, expression(paste("frontier")), cex = labelsize)
 

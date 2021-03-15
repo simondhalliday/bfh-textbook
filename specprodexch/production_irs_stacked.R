@@ -175,7 +175,7 @@ lines(xx1, AprodFn(xx1, alpha = 2, k = 0.02), col = COLA[4], lwd = graphlinewidt
 
 #Axis Labels
 mtext(expression(paste("Hours of labor, ", l)), side = 1, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.5*ylims[2], expression(paste("Average & marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.5, 0.5*ylims[2], expression(paste("Average and marginal product, ", list(ap,mp) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Margin
 segments(6, 0, 6, ylims[2], lty = 2, col = grays[20] , lwd = segmentlinewidth)

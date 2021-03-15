@@ -21,7 +21,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 grays <- gray.colors(25, start = 1, end = 0)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
-par(mar =  c(4, 4, 4, 4))
+par(mar =  c(4, 5, 4, 4))
 
 uB <- function(x, y, xbar = 16, ybar= 400, rmax = 32, xmax = 16) {
   (ybar - y) + rmax*(xbar - x) - (1/2)*(rmax/xmax)*(xbar - x)^2
@@ -111,12 +111,12 @@ contour(x, y,
         add = TRUE)
 
 mtext(expression(paste("A's hours hired of B's work, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
-text(-1.2, 0.5*ylims[2], expression(paste("A's money, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("A's money, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Add arrows:
-Arrows(-1.2, 270, -1.2, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-1.4, 270, -1.4, 380,  col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 Arrows(12.5, -42, 15, -42, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-1.2, 270, -1.2, 380, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

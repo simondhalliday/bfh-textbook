@@ -50,7 +50,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 # ticksx <- seq(from = 0, to = xlims[2], by = 2)
 # xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(0, 2.5, 10, ylims[2])
-ylabels <- c(NA, expression(paste(u[h^BN]^A)),  expression(paste(u[h^BW]^A)), NA)
+ylabels <- c(NA, expression(paste(mpb)),  expression(paste(msb)), NA)
 ticksx <- c(0, 2.5, 10, xlims[2])
 xlabels <- c(NA, expression(paste(a^BN)), expression(paste(a^{BW})), NA)
 
@@ -59,7 +59,7 @@ axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #mtext(expression(paste("Bridget's amount contributed, ", a^B)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -1.6, expression(paste("Bridget's amount contributed, ", a^B)), xpd = TRUE, cex = axislabelsize) 
-text(-2.5, 0.5*ylims[2], expression(paste("Marginal utility and disutility, ", u[a^B]^B)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.3, 0.5*ylims[2], expression(paste("Benefits and costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

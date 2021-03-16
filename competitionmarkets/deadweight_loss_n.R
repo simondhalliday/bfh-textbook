@@ -37,7 +37,7 @@ df %>%
   ggplot(aes(x = n, y = dlN)) + 
   geom_bar(stat = "identity", fill = "#feb24c") + 
   xlab("Number of firms, n") +
-  ylab("Deadweight Loss") + 
+  ylab("Deadweight loss") + 
   theme_bw() + 
   theme(text = element_text(size = 17),
         axis.text = element_text(size = 17),

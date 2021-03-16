@@ -88,7 +88,7 @@ lines(xx1, cournotPrice(xx1, c = 10), col = CBCols[1], lwd = graphlinewidth)
 #Label axes
 #mtext(expression(paste("Number of firms, ", n)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -2, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
-text(-3.8, 0.5*ylims[2], expression(paste("Costs, Price, and Expected Price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3.8, 0.5*ylims[2], expression(paste("Costs, price, and expected price, ", list(c, p, hat(p)) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Arrows(18, 6.8, 18, 4.5, col = "black", lty = 1, code = 2, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 # text(16, 5.75, expression(paste("Decrease in ", rho)), cex = labelsize)

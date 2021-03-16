@@ -89,7 +89,7 @@ lines(xx3, upf(xx3), col = COLA[4], lwd = segmentlinewidth, lty = 2)
 #text(-9, 18, expression(paste("Utility possibilities frontier, or")), cex = labelsize)
 #text(-9, 16, expression(paste("bargaining frontier")), cex = labelsize)
 text(-10, 12.5, expression(paste("Utility possibilities")), cex = labelsize)
-text(-10, 11, expression(paste("frontier (upf)")), cex = labelsize)
+text(-10, 11, expression(paste("frontier (UPF)")), cex = labelsize)
 
 Arrows(-11, 10, -11, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 

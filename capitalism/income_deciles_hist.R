@@ -64,7 +64,7 @@ IneqUS1$IncomeType <- factor(IneqUS1$IncomeType, levels = c('ValuesMI', 'ValuesD
 plot2 <- ggplot(IneqUS1, aes(x = Percentile, y = value, group = IncomeType, fill = IncomeType)) + 
   geom_bar(stat = "identity", position = "dodge") + 
   scale_fill_manual(values = c("#1F78B4","#E31A1C"), name = "Income type", labels = c("Market income", "Disposable income")) +
-  xlab("Population decile of the USA") + 
+  xlab("Population decile of the US") + 
   ylab("Share of market income") +
   theme_bw() + 
   ylim(0,0.4) + 

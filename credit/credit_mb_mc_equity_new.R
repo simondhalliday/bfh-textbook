@@ -94,7 +94,7 @@ lines(xx1, mbEquityFn(xx1, q = 1.2, delta = deltalvl[3]), col = CBCols[1], lwd =
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.22, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.22, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs, ", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 text(0.9, 1.23, expression(paste(mc == q*f )), cex = labelsize)

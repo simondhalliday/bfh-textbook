@@ -42,7 +42,7 @@ Lorenz1 <-
   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative population, (%)") + 
+  xlab("Cumulative population (%)") + 
   ylab("Cumulative income") +
   theme_bw() +
   labs(title = "Lorenz curves and Gini coefficients", subtitle = "Netherlands (2010)") +
@@ -93,7 +93,7 @@ LorenzMarket <-
                      labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative population, (%)") + 
+  xlab("Cumulative population (%)") + 
   ylab("Cumulative income") +
   geom_area(aes(y = cumprop), fill = COLB[1], colour = COLB[5]) +
   geom_area(aes(y = cumy), fill = COLA[1], colour = COLA[5]) +
@@ -129,7 +129,7 @@ LorenzDisposable <-
                      labels = c(0, 0.25, "0.50", 0.75, "1.00")) +
   #geom_line(aes(y = cumprop, y = cumprop)) +
   geom_abline(intercept = 0, slope = 1) +
-  xlab("Cumulative population, (%)") + 
+  xlab("Cumulative population (%)") + 
   ylab("Cumulative income") +
   geom_area(aes(y = cumprop), fill = COLB[1], colour = COLB[5]) +
   geom_area(aes(y = cumy), fill = COLA[1], colour = COLA[5]) +

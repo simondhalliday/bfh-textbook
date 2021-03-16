@@ -99,7 +99,7 @@ lines(xx1, MRevenue(xx1, rmax = 20, xmax = 40), col = CBCols[2], lwd = graphline
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", X)), side=1, line = 3, cex = axislabelsize)
-text(-7, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-7, 0.5*ylims[2], expression(paste("Price, revenue and costs, ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(40.5, 2.5, expression(paste(ac == mc, phantom() == c)), cex = labelsize, xpd = TRUE)

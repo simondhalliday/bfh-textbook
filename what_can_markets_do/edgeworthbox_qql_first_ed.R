@@ -76,9 +76,9 @@ axis(4, at = ticksy2, pos = 0, labels = ylabels2, las = 1, cex.axis = labelsize)
 
 # axis(side = 3, at = ticksx, pos = 0, labels = NA)
 # axis(side = 4, at = ticksy, pos = 0, labels = NA, las = 0)
-text(5, -1, expression(paste("B's Good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
+text(5, -1, expression(paste("B's good x, ", x^B)), xpd = TRUE, cex = axislabelsize) 
 #mtext("B's Good, x", side = 3, line = 2.5, cex = axislabelsize)
-text(-1.5, 0.12*ylims[2], expression(paste("B's Money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
+text(-1.5, 0.12*ylims[2], expression(paste("B's money y, ", y^B)), xpd = TRUE, cex = axislabelsize, srt = 270) 
 
 xpoly1 <- seq(from = 1.48, to = 8.52, length.out = 500)
 ypoly1 <- indiffA(xpoly1)
@@ -113,10 +113,10 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      xaxs="i", 
      yaxs="i")
 
-ticksy <- c(0, 0.9, seq(from = 1, to = 4, by = 1), 4.4, seq(from = 5, to = 9, by = 1), 10)
-ylabels <- c(0, 0.9, NA, NA, NA, NA, 4.4, rep(NA, 5), 10)
+ticksy <- c(0, NA, seq(from = 1, to = 4, by = 1), NA, seq(from = 5, to = 9, by = 1), 10)
+ylabels <- c(0, NA, NA, NA, NA, NA, NA, rep(NA, 5), 10)
 
-text(-0.5, 0.9, expression(0.9), xpd = TRUE, cex = labelsize, srt = 90) 
+#text(-0.5, 0.9, expression(0.9), xpd = TRUE, cex = labelsize, srt = 90) 
 
 #ticksy <- seq(from = 0, to = 10, by = 1)
 #ylabels <- c(0, rep(NA, 9), 10)
@@ -146,15 +146,15 @@ contour(x, y,
         yaxs="i", 
         add = TRUE) 
 
-text(0.15*ylims[2], -1.2, expression(paste("A's Good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
+text(0.15*ylims[2], -1.2, expression(paste("A's good x, ", x^A)), xpd = TRUE, cex = axislabelsize) 
 #mtext("A's Good, x", side = 1, line = 2.5, cex = axislabelsize)
 
-# TODO UNCOMMENT
-#text(-0.6, 0.45*ylims[2], expression(paste("A's Money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+
+text(-0.7, 0.45*ylims[2], expression(paste("A's money y, ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Add arrows:
-Arrows(-0.5, 6.5, -0.5, 9.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-0.65, 6.5, -0.65, 9.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 Arrows(2.9, -1.25, 4.5, -1.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.5, 6.5, -0.5, 9.5, xpd = TRUE, length=0.1,angle=40,lwd=3)

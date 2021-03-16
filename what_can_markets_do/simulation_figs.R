@@ -149,7 +149,7 @@ FinalP %>%
   annotate("text", x = 500, y = 0.01, label = "Mean wealth", size = 6) +
   ylab("Density") +
   xlab("Wealth") +
-  scale_fill_manual("Trader Type",
+  scale_fill_manual("Trader type",
                     breaks = c("B", "A"),
                     labels = c("Type A", "Type B"),
                     values = c("#e41a1c", "#377eba")) +

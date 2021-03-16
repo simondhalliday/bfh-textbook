@@ -83,7 +83,7 @@ lines(xx1, AvgRevenue(xx1, rmax = 12, xmax = 12), col = COLB[5], lwd = graphline
 
 #Label the axes
 mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.7, cex = axislabelsize)
-text(-1.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Price, revenue, and costs, ", list(p, r, ac,), "and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.6, 4.5, expression(paste(ac(x) == mc(x))), cex = labelsize)

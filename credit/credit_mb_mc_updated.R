@@ -89,7 +89,7 @@ lines(xx1, mbFn(xx1, q = 1.2, delta = deltalvl[1]), col = CBCols[1], lwd = graph
 
 #Label axes
 #mtext(expression(paste("Speed of the machine, ", f)), side = 1, line = 2.5, cex = axislabelsize)
-text(-0.18, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs,", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.18, 0.5*(ylims[2] + ylims[1]), expression(paste("Marginal benefits and costs, ", list(mb, mc) )), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*(xlims[2]), -0.25, expression(paste("Speed of the machine, ", f)), xpd = TRUE, cex = axislabelsize) 
 
 text(0.93, 1.25, expression(paste(mc == q*f )), cex = labelsize)

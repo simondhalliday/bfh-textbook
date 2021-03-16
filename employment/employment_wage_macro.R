@@ -63,7 +63,7 @@ text(-.16,  1 + 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsiz
 text(0.55, -8, expression(paste("Hours of employment as a fraction of labor supply, ", H)), cex = axislabelsize,  xpd =TRUE)
 
 #Annotation of the  graphs
-text(0.7, 35, expression(paste("Wage Curve, ", w^N,(H))), cex = labelsize)
+text(0.7, 35, expression(paste("Wage curve, ", w^N,(H))), cex = labelsize)
 segments(0, 5, 1, 5, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 

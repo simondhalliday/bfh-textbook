@@ -79,14 +79,14 @@ df1 %>%
   geom_line(lwd = 0.6) + 
   #geom_bar(stat = "identity", position = "dodge") + 
   xlab("Number of firms, n") +
-  ylab("Total economic Profit & Consumer Surplus") + 
+  ylab("Total economic profit and consumer surplus") + 
   scale_shape_discrete(name = "",
                     breaks = c("csN", "profitN"),
-                    labels = c("Total Consumer Surplus", "Total Economic Profit")
+                    labels = c("Total consumer surplus", "Total economic profit")
   ) +
   scale_color_brewer(type = "qual", palette = "Set1", name = "",
                      breaks = c("csN", "profitN"),
-                     labels = c("Total Consumer Surplus", "Total Economic Profit")
+                     labels = c("Total consumer surplus", "Total economic profit")
   ) +
   theme_bw() + 
   scale_x_continuous(breaks = c(1,5,10,15)) +
@@ -146,7 +146,7 @@ df1 %>%
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*(xlims[2]), -35, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
-text(-1.8, 0.5*ylims[2], expression(paste("Market profits and consumer surplus, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.8, 0.5*ylims[2], expression(paste("Market profits and consumer surplus, ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))

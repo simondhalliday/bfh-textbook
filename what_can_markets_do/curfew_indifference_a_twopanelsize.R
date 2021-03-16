@@ -78,7 +78,7 @@ contour(x, y,
 
 ticksx <- c(1, 3, 6, 9, 10)
 #xlabels <- c(NA, expression(paste(T^A == 9*p*m)), expression(paste("12 midnight")),  expression(paste(T^B  == 3*a*m)), NA)
-xlabels <- c(NA, expression(paste(9*p*m)), NA,  expression(paste(3*a*m)), NA)
+xlabels <- c(NA, expression(paste(9, phantom(" "), p.*m.)), NA,  expression(paste(3, phantom(" "),a.*m.)), NA)
 #ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
 #ylabels <- c(NA, expression(paste(-u[T]^A*(T*minute))), expression(paste(-u[T]^A == u[T]^B)), expression(paste(u[T]^B*(T*minute))), NA)
 #ticksy <- c(ylims[1], ylims[2])

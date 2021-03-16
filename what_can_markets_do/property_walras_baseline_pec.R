@@ -100,7 +100,7 @@ indiffcurveBneg2 <- function(x, U = 6.531973, A = 1, a = 0.5) {
 
 
 
-par(mar = c(6, 4.2, 4.2, 7)) # c(4, 4.4, 4, 4.7))
+par(mar = c(6, 5, 4.2, 7)) # c(4, 4.4, 4, 4.7))
 xlims <- c(0, 10)
 ylims <- c(0, 15)
 xlims2 <- c(10, 0)
@@ -117,7 +117,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
      yaxs = "i")
 
 text(0.2*xlims[2], -2.5, expression(paste("A's coffee (kilograms), ", x^A)), xpd = TRUE, cex = axislabelsize) 
-text(-0.95, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.2, 0.5*ylims[2], expression(paste("A's data (gigabytes), ", y^A)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 
@@ -168,7 +168,7 @@ axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, gap.axis = -1, cex.axis = labelsize)
 
 #Add arrows:
-Arrows(-0.9, 11.8, -0.9, 14.2, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
+Arrows(-1.1, 12, -1.1, 14.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 Arrows(4.5, -3, 5.8, -3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, xpd = TRUE)
 
 # arrows(-0.9, 10.5, -0.9, 14, xpd = TRUE, length = 0.1, angle = 40, lwd = 3)

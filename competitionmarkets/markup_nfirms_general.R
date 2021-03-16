@@ -77,7 +77,7 @@ segments(0, 2, xlims[2], 2, lty = 1, col = CBCols[2] , lwd = graphlinewidth)
 
 #mtext(expression(paste("A's output, ", x^A)), side=1, line = 2.5, cex = axislabelsize)
 text(0.5*(xlims[2]), -1, expression(paste("Number of firms, ", n)), xpd = TRUE, cex = axislabelsize) 
-text(-3, 0.5*ylims[2], expression(paste("Price and markup, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-3, 0.5*ylims[2], expression(paste("Price and markup, ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #segments(4.11765, 6.17647, 5.88, 8.88, lty = 1, col = COL[2] , lwd = graphlinewidth)
 #text(7.3, 3, expression("Pareto Efficient"))

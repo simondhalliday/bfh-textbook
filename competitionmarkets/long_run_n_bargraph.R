@@ -61,7 +61,7 @@ plot <-
   geom_bar(stat = "identity", position = "dodge", col = COLA[4], fill = COLA[4]) + 
   #scale_y_continuous(expand = c(0, 0), limits = c(0, 5.5)) +
   xlab("Number of firms, n") +
-  ylab(expression(paste("Expected Price, ", hat(p)*(n) ))) + 
+  ylab(expression(paste("Expected price, ", hat(p)*(n) ))) + 
   xlim(0, 25) + 
   geom_line(y = 2, lty = 1, col = COLB[4], lwd = 0.8) +
   annotate("text", x = 20, y = 2.2, label = "marginal cost, c = 2", cex = 8) + 

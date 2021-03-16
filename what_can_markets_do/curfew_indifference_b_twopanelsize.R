@@ -89,12 +89,12 @@ contour(x, y,
 
 ticksx <- c(1, 3, 6, 9, 10)
 #xlabels <- c(NA, expression(paste(T^A == 9*p*m)), expression(paste("12 midnight")),  expression(paste(T^B  == 3*a*m)), NA)
-xlabels <- c(NA, NA, expression(paste("12 midnight")),  expression(paste(3*a*m)), NA)#ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
+xlabels <- c(NA, NA, expression(paste("12 midnight")),  expression(paste(3, phantom(" "),a.*m.)), NA)#ticksy <- c(0, MUa(x = 7.5), MUa(x = 6), MUb(x = 7.5), ylims[2])
 #ylabels <- c(NA, expression(paste(-u[T]^A*(T*minute))), expression(paste(-u[T]^A == u[T]^B)), expression(paste(u[T]^B*(T*minute))), NA)
 ticksy <- seq(-18, 18, 6)
 ylabels <- seq(-18, 18, 6)
 
-text(2.9, -2.15, expression(paste(9*p*m)), xpd = TRUE, cex = labelsize, srt = 0) 
+text(2.9, -2.15, expression(paste(9, phantom(" "),p.*m.)), xpd = TRUE, cex = labelsize, srt = 0) 
 
 
 axis(1, at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)

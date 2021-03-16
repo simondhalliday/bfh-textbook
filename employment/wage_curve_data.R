@@ -16,10 +16,10 @@ Emp1 %>%
   ggplot(aes(x = totemp, y = earnings)) +
   geom_point(color = "#0868ac") +
   geom_line(color = "#0868ac") +
-  ylim(42000, 49000) + 
   xlim(80, 100) +
   ylab("Total earnings (2013 $)") +
   xlab("Hours of employment as a fraction of labor supply, H") +
+  scale_y_continuous(breaks=c(42000,44000,46000,48000), labels=c("42,000","44,000", "46,000", "48,000"), limits = c(42000, 49000)) +
   theme_bw() +
   theme(panel.grid.minor = element_blank(),
         axis.text.x = element_text(size = 12),

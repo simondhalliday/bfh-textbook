@@ -183,7 +183,7 @@ text(0.85, wagelvls[1] - 2.25,  expression(paste("Employment")), xpd = TRUE, cex
 text(0.85, wagelvls[1] - 4.25,  expression(paste("rents")), xpd = TRUE, cex = labelsize)
 Arrows(0.75, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
-text(0.3, wagelvls[3] + 12.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 12.5,  expression(paste("Opportunity cost")), xpd = TRUE, cex = labelsize)
 text(0.3, wagelvls[3] + 10.5,  expression(paste("of capital")), xpd = TRUE, cex = labelsize)
 #text(0.3, wagelvls[3] + 10.5,  expression(paste("of capital, ", rho%.%w[u]%.%h[u])), xpd = TRUE, cex = labelsize)
 Arrows(0.3, wagelvls[3] + 9.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)

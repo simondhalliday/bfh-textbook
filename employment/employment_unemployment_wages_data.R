@@ -17,8 +17,8 @@ u1 <- ggplot(wageunions,aes(x = UnemploymentAvg, y = RealWageGrowth,
 u1 + 
   geom_point(size = 3) + 
   coord_cartesian(xlim = c(0, 18), ylim = c(0, 4.5)) +
-  labs(x = "Average unemployment rate (1970 - 2011)",
-       y = "Compound average wage rate growth (1970 - 2011)") + 
+  labs(x = "Average unemployment rate (1970-2011)",
+       y = "Compound average wage rate growth (1970-2011)") + 
   # xlab("Average Unemployment Rate (1970 - 2011)") + 
   # ylab("Compound Average Wage Rate Growth (1970 - 2011)") + 
   scale_color_brewer(palette="Set1", name = "Performance", 

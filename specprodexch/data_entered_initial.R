@@ -101,7 +101,7 @@ ptlabels <- c("g", "i")
 text(xpts, ypts + yadj1, ptlabels, cex = labelsize)
 
 #Axis labels
-mtext(expression(paste("Data entered ('000s), ", x)), side = 1, line = 3.5, cex = axislabelsize)
+mtext(expression(paste("Data entered (1000s), ", x)), side = 1, line = 3.5, cex = axislabelsize)
 text(-2, 0.5*ylims[2], expression(paste("Graphs made, ", y)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 

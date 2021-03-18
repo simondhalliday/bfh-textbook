@@ -53,7 +53,7 @@ fallbacklvls <- c(LewisFallback(emplvls[1]), LewisFallback(emplvls[2]))
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99")
-par(mar =  c(6.5, 5, 2, 7))
+par(mar =  c(7.3, 5, 3, 7))
 xlims <- c(0, 1.05)
 ylims <- c(0, 1.45)
 
@@ -84,7 +84,7 @@ xx5 <- seq(xlims[1], 0.75, length.out = npts2)
 # rect(0.99, 0, 1, 1, border = FALSE, col = COLA[1])
 
 #Axis labels
-text(0.5*xlims[2], -0.3, expression(paste("Employment in the capitalist sector as \n a fraction of all hours worked, H")), cex = axislabelsize, xpd = TRUE)
+text(0.5*xlims[2], -0.37, expression(paste("Employment in the capitalist sector as \n a fraction of all hours worked, H")), cex = axislabelsize, xpd = TRUE)
 text(-0.125, 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
 
 
@@ -221,8 +221,8 @@ brackets(x1 = emplvls[1] - 0.02, y1 = - 0.01, x2 = 0.02, y2 = - 0.01,
          col = "black", lwd = 2, h = 0.03,
          lty = 1, xpd = TRUE)
 
-text(emplvls[1]/2, - 0.07, expression(paste("Capitalist")), cex = labelsize, xpd = TRUE)
-text(emplvls[1]/2, - 0.13, expression(paste("employment")), cex = labelsize, xpd = TRUE)
+text(emplvls[1]/2, - 0.09, expression(paste("Capitalist")), cex = labelsize, xpd = TRUE)
+text(emplvls[1]/2, - 0.155, expression(paste("employment")), cex = labelsize, xpd = TRUE)
 
 
 brackets(x1 = 1 - 0.02, y1 = - 0.01, emplvls[1] + 0.02, y2 = - 0.01,  
@@ -230,8 +230,8 @@ brackets(x1 = 1 - 0.02, y1 = - 0.01, emplvls[1] + 0.02, y2 = - 0.01,
          col = "black", lwd = 2, h = 0.03,
          lty = 1, xpd = TRUE)
 
-text((1 + emplvls[1])/2, - 0.07, expression(paste("Informal")), cex = labelsize, xpd = TRUE)
-text((1 + emplvls[1])/2, - 0.13, expression(paste("work")), cex = labelsize, xpd = TRUE)
+text((1 + emplvls[1])/2, - 0.09, expression(paste("Informal")), cex = labelsize, xpd = TRUE)
+text((1 + emplvls[1])/2, - 0.15, expression(paste("work")), cex = labelsize, xpd = TRUE)
 
 
 # text(0.55, 15, expression(paste("Wages")))

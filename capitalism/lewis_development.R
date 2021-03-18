@@ -83,7 +83,7 @@ xx5 <- seq(xlims[1], 0.75, length.out = npts2)
 # rect(0.99, 0, 1, 1, border = FALSE, col = COLA[1])
 
 #Axis labels
-text(0.5*xlims[2], -0.275, expression(paste("Employment in the capitalist sector as \n a fraction of all hours worked, H")), cex = axislabelsize, xpd = TRUE)
+text(0.5*xlims[2], -0.29, expression(paste("Employment in the capitalist sector as \n a fraction of all hours worked, H")), cex = axislabelsize, xpd = TRUE)
 text(-0.125, 0.5*ylims[2], expression(paste("Wage, ", w)), cex = axislabelsize, xpd = TRUE, srt = 90)
 
 

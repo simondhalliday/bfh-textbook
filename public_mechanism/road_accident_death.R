@@ -30,7 +30,7 @@ plot.rad <- ggplot(data = rad, aes(x = Year)) +
     geom_vline(xintercept = LawPass,
                aes(color = 'LawPass'),
                alpha = 0.3) +
-    labs(y = 'Road Fatalities') +
+    labs(y = 'Road fatalities') +
     scale_x_continuous(breaks = 1970:1978) + 
     scale_color_brewer(palette = "Set1") +
     # scale_shape_manual(breaks = c("Law", "No Law"), 
@@ -56,15 +56,15 @@ plot.rad2 <-
     geom_vline(xintercept = LawPass,
                aes(color = 'LawPass'),
                alpha = 0.3) +
-    labs(y = 'Road Fatalities') +
+    labs(y = 'Road fatalities') +
     scale_x_continuous(breaks = 1970:1978) + 
     scale_color_brewer(palette = "Set1", 
                        name = "Presence of Law",
                        breaks = c("Law", "NoLaw"), 
-                       labels = c("Law", "No Law")) +
+                       labels = c("Law", "No law")) +
     scale_shape_discrete(name = "Presence of Law",
                        breaks = c("Law", "NoLaw"), 
-                       labels = c("Law", "No Law")) + 
+                       labels = c("Law", "No law")) + 
     theme_bw() + 
     theme(panel.grid.minor = element_blank(),
           legend.position = c(0.9, 0.9),

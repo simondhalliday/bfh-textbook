@@ -3,6 +3,7 @@
 #Title: Microeconomics: Competition, Conflict and Coordination
 
 require(shape)
+library(Cairo)
 pdf(file = "competitionmarkets/cournot_brfs_profits_edit.pdf", width = 9, height = 7)
 
 #Set parameters for graphics

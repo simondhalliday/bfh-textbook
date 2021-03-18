@@ -44,7 +44,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 text(5, 34, expression(bold("Capital")), xpd = TRUE, cex = labelsize)
-text(5, 33, expression(bold("Market")), xpd = TRUE, cex = labelsize)
+text(5, 33, expression(bold("market")), xpd = TRUE, cex = labelsize)
 
 text(5, 31, expression(paste("Lenders")), xpd = TRUE, cex = labelsize)
 text(5, 30, expression(paste("(B)")), xpd = TRUE, cex = labelsize)
@@ -52,14 +52,14 @@ text(5, 30, expression(paste("(B)")), xpd = TRUE, cex = labelsize)
 text(5, 25, expression(paste("Borrowers")), xpd = TRUE, cex = labelsize)
 text(5, 24, expression(paste("(A)")), xpd = TRUE, cex = labelsize)
 
-text(5, 22, expression(paste("Credit Rationed")), xpd = TRUE, cex = labelsize)
+text(5, 22, expression(paste("Credit rationed")), xpd = TRUE, cex = labelsize)
 text(5, 21, expression(paste("(C)")), xpd = TRUE, cex = labelsize)
 
 segments(1, 23, 9, 23, lty = 1, col = "black" , lwd = 2)
 
 
 text(15, 34, expression(bold("Manager")), xpd = TRUE, cex = labelsize)
-text(15, 33,  expression(bold("Market")), xpd = TRUE, cex = labelsize)
+text(15, 33,  expression(bold("market")), xpd = TRUE, cex = labelsize)
 
 text(15, 26, expression(paste("Owners")), xpd = TRUE, cex = labelsize)
 text(15, 25, expression(paste("(B)")), xpd = TRUE, cex = labelsize)
@@ -67,7 +67,7 @@ text(15, 25, expression(paste("(B)")), xpd = TRUE, cex = labelsize)
 text(15, 20, expression(paste("Managers")), xpd = TRUE, cex = labelsize)
 text(15, 19, expression(paste("(A)")), xpd = TRUE, cex = labelsize)
  
-text(15, 17, expression(paste("Job Rationed")), xpd = TRUE, cex = labelsize)
+text(15, 17, expression(paste("Job rationed")), xpd = TRUE, cex = labelsize)
 text(15, 16, expression(paste("(C)")), xpd = TRUE, cex = labelsize)
 
 segments(11, 18, 19, 18, lty = 1, col = "black" , lwd = 2)
@@ -75,7 +75,7 @@ segments(11, 18, 19, 18, lty = 1, col = "black" , lwd = 2)
 
 
 text(25, 34, expression(bold("Labor")), xpd = TRUE, cex = labelsize)
-text(25, 33,expression(bold("Market")), xpd = TRUE, cex = labelsize)
+text(25, 33,expression(bold("market")), xpd = TRUE, cex = labelsize)
 
 text(25, 21, expression(paste("Employers")), xpd = TRUE, cex = labelsize)
 text(25, 20, expression(paste("(B)")), xpd = TRUE, cex = labelsize)

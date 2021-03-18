@@ -93,9 +93,6 @@ eq5 <- uniroot(function(x)  MRevenue(x) - wagelvls[6], c(.01,1), tol=1e-8)
 LPoints <- as.numeric(c(eq5[1], eq2[1], eq3[1], eq4[1], eq1[1]))
 wagelvls <- c(WageFn(as.numeric(eq5[1])), MRevenue(as.numeric(eq1[1])), AvgRevenue(LPoints[1]), 4.5, WageFn(LPoints[4]), WageFn(LPoints[4]) + 2)
 
-
-
-
 #I don't know what these are any more...
 BPoints <- c(0.37, 0.53, 0.78)
 

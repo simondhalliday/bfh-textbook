@@ -90,14 +90,14 @@ text(43, 33, expression(italic("implemented by prices")), cex = labelsize, xpd =
 
 # Top
 text(16, 20, expression("Nationalization of railways"), cex = labelsize, xpd = TRUE)
-text(16, 17, expression("energy distribtution"), cex = labelsize, xpd = TRUE)
+text(16, 17, expression("energy distribution"), cex = labelsize, xpd = TRUE)
 Arrows(16, 38, 16, 21, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 text(25, 10, expression("Carbon tax and dividend"), cex = labelsize, xpd = TRUE)
 Arrows(25, 38, 25, 11, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 
-text(31, 16, expression("'Cap and tade'"), cex = labelsize, xpd = TRUE)
+text(31, 16, expression("'Cap and trade'"), cex = labelsize, xpd = TRUE)
 Arrows(31, 38, 31, 18, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 text(40, 22, expression("Deregulation of product and"), cex = labelsize, xpd = TRUE)

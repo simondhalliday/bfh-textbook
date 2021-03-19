@@ -135,8 +135,8 @@ points(0.5, isoreturnFn(0.5), pch = 16, col = "black", cex = 1.5)
 text(0.375 + 0.02, 0.6 - 0.03, expression(paste(b)), cex = labelsize)
 points(0.375, 0.6, pch = 16, col = "black", cex = 1.5)
 
-text(0.15, 0.97, expression(paste(y == y^{N})), cex = labelsize)
-text(0.15, 0.84, expression(paste(y[b])), cex = labelsize)
+text(0.15, 0.97, expression(paste(hat(y) == hat(y)^{N})), cex = labelsize)
+text(0.15, 0.84, expression(paste(hat(y)[b])), cex = labelsize)
 text(0.95, 0.8, expression(paste(hat(pi)[b])), cex = labelsize)
 text(0.95, 0.91, expression(paste(hat(pi) == hat(pi)^{N})), cex = labelsize, xpd = TRUE)
 

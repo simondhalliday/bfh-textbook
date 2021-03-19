@@ -1,5 +1,9 @@
 require(shape)
-pdf(file = "coordination_failures/coord_brfs_dynamics.pdf", width = 9, height = 7)
+require(Cairo)
+require(CairoFonts)
+#cairo_pdf(file = "coordination_failures/coord_brfs_dynamics.pdf", width = 9, height = 7, fallback_resolution = 600)
+CairoPDF(file = "coordination_failures/coord_brfs_dynamics.pdf", width = 9, height = 7)
+
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -13,7 +17,7 @@ segmentlinewidth <- 1.5
 COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666")
 COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
-Grays <- gray.colors(25, start = 1, end = 0)
+grays <- gray.colors(25, start = 1, end = 0)
 
 par(mar =  c(5, 5, 1, 1))
 

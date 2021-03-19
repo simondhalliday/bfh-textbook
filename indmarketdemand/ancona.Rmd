@@ -10,7 +10,7 @@ library(tidyverse)
 ```
 
 ```{r import Ancona}
-AnconaBase <- read.csv("ancona.csv")
+AnconaBase <- read.csv("indmarketdemand/ancona.csv")
 ```
 
 
@@ -75,11 +75,11 @@ AnconaAve %>%
 
 ```{r}
 pdf(file = "ancona_plot.pdf", width = 5, height = 4)
-AnconaAve %>% 
+plot1 <- AnconaAve %>% 
   ggplot(aes(x = sumquantity, y = meanprice)) +
   geom_point() +
   stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE, color = "#0868ac") + 
-  ylab("Daily average price per kilogram (Euros)") +
+  ylab("Daily average price per kilogram (euros)") +
   xlab("Daily quantity (kilograms)") +
   theme_bw() +
   theme(text = element_text(size = 14),
@@ -87,6 +87,8 @@ AnconaAve %>%
         panel.grid.minor = element_blank())
 dev.off()
 ```
+
+
 
 ```{r}
 coef(lm(sumquantity ~ meanprice, data = AnconaAve))

@@ -1,6 +1,7 @@
 require(shape)
 require(plotrix)
 require(ggplot2)
+require(Cairo)
 pdf(file = "indmarketdemand/elasticity_fig.pdf", width = 9, height = 7)
 #jpeg(file = "indmarketdemand/elasticity_fig.jpg", width = 640, height = 480, units = "px",)
 

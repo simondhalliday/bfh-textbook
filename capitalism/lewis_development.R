@@ -18,7 +18,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 WageFn <- function(h, ubar = 0.1, B = 0.1, t = 0.8) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+  B + ubar + ubar*(1 - t)/(t*(1 - h)) 
 }
 
 wCompCond <- function(b, rho = 0.05, gamma = prodlvls[1]){
@@ -97,9 +97,9 @@ lines(xx1, LewisFallback(xx1), col = CBCols[3], lwd = graphlinewidth)
 #Annotation of the  graphs
 #Wage curves
 #text(0.96, 1.6, expression(paste("Wage curves")), cex = labelsize, xpd = TRUE)
-text(0.81, 1.15, expression(paste(w[2]^N*(H) )), cex = labelsize, xpd = TRUE)
-text(0.86, 0.7, expression(paste(w[1]^N*(H) )), cex = labelsize, xpd = TRUE)
-text(0.885, 0.19, expression(paste(gamma^I*(1 - H))), cex = labelsize, xpd = TRUE)
+text(0.795, 0.5, expression(paste(w[2]^N*(H) )), cex = labelsize, xpd = TRUE)
+text(0.2, 0.18, expression(paste(w[1]^N*(H) )), cex = labelsize, xpd = TRUE)
+text(0.75, 0.13, expression(paste(gamma^I*(1 - H))), cex = labelsize, xpd = TRUE)
 
 #text(0.75, 38, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
 # text(0.71, 43, expression(paste("Employment")), cex = labelsize,  xpd = TRUE)

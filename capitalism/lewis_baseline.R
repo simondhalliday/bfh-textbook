@@ -18,7 +18,7 @@ COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 WageFn <- function(h, ubar = 0.1, B = 0.1, t = 0.8) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+  B + ubar + ubar*(1 - t)/(t*(1 - h))
 }
 
 wCompCond <- function(b, rho = 0.05, gamma = prodlvls[1]){
@@ -98,10 +98,7 @@ lines(xx1, WageFn(xx1), col = CBCols[1], lwd = graphlinewidth)
 #Wage curves
 #text(0.96, 1.6, expression(paste("Wage curves")), cex = labelsize, xpd = TRUE)
 #text(0.81, 1.15, expression(paste(w[2]^N*(H) )), cex = labelsize, xpd = TRUE)
-text(0.86, 0.7, expression(paste(w^N*(H) )), cex = labelsize, xpd = TRUE)
-
-text(0.86, 0.22, expression(paste("Informal sector")), cex = labelsize, xpd = TRUE)
-text(0.86, 0.15, expression(paste("productivity, ", gamma^I)), cex = labelsize, xpd = TRUE)
+text(0.88, 0.7, expression(paste(w^N*(H) )), cex = labelsize, xpd = TRUE)
 
 #text(0.75, 38, expression(paste("Employment level, ", H^N)), cex = labelsize,  xpd = TRUE)
 # text(0.71, 43, expression(paste("Employment")), cex = labelsize,  xpd = TRUE)
@@ -230,9 +227,12 @@ brackets(x1 = 1 - 0.02, y1 = - 0.01, emplvls[1] + 0.02, y2 = - 0.01,
          col = "black", lwd = 2, h = 0.03,
          lty = 1, xpd = TRUE)
 
-text((1 + emplvls[1])/2, - 0.09, expression(paste("Informal")), cex = labelsize, xpd = TRUE)
-text((1 + emplvls[1])/2, - 0.15, expression(paste("work")), cex = labelsize, xpd = TRUE)
+text((1 + emplvls[1])/2, - 0.14, expression(paste("Informal")), cex = labelsize, xpd = TRUE)
+text((1 + emplvls[1])/2, - 0.2, expression(paste("work")), cex = labelsize, xpd = TRUE)
 
+
+text(0.86, 0.22, expression(paste("Informal sector")), cex = labelsize, xpd = TRUE)
+text(0.86, 0.15, expression(paste("productivity, ", gamma^I)), cex = labelsize, xpd = TRUE)
 
 # text(0.55, 15, expression(paste("Wages")))
 # Arrows(0.5, 18, 0.5, 12, col = "black", lty = 1, lwd = 2, arr.type = "triangle")

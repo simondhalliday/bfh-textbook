@@ -59,14 +59,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(gamma == 1)))
-ticksx <- c(xlims[1], 0.812/0.9, 0.83, 0.85, xlims[2])
+ticksx <- c(xlims[1], 0.753/0.9, (1-(9.8/(100*0.76))), 0.864/0.9, xlims[2])
 
-ticksx <- c(xlims[1], 0.812/0.9, 0.83/0.9, 0.85/0.9, xlims[2])
-xlabels <- c(60, 81, 83, 85, 90)
+xlabels <- c(60, 75, 78, 86, 90)
 ticksy2 <- c(0,1)
 
 # text(0.85/0.9, -0.043, expression(paste(85)), xpd = TRUE, cex = labelsize) 
- text(0.83/0.9, -0.042, expression(paste(83)), xpd = TRUE, cex = labelsize) 
+# text(0.83/0.9, -0.042, expression(paste(83)), xpd = TRUE, cex = labelsize) 
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2,at = ticksy,  pos = 0.6, labels = ylabels, las = 1, cex.axis = labelsize)
@@ -103,15 +102,15 @@ text(0.5*(xlims[1] + xlims[2]), -0.1, expression(paste("Employment, ", H)), xpd 
 
 # Wage Curve
 
-lines(xx1, WageFn(xx1, delta = 5.9), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, WageFn(xx1, delta = 3.4), col = COLA[6], lty = 1, lwd = graphlinewidth)
+lines(xx1, WageFn(xx1, delta = 9.8), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, WageFn(xx1, delta = 2.4), col = COLA[6], lty = 1, lwd = graphlinewidth)
 
 
 #Segment lines for points
 
-segments(0.812/0.9, 0, 0.812/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0.83/0.9, 0, 0.83/0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0.85/0.9, 0, 0.85/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(.753/0.9, 0, 0.753/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments((1-(9.8/(100*0.76))), 0, (1-(9.8/(100*0.76))), 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments(0.864/0.9, 0, 0.864/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 segments(0, 0.76, 1, 0.76, lty = 1, col = COLB[3], lwd = segmentlinewidth)
 segments(0, 0.6, 1, 0.6, lty = 1, col = COLB[5], lwd = segmentlinewidth)
@@ -119,35 +118,35 @@ segments(0, 0.6, 1, 0.6, lty = 1, col = COLB[5], lwd = segmentlinewidth)
 segments(0.6, 1, xlims[2], 1, lty = 2, col = CBCols[3], lwd = graphlinewidth, xpd = TRUE)
 
 # Points
-points(0.812/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
-points(0.83/0.9, 0.76, pch = 16, col = "black", cex = 1.5)
-points(0.85/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
+points(0.753/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
+points((1-(9.8/(100*0.76))), 0.76, pch = 16, col = "black", cex = 1.5)
+points(0.864/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
 
-points(0.812/0.9, WageFn(0.812/0.9, delta = 3.4), pch = 16, col = "black", cex = 1.5)
+points(0.753/0.9, WageFn(0.753/0.9, delta = 2.4), pch = 16, col = "black", cex = 1.5)
 
 
 
 
 # Label
-text(0.83/0.9 - 0.01, 0.78, expression(paste(a)), cex = labelsize)
-text(0.81/0.9 - 0.005, 0.62, expression(paste(b)), cex = labelsize)
-text(0.812/0.9 - 0.01, WageFn(0.812/0.9, delta = 3.4), expression(paste(c)), cex = labelsize)
-text(0.85/0.9 + 0.005, 0.58, expression(paste(d)), cex = labelsize)
+text((1-(9.8/(100*0.76))) -0.01, 0.78, expression(paste(a)), cex = labelsize)
+text(0.753/0.9 - 0.01, 0.63, expression(paste(b)), cex = labelsize)
+text(0.753/0.9 -0.01, WageFn(0.753/0.9, delta = 2.4)+0.01, expression(paste(c)), cex = labelsize)
+text(0.864/0.9 + 0.005, 0.58, expression(paste(d)), cex = labelsize)
 
 text(0.8, 0.43, expression(paste("Original")), cex = labelsize)
 text(0.8, 0.39, expression(paste("wage")), cex = labelsize)
 text(0.8, 0.36, expression(paste("curve, ", w[1]^N )), cex = labelsize)
-Arrows(0.8, 0.29, 0.8, 0.19, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+Arrows(0.8, 0.29, 0.8, 0.19, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
-text(0.8, 0.14, expression(paste("New")), cex = labelsize)
-text(0.8, 0.1, expression(paste("wage")), cex = labelsize)
-text(0.8, 0.07, expression(paste("curve, ", w[2]^N)), cex = labelsize)
+text(0.8, 0.1, expression(paste("New")), cex = labelsize)
+text(0.8, 0.06, expression(paste("wage")), cex = labelsize)
+text(0.8, 0.031, expression(paste("curve, ", w[2]^N)), cex = labelsize)
 
 
 text(0.65, 0.88, expression(paste("Original")), cex = labelsize)
 text(0.65, 0.84, expression(paste("competition")), cex = labelsize)
 text(0.65, 0.8, expression(paste("condition, ", w[1]^c)), cex = labelsize)
-Arrows(0.65, 0.75, 0.65, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+Arrows(0.65, 0.75, 0.65, 0.62, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 text(0.65, 0.58, expression(paste("New")), cex = labelsize)
@@ -155,7 +154,7 @@ text(0.65, 0.54, expression(paste("competition")), cex = labelsize)
 text(0.65, 0.5, expression(paste("condition, ", w[2]^c)), cex = labelsize)
 
 text(0.75, 1.06, expression(paste("Output per" )), cex = labelsize, xpd = TRUE)
-text(0.75, 1.02, expression(paste("worker, ", gamma )), cex = labelsize, xpd = TRUE)
+text(0.75, 1.02, expression(paste("worker hour, ", gamma )), cex = labelsize, xpd = TRUE)
 # text(0.9, 0.7, expression(paste(B[3])), cex = labelsize)
 
 #Label and provide Gini value

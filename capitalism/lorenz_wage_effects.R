@@ -53,15 +53,13 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(60)), expression(paste(76)), 100)
-ticksx <- c(xlims[1], 0.05, 0.07, 0.9, xlims[2])
-xlabels <- c(NA, 5, 7, 90,  100)
+ticksx <- c(xlims[1], 0.04, 0.12, 0.9, xlims[2])
+xlabels <- c(NA, 4, 12, 90,  100)
 ticksy2 <- c(0,1)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2,at = ticksy,  pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 axis(4,at = ticksy2,  pos = 1, labels = NA, las = 1, cex.axis = labelsize)
-
-text(0.07, -0.042, expression(paste(7)), xpd = TRUE, cex = labelsize) 
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)
@@ -76,44 +74,44 @@ text(0.5*xlims[2], -0.1, expression(paste("Cumulative population, (%)")), xpd = 
 
 text(0.18, 0.7, expression(paste("Reduced")), cex = labelsize)
 text(0.18, 0.66, expression(paste("wage share")), cex = labelsize)
-Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 
 #Shaded Areas A and B
 #Area A
-#xpoly1 <- c(0, 0.1, 0.9, 1, 0)
-#ypoly1 <- c(0, 0, 0.6, 1, 0)
-#polygon(x = xpoly1,
-#        y = ypoly1,
-#        col = COLB[1], density = NULL, border = NA)
-#Area B
-#xpoly2 <- c(0, 0.1, 1, 1, 0.9, 0.1)
-#ypoly2 <- c(0, 0, 0, 1, 0.6, 0)
-#polygon(x = xpoly2,
-#        y = ypoly2,
-#        col = COLA[1], density = NULL, border = NA)
+xpoly1 <- c(0.04, 0.12, .3217)
+ypoly1 <- c(0, 0, 0.1966)
+polygon(x = xpoly1,
+        y = ypoly1,
+        col = COL[4], density = NULL, border = NA)
+
+xpoly1 <- c(.3217, 0.9, 1, 0.9)
+ypoly1 <- c(0.1966, 0.6, 1, 0.76)
+polygon(x = xpoly1,
+        y = ypoly1,
+        col = COLA[1], density = NULL, border = NA)
 
 # Lorenz curve
-segments(0, 0, 0.07, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE)
+segments(0, 0, 0.12, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE)
 
-segments(0.07, 0, 0.9, 0.76, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(0.12, 0, 0.9, 0.76, lty = 1, col = COLA[4], lwd = graphlinewidth)
 segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
 
-segments(0, 0, 0.05, 0, lty = 1, col = COLA[6], lwd = graphlinewidth)
-segments(0.05, 0, 0.9, 0.6, lty = 1, col = COLA[6], lwd = graphlinewidth)
-segments(0.9, 0.6, 1, 1, lty = 1, col = COLA[6], lwd = graphlinewidth)
+segments(0, 0, 0.04, 0, lty = 1, col = COLC[7], lwd = graphlinewidth)
+segments(0.04, 0, 0.9, 0.6, lty = 1, col = COLC[7], lwd = graphlinewidth)
+segments(0.9, 0.6, 1, 1, lty = 1, col = COLC[7], lwd = graphlinewidth)
 
-text(0.76, 0.46, expression(paste("New")), cex = labelsize)
-text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
-text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
+#text(0.76, 0.46, expression(paste("New")), cex = labelsize)
+#text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
+#text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
 
 # text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
 # text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
 
-text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
-text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
-text(0.85, 0.62, expression(paste("curve")), cex = labelsize)
+#text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
+#text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
+#text(0.85, 0.62, expression(paste("curve")), cex = labelsize)
 
 
 
@@ -155,5 +153,9 @@ segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #Gini equation
 #text(0.2, 0.8, expression(paste(Gini == frac(A, A + B), phantom() == 0.36 )), cex = labelsize)
 
+brackets(x1 = 0.12, y1 = -0.07, x2 = 0.04, y2 = -0.07,  
+         ticks = 0.5, curvature = 0.5, type = 1, 
+         col = "black", lwd = 2, lty = 1, xpd = TRUE)
+text(0.08, -0.14, expression(paste("reduced unemployment")), xpd = TRUE)
 
 dev.off()

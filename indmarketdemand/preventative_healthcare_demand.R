@@ -119,8 +119,9 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   geom_point() + 
   geom_line(lwd = 0.7) + 
   xlab("Price in USD") +
-  ylab("Household Take-up Rate") +
-  scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = percent) + 
+  ylab("Household take-up rate (percent)") +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), 
+                     labels = seq(0,100,10)) + 
   scale_x_continuous(breaks = seq(0, 6, by = 1), labels = dollar) +
   theme_bw() + 
   theme(legend.position = c(0.77, 0.77)) +
@@ -132,7 +133,7 @@ p2 <- ggplot(data_final_2, aes(x = x, y = y, group=product, color = product)) +
   theme(axis.title = element_text(size = 24),
         axis.text.y = element_text(size = 15),
         legend.text = element_text(size = 13),
-        axis.text.x = element_text(size = 15, angle = 45, vjust = 0.5),
+        axis.text.x = element_text(size = 15),
         panel.grid.minor = element_blank()
   )
 

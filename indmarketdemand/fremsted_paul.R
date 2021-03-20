@@ -12,6 +12,10 @@ plot1 <-
   annotate("text", x = 1.5, y = 2387, label = "Mean", size = 7) +
   geom_hline(yintercept = median(fremsted_paul$cost_per_person), lty = 2, size = 1) + 
   annotate("text", x = 1.5, y = 1874, label = "Median", size = 7) +
+  scale_y_continuous(
+    breaks = c(0,1000,2000,3000,4000),
+    labels = c(0,"1,000","2,000","3,000","4,000"), 
+    ) +
   theme_bw()  +
   labs(y = "Cost in $ per person",
        x = "Decile") +
@@ -24,7 +28,7 @@ plot1 <-
 plot2 <-
   ggplot(fremsted_paul, aes(as.factor(Decile), cost_percent_inc)) +
   geom_bar(position = "dodge", stat = "identity", fill = "#41ae76") +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits = c(NA, 0.15)) +
+  scale_y_continuous(labels = seq(0,15,5), limits = c(NA, 0.15)) +
   theme_bw()  +
   labs(y = "Cost as percent of income",
        x = "Decile") +

@@ -31,7 +31,7 @@ US_Mexico_data <- read_dta("indmarketdemand/US_Mexico_cleaned_data.dta")
 # Graphs ------------------------------------------------------------------
 
 US_elec <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes(x = exp_decile, y = E_share)) +  
-  labs(x = "Expenditure decile", y = "Average Electricity Expenditure (% of Total)") + 
+  labs(x = "Expenditure decile", y = "Average electricity expenditure (% of total)") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = CBCols[2]) +
   #ylim(0, 7) +
@@ -43,7 +43,7 @@ US_elec <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes
 ggsave("indmarketdemand/US_electricity.pdf", US_elec, width = 7, height = 7)
 
 Mex_elec <- ggplot(data = subset(US_Mexico_data, Country == "Mexico"), mapping = aes(x = exp_decile, y = E_share)) + 
-  labs(x = "Expenditure decile", y = "Average Electricity Expenditure (% of Total)") + 
+  labs(x = "Expenditure decile", y = "Average electricity expenditure (% of total)") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = CBCols[1]) +
   #ylim(0, 7) +
@@ -55,7 +55,7 @@ Mex_elec <- ggplot(data = subset(US_Mexico_data, Country == "Mexico"), mapping =
 ggsave("indmarketdemand/Mexico_electricity.pdf", Mex_elec, width = 7, height = 7)
 
 US_gas <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes(x = exp_decile, y = G_share)) + 
-  labs(x = "Expenditure decile", y = "Average Motor Fuels Expenditure (% of Total)") + 
+  labs(x = "Expenditure decile", y = "Average motor fuels expenditure (% of total)") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = CBCols[2]) +
   #ylim(0, 7) +
@@ -67,7 +67,7 @@ US_gas <- ggplot(data = subset(US_Mexico_data, Country == "USA"), mapping = aes(
 ggsave("indmarketdemand/US_gasoline.pdf", US_gas, width = 7, height = 7)
 
 Mex_gas <- ggplot(data = subset(US_Mexico_data, Country == "Mexico"), mapping = aes(x = exp_decile, y = G_share)) + 
-  labs(x = "Expenditure decile", y = "Average Motor Fuels Expenditure (% of Total)") + 
+  labs(x = "Expenditure decile", y = "Average motor fuels expenditure (% of total)") + 
   scale_x_continuous(breaks = seq(0, 10, 1)) + 
   geom_bar(stat = "identity", fill = CBCols[1]) +
   #ylim(0, 7) +

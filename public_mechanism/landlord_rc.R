@@ -51,7 +51,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 334, 1500, 2000, 3667, ylims[2])
-ylabels <- c(NA, 334, 1500, 2000, 3667, NA)
+ylabels <- c(NA, 334, "1,500", "2,000", "3,667", NA)
 ticksx <- c(0, 350, 500, 650, xlims[2])
 xlabels <- c(NA, NA, expression(paste(X[B] == 500)), NA, NA)
 

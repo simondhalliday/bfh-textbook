@@ -90,7 +90,7 @@ lines(xx1, GreenPrice(xx1), col = COLA[4], lwd = graphlinewidth)
 #Axis labels
 #mtext(expression(paste("Fraction of Greens in the neighborhood, ", f)), side = 1, line = 2.5, cex = axislabelsize)
 text(0.5*xlims[2], -0.05,  expression(paste("Fraction of Greens in the neighborhood, ", g)), xpd = TRUE, cex = axislabelsize) 
-text(-0.27, 0.5*(ylims[2]), expression(paste("Green's willingness to pay, ", p^G)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-0.27, 0.5*(ylims[2]), expression(paste("Greens' willingness to pay, ", p^G)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Segments and labeled points on the graphs
 # segments(0.5, 0, 0.5, GreenPrice(f = 0.5), lty = 2, col = grays[20] , lwd = segmentlinewidth)

@@ -7,20 +7,20 @@ library(ggsci)     # d3 colors
 library(readxl)    # import
 
 # Import Data
-JEBO_chart_data <- read_excel("~/Downloads/JEBO chart data.xlsx")
+JEBO_chart_data <- read_excel("indmarketdemand/JEBO chart data.xlsx")
 
 # Note countries codes are not iso3c or iso2c consistent/nor accurate
 # Changed manually
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'AUS'] <- 'Australia'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'CAN'] <- 'Canada'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'FRA'] <- 'France'
-JEBO_chart_data$fullname[JEBO_chart_data$name == 'US'] <- 'United States'
+JEBO_chart_data$fullname[JEBO_chart_data$name == 'US'] <- 'US'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'SWE'] <- 'Sweden'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'SWI'] <- 'Switzerland'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'JPN'] <- 'Japan'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'NET'] <- 'Netherlands'
 JEBO_chart_data$fullname[JEBO_chart_data$name == 'GER'] <- 'Germany'
-JEBO_chart_data$fullname[JEBO_chart_data$name == 'UK'] <- 'United Kingdom'
+JEBO_chart_data$fullname[JEBO_chart_data$name == 'UK'] <- 'UK'
 
 europe <- c("FRA", "GER", "NET", "SWE", "UK", "SWI")
 
@@ -32,7 +32,9 @@ p1 <- JEBO_chart_data %>%
   ggplot(aes(x = year, y = hour, group = fullname, color = fullname)) +
   geom_point(size = 2) +
   geom_line() + 
-  ylim(1300, 3300) + 
+  scale_y_continuous( breaks = seq(1500, 3000, 500),
+                      labels = comma(seq(1500, 3000, 500)),
+                      limits = c(1300,3300)) +
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +
   #scale_color_manual(values = c("France", "Germany", "Netherlands", "Sweden", "Switzerland", "United Kingdom")) +
   scale_color_d3() +
@@ -55,7 +57,10 @@ p2 <- JEBO_chart_data %>%
   ggplot(aes(x = year,y = hour, group = fullname, color = fullname)) +
   geom_line() + 
   geom_point(size = 2) +
-  ylim(1300, 3300) + 
+  scale_y_continuous( breaks = seq(1500, 3000, 500),
+                      labels = comma(seq(1500, 3000, 500)),
+                      limits = c(1300,3300)) +
+  #ylim(1300, 3300) + 
   labs(x = "Year", y = "Average annual work hours of production workers", color = "Country") +
   scale_color_d3() +
   theme_bw() +

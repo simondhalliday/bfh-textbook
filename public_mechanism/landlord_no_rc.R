@@ -66,9 +66,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 
 ticksy <- c(0, 334, 2000, 3667, ylims[2])
-ylabels <- c(NA, 334, 2000, 3667, NA)
+ylabels <- c(NA, 334, "2,000", "3,667", NA)
 ticksx <- c(0, 500, 1100.1, xlims[2])
-xlabels <- c(NA, expression(paste(X[B]) == 500), 1100.1, NA)
+xlabels <- c(NA, expression(paste(X[B]) == 500), "1,100.1", NA)
 
 npts <- 500 
 xx1 <- seq(xlims[1], xlims[2], length.out = npts)

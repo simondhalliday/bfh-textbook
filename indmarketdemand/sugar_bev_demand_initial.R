@@ -1,4 +1,7 @@
 library(shape)
+#library(Cairo)
+library(signs)
+#cairo_pdf("indmarketdemand/sugar_bev_demand_initial.pdf", width = 9, height = 7)
 pdf(file = "indmarketdemand/sugar_bev_demand_initial.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
@@ -135,7 +138,7 @@ text(xprices[1] + 5, prices[1] + 0.05, expression(a), cex = labelsize)
 # text(50, 1.75, expression(A), cex = labelsize)
 # text(125, 1, expression(D), cex = labelsize)
 
-text(50, 1.8, expression("Pre-tax"), cex = labelsize)
+text(50, 1.8, expression(paste("Pre-tax")), cex = labelsize)
 text(50, 1.65, expression("consumer surplus"), cex = labelsize)
 text(75, 0.9, expression("Pre-tax"), cex = labelsize)
 text(75, 0.75, expression("expenditure"), cex = labelsize)

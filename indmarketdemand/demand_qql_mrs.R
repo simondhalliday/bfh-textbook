@@ -91,12 +91,12 @@ Arrows(10, 7.4, 10, 5.6, col = "black", lty = 1, lwd = 2, arr.type = "triangle",
 
 #Label satiation
 text(20, 3.7, expression(paste(bar(x) == "Point")), cex = annotatesize)
-text(20, 3, expression(paste("of Satiation")), cex = annotatesize)
+text(20, 3, expression(paste("of satiation")), cex = annotatesize)
 Arrows(20, 2.5, 20, 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 #Label highest willingness to pay
 text(5, 10, expression(paste(bar(p) == "Maximum")), cex = annotatesize)
-text(5, 9.3, expression(paste("Willingness to Pay")), cex = annotatesize)
+text(5, 9.3, expression(paste("willingness to pay")), cex = annotatesize)
 Arrows(2.9, 10, 0.5, 10, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5)
 
 dev.off()

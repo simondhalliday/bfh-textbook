@@ -92,7 +92,7 @@ text(10, 9.3, expression("(outside the budget)"), cex = annotatesize)
 #Label the iso-welfare functions for the HG, Aisha
 #text(4, 1.5, expression(bc[px]))
 #text(7.5, 1.5, expression(bc[px]))
-text(11, 3.6, expression("Budget Constraint"), cex = annotatesize)
+text(11, 3.6, expression("Budget constraint"), cex = annotatesize)
 text(11, 2.6, expression(paste(y == frac(m,p[y]) - bgroup("(",frac(p[x], p[y]),")")*x)), cex = annotatesize)
 
 

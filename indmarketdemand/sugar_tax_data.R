@@ -19,7 +19,7 @@ sug_bev <- ggplot(homescan_sugar_bev, aes(x = X, y = Y)) +
   geom_line(col = CBCols[1], lwd = 0.7) +
   #geom_bar(stat = "identity") +
   scale_x_continuous(labels = homescan_sugar_bev[["X"]], breaks = homescan_sugar_bev[["X"]]) +
-  labs(x = "Household Income ($000s)", 
+  labs(x = "Household income ($1,000s)", 
        y = "Liters purchased per adult equivalent per year") + 
   theme_bw() + 
   theme(axis.text = element_text(size = 16),

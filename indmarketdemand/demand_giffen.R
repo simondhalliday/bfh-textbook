@@ -17,7 +17,7 @@ COLA <- c("#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(4, 4, 0.2, 0.2))
+par(mar =  c(4, 4, 0.2, 0.8))
 
 demand1 <- function(x, a = 5, b = 2, c = 0.25) {
    (b - (4*a*c + b^2 - 4*c*x)^0.5)/(2*c)

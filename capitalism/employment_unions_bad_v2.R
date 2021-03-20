@@ -19,7 +19,7 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+  B + ubar + (ubar*t*h )/(t*(1 - h))
 }
 
 
@@ -67,21 +67,21 @@ ticksy <- c(0, 20,  40, 50)
 ylabels <- c(0,  expression(paste(w^c)), expression(paste(gamma[0])), NA)
 
 
-ticksx <- c(0, 0.513, 0.7925, 1, xlims[2])
+ticksx <- c(0, 0.61, 0.832, 1, xlims[2])
 xlabels <- c(0, expression(paste(H[1]^N)),expression(paste(H[0]^N)), 1.0, NA)
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)
 
 #Annotation of the  graphs
-text(0.97, 50, expression(paste("Wage")), cex = labelsize,xpd = TRUE)
-text(0.97, 47.5, expression(paste("curve")), cex = labelsize,xpd = TRUE)
-text(0.97, 44.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
+text(0.982, 50, expression(paste("Wage")), cex = labelsize,xpd = TRUE)
+text(0.982, 47.5, expression(paste("curve")), cex = labelsize,xpd = TRUE)
+text(0.982, 44.5, expression(paste(w[0]^N*(H))), cex = labelsize,xpd = TRUE)
 
 
-text(0.73, 44.5, expression(paste(w[1]^N*(H))), cex = labelsize, xpd = TRUE)
+text(0.78, 44.5, expression(paste(w[1]^N*(H))), cex = labelsize, xpd = TRUE)
 
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
-segments(0.7925, 0, 0.7925, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
+segments(0.832, 0, 0.832, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
 #Arrows(0.8, 15, 0.8, 19, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
 #Arrows(0.8, 15, 0.8, 11, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
@@ -93,11 +93,12 @@ segments(0, 40, xlims[2], 40, lty = 2, lwd = segmentlinewidth, col = CBCols[3], 
 
 
 #Original competition condition 
-segments(0, 20, 0.7925, 20, lty = 1, lwd = segmentlinewidth, col = CBCols[2])
+segments(0, 20, 0.83, 20, lty = 1, lwd = segmentlinewidth, col = CBCols[2])
 segments(0.7925, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = CBCols[2])
+segments(0.61, 0, 0.61, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
 
-points(0.513, 20, pch = 16, col = "black", cex = 1.5)
-text(0.77, 21.6, expression(paste(n[0])), cex = labelsize)
+points(0.61, 20, pch = 16, col = "black", cex = 1.5)
+text(0.81, 21.6, expression(paste(n[0])), cex = labelsize)
 
 #segments(0, 10, 1.2, 10, lty = 2, lwd = 2, col = "darkgray")
 #text(0.97, 11, expression(paste(B + a[1])))
@@ -108,9 +109,8 @@ text(0.77, 21.6, expression(paste(n[0])), cex = labelsize)
 # text(0.51, 28.2, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
 # text(0.51, 26, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
 
-segments(0.513, 0, 0.513, 20, lty = 2, lwd = segmentlinewidth, col = grays[20])
-points(0.7925, 20, pch = 16, col = "black", cex = 1.5)
-text(0.5, 21.6, expression(paste(n[1])), cex = labelsize)
+points(0.832, 20, pch = 16, col = "black", cex = 1.5)
+text(0.59, 21.6, expression(paste(n[1])), cex = labelsize)
 #text(1.02, 26, expression(paste(zpc[1], ", ", w == w[1])))
 
 
@@ -123,9 +123,9 @@ text(0.2, 23.7, expression(paste("Competition")), cex = labelsize, xpd = TRUE)
 text(0.2, 21.5, expression(paste("condition, ", w^c)), cex = labelsize, xpd = TRUE)
 #text(1.00, 18.5, expression(paste(w^c)), cex = labelsize, xpd = TRUE)
 
-Arrows(0.32, 8.2, 0.32, 13.3, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
-text(0.2, 10.7, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
-text(0.2, 8.3, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
+Arrows(0.46, 11.5, 0.46, 13.7, col = "black", lty = 1, lwd = 2, arr.type = "triangle")
+text(0.4, 10.7, expression(paste("Union raises")), cex = labelsize, xpd = TRUE)
+text(0.4, 8.3, expression(paste("wage curve")), cex = labelsize, xpd = TRUE)
 
 
 #text(0.97, 6, expression(paste(B + a[0])))

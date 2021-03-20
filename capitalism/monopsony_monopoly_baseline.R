@@ -5,7 +5,7 @@
 library(shape)
 library(plotrix)
 library(pBrackets)
-pdf(file = "capitalism/monopsony_monopoly_baseline.pdf", width = 9, height = 7)
+pdf(file = "capitalism/monopsony_monopoly_baseline_check.pdf", width = 9, height = 7)
 
 #Set parameters for graphics
 axislabelsize <- 1.8
@@ -23,14 +23,21 @@ CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442","#D55E00")
 
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
-
 WageFn <- function(h, ubar = 2.5, B = 2, t = 0.7) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+  B + ubar + ubar*(1 - t)/(t*(1 - h))
 }
 
 Mch <- function(h, ubar = 2.5, B = 2, t = 0.7) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))+ (ubar*h)/(t*(1-h)^2)
+  B + ubar + ubar*((1-t)/(t))*(1 / (1 - h)^2)
 }
+
+# WageFn <- function(h, ubar = 2.5, B = 2, t = 0.7) {
+#   B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+# }
+# 
+# Mch <- function(h, ubar = 2.5, B = 2, t = 0.7) {
+#   B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))+ (ubar*h)/(t*(1-h)^2)
+# }
 
 AvgRevenue <- function(h, rmax = 40, xmax = 1.8){
   rmax - (rmax/xmax)*h
@@ -166,7 +173,7 @@ text(0.62, wagelvls[1] - 4.25,  expression(paste("rents")), xpd = TRUE, cex = la
 Arrows(0.525, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
 
-text(0.3, wagelvls[3] + 11.5,  expression(paste("Opportunity cost")), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 11.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
 text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital")), xpd = TRUE, cex = labelsize)
 #text(0.3, wagelvls[3] + 9.5,  expression(paste("of capital, ", rho%.%w[m]%.%h[m])), xpd = TRUE, cex = labelsize)
 Arrows(0.3, wagelvls[3] + 8.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)

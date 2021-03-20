@@ -29,7 +29,7 @@ pv_plot <-  ggplot(data = PV, aes(x=Year, y=value, group=variable, color = varia
   geom_point() +
   xlim(1978, NA) +
   ylim(NA, 50) +
-  labs(color = "Price and Cost", x = "Year", y = "PV Cost and Price (2015 USD)") +
+  labs(color = "Price and cost", x = "Year", y = "PV cost and price (2015 USD)") +
   theme_bw() +
   theme(axis.text=element_text(size=17),
         axis.title=element_text(size=22),

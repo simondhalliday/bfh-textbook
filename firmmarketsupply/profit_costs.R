@@ -84,7 +84,7 @@ text(0.5*xlims[2], -1, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axi
 #mtext(expression(paste("Quantity, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 #mtext(expression(paste("Quantity of output, ", x)), side = 1, line = 2.5, cex = axislabelsize)
 #text(-3, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
-text(-2.7, 0.5*ylims[2], expression(paste("Price, Revenue, and Costs ($) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.7, 0.5*ylims[2], expression(paste("Price, revenue, and costs ($) ")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(10.5, 4.6, expression(paste(ac(x))), cex = labelsize)

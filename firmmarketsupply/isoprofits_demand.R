@@ -80,7 +80,7 @@ text(0.5*(xlims[2]), -1.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex =
 text(-1.5, 0.5*ylims[2], expression(paste("Price, ", p, " ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
-text(xlims[2] - 1, 7, expression(paste("Isoprofit \n Curves")), cex = labelsize)
+text(xlims[2] - 1, 7, expression(paste("Isoprofit \n curves")), cex = labelsize)
 
 
 #Draw segments for total costs

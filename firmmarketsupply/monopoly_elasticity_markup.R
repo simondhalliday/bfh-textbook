@@ -96,7 +96,7 @@ lines(xx2, IsoProf(xx2, k = 25), col = COLB[4], lwd = graphlinewidth)
 #Label the axes
 text(0.5*(xlims[2]), -3.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -1.8, expression(paste("Quantity of output, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-2.3, 0.5*ylims[2], expression(paste("Price and Costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-2.3, 0.5*ylims[2], expression(paste("Price and costs ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 
 #Costs

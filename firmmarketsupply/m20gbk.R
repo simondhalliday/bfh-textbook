@@ -51,7 +51,11 @@ fit4.predict <- function(x) exp(fit4$coefficients[1])*x^(fit4$coefficients[2])
 fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time)) +
   geom_point(aes( y = ManHours),size = 1.5, color = COLB[4]) +
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
-  labs(x = "Monthly output", y = "Cost (Hours)") +
+  labs(x = "Monthly output", y = "Cost (hours)") +
+  scale_y_continuous(
+    breaks = seq(600,1200,200),
+    labels = comma(seq(600,1200,200)),
+    limits = c(500,1350)) + 
   theme_bw()  +
   theme(axis.text=element_text(size=17),
         axis.title=element_text(size=22),
@@ -59,10 +63,17 @@ fig1 <- ggplot(data = m20gbk, aes(x = TotalProduct, y = ManHours, label = Time))
   
   
 fig2 <- ggplot(data = m20gbk, aes(x = CumulativeProduct, y = ManHours, label = Time)) +
-  labs(x = "Cumulative output in all previous months", y = "Cost (Hours)") +
+  labs(x = "Cumulative output in all previous months", y = "Cost (hours)") +
   stat_function(fun = fit4.predict, color = COLA[4]) +
   geom_point(aes( y = ManHours), size = 1.5, color = COLB[4]) +
   geom_text_repel(aes(label=Time),hjust=1, vjust=0.5, color = "black", segment.alpha = 0.5, segment.color = "darkgray") +
+  scale_x_continuous(
+    labels = comma(seq(0,4000,1000)),
+    limits = c(0,4000)) + 
+  scale_y_continuous(
+    breaks = seq(600,1400,200),
+    labels = comma(seq(600,1400,200)),
+    limits = c(500,1500)) + 
   theme_bw() +
   theme(axis.text=element_text(size=17),
         axis.title=element_text(size=22))

@@ -84,7 +84,7 @@ lines(xx2, IsoProf(xx2, k = 20), col = COLB[4], lwd = graphlinewidth)
 #Label the axes
 text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -1.8, expression(paste("Quantity of output, ", x)), xpd = TRUE, cex = axislabelsize) 
-text(-1.4, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-1.4, 0.5*ylims[2], expression(paste("Price, revenue, and costs, ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves
 text(xlims[2] - 1, 7, expression(paste("Isoprofit \n curves")), cex = labelsize)

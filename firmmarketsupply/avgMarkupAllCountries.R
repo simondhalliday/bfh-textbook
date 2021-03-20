@@ -145,8 +145,8 @@ dfCostAvg <- left_join(dfCostAvg, dfCost, by = "drugName") %>%
 drugNames <- c("Lopinavir/ritonavir", 
                "Chloroquine", "Azithromycin")
 drugNameDisease <- c("Lopinavir/ritonavir \n (HIV-1)", 
-                     "Chloroquine \n (Malaria)",
-                     "Azithromycin \n (Antibiotic)")
+                     "Chloroquine \n (malaria)",
+                     "Azithromycin \n (antibiotic)")
 
 dfCostAvg %>% 
   filter(drugID != 6) %>% # pirf (not manufactured at scale)

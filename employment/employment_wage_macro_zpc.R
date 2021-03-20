@@ -14,9 +14,14 @@ COL <- c("#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5
 COLA <- c("#e0f3db", "#99d8c9","#66c2a4","#41ae76", "#238b45", "#005824")
 COLB <- c("#4eb3d3", "#2b8cbe", "#0868ac","#084081")
 
-WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+WageFn <- function(h, ubar = 3, B = 2, t = 0.49) {
+  B + ubar + ubar*(1 - t )/(t*(1 - h))
 }
+
+# WageFn <- function(h, ubar = 3, B = 2, t = 0.8) {
+#   B + ubar + (1 - t)/(t*(1 - h))*ubar
+# }
+
 
 
 #COL <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666")
@@ -84,9 +89,9 @@ segments(0.7917, 0, 0.7917, ylims[2], lty = 2, lwd = segmentlinewidth, col = gra
 segments(0, 20, 0.7917, 20, lty = 1, lwd = graphlinewidth, col = COLB[3])
 segments(0.7917, 20, 1.2, 20, lty = 2, lwd = segmentlinewidth, col = COLB[3])
 # Gamma
-segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[3])
-text(1.11, 33, expression(paste("Output per")), cex = labelsize,  xpd = TRUE)
-text(1.11, 31, expression(paste("worker, ", gamma)), cex = labelsize,  xpd = TRUE)
+segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = CBCols[3])
+text(1.13, 33, expression(paste("Output per")), cex = labelsize,  xpd = TRUE)
+text(1.13, 31, expression(paste("worker hour, ", gamma)), cex = labelsize,  xpd = TRUE)
 
 # Supply of labor
 segments(xlims[2], 0, xlims[2], ylims[2], lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)

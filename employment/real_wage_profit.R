@@ -73,7 +73,7 @@ text(0.85, 19, expression(paste("Competition")), cex = labelsize)
 text(0.85, 17, expression(paste("condition, ", w^C)), cex = labelsize)
 
 
-text(0.8, 31, expression(paste("Output per worker, ", gamma)), cex = labelsize, xpd = TRUE)
+text(0.75, 31, expression(paste("Output per worker hour, ", gamma)), cex = labelsize, xpd = TRUE)
 #Line for the absolute maximum quality
 #segments(1, 0, 1, 42, lty = 2, lwd = 3, col = "darkgray")
 #segments(0.75, 0, 0.75, 20, lty = 2, lwd = 2, col = "darkgray")
@@ -108,7 +108,7 @@ Arrows(0.44, 22, 0.15, 22, col = "black", lty = 1, lwd = 2, arr.type = "triangle
 
 #Zero profit condition 
 segments(0, 20, xlims[2], 20, lty = 1, lwd = 2, col = COLB[2])
-segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = COLA[2])
+segments(0, 30, xlims[2], 30, lty = 2, lwd = 2, col = CBCols[3])
 # segments(0.75, 20, 1.2, 20, lty = 2, lwd = 2, col = "darkgray")
 
 #Unemployment benefits & a
@@ -136,8 +136,8 @@ brackets(x1 = 1.01, y1 = 19.9, x2 = 1.01, y2 = 0.1,  ticks = 0.5,
 
 text(1.35, 17, expression(paste("Output")), cex = labelsize, xpd = TRUE)
 text(1.35, 15, expression(paste("per")), cex = labelsize, xpd = TRUE)
-text(1.35, 13, expression(paste("worker")), cex = labelsize, xpd = TRUE)
-text(1.35, 11, expression(paste(gamma)), cex = labelsize, xpd = TRUE)
+text(1.35, 13.5, expression(paste("worker")), cex = labelsize, xpd = TRUE)
+text(1.35, 11.5, expression(paste("hour, ", gamma)), cex = labelsize, xpd = TRUE)
 
 text(1.14, 11, expression(paste("Real")), cex = labelsize, xpd = TRUE)
 text(1.14, 9, expression(paste("wage, ",  w^C)), cex = labelsize, xpd = TRUE)

@@ -25,11 +25,11 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 
 WageFn <- function(h, ubar = 2.5, B = 2, t = 0.7) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))
+  B + ubar + ubar*(1 - t)/(t*(1 - h))
 }
 
 Mch <- function(h, ubar = 2.5, B = 2, t = 0.7) {
-  B + ubar + (ubar - ubar*t +  ubar*t*h )/(t*(1 - h))+ (ubar*h)/(t*(1-h)^2)
+  B + ubar + ubar*((1-t)/(t))*(1 / (1 - h)^2)
 }
 
 AvgRevenue <- function(h, rmax = 40, xmax = 1.8){
@@ -92,6 +92,9 @@ eq5 <- uniroot(function(x)  MRevenue(x) - wagelvls[6], c(.01,1), tol=1e-8)
 
 LPoints <- as.numeric(c(eq5[1], eq2[1], eq3[1], eq4[1], eq1[1]))
 wagelvls <- c(WageFn(as.numeric(eq5[1])), MRevenue(as.numeric(eq1[1])), AvgRevenue(LPoints[1]), 4.5, WageFn(LPoints[4]), WageFn(LPoints[4]) + 2)
+
+
+
 
 #I don't know what these are any more...
 BPoints <- c(0.37, 0.53, 0.78)
@@ -180,7 +183,7 @@ text(0.85, wagelvls[1] - 2.25,  expression(paste("Employment")), xpd = TRUE, cex
 text(0.85, wagelvls[1] - 4.25,  expression(paste("rents")), xpd = TRUE, cex = labelsize)
 Arrows(0.75, wagelvls[1] - 2.25, LPoints[1] - 0.08, wagelvls[1] - 2.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)
 
-text(0.3, wagelvls[3] + 12.5,  expression(paste("Opportunity cost")), xpd = TRUE, cex = labelsize)
+text(0.3, wagelvls[3] + 12.5,  expression(paste("Oportunity cost")), xpd = TRUE, cex = labelsize)
 text(0.3, wagelvls[3] + 10.5,  expression(paste("of capital")), xpd = TRUE, cex = labelsize)
 #text(0.3, wagelvls[3] + 10.5,  expression(paste("of capital, ", rho%.%w[u]%.%h[u])), xpd = TRUE, cex = labelsize)
 Arrows(0.3, wagelvls[3] + 9.5, 0.3, wagelvls[3] - 0.25, col = "black", lty = 1, lwd = 2, arr.type = "triangle", xpd = TRUE)

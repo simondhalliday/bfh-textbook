@@ -158,13 +158,14 @@ segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #         ticks = 0.5, curvature = 0.5, type = 1, 
 #         col = "black", lwd = 2, lty = 1, xpd = TRUE)
 Arrows(0.115, -0.02, 0.055, -0.02, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
-text(0.08, -0.09, expression(paste("Reduced unemployment")), xpd = TRUE,  cex = labelsize)
+text(0.08, -0.08, expression(paste("Reduced")), xpd = TRUE,  cex = labelsize)
+text(0.08, -0.12, expression(paste("unemployment")), xpd = TRUE,  cex = labelsize)
 
 
-Arrows(0.75, 0.4, 0.75, 0.5, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
-text(0.75, 0.37, expression(paste("Increased inequality")), xpd = TRUE,  cex = labelsize)
-text(0.75, 0.34, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
-text(0.75, 0.305, expression(paste("competition")), xpd = TRUE,  cex = labelsize)
+Arrows(0.75, 0.383, 0.75, 0.5, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
+text(0.75, 0.35, expression(paste("Increased inequality")), xpd = TRUE,  cex = labelsize)
+text(0.75, 0.32, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
+text(0.75, 0.285, expression(paste("competition")), xpd = TRUE,  cex = labelsize)
 
 
 Arrows(0.25, 0.05, 0.16, 0.05, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)

@@ -22,8 +22,8 @@ CBCols <- c("#009E73","#0072B2","#E69F00","#CC79A7", "#F0E442")
 
 
 # Wage Share
-WageFn <- function(H, delta = 5) {
-  (delta /(1 - H)) * 0.01
+WageFn <- function(h, ubar = 0.0157, B = 0.2, t = 0.8) {
+  B + ubar + (ubar*t*h )/(t*(1 - h))
 }
 
 #Edited the margins to cater for the larger LHS labels
@@ -59,9 +59,9 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(gamma == 1)))
-ticksx <- c(xlims[1], 0.753/0.9, (1-(9.8/(100*0.76))), 0.864/0.9, xlims[2])
+ticksx <- c(xlims[1], 0.753/0.9, (1-(8.85/(100*0.76))), 0.864/0.9, xlims[2])
 
-xlabels <- c(60, 75, 78, 86, 90)
+xlabels <- c(60, 84, 88, 96, 100)
 ticksy2 <- c(0,1)
 
 # text(0.85/0.9, -0.043, expression(paste(85)), xpd = TRUE, cex = labelsize) 
@@ -102,14 +102,14 @@ text(0.5*(xlims[1] + xlims[2]), -0.1, expression(paste("Employment, ", H)), xpd 
 
 # Wage Curve
 
-lines(xx1, WageFn(xx1, delta = 9.8), col = COLA[3], lwd = graphlinewidth)
-lines(xx1, WageFn(xx1, delta = 2.4), col = COLA[6], lty = 1, lwd = graphlinewidth)
+lines(xx1, WageFn(xx1,  ubar = 0.065), col = COLA[3], lwd = graphlinewidth)
+lines(xx1, WageFn(xx1), col = COLA[6], lty = 1, lwd = graphlinewidth)
 
 
 #Segment lines for points
 
 segments(.753/0.9, 0, 0.753/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments((1-(9.8/(100*0.76))), 0, (1-(9.8/(100*0.76))), 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+segments((1-(8.85/(100*0.76))), 0, (1-(8.85/(100*0.76))), 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0.864/0.9, 0, 0.864/0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 segments(0, 0.76, 1, 0.76, lty = 1, col = COLB[3], lwd = segmentlinewidth)
@@ -119,28 +119,27 @@ segments(0.6, 1, xlims[2], 1, lty = 2, col = CBCols[3], lwd = graphlinewidth, xp
 
 # Points
 points(0.753/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
-points((1-(9.8/(100*0.76))), 0.76, pch = 16, col = "black", cex = 1.5)
+points((1-(8.84/(100*0.76))), 0.76, pch = 16, col = "black", cex = 1.5)
 points(0.864/0.9, 0.6, pch = 16, col = "black", cex = 1.5)
-
-points(0.753/0.9, WageFn(0.753/0.9, delta = 2.4), pch = 16, col = "black", cex = 1.5)
+points(0.753/0.9, WageFn(0.753/0.9), pch = 16, col = "black", cex = 1.5)
 
 
 
 
 # Label
-text((1-(9.8/(100*0.76))) -0.01, 0.78, expression(paste(a)), cex = labelsize)
+text((1-(8.84/(100*0.76))) -0.01, 0.78, expression(paste(a)), cex = labelsize)
 text(0.753/0.9 - 0.01, 0.63, expression(paste(b)), cex = labelsize)
-text(0.753/0.9 -0.01, WageFn(0.753/0.9, delta = 2.4)+0.01, expression(paste(c)), cex = labelsize)
+text(0.753/0.9 -0.01, WageFn(0.753/0.9)+0.01, expression(paste(c)), cex = labelsize)
 text(0.864/0.9 + 0.005, 0.58, expression(paste(d)), cex = labelsize)
 
-text(0.8, 0.43, expression(paste("Original")), cex = labelsize)
-text(0.8, 0.39, expression(paste("wage")), cex = labelsize)
-text(0.8, 0.36, expression(paste("curve, ", w[1]^N )), cex = labelsize)
-Arrows(0.8, 0.29, 0.8, 0.19, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+text(0.74, 0.57, expression(paste("Original")), cex = labelsize)
+text(0.74, 0.53, expression(paste("wage")), cex = labelsize)
+text(0.74, 0.5, expression(paste("curve, ", w[1]^N )), cex = labelsize)
+Arrows(0.74, 0.44, 0.74, 0.29, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
-text(0.8, 0.1, expression(paste("New")), cex = labelsize)
-text(0.8, 0.06, expression(paste("wage")), cex = labelsize)
-text(0.8, 0.031, expression(paste("curve, ", w[2]^N)), cex = labelsize)
+text(0.74, 0.23, expression(paste("New")), cex = labelsize)
+text(0.74, 0.19, expression(paste("wage")), cex = labelsize)
+text(0.74, 0.16, expression(paste("curve, ", w[2]^N)), cex = labelsize)
 
 
 text(0.65, 0.88, expression(paste("Original")), cex = labelsize)

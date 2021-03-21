@@ -21,7 +21,7 @@ COLC <- c("#fcfbfd", "#efedf5", "#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a
 grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 
 #Edited the margins to cater for the larger LHS labels
-par(mar =  c(5, 5, 2, 2))
+par(mar =  c(5.5, 5, 2, 2))
 
 
 #Add limits on axes and levels of utility for each indifference curve
@@ -102,16 +102,16 @@ segments(0, 0, 0.04, 0, lty = 1, col = COLC[7], lwd = graphlinewidth)
 segments(0.04, 0, 0.9, 0.6, lty = 1, col = COLC[7], lwd = graphlinewidth)
 segments(0.9, 0.6, 1, 1, lty = 1, col = COLC[7], lwd = graphlinewidth)
 
-#text(0.76, 0.46, expression(paste("New")), cex = labelsize)
-#text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
-#text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
+text(0.76, 0.46, expression(paste("New")), cex = labelsize)
+text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
+text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
 
-# text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
-# text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
+ #text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
+ #text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
 
-#text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
-#text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
-#text(0.85, 0.62, expression(paste("curve")), cex = labelsize)
+text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
+text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
+text(0.85, 0.62, expression(paste("curve")), cex = labelsize)
 
 
 
@@ -156,6 +156,6 @@ segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 brackets(x1 = 0.12, y1 = -0.07, x2 = 0.04, y2 = -0.07,  
          ticks = 0.5, curvature = 0.5, type = 1, 
          col = "black", lwd = 2, lty = 1, xpd = TRUE)
-text(0.08, -0.14, expression(paste("reduced unemployment")), xpd = TRUE)
+text(0.08, -0.14, expression(paste("Reduced unemployment")), xpd = TRUE,  cex = labelsize)
 
 dev.off()

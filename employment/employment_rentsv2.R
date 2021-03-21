@@ -150,14 +150,14 @@ Arrows(0.1, 0.2, 0.2, 0.2, lty = 1, col = COLA[4] , arr.type = "triangle", arr.l
 Arrows(0.2, 0.2, 0.385, 0.2, lty = 1, col = COLA[4] , arr.type = "triangle", arr.lwd = segmentlinewidth)
 
 
-text(-0.07, 0.6, expression("per period"), cex = labelsize,xpd = TRUE)
-text(-0.07, 0.55, expression("value of"), cex = labelsize,xpd = TRUE)
-text(-0.07, 0.5, expression("the job"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.6, expression("per period"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.55, expression("value of"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.5, expression("the job"), cex = labelsize,xpd = TRUE)
 
 
-text(-0.07, 0.2, expression("per period"), cex = labelsize,xpd = TRUE)
-text(-0.07, 0.15, expression("reservation"), cex = labelsize,xpd = TRUE)
-text(-0.07, 0.1, expression("wage"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.2, expression("per period"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.15, expression("reservation"), cex = labelsize,xpd = TRUE)
+text(-0.08, 0.1, expression("wage"), cex = labelsize,xpd = TRUE)
 
 text(0.64, 0.12, expression("per period"), cex = labelsize,xpd = TRUE)
 text(0.64, 0.07, expression("fallback option"), cex = labelsize,xpd = TRUE)

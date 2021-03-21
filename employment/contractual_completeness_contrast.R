@@ -145,7 +145,7 @@ text(1.2, 3.8, expression(paste("when ", j == 0.2)), cex = labelsize, xpd = TRUE
 
 #Axes labels
 text(0.5, -0.7, expression(paste("Degree of contractual completeness, t")), xpd = TRUE, cex = axislabelsize) 
-text(-0.15, 2.5, expression(paste("Wage and  price ($), ", list(w, p) )), xpd = TRUE, cex = axislabelsize,srt = 90) 
+text(-0.18, 2.5, expression(paste("Wage and  price ($), ", list(w, p) )), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 #text(0.26, 4.8, expression(paste(w[3]^N*(j[3] == 0.8) )), cex = labelsize, xpd = TRUE)
 text(0.07, 5.2, expression(paste(w[1]^N*(j[2] == 0.5) )), cex = labelsize, xpd = TRUE)

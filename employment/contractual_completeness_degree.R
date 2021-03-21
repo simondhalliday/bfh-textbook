@@ -106,7 +106,7 @@ Arrows(0.5, 3.65, 0.5, 2.15, col = "black", lty = 1, lwd = 2, arr.type = "triang
 
 #Axes labels
 text(0.5, -0.7, expression(paste("Degree of contractual completeness, t")), xpd = TRUE, cex = axislabelsize) 
-text(-0.15, 2.5, expression(paste("Wage and  price ($), ", list(w, p) )), xpd = TRUE, cex = axislabelsize,srt = 90) 
+text(-0.18, 2.5, expression(paste("Wage and  price ($), ", list(w, p) )), xpd = TRUE, cex = axislabelsize,srt = 90) 
 
 # text(0.1, 4, expression(paste(j == 0.2)), cex = labelsize, xpd = TRUE)
 # text(0.33, 4, expression(paste(j == 0.5)), cex = labelsize, xpd = TRUE)

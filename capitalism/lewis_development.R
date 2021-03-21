@@ -139,14 +139,14 @@ segments(0, prodlvls[1], 1, prodlvls[1], lty = 2, lwd = 2, col = COLA[3])
 #gamma 2
 segments(0, prodlvls[2], 1, prodlvls[2], lty = 2, lwd = 2, col = COLA[3])
 
-text(1.11, prodlvls[1] + 0.07, expression(paste("Initial")), cex = labelsize,  xpd = TRUE)
-text(1.11, prodlvls[1] , expression(paste("output per")), cex = labelsize,  xpd = TRUE)
-text(1.11, prodlvls[1] - 0.07, expression(paste("worker, ", gamma[1])), cex = labelsize,  xpd = TRUE)
+text(1.13, prodlvls[1] + 0.07, expression(paste("Initial")), cex = labelsize,  xpd = TRUE)
+text(1.13, prodlvls[1] , expression(paste("output per")), cex = labelsize,  xpd = TRUE)
+text(1.14, prodlvls[1] - 0.07, expression(paste("worker hour, ", gamma[1])), cex = labelsize,  xpd = TRUE)
 
 
-text(1.11, 1.47, expression(paste("New")), cex = labelsize,  xpd = TRUE)
-text(1.11, 1.4, expression(paste("output per")), cex = labelsize,  xpd = TRUE)
-text(1.11, 1.33, expression(paste("worker, ", gamma[2])), cex = labelsize,  xpd = TRUE)
+text(1.13, 1.47, expression(paste("New")), cex = labelsize,  xpd = TRUE)
+text(1.13, 1.4, expression(paste("output per")), cex = labelsize,  xpd = TRUE)
+text(1.14, 1.33, expression(paste("worker hour, ", gamma[2])), cex = labelsize,  xpd = TRUE)
 
 # Supply of labor
 segments(1, 0, 1, ylims[2], lty = 2, lwd = segmentlinewidth, col = grays[20], xpd = TRUE)

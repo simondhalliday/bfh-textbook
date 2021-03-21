@@ -144,8 +144,8 @@ segments(0, prodlvls[1], 1, prodlvls[1], lty = 2, lwd = 2, col = COLA[3])
 #segments(0, prodlvls[2], 1, prodlvls[2], lty = 2, lwd = 2, col = COLA[3])
 
 #text(1.11, prodlvls[1] + 0.07, expression(paste("Initial")), cex = labelsize,  xpd = TRUE)
-text(1.11, prodlvls[1] + 0.07 , expression(paste("Output per")), cex = labelsize,  xpd = TRUE)
-text(1.11, prodlvls[1], expression(paste("worker, ", gamma )), cex = labelsize,  xpd = TRUE)
+text(1.13, prodlvls[1] + 0.07 , expression(paste("Output per")), cex = labelsize,  xpd = TRUE)
+text(1.14, prodlvls[1], expression(paste("worker hour, ", gamma )), cex = labelsize,  xpd = TRUE)
 
 
 # text(1.11, 1.47, expression(paste("New")), cex = labelsize,  xpd = TRUE)
@@ -219,7 +219,7 @@ brackets(x1 = emplvls[1] - 0.02, y1 = - 0.01, x2 = 0.02, y2 = - 0.01,
          lty = 1, xpd = TRUE)
 
 text(emplvls[1]/2, - 0.09, expression(paste("Capitalist")), cex = labelsize, xpd = TRUE)
-text(emplvls[1]/2, - 0.155, expression(paste("employment")), cex = labelsize, xpd = TRUE)
+text(emplvls[1]/2, - 0.158, expression(paste("employment")), cex = labelsize, xpd = TRUE)
 
 
 brackets(x1 = 1 - 0.02, y1 = - 0.01, emplvls[1] + 0.02, y2 = - 0.01,  

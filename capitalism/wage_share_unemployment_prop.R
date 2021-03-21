@@ -61,7 +61,7 @@ ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
 ylabels <- c(0, expression(paste(0.60)), expression(paste(0.76)), expression(paste(gamma == 1)))
 ticksx <- c(xlims[1], 0.753/0.9, (1-(8.85/(100*0.76))), 0.864/0.9, xlims[2])
 
-xlabels <- c(60, 84, 88, 96, 100)
+xlabels <- c(60, 74, 78, 86, 90)
 ticksy2 <- c(0,1)
 
 # text(0.85/0.9, -0.043, expression(paste(85)), xpd = TRUE, cex = labelsize) 
@@ -152,8 +152,8 @@ text(0.65, 0.58, expression(paste("New")), cex = labelsize)
 text(0.65, 0.54, expression(paste("competition")), cex = labelsize)
 text(0.65, 0.5, expression(paste("condition, ", w[2]^c)), cex = labelsize)
 
-text(0.75, 1.06, expression(paste("Output per" )), cex = labelsize, xpd = TRUE)
-text(0.75, 1.02, expression(paste("worker hour, ", gamma )), cex = labelsize, xpd = TRUE)
+text(0.98, 1.06, expression(paste("Output per" )), cex = labelsize, xpd = TRUE)
+text(0.98, 1.02, expression(paste("worker hour, ", gamma )), cex = labelsize, xpd = TRUE)
 # text(0.9, 0.7, expression(paste(B[3])), cex = labelsize)
 
 #Label and provide Gini value

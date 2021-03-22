@@ -8,7 +8,9 @@ library(lubridate)
 library(readxl)
 library(readr)
 library(latticeExtra)
-
+library(digitize)
+library(dplyr)
+library(xlsx)
 
 markup_data <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
 gini_data <- read_excel("competitionmarkets/Gini Index Data/gini_data_USA.xlsx")

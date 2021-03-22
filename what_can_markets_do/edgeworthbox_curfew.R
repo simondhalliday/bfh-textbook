@@ -113,8 +113,8 @@ ylabels <- seq(-24, 24, by = 6)
 ticksx <- c(0, 1, 4, 7, 8)
 # xlabels <- c(paste("8pm"), paste("9pm"), paste("10pm"), paste("11pm"),
 #              paste("12am"), paste("1am"), paste("2am"), paste("3am"), paste("4am"))
-xlabels <- c(paste("8pm"), paste("9pm"), 
-             paste("12 midnight"), paste("3am"), paste("4am"))
+xlabels <- c(paste("8 p.m."), paste("9 p.m."), 
+             paste("12 midnight"), paste("3 a.m."), paste("4 a.m."))
 
 
 #xlabels <- c("8pm", "9pm", "10pm", "11pm", "12am", "1am", "2am", "3am", "4am")

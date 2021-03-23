@@ -6,6 +6,7 @@ library("tidyverse")
 library("ggplot2")
 library("dplyr")
 library("patchwork") # To display 2 charts together
+library("readxl")
 
 markup_data <- read_excel("competitionmarkets/loecker_barkai/LBdf_data.xlsx")
 gini_data <- read_excel("competitionmarkets/Gini Index Data/gini_data_USA.xlsx")

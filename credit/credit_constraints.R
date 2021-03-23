@@ -95,7 +95,7 @@ grays <- gray.colors(25, start = 1, end = 0, alpha = 1)
 # data$y <- as.numeric(data$y)
 
 x <- c("<40,000", "40,000-100,000", "100,000<", "Cannot cover emergency expenses by any means", "Borrowing at credit card rates")
-y <- c(0.51, 0.29, 0.13,  0.30, 0.52)
+y <- c(51, 29, 13,  30, 52)
 mat <- cbind(x, y)
 data <- as.data.frame(mat)
 data$y <- as.numeric(as.character(data$y))
@@ -112,7 +112,7 @@ data$x <- factor(data$x,
                  )
 
 labels <- c("Percent that are borrowing at credit card \n interest rates (between 16% and 20%)",
-"Percent of people that cannot \n cover 3 months' expenses by \n any means if primary income source lost", 
+"Percent of people that cannot \n cover three months' expenses by \n any means if primary income source lost", 
 "Percent of people that are credit \n market excluded or constrained:\n >$100,000 income", 
 "Percent of people that are credit \n market excluded or constrained:\n $40,000-$100,000 income",
 "Percent of people that are credit \n market excluded or constrained:\n <$40,000 income")
@@ -134,7 +134,7 @@ plot2 <- data %>%
   ggplot(aes(x = x, y = y)) + 
   geom_bar(stat = "identity", colour = "#2f82b8", fill = "#2f82b8") + 
   scale_x_discrete(labels = labels) + 
-  scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent_format(accuracy = 5L))  +
+  scale_y_continuous(breaks = seq(0, 100, by = 10))  +
   #scale_y_continuous(breaks = seq(0, 1, by = 0.1), labels = scales::percent) + 
   xlab("") +
   ylab("Percent") +

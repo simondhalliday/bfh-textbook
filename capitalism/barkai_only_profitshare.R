@@ -130,7 +130,7 @@ p <-  ggplot(data = LBdfplot) +
   theme(legend.position = "none",
         text = element_text(size = 19),
         axis.text = element_text(size = 17),
-        axis.title = element_text(size = 22),
+        axis.title = element_text(size = 20),
         panel.grid.minor = element_blank()) + 
   scale_colour_manual(values = c("#0868ac"))
 

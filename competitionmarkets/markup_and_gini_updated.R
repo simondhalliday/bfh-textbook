@@ -53,7 +53,7 @@ gini_data <- read_excel("competitionmarkets/gini_data.xlsx")
 
 obj1 <- xyplot(markup_2 ~ year, data = markup_data2,
                xlab=list("Year", fontsize = 16),
-               ylab = list("Markup ratio", fontsize = 16),
+               ylab = list("Mark-up ratio", fontsize = 16),
                ylab.right = list("Gini coefficient", fontsize = 16),
                par.settings = simpleTheme(col = 1),
                type = "l",
@@ -64,7 +64,7 @@ obj1 <- xyplot(markup_2 ~ year, data = markup_data2,
                                   cex=1,axs="r"), y=list(cex=6),tck = c(1,0)),
                key = list(type = c("l","l"),
                           lty = c(1,1),
-                          text = list(label = c("Markup ratio", "Gini (income)")), lines = list(col= c("#E33024", CBCols[2])), column = 1,
+                          text = list(label = c("Mark-up ratio", "Gini (income)")), lines = list(col= c("#E33024", CBCols[2])), column = 1,
                           x = 0.02, y = .9, fontsize = 16, lwd = 1.5))
 lines = c(1,2)
 obj2 <- xyplot(spliced_data ~ year,data = gini_data ,type = "l",col=CBCols[2],

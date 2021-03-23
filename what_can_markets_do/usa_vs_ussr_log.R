@@ -50,8 +50,8 @@ CWPlot <-
   scale_colour_brewer(palette = "Set1") + 
   # scale_color_discrete("Country") +
   scale_x_continuous(breaks = round(seq(min(ColdWar$date), max(ColdWar$date), by = 10),1)) +
-  scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10)) +
-  ylab("Per Capita GDP \n (1990  International $, ratio scale)") +
+  scale_y_continuous(trans = "log", breaks = scales::log_breaks(n = 10), labels = scales::comma) +
+  ylab("Per capita GDP \n (1990  international $, ratio scale)") +
   xlab("Year") +
   labs(color = "Country") + 
   annotate("text", x = 1928, y = exp(7.75), label = "First 5-year") +

@@ -56,10 +56,10 @@ tau <- c(0.3)
 exptax <- tau*expinc
 
 ticksy <- c(ylims[1], exptax, ylims[2])
-ylabels <- c(NA, exptax, NA)
+ylabels <- c(NA, "15,000", "22,800", "36,000", NA)
 
 ticksx <- c(xlims[1], expinc, xlims[2])
-xlabels <- c(NA, expinc, NA)
+xlabels <- c(NA, "50,000","76,000","120,000", NA)
 #xlabels <- c(NA, expression(paste(y[L])), expression(paste(underline(y)(1 -  phi))), expression(paste(y[H])), NA)
 
 
@@ -75,7 +75,7 @@ xx5 <- seq(xlims[1], xlims[2], length.out = npts)
 
 #Axis labels and 
 #mtext(expression(paste("Risk, ", Delta)), side = 1, line = 2.5, cex = axislabelsize)
-text(-22000, 0.5*ylims[2], expression(paste("Transfers received and expected taxes, $")), xpd = TRUE, cex = axislabelsize, srt = 90) 
+text(-22000, 0.5*ylims[2], expression(paste("Transfers received and expected taxes ($)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -5500 , expression(paste("Expected income pre-tax, ", hat(y) )), xpd = TRUE, cex = axislabelsize) 
 
 #draw linear tax function

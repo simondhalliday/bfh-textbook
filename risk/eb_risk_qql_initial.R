@@ -77,7 +77,7 @@ plot(0, 0, xlim = xlims2, ylim = ylims2, type = "n",
      yaxs="i")
 
 ticksy2 <- c(0, 1000 - indiffA(0.7), 1000 - indiffA(0.4), 1000)
-ylabels2 <- c(0, expression(paste(hat(y)[c]^W)), expression(paste(hat(y)[b]^W)), 1000)
+ylabels2 <- c(0, expression(paste(hat(y)[c]^W)), expression(paste(hat(y)[b]^W)), "1,000")
 ticksx2 <- c(0, 1 - 0.7, 1 - 0.4,  1)
 xlabels2 <- c(0, expression(paste(Delta[c]^W)), expression(paste(Delta[b]^W)), expression(paste(bar(Delta))))
 
@@ -209,7 +209,7 @@ points(4, -8.25, pch = 16, col = "black", cex = 1.5)
 text(4.1, -8.75, expression(paste(g)), cex = labelsize)
 
 ticksy <- c(0, indiffA(0.4), indiffA(0.7), indiffA(1), 1000)
-ylabels <- c(0, expression(paste(hat(y)[b]^J)), expression(paste(hat(y)[c]^J)), expression(paste(hat(y)[z]^J)), 1000)
+ylabels <- c(0, expression(paste(hat(y)[b]^J)), expression(paste(hat(y)[c]^J)), expression(paste(hat(y)[z]^J)), "1,000")
 ticksx <- c(0, 0.4, 0.7, 1)
 xlabels <- c(0, expression(paste(Delta[b]^J)), expression(paste(Delta[c]^J)), expression(paste(bar(Delta))))
 

@@ -57,7 +57,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(ylims[1], 1, ppf(12), 3, ppf(4), 4, ylims[2])
-ylabels <- c(NA, 1, expression(paste(y[e] == 1.75)), expression(paste(y[i] == 3)), expression(paste(y[f] == 3.75)), 4, NA)
+ylabels <- c(NA, 1, expression(paste(y[e] == 1.75)), expression(paste(y[i] == 3)), expression(paste(y[g] == 3.75)), 4, NA)
 
 
 
@@ -72,7 +72,7 @@ xx4 <- seq(-11, 0, length.out = npts)
 
 #Draw the polygon for shading the feasible set
 xpoly1 <- seq(from = xlims[1], to = 16, length.out = 500)
-ypoly1 <- ppf2(xpoly1)
+ypoly1 <- ppf(xpoly1)
 polygon(x = c(xpoly1, xpoly1[1]), y = c(ypoly1, rev(ypoly1)[1]), col=COLA[1], density=NULL, border = NA)
 polygon(x = c(xlims[2], xlims[2], rev(xpoly1), 0),
         y = c(ylims[2], 0, rev(ypoly1), ylims[2]), 
@@ -80,7 +80,7 @@ polygon(x = c(xlims[2], xlims[2], rev(xpoly1), 0),
 
 
 #Draw the graphs
-lines(xx1, ppf2(xx1), col = COLA[5], lwd = graphlinewidth)
+lines(xx1, ppf(xx1), col = COLA[5], lwd = graphlinewidth)
 #lines(xx2, fishProd(xx2, k = 2), col = COLB[3], lwd = graphlinewidth)
 #lines(xx3, feasibleLabor(xx3, time = 10), col = COL[3], lwd = graphlinewidth)
 #lines(xx4, manufactureProd(xx4, k = 0.1, alpha = 2), col = COLB[4], lwd = graphlinewidth)

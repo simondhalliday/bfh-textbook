@@ -62,7 +62,7 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 ticksx <- seq(from = 0, to = xlims[2], by = 2)
 xlabels <- seq(from = 0, to = xlims[2], by = 2)
 ticksy <- c(ylims[1], 1, prodFn(4), 3, 3.75, 4, ylims[2])
-ylabels <- c(NA, 1, expression(paste(y[e*minute] == 1.75)), expression(paste(y[i*minute] == 3)), expression(paste(y[f*minute] == 3.75)), 4, NA)
+ylabels <- c(NA, 1, expression(paste(y[e*minute] == 1.75)), expression(paste(y[i*minute] == 3)), expression(paste(y[g*minute] == 3.75)), 4, NA)
 
 axis(1, at = ticksx, pos = 0, labels = xlabels, cex.axis = labelsize)
 axis(2, at = ticksy, pos = 0, labels = ylabels, las = 1, cex.axis = labelsize)

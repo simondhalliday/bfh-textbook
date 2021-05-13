@@ -126,9 +126,9 @@ Arrows(6.5, 3, 7.5, 3, col = "black", lty = 1, lwd = 2, arr.type = "triangle", a
 
 
 #Label the indifference curves
-text(14.3, 4.7, expression(u[1]^A), cex = labelsize)
-text(12.4, 4.7, expression(u[2]^A), cex = labelsize)
-text(8.3, 4.7, expression(u[3]^A), cex = labelsize)
+text(14.3, 4.7, expression(u[1]^K), cex = labelsize)
+text(12.4, 4.7, expression(u[2]^K), cex = labelsize)
+text(8.3, 4.7, expression(u[3]^K), cex = labelsize)
 
 #Annotate max u point on feasible frontier
 text(8.4, ppf(8) - 0.1, expression(paste(b)), cex = labelsize)

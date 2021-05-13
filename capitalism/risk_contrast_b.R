@@ -117,7 +117,7 @@ text(13.8, 6.3, expression(paste("wage, ", w^c)), cex = labelsize)
 
 
 #Label risk return schedule
-text(13.8, riskreturn(g = 14) - 1.2, expression(paste(hat(y)*(Delta) - bar(rho)%.%k) ), cex = labelsize, xpd =  TRUE)
+text(13.8, riskreturn(g = 14) - 1.2, expression(paste(hat(y)*(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd =  TRUE)
 
 #Label value functions
 text(13.2, 17, expression(u[1]^B), cex = labelsize)

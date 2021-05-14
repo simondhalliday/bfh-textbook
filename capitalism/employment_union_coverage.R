@@ -9,11 +9,13 @@ UnionCoverage <- read.csv("employment/union_coverage.csv")
 UnionCoverage <- 
   UnionCoverage %>% 
   arrange(Coverage)
-UnionCoverage$Country <- countrycode(UnionCoverage$Country, "iso3c", "country.name")
+UnionCoverage$Country<- countrycode(UnionCoverage$Country, "iso3c", "country.name")
+
+UnionCoverage$Country[9] <- "UK"
+UnionCoverage$Country[3] <- "US"
 
 UnionCoverage$Country <- 
   factor(UnionCoverage$Country, levels = UnionCoverage$Country[order(UnionCoverage$Coverage)])
-
 
 
 u1 <- ggplot(UnionCoverage, aes(x = Country, y = Coverage)) + 

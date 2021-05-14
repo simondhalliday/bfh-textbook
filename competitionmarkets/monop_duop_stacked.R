@@ -88,7 +88,7 @@ lines(xx1, MRevenue(xx1, rmax = 12, xmax = 12), col = COLB[4], lwd = graphlinewi
 #text(0.5*(xlims[2]), -2.5, expression(paste("Quantity, ", x)), xpd = TRUE, cex = axislabelsize) 
 #text(0.5*(xlims[2]), -2.5, expression(paste("Output, ", x)), xpd = TRUE, cex = axislabelsize) 
 #mtext(expression(paste("Quantity of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ($)")), xpd = TRUE, srt = 90, cex = axislabelsize) 
+text(-2.2, 0.5*ylims[2], expression(paste("Price, revenue, and costs ($)")), xpd = TRUE, srt = 90, cex = axislabelsize) 
 
 #Label curves
 text(10.8, 4.5, expression(paste(ac(x) == mc(x),phantom() == c)), cex = labelsize, xpd=TRUE)
@@ -239,7 +239,7 @@ lines(xx2, MRevResid(xx2, xB = 2.666667, beta = 1), col = COLB[4], lwd = graphli
 #Label the axes
 text(0.5*(xlims[2]), -2.6, expression(paste("Quantity of output, ", X)), xpd = TRUE, cex = axislabelsize) 
 #mtext(expression(paste("Quantity  of output, ", x)), side=1, line = 2.5, cex = axislabelsize)
-text(-2.2, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ($)")), xpd = TRUE, srt = 90, cex = axislabelsize) 
+text(-2.2, 0.5*ylims[2], expression(paste("Price, revenue, and costs ($)")), xpd = TRUE, srt = 90, cex = axislabelsize) 
 #text(-0.8, 0.5*ylims[2], expression(paste("Price, Revenue and Costs, ($), ", list(p, r, ac), " and ", mc)), xpd = TRUE, cex = axislabelsize, srt = 90) 
 
 #Label curves

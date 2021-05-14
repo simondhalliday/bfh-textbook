@@ -10,7 +10,7 @@ Devplot <-
   geom_point(color = COLA[4], size = 3) +
   geom_text_repel(aes(label = country), size = 7, point.padding = 0.09) + 
   theme_bw() + 
-  ylab("Average GDP per capita growth, 1980-2012, %") + 
+  ylab("Average GDP per-capita growth, 1980-2012, %") + 
   xlab("Long-term average inequality in disposable income") + 
   scale_x_continuous(expand = c(0, .05)) + 
   theme(panel.grid.minor = element_blank(),

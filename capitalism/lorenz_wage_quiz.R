@@ -2,7 +2,9 @@
 
 library(shape)
 library(pBrackets)
-pdf(file = "capitalism/lorenz_wage_effects.pdf", width = 10, height = 8)
+#pdf(file = "capitalism/lorenz_wage_quiz.pdf", width = 10, height = 8)
+jpeg(file = "capitalism/lorenz_wage_quiz.jpg", width = 6*120, height = 5*120)
+
 
 #Set parameters for graphics
 pointsize <- 1.8
@@ -45,16 +47,16 @@ plot(0, 0, xlim = xlims, ylim = ylims, type = "n",
 
 #Calculate the Gini
 #Area B:
-#((0.5*(0.25*0.5)) + 0.25*0.5 + 0.5*(0.75*0.5))
+#((0.5*(0.15*0.5)) + 0.15*0.5 + 0.5*(0.75*0.5))
 #Therefore Area A: 
 #0.5 - Area B
 #Therefore Gini: 
-# (0.5 - ((0.5*(0.25*0.5)) + 0.25*0.5 + 0.5*(0.75*0.5)))/0.5 = 0.25
+# (0.5 - ((0.5*(0.15*0.5)) + 0.15*0.5 + 0.5*(0.75*0.5)))/0.5 = 0.15
 
-ticksy <- c(ylims[1], 0.6, 0.76, ylims[2])
-ylabels <- c(0, expression(paste(60)), expression(paste(76)), 100)
-ticksx <- c(xlims[1], 0.04, 0.10, 0.9, xlims[2])
-xlabels <- c(NA, 4, 10, 90,  100)
+ticksy <- c(ylims[1], 0.6, ylims[2])
+ylabels <- c(0, expression(paste(60)), 100)
+ticksx <- c(xlims[1], 0.15, 0.9, xlims[2])
+xlabels <- c(NA, 15, 90,  100)
 ticksy2 <- c(0,1)
 
 axis(1,at = ticksx,  pos = 0, labels = xlabels, cex.axis = labelsize)
@@ -72,43 +74,42 @@ xx4 <- seq(-11, 0, length.out = npts)
 text(-0.08, 0.5*ylims[2], expression(paste("Cumulative income, (%)")), xpd = TRUE, cex = axislabelsize, srt = 90) 
 text(0.5*xlims[2], -0.1, expression(paste("Cumulative population, (%)")), xpd = TRUE, cex = axislabelsize) 
 
-text(0.18, 0.7, expression(paste("Reduced")), cex = labelsize)
-text(0.18, 0.66, expression(paste("wage share")), cex = labelsize)
-Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
+# text(0.18, 0.7, expression(paste("Reduced")), cex = labelsize)
+# text(0.18, 0.66, expression(paste("wage share")), cex = labelsize)
+# Arrows(0.1, 0.74, 0.1, 0.62, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2)
 
 
 
 #Shaded Areas A and B
 #Area A
-xpoly1 <- c(0.04, 0.10, .26)
-ypoly1 <- c(0, 0, 0.15)
-polygon(x = xpoly1,
-        y = ypoly1,
-        col = COL[4], density = NULL, border = NA)
-
-xpoly1 <- c(0.26, 0.9, 1, 0.9)
-ypoly1 <- c(0.15, 0.6, 1, 0.76)
-polygon(x = xpoly1,
-        y = ypoly1,
-        col = COLA[1], density = NULL, border = NA)
+# xpoly1 <- c(0.04, 0.12, .3217)
+# ypoly1 <- c(0, 0, 0.1966)
+# polygon(x = xpoly1,
+#         y = ypoly1,
+#         col = COL[4], density = NULL, border = NA)
+# 
+# xpoly1 <- c(.3217, 0.9, 1, 0.9)
+# ypoly1 <- c(0.1966, 0.6, 1, 0.76)
+# polygon(x = xpoly1,
+#         y = ypoly1,
+#         col = COLA[1], density = NULL, border = NA)
 
 
 # Lorenz curve
-segments(0, 0, 0.1, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE)
+segments(0, 0, 0.15, 0, lty = 1, col = COLA[4], lwd = graphlinewidth, xpd = TRUE)
+segments(0.15, 0, 0.9, 0.6, lty = 1, col = COLA[4], lwd = graphlinewidth)
+segments(0.9, 0.6, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
 
-segments(0.1, 0, 0.9, 0.76, lty = 1, col = COLA[4], lwd = graphlinewidth)
-segments(0.9, 0.76, 1, 1, lty = 1, col = COLA[4], lwd = graphlinewidth)
-
-segments(0, 0, 0.04, 0, lty = 1, col = COL[7], lwd = graphlinewidth)
-segments(0.04, 0, 0.9, 0.6, lty = 1, col = COL[7], lwd = graphlinewidth)
-segments(0.9, 0.6, 1, 1, lty = 1, col = COL[7], lwd = graphlinewidth)
+# segments(0, 0, 0.04, 0, lty = 1, col = COL[7], lwd = graphlinewidth)
+# segments(0.04, 0, 0.9, 0.6, lty = 1, col = COL[7], lwd = graphlinewidth)
+# segments(0.9, 0.6, 1, 1, lty = 1, col = COL[7], lwd = graphlinewidth)
 
 #text(0.76, 0.46, expression(paste("New")), cex = labelsize)
 #text(0.76, 0.43, expression(paste("Lorenz")), cex = labelsize)
 #text(0.76, 0.395, expression(paste("curve")), cex = labelsize)
 
- #text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
- #text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
+#text(0.85, 0.65, expression(paste("Old Lorenz")), cex = labelsize)
+#text(0.85, 0.61, expression(paste("Curve")), cex = labelsize)
 
 #text(0.85, 0.68, expression(paste("Old")), cex = labelsize)
 #text(0.85, 0.65, expression(paste("Lorenz")), cex = labelsize)
@@ -127,8 +128,8 @@ text(0.8, 0.87, expression(paste("equality")), cex = labelsize)
 segments(0.9, 0, 0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 segments(0, 0.6, 0.9, 0.6, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
-segments(0.9, 0, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
-segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0.9, 0, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
+# segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 
 
 #Label areas A and B
@@ -157,20 +158,20 @@ segments(0, 0.76, 0.9, 0.76, lty = 2, col = grays[20], lwd = segmentlinewidth)
 #brackets(x1 = 0.12, y1 = -0.07, x2 = 0.04, y2 = -0.07,  
 #         ticks = 0.5, curvature = 0.5, type = 1, 
 #         col = "black", lwd = 2, lty = 1, xpd = TRUE)
-Arrows(0.095, -0.02, 0.055, -0.02, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
-text(0.08, -0.08, expression(paste("Reduced")), xpd = TRUE,  cex = labelsize)
-text(0.08, -0.12, expression(paste("unemployment")), xpd = TRUE,  cex = labelsize)
+# Arrows(0.115, -0.02, 0.055, -0.02, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
+# text(0.08, -0.08, expression(paste("Reduced")), xpd = TRUE,  cex = labelsize)
+# text(0.08, -0.12, expression(paste("unemployment")), xpd = TRUE,  cex = labelsize)
 
 
-Arrows(0.75, 0.383, 0.75, 0.53, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
-text(0.75, 0.35, expression(paste("Increased inequality")), xpd = TRUE,  cex = labelsize)
-text(0.75, 0.32, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
-text(0.75, 0.285, expression(paste("competition")), xpd = TRUE,  cex = labelsize)
+# Arrows(0.75, 0.383, 0.75, 0.5, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
+# text(0.75, 0.35, expression(paste("Increased inequality")), xpd = TRUE,  cex = labelsize)
+# text(0.75, 0.32, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
+# text(0.75, 0.285, expression(paste("competition")), xpd = TRUE,  cex = labelsize)
+# 
 
-
-Arrows(0.25, 0.05, 0.1375, 0.05, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
-text(0.37, 0.083, expression(paste("Reduced inequality")), xpd = TRUE,  cex = labelsize)
-text(0.37, 0.055, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
-text(0.37, 0.021, expression(paste("unemployment")), xpd = TRUE,  cex = labelsize)
+# Arrows(0.15, 0.05, 0.16, 0.05, col = "black", lty = 1, lwd = 1, arr.type = "triangle", arr.lwd = 0.5, code = 2, xpd = TRUE)
+# text(0.37, 0.083, expression(paste("Reduced inequality")), xpd = TRUE,  cex = labelsize)
+# text(0.37, 0.055, expression(paste("due to less")), xpd = TRUE,  cex = labelsize)
+# text(0.37, 0.021, expression(paste("unemployment")), xpd = TRUE,  cex = labelsize)
 
 dev.off()

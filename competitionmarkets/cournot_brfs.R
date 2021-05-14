@@ -82,7 +82,7 @@ text(-7.8, 0.5*ylims[2], expression(paste("B's output, ", x^B)), xpd = TRUE, cex
 
 #Label point i. 
 points(12, 12, pch = 16, col = "black", cex = 1.5)
-text(18.5, 12.5, expression(paste("Nash Equilibrium")), cex = annotatesize)
+text(18.5, 12.5, expression(paste("Nash equilibrium")), cex = annotatesize)
 text(11.3, 11.3, expression(paste(n)), cex = labelsize)
 
 text(34, 31, expression(paste(45*degree, " line")), cex = labelsize)

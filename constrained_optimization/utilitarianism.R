@@ -23,11 +23,11 @@ par(mar =  c(5, 9, 2, 1))
 #proportion of wealth functions
 
 MUb <- function(x, y){
-   0.75*x
+   2+0.75*x
 }
 
 MUa <- function(x, y){
-  30 - (0.75)*x
+  32 - (0.75)*x
 }
 
 
@@ -106,9 +106,9 @@ points(33, MUa(33), pch = 16, col = "black", cex = 1.5)
 
 
 
-text(8, 30, expression(paste("A's marginal utility")), xpd = TRUE, cex = labelsize)
+text(8, 33, expression(paste("A's marginal utility")), xpd = TRUE, cex = labelsize)
 #text(8, 37.5, expression(paste(u[a]^A)), xpd = TRUE, cex = labelsize)
-text(32, 30, expression(paste("B's marginal utility")),  xpd = TRUE, cex = labelsize)
+text(32, 33, expression(paste("B's marginal utility")),  xpd = TRUE, cex = labelsize)
 #text(32, 37.5, expression(paste(-u[a]^B)),  xpd = TRUE, cex = labelsize)
 
 #Axis arrow

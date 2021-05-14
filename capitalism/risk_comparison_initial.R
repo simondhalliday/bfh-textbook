@@ -115,7 +115,7 @@ points(0, 5.75, pch = 16, col = "black", cex = 1.5, xpd = TRUE)
 #Label risk return schedule
 #text(14, riskreturn(g = 14), expression(paste(g(Delta) - rho%.%K) ), cex = labelsize, xpd = TRUE)
 
-text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%K) ), cex = labelsize, xpd = TRUE)
+text(14, riskreturn(int1 = 12, g = 14)-1.2, expression(paste(g(Delta) - bar(rho)%.%k) ), cex = labelsize, xpd = TRUE)
 
 #Arrows(12.5, riskreturn(int1 = 15, g = 12) - 0.6, 12.5, riskreturn(int1 = 12, g = 12) + 0.5, col = "black", lty = 1, lwd = 2, arr.type = "triangle", arr.lwd = 0.5, code = 3)
 #text(11.1, 13.5, expression(paste(bar(rho)%.%K - rho%.%K)), cex = labelsize, xpd = TRUE)

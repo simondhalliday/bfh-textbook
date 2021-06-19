@@ -22,14 +22,17 @@ trust_game_data_long <- trust_game_data %>%
 
 trust_game_data_long$`transfer of investor` <- factor(trust_game_data_long$`transfer of investor`)
 
+trust_game_data_long$Stat <- factor(trust_game_data_long$Stat,                                    # Change ordering manually
+                  levels = c("trust condition - no fine possible", "incentive condition - fine imposed","incentive condition - fine possible but not imposed"))
+
 trust_game_plot <- 
-  ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat, group = desc(-Value))) + 
+  ggplot(trust_game_data_long, aes(x = `transfer of investor`, y = Value, fill = Stat)) + 
   geom_col(position = "dodge", alpha = 0.9, width = 0.95) + 
   xlab("Transfer by the investor") +
   ylab("Amount returned") + 
   scale_y_continuous(breaks = seq(0, 14, by = 2), limits = c(0, 14)) + 
   labs(fill = "Treatment") +
-  scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A")) +
+  scale_fill_manual(values=c("#4DAF4A","#E41A1C","#377EB8")) +
   theme_bw() + 
   theme(panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 22),
@@ -53,5 +56,5 @@ ggsave("public_mechanism/trust_game_figure.pdf", width = 9, height = 7, units = 
 #   labs(fill = "Treatment") +
 #   scale_fill_manual(values=c("#E41A1C", "#377EB8", "#4DAF4A"),labels = c("Incentive condition - fine imposed", "Incentive condition - fine possible 
 # but not imposed", "Trust condition - no fine possible"))
-# 
+# group = desc(-Value))
 # print(trust_game_plot1)

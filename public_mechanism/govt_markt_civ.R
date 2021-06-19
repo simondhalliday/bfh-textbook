@@ -71,58 +71,63 @@ xx1 <- seq(xlims[1], xlims[2], length.out = npts)
 # points(25, 10, cex = 1.5, pch = 16)
 
 # Top
-Arrows(13, 32.5, 37, 32.5, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[2])
+Arrows(13, 37.2, 37, 37.2, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "", col = CBCols[2])
 # Left
-Arrows(12.5, 31.25, 24.5, 11.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[1])
+Arrows(13, 37.25, 25.5, 11.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "", col = CBCols[1])
 # Right
-Arrows(25.5, 11.25, 37.5, 31.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "triangle", col = CBCols[3])
+Arrows(25.5, 11.25, 37, 37.25, code = 3, lty = 1, lwd = graphlinewidth, arr.type = "", col = CBCols[3])
 
 # Text --------------------------------------------------------------------
-text(7, 31.5, expression(bold("Government")), cex = axislabelsize)
-text(4.85, 29, expression(italic("Compliance with state authority")), cex = labelsize, xpd = TRUE)
-text(5.3, 27.5, expression(italic("implemented by fiat and elections")), cex = labelsize, xpd = TRUE)
+text(7.5, 37.5, expression(bold("Government")), cex = namesize)
+text(5.85, 35.5, expression(italic("Compliance with state authority")), cex = labelsize, xpd = TRUE)
+text(6.3, 34, expression(italic("Implemented by fiat and elections")), cex = labelsize, xpd = TRUE)
 
-text(41.5, 31.5, expression(bold("Markets")), cex = axislabelsize)
-text(42.85, 29, expression(italic("Material incentives")), cex = labelsize, xpd = TRUE)
-text(43, 27.5, expression(italic("implemented by prices")), cex = labelsize, xpd = TRUE)
+text(40, 37.5, expression(bold("Markets")), cex = axislabelsize)
+text(43.8, 35.5, expression(italic("Material incentives implemented")), cex = labelsize, xpd = TRUE)
+text(43, 34.3, expression(italic("by prices and competition")), cex = labelsize, xpd = TRUE)
+text(43, 33, expression(italic("with complete contracts")), cex = labelsize, xpd = TRUE)
 
-text(25, 9, expression(bold("Civil Society")), cex = axislabelsize)
-text(25, 6.5, expression(italic("Reciprocity, altruism, fairness, sustainability, identity (including in-group)")), cex = labelsize, xpd = TRUE)
-text(25, 5, expression(italic("implemented by social norms and the exercise of private power")), cex = labelsize, xpd = TRUE)
+text(26, 9.5, expression(bold("Civil Society")), cex = namesize)
+text(27, 7.5, expression(italic("Reciprocity, altruism, fairness, sustainability, identity (including in-group)")), cex = labelsize, xpd = TRUE)
+text(27, 6.2, expression(italic("Implemented by social norms and the exercise of private power")), cex = labelsize, xpd = TRUE)
 
 # Annotations (CW) --------------------------------------------------------
 
 # Top
-text(7, 38, expression("Mandatory risk-sharing (transfers)"), cex = labelsize, xpd = TRUE)
-Arrows(12.5, 33.5, 9, 37, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(8, 41, expression("Mandatory risk-sharing (taxes and transfers)"), cex = labelsize, xpd = TRUE)
+
+Arrows(14.5, 36, 13, 40, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 #text(20, 43, expression("Free childcare"), cex = labelsize, xpd = TRUE)
-Arrows(15, 33.25, 20, 42, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+Arrows(17, 37, 20, 44, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(20, 45, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
-text(20, 43, expression("hired by government as contact tracers"), cex = labelsize, xpd = TRUE)
+text(20, 47, expression("Reallocation of labor - 20k Qantas workers"), cex = labelsize, xpd = TRUE)
+text(20, 45, expression("hired by government as contact tracers"), cex = labelsize, xpd = TRUE)
 #Arrows(25, 33.25, 30, 35.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
+text(35, 42, expression("Monetary rewards for getting vaccinated"), cex = labelsize, xpd = TRUE)
+Arrows(29, 36, 34, 41, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+
 # Right
-text(41, 25, expression("Reallocation of labor -"), cex = labelsize, xpd = TRUE)
-text(41, 23.5, expression("Amazon hires 100k"), cex = labelsize, xpd = TRUE)
-Arrows(35, 30, 36, 26, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(40, 29, expression("Reallocation of labor -"), cex = labelsize, xpd = TRUE)
+text(40, 27.5, expression("Amazon hires 100k"), cex = labelsize, xpd = TRUE)
+Arrows(35, 35, 37, 30, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(43, 21, expression("Fast-track approval for private sector"), cex = labelsize, xpd = TRUE)
-text(43, 19.5, expression("developed virus tests"), cex = labelsize, xpd = TRUE)
-Arrows(25, 28, 32.5, 21, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(41.5, 23, expression("Fast-track approval for private sector"), cex = labelsize, xpd = TRUE)
+text(41.5, 21.7, expression("developed virus tests"), cex = labelsize, xpd = TRUE)
+Arrows(25, 32, 32.5, 24, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(38, 17, expression("Research, production and"), cex = labelsize, xpd = TRUE)
-text(38, 15.5, expression("distribution of vaccine"), cex = labelsize, xpd = TRUE)
-Arrows(24, 25, 30.5, 17, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(38, 19, expression("Research, production and"), cex = labelsize, xpd = TRUE)
+text(38, 17.8, expression("distribution of vaccine"), cex = labelsize, xpd = TRUE)
+Arrows(24, 30, 33, 20, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(36, 13, expression("German healthcare system"), cex = labelsize, xpd = TRUE)
-Arrows(22, 25, 28, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(34.5, 14, expression("German healthcare system"), cex = labelsize, xpd = TRUE)
+Arrows(22, 29, 29, 15, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # Left
 
-text(17, 13, expression("Social distancing"), cex = labelsize, xpd = TRUE)
-Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(13, 13, expression("Social distancing and wearing masks"), cex = labelsize, xpd = TRUE)
+Arrows(25, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 # text(15, 15.5, expression("Care work at home"), cex = labelsize, xpd = TRUE)
 # Arrows(24, 16, 21, 15.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
@@ -131,11 +136,11 @@ Arrows(24, 14, 22, 13, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "tria
 # text(12, 18, expression("(kidney sales prohibited)"), cex = labelsize, xpd = TRUE)
 # Arrows(22, 17, 18, 19.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(8, 22, expression("NHS call for volunteers"), cex = labelsize, xpd = TRUE)
-Arrows(17.5, 22, 15, 22, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(9.5, 25, expression("NHS call for volunteers"), cex = labelsize, xpd = TRUE)
+Arrows(19.2, 25, 16, 25, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
-text(9, 24.5, expression("Virus-testing"), cex = labelsize, xpd = TRUE)
-Arrows(16, 24.5, 13, 24.5, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
+text(8, 18, expression("Virus-testing and tracing in South Korea"), cex = labelsize, xpd = TRUE)
+Arrows(22.3, 18, 17.5, 18, code = 1, lty = 1, lwd = graphlinewidth, arr.type = "triangle", arr.length = 0.2, col = "black")
 
 
 

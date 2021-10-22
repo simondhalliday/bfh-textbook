@@ -1,0 +1,315 @@
+---
+title: "Differentiated Bertrand Competition"
+author: "Simon D. Halliday and Matan Tsur"
+date: "10/22/2021"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What are differentiated goods? 
+
+- They are goods that are similar, but each is different to the other in some important way
+- They are **not** *homogeneous* or *standardized* goods so they are **not** perfect substitutes for each other. 
+- For example, iPhones and Pixel phones are both in the cell phone industry, but they're different to each other. 
+- Or, Toyota Corolla and Honda Civic cars. 
+- How can we model these kinds of markets with *price competition*? 
+
+
+```{r iphone, echo=FALSE, fig.show = "hold", fig.cap = "iPhone and Pixel", out.width = '25%'}
+knitr::include_graphics("iphone.jpeg") 
+knitr::include_graphics("pixel.png")
+```
+
+
+
+## Let's use a model with LOCATIONS
+
+- A unit measure of consumers are evenly distributed on the interval $[0,1]$. 
+- Firm A's product is located at one end, point 0 (iPhone). 
+- Firm G's product is located at the other end, point 1 (Pixel). 
+- The location represents the consumer's tastes. Let $d(x,y)=|x-y|$
+be the euclidean distance function. 
+- The distances between a consumer at point $x$ and the two products are $d(x,iPhone)=x$ and $d(x,Pixel)=1-x$
+
+```{r initial, echo=FALSE, fig.cap="A model of locations and demand", out.width = '60%'}
+knitr::include_graphics("bertrand_unit_blank.pdf")
+```
+
+## What about consumers' preferences? And the rules of competition?
+
+For a consumer at point $x\in[0,1]$:
+
+- Utility from iPhone: $U_{x}^{iPhone}=v-d(x,iPhone)-p_{1}=v-x-p_{1}$
+- Utility from Pixel: $\text{ }U_{x}^{Pixel}=v-d(x,Pixel)-p_{2}=v-(1-x)-p_{2}$
+
+**Bertrand competition:** 
+
+- The two firms simultaneously **post prices** $p_{1}=p_{iPhone}$ and $p_{2}=p_{Pixel}$. 
+- Each consumer purchases their most preferred product (highest utility), assuming
+they receive a positive utility (otherwise they don't buy). 
+- To simplify, we can focus on the region where $p_{1},p_{2}<v-1$ and so every consumer purchases one of the two products, i.e. they buy either an iPhone or a Pixel. 
+
+## Question 1
+For every pair of prices $p_{1},p_{2}$ such that $0<p_{2}-p_{1}<1$ find the location $x\in[0,1]$ of the consumer who is indifferent between purchasing the iPhone and the Pixel. 
+
+- Which product is purchased by the consumers to the left of the indifferent consumer? 
+- Which product is purchased by the consumers to the right of the indifferent consumer? 
+
+## Question 1: Answer 
+For a consumer at location $x\in[0,1]$ (as in Figure 2): 
+
+- Purchase iPhone if 
+\[
+U^{iPhone}=v-x-p_{1}>v-(1-x)-p_{2}=U^{Pixel}
+\]
+\[
+\iff\frac{1}{2}+\frac{p_{2}-p_{1}}{2}\equiv\frac{1}{2}+\frac{\Delta_{p}}{2}>x
+\]
+- Purchase Pixel if 
+\[
+U^{iPhone}=v-x-p_{1}<v-(1-x)-p_{2}=U^{Pixel}
+\]
+\[
+\iff\frac{1}{2}+\frac{p_{2}-p_{1}}{2}\equiv\frac{1}{2}+\frac{\Delta_{p}}{2}<x
+\]
+- Indifferent if 
+\[
+x=\frac{1}{2}+\frac{\Delta_{p}}{2}
+\]
+
+
+## Question 1: Answer as a figure
+Conceived of slightly differently... 
+```{r indifferent, echo=FALSE, fig.cap="The indifferent consumer and purchases on either side", out.width = '100%'}
+knitr::include_graphics("bertrand_unit_indifferent.pdf")
+```
+
+
+## Question 2: Demand
+- Remember that the measure of consumers is 1 and they are uniformly distributed on $[0,1]$. 
+- For every pair of prices $p_{1},p_{2}$, derive the measure (or fraction) of consumers
+that purchase the iPhone and the measure (or fraction) of consumers that purchase the Pixel. 
+- We will denote the measure (fraction) of agents that purchase the iPhone by the demand function $Q_{1}(p_{1},p_{2})$ (demand for iPhone) and the measure (fraction) of agents that prefer  the Pixel by $Q_{2}(p_{1},p_{2})$ (demand for Pixel). 
+
+## Question 2: Demand - Answer 
+Sell goods such that you reach the indifferent consumer! 
+
+**Demand for iPhone**: \textbf{\textcolor{red}{
+\[
+Q_{1}(p_{1},p_{2})=\frac{1}{2}+\frac{\Delta_{p}}{2}
+\]
+}}
+
+Remember that the demands sum to 1, that is: 
+\[
+Q_1 + Q_2 = 1 \Rightarrow Q_2 = 1 - Q_1
+\]
+We can use this to find the demand for Pixels given that we've already found the demand for iPhones. 
+
+**Demand for Pixel: ** \textbf{\textcolor{red}{
+\[
+Q_{2}(p_{1},p_{2})= 1 - Q_1(p_1,p_2) 
+\]
+\[
+1 - \left(\frac{1}{2}+\frac{\Delta_{p}}{2}\right) = \frac{1}{2}-\frac{\Delta_{p}}{2}
+\]
+}}
+- What happens in the different cases for the prices, $p_1 > p_2$, $p_2 > p_1$, or $p_1 = p_2$? Think about the figures we drew earlier. 
+
+## Question 2: Answer as figures a
+```{r baseDemand, echo=FALSE, fig.cap="Demand and a price difference", out.width = '100%'}
+knitr::include_graphics("bertrand_unit.pdf")
+```
+
+
+## Question 2: Answer as figures b
+```{r buyPixel, echo=FALSE, fig.cap="Greater demand for iPhones", out.width = '100%'}
+knitr::include_graphics("bertrand_unit_pixel.pdf")
+```
+
+## Question 2: Answer as figures c
+
+```{r buyeither, echo=FALSE, fig.cap="Equal demand for each", out.width = '100%'}
+knitr::include_graphics("bertrand_unit_base.pdf")
+```
+
+## Question 2: Answer as figures d
+```{r buyiPhone, echo=FALSE, fig.cap="Greater demand for Pixels", out.width = '100%'}
+knitr::include_graphics("bertrand_unit_iphone.pdf")
+```
+
+
+## Question 3: Profits
+Assume that Firm $i$ has constant marginal costs \textbf{$c_{i}>0$ }and\textbf{ $c_{i}<v-1$.
+}
+1. Remember that profits are total revenues minus total costs. 
+2. Revenues are given by the price at which the good is sold multiplied by the quantity sold. 
+3. Therefore, for every pair of prices, the profit of firm $i$ is:
+
+\textbf{
+\[
+\underbrace{\pi_{i}(p_{i},p_{j})}_{\text{Total profits}}=\underbrace{p_{i}Q_{i}(p_{i},p_{j})}_{\text{Total revenues}}-\underbrace{c_{i}Q_{i}(p_{i},p_{j})}_{\text{Total costs}}=\underbrace{(p_{i}-c_{i})}_{\text{Profit per unit}}\underbrace{Q_{i}(p_{i},p_{j})}_{\text{Units sold}}
+\]
+}
+Write the profit of each firm only as a function of the prices (hint:
+use the demands from previous question).
+
+
+## Question 3: Profits - Answer
+
+- We know that $Q_{1}(p_{1},p_{2})=\frac{1}{2}+\frac{\Delta_{p}}{2}$.
+- And that $Q_{2}(p_{1},p_{2})= \frac{1}{2}-\frac{\Delta_{p}}{2}$.
+- $\Delta_p = p_2 - p_1$, which means that $-\Delta_p = p_1 - p_2$. 
+
+Therefore the profits are as follows:
+
+-  iPhone: $\pi_{1}(p_{1},p_{2})=(p_{1}-c_{1})$\textcolor{red}{$\boldsymbol{\left(\frac{1}{2}+\frac{p_{2}-p_{1}}{2}\right)}$}
+- Pixel: $\pi_{2}(p_{1},p_{2})=(p_{2}-c_{2})$\textcolor{red}{$\boldsymbol{\left(\frac{1}{2}+\frac{p_{1}-p_{2}}{2}\right)}$}
+
+## Question 4: Formulate as a game and solve for the NE 
+- Remember that the firms simultaneously choose prices. 
+- Formulate this situation as a game and solve for the Nash Equilibrium. 
+
+Guidance: To  solve this question we need to do the following. 
+
+- Specify the players, their actions, and their payoffs. 
+- Find the players' best responses. 
+- Having found the best responses, use them to find the mutual best response or Nash equilibrium. 
+- Extension: Comment on the profits and isoprofits at the Nash. 
+
+## Question 4: Answer
+Initial description of the game 
+
+- **Players**: 2 Firms, such as Apple (A) and Google (G)
+- **Actions:** Firms simultaneously choose prices $p_{i}\in[0,\infty]$ 
+- **Payoffs: **
+  -  $\pi_{1}(p_{1},p_{2})=(p_{1}-c_{1}) \left(\frac{1}{2}+\frac{p_{2}-p_{1}}{2}\right)$
+  -  $\pi_{2}(p_{1},p_{2})=(p_{2}-c_{2}) \left(\frac{1}{2}+\frac{p_{1}-p_{2}}{2}\right)$
+
+Now we have to solve for the Nash equilibrium. 
+
+1. Find each firm's best-response function by imposing FOCs and checking SOCs. 
+2. Solve for the NE prices with those BRFs. 
+3. We will also graph these and check against ideas from Year 1. 
+
+## Question 4: Answer - Finding the best responses 
+
+Firm i chooses $p_{i}$ to maximize $\pi_{i}(p_{i},p_{j})$
+\[
+\max_{p_{i}\geq0}(p_{i}-c_{i})\frac{1}{2}(1+p_{j}-p_{i})
+\]
+\begin{align*}
+FOC & : \frac{\partial \pi_i}{\partial p_i} = 0  \Rightarrow \text{ }\frac{1}{2}(c_{i}+1+p_{j}-2p_{i})=0\\
+& \Rightarrow p_{i}^{*}(p_{j})=\frac{1}{2}(c_{i}+1+p_{j})\\
+SOC & : \frac{\partial^2 \pi_i}{\partial p_i^2} < 0:  \text{ } \frac{\partial^2 \pi_i}{\partial p_i^2} = \frac{1}{2}(-2) = -1<0
+\end{align*}
+
+Therefore, the two firms's best-response functions are: 
+\[
+p_{1}^{*}(p_{2})=\frac{1}{2}(1+p_{2}+c_{1})
+\]
+\[
+p_{2}^{*}(p_{1})=\frac{1}{2}(1+p_{1}+c_{2})
+\]
+
+## Question 4: Answer - Finding the NE 
+
+1. Graph the two best-response functions in $(p_1, p_2)$ space. 
+2. Find the Nash equilibrium graphically and explain it. 
+3. Find the Nash equilibrium algebraically and explain it. 
+
+```{r NEBlank, echo=FALSE, fig.cap="Axes for the BRFs", out.width = '70%'}
+knitr::include_graphics("bertrand_brfs_blank.pdf")
+```
+
+## Question 4: Answer - Finding the NE - Graphical Solution 
+
+```{r NEGraph, echo=FALSE, fig.cap="Using the BRFs to find the NE", out.width = '90%'}
+knitr::include_graphics("bertrand_brfs.pdf")
+```
+
+
+## Question 4: Answer - Finding the NE - Algebraic Solution 
+
+At the NE, $p_{1}=p_{1}^{*}(p_{2})$ and $p_{2}=p_{2}^{*}(p_{1})$: 
+\[
+\begin{cases}
+p_{1}=\frac{1}{2}(1+p_{2}+c_{1})\\
+p_{2}=\frac{1}{2}(1+p_{1}+c_{2})
+\end{cases}
+\]
+Because $p_1=p_2$ at the intersection of the BRFs, we know that: 
+\[ 
+p_1 = \frac{1}{2}(1+c_{1}) + \frac{1}{2}\left(\frac{1}{2}(1+p_{1}+c_{2})\right)
+\]
+\[ 
+p_1 = \frac{1}{2}+ \frac{1}{2}c_{1} + \frac{1}{4}p_1 + \frac{1}{4} + \frac{1}{4}c_{2}
+\]
+
+Collecting terms: 
+\[
+p_1 - \frac{1}{4}p_1 = \frac{3}{4}p_1= \frac{3}{4} + \frac{1}{2}c_1 + \frac{1}{4}c_2
+\]
+Multiply through by $\frac{4}{3}$:
+\[
+\left(\frac{4}{3}\right)\left(\frac{3}{4}\right)p_1 = p_1 = 1 + \frac{2}{3}c_1 + \frac{1}{3}c_2 = 1 + \frac{c_{2}+2c_{1}}{3}
+\]
+
+## Question 4: Answer - Finding the NE - Algebraic Solution 
+We therefore have the Nash equilibrium solution for $p_1$ and $p_2$. This is a pair of strategies $(p_1^N, p_2^N)$ (N indicates Nash equilibrium -- sometimes used in notation). 
+
+\[
+p_{1}^N=1+\frac{c_{2}+2c_{1}}{3}
+\]
+\[
+p_{2}^N=1+\frac{2c_{2}+c_{1}}{3}
+\]
+
+Hence the NE $(p_1^N, p_2^N)$ is $(1+\frac{c_{2}+2c_{1}}{3}, 1+\frac{2c_{2}+c_{1}}{3})$. 
+
+## Question 4: Answer - Profits & clarifying understanding 
+
+a. What do the FOCs mean? 
+b. What happens at each point along a best-response function and how do we *construct* it? 
+
+## Question 4: Answer - Profits & clarifying understanding 
+
+a. When we impose FOCs it means that *marginal revenues* equal *marginal costs*; that is, the first derivative of the total cost function equals the derivative of the revenue function. The firm cannot make more profits by deviating from $MR = MC$.
+b. Lots to say here: 
+  - The BRF is a locus of points where, for every price the opponent chooses, the firm is maximizing profits at that point (i.e. MR=MC at every point along the BRF). 
+  - So for every point along the BRF, there exists an isoprofit that would be tangent to a given price of the other firm (the other firm's action or strategy). 
+  - We can also think about the firm's MRS. MRS comes from the *objective function*, the profits;  for Firm 1, $mrs(p_1, p_2)  = -\frac{d p_2}{d p_1} = 0$ when an isoprofit is tangent to a given price of Firm 2 where the isoprofits intersect the BRF). 
+  
+## Question 4: Answer -  Profits & clarifying understanding 
+  
+```{r isoprofits, echo=FALSE, fig.cap="BRFs and isoprofits; what would Google's isoprofits look like?", out.width = '85%'}
+knitr::include_graphics("bertrand_brfs_isoprofits.pdf")
+```
+
+## Question 4: Addendum - Reminder about the mrs (part 1)
+
+- When an economic agent---a person, the owners of a firm---optimize some objective function, then the contours of that objective function (indifference curves for utility or isoprofits for profit) imply that there is a marginal rate of substitution. 
+
+- The marginal rate of substitution is the negative of the slope of the contour. 
+
+- In year 1, when you did this with utilities, this was: $mrs_1(x, y) = - \frac{d y}{d x} = \frac{\text{marginal utility of x}}{\text{marginal utility of y}}$ for indifference curves.
+
+- Where the marginal utilities were $u_x = \frac{\partial u}{\partial x}$ and $u_y = \frac{\partial u}{\partial y}$.
+
+- How would this look here in Bertrand competition? 
+
+## Question 4: Addendum - Reminder about the mrs (part 2)
+
+- In the case of Bertrand Competition in $(p_1, p_2)$ space, $$mrs_1(p_1, p_2) = - \frac{d p_2}{d p_1} = \frac{\frac{\partial \pi_1}{\partial p_1}}{\frac{\partial \pi_1}{\partial p_2}}$$ 
+
+- Notice that when we impose FOCs, $\frac{\partial \pi_1}{\partial p_1} = 0$. This is the numerator of the mrs and equal to zero. 
+
+- Hence, the slope of the isoprofit curve $\frac{d p_2}{d p_1} = 0$ at each point where the isoprofit curve intersects the BRF because at that point the owners of the firm are maximizing profits *given the price set by the other firm*. 
+
+- You should see a similar pattern with Cournot competition, except the isoprofit curves move in a different direction as profit increases. (Task: Can you explain why this is?)
+
+
+
